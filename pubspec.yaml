@@ -1,0 +1,203 @@
+name: BananaExpress
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  autocomplete_textfield: null
+  badges: ^3.1.1
+  cached_network_image: ^3.2.3
+  carousel_slider: ^4.2.1
+  chewie: ^1.0.0
+  connectivity: ^3.0.6
+  custom_navigation_bar: ^0.8.2
+  # data_connection_checker: null
+  dio: any
+  flutter:
+    sdk: flutter
+  flutter_local_notifications: null
+  flutter_spinkit: any
+  flutter_staggered_grid_view: ^0.7.0
+  font_awesome_flutter: ^10.4.0
+  get: ^4.6.5
+  get_storage: any
+  image_cropper: any
+  image_picker: any
+  internet_connection_checker: ^1.0.0+1
+  intl: null
+  intl_phone_field: ^3.2.0
+  jwt_decode: null
+  path_provider: any
+  pdf: any
+  permission_handler: any
+  provider: ^6.0.5
+  qr_flutter: ^4.0.0
+  # rating_bar: ^0.2.0
+  flutter_rating_bar: ^4.0.1
+  screenshot: ^2.0.0
+  shimmer: ^3.0.0
+  sliding_up_panel: ^2.0.0+1
+  sqflite: ^2.0.0+3
+  syncfusion_flutter_pdf: ^22.2.10
+  theme_provider: any
+  flutter_svg: any
+  toast: ^0.3.0
+  video_player: ^2.0.0
+  share_plus: ^7.1.0
+  webview_flutter: ^4.2.3
+  uni_links: ^0.5.0
+  socket_io_client: any
+  web_socket_channel: any
+  animated_text_kit: ^4.2.1
+  objectbox: ^2.2.1
+  objectbox_flutter_libs: any
+  new_version_plus: ^0.0.11
+  flexible_text_editing_controller: ^1.0.0+2
+  google_maps_flutter: ^2.2.8
+  flutter_webrtc: ^0.9.47
+  sdp_transform: ^0.3.2
+
+  # better_player: ^0.0.83
+  # custom_floating_action_button: ^0.0.3
+  # cached_video_player: ^2.0.4
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.1.2
+  objectbox_generator: any
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/logoNew.png"
+flutter:
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat/Montserrat-Black.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-BlackItalic.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-BoldItalic.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-ExtraBold.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Italic.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Light.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-LightItalic.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Medium.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-MediumItalic.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-SemiBold.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Thin.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-ThinItalic.ttf
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato/Lato-Black.ttf
+        - asset: assets/fonts/Lato/Lato-BlackItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Bold.ttf
+        - asset: assets/fonts/Lato/Lato-BoldItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Italic.ttf
+        - asset: assets/fonts/Lato/Lato-Light.ttf
+        - asset: assets/fonts/Lato/Lato-LightItalic.ttf
+        - asset: assets/fonts/Lato/Lato-Regular.ttf
+        - asset: assets/fonts/Lato/Lato-Thin.ttf
+        - asset: assets/fonts/Lato/Lato-ThinItalic.ttf
+
+  # For information on the generic Dart part of this file, see the
+  # following page: https://dart.dev/tools/pub/pubspec
+  # The following section is specific to Flutter.
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/logo/logoNew.png
+    - assets/images/bg_white.jpeg
+    - assets/logo/logoNew.png
+    - assets/om.png
+    - assets/login.png
+    - assets/register.png
+    - assets/payement/om.png
+    - assets/payement/momo.png
+    - assets/payement/paycard.png
+    - assets/svg_icones/user.svg
+    - assets/svg_icones/callreceive.svg
+    - assets/svg_icones/mapTagUser.svg
+    - assets/svg_icones/onbo1.png
+    - assets/svg_icones/onbo2.png
+    - assets/svg_icones/onbo3.png
+    - assets/svg_icones/logImg.png
+    - assets/svg_icones/menu.svg
+    - assets/svg_icones/logUser1.svg
+    - assets/svg_icones/shoppingCart.svg
+    - assets/svg_icones/refresh.svg
+    - assets/svg_icones/home.svg
+    - assets/svg_icones/bagmoney.svg
+    - assets/svg_icones/phone_mobile.svg
+    - assets/svg_icones/key.svg
+    - assets/svg_icones/grid1.svg
+    - assets/svg_icones/grid2.svg
+    - assets/svg_icones/list0.svg
+    - assets/svg_icones/logo.svg
+    - assets/svg_icones/logo_without.svg
+    - assets/svg_icones/logo_esq.svg
+    - assets/svg_icones/play.svg
+    - assets/svg_icones/bell.svg
+    - assets/svg_icones/like.svg
+    - assets/svg_icones/story_boutique.svg
+    - assets/images/shop2.png
+    - assets/images/shop1.png
+    - assets/images/empty_shop.png
+    - assets/svg_icones/hand.svg
+    - assets/svg_icones/location.svg
+    - assets/svg_icones/nmreproduit.svg
+    - assets/svg_icones/setting.svg
+    - assets/svg_icones/produits.svg
+    - assets/svg_icones/short.svg
+    - assets/svg_icones/commandes.svg
+    - assets/svg_icones/ventes.svg
+  #   - images/a_dot_ham.jpeg
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
