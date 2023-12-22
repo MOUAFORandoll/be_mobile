@@ -141,10 +141,10 @@ class ScanRecuperation extends StatelessWidget {
       print('***************************-----$scanData');
       var getU = await Get.find<DataBaseController>().getKey();
 
-      if (scanData!=null) {
+      if (scanData != null) {
         var data = {
           'livraison': idLivraison,
-          'code_recuperation':"",
+          'code_recuperation': "",
           'keySecretBabana': getU
         };
         print(data);
