@@ -1,4 +1,5 @@
 import 'package:BananaExpress/Views/Livraison/NewLivraisonView.dart';
+import 'package:BananaExpress/Views/Livraison/SuccesLivraisonview.dart';
 import 'package:BananaExpress/Views/Notifications/NotificationView.dart';
 import 'package:BananaExpress/Views/ComplementView/OnboardingScreen.dart';
 import 'package:BananaExpress/Views/FirstScreen.dart';
@@ -72,11 +73,16 @@ class AppRoutes {
         name: AppLinks.NEWLIVRAISON,
         page: () => NewLivraisonView(),
         transition: transitionX),
+    GetPage(
+        name: AppLinks.SUCCESSLIVRAISON,
+        page: () => SuccesLivraisonview(),
+        transition: transitionX),
   ];
 }
 
 class AppLinks {
   static const String NEWLIVRAISON = "/newlivraison";
+  static const String SUCCESSLIVRAISON = "/succeslivraison";
   static const String SETTING = "/setting";
   static const String TEST = "/TEST";
   static const String LOGIN = "/login";

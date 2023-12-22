@@ -14,22 +14,37 @@ class LivraisonRepo extends GetxService {
     return a;
   }
 
-  Future getHistoryLivraisons(id) async {
+  Future recuperationColis(data) async {
     Response a =
-        await apiClient.getData(ApiRoutes.LIVRAISONS + '/user?id=${id}');
+        await apiClient.patchData(ApiRoutes.LIVRAISONS + "/recuperation", data);
 
     return a;
   }
 
-  Future getInfoLivraisonsForHistory(id) async {
-    Response a = await apiClient.getData(ApiRoutes.LIVRAISONS + '?id=${id}');
+  Future receptionColis(data) async {
+    Response a =
+        await apiClient.patchData(ApiRoutes.LIVRAISONS + "/reception", data);
 
     return a;
   }
 
-  Future getHistoryLivraisonsBabana(idBabana) async {
+  Future getHistoryLivraisons(keySecret) async {
     Response a = await apiClient
-        .getData(ApiRoutes.LIVRAISONS + '/babana?idBabana=${idBabana}');
+        .getData(ApiRoutes.LIVRAISONS + '/user?keySecret=${keySecret}');
+
+    return a;
+  }
+
+  Future getInfoLivraisonsForHistory(keySecret) async {
+    Response a = await apiClient
+        .getData(ApiRoutes.LIVRAISONS + '?keySecret=${keySecret}');
+
+    return a;
+  }
+
+  Future getHistoryLivraisonsBabana(keySecret) async {
+    Response a = await apiClient
+        .getData(ApiRoutes.LIVRAISONS + '/babana?keySecret=${keySecret}');
 
     return a;
   }

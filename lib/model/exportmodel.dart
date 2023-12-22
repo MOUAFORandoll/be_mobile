@@ -1,10 +1,6 @@
 export 'package:BananaExpress/model/data/ImageModel.dart';
-export 'package:BananaExpress/model/data/LocalisationModel.dart';
-export 'package:BananaExpress/model/data/AbonnementBoutiqueModel.dart';
-export 'package:BananaExpress/model/data/AbonnementUserModel.dart';
-export 'package:BananaExpress/model/data/BoutiqueModel.dart';
-export 'package:BananaExpress/model/data/BoutiqueModelLink.dart';
-export 'package:BananaExpress/model/data/CartModel.dart';
+export 'package:BananaExpress/model/data/LocalisationModel.dart'; 
+export 'package:BananaExpress/model/data/LivraisonModel.dart';
 export 'package:BananaExpress/model/data/CategoryModel.dart';
 export 'package:BananaExpress/model/data/CommandeBoutiqueModel.dart';
 export 'package:BananaExpress/model/data/CommentShortModel.dart';

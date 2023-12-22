@@ -81,4 +81,11 @@ class ApiClient extends GetConnect {
     Response rep = await post(url.toString(), data);
     return rep;
   }
+
+  Future<Response> patchData(url, data) async {
+    // //print(this.httpClient.defaultContentType);
+    //print(data);
+    Response rep = await patch(url.toString(), data);
+    return rep;
+  }
 }

@@ -1,10 +1,11 @@
 import 'dart:io';
 
+import 'package:BananaExpress/components/Button/app_button.dart';
 import 'package:BananaExpress/controller/DataBaseController.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
 import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/model/data/PointLivraisonModel.dart';
-import 'package:BananaExpress/model/data/ProduitBoutiqueModel.dart';
+import 'package:BananaExpress/model/data/LivraisonModel.dart';
 import 'package:BananaExpress/repository/LivraisonRepo.dart';
 import 'package:BananaExpress/repository/LivreurRepo.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
@@ -17,14 +18,14 @@ import 'package:image_picker/image_picker.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../components/exportcomponent.dart';
+
 class LivraisonController extends GetxController {
   final LivraisonRepo livraisonRepo;
   LivraisonController({required this.livraisonRepo});
   String _paiementUrl = '';
   get paiementUrl => _paiementUrl;
 
-  var _controller;
-  get controller => _controller;
   bool _isLoad = false;
   bool get isLoad => _isLoad;
   setLoadTransaction(val) {
@@ -205,9 +206,10 @@ class LivraisonController extends GetxController {
         _phoneController.text.length == 0) {
       _nameController.text = manager.Userget.nom;
       _prenameController.text = manager.Userget.prenom;
+
       _phoneController.text = manager.Userget.phone;
       update();
-      print('--setinfo---update');
+      print('--se*------------------------------tinfo-${idUser}--update');
     }
   }
 
@@ -302,21 +304,23 @@ class LivraisonController extends GetxController {
     // ici on doit faire l'ajout a la liste des message en locale dans le telephone du user
   }
 
-  List<ProduitBoutiqueModel> _userLivraisaonList = [];
-  List<ProduitBoutiqueModel> get userLivraisaonList => _userLivraisaonList;
+  List<LivraisonModel> _userLivraisonList = [];
+  List<LivraisonModel> get userLivraisonList => _userLivraisonList;
   int _isLoadedPB = 0;
   int get isLoadedPB => _isLoadedPB;
+  int idUser = 0;
+
   getListLivraisonsForUser() async {
-    int idUser = 0;
-    // _userLivraisaonList = [];
+    // _userLivraisonList = [];
+    var key = await dababase.getKey();
     _isLoadedPB = 0;
     update();
 
-    await livraisonRepo.getHistoryLivraisons(idUser).then((response) {
-      _userLivraisaonList.clear();
+    await livraisonRepo.getHistoryLivraisons(key).then((response) {
+      _userLivraisonList.clear();
 
-      _userLivraisaonList.addAll((response.body['data'] as List)
-          .map((e) => ProduitBoutiqueModel.fromJson(e))
+      _userLivraisonList.addAll((response.body['data'] as List)
+          .map((e) => LivraisonModel.fromJson(e))
           .toList());
 
       _isLoadedPB = 1;
@@ -328,20 +332,20 @@ class LivraisonController extends GetxController {
     });
   }
 
-  List<ProduitBoutiqueModel> _babanaLivraisaonList = [];
-  List<ProduitBoutiqueModel> get babanaLivraisaonList => _babanaLivraisaonList;
+  List<LivraisonModel> _babanaLivraisonList = [];
+  List<LivraisonModel> get babanaLivraisonList => _babanaLivraisonList;
 
-  getListLivraisonsFoBabana() async {
-    int idUser = 0;
-    // _babanaLivraisaonList = [];
+  getListLivraisonsForBabana() async {
+    // _babanaLivraisonList = [];
+    var key = await dababase.getKey();
     _isLoadedPB = 0;
     update();
 
-    await livraisonRepo.getHistoryLivraisonsBabana(idUser).then((response) {
-      _babanaLivraisaonList.clear();
+    await livraisonRepo.getHistoryLivraisonsBabana(key).then((response) {
+      _babanaLivraisonList.clear();
 
-      _babanaLivraisaonList.addAll((response.body['data'] as List)
-          .map((e) => ProduitBoutiqueModel.fromJson(e))
+      _babanaLivraisonList.addAll((response.body['data'] as List)
+          .map((e) => LivraisonModel.fromJson(e))
           .toList());
 
       _isLoadedPB = 1;
@@ -351,39 +355,89 @@ class LivraisonController extends GetxController {
       _isLoadedPB = 1;
       update();
     });
+  }
+
+  void fineListToUpdate(LivraisonModel data) {
+    int index =
+        _babanaLivraisonList.indexWhere((element) => element.id == data.id);
+
+    if (index != -1) {
+      _babanaLivraisonList[index] = data;
+      update();
+    }
+    int index0 =
+        _userLivraisonList.indexWhere((element) => element.id == data.id);
+
+    if (index0 != -1) {
+      _userLivraisonList[index0] = data;
+      update();
+    }
   }
 
   bool _isUpdating = false;
   bool get isUpdating => _isUpdating;
-  updateProduit(data) async {
-    // _isUpdating = true;
-    // update();
+  recuperationColis(data) async {
+    _isUpdating = true;
+    update();
 
-    // fn.loading('Produit', 'Mise a jour du produit en cours');
+    fn.loading(
+        'Verification code recuperation', 'Mise a jour du produit en cours');
 
-    // try {
-    //   Response response = await boutiqueRepo.updateProduitFB(data);
-    //   //print(response.body);
-    //   if (response.statusCode == 200) {
-    //     await getListProduitForBoutique();
-    //     fn.closeLoader();
-    //     fn.snackBar('Mise a jour', response.body['message'], true);
-    //   }
-    //   fn.closeLoader();
+    try {
+      Response response = await livraisonRepo.recuperationColis(data);
+      //print(response.body);
+      if (response.statusCode == 200) {
+        fn.closeLoader();
+        fineListToUpdate(LivraisonModel.fromJson(response.body['data']));
+        fn.snackBar('Mise a jour', response.body['message'], true);
+      }
+      fn.closeLoader();
 
-    //   _isUpdating = false;
-    //   // Get.back(closeOverlays: true);
-    //   update();
-    // } catch (e) {
-    //   fn.closeLoader();
+      _isUpdating = false;
+      // Get.back(closeOverlays: true);
+      update();
+    } catch (e) {
+      fn.closeLoader();
 
-    //   fn.snackBar('Mise a jour', 'Une erreur est survenue', false);
-    //   //        fn.closeLoader();
+      fn.snackBar('Mise a jour', 'Une erreur est survenue', false);
+      //        fn.closeLoader();
 
-    //   _isUpdating = false;
-    //   update();
-    //   //print(e);
-    // }
+      _isUpdating = false;
+      update();
+      //print(e);
+    }
+  }
+
+  receptionColis(data) async {
+    _isUpdating = true;
+    update();
+
+    fn.loading(
+        'Verification code recuperation', 'Mise a jour du produit en cours');
+
+    try {
+      Response response = await livraisonRepo.receptionColis(data);
+      //print(response.body);
+      if (response.statusCode == 200) {
+        fn.closeLoader();
+        fineListToUpdate(LivraisonModel.fromJson(response.body['data']));
+        fn.snackBar('Mise a jour', response.body['message'], true);
+      }
+      fn.closeLoader();
+
+      _isUpdating = false;
+      // Get.back(closeOverlays: true);
+      update();
+    } catch (e) {
+      fn.closeLoader();
+
+      fn.snackBar('Mise a jour', 'Une erreur est survenue', false);
+      //        fn.closeLoader();
+
+      _isUpdating = false;
+      update();
+      //print(e);
+    }
   }
 
   TextEditingController _libelle = TextEditingController();
@@ -392,11 +446,12 @@ class LivraisonController extends GetxController {
   TextEditingController _quantite = TextEditingController();
   get quantite => _quantite;
 
-  TextEditingController _service = TextEditingController();
-  get service => _service;
-
   TextEditingController _description = TextEditingController();
   get description => _description;
+  setContactEmetteur(cont) {
+    _contactEmetteur.text = cont;
+    update();
+  }
 
   TextEditingController _contactEmetteur = TextEditingController();
   get contactEmetteur => _contactEmetteur;
@@ -415,24 +470,36 @@ class LivraisonController extends GetxController {
     return val < 0 ? '0' : val.toString();
   }
 
+  var _categorySelect;
+  get categorySelect => _categorySelect;
+  selectCategory(cat) {
+    _categorySelect = cat;
+    update();
+  }
+
+  int service = 1;
+  setService(s) {
+    service = s;
+  }
+
   newLivraison() async {
     try {
-      fn.loading('Livraison', 'Ajout d\'un nouveau produit en cours');
       var key = await dababase.getKey();
-      if (Boutique != null) {
+      fn.loading('Livraison', 'Ajout d\'un nouveau produit en cours');
+      if (key != null) {
         var dataS = {
           'keySecret': key,
           'libelle': libelle.text,
-          'service': service.text,
+          'service': service,
           'contactEmetteur': contactEmetteur.text,
           'contactRecepteur': contactRecepteur.text,
           'description': description.text,
           'quantite': quantite.text,
           'valeurColis': valeurColis.text,
-          'category': _controller.categorySelect.id,
+          'category': categorySelect.id,
           'countImage': listImgColis.length
         };
-        //print(dataS);
+        print(dataS);
 
         listImgColis.forEach((e) {
           dataS.addAll({
@@ -450,6 +517,7 @@ class LivraisonController extends GetxController {
         Response response = await livraisonRepo.newLivraison(data);
         //print(response.body);
         if (response.statusCode == 200) {
+          Get.toNamed(AppLinks.SUCCESSLIVRAISON);
           await getListLivraisonsForUser();
         }
 
@@ -463,7 +531,7 @@ class LivraisonController extends GetxController {
     } catch (e) {
       fn.closeLoader();
 
-      fn.snackBar('Mise a jour', 'Une erreur est survenue', false);
+      fn.snackBar('Livraison', 'Une erreur est survenue', false);
       //        fn.closeLoader();
 
       _isUpdating = false;
@@ -501,4 +569,69 @@ class LivraisonController extends GetxController {
   //     //print(e);
   //   }
   // }
+
+  openModalLivraison() => Get.bottomSheet(
+        Container(
+            height: kHeight * .4,
+            padding: EdgeInsets.symmetric(horizontal: kMarginX),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+              color: ColorsApp.white,
+            ),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Container(
+                  alignment: Alignment.topRight,
+                  margin: EdgeInsets.only(top: kMarginY * 2),
+                  // padding: EdgeInsets.symmetric(
+                  //     horizontal: kMarginX / 2),
+                  child: InkWell(
+                    onTap: () => Get.back(),
+                    child: Icon(Icons.close),
+                  )),
+              Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
+                  child: Text(
+                    'Quel service vous interesse'.tr,
+                    style: TextStyle(fontWeight: FontWeight.w500),
+                  )),
+              Container(
+                  margin: EdgeInsets.only(top: kMarginY * 2),
+                  child: Column(
+                    // mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(bottom: 8),
+                        child: AppButton(
+                            text: 'Livrer mon colis'.tr,
+                            // width: kWidth / 2.5,
+                            size: MainAxisSize.max,
+                            bgColor: ColorsApp.second,
+                            onTap: () {
+                              setService(1);
+                              Get.toNamed(AppLinks.NEWLIVRAISON);
+                            }),
+                      ),
+                      AppButton(
+                          text: 'Me faire livrer'.tr,
+                          // width: kWidth / 2.5,
+                          size: MainAxisSize.max,
+                          // bgColor: AppColors.secondarytext,
+                          onTap: () {
+                            setService(2);
+                            Get.toNamed(AppLinks.NEWLIVRAISON);
+                          }),
+                    ],
+                  ))
+            ])),
+        isScrollControlled: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        ),
+        backgroundColor: Colors.transparent,
+      );
 }

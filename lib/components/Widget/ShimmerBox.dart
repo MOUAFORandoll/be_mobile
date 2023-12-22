@@ -13,24 +13,14 @@ class ShimmerBox extends StatelessWidget {
         baseColor: ColorsApp.grey,
         highlightColor: Colors.blueGrey,
         child: Container(
-            height: kHeight / 4.8,
-            // width: kMdWidth * 1.1,
+            height: kHeight / 8,
+            width: kHeight / 8,
             alignment: Alignment.center,
-            // padding: EdgeInsets.all(kMarginX),
-            // margin: EdgeInsets.only(right: kMarginX),
             decoration: BoxDecoration(
                 color: ColorsApp.grey, borderRadius: BorderRadius.circular(8)),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                      height: height ?? kMdHeight * .15,
-                      // width: Get.width * .5,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                        image: AssetImage('assets/logo/logoNew.png'),
-                      ))),
-                ])));
+                children: [])));
   }
 }

@@ -47,20 +47,23 @@ class _AppInputNewState extends State<AppInputNew> {
         ),
         onChanged: widget.onChanged,
         decoration: InputDecoration(
-            focusedBorder: !widget.border
-                ? OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.tird, width: 2),
-                    borderRadius: BorderRadius.circular(8),
-                  )
-                : null,
-            border: widget.border
-                ? OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blue, width: 3),
-                    borderRadius: BorderRadius.circular(8),
-                  )
-                : OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                  ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorsApp.tird, width: 1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorsApp.second, width: 1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorsApp.grey, width: 1),
+              borderRadius: BorderRadius.circular(8),
+              // borderSide:
+              //     BorderSide(color: ColorsApp.tird, width: 1),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
             errorText: widget.errorText,
             errorStyle: TextStyle(
               fontSize: 8,

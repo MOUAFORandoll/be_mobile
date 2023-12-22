@@ -20,6 +20,7 @@ class UserModel {
     this.status = true,
     required this.profile,
     required this.dateCreated,
+    required this.typeUser,
   });
 
   int id;
@@ -30,6 +31,7 @@ class UserModel {
   bool status;
   String dateCreated;
   String profile;
+  int typeUser;
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
         id: json["id"] ?? json['userId'],
@@ -37,7 +39,7 @@ class UserModel {
         prenom: json["prenom"],
         email: json["email"],
         phone: json["phone"].toString(),
-        // status: json["status"],
+        typeUser: json["typeUser"],
         profile: json["profile"],
         dateCreated: json["dateCreated"],
       );

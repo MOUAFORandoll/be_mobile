@@ -18,6 +18,14 @@ class GeneralRepo extends GetxService {
     return a;
   }
 
+  Future getCategory() async {
+    Response a = await apiClient.getData(
+      ApiRoutes.CATEGORY,
+    );
+
+    return a;
+  }
+ 
   Future getModePaiement() async {
     Response a = await apiClient.getData(
       ApiRoutes.MODEPAIEMENT,

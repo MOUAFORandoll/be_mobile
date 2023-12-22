@@ -1,12 +1,13 @@
 import 'dart:async';
- 
+
 import 'package:BananaExpress/Views/User/UserManageView.dart';
+import 'package:BananaExpress/controller/LivraisonController.dart';
 import 'package:BananaExpress/controller/entity.dart';
 import 'package:BananaExpress/model/data/CompteModel.dart';
-import 'package:BananaExpress/model/data/UserModel.dart'; 
+import 'package:BananaExpress/model/data/UserModel.dart';
 import 'package:BananaExpress/repository/ManageRepo.dart';
 import 'package:BananaExpress/utils/Services/apiUrl.dart';
-import 'package:BananaExpress/utils/Services/core.dart'; 
+import 'package:BananaExpress/utils/Services/core.dart';
 import 'package:BananaExpress/controller/DataBaseController.dart';
 import 'package:BananaExpress/utils/functions/viewFunctions.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +74,7 @@ class ManagerController extends GetxController {
     //print('st****************');
     // //print(_stateN);
   }
- 
+
   /**
    * 0 => init compte
    * 1 => profile ok 
@@ -113,28 +114,6 @@ class ManagerController extends GetxController {
 
   var _lienParrainnage = '';
   String get lienParrainnage => _lienParrainnage;
-  bool _userP = false;
-  bool get userP => _userP;
-  getKeyU() async {
-    var u = await dababase.getKey();
-    //print('----------------uuuuu--$u');
-
-    _userP = (u == null);
-
-    _isConnected = !_userP;
-    if (!_userP) {
-      chageState(1);
-    } else {
-      chageState(0);
-    }
-    var kk = await dababase.getKeyKen();
-    if (kk != null && kk != 'null') {
-      _lienParrainnage =
-          ApiUrl.external_link + 'subscribes/' + kk['codeParrainnage'];
-    }
-    // //print('------------------${dababase.getKey() }');
-    update();
-  }
 
   bool _stateSign = true;
   bool get stateSign => _stateSign;
@@ -161,15 +140,13 @@ class ManagerController extends GetxController {
     super.onReady();
 
     getUserDB();
-    getKeyU();
+
     getUser();
   }
 
   var _User;
   get Userget => _User;
 
-  CompteModel _Compte = new CompteModel(solde: 0, id: 0);
-  CompteModel get Compte => _Compte;
   int _isLoaded = 0;
   int get isLoaded => _isLoaded;
   //
@@ -185,7 +162,6 @@ class ManagerController extends GetxController {
         _User = UserModel.fromJson(value.body['data']);
         update();
 
-        _Compte = CompteModel.fromJson(value.body['compte']);
         update();
         var _UserSave = User.fromJson(value.body['data']);
 
@@ -198,7 +174,6 @@ class ManagerController extends GetxController {
           initInfoUser();
           // Get.find<BoutiqueController>().getListBoutique();
         }
-        getKeyU();
       }
     }).catchError((error) {
       _isLoaded = 1;
@@ -225,7 +200,7 @@ class ManagerController extends GetxController {
     //         initInfoUser();
     //         // Get.find<BoutiqueController>().getListBoutique();
     //       }
-    //       getKeyU();
+    //
     //     }
 
     //     _isLoaded = 1;
@@ -239,17 +214,18 @@ class ManagerController extends GetxController {
   }
 
   getUserDB() async {
-    // var data = await dababase.getUser();
-    // print('-----------------------data-------${data!.id}-------------${data}');
-    // ignore: unnecessary_null_comparison
-    // if (data!.id != null) {
-    // print(
-    //     '-----------------------data-------${data.toMap()}-------------${data}');
+    var data = await dababase.getUser();
+    if (data != null) {
+      print(
+          '-----------------------data-------${data!.id}-------------${data}');
 
-    // _User = UserModel.fromJson(data.toMap());
-    // update();
-    // initInfoUserDB();
-    // }
+      print(
+          '-----------------------data-------${data.toMap()}-------------${data}');
+
+      _User = UserModel.fromJson(data.toMap());
+      update();
+      initInfoUserDB();
+    }
   }
 
   // CategoryController({required this.service});
@@ -266,7 +242,6 @@ class ManagerController extends GetxController {
           }
         }
       }
-      getKeyU();
     } catch (e) {}
   }
 
@@ -278,7 +253,7 @@ class ManagerController extends GetxController {
     chageState(0);
 
     fn.snackBar('Compte', 'Deconnecte', true);
-    _userP = true;
+
     _User = null;
     fn.closeLoader();
     update();
@@ -293,7 +268,7 @@ class ManagerController extends GetxController {
     _surnameU.text = Userget.prenom;
     _phoneU.text = Userget.phone;
     _emailU.text = Userget.email;
-
+    Get.find<LivraisonController>().setUserInfo();
     update();
   }
 
@@ -301,8 +276,9 @@ class ManagerController extends GetxController {
     _nameU.text = _User.nom;
     _surnameU.text = _User.prenom;
     _phoneU.text = _User.phone;
+    Get.find<LivraisonController>().setUserInfo();
     _emailU.text = _User.email;
-
+    Get.find<LivraisonController>().setContactEmetteur(_User.phone);
     update();
   }
 
@@ -353,7 +329,6 @@ class ManagerController extends GetxController {
       //print(response.body);
 
       if (response.statusCode == 200) {
-        getKeyU();
         await getUser();
       }
 
@@ -459,8 +434,10 @@ class ManagerController extends GetxController {
 //       //print(response.body);
       if (response.statusCode == 200) {
         dababase.saveKeyKen(response.body);
-
-        // getKeyU();
+        await getUser();
+        await getUserDB();
+        refresh();
+        //
         // await getUser();
         await initAllApp();
         _isConnected = true;
@@ -574,7 +551,7 @@ class ManagerController extends GetxController {
       if (response.statusCode == 200) {
         dababase.saveKeyKen(response.body);
 
-        // getKeyU();
+        //
         // await initApp();
 
         // await getUser();

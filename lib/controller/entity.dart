@@ -41,10 +41,14 @@ class User {
   @Property()
   String dateCreated;
 
+  @Property()
+  int typeUser;
+
   User({
     required this.userId,
     required this.nom,
     required this.prenom,
+    required this.typeUser,
     required this.email,
     required this.profile,
     required this.phone,
@@ -55,6 +59,7 @@ class User {
       'userId': userId,
       'nom': nom,
       'prenom': prenom,
+      'typeUser': typeUser,
       'email': email,
       'profile': profile,
       'phone': phone,
@@ -65,6 +70,7 @@ class User {
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       userId: json['id'],
+      typeUser: json['typeUser'],
       nom: json['nom'],
       prenom: json['prenom'],
       email: json['email'],
@@ -182,31 +188,21 @@ class KeyUser {
   String keySecret;
 
   @Property()
-  String codeCommunication;
-
-  @Property()
   String token;
-
-  @Property()
-  String codeParrainnage;
 
   @Property()
   String refreshToken;
 
   KeyUser({
     required this.keySecret,
-    required this.codeCommunication,
     required this.token,
-    required this.codeParrainnage,
     required this.refreshToken,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'keySecret': keySecret,
-      'codeCommunication': codeCommunication,
       'token': token,
-      'codeParrainnage': codeParrainnage,
       'refreshToken': refreshToken,
     };
   }
@@ -214,9 +210,7 @@ class KeyUser {
   factory KeyUser.fromJson(Map<String, dynamic> json) {
     return KeyUser(
       keySecret: Jwt.parseJwt(json['token'])['keySecret'],
-      codeCommunication: Jwt.parseJwt(json['token'])['codeCommunication'],
       token: json['token'],
-      codeParrainnage: Jwt.parseJwt(json['token'])['codeParrainnage'],
       refreshToken: json['refreshToken'],
     );
   }

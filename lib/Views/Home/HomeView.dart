@@ -1,3 +1,4 @@
+import 'package:BananaExpress/Views/Home/BabanaView.dart';
 import 'package:BananaExpress/Views/Home/SimpleUserView.dart';
 import 'package:BananaExpress/components/Widget/ShimmerHome.dart';
 import 'package:BananaExpress/components/Widget/ShimmerProduit.dart';
@@ -63,7 +64,11 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<GeneralController>(
-        builder: (generalController) => SimpleUserView());
+    return GetBuilder<ManagerController>(
+        builder: (_managerController) => (_managerController.Userget == null)
+            ? SimpleUserView()
+            : _managerController.Userget.typeUser == 2
+                ? SimpleUserView()
+                : BabanaView());
   }
 }

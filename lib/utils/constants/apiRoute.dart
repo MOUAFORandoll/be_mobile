@@ -1,5 +1,6 @@
 class ApiRoutes {
   static const LIVRAISONS = '/livraisons'; 
+  static const CATEGORY = '/category'; 
   static const UPDATE_USER = '/user/update';
   static const LOCATION_USER = '/user/location';
   static const USER = '/user/get';

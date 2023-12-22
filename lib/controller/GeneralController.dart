@@ -4,6 +4,8 @@ import 'package:BananaExpress/Views/Notifications/NotificationView.dart';
 import 'package:BananaExpress/Views/User/SettingView.dart';
 import 'package:BananaExpress/Views/User/UserManageView.dart';
 import 'package:BananaExpress/controller/DataBaseController.dart';
+import 'package:BananaExpress/controller/managerController.dart';
+import 'package:BananaExpress/model/data/CategoryModel.dart';
 import 'package:BananaExpress/model/data/ModePaiementModel.dart';
 import 'package:BananaExpress/model/socket/NotificationModel.dart';
 import 'package:BananaExpress/repository/GeneralRepo.dart';
@@ -30,9 +32,6 @@ class GeneralController extends GetxController {
 
   void onInit() async {
     super.onInit();
-    // TODO: implement initState
-    // dababase = await DataBaseController.getInstance();
-    // ;
 
     fn.verifiedConnection();
     _controllerScrollNotification = ScrollController()
@@ -40,11 +39,40 @@ class GeneralController extends GetxController {
     update();
   }
 
-  // final GlobalKey _scaffoldKey = new GlobalKey();
-  // GlobalKey get scaffoldKey => _scaffoldKey;
   openDrawer(context) {
     // _scaffoldKey.currentState!.openDrawer();
     Scaffold.of(context).openDrawer();
+  }
+
+  List<CategoryModel> _categoryList = [];
+  List<CategoryModel> get categoryList => _categoryList;
+  int _isLoadedCat = 0;
+  int get isLoadedCat => _isLoadedCat;
+  // CategoryController({required this.service});
+  getCategory() async {
+    try {
+      _isLoadedCat = 0;
+      update();
+
+      Response response = await generalRepo.getCategory();
+      if (response.body != null) {
+        if (response.body['data'].length != 0) {
+          _categoryList = [];
+          print(response.body['data']);
+          _categoryList.addAll((response.body['data'] as List)
+              .map((e) => CategoryModel.fromJson(e))
+              .toList());
+          _isLoadedCat = 1;
+          update();
+        } else {
+          _isLoadedCat = 1;
+          update();
+        }
+      }
+      // //print(_categoryList);
+    } catch (e) {
+      //print(e);
+    }
   }
 
   ScrollController _scrollcontroller = new ScrollController();
@@ -182,6 +210,11 @@ class GeneralController extends GetxController {
     update();
   }
 
+  setIndexCurrent(index) {
+    _currentIndex = index;
+    update();
+  }
+
   late ScrollController _controllerScrollNotification;
   get controllerScrollNotification => _controllerScrollNotification;
   int _currentIndex = 0;
@@ -193,8 +226,6 @@ class GeneralController extends GetxController {
       //   return SearchView();
       case 1:
         return LivraisonView();
-      case 2:
-        return SettingView();
 
       default:
         return HomeView();
@@ -247,6 +278,9 @@ class GeneralController extends GetxController {
                           : ColorsApp.grey,
                     )))), // CustomNavigationBarItem(
 
+        /*  if (Get.find<ManagerController>().Userget != null)
+          if (Get.find<ManagerController>().Userget.typeUser == 2)
+          */
         CustomNavigationBarItem(
           icon: Container(
             height: kSmHeight / 1.7,

@@ -4,6 +4,7 @@ import 'package:BananaExpress/controller/entity.dart';
 import 'package:BananaExpress/objectbox.g.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:jwt_decode/jwt_decode.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' as p;
@@ -93,6 +94,7 @@ class DataBaseController extends GetxController {
   }
 
   saveKeyKen(value) async {
+    print(Jwt.parseJwt(value['token']));
     store.box<KeyUser>().put(KeyUser.fromJson(value));
     return true;
   }

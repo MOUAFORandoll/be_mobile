@@ -35,7 +35,6 @@ class ManageRepo extends GetxService {
     } else {
       return new Response(body: {
         'data': [],
-        'compte': [],
       }, statusCode: 200);
     }
   }

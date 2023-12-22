@@ -3,6 +3,7 @@ import 'package:BananaExpress/controller/LivraisonController.dart';
 import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/repository/GeneralRepo.dart';
 import 'package:BananaExpress/repository/LivreurRepo.dart';
+import 'package:BananaExpress/repository/LivraisonRepo.dart';
 import 'package:BananaExpress/repository/ManageRepo.dart';
 import 'package:BananaExpress/utils/Services/ApiClient.dart';
 import 'package:BananaExpress/utils/Services/UniLinkService.dart';
@@ -22,21 +23,29 @@ Future<void> initApp() async {
   await GetStorage.init();
 
   await Get.find<ManagerController>().getUserDB();
-  await Get.find<ManagerController>().getKeyU();
-  await Get.find<ManagerController>().getUser();
+  Get.find<ManagerController>().getUser();
 
-  await Get.find<GeneralController>().generalSocket();
-  await Get.find<GeneralController>().NotificationSocket();
-  await Get.find<GeneralController>().getListNotifications();
+  // await Get.find<GeneralController>().generalSocket();
+  Get.find<GeneralController>().getCategory();
+  if (Get.find<ManagerController>().Userget != null) {
+    if (Get.find<ManagerController>().Userget.typeUser == 2) {
+      Get.find<LivraisonController>().getListLivraisonsForUser();
+    }
+    if (Get.find<ManagerController>().Userget.typeUser == 3) {
+      Get.find<LivraisonController>().getListLivraisonsForBabana();
+    }
+  }
+
+  // await Get.find<GeneralController>().NotificationSocket();
 }
 
 Future<void> secondInit() async {
   // Get.find<CategoryBoutiqueController>().getListBoutiques();
 
-  Get.find<ManagerController>().newLocalisation();
-  Get.find<ManagerController>().getListFieul();
+  // Get.find<ManagerController>().newLocalisation();
+  // Get.find<ManagerController>().getListFieul();
 
-  Get.find<GeneralController>().getListModePaiement();
+  // Get.find<GeneralController>().getListModePaiement();
 }
 
 // ...
@@ -45,20 +54,26 @@ Future<void> initAllApp() async {
 
   Get.find<ManagerController>().chageN(true);
   await GetStorage.init();
+  // await Get.find<GeneralController>().getCategory();
 
-  Get.find<ManagerController>().getKeyU();
+  await Get.find<ManagerController>().getUserDB();
   Get.find<ManagerController>().getUser();
-  Get.find<GeneralController>().generalSocket();
-  await Get.find<GeneralController>().NotificationSocket();
+  Get.find<LivraisonController>().setUserInfo();
+  // Get.find<GeneralController>().getListNotifications();
 
-  Get.find<GeneralController>().getListNotifications();
-
-  Get.find<ManagerController>().newLocalisation();
+  // Get.find<ManagerController>().newLocalisation();
+  if (Get.find<ManagerController>().Userget != null) {
+    if (Get.find<ManagerController>().Userget.typeUser == 2) {
+      Get.find<LivraisonController>().getListLivraisonsForUser();
+    }
+    if (Get.find<ManagerController>().Userget.typeUser == 3) {
+      Get.find<LivraisonController>().getListLivraisonsForBabana();
+    }
+  }
 
   Get.find<LivraisonController>().getPointLivraisom();
 
-  Get.find<LivraisonController>().setUserInfo();
-  Get.find<GeneralController>().getListModePaiement();
+  // Get.find<GeneralController>().getListModePaiement();
 }
 
 Future<void> initServices() async {
@@ -77,6 +92,8 @@ Future<void> initServices() async {
 
   Get.put(GeneralRepo(apiClient: Get.find()));
   Get.put(GeneralController(generalRepo: Get.find()), permanent: true);
+  Get.put(LivraisonRepo(apiClient: Get.find()));
+  Get.put(LivraisonController(livraisonRepo: Get.find()), permanent: true);
 }
 
 requestPermission() async {
@@ -98,10 +115,9 @@ getData() async {
   if (status.isGranted) {
     await Get.find<GeneralController>().getLanguageInit();
 
-    Get.find<ManagerController>().getKeyU();
     Get.find<ManagerController>().getUser();
 
-    Get.find<ManagerController>().newLocalisation();
+    // Get.find<ManagerController>().newLocalisation();
   }
 }
 

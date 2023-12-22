@@ -1,7 +1,11 @@
+import 'package:BananaExpress/Views/User/LoginScreen.dart';
+import 'package:BananaExpress/Views/User/RegisterScreen.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
+import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/UniLinkService.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 //
 
 import 'package:flutter/material.dart';
@@ -176,45 +180,209 @@ class _FirstScreenState extends State<FirstScreen> {
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      width: kWidth / 1.35,
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          UserAccountsDrawerHeader(
-            accountName: Text('John Doe'),
-            accountEmail: Text('john.doe@example.com'),
-            currentAccountPicture: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Icon(Icons.person),
+    return GetBuilder<ManagerController>(builder: (_controller) {
+      return Drawer(
+        width: kWidth / 1.35,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            _controller.Userget != null
+                ? UserAccountsDrawerHeader(
+                    accountName: Text(_controller.Userget.nom),
+                    accountEmail: Text(_controller.Userget.phone),
+                    currentAccountPicture: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      child: InkWell(
+                        onTap: () => _controller.updateImageUser(),
+                        child: CachedNetworkImage(
+                          height: kHeight / 10,
+                          width: kHeight / 10,
+                          fit: BoxFit.cover,
+                          imageUrl: _controller.Userget.profile,
+                          imageBuilder: (context, imageProvider) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            );
+                          },
+                          placeholder: (context, url) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: ColorsApp.grey,
+                              ),
+                              child: Center(
+                                  child: CircularProgressIndicator(
+                                color: ColorsApp.tird,
+                              )),
+                            );
+                          },
+                          errorWidget: (context, url, error) {
+                            return CircleAvatar(
+                                backgroundColor: ColorsApp.tird,
+                                radius: 50,
+                                backgroundImage:
+                                    AssetImage("assets/images/user.jpg"));
+                          },
+                        ),
+                      ),
+                    ),
+                  )
+                : Container(
+                    margin: EdgeInsets.only(top: kMarginTop),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          leading: Icon(Icons.login),
+                          title: Text('Se Connecter'),
+                          onTap: () {
+                            Get.bottomSheet(
+                              Container(
+                                  margin: EdgeInsets.only(
+                                    top: kMarginY * 8,
+                                  ),
+                                  decoration: BoxDecoration(
+                                      color: ColorsApp.white,
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(15),
+                                          topRight: Radius.circular(15))),
+                                  height: 800,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: kMarginX),
+                                  child: Column(children: [
+                                    Container(
+                                      child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            TextButton(
+                                              child: Text('Annuler'),
+                                              onPressed: () {
+                                                Get.back();
+                                              },
+                                            ),
+                                            // TextButton(
+                                            //   child: Text('Ajouter'),
+                                            //   onPressed: () async {
+                                            //     // await _controller.addShort();
+                                            //     // _controller.chageState(!_controller.addProduit);
+                                            //   },
+                                            // )
+                                          ]),
+                                    ),
+                                    Expanded(
+                                        child: SingleChildScrollView(
+                                            child: Column(children: [
+                                      // _controller.listImgProduits.length != 0
+                                      //     ? smallText(
+                                      //         text: 'Listes images',
+                                      //       )
+                                      //     : Container(),
+
+                                      Container(
+                                          margin: EdgeInsets.only(
+                                            top: 50,
+                                          ),
+                                          child: LoginScreen())
+                                    ])))
+                                  ])),
+                              isScrollControlled: true,
+                            );
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.login),
+                          title: Text('S\'inscrire'),
+                          onTap: () {
+                            Get.bottomSheet(
+                              Container(
+                                  margin: EdgeInsets.only(
+                                    top: kMarginY * 8,
+                                  ),
+                                  decoration: BoxDecoration(
+                                      color: ColorsApp.white,
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(15),
+                                          topRight: Radius.circular(15))),
+                                  height: 800,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: kMarginX),
+                                  child: Column(children: [
+                                    Container(
+                                      child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            TextButton(
+                                              child: Text('Annuler'),
+                                              onPressed: () {
+                                                Get.back();
+                                              },
+                                            ),
+                                            // TextButton(
+                                            //   child: Text('Ajouter'),
+                                            //   onPressed: () async {
+                                            //     // await _controller.addShort();
+                                            //     // _controller.chageState(!_controller.addProduit);
+                                            //   },
+                                            // )
+                                          ]),
+                                    ),
+                                    Expanded(
+                                        child: SingleChildScrollView(
+                                            child: Column(children: [
+                                      // _controller.listImgProduits.length != 0
+                                      //     ? smallText(
+                                      //         text: 'Listes images',
+                                      //       )
+                                      //     : Container(),
+
+                                      Container(
+                                          margin: EdgeInsets.only(
+                                            top: 50,
+                                          ),
+                                          child: RegisterScreen())
+                                    ])))
+                                  ])),
+                              isScrollControlled: true,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                // Navigate to the home page or perform an action
+                Navigator.pop(context);
+              },
             ),
-          ),
-          ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home'),
-            onTap: () {
-              // Navigate to the home page or perform an action
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () {
-              // Navigate to the settings page or perform an action
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
-            onTap: () {
-              // Perform logout logic
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      ),
-    );
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {
+                // Navigate to the settings page or perform an action
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Logout'),
+              onTap: () {
+                // Perform logout logic
+                _controller.deconnectUser();
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      );
+    });
   }
 }
