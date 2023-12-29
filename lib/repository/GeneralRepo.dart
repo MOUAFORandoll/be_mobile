@@ -25,7 +25,15 @@ class GeneralRepo extends GetxService {
 
     return a;
   }
- 
+
+  Future getVille() async {
+    Response a = await apiClient.getData(
+      ApiRoutes.VILLE,
+    );
+
+    return a;
+  }
+
   Future getModePaiement() async {
     Response a = await apiClient.getData(
       ApiRoutes.MODEPAIEMENT,
@@ -33,7 +41,6 @@ class GeneralRepo extends GetxService {
 
     return a;
   }
- 
 
   Future getListNotifications(index, keySecret) async {
     Response a = await apiClient.getData(

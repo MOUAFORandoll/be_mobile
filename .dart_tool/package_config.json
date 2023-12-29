@@ -542,6 +542,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "image_gallery_saver",
+      "rootUri": "file:///C:/Users/Premier/AppData/Local/Pub/Cache/hosted/pub.dev/image_gallery_saver-2.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "image_picker",
       "rootUri": "file:///C:/Users/Premier/AppData/Local/Pub/Cache/hosted/pub.dev/image_picker-1.0.4",
       "packageUri": "lib/",
@@ -812,6 +818,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "pinput",
+      "rootUri": "file:///C:/Users/Premier/AppData/Local/Pub/Cache/hosted/pub.dev/pinput-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///C:/Users/Premier/AppData/Local/Pub/Cache/hosted/pub.dev/platform-3.1.2",
       "packageUri": "lib/",
@@ -986,6 +998,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "smart_auth",
+      "rootUri": "file:///C:/Users/Premier/AppData/Local/Pub/Cache/hosted/pub.dev/smart_auth-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "socket_io_client",
       "rootUri": "file:///C:/Users/Premier/AppData/Local/Pub/Cache/hosted/pub.dev/socket_io_client-2.0.3+1",
       "packageUri": "lib/",
@@ -1120,6 +1138,12 @@
     {
       "name": "uni_links_web",
       "rootUri": "file:///C:/Users/Premier/AppData/Local/Pub/Cache/hosted/pub.dev/uni_links_web-0.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "universal_platform",
+      "rootUri": "file:///C:/Users/Premier/AppData/Local/Pub/Cache/hosted/pub.dev/universal_platform-1.0.0+1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -1322,7 +1346,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2023-12-22T01:32:40.368334Z",
+  "generated": "2023-12-23T18:16:14.703083Z",
   "generator": "pub",
   "generatorVersion": "3.1.2"
 }

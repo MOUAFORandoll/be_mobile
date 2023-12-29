@@ -69,21 +69,7 @@ FOR PROD :   https://BananaExpress.vercel.app
 FOR DEV  : http://BananaExpress-shop.000webhostapp.com
 
   -->
-        <data
-          android:scheme="https"
-          android:pathPrefix="/produits"
-          android:host="BananaExpress.vercel.app" />  <data
-          android:scheme="https"
-          android:pathPrefix="/boutiques"
-          android:host="BananaExpress.vercel.app" />
-        <data
-          android:scheme="https"
-          android:pathPrefix="/subscribes"
-          android:host="BananaExpress.vercel.app" /> 
-          <data
-          android:scheme="https"
-          android:pathPrefix="/shorts"
-          android:host="BananaExpress.vercel.app" />
+        
 
         
           <data android:scheme="https"   /> 

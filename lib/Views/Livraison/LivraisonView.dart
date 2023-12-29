@@ -1,11 +1,16 @@
 import 'package:BananaExpress/components/Widget/LivraisonUserComponent.dart';
+import 'package:BananaExpress/components/Widget/ShimmerLivraison.dart';
 import 'package:BananaExpress/components/Widget/app_empty.dart';
 import 'package:BananaExpress/components/Widget/app_loading.dart';
+import 'package:BananaExpress/components/Widget/icon_svg.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
+import 'package:BananaExpress/utils/Services/routing.dart';
+import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:BananaExpress/utils/functions/viewFunctions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -22,51 +27,56 @@ class LivraisonView extends StatelessWidget {
       return SafeArea(
           child: CustomScrollView(controller: _scrollController, slivers: [
         SliverAppBar(
-          automaticallyImplyLeading: false,
           backgroundColor: ColorsApp.bg,
-
-          elevation: 0,
-          // Provide a standard title.
-          // title: Text('title'),
-          // Allows the user to reveal the app bar if they begin scrolling
-          // back up the list of items.
-          floating: true,
-          // Display a placeholder widget to visualize the shrinking size.
-          flexibleSpace: InkWell(
-            child: SingleChildScrollView(
-              child: Column(children: [
-                Container(
-                    margin: EdgeInsets.only(top: Get.height * .010),
-                    padding: EdgeInsets.only(
-                        left: Get.width * .030, right: Get.width * .030),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [])),
-              ]),
-            ),
-            /*   onTap: () => filterDest() */
+          automaticallyImplyLeading: false,
+          leading: Builder(builder: (context) {
+            return InkWell(
+                child: Container(
+                  width: 10,
+                  height: 10,
+                  child: SvgPicture.asset(Assets.menu, fit: BoxFit.none),
+                ),
+                onTap: () => Scaffold.of(context).openDrawer());
+          }),
+          title: Text(
+            'Liste des livraisons',
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(fontFamily: 'Lato', fontWeight: FontWeight.w600),
           ),
-          // Make the initial height of the SliverAppBar larger than normal.
-          expandedHeight: 60,
-
-          // expandedHeight: 300,
-          // pinned: true,
+          centerTitle: true,
+          actions: [
+            InkWell(
+                child: Container(
+                    margin: EdgeInsets.only(right: kMarginX),
+                    child: SvgIcon(icon: Assets.bell)),
+                onTap: () {
+                  Get.toNamed(AppLinks.NOTIFICATION);
+                }),
+          ],
+          pinned: true,
         ),
         SliverList(
             delegate: SliverChildBuilderDelegate(
-          (context, index) => _controller.userLivraisonList.length == 0
-              ? EmptyLivraisonsComponent()
-              : Container(
-                  child: SingleChildScrollView(
-                      child: ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: _controller.userLivraisonList.length,
-                          // controller: _controller,
-                          itemBuilder: (_, index) => LivraisonUserComponent(
-                                livraison: _controller.userLivraisonList[index],
-                              ))),
-                ),
+          (context, index) => _controller.isLoadedPLivraison == 0
+              ? ShimmerLivraison()
+              : _controller.isLoadedPLivraison == 2
+                  ? Text('Error')
+                  : _controller.userLivraisonList.length == 0
+                      ? EmptyLivraisonsComponent()
+                      : Container(
+                          child: SingleChildScrollView(
+                              child: ListView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  itemCount:
+                                      _controller.userLivraisonList.length,
+                                  // controller: _controller,
+                                  itemBuilder: (_, index) =>
+                                      LivraisonUserComponent(
+                                        livraison: _controller
+                                            .userLivraisonList[index],
+                                      ))),
+                        ),
           childCount: 1,
         ))
       ]));

@@ -1,5 +1,6 @@
 import 'package:BananaExpress/components/Button/app_button.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
+import 'package:BananaExpress/controller/LivraisonController.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,19 @@ class SuccesLivraisonview extends StatelessWidget {
                                 .tr,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: ColorsApp.primary))),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical: kMarginY * 6,
+                      ),
+                      child: AppButton(
+                        size: MainAxisSize.max,
+                        border: Border.all(color: ColorsApp.primary),
+                        text: 'Telecharger facture'.tr,
+                        onTap: () async {
+                          Get.find<LivraisonController>().downloadFacture();
+                        },
+                      ),
+                    ),
                     Container(
                       margin: EdgeInsets.symmetric(
                         vertical: kMarginY * 6,

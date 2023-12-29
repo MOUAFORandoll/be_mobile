@@ -278,7 +278,7 @@ class ManagerController extends GetxController {
     _phoneU.text = _User.phone;
     Get.find<LivraisonController>().setUserInfo();
     _emailU.text = _User.email;
-    Get.find<LivraisonController>().setContactEmetteur(_User.phone);
+     
     update();
   }
 

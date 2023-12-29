@@ -19,11 +19,12 @@ Future<void> main() async {
   // await FlutterDownloader.initialize(debug: true);
 
   await initServices();
-  await initApp();
 
 // await MyBinding().onInit();
 
   runApp(MyApp());
+  await initApp();
+
 // await init();
 }
 

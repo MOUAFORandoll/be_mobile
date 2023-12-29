@@ -14,6 +14,7 @@ class ShimmerProduit extends StatelessWidget {
       highlightColor: Colors.blueGrey,
       child: Container(
           height: kMdHeight / 1.8,
+
           // margin: EdgeInsets.symmetric(horizontal: kMarginX),
           child: SizedBox(
               height: kMdHeight / 2,
@@ -22,20 +23,23 @@ class ShimmerProduit extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
+                            crossAxisCount: 3,
                             crossAxisSpacing: 0.0,
                             mainAxisSpacing: 10.0),
-                    itemCount: 6,
-                    itemBuilder: (_ctx, index) => Container(
-                          height: kMdHeight / 4.2,
-                          width: kMdWidth * 1.1,
-                          alignment: Alignment.center,
-                          // padding: EdgeInsets.all(kMarginX),
-                          margin: EdgeInsets.only(right: kMarginX),
-                          decoration: BoxDecoration(
-                              color: ColorsApp.grey,
-                              borderRadius: BorderRadius.circular(8)),
-                        ))
+                    itemCount: 9,
+                    itemBuilder: (_ctx, index) => Column(children: [
+                          Container(
+                            height: kMdHeight / 12,
+                            width: kMdWidth * 1.1,
+                            alignment: Alignment.center,
+                            // padding: EdgeInsets.all(kMarginX),
+                            margin: EdgeInsets.only(right: kMarginX),
+                            decoration: BoxDecoration(
+                                color: ColorsApp.grey,
+                                borderRadius: BorderRadius.circular(8)),
+                          ),
+                          Container(child: Text('Colis'))
+                        ]))
               ]))),
     );
   }

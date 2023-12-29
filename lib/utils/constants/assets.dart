@@ -3,6 +3,7 @@ class Assets {
   static const logo = 'assets/logo/logoNew.png';
   static const shop1 = 'assets/images/shop1.png';
   static const shop2 = 'assets/images/shop2.png';
+  static const splash = 'assets/images/splash.png';
   static const empty_shop = 'assets/images/empty_shop.png';
   static const onb1 = 'assets/svg_icones/onbo1.png';
   static const onb2 = 'assets/svg_icones/onbo2.png';

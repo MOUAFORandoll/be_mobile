@@ -215,36 +215,40 @@ class LivraisonBabanaComponent extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          Container(
-                              margin: EdgeInsets.symmetric(
-                                vertical: kMarginY * 1.5,
-                              ),
-                              decoration: BoxDecoration(color: ColorsApp.grey),
-                              child: AppButton(
-                                size: MainAxisSize.max,
-                                bgColor: ColorsApp.second,
-                                text: 'Scan de l\'expediteur'.tr,
-                                onTap: () async {
-                                  Get.to(ScanRecuperation(
-                                    idLivraison: livraison.id,
-                                  ));
-                                },
-                              )),
-                          Container(
-                              margin: EdgeInsets.symmetric(
-                                vertical: kMarginY * 1.5,
-                              ),
-                              decoration: BoxDecoration(color: ColorsApp.grey),
-                              child: AppButton(
-                                size: MainAxisSize.max,
-                                bgColor: ColorsApp.primary,
-                                text: 'Scan du recepteur'.tr,
-                                onTap: () async {
-                                  Get.to(ScanReception(
-                                    idLivraison: livraison.id,
-                                  ));
-                                },
-                              )),
+                          if (livraison.status == 1)
+                            Container(
+                                margin: EdgeInsets.symmetric(
+                                  vertical: kMarginY * 1.5,
+                                ),
+                                decoration:
+                                    BoxDecoration(color: ColorsApp.grey),
+                                child: AppButton(
+                                  size: MainAxisSize.max,
+                                  bgColor: ColorsApp.second,
+                                  text: 'Scan de l\'expediteur'.tr,
+                                  onTap: () async {
+                                    Get.to(ScanRecuperation(
+                                      idLivraison: livraison.id,
+                                    ));
+                                  },
+                                )),
+                          if (livraison.status == 2)
+                            Container(
+                                margin: EdgeInsets.symmetric(
+                                  vertical: kMarginY * 1.5,
+                                ),
+                                decoration:
+                                    BoxDecoration(color: ColorsApp.grey),
+                                child: AppButton(
+                                  size: MainAxisSize.max,
+                                  bgColor: ColorsApp.primary,
+                                  text: 'Scan du recepteur'.tr,
+                                  onTap: () async {
+                                    Get.to(ScanReception(
+                                      idLivraison: livraison.id,
+                                    ));
+                                  },
+                                )),
                         ],
                       )
                     ]))));

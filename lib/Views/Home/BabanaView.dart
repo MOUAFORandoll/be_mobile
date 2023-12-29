@@ -2,6 +2,7 @@ import 'package:BananaExpress/components/Widget/EmptyLivraisonsComponent.dart';
 import 'package:BananaExpress/components/Widget/LivraisonBabanaComponent.dart';
 import 'package:BananaExpress/components/Widget/LivraisonUserComponent.dart';
 import 'package:BananaExpress/components/Widget/ShimmerHome.dart';
+import 'package:BananaExpress/components/Widget/ShimmerLivraison.dart';
 import 'package:BananaExpress/components/Widget/ShimmerProduit.dart';
 import 'package:BananaExpress/components/Widget/app_title_right.dart';
 import 'package:BananaExpress/components/Widget/icon_svg.dart';
@@ -83,28 +84,36 @@ class BabanaView extends StatelessWidget {
                   ),
                   SliverList(
                       delegate: SliverChildBuilderDelegate(
-                    (context, index) =>
-                        _livraisonController.babanaLivraisonList.length == 0
-                            ? EmptyLivraisonsComponent()
-                            : Container(
-                                decoration: BoxDecoration(
-                                  // color: ColorsApp.white,
+                    (context, index) => _livraisonController
+                                .isLoadedPLivraison ==
+                            0
+                        ? ShimmerLivraison()
+                        : _livraisonController.isLoadedPLivraison == 2
+                            ? Text('Error')
+                            : _livraisonController.babanaLivraisonList.length ==
+                                    0
+                                ? EmptyLivraisonsComponent()
+                                : Container(
+                                    decoration: BoxDecoration(
+                                      // color: ColorsApp.white,
 
-                                  color: Colors.white,
-                                ),
-                                child: SingleChildScrollView(
-                                    child: ListView.builder(
-                                        physics: NeverScrollableScrollPhysics(),
-                                        shrinkWrap: true,
-                                        itemCount: _livraisonController
-                                            .babanaLivraisonList.length,
-                                        // controller: _livraisonController,
-                                        itemBuilder: (_, index) =>
-                                            LivraisonBabanaComponent(
-                                              livraison: _livraisonController
-                                                  .babanaLivraisonList[index],
-                                            ))),
-                              ),
+                                      color: Colors.white,
+                                    ),
+                                    child: SingleChildScrollView(
+                                        child: ListView.builder(
+                                            physics:
+                                                NeverScrollableScrollPhysics(),
+                                            shrinkWrap: true,
+                                            itemCount: _livraisonController
+                                                .babanaLivraisonList.length,
+                                            // controller: _livraisonController,
+                                            itemBuilder: (_, index) =>
+                                                LivraisonBabanaComponent(
+                                                  livraison: _livraisonController
+                                                          .babanaLivraisonList[
+                                                      index],
+                                                ))),
+                                  ),
                     childCount: 1,
                   ))
                 ]))));

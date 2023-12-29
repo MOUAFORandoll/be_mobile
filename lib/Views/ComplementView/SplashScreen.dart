@@ -82,6 +82,9 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                           width: kHeight / 10,
                           height: kHeight / 10,
                         )),
+                    // SizedBox(
+                    //   height: kHeight / 5,
+                    // ),
                     Container(
                         // margin: EdgeInsets.only(top: 250),
                         child: Text(

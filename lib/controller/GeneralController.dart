@@ -7,6 +7,7 @@ import 'package:BananaExpress/controller/DataBaseController.dart';
 import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/model/data/CategoryModel.dart';
 import 'package:BananaExpress/model/data/ModePaiementModel.dart';
+import 'package:BananaExpress/model/data/VilleModel.dart';
 import 'package:BananaExpress/model/socket/NotificationModel.dart';
 import 'package:BananaExpress/repository/GeneralRepo.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
@@ -71,7 +72,40 @@ class GeneralController extends GetxController {
       }
       // //print(_categoryList);
     } catch (e) {
-      //print(e);
+      _isLoadedCat = 0;
+      update();
+    }
+  }
+
+  List<VilleModel> _villeList = [];
+  List<VilleModel> get villeList => _villeList;
+  int _isLoadedVille = 0;
+  int get isLoadedVille => _isLoadedVille;
+  // CategoryController({required this.service});
+  getVille() async {
+    try {
+      _isLoadedVille = 0;
+      update();
+
+      Response response = await generalRepo.getVille();
+      if (response.body != null) {
+        if (response.body['data'].length != 0) {
+          _villeList = [];
+          print(response.body['data']);
+          _villeList.addAll((response.body['data'] as List)
+              .map((e) => VilleModel.fromJson(e))
+              .toList());
+          _isLoadedVille = 1;
+          update();
+        } else {
+          _isLoadedVille = 1;
+          update();
+        }
+      }
+      // //print(_villeList);
+    } catch (e) {
+      _isLoadedVille = 0;
+      update();
     }
   }
 
@@ -278,36 +312,36 @@ class GeneralController extends GetxController {
                           : ColorsApp.grey,
                     )))), // CustomNavigationBarItem(
 
-        /*  if (Get.find<ManagerController>().Userget != null)
+        if (Get.find<ManagerController>().Userget != null)
           if (Get.find<ManagerController>().Userget.typeUser == 2)
-          */
-        CustomNavigationBarItem(
-          icon: Container(
-            height: kSmHeight / 1.7,
-            width: kSmWidth / 4.2,
-            child: SvgPicture.asset(
-              Assets.grid1,
-              width: 80,
-              height: 80,
-              color: _currentIndex == 1 ? ColorsApp.second : ColorsApp.grey,
+            CustomNavigationBarItem(
+              icon: Container(
+                height: kSmHeight / 1.7,
+                width: kSmWidth / 4.2,
+                child: SvgPicture.asset(
+                  Assets.grid1,
+                  width: 80,
+                  height: 80,
+                  color: _currentIndex == 1 ? ColorsApp.second : ColorsApp.grey,
+                ),
+              ),
+              title: Container(
+                  padding: EdgeInsets.only(bottom: 3),
+                  decoration: BoxDecoration(
+                      border: Border(
+                          bottom: _currentIndex == 1
+                              ? BorderSide(color: ColorsApp.second, width: 2)
+                              : BorderSide.none,
+                          top: BorderSide.none)),
+                  child: Text('historique'.tr,
+                      style: TextStyle(
+                        fontSize: kMin,
+                        fontWeight: FontWeight.w600,
+                        color: _currentIndex == 1
+                            ? ColorsApp.second
+                            : ColorsApp.grey,
+                      ))),
             ),
-          ),
-          title: Container(
-              padding: EdgeInsets.only(bottom: 3),
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: _currentIndex == 1
-                          ? BorderSide(color: ColorsApp.second, width: 2)
-                          : BorderSide.none,
-                      top: BorderSide.none)),
-              child: Text('historique'.tr,
-                  style: TextStyle(
-                    fontSize: kMin,
-                    fontWeight: FontWeight.w600,
-                    color:
-                        _currentIndex == 1 ? ColorsApp.second : ColorsApp.grey,
-                  ))),
-        ),
 
         // CustomNavigationBarItem(
         //   icon: Container(
@@ -358,17 +392,17 @@ class GeneralController extends GetxController {
     update();
   }
 
-  generalSocket() {
-    new SocketService().general(socketGeneralNotification);
-  }
+  // generalSocket() {
+  //   new SocketService().general(socketGeneralNotification);
+  // }
 
-  socketGeneralNotification(data) {
-    print('000-...............');
-    print(data);
-    new NotificationService().emitNotificationGenearal(data['message']);
-    update();
-    // ici on doit faire l'ajout a la liste des message en locale dans le telephone du user
-  }
+  // socketGeneralNotification(data) {
+  //   print('000-...............');
+  //   print(data);
+  //   new NotificationService().emitNotificationGenearal(data['message']);
+  //   update();
+  //   // ici on doit faire l'ajout a la liste des message en locale dans le telephone du user
+  // }
 
   NotificationSocket() async {
     var getU = await dababase.getKey();

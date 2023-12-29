@@ -223,7 +223,7 @@ class CustomDrawer extends StatelessWidget {
                           },
                           errorWidget: (context, url, error) {
                             return CircleAvatar(
-                                backgroundColor: ColorsApp.tird,
+                                // backgroundColor: ColorsApp.tird,
                                 radius: 50,
                                 backgroundImage:
                                     AssetImage("assets/images/user.jpg"));

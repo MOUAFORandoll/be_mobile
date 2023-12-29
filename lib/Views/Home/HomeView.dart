@@ -67,7 +67,8 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
     return GetBuilder<ManagerController>(
         builder: (_managerController) => (_managerController.Userget == null)
             ? SimpleUserView()
-            : _managerController.Userget.typeUser == 2
+            : _managerController.Userget.typeUser == 2 ||
+                    _managerController.Userget.typeUser == 1
                 ? SimpleUserView()
                 : BabanaView());
   }

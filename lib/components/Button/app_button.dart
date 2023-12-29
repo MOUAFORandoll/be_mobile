@@ -29,7 +29,7 @@ class AppButton extends StatelessWidget {
       onTap: disabled ? null : onTap,
       child: Container(
         constraints:
-            BoxConstraints(minHeight: kHeight / 17, minWidth: kWidth * .2),
+            BoxConstraints(minHeight: kHeight / 17, minWidth: kWidth / 2.5),
         padding: EdgeInsets.symmetric(horizontal: kMarginX),
         decoration: BoxDecoration(
             // boxShadow: [

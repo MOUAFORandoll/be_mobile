@@ -1,5 +1,7 @@
 import 'package:BananaExpress/Views/Livraison/NewLivraisonView.dart';
 import 'package:BananaExpress/Views/Livraison/SuccesLivraisonview.dart';
+import 'package:BananaExpress/Views/Livraison/SuccesReceptionview.dart';
+import 'package:BananaExpress/Views/Livraison/SuccesRecuperationview.dart';
 import 'package:BananaExpress/Views/Notifications/NotificationView.dart';
 import 'package:BananaExpress/Views/ComplementView/OnboardingScreen.dart';
 import 'package:BananaExpress/Views/FirstScreen.dart';
@@ -77,6 +79,14 @@ class AppRoutes {
         name: AppLinks.SUCCESSLIVRAISON,
         page: () => SuccesLivraisonview(),
         transition: transitionX),
+    GetPage(
+        name: AppLinks.SUCCESSRECUPERATION,
+        page: () => SuccesRecuperationview(),
+        transition: transitionX),
+    GetPage(
+        name: AppLinks.SUCCESSRECEPTION,
+        page: () => SuccesReceptionview(),
+        transition: transitionX),
   ];
 }
 
@@ -96,4 +106,6 @@ class AppLinks {
   static const String USERVIEW = "/userview";
   static const String NOTIFICATION = "/notifications";
   static const String POLITIQUE = "/politique";
+  static const String SUCCESSRECUPERATION = "/srecup";
+  static const String SUCCESSRECEPTION = "/srecep";
 }

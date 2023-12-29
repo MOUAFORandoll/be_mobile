@@ -14,6 +14,13 @@ class LivraisonRepo extends GetxService {
     return a;
   }
 
+  Future calculFraisLivraison(data) async {
+    Response a =
+        await apiClient.postData(ApiRoutes.LIVRAISONS + '/frais', data);
+
+    return a;
+  }
+
   Future recuperationColis(data) async {
     Response a =
         await apiClient.patchData(ApiRoutes.LIVRAISONS + "/recuperation", data);

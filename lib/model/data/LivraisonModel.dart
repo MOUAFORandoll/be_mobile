@@ -14,10 +14,14 @@ class LivraisonModel {
   String initiatedUser;
   String service;
   String date;
+  var code_recuperation;
+  var code_reception;
   dynamic livreur;
 
   LivraisonModel({
     required this.id,
+    required this.code_recuperation,
+    required this.code_reception,
     required this.libelle,
     required this.description,
     required this.contactEmetteur,
@@ -38,8 +42,10 @@ class LivraisonModel {
   factory LivraisonModel.fromJson(Map<String, dynamic> json) {
     return LivraisonModel(
       id: json['id'],
+      code_recuperation: json['code_recuperation'],
+      code_reception: json['code_reception'],
       libelle: json['libelle'],
-      quantite: json['quantite']  .toString(),
+      quantite: json['quantite'].toString(),
       description: json['description'],
       contactEmetteur: json['contactEmetteur'],
       contactRecepteur: json['contactRecepteur'],

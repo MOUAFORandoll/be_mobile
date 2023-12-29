@@ -27,6 +27,7 @@ Future<void> initApp() async {
 
   // await Get.find<GeneralController>().generalSocket();
   Get.find<GeneralController>().getCategory();
+  Get.find<GeneralController>().getVille();
   if (Get.find<ManagerController>().Userget != null) {
     if (Get.find<ManagerController>().Userget.typeUser == 2) {
       Get.find<LivraisonController>().getListLivraisonsForUser();
@@ -35,6 +36,7 @@ Future<void> initApp() async {
       Get.find<LivraisonController>().getListLivraisonsForBabana();
     }
   }
+  Get.find<LivraisonController>().connectToSocketLivraison();
 
   // await Get.find<GeneralController>().NotificationSocket();
 }
@@ -54,7 +56,8 @@ Future<void> initAllApp() async {
 
   Get.find<ManagerController>().chageN(true);
   await GetStorage.init();
-  // await Get.find<GeneralController>().getCategory();
+  await Get.find<GeneralController>().getCategory();
+  Get.find<GeneralController>().getVille();
 
   await Get.find<ManagerController>().getUserDB();
   Get.find<ManagerController>().getUser();
@@ -71,6 +74,7 @@ Future<void> initAllApp() async {
     }
   }
 
+  Get.find<LivraisonController>().connectToSocketLivraison();
   Get.find<LivraisonController>().getPointLivraisom();
 
   // Get.find<GeneralController>().getListModePaiement();
