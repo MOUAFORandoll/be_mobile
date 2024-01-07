@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:BananaExpress/Views/Livraison/SuccesReceptionview.dart';
@@ -17,6 +18,7 @@ import 'package:BananaExpress/utils/functions/viewFunctions.dart';
 import 'package:dio/dio.dart' hide Response, MultipartFile, FormData;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -24,26 +26,53 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../components/exportcomponent.dart';
 import 'dart:io';
 
+import 'package:geolocator/geolocator.dart';
+
+import 'package:location/location.dart' hide LocationAccuracy, PermissionStatus;
+import 'package:flutter_svg/flutter_svg.dart';
+
 class Colis {
   String nom;
   String quantite;
   String contactRecepteur;
   String valeurColis;
+  int countImage;
+  int id;
   int category;
-  String pointLivraison; // Ajoutez le champ pointLivraison si nécessaire
+  String? libelleLocalisation;
+  String? quartier;
+  double? longitude;
+  double? latitude;
+  String? idPointLivraisonColis;
   List<File> listImgColis;
-  List<MultipartFile> listImgColisMultiPart;
 
   Colis({
     required this.nom,
+    required this.id,
     required this.quantite,
     required this.contactRecepteur,
     required this.valeurColis,
+    required this.countImage,
     required this.category,
-    required this.pointLivraison,
+    this.libelleLocalisation,
+    this.quartier,
+    this.longitude,
+    this.latitude,
+    this.idPointLivraisonColis,
     required this.listImgColis,
-    required this.listImgColisMultiPart,
   });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'nom': nom,
+      'quantite': quantite,
+      'countImage': countImage,
+      'contactRecepteur': contactRecepteur,
+      'valeurColis': valeurColis,
+      'category': category,
+      'idPointLivraisonColis': idPointLivraisonColis,
+    };
+  }
 }
 
 class LivraisonController extends GetxController {
@@ -72,6 +101,91 @@ class LivraisonController extends GetxController {
     }
   }
 
+/**
+ * Recuperation colis pointttttt
+ */
+  TextEditingController _libelleLocalisation = new TextEditingController();
+
+  TextEditingController get libelleLocalisation => _libelleLocalisation;
+  TextEditingController _quartier = new TextEditingController();
+
+  TextEditingController get quartier => _quartier;
+
+  var _longitudeRecuperation = 0.0;
+  get longitudeRecuperation => _longitudeRecuperation;
+  var _latitudeRecuperation = 0.0;
+  get latitudeRecuperation => _latitudeRecuperation;
+  setPositionRecuperation(LatLng value) {
+    _longitudeRecuperation = value.longitude;
+    _latitudeRecuperation = value.latitude;
+
+    update();
+    print(longitudeRecuperation);
+  }
+
+  PointLivraisonModel _selected_recuperation_point = new PointLivraisonModel(
+      id: 0,
+      libelle: '',
+      ville: '',
+      quartier: '',
+      image: '',
+      longitude: 0.0,
+      latitude: 0.0);
+  PointLivraisonModel get selected_recuperation_point =>
+      _selected_recuperation_point;
+  selectRecuperationPoint(point) {
+    _selected_recuperation_point = point;
+    update();
+  }
+
+/**
+ * 
+ * Search pointtttttttttttt section
+ */
+  @override
+  void onInit() {
+    super.onInit();
+
+    _quantite.text = '0';
+  }
+
+  TextEditingController _searchController = new TextEditingController();
+
+  TextEditingController get searchController => _searchController;
+
+  void searchPointLivraison() {
+    String searchText = searchController.text.toLowerCase();
+
+    _search_livraison_point.clear();
+
+    if (searchText.isEmpty) {
+      _search_livraison_point.addAll(livraison_point);
+    } else {
+      _search_livraison_point.addAll(
+        livraison_point.where(
+          (element) =>
+              element.libelle.toLowerCase().contains(searchText) ||
+              element.quartier.toLowerCase().contains(searchText) ||
+              element.ville.toLowerCase().contains(searchText),
+        ),
+      );
+    }
+
+    update();
+    print(_search_livraison_point.length);
+  }
+
+/**
+ * Point de livraison colis
+ */
+
+  TextEditingController _libelleLocalisationColis = new TextEditingController();
+
+  TextEditingController get libelleLocalisationColis =>
+      _libelleLocalisationColis;
+  TextEditingController _quartierColis = new TextEditingController();
+
+  TextEditingController get quartierColis => _quartierColis;
   PointLivraisonModel _selected_livraison_point = new PointLivraisonModel(
       id: 0,
       libelle: '',
@@ -91,30 +205,26 @@ class LivraisonController extends GetxController {
     update();
   }
 
-  final TextEditingController _searchController = TextEditingController();
-  get searchController => _searchController;
-  searchPointLivraison() {
-    _search_livraison_point = [];
-    update();
+  var _longitudeColis = 0.0;
+  get longitudeColis => _longitudeColis;
+  var _latitudeColis = 0.0;
+  get latitudeColis => _latitudeColis;
+  setPosition(LatLng value) {
+    _longitudeColis = value.longitude;
+    _latitudeColis = value.latitude;
 
-    _search_livraison_point.addAll(livraison_point.where(
-      (element) =>
-          element.libelle
-              .toLowerCase()
-              .contains(searchController.text.toLowerCase()) ||
-          element.quartier
-              .toLowerCase()
-              .contains(searchController.text.toLowerCase()) ||
-          element.ville
-              .toLowerCase()
-              .contains(searchController.text.toLowerCase()),
-    ));
-    if (_search_livraison_point.isEmpty) {
-      _search_livraison_point = livraison_point;
-      update();
-    }
     update();
-    print(_search_livraison_point.length);
+    print(longitudeColis);
+  }
+
+  setClear() {
+    _searchController.clear();
+    update();
+  }
+
+  setPositionLabel(String value) {
+    _searchController.text = value;
+    update();
   }
 
   List<PointLivraisonModel> _search_livraison_point = [];
@@ -133,7 +243,8 @@ class LivraisonController extends GetxController {
       update();
       print('*********3...... get point');
 
-      Response response = await livraisonRepo.getLivraison_point();
+      Response response =
+          await livraisonRepo.getLivraisonPointByVille(villeSelect.id);
       // print('*********fin get point ${response.body}');
       if (response.body != null) {
         // if (response.body['data'].length != 0) {
@@ -150,6 +261,35 @@ class LivraisonController extends GetxController {
     } catch (e) {
       //print(e);
     }
+  }
+
+  var position;
+  Future<Position> determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+    position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+    print(
+        'ma position est-**************--${position.latitude}-----------*************-----${position.longitude}');
+    return await Geolocator.getCurrentPosition();
   }
 
   bool _isOk = false;
@@ -257,12 +397,6 @@ class LivraisonController extends GetxController {
   List<File> _listImgColis = [];
 
   final dababase = Get.find<DataBaseController>();
-  void onInit() async {
-    // TODO: implement initState
-
-    super.onInit();
-    _quantite.text = '0';
-  }
 
   List<File> get listImgColis => _listImgColis;
   onInitData() {
@@ -346,7 +480,7 @@ class LivraisonController extends GetxController {
 
     await livraisonRepo.getHistoryLivraisons(key).then((response) {
       _userLivraisonList.clear();
-
+      print(response.body['data']);
       _userLivraisonList.addAll((response.body['data'] as List)
           .map((e) => LivraisonModel.fromJson(e))
           .toList());
@@ -403,10 +537,20 @@ class LivraisonController extends GetxController {
     }
   }
 
+  void finishLivraion(message) {
+    fn.snackBar('Livraison', message, true);
+  }
+
   connectToSocketLivraison() async {
     var key = await dababase.getKey();
 
     new SocketService().listLivraison(key, fineListToUpdate);
+  }
+
+  livraisonFinish() async {
+    var key = await dababase.getKey();
+
+    new SocketService().livraisonFinish(key, finishLivraion);
   }
 
   bool _isUpdating = false;
@@ -423,7 +567,8 @@ class LivraisonController extends GetxController {
       print(response.body);
       if (response.statusCode == 200) {
         fn.closeLoader();
-        fineListToUpdate(LivraisonModel.fromJson(response.body['data']));
+        // print(response.body['data']);
+        // fineListToUpdate(LivraisonModel.fromJson(response.body['data']));
 
         Get.to(SuccesRecuperationview());
         fn.snackBar('Livraison', response.body['message'], true);
@@ -459,7 +604,7 @@ class LivraisonController extends GetxController {
       //print(response.body);
       if (response.statusCode == 200) {
         fn.closeLoader();
-        fineListToUpdate(LivraisonModel.fromJson(response.body['data']));
+        // fineListToUpdate(LivraisonModel.fromJson(response.body['data']));
         fn.snackBar('Livraison', response.body['message'], true);
         Get.to(SuccesReceptionview());
       } else {
@@ -525,6 +670,7 @@ class LivraisonController extends GetxController {
   get villeSelect => _villeSelect;
   selectVille(cat) {
     _villeSelect = cat;
+    getPointLivraisom();
     update();
   }
 
@@ -535,8 +681,10 @@ class LivraisonController extends GetxController {
     if (s == 1) {
       _contactEmetteur.text = data!.phone;
       _contactRecepteur.text = '';
+
       update();
     } else {
+      print('55');
       _contactRecepteur.text = data!.phone;
       _contactEmetteur.text = '';
       update();
@@ -554,7 +702,7 @@ class LivraisonController extends GetxController {
   List<File> _imageColis = [];
   List<File> get imageColis => _imageColis;
   cleanImage() {
-    _imageColis.clear();
+    // _imageColis.clear();
     update();
   }
 
@@ -591,166 +739,292 @@ class LivraisonController extends GetxController {
     } catch (e) {}
   }
 
-  List _listColis = [];
-  get listColis => _listColis;
-  addColis(
-      /*  String nom,
-    String quantite,
-    String contactRecepteur,
-    String valeurColis,
-    String category,
-    String pointLivraison,
-    List<File> listImgColis, */
-      ) {
-    List<MultipartFile> imageFiles = [];
+  setValueColis(Colis colis) {
+    nomProduit.text = colis.nom;
+    quantite.text = colis.quantite;
+    _contactRecepteur.text = colis.contactRecepteur;
+    valeurColis.text = colis.valeurColis;
+    update();
+  }
 
-    for (int i = 0; i < listColis.length; i++) {
-      Colis colis = listColis[i];
+  updateColis(int id) {
+    Colis colisToUpdate = _listColis.firstWhere((colis) => colis.id == id,
+        orElse: () => Colis(
+            nom: '',
+            id: -1,
+            quantite: '',
+            contactRecepteur: '',
+            valeurColis: '',
+            countImage: 0,
+            category: 0,
+            listImgColis: []));
 
-      // data.addAll({
-      //   'colis[$i][nom]': colis.nom,
-      //   'colis[$i][quantite]': colis.quantite,
-      //   'colis[$i][contactRecepteur]': colis.contactRecepteur,wxxsaad
-      //   'colis[$i][valeurColis]': colis.valeurColis,
-      //   'colis[$i][category]': colis.category,
-      //   'colis[$i][contactRecepteur]': colis.contactRecepteur,
-      //   'colis[$i][point_livraison]': colis.pointLivraison,
-      //   'colis[$i][countImage]': colis.listImgColis.length,
-      // });
+    if (colisToUpdate.id != -1) {
+      // Mettez à jour les propriétés nécessaires
+      colisToUpdate.nom = nomProduit.text;
+      colisToUpdate.quantite = quantite.text;
+      colisToUpdate.contactRecepteur = _contactRecepteur.text;
+      colisToUpdate.valeurColis = valeurColis.text;
 
-      for (int j = 0; j < colis.listImgColis.length; j++) {
-        File imageFile = colis.listImgColis[j];
-        imageFiles.add(MultipartFile(
-          imageFile.path,
-          filename: 'Image$j.jpg',
-        ));
+      // Vous pouvez également mettre à jour d'autres propriétés selon vos besoins
+
+      // Mettez à jour la liste des colis
+      int index = _listColis.indexOf(colisToUpdate);
+      if (index != -1) {
+        _listColis[index] = colisToUpdate;
       }
 
-      Colis newColis = Colis(
-        nom: nomProduit.text,
-        quantite: quantite.text,
-        contactRecepteur: _contactRecepteur.text,
-        valeurColis: nomProduit.text,
-        category: _categorySelect.id,
-        pointLivraison: '10',
-        listImgColis: _imageColis,
-        listImgColisMultiPart: imageFiles,
-      );
-
-      _listColis.add(newColis);
       update();
-      print(newColis.contactRecepteur);
-      print(_listColis.length);
       Get.back();
     }
   }
 
+  deleteColis(int id) {
+    print(id);
+    _listColis.removeWhere((colis) => colis.id == id);
+
+    update();
+  }
+
+  Future updateAddImageColisAppareil(idColis) async {
+    try {
+      print('----------***********-----addding');
+      var image = await ImagePicker().pickImage(
+          source: ImageSource.camera,
+          imageQuality: 100,
+          maxHeight: 500,
+          maxWidth: 500);
+      addImageToColis(idColis, File(image!.path));
+
+      update();
+    } catch (e) {}
+  }
+
+  Future updateAddImageColisGalerie(idColis) async {
+    try {
+      var image = await ImagePicker().pickImage(
+          source: ImageSource.gallery,
+          imageQuality: 100,
+          maxHeight: 500,
+          maxWidth: 500);
+
+      addImageToColis(idColis, File(image!.path));
+      update();
+    } catch (e) {}
+  }
+
+  void addImageToColis(int id, File newImage) {
+    Colis colisToUpdate = _listColis.firstWhere(
+      (colis) => colis.id == id,
+      orElse: () => Colis(
+        nom: '',
+        id: -1,
+        quantite: '',
+        contactRecepteur: '',
+        valeurColis: '',
+        countImage: 0,
+        category: 0,
+        listImgColis: [],
+      ),
+    );
+
+    if (colisToUpdate.id != -1) {
+      // Ajouter la nouvelle image à la liste des images du colis
+      colisToUpdate.listImgColis.add(newImage);
+      colisToUpdate.countImage++;
+
+      // Mettre à jour la liste des colis
+      int index = _listColis.indexOf(colisToUpdate);
+      if (index != -1) {
+        _listColis[index] = colisToUpdate;
+      }
+
+      // Mettre à jour l'interface utilisateur
+      update();
+    }
+  }
+
+  void removeImageFromColis(int id, int position) {
+    print('-------------${id}--*${position}*------------*');
+
+    Colis colisToUpdate = _listColis.firstWhere(
+      (colis) => colis.id == id,
+      orElse: () => Colis(
+        nom: '',
+        id: -1,
+        quantite: '',
+        contactRecepteur: '',
+        valeurColis: '',
+        countImage: 0,
+        category: 0,
+        listImgColis: [],
+      ),
+    );
+
+    if (colisToUpdate.id != -1 &&
+        position >= 0 &&
+        position < colisToUpdate.listImgColis.length) {
+      print('-------------sssssssssssss');
+      colisToUpdate.listImgColis.removeAt(position);
+      colisToUpdate.countImage--;
+
+      // Mettre à jour la liste des colis
+      int index = _listColis.indexOf(colisToUpdate);
+      if (index != -1) {
+        print('-----------${index}--sssssssssssss');
+
+        _listColis[index] = colisToUpdate;
+      }
+
+      // Mettre à jour l'interface utilisateur
+      update();
+    }
+  }
+
+  void updateImageInColis(int id, int position, File updatedImage) {
+    Colis colisToUpdate = _listColis.firstWhere(
+      (colis) => colis.id == id,
+      orElse: () => Colis(
+        nom: '',
+        id: -1,
+        quantite: '',
+        contactRecepteur: '',
+        valeurColis: '',
+        countImage: 0,
+        category: 0,
+        listImgColis: [],
+      ),
+    );
+
+    if (colisToUpdate.id != -1 &&
+        position >= 0 &&
+        position < colisToUpdate.listImgColis.length) {
+      // Mettre à jour l'image dans la liste des images du colis
+      colisToUpdate.listImgColis[position] = updatedImage;
+
+      // Mettre à jour la liste des colis
+      int index = _listColis.indexOf(colisToUpdate);
+      if (index != -1) {
+        _listColis[index] = colisToUpdate;
+      }
+
+      // Mettre à jour l'interface utilisateur
+      update();
+    }
+  }
+
+  var frais = '1000';
+  List<Colis> _listColis = [];
+  List<Colis> get listColis => _listColis;
+  int idColis = 1;
+  addColis() {
+    List<MultipartFile> imageFiles = [];
+
+    for (int j = 0; j < listImgColis.length; j++) {
+      File imageFile = listImgColis[j];
+      imageFiles.add(MultipartFile(
+        imageFile.path,
+        filename: 'Image$j.jpg',
+      ));
+    }
+
+    Colis newColis = Colis(
+      id: idColis,
+      nom: nomProduit.text,
+      quantite: quantite.text,
+      contactRecepteur: _contactRecepteur.text,
+      valeurColis: valeurColis.text,
+      category: _categorySelect.id,
+      libelleLocalisation: libelleLocalisationColis.text,
+      quartier: quartierColis.text,
+      longitude: longitudeColis,
+      latitude: latitudeColis,
+      idPointLivraisonColis: "",
+      listImgColis: _imageColis,
+      countImage: _imageColis.length,
+    );
+
+    _listColis.add(newColis);
+    idColis++;
+    update();
+    print(newColis.contactRecepteur);
+    print(_listColis.length);
+    Get.back();
+  }
+
+  List<Map<String, dynamic>> convertListToJson(List<Colis> colisList) {
+    return colisList.map((colis) => colis.toJson()).toList();
+  }
+
   createFormData() async {
+    print(jsonEncode(convertListToJson(listColis)));
     var key = await dababase.getKey();
     var data = {
       'keySecret': key,
+      'idPointRecuperation': selected_recuperation_point.id,
+      'libelleLocalisation': libelleLocalisation.text,
+      'quartier': quartier.text,
+      'longitude': longitudeRecuperation,
+      'latitude': latitudeRecuperation,
       'libelle': libelle.text,
       'service': service,
       'contactEmetteur': contactEmetteur.text,
       'description': description.text,
       'ville': villeSelect.id,
-      'colis': listColis,
+      'colis': jsonEncode(convertListToJson(listColis)),
     };
-    print(data);
+    print(data['colis']);
 
     for (int i = 0; i < listColis.length; i++) {
       Colis colis = listColis[i];
-
-      // data.addAll({
-      //   'colis[$i][nom]': colis.nom,
-      //   'colis[$i][quantite]': colis.quantite,
-      //   'colis[$i][contactRecepteur]': colis.contactRecepteur,
-      //   'colis[$i][valeurColis]': colis.valeurColis,
-      //   'colis[$i][category]': colis.category,
-      //   'colis[$i][contactRecepteur]': colis.contactRecepteur,
-      //   'colis[$i][point_livraison]': colis.pointLivraison,
-      //   'colis[$i][countImage]': colis.listImgColis.length,
-      // });
-      print(data['colis']);
-      for (int j = 0; j < colis.listImgColis.length; j++) {
-        File imageFile = colis.listImgColis[j];
+      colis.listImgColis.forEach((e) {
+        print("colis$i${colis.listImgColis.indexOf(e)}");
         data.addAll({
-          'file[$i][images][$j]': MultipartFile(
-            imageFile.path,
-            filename: 'Image$j.jpg',
+          "colis$i${colis.listImgColis.indexOf(e)}": MultipartFile(
+            e.path,
+            filename: "Image.jpg",
           )
         });
-      }
+      });
     }
-    FormData dataF = FormData(data);
-    return dataF;
+    FormData formData = FormData(data);
+    return formData;
   }
 
-  var frais = '1000';
   newLivraison() async {
     _urlFacture = '';
-    try {
-      var key = await dababase.getKey();
-      fn.loading('Livraison', 'Ajout d\'un nouveau produit en cours');
-      if (key != null) {
-        // var dataS = {
-        //   'keySecret': key,
-        //   'libelle': libelle.text,
-        //   'service': service,
-        //   'contactEmetteur': contactEmetteur.text,
-        //   'contactRecepteur': contactRecepteur.text,
-        //   'description': description.text,
-        //   'quantite': quantite.text,
-        //   'valeurColis': valeurColis.text,
-        //   'category': categorySelect.id,
-        //   'ville': villeSelect.id,
-        //   'countImage': listImgColis.length
-        // };
-        // print(dataS);
 
-        // listImgColis.forEach((e) {
-        //   dataS.addAll({
-        //     "file${listImgColis.indexOf(e)}": MultipartFile(
-        //       e.path,
-        //       filename: "Image.jpg",
-        //     )
-        //   });
-        // });
-        print("response.body");
+    var key = await dababase.getKey();
+    fn.loading('Livraison', 'Ajout d\'un nouveau produit en cours');
+    if (key != null) {
+      var data = await createFormData();
+      print(data);
+      _isUpdating = true;
+      update();
 
-        var data = createFormData();
-        // FormData data = new FormData(dataS);
-        print("response.body");
-
-        _isUpdating = true;
-        update();
-
-        Response response = await livraisonRepo.newLivraison(data);
-        //print(response.body);
+      await livraisonRepo.newLivraison(data).then((response) {
+        print(response.body);
         if (response.statusCode == 200) {
           Get.toNamed(AppLinks.SUCCESSLIVRAISON);
-          _urlFacture = response.body['facture'];
-          await getListLivraisonsForUser();
+          // _urlFacture = response.body['facture'];
+          getListLivraisonsForUser();
         } else {
           fn.snackBar('Livraison', response.body['message'], false);
         }
-
         fn.closeLoader();
-
         fn.snackBar('Livraison', response.body['message'], true);
         _isUpdating = false;
-        // Get.back(closeOverlays: true);
         update();
-      }
-    } catch (e) {
-      fn.closeLoader();
 
-      fn.snackBar('Livraison', 'Une erreur est survenue', false);
-      //        fn.closeLoader();
+        update();
+      }).onError((e, h) {
+        fn.closeLoader();
 
-      _isUpdating = false;
-      update();
-      //print(e);
+        fn.snackBar('Livraison', 'Une erreur est survenue', false);
+
+        _isUpdating = false;
+        update();
+      });
     }
   }
 
@@ -828,8 +1102,8 @@ class LivraisonController extends GetxController {
                             size: MainAxisSize.max,
                             bgColor: ColorsApp.second,
                             onTap: () {
-                              setService(1);
                               Get.toNamed(AppLinks.NEWLIVRAISON);
+                              setService(1);
                             }),
                       ),
                       AppButton(
@@ -838,8 +1112,8 @@ class LivraisonController extends GetxController {
                           size: MainAxisSize.max,
                           // bgColor: AppColors.secondarytext,
                           onTap: () {
-                            setService(2);
                             Get.toNamed(AppLinks.NEWLIVRAISON);
+                            setService(2);
                           }),
                     ],
                   ))

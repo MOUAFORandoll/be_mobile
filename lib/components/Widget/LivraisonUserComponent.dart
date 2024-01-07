@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui';
 import 'dart:io';
+import 'package:BananaExpress/components/Widget/colisComponentUser.dart';
 import 'package:flutter/rendering.dart';
 
 import 'package:BananaExpress/components/Button/app_button_icon.dart';
@@ -55,7 +56,7 @@ class LivraisonUserComponent extends StatelessWidget {
                       height: kHeight * .17,
                       width: kWidth * .3,
                       fit: BoxFit.cover,
-                      imageUrl: livraison.fichier[0].src,
+                      imageUrl: livraison.colis[0].images[0].src,
                       imageBuilder: (context, imageProvider) {
                         return Container(
                           decoration: BoxDecoration(
@@ -95,9 +96,7 @@ class LivraisonUserComponent extends StatelessWidget {
                           children: [
                             Container(
                               child: Text(
-                                  'Libelle : ' +
-                                      livraison.libelle.toString() +
-                                      ' XAF',
+                                  'Libelle : ' + livraison.libelle.toString(),
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                     color: ColorsApp.primary,
@@ -105,17 +104,7 @@ class LivraisonUserComponent extends StatelessWidget {
                             ),
                             Container(
                               child: Text(
-                                  'Valeur : ' +
-                                      livraison.valeur.toString() +
-                                      ' XAF',
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    color: ColorsApp.primary,
-                                  )),
-                            ),
-                            Container(
-                              child: Text(
-                                  'Prix Final: ' +
+                                  'Prix Livraison: ' +
                                       livraison.montant.toString() +
                                       ' XAF',
                                   overflow: TextOverflow.ellipsis,
@@ -123,21 +112,6 @@ class LivraisonUserComponent extends StatelessWidget {
                                     color: ColorsApp.primary,
                                   )),
                             ),
-                            Container(
-                              child: Text(
-                                  'Quantite : ' + livraison.quantite.toString(),
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    color: ColorsApp.primary,
-                                  )),
-                            ),
-                            // Container(
-                            //   child: Text('Code : ' + livraison.codelivraison,
-                            //       overflow: TextOverflow.ellipsis,
-                            //       style: TextStyle(
-                            //         color: ColorsApp.primary,
-                            //       )),
-                            // ),
                             Container(
                                 child: Text('Date : ' + livraison.date,
                                     overflow: TextOverflow.ellipsis,
@@ -152,117 +126,52 @@ class LivraisonUserComponent extends StatelessWidget {
                                     color: ColorsApp.primary,
                                   )),
                             ),
-                            // Container(
-                            //   // width: kSmWidth * .6,
-                            //   child: Text('XAF ' + livraison.prix.toString(),
-                            //       overflow: TextOverflow.ellipsis,
-                            //       style: TextStyle(
-                            //           decoration: TextDecoration.lineThrough,
-                            //           decorationColor:  ColorsApp.black,
-                            //           decorationThickness: 2.85,
-                            //           color:  ColorsApp.black,
-                            //            ,
-                            //        )),
-                            // )
                           ],
                         )),
                   ]) /* ) */),
           onTap: () {
-            Get.bottomSheet(Container(
-                decoration: BoxDecoration(
-                    color: ColorsApp.grey,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15))),
-                padding: EdgeInsets.symmetric(horizontal: kSmWidth * .07),
-                height: 800,
+            Get.dialog(AlertDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              title: Text('Vos produits'),
+              actions: [
+                InkWell(
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: ColorsApp.orange),
+                      child: Row(mainAxisSize: MainAxisSize.min, children: [
+                        Text(
+                          'Fermer',
+                          style: TextStyle(
+                              color: ColorsApp.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 13),
+                        ),
+                        Icon(Icons.close, color: ColorsApp.white, weight: 50)
+                      ]),
+                    ),
+                    onTap: () => Get.back())
+              ],
+              content: Container(
                 child: SingleChildScrollView(
-                    child: Column(
-                        // mainAxisSize: MainAxisSize.min,
-                        children: [
-                      Container(
-                        height: kHeight * .20,
-                        padding: EdgeInsets.symmetric(vertical: 10),
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: livraison.fichier.length,
-                          itemBuilder: (context, index) => Container(
-                              margin: EdgeInsets.symmetric(horizontal: 5),
-                              child: CachedNetworkImage(
-                                height: kHeight * .15,
-                                width: kWidth * .3,
-                                fit: BoxFit.cover,
-                                imageUrl: livraison.fichier[index].src,
-                                imageBuilder: (context, imageProvider) {
-                                  return Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      image: DecorationImage(
-                                          image: imageProvider,
-                                          fit: BoxFit.cover,
-                                          colorFilter: ColorFilter.mode(
-                                              Colors.transparent,
-                                              BlendMode.colorBurn)),
-                                    ),
-                                  );
-                                },
-                                placeholder: (context, url) {
-                                  return Container(
-                                    child: Center(
-                                        child: CircularProgressIndicator(
-                                      color: ColorsApp.second,
-                                    )),
-                                  );
-                                },
-                                errorWidget: (context, url, error) {
-                                  return CircleAvatar(
-                                      backgroundColor: ColorsApp.second,
-                                      radius: 50,
-                                      backgroundImage: AssetImage(
-                                          "assets/logo/logoNew.png"));
-                                },
-                              )),
-                        ),
-                      ),
-                      if (livraison.status == 0)
-                        Text('Livraison en attente de validation'),
-                      if (livraison.status == 1)
-                        QrImageView(
-                          data: livraison.code_recuperation,
-                          version: QrVersions.auto,
-                          gapless: true,
-                          embeddedImage: AssetImage("assets/logo/logoNew.png"),
-                          // embeddedImageStyle:
-                          //     QrEmbeddedImageStyle(size: Size(20, 20)),
-                          size: 200.0,
-                        ),
-                      Container(
-                        height: 0,
-                        child: RepaintBoundary(
-                          key: globalKey,
-                          child: QrImageView(
-                            data: livraison.code_reception,
-                            version: QrVersions.auto,
-                            embeddedImage:
-                                AssetImage("assets/logo/logoNew.png"),
-                            // embeddedImageStyle:
-                            //     QrEmbeddedImageStyle(size: Size(20, 20)),
-                            size: 200.0,
-                          ),
-                        ),
-                      ),
-                      Container(
-                          margin: EdgeInsets.symmetric(
-                            vertical: kMarginY * 1.5,
-                          ),
-                          decoration: BoxDecoration(color: ColorsApp.grey),
-                          child: AppButtonIcon(
-                              icon: Icons.switch_access_shortcut_add_outlined,
-                              bgColor: ColorsApp.second,
-                              text: 'Partager le code de recuperation '.tr,
-                              onTap: () async => _captureAndSavePng())),
-                      if (livraison.status == 3) Text('Livraison termine')
-                    ]))));
+                    child: Column(children: [
+                  GridView.builder(
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 15.0,
+                          childAspectRatio: 5,
+                          mainAxisExtent: 150,
+                          mainAxisSpacing: 15.0),
+                      itemCount: livraison.colis.length,
+                      itemBuilder: (_ctx, index) =>
+                          ColisComponentUser(colis: livraison.colis[index])),
+                ])),
+              ),
+            ));
           },
         ),
         // Positioned(
@@ -278,73 +187,5 @@ class LivraisonUserComponent extends StatelessWidget {
         //         }))
       ],
     );
-  }
-
-// ...
-
-  Future<void> requestPermission() async {
-    PermissionStatus status = await Permission.storage.request();
-    if (status == PermissionStatus.granted) {
-      print('accepte');
-    } else {
-      print('refuse');
-    }
-  }
-
-  bool dirExists = false;
-  Future<void> _captureAndSavePng() async {
-    try {
-      await requestPermission();
-
-      final directory = await getTemporaryDirectory();
-      print('----------path-----${directory.path}-');
-      final externalDir = path.join(directory.path, 'Download', 'Qr_code');
-      final filePath = path.join(externalDir, 'image.png');
-
-      RenderRepaintBoundary boundary =
-          globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
-      var image = await boundary.toImage(pixelRatio: 3.0);
-
-      //Drawing White Background because Qr Code is Black
-      final whitePaint = Paint()..color = Colors.white;
-      final recorder = PictureRecorder();
-      final canvas = Canvas(recorder,
-          Rect.fromLTWH(0, 0, image.width.toDouble()*1.5, image.height.toDouble() * 1.5));
-      canvas.drawRect(
-          Rect.fromLTWH(0, 0, image.width.toDouble() * 1.5, image.height.toDouble() * 1.5),
-          whitePaint);
-      canvas.drawImage(image, Offset.zero, Paint());
-      final picture = recorder.endRecording();
-      final img = await picture.toImage(image.width, image.height);
-      ByteData? byteData = await img.toByteData(format: ImageByteFormat.png);
-      Uint8List pngBytes = byteData!.buffer.asUint8List();
-
-      //Check for duplicate file name to avoid Override
-      String fileName = 'qr_code';
-      int i = 1;
-      while (await File('$externalDir/$fileName.png').exists()) {
-        fileName = 'qr_code_$i';
-        i++;
-      }
-
-      dirExists = await File(externalDir).exists();
-      //if not then create the path
-      if (!dirExists) {
-        print('...........');
-
-        await Directory(externalDir).create(recursive: true);
-        dirExists = true;
-      }
-
-      final file = await File('$externalDir/$fileName.png').create();
-      await file.writeAsBytes(pngBytes);
-      final fileX = await XFile(file.path);
-      await Share.shareXFiles([fileX],
-          text:
-              'Voir votre code de receptin colis : ${livraison.code_reception}');
-      print('save');
-    } catch (e) {
-      print('error--------${e}');
-    }
   }
 }

@@ -5,7 +5,7 @@ class ApiRoutes {
   static const LOCATION_USER = '/user/location';
   static const USER = '/user/get';
   static const LIVREUR = '/livreur/read/ville';
-  static const LIVRAISON_POINT = '/point_livraison/read';
+  static const LIVRAISON_POINT = '/point_localisations';
   static const BUY = '/commande/newX';
   static const VERIFY = '/commande/verify';
   static const UPDATE_PRODUCT = '/produit/update';

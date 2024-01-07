@@ -30,6 +30,22 @@ class SocketService {
     // print(socket.connected);
   }
 
+  void livraisonFinish(canal, Function action) {
+    socket.on('livraison_finish', (data) {
+      print(data);
+      if (data != null && data != 'null') {
+        print(jsonDecode(data));
+        if (jsonDecode(data)['recepteur'].toString() == canal.toString()) {
+          print('-----------------');
+          print(jsonDecode(data));
+          action(jsonDecode(data)['data']);
+        }
+      }
+    });
+    // });
+    // print(socket.connected);
+  }
+
 //recepteur ici est l'id du user
   void notifications(recepteur, Function action) {
     socket.on('notifications', (msg) {

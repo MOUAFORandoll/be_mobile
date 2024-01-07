@@ -1,9 +1,13 @@
+import 'dart:collection';
+
+import 'package:BananaExpress/Views/Livraison/map_page_point_livraison_colis.dart';
 import 'package:BananaExpress/components/Button/addColis.dart';
 import 'package:BananaExpress/components/Button/app_button.dart';
 import 'package:BananaExpress/components/Button/customBtn.dart';
 import 'package:BananaExpress/components/Button/uploadImage.dart';
 import 'package:BananaExpress/components/Widget/app_back_button.dart';
 import 'package:BananaExpress/components/Widget/app_input_new.dart';
+import 'package:BananaExpress/components/Widget/colisComponent.dart';
 import 'package:BananaExpress/components/Widget/imageComp.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
@@ -29,18 +33,22 @@ class _InfoColisState extends State<InfoColis> {
     return GetBuilder<LivraisonController>(builder: (_controller) {
       return SingleChildScrollView(
           child: Column(children: [
-        Container(
-          height: kSmHeight * 2,
-          margin: EdgeInsets.only(
-            top: kMarginY,
-          ),
-          child: ListView.builder(
-              itemCount: _controller.listColis.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (_ctx, index) => ImageComp(
-                  file: _controller.listColis[index].listImgColis[0],
-                  index: index)),
-        ),
+        SizedBox(
+            height: _controller.listColis.length == 0 ? 0 : kHeight * .65,
+            child: Stack(children: [
+              GridView.builder(
+                  shrinkWrap: true,
+                  // physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10.0,
+                      childAspectRatio: 20,
+                      mainAxisExtent: 150,
+                      mainAxisSpacing: 20.0),
+                  itemCount: _controller.listColis.length,
+                  itemBuilder: (_ctx, index) =>
+                      ColisComponent(colis: _controller.listColis[index])),
+            ])),
         AddColis(
           color: ColorsApp.tird,
           title: 'Colis',
@@ -64,8 +72,8 @@ openModalAddColis() {
                 height: kHeight * .9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
                   ),
                   color: ColorsApp.white,
                 ),
@@ -81,7 +89,7 @@ openModalAddColis() {
                           child: Row(
                             children: [
                               Text(
-                                'alcr'.tr + ' ',
+                                'Informations de votre colis'.tr + ' ',
                                 style: TextStyle(fontWeight: FontWeight.w500),
                               ),
                             ],
@@ -112,32 +120,6 @@ openModalAddColis() {
                           decoration: BoxDecoration(),
                           child: SingleChildScrollView(
                               child: Column(children: [
-                            Container(
-                              margin: EdgeInsets.only(
-                                top: kMarginY * 1.5,
-                              ),
-                              child: AppInputNew(
-                                controller: _controller.nomProduit,
-                                icon: Icon(Icons.label),
-                                label: 'Nom du colis'.tr,
-                                validator: (value) {
-                                  return Validators.isValidUsername(value!);
-                                },
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(
-                                top: kMarginY * 1.5,
-                              ),
-                              child: AppInputNew(
-                                controller: _controller.contactRecepteur,
-                                icon: Icon(Icons.phone),
-                                label: 'Contact du recepteur'.tr,
-                                validator: (value) {
-                                  return Validators.usPhoneValid(value!);
-                                },
-                              ),
-                            ),
                             Container(
                                 padding: EdgeInsets.only(
                                   top: kMarginY,
@@ -191,6 +173,32 @@ openModalAddColis() {
                                 top: kMarginY * 1.5,
                               ),
                               child: AppInputNew(
+                                controller: _controller.nomProduit,
+                                icon: Icon(Icons.label),
+                                label: 'Nom du colis'.tr,
+                                validator: (value) {
+                                  return Validators.isValidUsername(value!);
+                                },
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                top: kMarginY * 1.5,
+                              ),
+                              child: AppInputNew(
+                                controller: _controller.contactRecepteur,
+                                icon: Icon(Icons.phone),
+                                label: 'Contact du recepteur'.tr,
+                                validator: (value) {
+                                  return Validators.usPhoneValid(value!);
+                                },
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(
+                                top: kMarginY * 1.5,
+                              ),
+                              child: AppInputNew(
                                 textInputType: TextInputType.number,
                                 controller: _controller.valeurColis,
                                 icon: Icon(Icons.monetization_on),
@@ -200,6 +208,35 @@ openModalAddColis() {
                                 },
                               ),
                             ),
+                            Container(
+                                padding: EdgeInsets.only(
+                                  top: kMarginY,
+                                ),
+                                alignment: Alignment.centerLeft,
+                                child: Text('Point de livraison')),
+                            InkWell(
+                                child: Container(
+                                    margin: EdgeInsets.only(
+                                      top: kMarginY,
+                                    ),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: kMarginY,
+                                        horizontal: kMarginX),
+                                    height: kHeight * .06,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: ColorsApp.grey),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(child: Text('Selectionner')),
+                                        Icon(Icons.location_on),
+                                      ],
+                                    )),
+                                onTap: () {
+                                  Get.to(MapPagePointLivraisonColis());
+                                }),
                             Container(
                                 padding: EdgeInsets.only(
                                   top: kMarginY,

@@ -63,8 +63,9 @@ class LivraisonRepo extends GetxService {
     return a;
   }
 
-  Future getLivraison_point() async {
-    Response a = await apiClient.getData(ApiRoutes.LIVRAISON_POINT);
+  Future getLivraisonPointByVille(id) async {
+    Response a =
+        await apiClient.getData(ApiRoutes.LIVRAISON_POINT + '?ville=${id}');
 
     return a;
   }

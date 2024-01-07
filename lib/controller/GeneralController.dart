@@ -23,7 +23,9 @@ import 'package:get_storage/get_storage.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:geolocator/geolocator.dart';
 
+import 'package:location/location.dart' hide LocationAccuracy, PermissionStatus;
 import 'package:flutter_svg/flutter_svg.dart';
 
 class GeneralController extends GetxController {
@@ -486,6 +488,8 @@ class GeneralController extends GetxController {
       //print(e);
     }
   }
+
+
 
   int _isLoadedHome = 0;
   int get isLoadedHome => _isLoadedHome;

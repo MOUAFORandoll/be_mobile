@@ -37,8 +37,9 @@ Future<void> initApp() async {
     }
   }
   Get.find<LivraisonController>().connectToSocketLivraison();
+  Get.find<LivraisonController>().livraisonFinish();
 
-  // await Get.find<GeneralController>().NotificationSocket();
+  await Get.find<LivraisonController>().determinePosition();
 }
 
 Future<void> secondInit() async {
@@ -53,6 +54,7 @@ Future<void> secondInit() async {
 // ...
 Future<void> initAllApp() async {
   await requestPermission();
+  await Get.find<LivraisonController>().determinePosition();
 
   Get.find<ManagerController>().chageN(true);
   await GetStorage.init();
@@ -74,8 +76,8 @@ Future<void> initAllApp() async {
     }
   }
 
+  Get.find<LivraisonController>().livraisonFinish();
   Get.find<LivraisonController>().connectToSocketLivraison();
-  Get.find<LivraisonController>().getPointLivraisom();
 
   // Get.find<GeneralController>().getListModePaiement();
 }

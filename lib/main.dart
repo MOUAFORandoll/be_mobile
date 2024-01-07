@@ -42,7 +42,7 @@ final _darkTheme = ThemeData(
 );
 
 final _lightTheme = ThemeData(
-  primaryColor: Colors.white,
+  // primaryColor: Colors.white,
   brightness: Brightness.light,
   iconTheme: IconThemeData(
     color: ColorsApp.primary,

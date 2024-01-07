@@ -36,7 +36,8 @@ class SuccesReceptionview extends StatelessWidget {
                         margin: EdgeInsets.symmetric(
                           vertical: kMarginY * 2,
                         ),
-                        child: Text('Livraison effectuee avec succes.'.tr,
+                        child: Text(
+                            'Livraison de ce colis effectuee avec succes.'.tr,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: ColorsApp.primary))),
                     Container(

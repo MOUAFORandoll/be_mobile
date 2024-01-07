@@ -134,7 +134,7 @@ class _ScanReceptionState extends State<ScanReception> {
                   var getU = await Get.find<DataBaseController>().getKey();
                   var data = {
                     'livraison': widget.idLivraison,
-                    'code_reception': pin,
+                    'code_livraison_colis': pin,
                     'keySecretBabana': getU
                   };
                   print(data);
@@ -165,7 +165,7 @@ class _ScanReceptionState extends State<ScanReception> {
       if (scanData != null) {
         var data = {
           'livraison': widget.idLivraison,
-          'code_reception': scanData.code,
+          'code_livraison_colis': scanData.code,
           'keySecretBabana': getU
         };
         print(data);

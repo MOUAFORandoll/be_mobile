@@ -14,6 +14,7 @@ const backCamera = 'BACK CAMERA';
 
 class ScanRecuperation extends StatefulWidget {
   int idLivraison;
+
   ScanRecuperation({required this.idLivraison});
 
   @override
@@ -137,7 +138,7 @@ class _ScanRecuperationState extends State<ScanRecuperation> {
                     var getU = await Get.find<DataBaseController>().getKey();
                     var data = {
                       'livraison': widget.idLivraison,
-                      'code_recuperation': pin,
+                      'code_recuperation_colis': pin,
                       'keySecretBabana': getU
                     };
                     print(data);
@@ -170,7 +171,7 @@ class _ScanRecuperationState extends State<ScanRecuperation> {
       if (scanData != null) {
         var data = {
           'livraison': widget.idLivraison,
-          'code_recuperation': scanData.code,
+          'code_recuperation_colis': scanData.code,
           'keySecretBabana': getU
         };
         print(data);

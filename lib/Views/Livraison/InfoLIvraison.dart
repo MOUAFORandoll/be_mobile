@@ -3,7 +3,7 @@ import 'package:BananaExpress/components/Button/customBtn.dart';
 import 'package:BananaExpress/components/Button/uploadImage.dart';
 import 'package:BananaExpress/components/Widget/app_back_button.dart';
 import 'package:BananaExpress/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/components/Widget/imageComp.dart';
+import 'package:BananaExpress/components/Widget/colisComponent.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
 import 'package:BananaExpress/model/data/CategoryModel.dart';

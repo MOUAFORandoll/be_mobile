@@ -95,10 +95,10 @@ class BabanaView extends StatelessWidget {
                                 ? EmptyLivraisonsComponent()
                                 : Container(
                                     decoration: BoxDecoration(
-                                      // color: ColorsApp.white,
+                                        // color: ColorsApp.white,
 
-                                      color: Colors.white,
-                                    ),
+                                        // color: Colors.white,
+                                        ),
                                     child: SingleChildScrollView(
                                         child: ListView.builder(
                                             physics:
