@@ -12,6 +12,7 @@ import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:BananaExpress/Views/Livraison/MapPagePointRecuperation.dart';
 
 import '../../components/Widget/app_title_right.dart';
 
@@ -93,6 +94,98 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       ),
                     ),
                   ),
+                  Container(
+                      padding: EdgeInsets.only(
+                        top: kMarginY,
+                      ),
+                      alignment: Alignment.centerLeft,
+                      child: Text('Point de livraison')),
+                  Container(
+                      margin: EdgeInsets.only(
+                        top: kMarginY,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          (_controller.longitudeRecuperation == 0.0 &&
+                                  _controller.latitudeRecuperation == 0.0)
+                              ? Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: ColorsApp.grey, width: 1),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  height: kHeight * .08,
+                                  width: kWidth * .7,
+                                  margin: EdgeInsets.only(
+                                    top: kMarginY * 1.5,
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: DropdownButton(
+                                    value:
+                                        _controller.selected_recuperation_point,
+                                    hint: Container(
+                                      width: kWidth * .6,
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'Selectionner un point de recuperation',
+                                        style: TextStyle(
+                                            overflow: TextOverflow.ellipsis),
+                                      ),
+                                    ),
+                                    icon: Container(
+                                      // padding: EdgeInsets.only(top: 4),
+                                      child: Icon(
+                                        Icons.keyboard_arrow_down_outlined,
+                                      ),
+                                    ),
+                                    iconSize: 25,
+                                    underline: SizedBox(),
+                                    style: TextStyle(
+                                        color: ColorsApp.primary, fontSize: 12),
+                                    onChanged: (newValue) {
+                                      _controller
+                                          .selectRecuperationPoint(newValue);
+                                    },
+                                    items: _controller.list_recuperation_point
+                                        .map((value) {
+                                      return DropdownMenuItem(
+                                        value: value,
+                                        child: Center(
+                                          child: Text(
+                                            value.libelle,
+                                          ),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                )
+                              : Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: kMarginY, horizontal: kMarginX),
+                                  height: kHeight * .06,
+                                  alignment: Alignment.center,
+                                  width: kWidth * .7,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: ColorsApp.grey),
+                                  child: Text(_controller
+                                          .libelleLocalisation.text.isEmpty
+                                      ? 'Selectionner'
+                                      : _controller.libelleLocalisation.text)),
+                          InkWell(
+                              child: Container(
+                                  padding: EdgeInsets.all(10),
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(90),
+                                      color: ColorsApp.grey),
+                                  child: Icon(Icons.location_on)),
+                              onTap: () {
+                                Get.to(MapPagePointRecuperation());
+                              }),
+                        ],
+                      )),
                   Container(
                     margin: EdgeInsets.only(
                       top: kMarginY * 1.5,

@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:BananaExpress/Views/Livraison/map_page_point_livraison_colis.dart';
+import 'package:BananaExpress/Views/Livraison/MapPagePointLivraisonColis.dart';
 import 'package:BananaExpress/components/Button/addColis.dart';
 import 'package:BananaExpress/components/Button/app_button.dart';
 import 'package:BananaExpress/components/Button/customBtn.dart';

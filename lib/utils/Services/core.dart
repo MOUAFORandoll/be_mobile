@@ -40,6 +40,7 @@ Future<void> initApp() async {
   Get.find<LivraisonController>().livraisonFinish();
 
   await Get.find<LivraisonController>().determinePosition();
+  await Get.find<LivraisonController>().getPointRecuperationUser();
 }
 
 Future<void> secondInit() async {
@@ -78,6 +79,7 @@ Future<void> initAllApp() async {
 
   Get.find<LivraisonController>().livraisonFinish();
   Get.find<LivraisonController>().connectToSocketLivraison();
+  await Get.find<LivraisonController>().getPointRecuperationUser();
 
   // Get.find<GeneralController>().getListModePaiement();
 }

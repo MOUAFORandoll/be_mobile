@@ -104,13 +104,54 @@ class LivraisonController extends GetxController {
 /**
  * Recuperation colis pointttttt
  */
+
+  List<PointLivraisonModel> _list_search_recuperation_point = [];
+  List<PointLivraisonModel> get list_search_recuperation_point =>
+      _list_search_recuperation_point;
+  TextEditingController _searchPointRecuperationController =
+      new TextEditingController();
+
+  TextEditingController get searchPointRecuperationController =>
+      _searchPointRecuperationController;
+
+  void searchPointRecuperationPointLivraison() {
+    String searchPointRecuperationText = searchController.text.toLowerCase();
+
+    _list_search_recuperation_point.clear();
+
+    if (searchPointRecuperationText.isEmpty) {
+      _list_search_recuperation_point.addAll(list_recuperation_point);
+    } else {
+      _list_search_recuperation_point.addAll(
+        list_recuperation_point.where(
+          (element) =>
+              element.libelle
+                  .toLowerCase()
+                  .contains(searchPointRecuperationText) ||
+              element.quartier
+                  .toLowerCase()
+                  .contains(searchPointRecuperationText) ||
+              element.ville.toLowerCase().contains(searchPointRecuperationText),
+        ),
+      );
+    }
+
+    update();
+    print(_search_livraison_point.length);
+  }
+
   TextEditingController _libelleLocalisation = new TextEditingController();
 
   TextEditingController get libelleLocalisation => _libelleLocalisation;
   TextEditingController _quartier = new TextEditingController();
 
   TextEditingController get quartier => _quartier;
+setLibelleAndQuartier(pl){
+  _libelleLocalisation.text =  pl.libelle;
+  _quartier.text =  pl.quartier;
+    update();
 
+}
   var _longitudeRecuperation = 0.0;
   get longitudeRecuperation => _longitudeRecuperation;
   var _latitudeRecuperation = 0.0;
@@ -120,34 +161,59 @@ class LivraisonController extends GetxController {
     _latitudeRecuperation = value.latitude;
 
     update();
-    print(longitudeRecuperation);
+    print("-----------$latitudeRecuperation-------$longitudeRecuperation");
   }
 
-  PointLivraisonModel _selected_recuperation_point = new PointLivraisonModel(
-      id: 0,
-      libelle: '',
-      ville: '',
-      quartier: '',
-      image: '',
-      longitude: 0.0,
-      latitude: 0.0);
-  PointLivraisonModel get selected_recuperation_point =>
-      _selected_recuperation_point;
+  var _selected_recuperation_point;
+  get selected_recuperation_point => _selected_recuperation_point;
   selectRecuperationPoint(point) {
     _selected_recuperation_point = point;
     update();
   }
 
-/**
- * 
- * Search pointtttttttttttt section
- */
+  List<PointLivraisonModel> _list_recuperation_point = [];
+  List<PointLivraisonModel> get list_recuperation_point =>
+      _list_recuperation_point;
+  int _isLoadedRecuperationPoint = 0;
+  int get isLoadedRecuperationPoint => _isLoadedRecuperationPoint;
+
+  getPointRecuperationUser() async {
+    var getU = await dababase.getKey();
+    if (getU != null) {
+      try {
+        print('*********debut get point');
+        _list_recuperation_point.clear();
+        _isLoadedRecuperationPoint = 0;
+        update();
+        print('*********3...... get point');
+
+        Response response = await livraisonRepo.getPointRecuperationUser(getU);
+        ;
+        if (response.body != null) {
+          _list_recuperation_point.addAll((response.body['data'] as List)
+              .map((e) => PointLivraisonModel.fromJson(e))
+              .toList());
+          _isLoadedRecuperationPoint = 1;
+          update();
+        }
+      } catch (e) {
+        print(e);
+        _isLoadedRecuperationPoint = 2;
+        update();
+      }
+    }
+  }
+
   @override
   void onInit() {
     super.onInit();
 
     _quantite.text = '0';
   }
+
+/**
+ * Point de livraison colis
+ */
 
   TextEditingController _searchController = new TextEditingController();
 
@@ -174,10 +240,6 @@ class LivraisonController extends GetxController {
     update();
     print(_search_livraison_point.length);
   }
-
-/**
- * Point de livraison colis
- */
 
   TextEditingController _libelleLocalisationColis = new TextEditingController();
 
@@ -234,7 +296,7 @@ class LivraisonController extends GetxController {
   List<PointLivraisonModel> get livraison_point => _livraison_point;
   int _isLoaded = 0;
   int get isLoaded => _isLoaded;
-  // CategoryController({required this.service});
+
   getPointLivraisom() async {
     try {
       print('*********debut get point');
@@ -245,21 +307,19 @@ class LivraisonController extends GetxController {
 
       Response response =
           await livraisonRepo.getLivraisonPointByVille(villeSelect.id);
-      // print('*********fin get point ${response.body}');
+      ;
       if (response.body != null) {
-        // if (response.body['data'].length != 0) {
-
         _livraison_point.addAll((response.body['data'] as List)
+            .map((e) => PointLivraisonModel.fromJson(e))
+            .toList());
+        _list_recuperation_point.addAll((response.body['data'] as List)
             .map((e) => PointLivraisonModel.fromJson(e))
             .toList());
         _isLoaded = 1;
         update();
       }
-
-      // }
-      // //print(_livraison_point);
     } catch (e) {
-      //print(e);
+      print(e);
     }
   }
 
@@ -494,31 +554,6 @@ class LivraisonController extends GetxController {
     });
   }
 
-  List<LivraisonModel> _babanaLivraisonList = [];
-  List<LivraisonModel> get babanaLivraisonList => _babanaLivraisonList;
-
-  getListLivraisonsForBabana() async {
-    // _babanaLivraisonList = [];
-    var key = await dababase.getKey();
-    _isLoadedLivraison = 0;
-    update();
-
-    await livraisonRepo.getHistoryLivraisonsBabana(key).then((response) {
-      _babanaLivraisonList.clear();
-
-      _babanaLivraisonList.addAll((response.body['data'] as List)
-          .map((e) => LivraisonModel.fromJson(e))
-          .toList());
-
-      _isLoadedLivraison = 1;
-      update();
-    }).onError((e, h) {
-      print(e);
-      _isLoadedLivraison = 1;
-      update();
-    });
-  }
-
   void fineListToUpdate(LivraisonModel data) {
     int index =
         _babanaLivraisonList.indexWhere((element) => element.id == data.id);
@@ -551,80 +586,6 @@ class LivraisonController extends GetxController {
     var key = await dababase.getKey();
 
     new SocketService().livraisonFinish(key, finishLivraion);
-  }
-
-  bool _isUpdating = false;
-  bool get isUpdating => _isUpdating;
-  recuperationColis(data) async {
-    _isUpdating = true;
-    update();
-
-    fn.loading(
-        'Verification code recuperation', 'Livraison du produit en cours');
-
-    try {
-      Response response = await livraisonRepo.recuperationColis(data);
-      print(response.body);
-      if (response.statusCode == 200) {
-        fn.closeLoader();
-        // print(response.body['data']);
-        // fineListToUpdate(LivraisonModel.fromJson(response.body['data']));
-
-        Get.to(SuccesRecuperationview());
-        fn.snackBar('Livraison', response.body['message'], true);
-      } else {
-        fn.snackBar('Livraison', response.body['message'], false);
-      }
-      fn.closeLoader();
-
-      _isUpdating = false;
-      // Get.back(closeOverlays: true);
-      update();
-    } catch (e) {
-      fn.closeLoader();
-
-      fn.snackBar('Livraison', 'Une erreur est survenue', false);
-      //        fn.closeLoader();
-
-      _isUpdating = false;
-      update();
-      //print(e);
-    }
-  }
-
-  receptionColis(data) async {
-    _isUpdating = true;
-    update();
-
-    fn.loading(
-        'Verification code recuperation', 'Livraison du produit en cours');
-
-    try {
-      Response response = await livraisonRepo.receptionColis(data);
-      //print(response.body);
-      if (response.statusCode == 200) {
-        fn.closeLoader();
-        // fineListToUpdate(LivraisonModel.fromJson(response.body['data']));
-        fn.snackBar('Livraison', response.body['message'], true);
-        Get.to(SuccesReceptionview());
-      } else {
-        fn.snackBar('Livraison', response.body['message'], false);
-      }
-      fn.closeLoader();
-
-      _isUpdating = false;
-      // Get.back(closeOverlays: true);
-      update();
-    } catch (e) {
-      fn.closeLoader();
-
-      fn.snackBar('Livraison', 'Une erreur est survenue', false);
-      //        fn.closeLoader();
-
-      _isUpdating = false;
-      update();
-      //print(e);
-    }
   }
 
   TextEditingController _libelle = TextEditingController();
@@ -1192,4 +1153,108 @@ class LivraisonController extends GetxController {
         ),
         backgroundColor: Colors.transparent,
       );
+
+/**
+*
+* Babana verification section
+*/
+
+  List<LivraisonModel> _babanaLivraisonList = [];
+  List<LivraisonModel> get babanaLivraisonList => _babanaLivraisonList;
+
+  getListLivraisonsForBabana() async {
+    // _babanaLivraisonList = [];
+    var key = await dababase.getKey();
+    _isLoadedLivraison = 0;
+    update();
+
+    await livraisonRepo.getHistoryLivraisonsBabana(key).then((response) {
+      _babanaLivraisonList.clear();
+
+      _babanaLivraisonList.addAll((response.body['data'] as List)
+          .map((e) => LivraisonModel.fromJson(e))
+          .toList());
+
+      _isLoadedLivraison = 1;
+      update();
+    }).onError((e, h) {
+      print(e);
+      _isLoadedLivraison = 1;
+      update();
+    });
+  }
+
+  bool _isUpdating = false;
+  bool get isUpdating => _isUpdating;
+  recuperationColis(data) async {
+    _isUpdating = true;
+    update();
+
+    fn.loading(
+        'Verification code recuperation', 'Livraison du produit en cours');
+
+    try {
+      Response response = await livraisonRepo.recuperationColis(data);
+      print(response.body);
+      if (response.statusCode == 200) {
+        fn.closeLoader();
+        // print(response.body['data']);
+        // fineListToUpdate(LivraisonModel.fromJson(response.body['data']));
+
+        Get.to(SuccesRecuperationview());
+        fn.snackBar('Livraison', response.body['message'], true);
+      } else {
+        fn.snackBar('Livraison', response.body['message'], false);
+      }
+      fn.closeLoader();
+
+      _isUpdating = false;
+      // Get.back(closeOverlays: true);
+      update();
+    } catch (e) {
+      fn.closeLoader();
+
+      fn.snackBar('Livraison', 'Une erreur est survenue', false);
+      //        fn.closeLoader();
+
+      _isUpdating = false;
+      update();
+      //print(e);
+    }
+  }
+
+  receptionColis(data) async {
+    _isUpdating = true;
+    update();
+
+    fn.loading(
+        'Verification code recuperation', 'Livraison du produit en cours');
+
+    try {
+      Response response = await livraisonRepo.receptionColis(data);
+      //print(response.body);
+      if (response.statusCode == 200) {
+        fn.closeLoader();
+        // fineListToUpdate(LivraisonModel.fromJson(response.body['data']));
+        fn.snackBar('Livraison', response.body['message'], true);
+        Get.to(SuccesReceptionview());
+      } else {
+        fn.snackBar('Livraison', response.body['message'], false);
+      }
+      fn.closeLoader();
+
+      _isUpdating = false;
+      // Get.back(closeOverlays: true);
+      update();
+    } catch (e) {
+      fn.closeLoader();
+
+      fn.snackBar('Livraison', 'Une erreur est survenue', false);
+      //        fn.closeLoader();
+
+      _isUpdating = false;
+      update();
+      //print(e);
+    }
+  }
 }

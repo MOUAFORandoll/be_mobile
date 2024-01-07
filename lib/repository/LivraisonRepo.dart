@@ -70,6 +70,13 @@ class LivraisonRepo extends GetxService {
     return a;
   }
 
+  Future getPointRecuperationUser(keySecret) async {
+    Response a = await apiClient
+        .getData(ApiRoutes.LIVRAISON_POINT + '/user?keySecret=${keySecret}');
+
+    return a;
+  }
+
   Future verifyCom(data) async {
     Response a = await apiClient.postData(ApiRoutes.VERIFY, data);
 
