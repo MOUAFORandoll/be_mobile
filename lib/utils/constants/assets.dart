@@ -40,4 +40,5 @@ class Assets {
   static const ventes = 'assets/svg_icones/ventes.svg';
   static const menu = 'assets/svg_icones/menu.svg';
   static const bg_white = 'assets/images/bg_white.jpeg';
+  static const medical = 'assets/images/medical.png';
 }

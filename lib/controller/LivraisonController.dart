@@ -5,7 +5,6 @@ import 'package:BananaExpress/Views/Livraison/SuccesReceptionview.dart';
 import 'package:BananaExpress/Views/Livraison/SuccesRecuperationview.dart';
 import 'package:BananaExpress/components/Button/app_button.dart';
 import 'package:BananaExpress/controller/DataBaseController.dart';
-import 'package:BananaExpress/controller/GeneralController.dart';
 import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/model/data/PointLivraisonModel.dart';
 import 'package:BananaExpress/model/data/LivraisonModel.dart';
@@ -14,22 +13,12 @@ import 'package:BananaExpress/repository/LivreurRepo.dart';
 import 'package:BananaExpress/utils/Services/SocketService.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
 import 'package:BananaExpress/utils/Services/apiUrl.dart';
-import 'package:BananaExpress/utils/functions/viewFunctions.dart';
 import 'package:dio/dio.dart' hide Response, MultipartFile, FormData;
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
-// import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 import '../components/exportcomponent.dart';
-import 'dart:io';
-
 import 'package:geolocator/geolocator.dart';
-
-import 'package:location/location.dart' hide LocationAccuracy, PermissionStatus;
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Colis {
   String nom;
@@ -43,7 +32,7 @@ class Colis {
   String? quartier;
   double? longitude;
   double? latitude;
-  String? idPointLivraisonColis;
+  int? idPointLivraisonColis;
   List<File> listImgColis;
 
   Colis({
@@ -65,6 +54,10 @@ class Colis {
   Map<String, dynamic> toJson() {
     return {
       'nom': nom,
+      'libelleLocalisation': libelleLocalisation,
+      'quartier': quartier,
+      'longitude': longitude,
+      'latitude': latitude,
       'quantite': quantite,
       'countImage': countImage,
       'contactRecepteur': contactRecepteur,
@@ -146,12 +139,12 @@ class LivraisonController extends GetxController {
   TextEditingController _quartier = new TextEditingController();
 
   TextEditingController get quartier => _quartier;
-setLibelleAndQuartier(pl){
-  _libelleLocalisation.text =  pl.libelle;
-  _quartier.text =  pl.quartier;
+  setLibelleAndQuartier(pl) {
+    _libelleLocalisation.text = pl.libelle;
+    _quartier.text = pl.quartier;
     update();
+  }
 
-}
   var _longitudeRecuperation = 0.0;
   get longitudeRecuperation => _longitudeRecuperation;
   var _latitudeRecuperation = 0.0;
@@ -169,6 +162,7 @@ setLibelleAndQuartier(pl){
   selectRecuperationPoint(point) {
     _selected_recuperation_point = point;
     update();
+    verifyForm();
   }
 
   List<PointLivraisonModel> _list_recuperation_point = [];
@@ -188,7 +182,7 @@ setLibelleAndQuartier(pl){
         print('*********3...... get point');
 
         Response response = await livraisonRepo.getPointRecuperationUser(getU);
-        ;
+
         if (response.body != null) {
           _list_recuperation_point.addAll((response.body['data'] as List)
               .map((e) => PointLivraisonModel.fromJson(e))
@@ -248,22 +242,23 @@ setLibelleAndQuartier(pl){
   TextEditingController _quartierColis = new TextEditingController();
 
   TextEditingController get quartierColis => _quartierColis;
-  PointLivraisonModel _selected_livraison_point = new PointLivraisonModel(
-      id: 0,
-      libelle: '',
-      ville: '',
-      quartier: '',
-      image: '',
-      longitude: 0.0,
-      latitude: 0.0);
-  PointLivraisonModel get selected_livraison_point => _selected_livraison_point;
+  var _selected_livraison_point;
+  get selected_livraison_point => _selected_livraison_point;
   selectPoint(point) {
     _selected_livraison_point = point;
     update();
   }
 
-  selectPoint0(point) {
-    _selected_livraison_point = point;
+  resetPointLivraison() {
+    _selected_livraison_point = null;
+    _libelleLocalisationColis.clear();
+    _quartierColis.clear();
+    update();
+  }
+
+  setLibelleAndQuartierColis(pl) {
+    _libelleLocalisationColis.text = pl.libelle;
+    _quartierColis.text = pl.quartier;
     update();
   }
 
@@ -316,6 +311,7 @@ setLibelleAndQuartier(pl){
             .map((e) => PointLivraisonModel.fromJson(e))
             .toList());
         _isLoaded = 1;
+        print(_livraison_point.length);
         update();
       }
     } catch (e) {
@@ -366,7 +362,7 @@ setLibelleAndQuartier(pl){
       //     new ProgressDialog(context, type: ProgressDialogType.Download);
       // progress.style(message: "Téléchargement en du fichier ...");
 
-      Directory d = Directory('/storage/emulated/0/Download');
+      // Directory d = Directory('/storage/emulated/0/Download');
 
       final file = File(
           '/storage/emulated/0/Download/facture_${now.hour}_${now.minute}_${now.second}.pdf');
@@ -518,9 +514,6 @@ setLibelleAndQuartier(pl){
     update();
   }
 
-  bool _isImage = false;
-  bool get isImage => _isImage;
-
   socketMessageNegociation(data) {
     fn.snackBar('Message negociation', data['message'], true);
     // ici on doit faire l'ajout a la liste des message en locale dans le telephone du user
@@ -613,11 +606,12 @@ setLibelleAndQuartier(pl){
     quantite.text = val
         ? check(int.parse(quantite.text) + 1)
         : check(int.parse(quantite.text) - 1);
+    verifyFormColis();
     update();
   }
 
   check(val) {
-    return val < 0 ? '0' : val.toString();
+    return val < 1 ? '1' : val.toString();
   }
 
   var _categorySelect;
@@ -631,6 +625,7 @@ setLibelleAndQuartier(pl){
   get villeSelect => _villeSelect;
   selectVille(cat) {
     _villeSelect = cat;
+    verifyForm();
     getPointLivraisom();
     update();
   }
@@ -652,14 +647,6 @@ setLibelleAndQuartier(pl){
     }
   }
 
-  int _state = 0;
-
-  int get state => _state;
-  changeState(i) {
-    _state = i;
-    update();
-  }
-
   List<File> _imageColis = [];
   List<File> get imageColis => _imageColis;
   cleanImage() {
@@ -668,6 +655,8 @@ setLibelleAndQuartier(pl){
   }
 
   Future getImageColisAppareil() async {
+    _imageColis.clear();
+    update();
     try {
       print('----------***********-----addding');
       var image = await ImagePicker().pickImage(
@@ -681,12 +670,16 @@ setLibelleAndQuartier(pl){
       print('--------ffd--***********-----addding');
       print(_imageColis.length);
       print('----------***********-----addding');
-
+      verifyFormColis();
+      Get.back();
       update();
     } catch (e) {}
   }
 
   Future getImageColisGalerie() async {
+    _imageColis.clear();
+    update();
+
     try {
       var image = await ImagePicker().pickImage(
           source: ImageSource.gallery,
@@ -695,6 +688,8 @@ setLibelleAndQuartier(pl){
           maxWidth: 500);
 
       _imageColis.add(File(image!.path));
+      verifyFormColis();
+      Get.back();
 
       update();
     } catch (e) {}
@@ -874,43 +869,93 @@ setLibelleAndQuartier(pl){
     }
   }
 
+  final _formKeyColis = new GlobalKey<FormState>();
+  get formKeyColis => _formKeyColis;
+
+  bool _isCategory = true;
+  bool get isCategory => _isCategory;
+
+  bool _isPointLivraison = true;
+  bool get isPointLivraison => _isPointLivraison;
+
+  bool _isQte = true;
+  bool get isQte => _isQte;
+  bool _isImage = true;
+  bool get isImage => _isImage;
+  verifyFormColis() {
+    if (_categorySelect == null) {
+      _isCategory = false;
+    } else {
+      _isCategory = true;
+    }
+    print("${_listImgColis.isEmpty}-----------------------");
+    if (_imageColis.isEmpty) {
+      _isImage = false;
+    } else {
+      _isImage = true;
+    }
+    if (quantite.text == '0' || quantite.text == 0) {
+      _isQte = false;
+    } else {
+      _isQte = true;
+    }
+    if (selected_livraison_point == null &&
+        libelleLocalisationColis.text.isEmpty &&
+        quartierColis.text.isEmpty &&
+        longitudeColis == 0.0 &&
+        latitudeColis == 0.0) {
+      _isPointLivraison = false;
+    } else {
+      _isPointLivraison = true;
+    }
+    update();
+    return (formKeyColis.currentState.validate() &&
+        _isCategory &&
+        _isPointLivraison &&
+        _isImage &&
+        _isQte);
+  }
+
   var frais = '1000';
   List<Colis> _listColis = [];
   List<Colis> get listColis => _listColis;
   int idColis = 1;
   addColis() {
-    List<MultipartFile> imageFiles = [];
+    if (verifyFormColis()) {
+      List<MultipartFile> imageFiles = [];
 
-    for (int j = 0; j < listImgColis.length; j++) {
-      File imageFile = listImgColis[j];
-      imageFiles.add(MultipartFile(
-        imageFile.path,
-        filename: 'Image$j.jpg',
-      ));
+      for (int j = 0; j < listImgColis.length; j++) {
+        File imageFile = listImgColis[j];
+        imageFiles.add(MultipartFile(
+          imageFile.path,
+          filename: 'Image$j.jpg',
+        ));
+      }
+
+      Colis newColis = Colis(
+        id: idColis,
+        nom: nomProduit.text,
+        quantite: quantite.text,
+        contactRecepteur: _contactRecepteur.text,
+        valeurColis: valeurColis.text,
+        category: _categorySelect.id,
+        libelleLocalisation: libelleLocalisationColis.text,
+        quartier: quartierColis.text,
+        longitude: longitudeColis,
+        latitude: latitudeColis,
+        idPointLivraisonColis:
+            selected_livraison_point != null ? selected_livraison_point.id : 0,
+        listImgColis: _imageColis,
+        countImage: _imageColis.length,
+      );
+
+      _listColis.add(newColis);
+      idColis++;
+      update();
+      print(newColis.contactRecepteur);
+      print(_listColis.length);
+      Get.back();
     }
-
-    Colis newColis = Colis(
-      id: idColis,
-      nom: nomProduit.text,
-      quantite: quantite.text,
-      contactRecepteur: _contactRecepteur.text,
-      valeurColis: valeurColis.text,
-      category: _categorySelect.id,
-      libelleLocalisation: libelleLocalisationColis.text,
-      quartier: quartierColis.text,
-      longitude: longitudeColis,
-      latitude: latitudeColis,
-      idPointLivraisonColis: "",
-      listImgColis: _imageColis,
-      countImage: _imageColis.length,
-    );
-
-    _listColis.add(newColis);
-    idColis++;
-    update();
-    print(newColis.contactRecepteur);
-    print(_listColis.length);
-    Get.back();
   }
 
   List<Map<String, dynamic>> convertListToJson(List<Colis> colisList) {
@@ -922,7 +967,9 @@ setLibelleAndQuartier(pl){
     var key = await dababase.getKey();
     var data = {
       'keySecret': key,
-      'idPointRecuperation': selected_recuperation_point.id,
+      'idPointRecuperation': selected_recuperation_point != null
+          ? selected_recuperation_point.id
+          : 0,
       'libelleLocalisation': libelleLocalisation.text,
       'quartier': quartier.text,
       'longitude': longitudeRecuperation,
@@ -952,6 +999,46 @@ setLibelleAndQuartier(pl){
     return formData;
   }
 
+  final _formKeyLivraison = new GlobalKey<FormState>();
+  get formKeyLivraison => _formKeyLivraison;
+
+  int _state = 0;
+
+  int get state => _state;
+
+  bool _isVille = true;
+  bool get isVille => _isVille;
+
+  bool _isPointRecuperation = true;
+  bool get isPointRecuperation => _isPointRecuperation;
+  verifyForm() {
+    if (villeSelect == null) {
+      _isVille = false;
+    } else {
+      _isVille = true;
+    }
+    if (selected_recuperation_point == null) {
+      _isPointRecuperation = false;
+    } else {
+      _isPointRecuperation = true;
+    }
+    update();
+    return (formKeyLivraison.currentState.validate() &&
+        villeSelect != null &&
+        selected_recuperation_point != null);
+  }
+
+  changeState(i) {
+    if (i == 1) {
+      verifyForm();
+      if (verifyForm()) {
+        _state = i;
+        update();
+      }
+      print(i);
+    }
+  }
+
   newLivraison() async {
     _urlFacture = '';
 
@@ -972,8 +1059,7 @@ setLibelleAndQuartier(pl){
         } else {
           fn.snackBar('Livraison', response.body['message'], false);
         }
-        fn.closeLoader();
-        fn.snackBar('Livraison', response.body['message'], true);
+
         _isUpdating = false;
         update();
 

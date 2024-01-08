@@ -1,21 +1,12 @@
 import 'package:BananaExpress/Views/Livraison/InfoColis.dart';
 import 'package:BananaExpress/Views/Livraison/InfoLIvraison.dart';
 import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Button/customBtn.dart';
-import 'package:BananaExpress/components/Button/uploadImage.dart';
 import 'package:BananaExpress/components/Widget/app_back_button.dart';
-import 'package:BananaExpress/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/components/Widget/imageComp.dart';
-import 'package:BananaExpress/controller/GeneralController.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
-import 'package:BananaExpress/model/data/CategoryModel.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../components/Widget/app_title_right.dart';
 
 class NewLivraisonView extends StatefulWidget {
   NewLivraisonView({Key? key}) : super(key: key);
@@ -73,7 +64,7 @@ class _NewLivraisonViewState extends State<NewLivraisonView> {
                                 _controller.state == 0
                                     ? await _controller.changeState(1)
                                     : await _controller
-                                        .newLivraison(); //   .calculFraisDeLivraison();
+                                        .calculFraisDeLivraison();
                               },
                             ),
                           ])),

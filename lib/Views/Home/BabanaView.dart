@@ -1,48 +1,17 @@
 import 'package:BananaExpress/components/Widget/EmptyLivraisonsComponent.dart';
 import 'package:BananaExpress/components/Widget/LivraisonBabanaComponent.dart';
-import 'package:BananaExpress/components/Widget/LivraisonUserComponent.dart';
-import 'package:BananaExpress/components/Widget/ShimmerHome.dart';
 import 'package:BananaExpress/components/Widget/ShimmerLivraison.dart';
-import 'package:BananaExpress/components/Widget/ShimmerProduit.dart';
-import 'package:BananaExpress/components/Widget/app_title_right.dart';
 import 'package:BananaExpress/components/Widget/icon_svg.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
-import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
-import 'package:BananaExpress/components/Widget/categoryComponent.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:new_version_plus/new_version_plus.dart';
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Form/search_field.dart';
-import 'package:BananaExpress/components/Widget/ShimmerBox.dart';
-import 'package:BananaExpress/components/Widget/ShimmerHome.dart';
-import 'package:BananaExpress/components/Widget/ShimmerProduit.dart';
-import 'package:BananaExpress/components/Widget/app_title_right.dart';
-import 'package:BananaExpress/components/Widget/icon_svg.dart';
-import 'package:BananaExpress/controller/GeneralController.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
-import 'package:BananaExpress/controller/managerController.dart';
-import 'package:BananaExpress/utils/constants/assets.dart';
-import 'package:BananaExpress/components/Widget/categoryComponent.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:new_version_plus/new_version_plus.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../utils/Services/routing.dart';
-
+ 
 class BabanaView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

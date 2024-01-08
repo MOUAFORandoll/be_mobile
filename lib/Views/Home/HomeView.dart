@@ -1,21 +1,8 @@
 import 'package:BananaExpress/Views/Home/BabanaView.dart';
-import 'package:BananaExpress/Views/Home/SimpleUserView.dart';
-import 'package:BananaExpress/components/Widget/ShimmerHome.dart';
-import 'package:BananaExpress/components/Widget/ShimmerProduit.dart';
-import 'package:BananaExpress/components/Widget/app_title_right.dart';
-import 'package:BananaExpress/components/Widget/icon_svg.dart';
-import 'package:BananaExpress/controller/GeneralController.dart';
-import 'package:BananaExpress/controller/managerController.dart';
-import 'package:BananaExpress/utils/constants/assets.dart';
-import 'package:BananaExpress/components/Widget/categoryComponent.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/utils/Services/routing.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:BananaExpress/Views/Home/SimpleUserView.dart'; 
+import 'package:BananaExpress/controller/managerController.dart'; 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:new_version_plus/new_version_plus.dart';
 
 class HomeView extends StatefulWidget {
@@ -26,7 +13,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
-  ScrollController _scrollController = new ScrollController();
   void initState() {
     super.initState();
     _checkForUpdate();

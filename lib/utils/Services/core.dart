@@ -14,8 +14,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:uni_links/uni_links.dart';
 
 import 'dart:async';
-import 'dart:io';
-
 // ...
 Future<void> initApp() async {
   await requestPermission();

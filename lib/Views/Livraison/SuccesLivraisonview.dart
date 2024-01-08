@@ -2,14 +2,11 @@ import 'package:BananaExpress/components/Button/app_button.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
-import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 import '../../components/exportcomponent.dart';
 
 class SuccesLivraisonview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
     return Container(
         child: Scaffold(
             backgroundColor: ColorsApp.grey,
@@ -34,7 +31,7 @@ class SuccesLivraisonview extends StatelessWidget {
                           vertical: kMarginY * 2,
                         ),
                         child: Text(
-                            'Vous demande de livraison a ete enregistre avec succes. Suivez la progression demande dans le menu Livaison'
+                            'Votre demande de livraison a ete enregistre avec succes. Suivez la progression demande dans le menu Livaison'
                                 .tr,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: ColorsApp.primary))),

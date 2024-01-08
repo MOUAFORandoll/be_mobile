@@ -59,7 +59,7 @@ class _ForgotPassordScreenState extends State<ForgotPassordScreen>
 
   final int _numPages = 2;
   final pageController = PageController(initialPage: 0);
-  int _currentPage = 0;
+
 
   late TabController _tabController;
   List<Widget> _buildPageIndicator() {

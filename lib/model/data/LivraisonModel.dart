@@ -80,8 +80,8 @@ class ColisUser {
       statusLivraisonColis: json['statusLivraisonColis'],
       category: json['category'],
       contact_recepteur: json['contact_recepteur'],
-      code_recuperation_colis: json['code_recuperation_colis'],
-      code_livraison_colis: json['code_livraison_colis'],
+      code_recuperation_colis: json['code_recuperation_colis'].toString(),
+      code_livraison_colis: json['code_livraison_colis'].toString(),
       quantite: json['quantite'],
       images: List<Image>.from(
           json['images'].map((image) => Image.fromJson(image))),

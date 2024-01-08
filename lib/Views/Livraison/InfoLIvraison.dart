@@ -1,20 +1,12 @@
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Button/customBtn.dart';
-import 'package:BananaExpress/components/Button/uploadImage.dart';
-import 'package:BananaExpress/components/Widget/app_back_button.dart';
 import 'package:BananaExpress/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/components/Widget/colisComponent.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
-import 'package:BananaExpress/model/data/CategoryModel.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:BananaExpress/Views/Livraison/MapPagePointRecuperation.dart';
-
-import '../../components/Widget/app_title_right.dart';
 
 class InfoLIvraison extends StatefulWidget {
   InfoLIvraison({Key? key}) : super(key: key);
@@ -26,15 +18,13 @@ class InfoLIvraison extends StatefulWidget {
 class _InfoLIvraisonState extends State<InfoLIvraison> {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<LivraisonController>(builder: (_controller) {
-      return Container(
-          margin: EdgeInsets.symmetric(horizontal: kMarginX),
-          child: Column(
-            children: [
-              Expanded(
-                  child: SingleChildScrollView(
-                      child: Column(
-                children: [
+    return GetBuilder<LivraisonController>(
+        builder: (_controller) => Form(
+            key: _controller.formKeyLivraison,
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: kMarginX),
+              child: SingleChildScrollView(
+                child: Column(children: [
                   Container(
                     margin: EdgeInsets.only(
                       top: kMarginY * 1.5,
@@ -43,6 +33,9 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       controller: _controller.libelle,
                       icon: Icon(Icons.label),
                       label: 'Libelle'.tr,
+                      onChanged: (value) {
+                        _controller.verifyForm();
+                      },
                       validator: (value) {
                         return Validators.isValidUsername(value!);
                       },
@@ -56,7 +49,11 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       child: Text('Ville')),
                   Container(
                     decoration: BoxDecoration(
-                      border: Border.all(color: ColorsApp.grey, width: 1),
+                      border: Border.all(
+                          color: (!_controller.isVille)
+                              ? ColorsApp.second
+                              : ColorsApp.grey,
+                          width: 1),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     height: kHeight * .08,
@@ -94,12 +91,28 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       ),
                     ),
                   ),
+                  if (!_controller.isVille)
+                    Container(
+                        padding: EdgeInsets.only(
+                          top: kMarginY,
+                        ),
+                        margin: EdgeInsets.only(
+                          left: 10,
+                        ),
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Veuillez selectionner une ville',
+                          style: TextStyle(
+                              fontSize: 8,
+                              fontFamily: 'Lato',
+                              color: ColorsApp.second),
+                        )),
                   Container(
                       padding: EdgeInsets.only(
                         top: kMarginY,
                       ),
                       alignment: Alignment.centerLeft,
-                      child: Text('Point de livraison')),
+                      child: Text('Point de recuperation')),
                   Container(
                       margin: EdgeInsets.only(
                         top: kMarginY,
@@ -112,7 +125,11 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                               ? Container(
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: ColorsApp.grey, width: 1),
+                                        color:
+                                            (!_controller.isPointRecuperation)
+                                                ? ColorsApp.second
+                                                : ColorsApp.grey,
+                                        width: 1),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   height: kHeight * .08,
@@ -186,6 +203,22 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                               }),
                         ],
                       )),
+                  if (!_controller.isPointRecuperation)
+                    Container(
+                        padding: EdgeInsets.only(
+                          top: kMarginY,
+                        ),
+                        margin: EdgeInsets.only(
+                          left: 10,
+                        ),
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Veuillez selectionner un point de recuperation',
+                          style: TextStyle(
+                              fontSize: 8,
+                              fontFamily: 'Lato',
+                              color: ColorsApp.second),
+                        )),
                   Container(
                     margin: EdgeInsets.only(
                       top: kMarginY * 1.5,
@@ -194,6 +227,9 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       controller: _controller.contactEmetteur,
                       icon: Icon(Icons.phone),
                       label: 'Contact de l\'expediteur'.tr,
+                      onChanged: (value) {
+                        _controller.verifyForm();
+                      },
                       validator: (value) {
                         return Validators.usPhoneValid(value!);
                       },
@@ -205,7 +241,9 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     ),
                     child: TextFormField(
                       controller: _controller.description,
-                      onChanged: (String value) {},
+                      onChanged: (value) {
+                        _controller.verifyForm();
+                      },
                       validator: (value) {
                         return Validators.isValidUsername(value!);
                       },
@@ -246,10 +284,8 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       ),
                     ),
                   ),
-                ],
-              )))
-            ],
-          ));
-    });
+                ]),
+              ),
+            )));
   }
 }

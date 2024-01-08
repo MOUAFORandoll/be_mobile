@@ -1,22 +1,17 @@
 import 'package:BananaExpress/components/Widget/LivraisonUserComponent.dart';
 import 'package:BananaExpress/components/Widget/ShimmerLivraison.dart';
-import 'package:BananaExpress/components/Widget/app_empty.dart';
-import 'package:BananaExpress/components/Widget/app_loading.dart';
 import 'package:BananaExpress/components/Widget/icon_svg.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
-import 'package:BananaExpress/utils/functions/viewFunctions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:shimmer/shimmer.dart';
-
-import '../../components/Text/TextBackSpace.dart';
 import '../../components/Widget/EmptyLivraisonsComponent.dart';
 
+// ignore: must_be_immutable
 class LivraisonView extends StatelessWidget {
   LivraisonView({Key? key}) : super(key: key);
   ScrollController _scrollController = new ScrollController();

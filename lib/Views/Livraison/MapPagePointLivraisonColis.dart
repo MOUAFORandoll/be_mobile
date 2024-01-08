@@ -1,17 +1,19 @@
+import 'package:BananaExpress/components/Button/app_button.dart';
+import 'package:BananaExpress/components/Widget/app_input_new.dart';
 import 'package:BananaExpress/components/exportcomponent.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:BananaExpress/utils/Services/validators.dart'; 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
-import 'package:BananaExpress/controller/GeneralController.dart';
 
 class MapPagePointLivraisonColis extends StatefulWidget {
   @override
-  State<MapPagePointLivraisonColis> createState() => _MapPagePointLivraisonColisState();
+  State<MapPagePointLivraisonColis> createState() =>
+      _MapPagePointLivraisonColisState();
 }
 
-class _MapPagePointLivraisonColisState extends State<MapPagePointLivraisonColis> {
+class _MapPagePointLivraisonColisState
+    extends State<MapPagePointLivraisonColis> {
   late Marker _position;
   var livraison = Get.find<LivraisonController>();
   var latitude = 0.0;
@@ -95,6 +97,104 @@ class _MapPagePointLivraisonColisState extends State<MapPagePointLivraisonColis>
       });
     });
     close();
+  }
+
+  validatePoint() {
+    Get.dialog(AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      title: Text('Votre point de livraison'),
+      actions: [
+        InkWell(
+            child: Container(
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: ColorsApp.grey),
+              child: Row(mainAxisSize: MainAxisSize.min, children: [
+                Text(
+                  'Retour',
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+                ),
+                Icon(Icons.close, weight: 50)
+              ]),
+            ),
+            onTap: () => Get.back()),
+        InkWell(
+            child: Container(
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: ColorsApp.orange),
+              child: Row(mainAxisSize: MainAxisSize.min, children: [
+                Text(
+                  'Valider',
+                  style: TextStyle(
+                      color: ColorsApp.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 13),
+                ),
+                Icon(Icons.check, color: ColorsApp.white, weight: 50)
+              ]),
+            ),
+            onTap: () {
+              Get.back();
+              Get.back();
+            })
+      ],
+      content: Container(
+        child: SingleChildScrollView(
+            child: Column(children: [
+          Container(
+            margin: EdgeInsets.only(
+              top: kMarginY * 1.5,
+            ),
+            child: AppInputNew(
+              controller: livraison.libelleLocalisationColis,
+              icon: Icon(Icons.label),
+              label: 'Libelle'.tr,
+              validator: (value) {
+                return Validators.isValidUsername(value!);
+              },
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              top: kMarginY * 1.5,
+            ),
+            child: AppInputNew(
+              controller: livraison.quartierColis,
+              icon: Icon(Icons.label),
+              label: 'Quartier'.tr,
+              validator: (value) {
+                return Validators.isValidUsername(value!);
+              },
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              top: kMarginY * 1.5,
+            ),
+            width: kWidth * .8,
+            child: Text(
+              'Longitude : ${livraison.latitudeColis}',
+              style: TextStyle(overflow: TextOverflow.ellipsis),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              top: kMarginY * 1.5,
+            ),
+            width: kWidth * .8,
+            child: Text(
+              'Latitude : ${livraison.longitudeColis}',
+              style: TextStyle(overflow: TextOverflow.ellipsis),
+            ),
+          )
+        ])),
+      ),
+    ));
   }
 
   final Completer<GoogleMapController> _controller =
@@ -287,6 +387,12 @@ class _MapPagePointLivraisonColisState extends State<MapPagePointLivraisonColis>
                                                               .livraison_point[
                                                                   index]
                                                               .libelle);
+
+                                                      controller
+                                                          .setLibelleAndQuartierColis(
+                                                              controller
+                                                                      .livraison_point[
+                                                                  index]);
                                                       FocusScope.of(context)
                                                           .unfocus();
                                                     },
@@ -352,6 +458,11 @@ class _MapPagePointLivraisonColisState extends State<MapPagePointLivraisonColis>
                                                               .search_livraison_point[
                                                                   index]
                                                               .libelle);
+                                                      controller
+                                                          .setLibelleAndQuartierColis(
+                                                              controller
+                                                                      .search_livraison_point[
+                                                                  index]);
                                                       FocusScope.of(context)
                                                           .unfocus();
                                                     },
@@ -405,7 +516,20 @@ class _MapPagePointLivraisonColisState extends State<MapPagePointLivraisonColis>
                       ],
                     ),
                   ),
-                )
+                ),
+                Positioned(
+                  bottom: 10,
+                  left: 10,
+                  right: 10,
+                  child: AppButton(
+                    size: MainAxisSize.max,
+                    bgColor: ColorsApp.primary,
+                    text: "Valider".tr,
+                    onTap: () async {
+                      validatePoint();
+                    },
+                  ),
+                ),
               ],
             )));
   }

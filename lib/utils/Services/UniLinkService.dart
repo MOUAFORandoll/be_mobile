@@ -4,7 +4,6 @@ import 'package:BananaExpress/Views/User/RegisterScreen.dart';
 import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/utils/Services/routing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -15,9 +14,7 @@ import 'package:flutter/foundation.dart';
 bool _initialURILinkHandled = false;
 
 class UniLinkService extends GetxService {
-  Uri? _initialURI;
-  Uri? _currentURI;
-  Object? _err;
+  
 
   StreamSubscription? _streamSubscription;
 
@@ -32,7 +29,6 @@ class UniLinkService extends GetxService {
         if (initialURI != null) {
           debugPrint("Initial URI received $initialURI");
 
-          _initialURI = initialURI;
         } else {
           debugPrint("Null Initial URI received");
         }

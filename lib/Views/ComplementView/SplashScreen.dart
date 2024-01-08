@@ -2,24 +2,12 @@ import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/core.dart';
-import 'package:BananaExpress/utils/Services/dependancies.dart';
-import 'package:BananaExpress/utils/Services/storageService.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:get/get.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
-import 'package:BananaExpress/utils/Services/apiUrl.dart';
-import 'package:BananaExpress/utils/provider/refresh_token.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:intl/intl.dart';
-import 'package:jwt_decode/jwt_decode.dart';
-import 'package:BananaExpress/views/User/LoginScreen.dart';
 import 'dart:async';
-import 'package:uni_links/uni_links.dart';
-import 'package:flutter/services.dart' show PlatformException;
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreenPage extends StatefulWidget {

@@ -1,8 +1,6 @@
 import 'package:BananaExpress/components/Button/app_button.dart';
-
 import 'package:BananaExpress/components/Widget/app_carroussel_item.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
-import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
@@ -10,6 +8,7 @@ import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 
 class OnBoardingView extends StatelessWidget {
   @override

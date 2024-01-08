@@ -3,12 +3,9 @@ import 'package:BananaExpress/components/Widget/app_input_new.dart';
 import 'package:BananaExpress/components/exportcomponent.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
-import 'package:BananaExpress/utils/Services/validators.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:BananaExpress/utils/Services/validators.dart'; 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'dart:async';
-import 'package:BananaExpress/controller/GeneralController.dart';
+import 'dart:async'; 
 
 class MapPagePointRecuperation extends StatefulWidget {
   @override

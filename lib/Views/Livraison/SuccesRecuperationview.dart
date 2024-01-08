@@ -1,14 +1,10 @@
 import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/controller/GeneralController.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
-import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 import '../../components/exportcomponent.dart';
 
 class SuccesRecuperationview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
     return WillPopScope(
         onWillPop: () async {
           Get.offNamedUntil(AppLinks.FIRST, (route) => false);
