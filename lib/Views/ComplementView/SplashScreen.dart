@@ -49,64 +49,26 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: ColorsApp.white,
-          body: Container(
-              alignment: Alignment.center,
-              child: new Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                        margin: EdgeInsets.symmetric(vertical: kHeight / 3),
-                        child: /*  Text(
-                          'BananaExpress',
-                          style: TextStyle(
-                              fontSize: 34.0,
-                              fontFamily: 'Lato',
-                              fontWeight: FontWeight.w600),
-                        ) */
-                            SvgPicture.asset(
-                          Assets.logoSvg,
-                          width: kHeight / 10,
-                          height: kHeight / 10,
-                        )),
-                    // SizedBox(
-                    //   height: kHeight / 5,
-                    // ),
-                    Container(
-                        // margin: EdgeInsets.only(top: 250),
-                        child: Text(
-                      'from',
-                      style: TextStyle(
-                        // fontSize: 34.0,
-                        fontFamily: 'Lato', color: Colors.grey,
-                      ),
-                    )),
-                    Container(
-                      margin: EdgeInsets.only(top: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                              child: SvgPicture.asset(
-                            Assets.logo_esq,
-                            width: kHeight / 20,
-                            height: kHeight / 20,
-                          )),
-                          Container(
-                              margin: EdgeInsets.only(left: 5),
-                              child: Text(
-                                'Edge Square',
-                                style: TextStyle(
-                                    fontSize: 12.0,
-                                    fontFamily: 'Lato',
-                                    fontWeight: FontWeight.w600),
-                              )),
-                        ],
-                      ),
-                    ),
-                  ]))),
+          // backgroundColor: ColorsApp.white,
+          body: Stack(children: [
+        Container(
+          // alignment: Alignment.center,
+          height: kHeight,
+          width: kWidth,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(Assets.splashScreen), fit: BoxFit.none)),
+        ),
+        Positioned(
+            top: kHeight * .8,
+            left: kWidth / 2.1,
+            child: Container(
+                height: 30,
+                width: 30,
+                child: CircularProgressIndicator(
+                  color: ColorsApp.orange,
+                )))
+      ])),
     );
   }
 }
