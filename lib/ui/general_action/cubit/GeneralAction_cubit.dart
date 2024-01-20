@@ -7,15 +7,15 @@ import 'GeneralAction_event.dart';
 import 'GeneralAction_state.dart';
 
 class GeneralActionCubit extends Cubit<GeneralActionState> {
-  GeneralActionCubit() : super(GeneralActionState.initialState);
+  GeneralActionCubit() : super(GeneralActionState());
 
   @override
   Stream<GeneralActionState> mapEventToState(GeneralActionEvent event) async* {}
-  
-  Future<void> setIndex(
-    WrapperEvent event,
+  setIndex(
+    index,
   ) async {
-    print(event);
+    emit(GeneralActionState(index: index));
+    print(index);
   }
 
   @override

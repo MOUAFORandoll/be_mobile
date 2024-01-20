@@ -107,7 +107,7 @@ class ManageRepo extends GetxService {
 
   Future updateImageUser(data) async {
     Response a = await apiClient.postData(ApiRoutes.USER_IMAGE_UPDATE, data);
-
+    
     return a;
   }
 }

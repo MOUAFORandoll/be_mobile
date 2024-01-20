@@ -21,7 +21,7 @@ class OnBoardingView extends StatelessWidget {
     GetStorage box = GetStorage();
     return BlocBuilder<GeneralActionCubit, GeneralActionState>(
         builder: (context, state) {
-      var action = state as InitialDataState;
+      var action = state as GeneralActionState;
       return Scaffold(
           backgroundColor: ColorsApp.tird,
           body: SingleChildScrollView(
@@ -39,7 +39,7 @@ class OnBoardingView extends StatelessWidget {
                         title: 'ctitle2'.tr,
                         description: 'cdescription2'.tr,
                         image: Assets.onb2,
-                        index: action.index),
+                        index: action.index!),
                   ],
                   options: CarouselOptions(
                       aspectRatio: 4 / 4,
@@ -48,9 +48,7 @@ class OnBoardingView extends StatelessWidget {
                       enableInfiniteScroll: false,
                       reverse: false,
                       onPageChanged: (index, reason) {
-                        context
-                            .read<GeneralActionCubit>()
-                            .setIndex(WrapperEvent(index: index));
+                        context.read<GeneralActionCubit>().setIndex(index);
                         ;
                       },
                       disableCenter: true,
@@ -65,7 +63,7 @@ class OnBoardingView extends StatelessWidget {
                       scrollDirection: Axis.horizontal),
                 ),
                 Positioned(
-                    bottom: kHeight / 11,
+                    bottom: kHeight / 5,
                     left: 0,
                     right: 0,
                     child: Container(
@@ -95,14 +93,14 @@ class OnBoardingView extends StatelessWidget {
                       ),
                     )),
                 Positioned(
-                    bottom: 5,
+                    bottom: kHeight / 8,
                     left: 0,
                     right: 0,
                     child: AppButton(
                       text: action.index == 0 ? 'Suivant' : "Continuer",
                       onTap: () {
                         if (action.index == 1) {
-                          Get.offNamedUntil(AppLinks.LOGIN, (route) => false);
+                          Navigator.of(context).popAndPushNamed(AppLinks.LOGIN);
                           box.write('first', 1);
                         } else {
                           action.controller.nextPage(

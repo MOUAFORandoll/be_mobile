@@ -11,16 +11,16 @@ abstract class UserState extends Equatable {
 // ignore: must_be_immutable
 class InitialDataState extends UserState {
   TextEditingController phone = TextEditingController();
-
+  
   TextEditingController password = TextEditingController();
-  TextEditingController username = TextEditingController();
+  TextEditingController name = TextEditingController();
   TextEditingController re_password = TextEditingController();
 
   final formKey = new GlobalKey<FormState>();
   final formKeyReg = new GlobalKey<FormState>();
 
   List<Object> get props =>
-      [phone, password, formKey, username, re_password, formKeyReg];
+      [phone, password, formKey, name, re_password, formKeyReg];
 }
 
 class GetDataBateState extends InitialDataState {

@@ -121,8 +121,7 @@ class AuthView extends StatelessWidget {
                                   onTap: () => Navigator.of(context)
                                       .pushNamed(AppLinks.REGISTER),
                                   child: Container(
-                                    margin: EdgeInsets.only(
-                                        bottom: kMarginY, top: kMarginX * 4),
+                                    margin: EdgeInsets.only(top: kMarginX * 3),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,

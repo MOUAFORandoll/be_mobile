@@ -54,7 +54,7 @@ class RegisterView extends StatelessWidget {
                                   top: kMarginY,
                                 ),
                                 child: AppInput(
-                                  controller: _userState.phone,
+                                  controller: _userState.name,
                                   onChanged: (value) {},
                                   placeholder: 'Nom d’utilisateur'.tr,
                                   validator: (value) {
@@ -86,7 +86,7 @@ class RegisterView extends StatelessWidget {
                                 },
                               ),
                               AppInputPassword(
-                                controller: _userState.password,
+                                controller: _userState.re_password,
                                 placeholder: 'labelrpassword'.tr,
                                 obscureText: true,
                                 validator: (value) {
