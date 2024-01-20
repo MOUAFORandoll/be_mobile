@@ -1,19 +1,13 @@
-// To parse this JSON data, do
-//
-//     final livreurModel = livreurModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
-import 'dart:convert';
-
+ 
 class NotificationModel {
   final int id;
   bool read;
-  final String title;
-  final String description;
-  final String date;
-  final String profile;
-  final int type_notification;
-    int short;
+  final String ? title;
+  final String ? description;
+  final String ? date;
+  final String ? profile;
+  final int ? type_notification;
+  int short;
 
   NotificationModel({
     required this.id,
@@ -39,14 +33,13 @@ class NotificationModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id,
-        "read": read == null ? null : read,
-        "title": title == null ? null : title,
-        "description": description == null ? null : description,
-        "profile": profile == null ? null : profile,
-        "date": date == null ? null : date,
-        "short": short == null ? null : short,
-        "type_notification":
-            type_notification == null ? null : type_notification,
+        "id": id,
+        "read": read,
+        "title": title,
+        "description": description,
+        "profile": profile,
+        "date": date,
+        "short": short,
+        "type_notification": type_notification,
       };
 }

@@ -19,11 +19,11 @@ class CategoryModel {
     required this.status,
   });
 
-  final int id;
-  final String libelle;
-  final String logo;
-  final String description;
-  final bool status;
+  final int ? id;
+  final String? libelle;
+  final String? logo;
+  final String? description;
+  final bool? status;
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
         id: json["id"] == null ? null : json["id"],
@@ -34,10 +34,10 @@ class CategoryModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id,
-        "logo": logo == null ? null : logo,
-        "libelle": libelle == null ? null : libelle,
-        "description": description == null ? null : description,
-        "status": status == null ? null : status,
+        "id":  id,
+        "logo": logo  ,
+        "libelle":  libelle,
+        "description": description,
+        "status":   status,
       };
 }

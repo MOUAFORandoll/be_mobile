@@ -1,7 +1,5 @@
-import 'package:BananaExpress/components/exportcomponent.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
+import 'package:BananaExpress/components/exportcomponent.dart'; 
+import 'package:flutter_spinkit/flutter_spinkit.dart';  
 
 // ignore: must_be_immutable
 class Button extends StatelessWidget {

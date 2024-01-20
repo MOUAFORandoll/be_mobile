@@ -1,11 +1,7 @@
 import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/utils/constants/assets.dart';
+import 'package:BananaExpress/styles/textStyle.dart'; 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-
+import 'package:flutter/material.dart'; 
 class CircleImage extends StatelessWidget {
   CircleImage({required this.imageUrl, this.radius = 25});
 
@@ -49,7 +45,7 @@ class CircleImage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                     border: Border.all(color: ColorsApp.grey, width: 1),
                     image: DecorationImage(
-                      image: AssetImage('assets/logo/logoNew.png'),
+                      image: AssetImage('assets/logo/logo.png'),
                     )));
           }),
     );

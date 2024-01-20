@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 
+// ignore: must_be_immutable
 class InfoComponent extends StatelessWidget {
   InfoComponent({this.title, this.value, this.divider, this.onTap});
 

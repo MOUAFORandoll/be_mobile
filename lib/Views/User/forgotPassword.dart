@@ -56,35 +56,12 @@ class _ForgotPassordScreenState extends State<ForgotPassordScreen>
 
     // api.onInit();
   }
-
-  final int _numPages = 2;
+   
   final pageController = PageController(initialPage: 0);
 
 
   late TabController _tabController;
-  List<Widget> _buildPageIndicator() {
-    List<Widget> list = [];
-    for (int i = 0; i < _numPages; i++) {
-      list.add(
-          i == _tabController.index ? _indicator(true) : _indicator(false));
-    }
-    return list;
-  }
 
-  Widget _indicator(bool isActive) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 150),
-      margin: EdgeInsets.symmetric(horizontal: 8.0),
-      height: isActive ? 14.0 : 10,
-      width: isActive ? 14.0 : 10.0,
-      decoration: BoxDecoration(
-        color: isActive ? Colors.cyan : ColorsApp.primary,
-        borderRadius: BorderRadius.all(
-          Radius.circular(12),
-        ),
-      ),
-    );
-  }
 
   bool enabledData = false;
   String payCode = '';

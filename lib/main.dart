@@ -1,31 +1,20 @@
-import 'package:BananaExpress/controller/GeneralController.dart';
-import 'package:BananaExpress/utils/Services/NotificationService.dart';
-import 'package:BananaExpress/utils/Services/core.dart';
-import 'package:BananaExpress/utils/Services/routing.dart';
-import 'package:BananaExpress/utils/Services/translations.dart';
+import 'package:BananaExpress/styles/app_theme.dart';
+import 'package:BananaExpress/ui/user/bloc/user_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:get/get.dart';
-
 import 'styles/colorApp.dart';
 import 'styles/textStyle.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:generated/l10n.dart';
+import 'utils/Services/routes.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  NotificationService().initializePlatformNotifications();
-  // await FlutterDownloader.initialize(debug: true);
-
-  await initServices();
-
-// await MyBinding().onInit();
-
+void main() {
   runApp(MyApp());
-  await initApp();
-
-// await init();
 }
 
 final _darkTheme = ThemeData(
@@ -33,8 +22,6 @@ final _darkTheme = ThemeData(
   primaryColor: ColorsApp.primary,
   brightness: Brightness.dark,
   backgroundColor: const Color(0xFF212121),
-  // accentColor: Colors.white,
-  // accentIconTheme: IconThemeData(color: ColorsApp.primary),
   dividerColor: ColorsApp.primary,
   textTheme: TextTheme(
     bodyText2: TextStyle(fontFamily: 'Montserrat', color: ColorsApp.primary),
@@ -130,30 +117,56 @@ final _lightTheme = ThemeData(
   ),
 );
 
+var supportedLocales = const [
+  Locale('en', 'EN'),
+  Locale('fr', 'FR'),
+];
+
 class MyApp extends StatelessWidget {
+  const MyApp({
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    // if (Theme.of(context).brightness == Brightness.dark) {
-    //   box.write('isDark', true);
-    // } else {
-    //   box.write('isDark', false);
-    // }
-
-    // Get.find<GeneralController>().getThemeInit(context);
-
-    return GetMaterialApp(
-      translations: Transalations(),
-      locale: Get.find<GeneralController>().lan,
-      theme: _lightTheme,
-      darkTheme: _darkTheme,
-      themeMode: ThemeMode.light, //ThemeMode.system,
-      debugShowCheckedModeBanner: false,
-      // initialBinding: MyBinding(),
-      initialRoute: AppLinks.SPLASHSCREEN,
-      getPages: AppRoutes.pages,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<UserBloc>(
+          create: (BuildContext context) => UserBloc(),
+        ),
+      ],
+      child:
+            AppContent() /* EasyLocalization(
+        path: 'assets/lang',
+        supportedLocales: supportedLocales,
+        fallbackLocale: const Locale('fr', 'FR'),
+        child: const AppContent(),
+      ), */
     );
   }
 }
 
+class AppContent extends StatelessWidget {
+  const AppContent({Key? key}) : super(key: key);
 
-// flutter pub run flutter_launcher_icons:main
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Babana Express",
+      darkTheme: AppThemes.themeDataDark,
+      theme: AppThemes.themeData,
+      themeMode: ThemeMode.light,
+      // localizationsDelegates: const [
+       
+      //   GlobalMaterialLocalizations.delegate,
+      //   GlobalWidgetsLocalizations.delegate,
+      //   GlobalCupertinoLocalizations.delegate,
+      // ],
+      // supportedLocales: supportedLocales,
+      initialRoute: AppLinks.SPLASHSCREEN,
+      routes: AppRoutes.routes,
+      // locale: context.locale,
+    );
+  }
+}

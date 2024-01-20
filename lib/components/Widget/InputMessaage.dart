@@ -1,6 +1,7 @@
 import 'package:BananaExpress/components/exportcomponent.dart';
-import 'package:flutter/material.dart';
+ 
 
+// ignore: must_be_immutable
 class InputMessaage extends StatelessWidget {
   InputMessaage(
       {this.type,

@@ -1,8 +1,5 @@
 import 'package:BananaExpress/components/Widget/CircleImage.dart';
-import 'package:BananaExpress/components/exportcomponent.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
+import 'package:BananaExpress/components/exportcomponent.dart'; 
 import 'package:BananaExpress/model/data/UserTagModel.dart';
 
 // ignore: must_be_immutable

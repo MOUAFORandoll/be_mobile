@@ -1,8 +1,6 @@
 // ignore: must_be_immutable
 import 'package:BananaExpress/model/data/CommandeModel.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/utils/Services/routing.dart';
-import 'package:get/get.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +21,8 @@ class CommandeComponent extends StatelessWidget {
       children: [
         InkWell(
           child: Container(
-              height: kMdHeight / 8,
-              // width: kMdWidth,
+              height: kHeight / 8,
+              // width: kWidth,
               margin: EdgeInsets.symmetric(
                   horizontal: kMarginX, vertical: kMarginY),
               decoration: BoxDecoration(
@@ -44,7 +42,7 @@ class CommandeComponent extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              // width: kSmWidth * .6,
+                              // width: kWidth * .6,
 
                               child: Text(
                                   'Code Commande : ' + commande.codeCommande,
@@ -53,7 +51,7 @@ class CommandeComponent extends StatelessWidget {
                                       color: ColorsApp.second, fontSize: 12)),
                             ),
                             Container(
-                              // width: kSmWidth * .6,
+                              // width: kWidth * .6,
 
                               child: Text(
                                   'Code Client : ' + commande.codeClient,
@@ -62,7 +60,7 @@ class CommandeComponent extends StatelessWidget {
                                       color: ColorsApp.second, fontSize: 12)),
                             ),
                             // Container(
-                            //   // width: kSmWidth * .6,
+                            //   // width: kWidth * .6,
 
                             //   child: Text('Etape : ' + commande.etape,
                             //       overflow: TextOverflow.ellipsis,
@@ -112,7 +110,7 @@ class CommandeComponent extends StatelessWidget {
                             //           fontWeight: FontWeight.w600)),
                             // ),
                             // // Container(
-                            //   // width: kSmWidth * .6,
+                            //   // width: kWidth * .6,
                             //   child: Text('XAF ' + commande.prix.toString(),
                             //       overflow: TextOverflow.ellipsis,
                             //       style: TextStyle(

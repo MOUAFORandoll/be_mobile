@@ -27,9 +27,10 @@ class Transalations extends Translations {
           'account': 'Account',
           'ctitle1': 'Welcome ',
           'cdescription1':
-              'Connect to medicine professionals from around the world',
+              'Professional couriers deliver your orders to you in a few minutes',
           'ctitle2': 'Online consultation',
-          'cdescription2': 'Consult online and get the medications',
+          'cdescription2':
+              'Order from any pharmacy, restaurant or shop in your city',
           'ctitle3': 'Online Medical Training',
           'cdescription3':
               'To be trained by medicine professionals from all over the world',
@@ -124,10 +125,11 @@ class Transalations extends Translations {
           'search': 'Rechercher',
           'account': 'Compte',
           'ctitle1': 'Bienvenu',
-          'cdescription1': 'Négociez et mettez vous a l’aise',
+          'cdescription1':
+              'Des livreurs professionels vous livre vos commandes en quelques minutes',
           'ctitle2': 'Livraison',
           'cdescription2':
-              'Commandez et faites vous livrer en moins d’une heure',
+              'Commandez dans n’importe quel pharmacie, restaurant ou boutique dans votre ville',
           'ctitle3': 'Politique',
           'cdescription3':
               "Rapidité, Confiance et fiabilité sont notre devise C'est le Cameroun qui gagne",

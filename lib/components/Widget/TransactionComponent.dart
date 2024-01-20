@@ -28,7 +28,7 @@ class TransactionComponent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                    // width: kSmWidth * .6,
+                    // width: kWidth * .6,
 
                     child: SimpleText(
                   text: /* 'Transaction : ' +  */

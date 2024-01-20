@@ -1,6 +1,6 @@
 class Assets {
   Assets._();
-  static const logo = 'assets/logo/logoNew.png';
+  static const logo = 'assets/logo/logo.png';
   static const shop1 = 'assets/images/shop1.png';
   static const splashScreen = 'assets/images/SplashScreen.png';
   static const shop2 = 'assets/images/shop2.png';
@@ -42,4 +42,5 @@ class Assets {
   static const menu = 'assets/svg_icones/menu.svg';
   static const bg_white = 'assets/images/bg_white.jpeg';
   static const medical = 'assets/images/medical.png';
+  static const babana = 'assets/svg_icones/babana.svg';
 }

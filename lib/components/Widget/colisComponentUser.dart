@@ -91,7 +91,7 @@ class ColisComponentUser extends StatelessWidget {
                               backgroundColor: ColorsApp.second,
                               radius: 50,
                               backgroundImage:
-                                  AssetImage("assets/logo/logoNew.png"));
+                                  AssetImage("assets/logo/logo.png"));
                         },
                       )),
                       Container(
@@ -120,7 +120,7 @@ class ColisComponentUser extends StatelessWidget {
           color: ColorsApp.grey,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15), topRight: Radius.circular(15))),
-      padding: EdgeInsets.symmetric(horizontal: kSmWidth * .07),
+      padding: EdgeInsets.symmetric(horizontal: kWidth * .07),
       height: 800,
       child: SingleChildScrollView(
           child: Column(
@@ -164,7 +164,7 @@ class ColisComponentUser extends StatelessWidget {
                             backgroundColor: ColorsApp.second,
                             radius: 50,
                             backgroundImage:
-                                AssetImage("assets/logo/logoNew.png"));
+                                AssetImage("assets/logo/logo.png"));
                       },
                     )),
               ),
@@ -179,7 +179,7 @@ class ColisComponentUser extends StatelessWidget {
                     data: colis.code_recuperation_colis,
                     version: QrVersions.auto,
                     gapless: true,
-                    embeddedImage: AssetImage("assets/logo/logoNew.png"),
+                    embeddedImage: AssetImage("assets/logo/logo.png"),
                     // embeddedImageStyle:
                     //     QrEmbeddedImageStyle(size: Size(20, 20)),
                     size: 200.0,
@@ -193,7 +193,7 @@ class ColisComponentUser extends StatelessWidget {
                 child: QrImageView(
                   data: colis.code_livraison_colis,
                   version: QrVersions.auto,
-                  embeddedImage: AssetImage("assets/logo/logoNew.png"),
+                  embeddedImage: AssetImage("assets/logo/logo.png"),
                   // embeddedImageStyle:
                   //     QrEmbeddedImageStyle(size: Size(20, 20)),
                   size: 200.0,
@@ -234,7 +234,6 @@ class ColisComponentUser extends StatelessWidget {
       final directory = await getTemporaryDirectory();
       print('----------path-----${directory.path}-');
       final externalDir = path.join(directory.path, 'Download', 'Qr_code');
-      final filePath = path.join(externalDir, 'image.png');
 
       RenderRepaintBoundary boundary =
           globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;

@@ -87,7 +87,7 @@ class SettingView extends StatelessWidget {
                         SettingComponent(
                             title: "Langue de l'application",
                             action: Container(
-                              // width: kSmWidth * .6,
+                              // width: kWidth * .6,
                               // margin: EdgeInsets.only(
                               //     top: Get.height * .005,
                               //     left: Get.width * .008),

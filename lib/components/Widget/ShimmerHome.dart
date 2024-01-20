@@ -1,6 +1,5 @@
 import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter/material.dart'; 
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -63,14 +62,14 @@ class ShimmerHome extends StatelessWidget {
                         fontWeight: FontWeight.w600)),
               ),
               Container(
-                height: kSmHeight * 1.3,
+                height: kHeight * 1.3,
                 margin: EdgeInsets.symmetric(vertical: kMarginY),
                 child: ListView.builder(
                   itemCount: 5,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (_ctx, index) => Container(
-                    // height: kSmHeight,
-                    // width: kSmWidth,
+                    // height: kHeight,
+                    // width: kWidth,
                     alignment: Alignment.center,
 
                     margin: EdgeInsets.only(right: kMarginX),
@@ -89,7 +88,7 @@ class ShimmerHome extends StatelessWidget {
                         ),
                         Container(
                             width: 100,
-                            height: kSmHeight * 1.2,
+                            height: kHeight * 1.2,
 
                             // margin: EdgeInsets.only(bottom: 10),
                             // padding: EdgeInsets.symmetric(vertical: 4, horizontal: 1),
@@ -99,7 +98,7 @@ class ShimmerHome extends StatelessWidget {
                                     topRight: Radius.circular(8),
                                     bottomRight: Radius.circular(8)),
                                 image: DecorationImage(
-                                  image: AssetImage('assets/logo/logoNew.png'),
+                                  image: AssetImage('assets/logo/logo.png'),
                                 )))
                       ],
                     ),

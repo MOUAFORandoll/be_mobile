@@ -29,7 +29,7 @@ class ImageUpdateComp extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white),
                         margin: EdgeInsets.only(right: 5),
-                        height: kMdHeight / 5,
+                        height: kHeight / 5,
                         width: Get.width / 3,
                         child: Image.file(
                           file,

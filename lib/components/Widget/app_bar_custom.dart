@@ -18,7 +18,7 @@ class AppBarCustom extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             color: ColorsApp.grey, borderRadius: BorderRadius.circular(9)),
-        padding: EdgeInsets.only(left: kMdWidth / 10, top: 2, bottom: 2),
+        padding: EdgeInsets.only(left: kWidth / 10, top: 2, bottom: 2),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Container(

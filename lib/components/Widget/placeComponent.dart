@@ -1,6 +1,5 @@
 // ignore: must_be_immutable
-import 'package:get/get.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
+import 'package:get/get.dart'; 
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable

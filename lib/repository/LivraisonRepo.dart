@@ -1,8 +1,7 @@
-import 'package:BananaExpress/model/data/ProduitModel.dart';
+
 import 'package:BananaExpress/utils/Services/ApiClient.dart';
 import 'package:BananaExpress/utils/constants/apiRoute.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/response/response.dart';
 
 class LivraisonRepo extends GetxService {
   final ApiClient apiClient;

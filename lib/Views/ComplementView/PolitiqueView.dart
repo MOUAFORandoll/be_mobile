@@ -1,4 +1,3 @@
-
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:flutter/material.dart';
 
@@ -55,8 +54,8 @@ class _PolitiqueViewState extends State<PolitiqueView> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                   Container(
-                      height: kMdHeight * .08,
-                      width: kMdWidth * 1.2,
+                      height: kHeight * .08,
+                      width: kWidth * 1.2,
                       // margin: EdgeInsets.symmetric(
                       //     horizontal: kMarginX * 10),
                       alignment: Alignment.center,
@@ -96,7 +95,7 @@ class _PolitiqueViewState extends State<PolitiqueView> {
                             Container(
                                 margin: EdgeInsets.only(top: 2, bottom: 3),
                                 height: 3,
-                                width: kMdWidth * .5,
+                                width: kWidth * .5,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30)),
                                 child: Container())

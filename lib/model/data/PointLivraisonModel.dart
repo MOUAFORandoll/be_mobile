@@ -1,9 +1,7 @@
 // To parse this JSON data, do
 //
 //     final PointLivraisonModel = PointLivraisonModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
-import 'dart:convert';
+ 
 
 class PointLivraisonModel {
   PointLivraisonModel({
@@ -41,12 +39,12 @@ class PointLivraisonModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id,
-        "ville": ville == null ? null : ville,
-        "libelle": libelle == null ? null : libelle,
-        "quartier": quartier == null ? null : quartier,
-        "image": image == null ? null : image,
-        "latitude": latitude == null ? null : latitude,
-        "longitude": longitude == null ? null : longitude,
+        "id":   id,
+        "ville": ville ,
+        "libelle":  libelle,
+        "quartier":  quartier,
+        "image":   image,
+        "latitude":   latitude,
+        "longitude":  longitude,
       };
 }

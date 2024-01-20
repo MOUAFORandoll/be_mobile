@@ -1,7 +1,6 @@
 import 'dart:io';
 
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:get/get.dart';
+import 'package:BananaExpress/styles/textStyle.dart'; 
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable

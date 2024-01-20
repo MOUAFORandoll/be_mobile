@@ -1,8 +1,7 @@
 import 'package:BananaExpress/Views/Livraison/NewLivraisonView.dart';
 import 'package:BananaExpress/Views/Livraison/SuccesLivraisonview.dart';
 import 'package:BananaExpress/Views/Livraison/SuccesReceptionview.dart';
-import 'package:BananaExpress/Views/Livraison/SuccesRecuperationview.dart';
-import 'package:BananaExpress/Views/Notifications/NotificationView.dart';
+import 'package:BananaExpress/Views/Livraison/SuccesRecuperationview.dart'; 
 import 'package:BananaExpress/Views/ComplementView/OnboardingScreen.dart';
 import 'package:BananaExpress/Views/FirstScreen.dart';
 import 'package:BananaExpress/Views/ComplementView/SplashScreen.dart';
@@ -67,10 +66,10 @@ class AppRoutes {
         name: AppLinks.USERVIEW,
         page: () => UserManageView(),
         transition: transitionX),
-    GetPage(
-        name: AppLinks.NOTIFICATION,
-        page: () => NotificationView(),
-        transition: transitionX),
+    // GetPage(
+    //     name: AppLinks.NOTIFICATION,
+    //     page: () => NotificationView(),
+    //     transition: transitionX),
     GetPage(
         name: AppLinks.NEWLIVRAISON,
         page: () => NewLivraisonView(),

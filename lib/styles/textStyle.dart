@@ -4,33 +4,26 @@ import 'package:get/get.dart';
 final kWidthShort = Get.width / 2;
 final kHeightShort = Get.height / 5;
 
-final screenSize = Get.size;
 final designSize = 414.0;
 double proportion = MediaQuery.textScaleFactorOf(
     Get.context!); //  screenSize.width / designSize;
 // final proportion = designSize / screenSize.width;
-final kMarginTop = screenSize.height * .08;
-final kMarginBottom = screenSize.height * .08;
-final kMarginLeft = screenSize.width * .08;
-final kMarginRight = screenSize.width * .08;
+ 
+final kMarginBottom = 10;
+final kMarginLeft = 10;
+final kMarginRight = 10;
 final kMarginX = 12.0;
-final kMarginY = Get.height * 0.01;
+final kMarginY = 10.0;
 
-final kPaddingTop = screenSize.height * .08;
-final kPaddingBottom = screenSize.height * .08;
-final kPaddingLeft = screenSize.width * .08;
-final kPaddingRight = screenSize.width * .08;
-final kPaddingX = screenSize.width * .08;
-final kPaddingY = screenSize.height * .08;
+final kPaddingTop = 10;
+final kPaddingBottom = 10;
+final kPaddingLeft = 10;
+final kPaddingRight = 10;
+final kPaddingX = 10;
+final kPaddingY = 10;
 
-final kSmHeight = screenSize.height * .07;
-final kSmWidth = screenSize.width * .5;
-
-final kMdHeight = screenSize.height * 1.3;
-final kMdWidth = screenSize.width * .4;
-
-final kHeight = screenSize.height;
-final kWidth = screenSize.width;
+final kHeight = 844.0;
+final kWidth = 390.0;
 
 final kTitle = 14.0 /* * proportion */;
 final kDescription = 9.0 /* * proportion */;

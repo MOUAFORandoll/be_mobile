@@ -152,7 +152,7 @@
 //                                 Container(
 //                                   margin: EdgeInsets.only(top: 2, bottom: 3),
 //                                   height: 3,
-//                                   width: kMdWidth * .5,
+//                                   width: kWidth * .5,
 //                                   decoration: BoxDecoration(
 //                                     ,
 //                                     borderRadius: BorderRadius.circular(30),

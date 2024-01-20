@@ -20,17 +20,20 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   GetStorage box = GetStorage();
 
   start() {
-    // box.write('first', 0);
     Get.find<ManagerController>().startTimer();
 
     Future.delayed(Duration(seconds: 5), () async {
       print(box.read('first'));
       if (box.read('first') != 1) {
-        box.write('first', 1);
         Get.offNamedUntil(AppLinks.ONBOARDING, (route) => false);
         await secondInit();
       } else {
-        Get.offNamedUntil(AppLinks.FIRST, (route) => false);
+        bool connect = await Get.find<ManagerController>().connected();
+        if (connect) {
+          Get.offNamedUntil(AppLinks.FIRST, (route) => false);
+        } else {
+          Get.offNamedUntil(AppLinks.LOGIN, (route) => false);
+        }
         await secondInit();
       }
       Get.find<ManagerController>().chageN(false);
@@ -47,225 +50,27 @@ class _SplashScreenPageState extends State<SplashScreenPage>
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          // backgroundColor: ColorsApp.white,
-          body: Stack(children: [
-        Container(
-          // alignment: Alignment.center,
-          height: kHeight,
-          width: kWidth,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(Assets.splashScreen), fit: BoxFit.none)),
-        ),
-        Positioned(
-            top: kHeight * .8,
-            left: kWidth / 2.1,
-            child: Container(
-                height: 30,
-                width: 30,
-                child: CircularProgressIndicator(
-                  color: ColorsApp.orange,
-                )))
-      ])),
-    );
-  }
-}
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         backgroundColor: ColorsApp.white,
-//         body: Container(
-//             alignment: Alignment.center,
-//             child: new Column(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 crossAxisAlignment: CrossAxisAlignment.center,
-//                 children: <Widget>[
-//                   new Container(
-//                       margin: EdgeInsets.symmetric(horizontal: kWidth / 7),
-//                       child: new Row(
-//                         mainAxisAlignment: MainAxisAlignment.center,
-//                         crossAxisAlignment: CrossAxisAlignment.center,
-//                         children: <Widget>[
-//                           Container(
-//                               width: kWidth / 5.8,
-//                               height: kHeight / 1.2,
-//                               child: SvgPicture.asset(
-//                                 Assets.logo_without,
-//                                 width: kWidth / 2,
-//                                 height: kHeight / 1.2,
-//                               )),
-//                           Container(
-//                             // alignment: Alignment.centerLeft,
-//                             margin: EdgeInsets.only(left: 10),
-//                             width: kWidth / 2.5,
-//                             child: AnimatedTextKit(
-//                               animatedTexts: [
-//                                 TypewriterAnimatedText(
-//                                   'BananaExpress',
-//                                   textStyle: TextStyle(
-//                                       fontSize: 34.0,
-//                                       fontFamily: 'Lato',
-//                                       fontWeight: FontWeight.w600),
-//                                   cursor: '_',
-//                                   speed: const Duration(
-//                                       milliseconds:
-//                                           180), // Ajustez la vitesse d'animation
-//                                 ),
-//                               ],
-//                               repeatForever:
-//                                   true, // Répéter l'animation en boucle
-//                             ),
-//                           ),
-
-//                           // Container(
-//                           //   margin: EdgeInsets.only(top: kMdHeight / 15),
-//                           //   child: SpinKitRing(
-//                           //     lineWidth: 4,
-//                           //     color: ColorsApp.tird,
-//                           //     size: 25,
-//                           //   ),
-//                           // ),
-//                         ],
-//                       ))
-//                 ])));
-//   }
-// }
-
-// class AnimatedText extends StatefulWidget {
-//   final String text;
-//   final TextStyle style;
-//   final Duration duration;
-
-//   AnimatedText({required this.text, required this.style, required this.duration});
-
-//   @override
-//   _AnimatedTextState createState() => new _AnimatedTextState();
-// }
-
-// class _AnimatedTextState extends State<AnimatedText>
-//     with TickerProviderStateMixin {
-//  late AnimationController _controller;
-//  late Animation<double> _opacity;
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     _controller = new AnimationController(
-//       vsync: this,
-//       duration: widget.duration,
-//     );
-//     _opacity = new Tween(begin: 0.0, end: 1.0).animate(_controller);
-//     _controller.forward();
-//   }
-
-//   @override
-//   void dispose() {
-//     _controller.dispose();
-//     super.dispose();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return new AnimatedBuilder(
-//       animation: _opacity,
-//       builder: (context, child) {
-//         return new Text(
-//           widget.text,
-//           style: widget.style.copyWith(opacity: _opacity.value),
-//         );
-//       },
-//     );
-//   }
-// }
-/**
- * 
-class SplashScreenPage extends StatefulWidget {
-  @override
-  _SplashScreenPageState createState() => _SplashScreenPageState();
-}
-
-class _SplashScreenPageState extends State<SplashScreenPage>
-    with WidgetsBindingObserver, SingleTickerProviderStateMixin {
-  GetStorage box = GetStorage(); 
-  AnimationController? _controller;
-  Animation<Color>? _colorAnimation;
-
-  start() {
-    Get.find<ManagerController>().startTimer();
-
-    Future.delayed(Duration(seconds: 10), () async {
-      print(box.read('first'));
-      if (box.read('first') != 1) {
-        box.write('first', 1);
-        Get.offNamedUntil(AppLinks.ONBOARDING, (route) => false);
-      } else {
-        Get.offNamedUntil(AppLinks.FIRST, (route) => false);
-      }
-      Get.find<ManagerController>().chageN(false);
-
-      // MyBinding().onGetAll();
-    });
-  }
-
-  Future<void> initUniLinks() async {
-    try {
-      StreamSubscription _sub;
-
-      // Écoutez les liens entrants
-      _sub = linkStream.listen((uri) {
-        // Traitez les liens entrants ici
-        handleDeepLink(uri);
-      });
-    } on PlatformException {
-      // Gestion des erreurs
-    }
-  }
-
-  void handleDeepLink(uri) {
-    // Votre logique pour traiter les liens entrants
-    // Extrait les informations nécessaires de l'URL
-  }
-
-  @override
-  void initState() {
-  _controller = AnimationController(
-      duration: const Duration(seconds: 2),
-      vsync: this,
-    )..repeat(reverse: true);
-    _colorAnimation = ColorTween(
-      begin: ColorsApp.tird,
-      end: ColorsApp.orange,
-    ).animate(_controller as Animation<double>) as Animation<Color>?;
-    initUniLinks();
-    start();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller!.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-            child: AnimatedBuilder(
-                animation: _colorAnimation!,
-                builder: (context, child) {
-                  return ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                          _colorAnimation!.value, BlendMode.modulate),
+        backgroundColor: ColorsApp.white,
+        body: Container(
+            alignment: Alignment.center,
+            child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                      margin: EdgeInsets.symmetric(vertical: kHeight * .20)
+                          .add(EdgeInsets.only(top: kHeight * .10)),
                       child: SvgPicture.asset(
-                        Assets.logoSvg,
-                        width: kHeight * 2.5,
-                        height: kHeight * 2.5,
-                      ));
-                })));
+                        Assets.babana,
+                      )),
+                  Container(
+                      child: Container(
+                          height: 30,
+                          width: 30,
+                          child: CircularProgressIndicator(
+                            color: ColorsApp.second,
+                          )))
+                ])));
   }
 }
-
- */

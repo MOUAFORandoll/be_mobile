@@ -60,8 +60,8 @@ class AppBoutiqueOption extends StatelessWidget {
                                           ? Assets.setting
                                           : Assets.setting)),
               Container(
-                // height: kSmHeight,
-                // width: kSmWidth,
+                // height: kHeight,
+                // width: kWidth,
                 // decoration: BoxDecoration(
                 //   color: ColorsApp.tird,
                 // ),

@@ -16,8 +16,8 @@ class SettingComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         child: Container(
-            height: kSmHeight,
-            // width: kSmWidth,
+            height: kHeight,
+            // width: kWidth,
             padding: EdgeInsets.all(kMarginX),
             margin: EdgeInsets.symmetric(horizontal: kMarginX, vertical: 5),
             decoration: BoxDecoration(
@@ -28,7 +28,7 @@ class SettingComponent extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    // width: kSmWidth * .6,
+                    // width: kWidth * .6,
                     margin: EdgeInsets.only(
                         top: Get.height * .005, left: Get.width * .008),
                     child: Text(title,

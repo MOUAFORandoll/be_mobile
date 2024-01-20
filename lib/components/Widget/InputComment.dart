@@ -1,6 +1,5 @@
-import 'package:BananaExpress/components/exportcomponent.dart';
-import 'package:flutter/material.dart';
-
+import 'package:BananaExpress/components/exportcomponent.dart'; 
+// ignore: must_be_immutable
 class InputComment extends StatelessWidget {
   InputComment(
       {this.type,

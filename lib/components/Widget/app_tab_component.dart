@@ -15,7 +15,7 @@ class AppTabComponent extends StatelessWidget {
     return InkWell(
         onTap: onTap,
         child: Container(
-          height: kSmHeight / 1.4,
+          height: kHeight / 1.4,
           width: kWidth / 3.7,
           alignment: Alignment.center,
           padding: EdgeInsets.all(5),

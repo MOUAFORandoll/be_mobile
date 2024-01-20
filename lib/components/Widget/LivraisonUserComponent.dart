@@ -1,27 +1,11 @@
-// ignore: must_be_immutable
-import 'dart:io';
-import 'dart:typed_data';
-import 'dart:async';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'dart:io';
-import 'package:BananaExpress/components/Widget/colisComponentUser.dart';
-import 'package:flutter/rendering.dart';
-
-import 'package:BananaExpress/components/Button/app_button_icon.dart';
+ 
+import 'package:BananaExpress/components/Widget/colisComponentUser.dart'; 
 import 'package:BananaExpress/model/data/LivraisonModel.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-import 'package:share_plus/share_plus.dart';
-import 'package:path/path.dart' as path;
-import 'package:image_gallery_saver/image_gallery_saver.dart';
-
+import 'package:flutter/material.dart'; 
 // ignore: must_be_immutable
 class LivraisonUserComponent extends StatelessWidget {
   LivraisonModel livraison;
@@ -39,7 +23,7 @@ class LivraisonUserComponent extends StatelessWidget {
         InkWell(
           child: Container(
               height: kHeight * .17,
-              // width: kMdWidth,
+              // width: kWidth,
               margin: EdgeInsets.symmetric(
                   horizontal: kMarginX, vertical: kMarginY),
               decoration: BoxDecoration(
@@ -84,7 +68,7 @@ class LivraisonUserComponent extends StatelessWidget {
                             backgroundColor: ColorsApp.second,
                             radius: 50,
                             backgroundImage:
-                                AssetImage("assets/logo/logoNew.png"));
+                                AssetImage("assets/logo/logo.png"));
                       },
                     )),
                     Container(

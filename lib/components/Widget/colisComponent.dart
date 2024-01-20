@@ -1,28 +1,14 @@
-import 'dart:io';
-
 import 'package:BananaExpress/components/Widget/imageUpdateComp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
-import 'package:BananaExpress/components/Button/addColis.dart';
 import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Button/customBtn.dart';
 import 'package:BananaExpress/components/Button/uploadImage.dart';
-import 'package:BananaExpress/components/Widget/app_back_button.dart';
 import 'package:BananaExpress/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/components/Widget/colisComponent.dart';
-import 'package:BananaExpress/components/Widget/imageComp.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
-import 'package:BananaExpress/controller/LivraisonController.dart';
-import 'package:BananaExpress/model/data/CategoryModel.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../components/Widget/app_title_right.dart';
 
 // ignore: must_be_immutable
 class ColisComponent extends StatelessWidget {
@@ -66,7 +52,7 @@ class ColisComponent extends StatelessWidget {
                         ),
                         // margin: EdgeInsets.only(right: 5),
                         width: kWidth / 2.2,
-                        height: kMdHeight / 8,
+                        height: kHeight / 8,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.file(
@@ -236,7 +222,7 @@ class ColisComponent extends StatelessWidget {
                                                       value: value,
                                                       child: Center(
                                                         child: Text(
-                                                          value.libelle,
+                                                          value.libelle!,
                                                         ),
                                                       ),
                                                     );
@@ -309,7 +295,7 @@ class ColisComponent extends StatelessWidget {
                                                                           12),
                                                               color: ColorsApp
                                                                   .grey),
-                                                          width: kMdWidth / 2,
+                                                          width: kWidth / 2,
                                                           // height: 35,
                                                           // alignment: Alignment.center,
                                                           child: AppInputNew(
@@ -346,7 +332,7 @@ class ColisComponent extends StatelessWidget {
                                                     colis.listImgColis.length ==
                                                             0
                                                         ? 0
-                                                        : kSmHeight * 2,
+                                                        : kHeight * 2,
                                                 margin: EdgeInsets.only(
                                                   top: kMarginY,
                                                 ),
@@ -442,4 +428,3 @@ class ColisComponent extends StatelessWidget {
     );
   }
 }
-

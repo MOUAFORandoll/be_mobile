@@ -17,13 +17,13 @@ GetStorage box = GetStorage();
 
 class DataBaseController extends GetxController {
   late final Store store;
-
+  
   // Le constructeur est privé pour empêcher l'instanciation directe
   DataBaseController._create(this.store);
 
   // Instance unique du DataBaseController
   static DataBaseController? _instance;
-
+  
   // Méthode pour obtenir l'instance unique du DataBaseController
   static Future<DataBaseController> getInstance() async {
     if (_instance == null) {

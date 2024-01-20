@@ -46,7 +46,7 @@ class SelectComponent extends StatelessWidget {
                           height: 30,
                           margin: EdgeInsets.only(left: kMarginX),
                           child: CachedNetworkImage(
-                            width: kMdWidth / 2,
+                            width: kWidth / 2,
                             height: 30,
                             // fit: BoxFit.cover,
                             imageUrl: mode.img,

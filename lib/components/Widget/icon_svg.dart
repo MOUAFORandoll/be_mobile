@@ -1,7 +1,8 @@
-import 'package:BananaExpress/styles/colorApp.dart';
+ 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// ignore: must_be_immutable
 class SvgIcon extends StatelessWidget {
   SvgIcon({this.width = 18, this.height = 18, this.color, required this.icon});
   final double height;

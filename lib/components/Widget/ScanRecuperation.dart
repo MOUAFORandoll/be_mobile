@@ -1,10 +1,9 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:BananaExpress/components/exportcomponent.dart';
 import 'package:BananaExpress/controller/DataBaseController.dart';
-import 'package:BananaExpress/controller/LivraisonController.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:get/get.dart';
+import 'package:BananaExpress/controller/LivraisonController.dart'; 
+import 'package:qr_code_scanner/qr_code_scanner.dart'; 
 import 'package:pinput/pinput.dart';
 
 const flashOn = 'FLASH ON';
@@ -59,10 +58,8 @@ class _ScanRecuperationState extends State<ScanRecuperation> {
                       ? Icons.bolt_outlined
                       : Icons.close),
                   onTap: () {
-                    if (controller != null) {
-                      controller.toggleFlash();
-                    }
-                    print(controller.getFlashStatus());
+                    controller.toggleFlash();
+                                      print(controller.getFlashStatus());
                     if (_isFlashOn(flashState)) {
                       setState(() {
                         flashState = flashOff;
@@ -168,16 +165,14 @@ class _ScanRecuperationState extends State<ScanRecuperation> {
       print('***************jkjkjkj************-----${scanData.code}');
       var getU = await Get.find<DataBaseController>().getKey();
 
-      if (scanData != null) {
-        var data = {
-          'livraison': widget.idLivraison,
-          'code_recuperation_colis': scanData.code,
-          'keySecretBabana': getU
-        };
-        print(data);
+      var data = {
+        'livraison': widget.idLivraison,
+        'code_recuperation_colis': scanData.code,
+        'keySecretBabana': getU
+      };
+      print(data);
 
-        await Get.find<LivraisonController>().recuperationColis(data);
-      }
-    });
+      await Get.find<LivraisonController>().recuperationColis(data);
+        });
   }
 }

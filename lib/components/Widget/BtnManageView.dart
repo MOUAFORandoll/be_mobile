@@ -16,8 +16,8 @@ class BtnManageView extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-          // height: kSmHeight * 1.2,
-          width: kSmWidth * 0.5,
+          // height: kHeight * 1.2,
+          width: kWidth * 0.5,
           padding: EdgeInsets.all(kMarginX / 1.1),
           margin:
               EdgeInsets.symmetric(vertical: kMarginY, horizontal: kMarginX),
@@ -34,7 +34,7 @@ class BtnManageView extends StatelessWidget {
                 //         topRight: Radius.circular(10),
                 //         topLeft: Radius.circular(10)),
                 //     child: Image.asset('assets/om.png',
-                //         height: kSmHeight ,
+                //         height: kHeight ,
                 //         width: Get.width * .5,
                 //         fit: BoxFit.cover),
                 //   ),
@@ -51,7 +51,7 @@ class BtnManageView extends StatelessWidget {
                 //       color: Colors.white,
                 //     )),
                 Container(
-                  width: kSmWidth,
+                  width: kWidth,
                   alignment: Alignment.center,
                   // margin: EdgeInsets.only(
                   //     top: Get.height * .005, left: Get.width * .008),

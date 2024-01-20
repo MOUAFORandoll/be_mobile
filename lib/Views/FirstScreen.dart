@@ -29,7 +29,7 @@ class _FirstScreenState extends State<FirstScreen> {
     super.initState();
     Get.find<UniLinkService>().initURIHandler();
     Get.find<UniLinkService>().incomingLinkHandler();
-    Get.find<UniLinkService>().uniLink();
+    
   }
 
   // iniit() async {
@@ -233,7 +233,7 @@ class CustomDrawer extends StatelessWidget {
                     ),
                   )
                 : Container(
-                    margin: EdgeInsets.only(top: kMarginTop),
+                    margin: EdgeInsets.only(top: kMarginY),
                     child: Column(
                       children: [
                         ListTile(

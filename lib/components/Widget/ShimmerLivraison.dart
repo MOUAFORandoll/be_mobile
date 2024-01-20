@@ -1,6 +1,5 @@
 import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter/material.dart'; 
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:shimmer/shimmer.dart';
 

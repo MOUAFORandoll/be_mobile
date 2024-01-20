@@ -1,10 +1,4 @@
-// To parse this JSON data, do
-//
-//     final VilleModel = VilleModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
-import 'dart:convert';
-
+ 
 class VilleModel {
   VilleModel({
     required this.id,
@@ -20,7 +14,7 @@ class VilleModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id,
-        "libelle": libelle == null ? null : libelle,
+        "id":  id,
+        "libelle":   libelle,
       };
 }

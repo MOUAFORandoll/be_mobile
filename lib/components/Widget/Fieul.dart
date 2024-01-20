@@ -1,10 +1,7 @@
 import 'package:BananaExpress/components/Widget/CircleImage.dart';
 import 'package:BananaExpress/components/exportcomponent.dart';
-import 'package:BananaExpress/model/data/UserModel.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/utils/functions/datetime_format_utils.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/model/data/UserModel.dart'; 
+import 'package:BananaExpress/utils/functions/datetime_format_utils.dart'; 
 
 class Fieul extends StatelessWidget {
   Fieul({required this.fieul});

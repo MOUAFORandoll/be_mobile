@@ -1,15 +1,11 @@
-// ignore: must_be_immutable
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Widget/ScanReception.dart';
-import 'package:BananaExpress/components/Widget/ScanRecuperation.dart';
+// ignore: must_be_immutable 
 import 'package:BananaExpress/components/Widget/colisComponentBabana.dart';
 import 'package:BananaExpress/model/data/LivraisonModel.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
-import 'package:qr_flutter/qr_flutter.dart';
+import 'package:flutter/material.dart'; 
 
 // ignore: must_be_immutable
 class LivraisonBabanaComponent extends StatelessWidget {
@@ -24,7 +20,7 @@ class LivraisonBabanaComponent extends StatelessWidget {
         InkWell(
           child: Container(
               height: kHeight * .20,
-              // width: kMdWidth,
+              // width: kWidth,
               margin: EdgeInsets.symmetric(
                   horizontal: kMarginX, vertical: kMarginY),
               decoration: BoxDecoration(
@@ -65,7 +61,7 @@ class LivraisonBabanaComponent extends StatelessWidget {
                     return CircleAvatar(
                         backgroundColor: ColorsApp.second,
                         radius: 50,
-                        backgroundImage: AssetImage("assets/logo/logoNew.png"));
+                        backgroundImage: AssetImage("assets/logo/logo.png"));
                   },
                 )),
                 Container(

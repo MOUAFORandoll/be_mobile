@@ -3,18 +3,10 @@ import 'dart:io';
 import 'package:BananaExpress/Views/User/LoginScreen.dart';
 import 'package:BananaExpress/controller/DataBaseController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/utils/Services/core.dart';
-import 'package:BananaExpress/utils/constants/assets.dart';
-import 'package:connectivity/connectivity.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:BananaExpress/styles/textStyle.dart'; 
+import 'package:flutter/material.dart'; 
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:shimmer/shimmer.dart';
-
+import 'package:get_storage/get_storage.dart'; 
 class ViewFunctions {
   notifivation(String title) {
     return Get.showSnackbar(GetSnackBar(
@@ -232,50 +224,7 @@ class ViewFunctions {
     Get.back(
       closeOverlays: false,
     );
-  }
-
-  // void loading(title, description) {
-  //   Get.snackbar(
-  //     ' ', '',
-  //     titleText: Container(
-  //         margin: EdgeInsets.only(top: 5),
-  //         child: Text(
-  //           title,
-  //           style: TextStyle(
-  //               fontFamily: 'OpenSan',
-  //               fontWeight: FontWeight.w600,
-  //               fontSize: 15),
-  //         )),
-  //     messageText: Container(
-  //         margin: EdgeInsets.only(bottom: 5, left: 3),
-  //         child: Text(
-  //           description,
-  //           style: TextStyle(fontFamily: 'OpenSan', fontSize: 12),
-  //         )),
-  //     icon: Container(
-  //       margin: EdgeInsets.all(9),
-  //       child: SpinKitWave(color: Colors.blueAccent, size: 23.0),
-  //     ),
-  //     borderRadius: 5,
-  //     isDismissible: true,
-  //     onTap: (getBar) {},
-  //     snackPosition: SnackPosition.TOP,
-  //     duration: Duration(seconds: 400),
-  //     barBlur: 200,
-  //     shouldIconPulse: true,
-  //     // maxWidth: 1450,
-  //     snackStyle: SnackStyle.FLOATING,
-  //     leftBarIndicatorColor: Colors.green,
-  //     backgroundColor: Colors.white,
-  //     maxWidth: kWidth,
-  //     margin: EdgeInsets.zero,
-  //     padding: EdgeInsets.zero,
-
-  //     borderWidth: 100,
-  //     // showProgressIndicator: true,
-  //   );
-  // }
-
+  } 
   closeSnack() {
     //print('*****************************${Get.isSnackbarOpen}');
     Get.closeCurrentSnackbar();
@@ -285,23 +234,6 @@ class ViewFunctions {
   toast(
     title,
   ) {
-    Widget toast = Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25.0),
-        color: Colors.greenAccent,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.check),
-          SizedBox(
-            width: 12.0,
-          ),
-          Text("This is a Custom Toast"),
-        ],
-      ),
-    );
 
     Get.snackbar(
       'Notification',

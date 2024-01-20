@@ -59,7 +59,7 @@ class ManageView extends StatelessWidget {
                                             backgroundColor: ColorsApp.tird,
                                             radius: 50,
                                             backgroundImage: AssetImage(
-                                                "assets/logo/logoNew.png"));
+                                                "assets/logo/logo.png"));
                                       },
                                     ),
                                   ),
@@ -379,28 +379,4 @@ class TextValue extends StatelessWidget {
         ));
   }
 }
-
-class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
-  _SliverAppBarDelegate(this._tabBar);
-
-  final TabBar _tabBar;
-
-  @override
-  double get minExtent => _tabBar.preferredSize.height;
-  @override
-  double get maxExtent => _tabBar.preferredSize.height;
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Container(
-      color: Colors.black,
-      child: _tabBar,
-    );
-  }
-
-  @override
-  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
-    return false;
-  }
-}
+ 

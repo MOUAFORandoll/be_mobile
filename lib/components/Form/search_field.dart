@@ -1,7 +1,5 @@
 import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class KSearchField extends StatelessWidget {
@@ -53,7 +51,7 @@ class KSearchField extends StatelessWidget {
           //           color: ColorsApp.grey,
           //         ),
           //         // height: searchCont.tsearch == 0 ? 0 : kToolbarHeight / 1.9,
-          //         width: kMdWidth * 0.7,
+          //         width: kWidth * 0.7,
           //         // margin: EdgeInsets.only(
           //         //   left: 3,
           //         // ).add(

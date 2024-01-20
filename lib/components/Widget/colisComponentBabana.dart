@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Button/app_button_icon.dart';
 import 'package:BananaExpress/components/Widget/ScanReception.dart';
 import 'package:BananaExpress/components/Widget/ScanRecuperation.dart';
 import 'package:BananaExpress/model/data/LivraisonModel.dart';
@@ -11,17 +8,6 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:BananaExpress/controller/LivraisonController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-
-import 'dart:typed_data';
-import 'dart:async';
-import 'dart:ui';
-import 'package:flutter/rendering.dart';
-
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:share_plus/share_plus.dart';
-import 'package:path/path.dart' as path;
 
 // ignore: must_be_immutable
 class ColisComponentBabana extends StatelessWidget {
@@ -95,7 +81,7 @@ class ColisComponentBabana extends StatelessWidget {
                               backgroundColor: ColorsApp.second,
                               radius: 50,
                               backgroundImage:
-                                  AssetImage("assets/logo/logoNew.png"));
+                                  AssetImage("assets/logo/logo.png"));
                         },
                       )),
                       Container(
@@ -124,7 +110,7 @@ class ColisComponentBabana extends StatelessWidget {
           color: ColorsApp.grey,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15), topRight: Radius.circular(15))),
-      padding: EdgeInsets.symmetric(horizontal: kSmWidth * .07),
+      padding: EdgeInsets.symmetric(horizontal: kWidth * .07),
       height: 800,
       child: SingleChildScrollView(
           child: Column(
@@ -168,7 +154,7 @@ class ColisComponentBabana extends StatelessWidget {
                             backgroundColor: ColorsApp.second,
                             radius: 50,
                             backgroundImage:
-                                AssetImage("assets/logo/logoNew.png"));
+                                AssetImage("assets/logo/logo.png"));
                       },
                     )),
               ),

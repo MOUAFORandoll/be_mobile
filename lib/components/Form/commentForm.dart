@@ -32,7 +32,7 @@ class CommentForm extends StatelessWidget {
         // margin: EdgeInsets.symmetric(horizontal: 5),
 
         // decoration: BoxDecoration(color: ColorsApp.second),
-        height: kMdHeight / 3,
+        height: kHeight / 3,
         width: width ?? Get.width * .7,
         alignment: Alignment.topCenter,
         child: Column(

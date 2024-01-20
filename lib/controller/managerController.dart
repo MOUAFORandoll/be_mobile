@@ -1,12 +1,9 @@
 import 'dart:async';
-
-import 'package:BananaExpress/Views/User/UserManageView.dart';
+ 
 import 'package:BananaExpress/controller/LivraisonController.dart';
-import 'package:BananaExpress/controller/entity.dart';
-import 'package:BananaExpress/model/data/CompteModel.dart';
+import 'package:BananaExpress/controller/entity.dart'; 
 import 'package:BananaExpress/model/data/UserModel.dart';
-import 'package:BananaExpress/repository/ManageRepo.dart';
-import 'package:BananaExpress/utils/Services/apiUrl.dart';
+import 'package:BananaExpress/repository/ManageRepo.dart'; 
 import 'package:BananaExpress/utils/Services/core.dart';
 import 'package:BananaExpress/controller/DataBaseController.dart';
 import 'package:BananaExpress/utils/functions/viewFunctions.dart';
@@ -14,29 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:BananaExpress/utils/constants/apiRoute.dart';
 import 'package:image_picker/image_picker.dart';
-
-import '../Views/Livraison/LivraisonView.dart';
-import '../utils/Services/routing.dart';
+ 
 
 class ManagerController extends GetxController {
   final ManageRepo manageRepo;
   ManagerController({required this.manageRepo});
 
-  // int _current = 0;
-  // int get current => _current;
-  // initCurrent() {
-  //   _current = 0;
-  //   update();
-  //   // //print('curent ${_current}');
-  // }
   final dababase = Get.find<DataBaseController>();
-
-  // setCurrent(int i) {
-  //   _current = i;
-  //   update();
-  //   // //print('curent ${_current}');
-  // }
-
+  
   late Timer _timer;
 
   double _tailleAdd = 0.0;
@@ -49,7 +31,6 @@ class ManagerController extends GetxController {
       _timer = new Timer.periodic(
         oneSec,
         (Timer timer) {
-          // //print('iii');
           if (_tailleAdd == 120) {
             _tailleAdd = 0;
 
@@ -59,7 +40,6 @@ class ManagerController extends GetxController {
 
             update();
           }
-          // //print(_tailleAdd);
         },
       );
     }
@@ -71,15 +51,8 @@ class ManagerController extends GetxController {
   chageN(bool i) {
     _stateN = i;
     update();
-    //print('st****************');
-    // //print(_stateN);
   }
 
-  /**
-   * 0 => init compte
-   * 1 => profile ok 
-   * 2 => boutique
-   */
   int _state = 0;
   int get state => _state;
 
@@ -136,7 +109,6 @@ class ManagerController extends GetxController {
 
   @override
   void onReady() {
-    // TODO: implement onReady
     super.onReady();
 
     getUserDB();
@@ -149,8 +121,6 @@ class ManagerController extends GetxController {
 
   int _isLoaded = 0;
   int get isLoaded => _isLoaded;
-  //
-  // CategoryController({required this.service});
   getUser() async {
     print('------------------debut get user');
 
@@ -167,12 +137,7 @@ class ManagerController extends GetxController {
 
         await dababase.saveUser(_UserSave);
         if (_User != null) {
-          // nameU.text = Userget.nom;
-          // surnameU.text = Userget.prenom.toString();
-          // phoneU.text = Userget.phone.toString();
-          // emailU.text = Userget.email;
           initInfoUser();
-          // Get.find<BoutiqueController>().getListBoutique();
         }
       }
     }).catchError((error) {
@@ -180,55 +145,26 @@ class ManagerController extends GetxController {
       update();
       print(error);
     });
-    // try {
-    //   Response response = await manageRepo.getUser();
-    //   if (response.body != null) {
-    //     if (response.body['data'].length != 0) {
-    //       _User = UserModel.fromJson(response.body['data']);
-    //       update();
-
-    //       _Compte = CompteModel.fromJson(response.body['compte']);
-    //       update();
-    //       var _UserSave = User.fromJson(response.body['data']);
-
-    //       await dababase.saveUser(_UserSave);
-    //       if (_User != null) {
-    //         // nameU.text = Userget.nom;
-    //         // surnameU.text = Userget.prenom.toString();
-    //         // phoneU.text = Userget.phone.toString();
-    //         // emailU.text = Userget.email;
-    //         initInfoUser();
-    //         // Get.find<BoutiqueController>().getListBoutique();
-    //       }
-    //
-    //     }
-
-    //     _isLoaded = 1;
-    //     update();
-    //   }
-    // } catch (e) {
-    //   _isLoaded = 1;
-    //   update();
-    //   //print(e);
-    // }
   }
-
+  
+  Future<bool> connected() async {
+    var data = await dababase.getUser();
+    if (data != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
   getUserDB() async {
     var data = await dababase.getUser();
     if (data != null) {
-      print(
-          '-----------------------data-------${data!.id}-------------${data}');
-
-      print(
-          '-----------------------data-------${data.toMap()}-------------${data}');
-
       _User = UserModel.fromJson(data.toMap());
       update();
       initInfoUserDB();
     }
   }
 
-  // CategoryController({required this.service});
   newLocalisation() async {
     try {
       Response response = await manageRepo.newConnexion();
@@ -247,8 +183,6 @@ class ManagerController extends GetxController {
 
   var fn = new ViewFunctions();
   deconnectUser() async {
-    // fn.loading('Compte', 'Deconnexion en cours');
-
     dababase.deleteAll();
     chageState(0);
 
@@ -257,10 +191,6 @@ class ManagerController extends GetxController {
     _User = null;
     fn.closeLoader();
     update();
-
-    //print('---------userp---------${userP}');
-
-    // dababase.deleteAll();
   }
 
   initInfoUser() {
@@ -278,7 +208,7 @@ class ManagerController extends GetxController {
     _phoneU.text = _User.phone;
     Get.find<LivraisonController>().setUserInfo();
     _emailU.text = _User.email;
-     
+
     update();
   }
 
@@ -321,12 +251,11 @@ class ManagerController extends GetxController {
       'phone': phoneU.text,
       'email': emailU.text,
     };
-    //print(data);
+
     fn.loading('Compte', 'Mise a jour de votre compte en cours');
 
     try {
       Response response = await manageRepo.updateUser(data);
-      //print(response.body);
 
       if (response.statusCode == 200) {
         await getUser();
@@ -336,17 +265,15 @@ class ManagerController extends GetxController {
 
       fn.snackBar('Mise a jour', response.body['message'], true);
       _isUpdating = false;
-      // Get.back(closeOverlays: true);
+
       update();
     } catch (e) {
       fn.closeLoader();
 
       fn.snackBar('Mise a jour', 'Une erreur est survenue', false);
-      //        fn.closeLoader();
 
       _isUpdating = false;
       update();
-      //print(e);
     }
   }
 
@@ -358,17 +285,6 @@ class ManagerController extends GetxController {
           maxHeight: 500,
           maxWidth: 500);
 
-      // File? croppedFile = await ImageCropper().cropImage(
-      //   aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
-      //   sourcePath: image.path,
-      //   aspectRatioPresets: [
-      //     CropAspectRatioPreset.square,
-      //     CropAspectRatioPreset.ratio3x2,
-      //     CropAspectRatioPreset.original,
-      //     CropAspectRatioPreset.ratio4x3,
-      //     CropAspectRatioPreset.ratio16x9
-      //   ],
-      // );
       if (image != null) {
         fn.loading(
             'Boutique', 'Mise a jour de l\'affiche de votre boutique en cours');
@@ -408,11 +324,9 @@ class ManagerController extends GetxController {
           //print(e);
         }
       }
-    } catch (e) {
-      // _showToastPictureError(context);
-    }
+    } catch (e) {}
   }
-
+  
   TextEditingController _phoneLog = TextEditingController();
   get phoneLog => _phoneLog;
   TextEditingController _passwordLog = TextEditingController();
@@ -431,7 +345,7 @@ class ManagerController extends GetxController {
 
     try {
       Response response = await manageRepo.Login(data);
-//       //print(response.body);
+ 
       if (response.statusCode == 200) {
         dababase.saveKeyKen(response.body);
         await getUser();

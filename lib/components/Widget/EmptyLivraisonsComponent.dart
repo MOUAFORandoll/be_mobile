@@ -1,9 +1,6 @@
 import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/controller/GeneralController.dart';
-import 'package:BananaExpress/model/data/ModePaiementModel.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:BananaExpress/controller/GeneralController.dart'; 
+import 'package:BananaExpress/styles/textStyle.dart'; 
 import 'package:flutter/material.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:get/get.dart';

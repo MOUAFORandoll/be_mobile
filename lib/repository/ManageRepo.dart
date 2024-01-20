@@ -1,12 +1,8 @@
 import 'package:dio/dio.dart' hide Response;
-import 'package:BananaExpress/model/data/ProduitModel.dart';
 import 'package:BananaExpress/utils/Services/ApiClient.dart';
-import 'package:BananaExpress/utils/Services/storageService.dart';
 import 'package:BananaExpress/utils/constants/apiRoute.dart';
 import 'package:BananaExpress/controller/DataBaseController.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/response/response.dart';
-import 'package:get_storage/get_storage.dart';
 
 class ManageRepo extends GetxService {
   final ApiClient apiClient;

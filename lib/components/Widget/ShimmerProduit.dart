@@ -13,11 +13,11 @@ class ShimmerProduit extends StatelessWidget {
       baseColor: ColorsApp.grey,
       highlightColor: Colors.blueGrey,
       child: Container(
-          height: kMdHeight / 1.8,
+          height: kHeight / 1.8,
 
           // margin: EdgeInsets.symmetric(horizontal: kMarginX),
           child: SizedBox(
-              height: kMdHeight / 2,
+              height: kHeight / 2,
               child: Stack(children: [
                 GridView.builder(
                     physics: NeverScrollableScrollPhysics(),
@@ -29,8 +29,8 @@ class ShimmerProduit extends StatelessWidget {
                     itemCount: 9,
                     itemBuilder: (_ctx, index) => Column(children: [
                           Container(
-                            height: kMdHeight / 12,
-                            width: kMdWidth * 1.1,
+                            height: kHeight / 12,
+                            width: kWidth * 1.1,
                             alignment: Alignment.center,
                             // padding: EdgeInsets.all(kMarginX),
                             margin: EdgeInsets.only(right: kMarginX),

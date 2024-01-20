@@ -1,6 +1,3 @@
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
-
 import 'package:flutter/cupertino.dart';
 
 import '../exportcomponent.dart';
@@ -8,7 +5,7 @@ import '../exportcomponent.dart';
 class AppInput extends StatefulWidget {
   final TextEditingController controller;
   final String? Function(String? value)? validator;
-  final String label;
+  final String? label;
   final String? errorText;
   final String? placeholder;
   final ValueChanged<String>? onChanged;
@@ -19,7 +16,7 @@ class AppInput extends StatefulWidget {
   const AppInput(
       {Key? key,
       required this.controller,
-      required this.label,
+      this.label,
       this.validator,
       this.placeholder,
       this.errorText,
@@ -38,82 +35,69 @@ class _AppInputState extends State<AppInput> {
   bool isVisible = false;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: EdgeInsets.only(
-          top: kMarginY * 2,
-        ),
-        child: Column(children: [
-          Container(
-              alignment: Alignment.centerLeft,
-              margin: EdgeInsets.only(bottom: kMarginY / 2),
-              child: Row(
-                children: [
-                  Text(
-                    widget.label,
-                    style: TextStyle(
-                        color: ColorsApp.grey, fontWeight: FontWeight.w500),
-                  ),
-                ],
-              )),
-          Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            height: kHeight * .1,
-            child: TextFormField(
-              cursorColor: ColorsApp.tird, autofocus: false,
-              controller: widget.controller,
-              style: TextStyle(
+    return Container(
+        alignment: Alignment.center,
+        margin: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
+        child: TextFormField(
+          cursorColor: ColorsApp.tird, autofocus: false,
+          controller: widget.controller,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            // color: ColorsApp.tird,
+            fontSize: 12,
+            fontFamily: 'Lato',
+          ),
+
+          // maxLength: widget.maxLength,
+          onChanged: widget.onChanged,
+
+          decoration: InputDecoration(
+              fillColor: ColorsApp.second.withOpacity(0.3),
+              focusColor: ColorsApp.second.withOpacity(0.3),
+              hoverColor: ColorsApp.second.withOpacity(0.3),
+              // label: Text(widget.placeholder!),
+              contentPadding: EdgeInsets.all(15),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: ColorsApp.second, width: 1),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: ColorsApp.red, width: 1),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: ColorsApp.grey, width: 1),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              errorText: widget.errorText,
+              errorStyle: TextStyle(
+                fontFamily: 'Lato',
+                color: ColorsApp.red,
+              ),
+              prefixIcon: widget.prefix,
+              hintText: widget.placeholder,
+              hintStyle: TextStyle(
                 fontWeight: FontWeight.w500,
-                // color: ColorsApp.tird,
                 fontSize: 12,
                 fontFamily: 'Lato',
               ),
-
-              // maxLength: widget.maxLength,
-              onChanged: widget.onChanged,
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(15),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.tird, width: 1),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.second, width: 1),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.grey, width: 1),
-                    borderRadius: BorderRadius.circular(8),
-                    // borderSide:
-                    //     BorderSide(color: ColorsApp.tird, width: 1),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  errorText: widget.errorText,
-                  errorStyle: TextStyle(
-                    fontFamily: 'Lato',
-                  ),
-                  prefixIcon: widget.prefix,
-                  hintText: widget.placeholder,
-                  suffixIcon: widget.icon),
-              validator: widget.validator,
-              obscureText: isVisible,
-              keyboardType: widget.textInputType,
-            ),
-          )
-        ]));
+              suffixIcon: widget.icon),
+          validator: widget.validator,
+          obscureText: isVisible,
+          keyboardType: widget.textInputType,
+        ));
   }
 }
 
 class AppInputPassword extends StatefulWidget {
   final TextEditingController controller;
   final String? Function(String? value)? validator;
-  final String label;
+
   final String? errorText;
-  final String? placeholder;
+  final String placeholder;
   final ValueChanged<String>? onChanged;
   final bool obscureText;
   // final bool valid;
@@ -121,10 +105,9 @@ class AppInputPassword extends StatefulWidget {
   const AppInputPassword({
     Key? key,
     required this.controller,
-    required this.label,
     this.validator,
     // this.valid = false,
-    this.placeholder,
+    this.placeholder = '',
     this.errorText,
     this.onChanged,
     this.obscureText = false,
@@ -139,88 +122,73 @@ class _AppInputPasswordState extends State<AppInputPassword> {
   bool isVisible = true;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: EdgeInsets.only(
-          top: kMarginY * 2,
+    return Container(
+      alignment: Alignment.center,
+      margin: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
+      child: TextFormField(
+        autofocus: false,
+        controller: widget.controller,
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          // color: ColorsApp.tird,
+          fontSize: 12,
+          fontFamily: 'Lato',
         ),
-        child: Column(children: [
-          Container(
-              alignment: Alignment.centerLeft,
-              margin: EdgeInsets.only(bottom: kMarginY / 2),
-              child: Row(
-                children: [
-                  Text(
-                    widget.label,
-                    style: TextStyle(
-                        color: ColorsApp.grey, fontWeight: FontWeight.w500),
-                  ),
-                ],
-              )),
-          Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            height: kHeight * .1,
-            child: TextFormField(
-              autofocus: false,
-              controller: widget.controller,
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                // color: ColorsApp.tird,
-                fontSize: 15,
-                fontFamily: 'Lato',
-              ),
-              cursorColor: ColorsApp.tird,
-              // maxLength: widget.maxLength,
-              onChanged: widget.onChanged,
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(15),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.tird, width: 1),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.second, width: 1),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.grey, width: 1),
-                    borderRadius: BorderRadius.circular(8),
-                    // borderSide:
-                    //     BorderSide(color: ColorsApp.tird, width: 1),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  errorText: widget.errorText,
-                  errorStyle: TextStyle(
-                    fontFamily: 'Lato',
-                  ),
-                  hintText: widget.placeholder,
+        cursorColor: ColorsApp.tird,
+        // maxLength: widget.maxLength,
+        onChanged: widget.onChanged,
 
-                  // hintText: widget.placeholder,
-                  suffixIcon: widget.obscureText == true
-                      ? IconButton(
-                          onPressed: () {
-                            setState(() {
-                              isVisible = !isVisible;
-                            });
-                          },
-                          icon: Icon(
-                            isVisible
-                                ? Icons.remove_red_eye
-                                : CupertinoIcons.eye_slash,
-                            /*     */
-                          ),
-                        )
-                      : null),
-              validator: widget.validator,
-              obscureText: isVisible,
-              keyboardType: widget.textInputType,
+        decoration: InputDecoration(
+            fillColor: ColorsApp.second.withOpacity(0.3),
+            focusColor: ColorsApp.second.withOpacity(0.3),
+            hoverColor: ColorsApp.second.withOpacity(0.3),
+            // label: Text(widget.placeholder),
+            contentPadding: EdgeInsets.all(15),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorsApp.second, width: 1),
+              borderRadius: BorderRadius.circular(30),
             ),
-          )
-        ]));
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorsApp.red, width: 1),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorsApp.grey, width: 1),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            // errorText: widget.errorText,
+            errorStyle: TextStyle(
+              fontFamily: 'Lato',
+              color: ColorsApp.red,
+            ),
+            hintText: widget.placeholder,
+            hintStyle: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 12,
+              fontFamily: 'Lato',
+            ),
+            suffixIcon: widget.obscureText == true
+                ? IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    },
+                    icon: Icon(
+                      isVisible
+                          ? Icons.remove_red_eye
+                          : CupertinoIcons.eye_slash,
+                      /*     */
+                    ),
+                  )
+                : null),
+        validator: widget.validator,
+        obscureText: isVisible,
+        keyboardType: widget.textInputType,
+      ),
+    );
   }
 }

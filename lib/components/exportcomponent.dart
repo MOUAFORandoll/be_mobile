@@ -10,7 +10,6 @@ export 'package:BananaExpress/components/Widget/app_back_button.dart';
 export 'package:BananaExpress/components/Widget/app_empty.dart';
 export 'package:BananaExpress/components/Widget/app_loading.dart';
 export 'package:BananaExpress/components/Widget/app_title_right.dart';
-export 'package:BananaExpress/components/Widget/categoryComponent.dart';
 export 'package:BananaExpress/components/Text/titleText.dart';
 export 'package:BananaExpress/styles/colorApp.dart';
 export 'package:BananaExpress/styles/textStyle.dart';

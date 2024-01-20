@@ -163,7 +163,7 @@ openModalAddColis() {
                                           value: value,
                                           child: Center(
                                             child: Text(
-                                              value.libelle,
+                                              value.libelle!,
                                             ),
                                           ),
                                         );
@@ -446,7 +446,7 @@ openModalAddColis() {
                                                                           12),
                                                               color: ColorsApp
                                                                   .grey),
-                                                          width: kMdWidth / 2,
+                                                          width: kWidth / 2,
                                                           // height: 35,
                                                           // alignment: Alignment.center,
                                                           margin:
@@ -515,8 +515,7 @@ openModalAddColis() {
                                                                 .length !=
                                                             0
                                                         ? Container(
-                                                            height:
-                                                                kSmHeight * 2,
+                                                            height: kHeight * 2,
                                                             margin:
                                                                 EdgeInsets.only(
                                                               top: kMarginY,

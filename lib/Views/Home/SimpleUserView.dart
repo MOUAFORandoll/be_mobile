@@ -1,4 +1,4 @@
-import 'package:BananaExpress/components/Button/app_button.dart';
+ 
 import 'package:BananaExpress/components/Form/search_field.dart';
 import 'package:BananaExpress/components/Widget/HomeModuleComponent.dart';
 import 'package:BananaExpress/components/Widget/ShimmerBox.dart';
@@ -160,7 +160,7 @@ class SimpleUserView extends StatelessWidget {
                                                                                 ),
                                                                                 child: CachedNetworkImage(
                                                                                   fit: BoxFit.cover,
-                                                                                  imageUrl: generalController.categoryList[index].logo /* 'https://placehold.co/600x400@2x.png' */,
+                                                                                  imageUrl: generalController.categoryList[index].logo! /* 'https://placehold.co/600x400@2x.png' */,
                                                                                   imageBuilder: (context, imageProvider) {
                                                                                     return Container(
                                                                                         height: kHeight / 8,
@@ -182,14 +182,14 @@ class SimpleUserView extends StatelessWidget {
                                                                                         width: kHeight / 8,
                                                                                         decoration: BoxDecoration(
                                                                                             image: DecorationImage(
-                                                                                          image: AssetImage('assets/logo/logoNew.png'),
+                                                                                          image: AssetImage('assets/logo/logo.png'),
                                                                                         )));
                                                                                   },
                                                                                 ),
                                                                               ),
                                                                               Container(
                                                                                   child: Text(
-                                                                                generalController.categoryList[index].libelle,
+                                                                                generalController.categoryList[index].libelle!,
                                                                                 maxLines: 2,
                                                                                 textAlign: TextAlign.center,
                                                                                 style: TextStyle(fontFamily: 'Montserrat', overflow: TextOverflow.ellipsis, fontWeight: FontWeight.w500),

@@ -14,7 +14,7 @@ class AppButton extends StatelessWidget {
   AppButton({
     Key? key,
     required this.text,
-    this.bgColor = ColorsApp.primary,
+    this.bgColor = ColorsApp.second,
     this.textColor = Colors.white,
     this.onTap,
     this.leading,
@@ -31,6 +31,7 @@ class AppButton extends StatelessWidget {
         constraints:
             BoxConstraints(minHeight: kHeight / 17, minWidth: kWidth / 2.5),
         padding: EdgeInsets.symmetric(horizontal: kMarginX),
+        margin: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
         decoration: BoxDecoration(
             // boxShadow: [
             //   BoxShadow(
@@ -40,7 +41,7 @@ class AppButton extends StatelessWidget {
             //     offset: Offset(0, 1),
             //   ),
             // ],
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(21),
             color: disabled ? bgColor.withOpacity(.5) : bgColor,
             border: border),
         alignment: Alignment.center,

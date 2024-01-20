@@ -1,8 +1,5 @@
 import 'package:BananaExpress/Views/Home/HomeView.dart';
-import 'package:BananaExpress/Views/Livraison/LivraisonView.dart';
-import 'package:BananaExpress/Views/Notifications/NotificationView.dart';
-import 'package:BananaExpress/Views/User/SettingView.dart';
-import 'package:BananaExpress/Views/User/UserManageView.dart';
+import 'package:BananaExpress/Views/Livraison/LivraisonView.dart'; 
 import 'package:BananaExpress/controller/DataBaseController.dart';
 import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/model/data/CategoryModel.dart';
@@ -17,15 +14,12 @@ import 'package:BananaExpress/utils/functions/viewFunctions.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
-import 'package:get/get.dart';
-import 'package:BananaExpress/Views/User/ManageView.dart';
+import 'package:get/get.dart'; 
 import 'package:get_storage/get_storage.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:geolocator/geolocator.dart';
-
-import 'package:location/location.dart' hide LocationAccuracy, PermissionStatus;
+import 'package:carousel_slider/carousel_slider.dart'; 
+ 
 import 'package:flutter_svg/flutter_svg.dart';
 
 class GeneralController extends GetxController {
@@ -240,17 +234,17 @@ class GeneralController extends GetxController {
   int _index = 0;
   int get index => _index;
   var fn = new ViewFunctions();
-
+  
   setIndex(index) {
     _index = index;
     update();
   }
-
+  
   setIndexCurrent(index) {
     _currentIndex = index;
     update();
   }
-
+  
   late ScrollController _controllerScrollNotification;
   get controllerScrollNotification => _controllerScrollNotification;
   int _currentIndex = 0;
@@ -288,8 +282,8 @@ class GeneralController extends GetxController {
       items: [
         CustomNavigationBarItem(
             icon: Container(
-              height: kSmHeight / 1.7,
-              width: kSmWidth / 4.2,
+              height: kHeight / 1.7,
+              width: kWidth / 4.2,
               child: SvgPicture.asset(
                 Assets.home,
                 width: 90,
@@ -318,12 +312,13 @@ class GeneralController extends GetxController {
           if (Get.find<ManagerController>().Userget.typeUser == 2)
             CustomNavigationBarItem(
               icon: Container(
-                height: kSmHeight / 1.7,
-                width: kSmWidth / 4.2,
+                height: kHeight / 1.7,
+                width: kWidth / 4.2,
                 child: SvgPicture.asset(
                   Assets.grid1,
                   width: 80,
                   height: 80,
+                  // ignore: deprecated_member_use
                   color: _currentIndex == 1 ? ColorsApp.second : ColorsApp.grey,
                 ),
               ),
@@ -347,8 +342,8 @@ class GeneralController extends GetxController {
 
         // CustomNavigationBarItem(
         //   icon: Container(
-        //     height: kSmHeight / 1.7,
-        //     width: kSmWidth / 4.2,
+        //     height: kHeight / 1.7,
+        //     width: kWidth / 4.2,
         //     child: Icon(
         //       Icons.settings,
         //       size: 25,
@@ -488,8 +483,6 @@ class GeneralController extends GetxController {
       //print(e);
     }
   }
-
-
 
   int _isLoadedHome = 0;
   int get isLoadedHome => _isLoadedHome;

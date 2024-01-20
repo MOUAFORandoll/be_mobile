@@ -5,10 +5,10 @@ import '../../components/exportcomponent.dart';
 class SuccesReceptionview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: () async {
+    return PopScope(
+        onPopInvoked: (value) async {
           Get.offNamedUntil(AppLinks.FIRST, (route) => false);
-          return false;
+           
         },
         child: Scaffold(
             backgroundColor: ColorsApp.grey,

@@ -1,8 +1,4 @@
-// To parse this JSON data, do
-//
-//     final userModel = userModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
+ 
 import 'dart:convert';
 
 CompteModel cmopteModelFromJson(String str) =>

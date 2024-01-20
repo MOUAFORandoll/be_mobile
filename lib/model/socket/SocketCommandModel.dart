@@ -1,37 +1,4 @@
-// To parse this JSON data, do
-//
-//     final livreurModel = livreurModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
-import 'dart:convert';
-
-// SocketCommandModel socketCommandModelFromJson(String str) =>
-//     SocketCommandModel.fromJson(json.decode(str));
-
-// String socketCommandModelToJson(SocketCommandModel data) =>
-//     json.encode(data.toJson());
-
-// class SocketCommandModel {
-//   int canal;
-//   Data data;
-
-//   SocketCommandModel({
-//     required this.canal,
-//     required this.data,
-//   });
-
-//   factory SocketCommandModel.fromJson(Map<String, dynamic> json) =>
-//       SocketCommandModel(
-//         canal: json["canal"],
-//         data: Data.fromJson(json["data"]),
-//       );
-
-//   Map<String, dynamic> toJson() => {
-//         "canal": canal,
-//         "data": data.toJson(),
-//       };
-// }
-
+ 
 class SocketCommandModel {
   final int id;
   final String pdf;
@@ -64,12 +31,12 @@ class SocketCommandModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id == null ? null : id,
-        "pdf": pdf == null ? null : pdf,
-        "codeClient": codeClient == null ? null : codeClient,
-        "status": status == null ? null : status,
-        "codeCommande": codeCommande == null ? null : codeCommande,
-        "message": message == null ? null : message,
+        "id":  id,
+        "pdf": pdf,
+        "codeClient":  codeClient,
+        "status":   status,
+        "codeCommande":   codeCommande,
+        "message":   message,
         "date": date,
       };
 }

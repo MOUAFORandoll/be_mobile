@@ -85,7 +85,7 @@ class UserManageView extends StatelessWidget {
                                           backgroundColor: ColorsApp.tird,
                                           radius: 50,
                                           backgroundImage: AssetImage(
-                                              "assets/logo/logoNew.png"));
+                                              "assets/logo/logo.png"));
                                     },
                                   ),
                                 ),
@@ -133,7 +133,7 @@ class UserManageView extends StatelessWidget {
                                   children: [
                                     AppInput(
                                       controller: _manager.nameU,
-                                      label: 'labelname'.tr,
+                                      placeholder: 'labelname'.tr,
                                       // icon: Icon(Icons.account_box),
                                       validator: (value) {
                                         return Validators.isValidUsername(
@@ -143,7 +143,7 @@ class UserManageView extends StatelessWidget {
                                     AppInput(
                                       controller: _manager.surnameU,
                                       // icon: Icon(Icons.account_box),
-                                      label: 'labelsurname'.tr,
+                                      placeholder: 'labelsurname'.tr,
                                       validator: (value) {
                                         return Validators.isValidUsername(
                                             value!);
@@ -152,14 +152,14 @@ class UserManageView extends StatelessWidget {
                                     AppInput(
                                       controller: _manager.emailU,
                                       // icon: Icon(Icons.mail),
-                                      label: 'labelemail'.tr,
+                                      placeholder: 'labelemail'.tr,
                                       validator: (value) {
                                         return Validators.isValidEmail(value);
                                       },
                                     ),
                                     AppInput(
                                       controller: _manager.phoneU,
-                                      label: 'labelphone'.tr,
+                                      placeholder: 'labelphone'.tr,
                                       // icon: Icon(Icons.phone),
                                       validator: (value) {
                                         return Validators.usPhoneValid(value!);
@@ -196,7 +196,7 @@ class UserManageView extends StatelessWidget {
                                     ),
                                     child: AppInputPassword(
                                       controller: _manager.pwdCurrentU,
-                                      label: 'labelnewpassword'.tr,
+                                      placeholder: 'labelnewpassword'.tr,
                                       obscureText: true,
                                       validator: (value) {
                                         return Validators.isValidPassword(
@@ -210,7 +210,7 @@ class UserManageView extends StatelessWidget {
                                     ),
                                     child: AppInputPassword(
                                       controller: _manager.newpwdU,
-                                      label: 'labelpassword'.tr,
+                                      placeholder: 'labelpassword'.tr,
                                       obscureText: true,
                                       validator: (value) {
                                         return Validators.isValidPassword(
@@ -224,7 +224,7 @@ class UserManageView extends StatelessWidget {
                                     ),
                                     child: AppInputPassword(
                                       controller: _manager.rnewpwdU,
-                                      label: 'labelrpassword'.tr,
+                                      placeholder: 'labelrpassword'.tr,
                                       obscureText: true,
                                       validator: (value) {
                                         return Validators.isValidRePassword(

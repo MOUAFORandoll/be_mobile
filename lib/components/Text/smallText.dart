@@ -22,7 +22,7 @@ class smallText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: width == 0 ? kSmWidth : width,
+        width: width == 0 ? kWidth : width,
         alignment: al ? null : Alignment.center,
         child: Text(
           text,

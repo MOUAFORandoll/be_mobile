@@ -1,8 +1,4 @@
-// To parse this JSON data, do
-//
-//     final livreurModel = livreurModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
+ 
 import 'dart:convert';
 
 LivreurModel livreurModelFromJson(String str) =>
