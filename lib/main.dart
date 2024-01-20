@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 // import 'package:generated/l10n.dart';
+import 'ui/general_action/cubit/GeneralAction_cubit.dart';
 import 'utils/Services/routes.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -132,8 +133,11 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<UserBloc>(
-          create: (BuildContext context) => UserBloc(),
-        ),
+            create: (BuildContext context) => UserBloc(),
+          ),
+          BlocProvider<GeneralActionCubit>(
+            create: (BuildContext context) => GeneralActionCubit(),
+          ),
       ],
       child:
             AppContent() /* EasyLocalization(

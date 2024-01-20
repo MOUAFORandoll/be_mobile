@@ -61,7 +61,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   ) async {
     print(event.phone);
   }
-
+  
   Future<void> onRegister(
     SignInEvent event,
   ) async {
