@@ -8,7 +8,7 @@ class AppButton extends StatelessWidget {
   final String text;
   final Widget? leading;
   final VoidCallback? onTap;
-  final bool disabled;
+  final int loading;
   final MainAxisSize size;
   final BoxBorder? border;
   AppButton({
@@ -19,14 +19,14 @@ class AppButton extends StatelessWidget {
     this.onTap,
     this.leading,
     this.border,
-    this.disabled = false,
+    this.loading = 0,
     this.size = MainAxisSize.min,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: disabled ? null : onTap,
+      onTap: loading == 1 ? null : onTap,
       child: Container(
         constraints:
             BoxConstraints(minHeight: kHeight / 17, minWidth: kWidth / 2.5),
@@ -42,19 +42,27 @@ class AppButton extends StatelessWidget {
             //   ),
             // ],
             borderRadius: BorderRadius.circular(21),
-            color: disabled ? bgColor.withOpacity(.5) : bgColor,
+            color: loading == 1 ? bgColor.withOpacity(.5) : bgColor,
             border: border),
         alignment: Alignment.center,
-        child: Text(
-          text,
-          style: TextStyle(
-            fontFamily: 'Montserrat',
-            color: disabled ? textColor.withOpacity(.5) : textColor,
-            fontWeight: FontWeight.w600,
-            overflow: TextOverflow.ellipsis,
-            fontSize: 12,
-          ),
-        ),
+        child: loading == 1
+            ? Container(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(
+                  color: ColorsApp.tird,
+                ),
+              )
+            : Text(
+                text,
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  color: textColor,
+                  fontWeight: FontWeight.w600,
+                  overflow: TextOverflow.ellipsis,
+                  fontSize: 12,
+                ),
+              ),
       ),
     );
   }

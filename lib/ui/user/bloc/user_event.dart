@@ -25,13 +25,13 @@ class SignInEvent extends UserEvent {
   List<Object> get props => [phone, password];
 }
 
-class RegisterInEvent extends UserEvent {
+class RegisterEvent extends UserEvent {
   final String name;
   final String phone;
   final String password;
   final String re_password;
 
-  RegisterInEvent(
+  RegisterEvent(
       {required this.name,
       required this.phone,
       required this.password,

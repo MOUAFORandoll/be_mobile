@@ -49,6 +49,7 @@ dependencies:
   intl_phone_field: ^3.2.0
   intl_translation: any
   jwt_decode: null
+  loading_indicator: ^3.1.1
   location: ^4.4.0
   new_version_plus: ^0.0.11
   objectbox: ^2.2.1

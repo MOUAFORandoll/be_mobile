@@ -76,7 +76,7 @@ class User {
       email: json['email'],
       profile: json['profile'],
       phone: json['phone'],
-      dateCreated: json['dateCreated'],
+      dateCreated: json['date_created'],
     );
   }
 }

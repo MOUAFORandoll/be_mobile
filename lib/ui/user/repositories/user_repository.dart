@@ -1,14 +1,16 @@
-import 'package:dio/dio.dart' hide Response;
-import 'package:BananaExpress/utils/Services/ApiClient.dart';
+import 'package:dio/dio.dart';
 import 'package:BananaExpress/utils/constants/apiRoute.dart';
-import 'package:get/get.dart';
 
+import '../../../utils/Services/ApiClientNew.dart';
+import 'package:get_it/get_it.dart';
 import '../../../utils/datebase.dart';
+import '../../databasecubit/cubit/databasecubit_cubit.dart';
 
-class ManageRepo extends GetxService {
+final sl = GetIt.instance;
+
+class UserRepo {
   var apiClient = new ApiClient();
-  final dababase = new DataBaseController();
-
+  var dababase = sl.get<DatabaseCubit>();
   Future getUser() async {
     var getU = await dababase.getKey();
 
@@ -19,9 +21,7 @@ class ManageRepo extends GetxService {
 
       return a;
     } else {
-      return new Response(body: {
-        'data': [],
-      }, statusCode: 200);
+      return null;
     }
   }
 
@@ -31,9 +31,9 @@ class ManageRepo extends GetxService {
       Response a = await apiClient
           .postData(ApiRoutes.Refresh, {'refreshToken': kk['refreshToken']});
 
-      dababase.saveKeyKen(a.body);
+      dababase.saveKeyKen(a.data);
     } else {
-      return new Response(body: {'data': []}, statusCode: 200);
+      return null;
     }
   }
 
@@ -66,13 +66,13 @@ class ManageRepo extends GetxService {
 
         return a;
       } catch (e) {
-        return new Response(body: {'data': []}, statusCode: 203);
+        return null;
       }
       // } else {
       //   return new Response(body: {'data': []}, statusCode: 200);
       // }
     } else {
-      return new Response(body: {'data': []}, statusCode: 200);
+      return null;
     }
   }
 
@@ -85,17 +85,8 @@ class ManageRepo extends GetxService {
   Future SignUp(data) async {
     //print(data);
     Response a0 = await apiClient.postData(ApiRoutes.SIGNUP, data);
-    if (a0.statusCode == 201) {
-      var logdata = {
-        'phone': data['phone'].toString(),
-        'password': data['password']
-      };
 
-      Response a = await this.Login(logdata);
-      return a;
-    } else {
-      return a0;
-    }
+    return a0;
   }
 
   Future getListFieul(keySecret, page) async {
@@ -107,7 +98,7 @@ class ManageRepo extends GetxService {
 
   Future updateImageUser(data) async {
     Response a = await apiClient.postData(ApiRoutes.USER_IMAGE_UPDATE, data);
-    
+
     return a;
   }
 }

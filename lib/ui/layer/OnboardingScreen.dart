@@ -3,7 +3,6 @@ import 'package:BananaExpress/components/Widget/app_carroussel_item.dart';
 import 'package:BananaExpress/controller/GeneralController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/ui/general_action/cubit/GeneralAction_event.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -12,16 +11,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../general_action/cubit/GeneralAction_cubit.dart';
-import '../general_action/cubit/GeneralAction_state.dart';
+import '../general_action/cubit/app_action_cubit.dart';
+import '../general_action/cubit/app_action_state.dart';
 
 class OnBoardingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GetStorage box = GetStorage();
-    return BlocBuilder<GeneralActionCubit, GeneralActionState>(
+    return BlocBuilder<AppActionCubit, AppActionState>(
         builder: (context, state) {
-      var action = state as GeneralActionState;
+      var action = state as OnboardingState;
       return Scaffold(
           backgroundColor: ColorsApp.tird,
           body: SingleChildScrollView(
@@ -48,7 +47,7 @@ class OnBoardingView extends StatelessWidget {
                       enableInfiniteScroll: false,
                       reverse: false,
                       onPageChanged: (index, reason) {
-                        context.read<GeneralActionCubit>().setIndex(index);
+                        context.read<AppActionCubit>().setIndex(index);
                         ;
                       },
                       disableCenter: true,

@@ -1,20 +1,17 @@
-import 'package:BananaExpress/controller/managerController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/ui/user/bloc/user_event.dart';
-import 'package:BananaExpress/utils/Services/core.dart';
+import 'package:BananaExpress/ui/home/bloc/home_bloc.dart';  
 import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'dart:async';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../utils/datebase.dart';
-import '../user/bloc/user_bloc.dart';
-import '../user/bloc/user_state.dart';
+ 
+import '../home/bloc/home_event.dart';
+import '../home/bloc/home_state.dart';
+import '../user/bloc/user_bloc.dart'; 
 
 class SplashScreenPage extends StatefulWidget {
   @override
@@ -26,10 +23,9 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   GetStorage box = GetStorage();
 
   start() async {
+    // await box.write('first', 0);
     final UserBloc userBloc = BlocProvider.of<UserBloc>(context);
-
-    userBloc.add(GetDataBateEvent());
-
+    
     Future.delayed(Duration(seconds: 7), () async {
       print(box.read('first'));
       if (box.read('first') != 1) {
@@ -37,7 +33,8 @@ class _SplashScreenPageState extends State<SplashScreenPage>
       } else {
         bool connect = await userBloc.connected();
         if (connect) {
-          Navigator.of(context).pushNamed(AppLinks.FIRST);
+          BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
+          Navigator.of(context).pushNamed(AppLinks.HOME);
         } else {
           Navigator.of(context).popAndPushNamed(AppLinks.LOGIN);
         }

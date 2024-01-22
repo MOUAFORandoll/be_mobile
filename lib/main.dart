@@ -1,20 +1,26 @@
 import 'package:BananaExpress/styles/app_theme.dart';
+import 'package:BananaExpress/ui/databasecubit/cubit/databasecubit_cubit.dart';
+import 'package:BananaExpress/ui/home/bloc/home_bloc.dart';
 import 'package:BananaExpress/ui/user/bloc/user_bloc.dart';
+import 'package:BananaExpress/ui/user/repositories/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:toast/toast.dart';
 import 'styles/colorApp.dart';
 import 'styles/textStyle.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 // import 'package:generated/l10n.dart';
-import 'ui/general_action/cubit/GeneralAction_cubit.dart';
+import 'ui/core.dart';
+import 'ui/general_action/cubit/app_action_cubit.dart';
 import 'utils/Services/routes.dart';
+import 'package:get_it/get_it.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
-
-void main() {
+Future<void> main() async {
+  await initApp();
   runApp(MyApp());
 }
 
@@ -122,6 +128,7 @@ var supportedLocales = const [
   Locale('en', 'EN'),
   Locale('fr', 'FR'),
 ];
+final sl = GetIt.instance;
 
 class MyApp extends StatelessWidget {
   const MyApp({
@@ -131,22 +138,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider<UserBloc>(
-            create: (BuildContext context) => UserBloc(),
+        providers: [
+          BlocProvider<AppActionCubit>(
+            create: (BuildContext context) => AppActionCubit(),
           ),
-          BlocProvider<GeneralActionCubit>(
-            create: (BuildContext context) => GeneralActionCubit(),
+          BlocProvider<DatabaseCubit>(
+            create: (BuildContext context) => DatabaseCubit(),
           ),
-      ],
-      child:
+          BlocProvider<UserBloc>(
+            create: (BuildContext context) => UserBloc(
+                userRepo: sl.get<UserRepo>(),
+                database: sl.get<DatabaseCubit>()),
+          ),
+          BlocProvider<HomeBloc>(
+            create: (BuildContext context) =>
+                HomeBloc(database: sl.get<DatabaseCubit>()),
+          ),
+        ],
+        child:
             AppContent() /* EasyLocalization(
         path: 'assets/lang',
         supportedLocales: supportedLocales,
         fallbackLocale: const Locale('fr', 'FR'),
         child: const AppContent(),
       ), */
-    );
+        );
   }
 }
 
@@ -162,7 +178,7 @@ class AppContent extends StatelessWidget {
       theme: AppThemes.themeData,
       themeMode: ThemeMode.light,
       // localizationsDelegates: const [
-       
+
       //   GlobalMaterialLocalizations.delegate,
       //   GlobalWidgetsLocalizations.delegate,
       //   GlobalCupertinoLocalizations.delegate,

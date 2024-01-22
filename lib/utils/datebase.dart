@@ -24,7 +24,7 @@ class DataBaseController {
 
   // Instance unique du DataBaseController
   static DataBaseController? _instance;
-
+  
   // Méthode pour obtenir l'instance unique du DataBaseController
   static Future<DataBaseController> getInstance() async {
     print('get instannce-----------*e');
@@ -33,11 +33,11 @@ class DataBaseController {
 
       _instance = await _createInstance();
     }
-      print('${_instance}-----------*e');
-    
+    print('${_instance}-----------*e');
+
     return _instance!;
   }
-
+  
   // Méthode interne pour créer l'instance du DataBaseController
   static Future<DataBaseController> _createInstance() async {
     final databasesPath = await getApplicationDocumentsDirectory();

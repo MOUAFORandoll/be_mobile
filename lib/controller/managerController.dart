@@ -16,7 +16,7 @@ import 'package:image_picker/image_picker.dart';
 class ManagerController extends GetxController {
   final ManageRepo manageRepo;
   ManagerController({required this.manageRepo});
-
+  
   final dababase = Get.find<DataBaseController>();
   
   late Timer _timer;
@@ -445,7 +445,7 @@ class ManagerController extends GetxController {
       fn.snackBar('Mot de passse', '5 caractes minimum', false);
       return false;
     }
-
+    
     var data = {
       'phone': int.parse(phone.text),
       'password': pass.text,
