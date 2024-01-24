@@ -1,19 +1,20 @@
-import 'package:BananaExpress/controller/GeneralController.dart';
-import 'package:BananaExpress/controller/LivraisonController.dart';
-import 'package:BananaExpress/controller/managerController.dart';
-import 'package:BananaExpress/repository/GeneralRepo.dart';
-import 'package:BananaExpress/repository/LivreurRepo.dart';
-import 'package:BananaExpress/repository/LivraisonRepo.dart';
-import 'package:BananaExpress/repository/ManageRepo.dart';
+import 'package:BananaExpress/old/controller/GeneralController.dart';
+import 'package:BananaExpress/old/controller/LivraisonController.dart';
+import 'package:BananaExpress/old/controller/managerController.dart';
+import 'package:BananaExpress/old/repository/GeneralRepo.dart';
+import 'package:BananaExpress/old/repository/LivreurRepo.dart';
+import 'package:BananaExpress/old/repository/LivraisonRepo.dart';
+import 'package:BananaExpress/old/repository/ManageRepo.dart';
 import 'package:BananaExpress/utils/Services/ApiClient.dart';
 import 'package:BananaExpress/utils/Services/UniLinkService.dart';
-import 'package:BananaExpress/controller/DataBaseController.dart';
+import 'package:BananaExpress/old/controller/DataBaseController.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:uni_links/uni_links.dart';
 
 import 'dart:async';
+
 // ...
 Future<void> initApp() async {
   await requestPermission();
@@ -104,7 +105,7 @@ Future<void> initServices() async {
 
 requestPermission() async {
   var status = await Permission.storage.status;
-  //print("voici le statut ,  $status");
+  //print('voici le statut ,  $status');
   if (!status.isGranted) {
     await Permission.storage.request();
     await requestPermission();
@@ -116,7 +117,7 @@ requestPermission() async {
 getData() async {
   // await MyBinding().requestPermission();
   var status = await Permission.storage.status;
-  //print("voici le statut ,  $status");
+  //print('voici le statut ,  $status');
 
   if (status.isGranted) {
     await Get.find<GeneralController>().getLanguageInit();

@@ -1,19 +1,19 @@
-import 'package:BananaExpress/Views/Livraison/NewLivraisonView.dart';
-import 'package:BananaExpress/Views/Livraison/SuccesLivraisonview.dart';
-import 'package:BananaExpress/Views/Livraison/SuccesReceptionview.dart';
-import 'package:BananaExpress/Views/Livraison/SuccesRecuperationview.dart'; 
-import 'package:BananaExpress/Views/ComplementView/OnboardingScreen.dart';
-import 'package:BananaExpress/Views/FirstScreen.dart';
-import 'package:BananaExpress/Views/ComplementView/SplashScreen.dart';
-import 'package:BananaExpress/Views/Home/HomeView.dart';
-import 'package:BananaExpress/Views/ComplementView/PolitiqueView.dart';
-import 'package:BananaExpress/Views/User/RegisterScreen.dart';
-import 'package:BananaExpress/Views/User/SettingView.dart';
-import 'package:BananaExpress/Views/User/UserManageView.dart';
-import 'package:BananaExpress/Views/User/forgotPassword.dart';
+import 'package:BananaExpress/old/Views/Livraison/NewLivraisonView.dart';
+import 'package:BananaExpress/old/Views/Livraison/SuccesLivraisonview.dart';
+import 'package:BananaExpress/old/Views/Livraison/SuccesReceptionview.dart';
+import 'package:BananaExpress/old/Views/Livraison/SuccesRecuperationview.dart'; 
+import 'package:BananaExpress/old/Views/ComplementView/OnboardingScreen.dart';
+import 'package:BananaExpress/old/Views/FirstScreen.dart';
+import 'package:BananaExpress/old/Views/ComplementView/SplashScreen.dart';
+import 'package:BananaExpress/old/Views/Home/HomeView.dart';
+import 'package:BananaExpress/old/Views/ComplementView/PolitiqueView.dart';
+import 'package:BananaExpress/old/Views/User/RegisterScreen.dart';
+import 'package:BananaExpress/old/Views/User/SettingView.dart';
+import 'package:BananaExpress/old/Views/User/UserManageView.dart';
+import 'package:BananaExpress/old/Views/User/forgotPassword.dart';
 import 'package:BananaExpress/test.dart';
 import 'package:BananaExpress/utils/Services/core.dart';
-import 'package:BananaExpress/Views/User/LoginScreen.dart';
+import 'package:BananaExpress/old/Views/User/LoginScreen.dart';
 import 'package:get/get.dart';
 
 var transitionX = Transition.leftToRight;
@@ -90,21 +90,21 @@ class AppRoutes {
 }
 
 class AppLinks {
-  static const String NEWLIVRAISON = "/newlivraison";
-  static const String SUCCESSLIVRAISON = "/succeslivraison";
-  static const String SETTING = "/setting";
-  static const String TEST = "/TEST";
-  static const String LOGIN = "/login";
-  static const String HOME = "/home";
-  static const String REGISTER = "/register";
-  static const String ABOUTUS = "/aboutus";
-  static const String FORGOT = "/forgot";
-  static const String FIRST = "/first";
-  static const String SPLASHSCREEN = "/splashscreen";
-  static const String ONBOARDING = "/onboarding";
-  static const String USERVIEW = "/userview";
-  static const String NOTIFICATION = "/notifications";
-  static const String POLITIQUE = "/politique";
-  static const String SUCCESSRECUPERATION = "/srecup";
-  static const String SUCCESSRECEPTION = "/srecep";
+  static const String NEWLIVRAISON = '/newlivraison';
+  static const String SUCCESSLIVRAISON = '/succeslivraison';
+  static const String SETTING = '/setting';
+  static const String TEST = '/TEST';
+  static const String LOGIN = '/login';
+  static const String HOME = '/home';
+  static const String REGISTER = '/register';
+  static const String ABOUTUS = '/aboutus';
+  static const String FORGOT = '/forgot';
+  static const String FIRST = '/first';
+  static const String SPLASHSCREEN = '/splashscreen';
+  static const String ONBOARDING = '/onboarding';
+  static const String USERVIEW = '/userview';
+  static const String NOTIFICATION = '/notifications';
+  static const String POLITIQUE = '/politique';
+  static const String SUCCESSRECUPERATION = '/srecup';
+  static const String SUCCESSRECEPTION = '/srecep';
 }

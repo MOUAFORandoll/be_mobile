@@ -2,7 +2,7 @@
 
 import 'package:BananaExpress/components/Text/SimpleText.dart';
 import 'package:BananaExpress/components/Text/bigtitleText0.dart';
-import 'package:BananaExpress/model/data/TransactionModel.dart';
+import 'package:BananaExpress/old/model/data/TransactionModel.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:get/get.dart';
 import 'package:BananaExpress/styles/colorApp.dart';

@@ -2,24 +2,24 @@ import 'package:intl/intl.dart';
 
 class FormatDateTime {
   String dateToMonth(value) {
-    var dateTime = DateFormat("yyyy-MM-dd").parse(value.toString());
-    return DateFormat("MMM").format(dateTime);
+    var dateTime = DateFormat('yyyy-MM-dd').parse(value.toString());
+    return DateFormat('MMM').format(dateTime);
   }
 
   String dateToDay(value) {
-    var dateTime = DateFormat("yyyy-MM-dd").parse(value.toString());
-    return DateFormat("d").format(dateTime);
+    var dateTime = DateFormat('yyyy-MM-dd').parse(value.toString());
+    return DateFormat('d').format(dateTime);
   }
 
   String dateToYear(value) {
-    var dateTime = DateFormat("yyyy-MM-dd").parse(value.toString());
-    return DateFormat("yyyy").format(dateTime);
+    var dateTime = DateFormat('yyyy-MM-dd').parse(value.toString());
+    return DateFormat('yyyy').format(dateTime);
   }
 
   String dateToSimpleDate(value) {
     DateTime dateTime = DateTime.parse(value);
 
-    DateFormat formatter = DateFormat("dd/MM/yyyy HH:mm");
+    DateFormat formatter = DateFormat('dd/MM/yyyy HH:mm');
     String formattedDate = formatter.format(dateTime);
     return formattedDate.toString().split(' ')[0] +
         ' ' +

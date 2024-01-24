@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
   final Color bgColor;
   final Color textColor;
-  final String text;
+  final   text;
   final Widget? leading;
   final VoidCallback? onTap;
   final int loading;
@@ -29,7 +29,7 @@ class AppButton extends StatelessWidget {
       onTap: loading == 1 ? null : onTap,
       child: Container(
         constraints:
-            BoxConstraints(minHeight: kHeight / 17, minWidth: kWidth / 2.5),
+            BoxConstraints(minHeight: kHeight / 17, minWidth: kWidth / 2.9),
         padding: EdgeInsets.symmetric(horizontal: kMarginX),
         margin: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
         decoration: BoxDecoration(

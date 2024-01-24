@@ -1,11 +1,11 @@
-// ignore: must_be_immutable 
+// ignore: must_be_immutable
 import 'package:BananaExpress/components/Widget/colisComponentBabana.dart';
-import 'package:BananaExpress/model/data/LivraisonModel.dart';
+import 'package:BananaExpress/old/model/data/LivraisonModel.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class LivraisonBabanaComponent extends StatelessWidget {

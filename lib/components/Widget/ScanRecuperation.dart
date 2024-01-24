@@ -1,9 +1,9 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:BananaExpress/components/exportcomponent.dart';
-import 'package:BananaExpress/controller/DataBaseController.dart';
-import 'package:BananaExpress/controller/LivraisonController.dart'; 
-import 'package:qr_code_scanner/qr_code_scanner.dart'; 
+import 'package:BananaExpress/old/controller/DataBaseController.dart';
+import 'package:BananaExpress/old/controller/LivraisonController.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:pinput/pinput.dart';
 
 const flashOn = 'FLASH ON';
@@ -59,7 +59,7 @@ class _ScanRecuperationState extends State<ScanRecuperation> {
                       : Icons.close),
                   onTap: () {
                     controller.toggleFlash();
-                                      print(controller.getFlashStatus());
+                    print(controller.getFlashStatus());
                     if (_isFlashOn(flashState)) {
                       setState(() {
                         flashState = flashOff;
@@ -173,6 +173,6 @@ class _ScanRecuperationState extends State<ScanRecuperation> {
       print(data);
 
       await Get.find<LivraisonController>().recuperationColis(data);
-        });
+    });
   }
 }

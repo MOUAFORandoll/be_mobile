@@ -1,28 +1,47 @@
 import 'package:BananaExpress/styles/app_theme.dart';
-import 'package:BananaExpress/ui/databasecubit/cubit/databasecubit_cubit.dart';
-import 'package:BananaExpress/ui/home/bloc/home_bloc.dart';
-import 'package:BananaExpress/ui/user/bloc/user_bloc.dart';
-import 'package:BananaExpress/ui/user/repositories/user_repository.dart';
+import 'package:BananaExpress/application/livraison/repositories/livraisonRepo.dart';
+import 'package:BananaExpress/application/user/repositories/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:toast/toast.dart';
+import 'presentation/_commons/theming/app_theme.dart';
+import 'routes/app_router.dart';
 import 'styles/colorApp.dart';
 import 'styles/textStyle.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 // import 'package:generated/l10n.dart';
-import 'ui/core.dart';
-import 'ui/general_action/cubit/app_action_cubit.dart';
+import 'core.dart' as co;
+import 'utils/Services/NotificationService.dart';
 import 'utils/Services/routes.dart';
 import 'package:get_it/get_it.dart';
+import 'package:BananaExpress/application/export_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 Future<void> main() async {
-  await initApp();
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  co.init();
+
+  NotificationService().initializePlatformNotifications();
+
+  runApp(
+    EasyLocalization(
+        supportedLocales: const [Locale('fr', 'FR'), Locale('en', 'US')],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('fr', 'FR'),
+        child: const MyApp()),
+  );
 }
+// Future<void> main() async {
+//   await initApp();
+//   runApp(MyApp());
+// }
 
 final _darkTheme = ThemeData(
   primarySwatch: Colors.grey,
@@ -145,6 +164,11 @@ class MyApp extends StatelessWidget {
           BlocProvider<DatabaseCubit>(
             create: (BuildContext context) => DatabaseCubit(),
           ),
+          BlocProvider<LivraisonBloc>(
+            create: (BuildContext context) => LivraisonBloc(
+              livraisonRepo: sl.get<LivraisonRepo>(),
+            ),
+          ),
           BlocProvider<UserBloc>(
             create: (BuildContext context) => UserBloc(
                 userRepo: sl.get<UserRepo>(),
@@ -167,26 +191,33 @@ class MyApp extends StatelessWidget {
 }
 
 class AppContent extends StatelessWidget {
-  const AppContent({Key? key}) : super(key: key);
+  AppContent({Key? key}) : super(key: key);
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: _appRouter.config(),
       debugShowCheckedModeBanner: false,
       title: "Babana Express",
       darkTheme: AppThemes.themeDataDark,
-      theme: AppThemes.themeData,
       themeMode: ThemeMode.light,
-      // localizationsDelegates: const [
-
-      //   GlobalMaterialLocalizations.delegate,
-      //   GlobalWidgetsLocalizations.delegate,
-      //   GlobalCupertinoLocalizations.delegate,
-      // ],
-      // supportedLocales: supportedLocales,
-      initialRoute: AppLinks.SPLASHSCREEN,
-      routes: AppRoutes.routes,
-      // locale: context.locale,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      builder: (context, router) {
+        FToastBuilder();
+        return ResponsiveBreakpoints.builder(
+          breakpoints: const [
+            Breakpoint(start: 0, end: 450, name: MOBILE),
+            Breakpoint(start: 451, end: 800, name: TABLET),
+            Breakpoint(start: 801, end: 1920, name: DESKTOP),
+            Breakpoint(start: 1921, end: double.infinity, name: 'XL'),
+          ],
+          child: ClampingScrollWrapper.builder(context, router!),
+        );
+      },
+      theme: lightTheme(context),
     );
   }
 }

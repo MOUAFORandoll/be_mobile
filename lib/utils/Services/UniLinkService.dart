@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:BananaExpress/Views/User/RegisterScreen.dart';
-import 'package:BananaExpress/controller/managerController.dart';
+import 'package:BananaExpress/old/Views/User/RegisterScreen.dart';
+import 'package:BananaExpress/old/controller/managerController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,6 @@ import 'package:flutter/foundation.dart';
 bool _initialURILinkHandled = false;
 
 class UniLinkService extends GetxService {
-
   Future<void> initURIHandler() async {
     if (!_initialURILinkHandled) {
       _initialURILinkHandled = true;
@@ -46,5 +45,4 @@ class UniLinkService extends GetxService {
       // the foreground or in the background.
     }
   }
-   
 }

@@ -1,11 +1,11 @@
- 
-import 'package:BananaExpress/components/Widget/colisComponentUser.dart'; 
-import 'package:BananaExpress/model/data/LivraisonModel.dart';
+import 'package:BananaExpress/components/Widget/colisComponentUser.dart';
+import 'package:BananaExpress/old/model/data/LivraisonModel.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+
 // ignore: must_be_immutable
 class LivraisonUserComponent extends StatelessWidget {
   LivraisonModel livraison;

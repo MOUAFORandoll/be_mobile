@@ -2,11 +2,11 @@ import 'package:BananaExpress/components/Widget/imageUpdateComp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:BananaExpress/controller/LivraisonController.dart';
+import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/components/Button/app_button.dart';
 import 'package:BananaExpress/components/Button/uploadImage.dart';
 import 'package:BananaExpress/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/controller/GeneralController.dart';
+import 'package:BananaExpress/old/controller/GeneralController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 

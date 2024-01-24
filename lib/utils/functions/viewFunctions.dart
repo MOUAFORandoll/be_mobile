@@ -1,12 +1,13 @@
 import 'dart:io';
 
-import 'package:BananaExpress/Views/User/LoginScreen.dart';
-import 'package:BananaExpress/controller/DataBaseController.dart';
+import 'package:BananaExpress/old/Views/User/LoginScreen.dart';
+import 'package:BananaExpress/old/controller/DataBaseController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart'; 
-import 'package:flutter/material.dart'; 
+import 'package:BananaExpress/styles/textStyle.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart'; 
+import 'package:get_storage/get_storage.dart';
+
 class ViewFunctions {
   notifivation(String title) {
     return Get.showSnackbar(GetSnackBar(
@@ -224,7 +225,8 @@ class ViewFunctions {
     Get.back(
       closeOverlays: false,
     );
-  } 
+  }
+
   closeSnack() {
     //print('*****************************${Get.isSnackbarOpen}');
     Get.closeCurrentSnackbar();
@@ -234,7 +236,6 @@ class ViewFunctions {
   toast(
     title,
   ) {
-
     Get.snackbar(
       'Notification',
       'This is a WhatsApp Toast',

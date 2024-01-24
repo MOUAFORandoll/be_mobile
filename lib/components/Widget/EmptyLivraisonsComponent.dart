@@ -1,6 +1,6 @@
 import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/controller/GeneralController.dart'; 
-import 'package:BananaExpress/styles/textStyle.dart'; 
+import 'package:BananaExpress/old/controller/GeneralController.dart';
+import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:flutter/material.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:get/get.dart';
@@ -14,9 +14,7 @@ class EmptyLivraisonsComponent extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: kHeight / 6),
         padding: EdgeInsets.symmetric(vertical: kMarginY),
         decoration: BoxDecoration(
-         color: ColorsApp.bg,
-
-       
+          color: ColorsApp.bg,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

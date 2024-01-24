@@ -1,6 +1,6 @@
 import 'package:BananaExpress/components/Widget/CircleImage.dart';
-import 'package:BananaExpress/components/exportcomponent.dart'; 
-import 'package:BananaExpress/model/data/UserTagModel.dart';
+import 'package:BananaExpress/components/exportcomponent.dart';
+import 'package:BananaExpress/old/model/data/UserTagModel.dart';
 
 // ignore: must_be_immutable
 class UserTagComponent extends StatelessWidget {

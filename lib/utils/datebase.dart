@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:BananaExpress/controller/entity.dart';
+import 'package:BananaExpress/old/controller/entity.dart';
 import 'package:BananaExpress/objectbox.g.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -17,14 +17,14 @@ GetStorage box = GetStorage();
 
 class DataBaseController {
   late final Store store;
-  
+
   DataBaseController();
   // Le constructeur est privé pour empêcher l'instanciation directe
   DataBaseController._create(this.store);
 
   // Instance unique du DataBaseController
   static DataBaseController? _instance;
-  
+
   // Méthode pour obtenir l'instance unique du DataBaseController
   static Future<DataBaseController> getInstance() async {
     print('get instannce-----------*e');
@@ -37,7 +37,7 @@ class DataBaseController {
 
     return _instance!;
   }
-  
+
   // Méthode interne pour créer l'instance du DataBaseController
   static Future<DataBaseController> _createInstance() async {
     final databasesPath = await getApplicationDocumentsDirectory();

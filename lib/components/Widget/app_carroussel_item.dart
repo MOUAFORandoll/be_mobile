@@ -1,5 +1,5 @@
 // ignore_for_file: must_be_immutable
- 
+
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ class AppCarrousselItem extends StatelessWidget {
         color: ColorsApp.tird,
       ),
       padding: EdgeInsets.only(
-        top: kHeight * .68,
+        top: kHeight * .60,
       ),
       child: Column(
         children: [

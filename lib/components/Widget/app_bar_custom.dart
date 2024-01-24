@@ -1,4 +1,4 @@
-// ignore: must_be_immutable import 'package:BananaExpress/model/data/CategoryModel.dart';
+// ignore: must_be_immutable import 'package:BananaExpress/old/model/data/CategoryModel.dart';
 import 'package:BananaExpress/components/Button/app_button.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:get/get.dart';

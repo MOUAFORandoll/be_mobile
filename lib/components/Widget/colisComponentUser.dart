@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:BananaExpress/components/Button/app_button_icon.dart';
-import 'package:BananaExpress/model/data/LivraisonModel.dart';
+import 'package:BananaExpress/old/model/data/LivraisonModel.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:BananaExpress/controller/LivraisonController.dart';
+import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 

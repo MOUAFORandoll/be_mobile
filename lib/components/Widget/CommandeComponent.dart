@@ -1,5 +1,5 @@
 // ignore: must_be_immutable
-import 'package:BananaExpress/model/data/CommandeModel.dart';
+import 'package:BananaExpress/old/model/data/CommandeModel.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:flutter/material.dart';
