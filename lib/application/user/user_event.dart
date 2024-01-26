@@ -1,50 +1,23 @@
-import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
-class UserEvent extends Equatable {
-  // const UserEvent();
+part of 'user_bloc.dart';
 
-  @override
-  List<Object> get props => [];
+@freezed
+class UserEvent with _$UserEvent {
+  const factory UserEvent.chooseExperience({
+    required String phone,
+    required String password,
+  }) = SignInEvent;
+
+  const factory UserEvent.register({
+    required String name,
+    required String phone,
+    required String password,
+    required String re_password,
+  }) = RegisterEvent;
+
+  // Uncomment and customize these events as needed
+  // const factory UserEvent.signOut() = SignOutEvent;
+  // const factory UserEvent.getDataBase() = GetDataBateEvent;
+  // const factory UserEvent.checkUserIsConnected() = CheckUserIsConnectedEvent;
+  // const factory UserEvent.getUserDB() = GetUserDBEvent;
 }
-
-// class ErrorEvent extends UserEvent {
-//   final String error;
-
-//   ErrorEvent(this.error);
-// }
-
-class SignInEvent extends UserEvent {
-  final String phone;
-  final String password;
-
-  SignInEvent({required this.phone, required this.password});
-
-  @override
-  List<Object> get props => [phone, password];
-}
-
-class RegisterEvent extends UserEvent {
-  final String name;
-  final String phone;
-  final String password;
-  final String re_password;
-
-  RegisterEvent(
-      {required this.name,
-      required this.phone,
-      required this.password,
-      required this.re_password});
-
-  @override
-  List<Object> get props => [name, password, phone, re_password];
-}
-
-// class SignOutEvent extends UserEvent {}
-
-// class GetDataBateEvent extends UserEvent {}
-
-// class CheckUserIsConnectedEvent extends UserEvent {}
-
-// class GetUserDBEvent extends UserEvent {}

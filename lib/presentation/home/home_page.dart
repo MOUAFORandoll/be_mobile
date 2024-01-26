@@ -9,13 +9,13 @@ import 'package:new_version_plus/new_version_plus.dart';
 import '../../../components/exportcomponent.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 
+import '../../core.dart';
 import '../livraison/LivraisonView.dart';
 import 'SimpleUserView.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
   static const routeName = '/home';
-  
 
   const HomePage({super.key});
   @override
@@ -60,18 +60,13 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
-      HomeState _controleState = state as HomeState;
-
-      return (state is LoadState)
-          ? Container()
-          : Scaffold(
+    return  BlocBuilder<HomeBloc, HomeState>(builder: (context, state)   {
+          return Scaffold(
               backgroundColor: ColorsApp.bg,
-              drawer: CustomDrawer(user: _controleState.user),
+              drawer: CustomDrawer(user: state.user),
               body: SafeArea(
-                  child: _controleState.index == 0
-                      ? _controleState.user.typeUser == 2 ||
-                              _controleState.user.typeUser == 1
+                  child: state.index == 0
+                      ? state.user!.typeUser == 2 || state.user!.typeUser == 1
                           ? SimpleUserView()
                           : Text('b')
                       : LivraisonView() /*  BabanaView() */),
@@ -83,7 +78,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 strokeColor: Color(0x300c18fb),
                 unSelectedColor: Colors.grey[600],
                 backgroundColor:
-                    /*     _controleState.index == 2 ? ColorsApp.primary : */ ColorsApp
+                    /*     state.index == 2 ? ColorsApp.primary : */ ColorsApp
                         .bg,
                 // borderRadius: Radius.circular(15.0),
                 // isFloating: true,
@@ -97,7 +92,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                           Assets.home,
                           width: 90,
                           height: 90,
-                          color: _controleState.index == 0
+                          color: state.index == 0
                               ? ColorsApp.second
                               : ColorsApp.grey,
                         ),
@@ -106,7 +101,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                           padding: EdgeInsets.only(bottom: 3),
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: _controleState.index == 0
+                                  bottom: state.index == 0
                                       ? BorderSide(
                                           color: ColorsApp.second, width: 2)
                                       : BorderSide.none,
@@ -115,14 +110,13 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                               style: TextStyle(
                                 fontSize: kMin,
                                 fontWeight: FontWeight.w600,
-                                color: _controleState.index == 0
+                                color: state.index == 0
                                     ? ColorsApp.second
                                     : ColorsApp.grey,
                               )))), // CustomNavigationBarItem(
 
-                  if (_controleState.user != null)
-                    if (_controleState.user.typeUser == 2 ||
-                        _controleState.user.typeUser == 1)
+                  if (state.user != null)
+                    if (state.user!.typeUser == 2 || state.user!.typeUser == 1)
                       CustomNavigationBarItem(
                         icon: Container(
                           height: kHeight / 1.7,
@@ -132,7 +126,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                             width: 80,
                             height: 80,
                             // ignore: deprecated_member_use
-                            color: _controleState.index == 1
+                            color: state.index == 1
                                 ? ColorsApp.second
                                 : ColorsApp.grey,
                           ),
@@ -141,7 +135,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                             padding: EdgeInsets.only(bottom: 3),
                             decoration: BoxDecoration(
                                 border: Border(
-                                    bottom: _controleState.index == 1
+                                    bottom: state.index == 1
                                         ? BorderSide(
                                             color: ColorsApp.second, width: 2)
                                         : BorderSide.none,
@@ -150,19 +144,19 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                 style: TextStyle(
                                   fontSize: kMin,
                                   fontWeight: FontWeight.w600,
-                                  color: _controleState.index == 1
+                                  color: state.index == 1
                                       ? ColorsApp.second
                                       : ColorsApp.grey,
                                 ))),
                       ),
                 ],
-                currentIndex: _controleState.index,
+                currentIndex: state.index,
                 onTap: (index) {
                   print(index);
-                  context.read<HomeBloc>().add(SetIndexEvent(index));
+                  context.read<HomeBloc>().add(SetIndexEvent(index: index));
                 },
               ));
-    });
+        });
   }
 }
 

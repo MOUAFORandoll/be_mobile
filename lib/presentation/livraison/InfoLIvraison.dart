@@ -3,13 +3,14 @@ import 'package:BananaExpress/components/Widget/app_input_new.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import 'package:BananaExpress/old/Views/Livraison/MapPagePointRecuperation.dart';
-
 import '../../../old/model/data/VilleModel.dart';
+import '../../old/model/exportmodel.dart';
+import 'MapPagePointRecuperation.dart';
 
 class InfoLIvraison extends StatefulWidget {
   InfoLIvraison({Key? key}) : super(key: key);
@@ -74,36 +75,39 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     top: kMarginY * 1.5,
                   ),
                   alignment: Alignment.center,
-                  child: DropdownButton(
-                    value: state.selectedVIlle,
-                    icon: Container(
-                      // padding: EdgeInsets.only(top: 4),
-                      child: Icon(
-                        Icons.keyboard_arrow_down_outlined,
-                      ),
-                    ),
-                    iconSize: 25,
-                    underline: SizedBox(),
-                    style: TextStyle(color: ColorsApp.primary, fontSize: 12),
-                    onChanged: (VilleModel? newValue) {
-                      context
-                          .read<LivraisonBloc>()
-                          .add(SelectedVille(ville: newValue));
-                      context
-                          .read<LivraisonBloc>()
-                          .add(GetRecupPointEvent(ville: newValue!.id));
-                    },
-                    items: state.villeList!.map((value) {
-                      return DropdownMenuItem(
-                        value: value,
-                        child: Center(
-                          child: Text(
-                            value.libelle,
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                  ),
+                  child: state.villeList == null
+                      ? Container()
+                      : state.villeList!.isEmpty
+                          ? Container()
+                          : DropdownButton<VilleModel>(
+                              value: state.selectedVIlle,
+                              icon: Container(
+                                // padding: EdgeInsets.only(top: 4),
+                                child: Icon(
+                                  Icons.keyboard_arrow_down_outlined,
+                                ),
+                              ),
+                              iconSize: 25,
+                              underline: SizedBox(),
+                              style: TextStyle(
+                                  color: ColorsApp.primary, fontSize: 12),
+                              onChanged: (newValue) {
+                                context.read<LivraisonBloc>().add(SelectedVille(
+                                    ville: newValue as VilleModel));
+                                context.read<LivraisonBloc>().add(
+                                    GetRecupPointEvent(ville: newValue.id));
+                              },
+                              items: state.villeList!.map((value) {
+                                return DropdownMenuItem(
+                                  value: value,
+                                  child: Center(
+                                    child: Text(
+                                      value.libelle,
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
                 ),
                 if (!state.isVille)
                   Container(
@@ -134,8 +138,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        (state.longitudeRecuperation == 0.0 &&
-                                state.latitudeRecuperation == 0.0)
+                        (state.position == null)
                             ? Container(
                                 decoration: BoxDecoration(
                                   border: Border.all(
@@ -151,7 +154,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                   top: kMarginY * 1.5,
                                 ),
                                 alignment: Alignment.center,
-                                child: DropdownButton(
+                                child: DropdownButton<PointLivraisonModel>(
                                   value: state.selected_recuperation_point,
                                   hint: Container(
                                     width: kWidth * .65,
@@ -172,13 +175,13 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                   underline: SizedBox(),
                                   style: TextStyle(
                                       color: ColorsApp.primary, fontSize: 12),
-                                  onChanged: (newValue) {
+                                  onChanged: (PointLivraisonModel? newValue) {
                                     context.read<LivraisonBloc>().add(
                                         SelectedPointLocalisation(
-                                            point_recup: newValue));
+                                            point_recup: newValue!));
                                   },
                                   items: state.list_recuperation_point!
-                                      .map((value) {
+                                      .map((PointLivraisonModel value) {
                                     return DropdownMenuItem(
                                       value: value,
                                       child: Center(
@@ -199,9 +202,9 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     color: ColorsApp.grey),
-                                child: Text(libelleLocalisation.text.isEmpty
+                                child: Text(state.selectedVIlle == null
                                     ? 'Selectionner'
-                                    : libelleLocalisation.text)),
+                                    : state.selectedVIlle!.libelle)),
                         InkWell(
                             child: Container(
                                 padding: EdgeInsets.all(10),
@@ -211,7 +214,10 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                     color: ColorsApp.grey),
                                 child: Icon(Icons.location_on)),
                             onTap: () {
-                              // Get.to(MapPagePointRecuperation());
+                              AutoRouter.of(context).pushNamed(
+                                  MapPagePointRecuperation.routeName);
+
+                              //  Get.to(MapPagePointRecuperation());
                             }),
                       ],
                     )),

@@ -1,7 +1,10 @@
 import 'package:BananaExpress/components/Button/app_button.dart';
 import 'package:BananaExpress/components/Widget/app_input.dart';
+import 'package:BananaExpress/presentation/home/home_page.dart';
+import 'package:BananaExpress/routes/app_router.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:BananaExpress/utils/functions/showToast.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -17,7 +20,7 @@ class LoginView extends StatelessWidget {
   TextEditingController phone = TextEditingController();
 
   TextEditingController password = TextEditingController();
-
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,21 +30,23 @@ class LoginView extends StatelessWidget {
       ),
       body: BlocConsumer<UserBloc, UserState>(
         listener: (context, state) {
-          if (state is LoginIngUser) {
+          if (state.isLoading == 1) {
             loader.open(context);
-          } else if (state is LoginIngFailed) {
+          } else if (state.isLoading == 3) {
             loader.close();
-            showError(state.message, context);
-          } else if (state is Authenticated) {
+            showError(state.authenticationFailedMessage!, context);
+          } else if (state.isLoading == 2) {
             loader.close();
-            Navigator.of(context).popAndPushNamed(AppLinks.HOME);
+           BlocProvider.of<LivraisonBloc>(context).add(
+                GetVilleEvent());    // AutoRouter.of(context).popUntilRouteWithName(HomePage.routeName);
+            AutoRouter.of(context).replaceAll([HomeRoute()]);
             showSuccess('Connecte', context);
             BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
             print('-----44--------*********');
           }
         },
         builder: (context, state) {
-          InitialDataState _userState = state as InitialDataState;
+         
           return SingleChildScrollView(
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: kMarginX),
@@ -49,7 +54,7 @@ class LoginView extends StatelessWidget {
                 top: kMarginY,
               ),
               child: Form(
-                key: _userState.formKey,
+                key: formKey,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -120,7 +125,7 @@ class LoginView extends StatelessWidget {
                               ),
                               AppButton(
                                   size: MainAxisSize.max,
-                                  loading: _userState.isLoading,
+                                  // loading: _userState.isLoading,
                                   // bgColor: ColorsApp.primary,
                                   text: 'logbtn'.tr(),
                                   onTap: () async {
@@ -129,8 +134,7 @@ class LoginView extends StatelessWidget {
                                       "phone": phone.text,
                                     });
 
-                                    if (_userState.formKey.currentState!
-                                        .validate()) {
+                                    if (formKey.currentState!.validate()) {
                                       context.read<UserBloc>().add(SignInEvent(
                                             password: password.text,
                                             phone: phone.text,

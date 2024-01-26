@@ -1,60 +1,37 @@
-import 'package:equatable/equatable.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+part of 'livraison_bloc.dart';
 
-import '../../../old/model/data/VilleModel.dart';
+@freezed
+class LivraisonEvent with _$LivraisonEvent {
+  const factory LivraisonEvent.verifyForm({
+    int? index,
+    bool? isVille,
+    bool? isPointRecuperation,
+  }) = VerifyFormEvent;
 
-abstract class LivraisonEvent extends Equatable {
-  @override
-  List<Object?> get props => [];
-}
+  const factory LivraisonEvent.backIndex() = BackIndexEvent;
 
-class VerifyFormEvent extends LivraisonEvent {
-  final int? index;
-  final bool? isVille;
-  final bool? isPointRecuperation;
+  const factory LivraisonEvent.getVille() = GetVilleEvent;
 
-  VerifyFormEvent({
-    this.index,
-    this.isVille,
-    this.isPointRecuperation,
-  });
+  const factory LivraisonEvent.selectedVille({
+    required VilleModel ville,
+  }) = SelectedVille;
 
-  @override
-  List<Object?> get props => [index, isVille, isPointRecuperation];
-}
-
-class BackIndexEvent extends LivraisonEvent {}
-
-class GetVilleEvent extends LivraisonEvent {}
-
-class SelectedVille extends LivraisonEvent {
-  final VilleModel? ville;
-
-  SelectedVille({required this.ville});
-
-  List<Object?> get props => [ville];
-}
-
-class SelectedPointLocalisation extends LivraisonEvent {
-  final point_recup;
-
-  SelectedPointLocalisation({required this.point_recup});
-
-  List<Object?> get props => [point_recup];
-}
-
-class SetLogLat extends LivraisonEvent {
-  final LatLng latLng;
-
-  SetLogLat({required this.latLng});
+  const factory LivraisonEvent.selectedPointLocalisation({
+    required PointLivraisonModel point_recup,
+  }) = SelectedPointLocalisation;
   
-  List<Object?> get props => [latLng];
-}
-
-class GetRecupPointEvent extends LivraisonEvent {
-  final int ville;
+  const factory LivraisonEvent.Start({
+    required LatLng latLng,String? quartier_recuperation_point
+  }) = SetLogLat;
   
-  GetRecupPointEvent({required this.ville});
+  const factory LivraisonEvent.setStartLogLat() = StartLogLat;
   
-  List<Object?> get props => [ville];
+  const factory LivraisonEvent.getRecupPoint({
+    required int ville,
+  }) = GetRecupPointEvent;
+    
+  
+  const factory LivraisonEvent.searchpointevent({
+    required String text,
+  }) = SearchPointEvent;
 }

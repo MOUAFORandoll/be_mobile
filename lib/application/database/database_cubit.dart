@@ -1,35 +1,36 @@
 import 'package:BananaExpress/objectbox.g.dart';
-import 'package:BananaExpress/application/databasecubit/databasecubit_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jwt_decode/jwt_decode.dart';
-import 'package:path_provider/path_provider.dart'; 
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:path/path.dart' as p;
+import 'package:BananaExpress/old/controller/entity.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:BananaExpress/old/controller/entity.dart'; 
-
+part 'database_state.dart';
+part 'database_cubit.freezed.dart';
+      
 class DatabaseCubit extends Cubit<DatabaseState> {
-  final GetStorage box = GetStorage();
+ final GetStorage box = GetStorage();
   final String linkDb = 'babana_express';
   late final Store _store;
-  late var _instance;
-  DatabaseCubit() : super(DatabaseInitialState()) {
+
+  DatabaseCubit() : super(const DatabaseState.initial()) {
     _createInstance();
   }
-
+  
   Future<void> _createInstance() async {
-    emit(DatabaseLoadingState());
+    emit(const DatabaseState.loading());
 
     try {
       final databasesPath = await getApplicationDocumentsDirectory();
-
+      
       _store = await openStore(directory: p.join(databasesPath.path, linkDb));
-      emit(DatabaseInitializedState(store: _store));
+      emit(DatabaseState.initialized(store: _store));
     } catch (e) {
-      emit(DatabaseErrorState(error: e.toString()));
+      emit(DatabaseState.error(error: e.toString()));
     }
   }
-
   // Insert operation
   Future<bool> insertCommande(
       int id, String codeCommande, String codeClient, String date) async {
@@ -136,13 +137,13 @@ class DatabaseCubit extends Cubit<DatabaseState> {
 
   // InsertAll operation
   insertAllCommandes() {
-    var j = 8;
+     
     for (var i = 10; i < 100; i++) {
       // final commandeBox =;
       print('-------ii--${i}');
       _store.box<Commande>().put(Commande(
           codeCommande: 'codeCommande$i', codeClient: '', date: 'date$i'));
-      j = i;
+     
     }
     return true;
   }

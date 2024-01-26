@@ -1,21 +1,25 @@
 import 'dart:async';
+import 'package:BananaExpress/application/database/database_cubit.dart';
 
-import 'package:BananaExpress/application/databasecubit/databasecubit_cubit.dart';
-import 'package:BananaExpress/application/general_action/app_action_state.dart';
 import 'package:BananaExpress/application/user/repositories/user_repository.dart';
 import 'package:BananaExpress/utils/functions/viewFunctions.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import '../../../old/controller/entity.dart';
 import '../export_bloc.dart';
- 
- 
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'user_event.dart';
+part 'user_state.dart';
+part 'user_bloc.freezed.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
   final UserRepo userRepo;
   final DatabaseCubit database;
   UserBloc({required this.userRepo, required this.database})
-      : super(InitialDataState()) {
+      : super(UserState.initial()) {
     // on<GetDataBateEvent>((event, emit) async {
     //   print('okkof');
     //   // final database = await DataBaseController.getInstance();
@@ -32,8 +36,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       'password': event.password,
     };
     print(data);
-    emit(InitialDataState(isLoading: 1));
-    emit(LoginIngUser());
+    emit(state.copyWith(isLoading: 1));
+    emit(UserState.loginIngUser());
 
     try {
       var response = await userRepo.Login(data);
@@ -46,26 +50,26 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           if (value.data['data'] != null &&
               value.data['data'] != [] &&
               value.data['data'].length != 0) {
-            emit(InitialDataState(
+            emit(state.copyWith(
               isLoading: 2,
             ));
-            emit(Authenticated());
+            emit(UserState.authenticated());
 
             var _UserSave = User.fromJson(value.data['data']);
 
             await database.saveUser(_UserSave);
           }
         }).catchError((error) {
-          emit(InitialDataState(isLoading: 3));
-          emit(LoginIngFailed(
+          emit(state.copyWith(isLoading: 3));
+          emit(UserState.loginIngFailed(
             message: 'Identifiants incorrects',
           ));
 
           fn.closeLoader();
         });
       } else {
-        emit(InitialDataState(isLoading: 3));
-        emit(LoginIngFailed(
+        emit(state.copyWith(isLoading: 3));
+        emit(UserState.loginIngFailed(
           message: 'Identifiants incorrects',
         ));
 
@@ -74,8 +78,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         fn.snackBar('Connexion', 'Identifiants incorrects', false);
       }
     } catch (e) {
-      emit(InitialDataState(isLoading: 3));
-      emit(LoginIngFailed(
+      emit(state.copyWith(isLoading: 3));
+      emit(UserState.loginIngFailed(
         message: 'Identifiants incorrects',
       ));
     }
@@ -89,30 +93,73 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       'prenom': event.name,
     };
     print(data);
-    emit(InitialDataState(isLoading: 1));
-    emit(LoginIngUser());
+    emit(state.copyWith(isLoading: 1));
+    // emit(UserState.loginIngUser());
 
     try {
       Response response = await userRepo.SignUp(data);
 
-      if (response.statusCode == 200) {
-        database.saveKeyKen(response.data);
-        emit(InitialDataState(
-          isLoading: 2,
-        ));
-        emit(Authenticated());
+      if (response.statusCode == 201) {
+        var data = {
+          'phone': event.phone,
+          'password': event.password,
+        };
+        print(data);
 
-        fn.closeLoader();
+        try {
+          var responselog = await userRepo.Login(data);
+
+          if (responselog.statusCode == 200) {
+            database.saveKeyKen(responselog.data);
+
+            await userRepo.getUser().then((value) async {
+              print('------------------value----------${value.data}-');
+              if (value.data['data'] != null &&
+                  value.data['data'] != [] &&
+                  value.data['data'].length != 0) {
+                emit(state.copyWith(
+                  isLoading: 2,
+                ));
+                emit(UserState.authenticated());
+
+                var _UserSave = User.fromJson(value.data['data']);
+
+                await database.saveUser(_UserSave);
+              }
+            }).catchError((error) {
+              emit(state.copyWith(isLoading: 3));
+              emit(UserState.loginIngFailed(
+                message: 'Identifiants incorrects',
+              ));
+
+              fn.closeLoader();
+            });
+          } else {
+            emit(state.copyWith(isLoading: 3));
+            emit(UserState.loginIngFailed(
+              message: 'Identifiants incorrects',
+            ));
+
+            fn.closeLoader();
+
+            fn.snackBar('Connexion', 'Identifiants incorrects', false);
+          }
+        } catch (e) {
+          emit(state.copyWith(isLoading: 3));
+          emit(UserState.loginIngFailed(
+            message: 'Identifiants incorrects',
+          ));
+        }
       } else {
-        emit(InitialDataState(isLoading: 3));
+        emit(state.copyWith(isLoading: 3));
 
         fn.closeLoader();
 
         fn.snackBar('Connexion', 'Identifiants incorrects', false);
       }
     } catch (e) {
-      emit(InitialDataState(isLoading: 3));
-      emit(LoginIngFailed(
+      emit(state.copyWith(isLoading: 3));
+      emit(UserState.loginIngFailed(
         message: 'Identifiants incorrects',
       ));
     }

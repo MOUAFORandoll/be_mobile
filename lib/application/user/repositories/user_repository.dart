@@ -1,11 +1,13 @@
+import 'package:BananaExpress/core.dart';
 import 'package:dio/dio.dart';
 import 'package:BananaExpress/utils/constants/apiRoute.dart';
 
 import '../../../utils/Services/ApiClientNew.dart';
-import 'package:get_it/get_it.dart';
-import 'package:BananaExpress/application/export_bloc.dart';
 
-final sl = GetIt.instance;
+import 'package:BananaExpress/application/export_bloc.dart';
+import 'package:BananaExpress/application/database/database_cubit.dart';
+  
+ 
 
 class UserRepo {
   final ApiClient apiClient;

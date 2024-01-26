@@ -108,7 +108,7 @@ class LivraisonController extends GetxController {
 
   TextEditingController get searchPointRecuperationController =>
       _searchPointRecuperationController;
-
+  
   void searchPointRecuperationPointLivraison() {
     String searchPointRecuperationText = searchController.text.toLowerCase();
 
@@ -320,7 +320,7 @@ class LivraisonController extends GetxController {
       print(e);
     }
   }
-
+  
   var position;
   Future<Position> determinePosition() async {
     bool serviceEnabled;
@@ -349,7 +349,7 @@ class LivraisonController extends GetxController {
         'ma position est-**************--${position.latitude}-----------*************-----${position.longitude}');
     return await Geolocator.getCurrentPosition();
   }
-
+  
   bool _isOk = false;
   bool get isOk => _isOk;
 

@@ -1,18 +1,22 @@
 import 'package:BananaExpress/components/Form/search_field.dart';
 import 'package:BananaExpress/components/Widget/HomeModuleComponent.dart';
 import 'package:BananaExpress/components/Widget/icon_svg.dart';
+import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
+import 'package:BananaExpress/routes/app_router.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart'; 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../components/Button/app_button.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 
 import 'package:easy_localization/easy_localization.dart';
+
 class SimpleUserView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -149,9 +153,8 @@ class SimpleUserView extends StatelessWidget {
                             size: MainAxisSize.max,
                             bgColor: ColorsApp.second,
                             onTap: () {
-                              Navigator.of(context)
-                                  .popAndPushNamed(AppLinks.NEWLIVRAISON);
-
+                              AutoRouter.of(context)
+                                  .pushNamed(NewLivraisonPage.routeName);
                               // setService(1);
                             }),
                       ),

@@ -1,22 +1,30 @@
 import 'dart:async';
 
-import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:bloc/bloc.dart'; 
-import 'home_event.dart';
-import 'home_state.dart';
+import 'package:BananaExpress/application/database/database_cubit.dart';
+import 'package:BananaExpress/old/controller/entity.dart';
+
+import 'package:BananaExpress/old/model/exportmodel.dart';
+import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'home_event.dart';
+part 'home_state.dart';
+part 'home_bloc.freezed.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final DatabaseCubit database;
-  HomeBloc({required this.database}) : super(HomeState()) {
+  HomeBloc({required this.database}) : super(HomeState.initial()) {
     on<UserDataEvent>((event, emit) async {
-      emit(LoadState());
+      emit(state.copyWith(index: 0));
+      
       print('---------UserD-------------------------*ataEvent');
       var user = await database.getUser();
       print('---------UserD-------------------------*${user!.phone}');
       
-      emit(HomeState(user: user));
-      
-      print('---------UserD-------------------------*ataEvent');
+      emit(state.copyWith(user: user));
+
+      print(
+          '---------UserD-------------------------*ataEvent***${state.user!.nom}');
     });
     on<SetIndexEvent>((event, emit) async {
       print('-----------------SetIndexEvent');
@@ -26,30 +34,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   @override
   void onError(Object error, StackTrace stacktrace) {
-    _addErr(error);
     super.onError(error, stacktrace);
   }
 
   @override
   Future<void> close() async {
     await super.close();
-  }
-
-  void _addErr(e) {
-    if (e is StateError) return;
-    try {
-      add(ErrorEvent((e is String)
-          ? e
-          : (e.message ?? "Something went wrong. Please try again!")));
-    } catch (e) {
-      add(ErrorEvent("Something went wrong. Please try again!"));
-    }
-  }
-}
-
-class ServiceBloc extends Bloc<HomeEvent, ServiceState> {
-  final DatabaseCubit database;
-  ServiceBloc({required this.database}) : super(ServiceState()) {
-   
   }
 }
