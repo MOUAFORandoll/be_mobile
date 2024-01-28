@@ -70,10 +70,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                               onTap: () {
                                 context
                                     .read<LivraisonBloc>()
-                                    .add(VerifyFormEvent()); // state.index == 0
-                                // ?                                  await    context.read<LivraisonBloc>().add( VerifyFormEvent(1))
-                                // : await context.
-                                //     .calculFraisDeLivraison();
+                                    .add(VerifyFormEvent());
                               },
                             ),
                           ])),

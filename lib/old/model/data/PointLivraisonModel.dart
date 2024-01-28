@@ -1,24 +1,23 @@
 // To parse this JSON data, do
 //
 //     final PointLivraisonModel = PointLivraisonModelFromJson(jsonString);
- 
 
 class PointLivraisonModel {
   PointLivraisonModel({
-    required this.id,
+    this.id,
     required this.libelle,
     required this.ville,
     required this.quartier,
-    required this.image,
-    required this.longitude,
-    required this.latitude,
+    this.image,
+    this.longitude,
+    this.latitude,
   });
 
-  final int id;
+  final int? id;
   final String libelle;
   final String ville;
   final String quartier;
-  final String image;
+  final String? image;
   final longitude;
   final latitude;
 
@@ -39,12 +38,12 @@ class PointLivraisonModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id":   id,
-        "ville": ville ,
-        "libelle":  libelle,
-        "quartier":  quartier,
-        "image":   image,
-        "latitude":   latitude,
-        "longitude":  longitude,
+        "id": id,
+        "ville": ville,
+        "libelle": libelle,
+        "quartier": quartier,
+        "image": image,
+        "latitude": latitude,
+        "longitude": longitude,
       };
 }

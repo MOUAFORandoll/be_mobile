@@ -18,9 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LivraisonEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            int? index, bool? isVille, bool? isPointRecuperation)
-        verifyForm,
+    required TResult Function() verifyForm,
     required TResult Function() backIndex,
     required TResult Function() getVille,
     required TResult Function(VilleModel ville) selectedVille,
@@ -32,12 +30,13 @@ mixin _$LivraisonEvent {
     required TResult Function() setStartLogLat,
     required TResult Function(int ville) getRecupPoint,
     required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
     TResult? Function()? getVille,
     TResult? Function(VilleModel ville)? selectedVille,
@@ -48,12 +47,13 @@ mixin _$LivraisonEvent {
     TResult? Function()? setStartLogLat,
     TResult? Function(int ville)? getRecupPoint,
     TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult Function()? verifyForm,
     TResult Function()? backIndex,
     TResult Function()? getVille,
     TResult Function(VilleModel ville)? selectedVille,
@@ -63,6 +63,8 @@ mixin _$LivraisonEvent {
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,6 +80,8 @@ mixin _$LivraisonEvent {
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,6 +96,8 @@ mixin _$LivraisonEvent {
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,6 +112,8 @@ mixin _$LivraisonEvent {
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,8 +142,6 @@ abstract class _$$VerifyFormEventImplCopyWith<$Res> {
   factory _$$VerifyFormEventImplCopyWith(_$VerifyFormEventImpl value,
           $Res Function(_$VerifyFormEventImpl) then) =
       __$$VerifyFormEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int? index, bool? isVille, bool? isPointRecuperation});
 }
 
 /// @nodoc
@@ -145,77 +151,31 @@ class __$$VerifyFormEventImplCopyWithImpl<$Res>
   __$$VerifyFormEventImplCopyWithImpl(
       _$VerifyFormEventImpl _value, $Res Function(_$VerifyFormEventImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? index = freezed,
-    Object? isVille = freezed,
-    Object? isPointRecuperation = freezed,
-  }) {
-    return _then(_$VerifyFormEventImpl(
-      index: freezed == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int?,
-      isVille: freezed == isVille
-          ? _value.isVille
-          : isVille // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      isPointRecuperation: freezed == isPointRecuperation
-          ? _value.isPointRecuperation
-          : isPointRecuperation // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$VerifyFormEventImpl implements VerifyFormEvent {
-  const _$VerifyFormEventImpl(
-      {this.index, this.isVille, this.isPointRecuperation});
-
-  @override
-  final int? index;
-  @override
-  final bool? isVille;
-  @override
-  final bool? isPointRecuperation;
+  const _$VerifyFormEventImpl();
 
   @override
   String toString() {
-    return 'LivraisonEvent.verifyForm(index: $index, isVille: $isVille, isPointRecuperation: $isPointRecuperation)';
+    return 'LivraisonEvent.verifyForm()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$VerifyFormEventImpl &&
-            (identical(other.index, index) || other.index == index) &&
-            (identical(other.isVille, isVille) || other.isVille == isVille) &&
-            (identical(other.isPointRecuperation, isPointRecuperation) ||
-                other.isPointRecuperation == isPointRecuperation));
+        (other.runtimeType == runtimeType && other is _$VerifyFormEventImpl);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, index, isVille, isPointRecuperation);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$VerifyFormEventImplCopyWith<_$VerifyFormEventImpl> get copyWith =>
-      __$$VerifyFormEventImplCopyWithImpl<_$VerifyFormEventImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            int? index, bool? isVille, bool? isPointRecuperation)
-        verifyForm,
+    required TResult Function() verifyForm,
     required TResult Function() backIndex,
     required TResult Function() getVille,
     required TResult Function(VilleModel ville) selectedVille,
@@ -227,15 +187,16 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     required TResult Function() setStartLogLat,
     required TResult Function(int ville) getRecupPoint,
     required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
   }) {
-    return verifyForm(index, isVille, isPointRecuperation);
+    return verifyForm();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
     TResult? Function()? getVille,
     TResult? Function(VilleModel ville)? selectedVille,
@@ -246,15 +207,16 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     TResult? Function()? setStartLogLat,
     TResult? Function(int ville)? getRecupPoint,
     TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
   }) {
-    return verifyForm?.call(index, isVille, isPointRecuperation);
+    return verifyForm?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult Function()? verifyForm,
     TResult Function()? backIndex,
     TResult Function()? getVille,
     TResult Function(VilleModel ville)? selectedVille,
@@ -264,10 +226,12 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
-      return verifyForm(index, isVille, isPointRecuperation);
+      return verifyForm();
     }
     return orElse();
   }
@@ -285,6 +249,8 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
   }) {
     return verifyForm(this);
   }
@@ -302,6 +268,8 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
   }) {
     return verifyForm?.call(this);
   }
@@ -319,6 +287,8 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -329,17 +299,7 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
 }
 
 abstract class VerifyFormEvent implements LivraisonEvent {
-  const factory VerifyFormEvent(
-      {final int? index,
-      final bool? isVille,
-      final bool? isPointRecuperation}) = _$VerifyFormEventImpl;
-
-  int? get index;
-  bool? get isVille;
-  bool? get isPointRecuperation;
-  @JsonKey(ignore: true)
-  _$$VerifyFormEventImplCopyWith<_$VerifyFormEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory VerifyFormEvent() = _$VerifyFormEventImpl;
 }
 
 /// @nodoc
@@ -380,9 +340,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            int? index, bool? isVille, bool? isPointRecuperation)
-        verifyForm,
+    required TResult Function() verifyForm,
     required TResult Function() backIndex,
     required TResult Function() getVille,
     required TResult Function(VilleModel ville) selectedVille,
@@ -394,6 +352,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function() setStartLogLat,
     required TResult Function(int ville) getRecupPoint,
     required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
   }) {
     return backIndex();
   }
@@ -401,8 +361,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
     TResult? Function()? getVille,
     TResult? Function(VilleModel ville)? selectedVille,
@@ -413,6 +372,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function()? setStartLogLat,
     TResult? Function(int ville)? getRecupPoint,
     TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
   }) {
     return backIndex?.call();
   }
@@ -420,8 +381,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult Function()? verifyForm,
     TResult Function()? backIndex,
     TResult Function()? getVille,
     TResult Function(VilleModel ville)? selectedVille,
@@ -431,6 +391,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -452,6 +414,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
   }) {
     return backIndex(this);
   }
@@ -469,6 +433,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
   }) {
     return backIndex?.call(this);
   }
@@ -486,6 +452,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -537,9 +505,7 @@ class _$GetVilleEventImpl implements GetVilleEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            int? index, bool? isVille, bool? isPointRecuperation)
-        verifyForm,
+    required TResult Function() verifyForm,
     required TResult Function() backIndex,
     required TResult Function() getVille,
     required TResult Function(VilleModel ville) selectedVille,
@@ -551,6 +517,8 @@ class _$GetVilleEventImpl implements GetVilleEvent {
     required TResult Function() setStartLogLat,
     required TResult Function(int ville) getRecupPoint,
     required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
   }) {
     return getVille();
   }
@@ -558,8 +526,7 @@ class _$GetVilleEventImpl implements GetVilleEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
     TResult? Function()? getVille,
     TResult? Function(VilleModel ville)? selectedVille,
@@ -570,6 +537,8 @@ class _$GetVilleEventImpl implements GetVilleEvent {
     TResult? Function()? setStartLogLat,
     TResult? Function(int ville)? getRecupPoint,
     TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
   }) {
     return getVille?.call();
   }
@@ -577,8 +546,7 @@ class _$GetVilleEventImpl implements GetVilleEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult Function()? verifyForm,
     TResult Function()? backIndex,
     TResult Function()? getVille,
     TResult Function(VilleModel ville)? selectedVille,
@@ -588,6 +556,8 @@ class _$GetVilleEventImpl implements GetVilleEvent {
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (getVille != null) {
@@ -609,6 +579,8 @@ class _$GetVilleEventImpl implements GetVilleEvent {
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
   }) {
     return getVille(this);
   }
@@ -626,6 +598,8 @@ class _$GetVilleEventImpl implements GetVilleEvent {
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
   }) {
     return getVille?.call(this);
   }
@@ -643,6 +617,8 @@ class _$GetVilleEventImpl implements GetVilleEvent {
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (getVille != null) {
@@ -720,9 +696,7 @@ class _$SelectedVilleImpl implements SelectedVille {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            int? index, bool? isVille, bool? isPointRecuperation)
-        verifyForm,
+    required TResult Function() verifyForm,
     required TResult Function() backIndex,
     required TResult Function() getVille,
     required TResult Function(VilleModel ville) selectedVille,
@@ -734,6 +708,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function() setStartLogLat,
     required TResult Function(int ville) getRecupPoint,
     required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
   }) {
     return selectedVille(ville);
   }
@@ -741,8 +717,7 @@ class _$SelectedVilleImpl implements SelectedVille {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
     TResult? Function()? getVille,
     TResult? Function(VilleModel ville)? selectedVille,
@@ -753,6 +728,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function()? setStartLogLat,
     TResult? Function(int ville)? getRecupPoint,
     TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
   }) {
     return selectedVille?.call(ville);
   }
@@ -760,8 +737,7 @@ class _$SelectedVilleImpl implements SelectedVille {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult Function()? verifyForm,
     TResult Function()? backIndex,
     TResult Function()? getVille,
     TResult Function(VilleModel ville)? selectedVille,
@@ -771,6 +747,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -792,6 +770,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
   }) {
     return selectedVille(this);
   }
@@ -809,6 +789,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
   }) {
     return selectedVille?.call(this);
   }
@@ -826,6 +808,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -913,9 +897,7 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            int? index, bool? isVille, bool? isPointRecuperation)
-        verifyForm,
+    required TResult Function() verifyForm,
     required TResult Function() backIndex,
     required TResult Function() getVille,
     required TResult Function(VilleModel ville) selectedVille,
@@ -927,6 +909,8 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
     required TResult Function() setStartLogLat,
     required TResult Function(int ville) getRecupPoint,
     required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
   }) {
     return selectedPointLocalisation(point_recup);
   }
@@ -934,8 +918,7 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
     TResult? Function()? getVille,
     TResult? Function(VilleModel ville)? selectedVille,
@@ -946,6 +929,8 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
     TResult? Function()? setStartLogLat,
     TResult? Function(int ville)? getRecupPoint,
     TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
   }) {
     return selectedPointLocalisation?.call(point_recup);
   }
@@ -953,8 +938,7 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult Function()? verifyForm,
     TResult Function()? backIndex,
     TResult Function()? getVille,
     TResult Function(VilleModel ville)? selectedVille,
@@ -964,6 +948,8 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (selectedPointLocalisation != null) {
@@ -985,6 +971,8 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
   }) {
     return selectedPointLocalisation(this);
   }
@@ -1002,6 +990,8 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
   }) {
     return selectedPointLocalisation?.call(this);
   }
@@ -1019,6 +1009,8 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (selectedPointLocalisation != null) {
@@ -1116,9 +1108,7 @@ class _$SetLogLatImpl implements SetLogLat {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            int? index, bool? isVille, bool? isPointRecuperation)
-        verifyForm,
+    required TResult Function() verifyForm,
     required TResult Function() backIndex,
     required TResult Function() getVille,
     required TResult Function(VilleModel ville) selectedVille,
@@ -1130,6 +1120,8 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function() setStartLogLat,
     required TResult Function(int ville) getRecupPoint,
     required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
   }) {
     return Start(latLng, quartier_recuperation_point);
   }
@@ -1137,8 +1129,7 @@ class _$SetLogLatImpl implements SetLogLat {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
     TResult? Function()? getVille,
     TResult? Function(VilleModel ville)? selectedVille,
@@ -1149,6 +1140,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function()? setStartLogLat,
     TResult? Function(int ville)? getRecupPoint,
     TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
   }) {
     return Start?.call(latLng, quartier_recuperation_point);
   }
@@ -1156,8 +1149,7 @@ class _$SetLogLatImpl implements SetLogLat {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult Function()? verifyForm,
     TResult Function()? backIndex,
     TResult Function()? getVille,
     TResult Function(VilleModel ville)? selectedVille,
@@ -1167,6 +1159,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -1188,6 +1182,8 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
   }) {
     return Start(this);
   }
@@ -1205,6 +1201,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
   }) {
     return Start?.call(this);
   }
@@ -1222,6 +1220,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -1281,9 +1281,7 @@ class _$StartLogLatImpl implements StartLogLat {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            int? index, bool? isVille, bool? isPointRecuperation)
-        verifyForm,
+    required TResult Function() verifyForm,
     required TResult Function() backIndex,
     required TResult Function() getVille,
     required TResult Function(VilleModel ville) selectedVille,
@@ -1295,6 +1293,8 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function() setStartLogLat,
     required TResult Function(int ville) getRecupPoint,
     required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
   }) {
     return setStartLogLat();
   }
@@ -1302,8 +1302,7 @@ class _$StartLogLatImpl implements StartLogLat {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
     TResult? Function()? getVille,
     TResult? Function(VilleModel ville)? selectedVille,
@@ -1314,6 +1313,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function()? setStartLogLat,
     TResult? Function(int ville)? getRecupPoint,
     TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
   }) {
     return setStartLogLat?.call();
   }
@@ -1321,8 +1322,7 @@ class _$StartLogLatImpl implements StartLogLat {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult Function()? verifyForm,
     TResult Function()? backIndex,
     TResult Function()? getVille,
     TResult Function(VilleModel ville)? selectedVille,
@@ -1332,6 +1332,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -1353,6 +1355,8 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
   }) {
     return setStartLogLat(this);
   }
@@ -1370,6 +1374,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
   }) {
     return setStartLogLat?.call(this);
   }
@@ -1387,6 +1393,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -1465,9 +1473,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            int? index, bool? isVille, bool? isPointRecuperation)
-        verifyForm,
+    required TResult Function() verifyForm,
     required TResult Function() backIndex,
     required TResult Function() getVille,
     required TResult Function(VilleModel ville) selectedVille,
@@ -1479,6 +1485,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function() setStartLogLat,
     required TResult Function(int ville) getRecupPoint,
     required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
   }) {
     return getRecupPoint(ville);
   }
@@ -1486,8 +1494,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
     TResult? Function()? getVille,
     TResult? Function(VilleModel ville)? selectedVille,
@@ -1498,6 +1505,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function()? setStartLogLat,
     TResult? Function(int ville)? getRecupPoint,
     TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
   }) {
     return getRecupPoint?.call(ville);
   }
@@ -1505,8 +1514,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult Function()? verifyForm,
     TResult Function()? backIndex,
     TResult Function()? getVille,
     TResult Function(VilleModel ville)? selectedVille,
@@ -1516,6 +1524,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -1537,6 +1547,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
   }) {
     return getRecupPoint(this);
   }
@@ -1554,6 +1566,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
   }) {
     return getRecupPoint?.call(this);
   }
@@ -1571,6 +1585,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -1655,9 +1671,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            int? index, bool? isVille, bool? isPointRecuperation)
-        verifyForm,
+    required TResult Function() verifyForm,
     required TResult Function() backIndex,
     required TResult Function() getVille,
     required TResult Function(VilleModel ville) selectedVille,
@@ -1669,6 +1683,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function() setStartLogLat,
     required TResult Function(int ville) getRecupPoint,
     required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
   }) {
     return searchpointevent(text);
   }
@@ -1676,8 +1692,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
     TResult? Function()? getVille,
     TResult? Function(VilleModel ville)? selectedVille,
@@ -1688,6 +1703,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function()? setStartLogLat,
     TResult? Function(int ville)? getRecupPoint,
     TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
   }) {
     return searchpointevent?.call(text);
   }
@@ -1695,8 +1712,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? index, bool? isVille, bool? isPointRecuperation)?
-        verifyForm,
+    TResult Function()? verifyForm,
     TResult Function()? backIndex,
     TResult Function()? getVille,
     TResult Function(VilleModel ville)? selectedVille,
@@ -1706,6 +1722,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -1727,6 +1745,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
   }) {
     return searchpointevent(this);
   }
@@ -1744,6 +1764,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
   }) {
     return searchpointevent?.call(this);
   }
@@ -1761,6 +1783,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -1781,9 +1805,415 @@ abstract class SearchPointEvent implements LivraisonEvent {
 }
 
 /// @nodoc
+abstract class _$$MapSelectedImplCopyWith<$Res> {
+  factory _$$MapSelectedImplCopyWith(
+          _$MapSelectedImpl value, $Res Function(_$MapSelectedImpl) then) =
+      __$$MapSelectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool status});
+}
+
+/// @nodoc
+class __$$MapSelectedImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$MapSelectedImpl>
+    implements _$$MapSelectedImplCopyWith<$Res> {
+  __$$MapSelectedImplCopyWithImpl(
+      _$MapSelectedImpl _value, $Res Function(_$MapSelectedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+  }) {
+    return _then(_$MapSelectedImpl(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MapSelectedImpl implements MapSelected {
+  const _$MapSelectedImpl({required this.status});
+
+  @override
+  final bool status;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.mapSelected(status: $status)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MapSelectedImpl &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, status);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MapSelectedImplCopyWith<_$MapSelectedImpl> get copyWith =>
+      __$$MapSelectedImplCopyWithImpl<_$MapSelectedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVille,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectedPointLocalisation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+  }) {
+    return mapSelected(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVille,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(PointLivraisonModel point_recup)?
+        selectedPointLocalisation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+  }) {
+    return mapSelected?.call(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVille,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(PointLivraisonModel point_recup)?
+        selectedPointLocalisation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    required TResult orElse(),
+  }) {
+    if (mapSelected != null) {
+      return mapSelected(status);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedPointLocalisation value)
+        selectedPointLocalisation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+  }) {
+    return mapSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedPointLocalisation value)?
+        selectedPointLocalisation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+  }) {
+    return mapSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedPointLocalisation value)?
+        selectedPointLocalisation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    required TResult orElse(),
+  }) {
+    if (mapSelected != null) {
+      return mapSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MapSelected implements LivraisonEvent {
+  const factory MapSelected({required final bool status}) = _$MapSelectedImpl;
+
+  bool get status;
+  @JsonKey(ignore: true)
+  _$$MapSelectedImplCopyWith<_$MapSelectedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MapValidatePointImplCopyWith<$Res> {
+  factory _$$MapValidatePointImplCopyWith(_$MapValidatePointImpl value,
+          $Res Function(_$MapValidatePointImpl) then) =
+      __$$MapValidatePointImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String libelle, String quartier});
+}
+
+/// @nodoc
+class __$$MapValidatePointImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$MapValidatePointImpl>
+    implements _$$MapValidatePointImplCopyWith<$Res> {
+  __$$MapValidatePointImplCopyWithImpl(_$MapValidatePointImpl _value,
+      $Res Function(_$MapValidatePointImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? libelle = null,
+    Object? quartier = null,
+  }) {
+    return _then(_$MapValidatePointImpl(
+      libelle: null == libelle
+          ? _value.libelle
+          : libelle // ignore: cast_nullable_to_non_nullable
+              as String,
+      quartier: null == quartier
+          ? _value.quartier
+          : quartier // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MapValidatePointImpl implements MapValidatePoint {
+  const _$MapValidatePointImpl({required this.libelle, required this.quartier});
+
+  @override
+  final String libelle;
+  @override
+  final String quartier;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.mapValidatePoint(libelle: $libelle, quartier: $quartier)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MapValidatePointImpl &&
+            (identical(other.libelle, libelle) || other.libelle == libelle) &&
+            (identical(other.quartier, quartier) ||
+                other.quartier == quartier));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, libelle, quartier);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MapValidatePointImplCopyWith<_$MapValidatePointImpl> get copyWith =>
+      __$$MapValidatePointImplCopyWithImpl<_$MapValidatePointImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVille,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectedPointLocalisation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+  }) {
+    return mapValidatePoint(libelle, quartier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVille,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(PointLivraisonModel point_recup)?
+        selectedPointLocalisation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+  }) {
+    return mapValidatePoint?.call(libelle, quartier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVille,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(PointLivraisonModel point_recup)?
+        selectedPointLocalisation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    required TResult orElse(),
+  }) {
+    if (mapValidatePoint != null) {
+      return mapValidatePoint(libelle, quartier);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedPointLocalisation value)
+        selectedPointLocalisation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+  }) {
+    return mapValidatePoint(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedPointLocalisation value)?
+        selectedPointLocalisation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+  }) {
+    return mapValidatePoint?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedPointLocalisation value)?
+        selectedPointLocalisation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    required TResult orElse(),
+  }) {
+    if (mapValidatePoint != null) {
+      return mapValidatePoint(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MapValidatePoint implements LivraisonEvent {
+  const factory MapValidatePoint(
+      {required final String libelle,
+      required final String quartier}) = _$MapValidatePointImpl;
+
+  String get libelle;
+  String get quartier;
+  @JsonKey(ignore: true)
+  _$$MapValidatePointImplCopyWith<_$MapValidatePointImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$LivraisonState {
-  bool get isVille => throw _privateConstructorUsedError;
-  bool get isPointRecuperation => throw _privateConstructorUsedError;
+  bool? get errorVille => throw _privateConstructorUsedError;
+  bool? get errorPointRecuperation => throw _privateConstructorUsedError;
+  bool get isMapSelectedPointRecuperation => throw _privateConstructorUsedError;
   int get index =>
       throw _privateConstructorUsedError; // double? longitudeRecuperation,
   PointLivraisonModel? get selected_recuperation_point =>
@@ -1795,6 +2225,13 @@ mixin _$LivraisonState {
   List<PointLivraisonModel>? get list_search_recuperation_point =>
       throw _privateConstructorUsedError;
   VilleModel? get selectedVIlle => throw _privateConstructorUsedError;
+  TextEditingController? get phone => throw _privateConstructorUsedError;
+  TextEditingController? get libelle => throw _privateConstructorUsedError;
+  TextEditingController? get contactEmetteur =>
+      throw _privateConstructorUsedError;
+  TextEditingController? get description => throw _privateConstructorUsedError;
+  GlobalKey<FormState>? get formKeyLivraison =>
+      throw _privateConstructorUsedError;
   LatLng? get position => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1809,8 +2246,9 @@ abstract class $LivraisonStateCopyWith<$Res> {
       _$LivraisonStateCopyWithImpl<$Res, LivraisonState>;
   @useResult
   $Res call(
-      {bool isVille,
-      bool isPointRecuperation,
+      {bool? errorVille,
+      bool? errorPointRecuperation,
+      bool isMapSelectedPointRecuperation,
       int index,
       PointLivraisonModel? selected_recuperation_point,
       String? quartier_recuperation_point,
@@ -1818,6 +2256,11 @@ abstract class $LivraisonStateCopyWith<$Res> {
       List<PointLivraisonModel>? list_recuperation_point,
       List<PointLivraisonModel>? list_search_recuperation_point,
       VilleModel? selectedVIlle,
+      TextEditingController? phone,
+      TextEditingController? libelle,
+      TextEditingController? contactEmetteur,
+      TextEditingController? description,
+      GlobalKey<FormState>? formKeyLivraison,
       LatLng? position});
 }
 
@@ -1834,8 +2277,9 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isVille = null,
-    Object? isPointRecuperation = null,
+    Object? errorVille = freezed,
+    Object? errorPointRecuperation = freezed,
+    Object? isMapSelectedPointRecuperation = null,
     Object? index = null,
     Object? selected_recuperation_point = freezed,
     Object? quartier_recuperation_point = freezed,
@@ -1843,16 +2287,25 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? list_recuperation_point = freezed,
     Object? list_search_recuperation_point = freezed,
     Object? selectedVIlle = freezed,
+    Object? phone = freezed,
+    Object? libelle = freezed,
+    Object? contactEmetteur = freezed,
+    Object? description = freezed,
+    Object? formKeyLivraison = freezed,
     Object? position = freezed,
   }) {
     return _then(_value.copyWith(
-      isVille: null == isVille
-          ? _value.isVille
-          : isVille // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPointRecuperation: null == isPointRecuperation
-          ? _value.isPointRecuperation
-          : isPointRecuperation // ignore: cast_nullable_to_non_nullable
+      errorVille: freezed == errorVille
+          ? _value.errorVille
+          : errorVille // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      errorPointRecuperation: freezed == errorPointRecuperation
+          ? _value.errorPointRecuperation
+          : errorPointRecuperation // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMapSelectedPointRecuperation: null == isMapSelectedPointRecuperation
+          ? _value.isMapSelectedPointRecuperation
+          : isMapSelectedPointRecuperation // ignore: cast_nullable_to_non_nullable
               as bool,
       index: null == index
           ? _value.index
@@ -1882,6 +2335,26 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.selectedVIlle
           : selectedVIlle // ignore: cast_nullable_to_non_nullable
               as VilleModel?,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      libelle: freezed == libelle
+          ? _value.libelle
+          : libelle // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      contactEmetteur: freezed == contactEmetteur
+          ? _value.contactEmetteur
+          : contactEmetteur // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      formKeyLivraison: freezed == formKeyLivraison
+          ? _value.formKeyLivraison
+          : formKeyLivraison // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -1899,8 +2372,9 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool isVille,
-      bool isPointRecuperation,
+      {bool? errorVille,
+      bool? errorPointRecuperation,
+      bool isMapSelectedPointRecuperation,
       int index,
       PointLivraisonModel? selected_recuperation_point,
       String? quartier_recuperation_point,
@@ -1908,6 +2382,11 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       List<PointLivraisonModel>? list_recuperation_point,
       List<PointLivraisonModel>? list_search_recuperation_point,
       VilleModel? selectedVIlle,
+      TextEditingController? phone,
+      TextEditingController? libelle,
+      TextEditingController? contactEmetteur,
+      TextEditingController? description,
+      GlobalKey<FormState>? formKeyLivraison,
       LatLng? position});
 }
 
@@ -1922,8 +2401,9 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isVille = null,
-    Object? isPointRecuperation = null,
+    Object? errorVille = freezed,
+    Object? errorPointRecuperation = freezed,
+    Object? isMapSelectedPointRecuperation = null,
     Object? index = null,
     Object? selected_recuperation_point = freezed,
     Object? quartier_recuperation_point = freezed,
@@ -1931,16 +2411,25 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? list_recuperation_point = freezed,
     Object? list_search_recuperation_point = freezed,
     Object? selectedVIlle = freezed,
+    Object? phone = freezed,
+    Object? libelle = freezed,
+    Object? contactEmetteur = freezed,
+    Object? description = freezed,
+    Object? formKeyLivraison = freezed,
     Object? position = freezed,
   }) {
     return _then(_$LivraisonStateImpl(
-      isVille: null == isVille
-          ? _value.isVille
-          : isVille // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPointRecuperation: null == isPointRecuperation
-          ? _value.isPointRecuperation
-          : isPointRecuperation // ignore: cast_nullable_to_non_nullable
+      errorVille: freezed == errorVille
+          ? _value.errorVille
+          : errorVille // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      errorPointRecuperation: freezed == errorPointRecuperation
+          ? _value.errorPointRecuperation
+          : errorPointRecuperation // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMapSelectedPointRecuperation: null == isMapSelectedPointRecuperation
+          ? _value.isMapSelectedPointRecuperation
+          : isMapSelectedPointRecuperation // ignore: cast_nullable_to_non_nullable
               as bool,
       index: null == index
           ? _value.index
@@ -1970,6 +2459,26 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value.selectedVIlle
           : selectedVIlle // ignore: cast_nullable_to_non_nullable
               as VilleModel?,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      libelle: freezed == libelle
+          ? _value.libelle
+          : libelle // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      contactEmetteur: freezed == contactEmetteur
+          ? _value.contactEmetteur
+          : contactEmetteur // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      formKeyLivraison: freezed == formKeyLivraison
+          ? _value.formKeyLivraison
+          : formKeyLivraison // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -1982,8 +2491,9 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
 
 class _$LivraisonStateImpl implements _LivraisonState {
   const _$LivraisonStateImpl(
-      {required this.isVille,
-      required this.isPointRecuperation,
+      {this.errorVille,
+      this.errorPointRecuperation,
+      required this.isMapSelectedPointRecuperation,
       required this.index,
       this.selected_recuperation_point,
       this.quartier_recuperation_point,
@@ -1991,15 +2501,22 @@ class _$LivraisonStateImpl implements _LivraisonState {
       final List<PointLivraisonModel>? list_recuperation_point,
       final List<PointLivraisonModel>? list_search_recuperation_point,
       this.selectedVIlle,
+      this.phone,
+      this.libelle,
+      this.contactEmetteur,
+      this.description,
+      this.formKeyLivraison,
       this.position})
       : _villeList = villeList,
         _list_recuperation_point = list_recuperation_point,
         _list_search_recuperation_point = list_search_recuperation_point;
 
   @override
-  final bool isVille;
+  final bool? errorVille;
   @override
-  final bool isPointRecuperation;
+  final bool? errorPointRecuperation;
+  @override
+  final bool isMapSelectedPointRecuperation;
   @override
   final int index;
 // double? longitudeRecuperation,
@@ -2042,11 +2559,21 @@ class _$LivraisonStateImpl implements _LivraisonState {
   @override
   final VilleModel? selectedVIlle;
   @override
+  final TextEditingController? phone;
+  @override
+  final TextEditingController? libelle;
+  @override
+  final TextEditingController? contactEmetteur;
+  @override
+  final TextEditingController? description;
+  @override
+  final GlobalKey<FormState>? formKeyLivraison;
+  @override
   final LatLng? position;
 
   @override
   String toString() {
-    return 'LivraisonState(isVille: $isVille, isPointRecuperation: $isPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, villeList: $villeList, list_recuperation_point: $list_recuperation_point, list_search_recuperation_point: $list_search_recuperation_point, selectedVIlle: $selectedVIlle, position: $position)';
+    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, villeList: $villeList, list_recuperation_point: $list_recuperation_point, list_search_recuperation_point: $list_search_recuperation_point, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, position: $position)';
   }
 
   @override
@@ -2054,9 +2581,14 @@ class _$LivraisonStateImpl implements _LivraisonState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LivraisonStateImpl &&
-            (identical(other.isVille, isVille) || other.isVille == isVille) &&
-            (identical(other.isPointRecuperation, isPointRecuperation) ||
-                other.isPointRecuperation == isPointRecuperation) &&
+            (identical(other.errorVille, errorVille) ||
+                other.errorVille == errorVille) &&
+            (identical(other.errorPointRecuperation, errorPointRecuperation) ||
+                other.errorPointRecuperation == errorPointRecuperation) &&
+            (identical(other.isMapSelectedPointRecuperation,
+                    isMapSelectedPointRecuperation) ||
+                other.isMapSelectedPointRecuperation ==
+                    isMapSelectedPointRecuperation) &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.selected_recuperation_point,
                     selected_recuperation_point) ||
@@ -2075,6 +2607,14 @@ class _$LivraisonStateImpl implements _LivraisonState {
                 _list_search_recuperation_point) &&
             (identical(other.selectedVIlle, selectedVIlle) ||
                 other.selectedVIlle == selectedVIlle) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.libelle, libelle) || other.libelle == libelle) &&
+            (identical(other.contactEmetteur, contactEmetteur) ||
+                other.contactEmetteur == contactEmetteur) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.formKeyLivraison, formKeyLivraison) ||
+                other.formKeyLivraison == formKeyLivraison) &&
             (identical(other.position, position) ||
                 other.position == position));
   }
@@ -2082,8 +2622,9 @@ class _$LivraisonStateImpl implements _LivraisonState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      isVille,
-      isPointRecuperation,
+      errorVille,
+      errorPointRecuperation,
+      isMapSelectedPointRecuperation,
       index,
       selected_recuperation_point,
       quartier_recuperation_point,
@@ -2091,6 +2632,11 @@ class _$LivraisonStateImpl implements _LivraisonState {
       const DeepCollectionEquality().hash(_list_recuperation_point),
       const DeepCollectionEquality().hash(_list_search_recuperation_point),
       selectedVIlle,
+      phone,
+      libelle,
+      contactEmetteur,
+      description,
+      formKeyLivraison,
       position);
 
   @JsonKey(ignore: true)
@@ -2103,8 +2649,9 @@ class _$LivraisonStateImpl implements _LivraisonState {
 
 abstract class _LivraisonState implements LivraisonState {
   const factory _LivraisonState(
-      {required final bool isVille,
-      required final bool isPointRecuperation,
+      {final bool? errorVille,
+      final bool? errorPointRecuperation,
+      required final bool isMapSelectedPointRecuperation,
       required final int index,
       final PointLivraisonModel? selected_recuperation_point,
       final String? quartier_recuperation_point,
@@ -2112,12 +2659,19 @@ abstract class _LivraisonState implements LivraisonState {
       final List<PointLivraisonModel>? list_recuperation_point,
       final List<PointLivraisonModel>? list_search_recuperation_point,
       final VilleModel? selectedVIlle,
+      final TextEditingController? phone,
+      final TextEditingController? libelle,
+      final TextEditingController? contactEmetteur,
+      final TextEditingController? description,
+      final GlobalKey<FormState>? formKeyLivraison,
       final LatLng? position}) = _$LivraisonStateImpl;
 
   @override
-  bool get isVille;
+  bool? get errorVille;
   @override
-  bool get isPointRecuperation;
+  bool? get errorPointRecuperation;
+  @override
+  bool get isMapSelectedPointRecuperation;
   @override
   int get index;
   @override // double? longitudeRecuperation,
@@ -2132,6 +2686,16 @@ abstract class _LivraisonState implements LivraisonState {
   List<PointLivraisonModel>? get list_search_recuperation_point;
   @override
   VilleModel? get selectedVIlle;
+  @override
+  TextEditingController? get phone;
+  @override
+  TextEditingController? get libelle;
+  @override
+  TextEditingController? get contactEmetteur;
+  @override
+  TextEditingController? get description;
+  @override
+  GlobalKey<FormState>? get formKeyLivraison;
   @override
   LatLng? get position;
   @override

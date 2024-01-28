@@ -96,7 +96,12 @@ class DatabaseCubit extends Cubit<DatabaseState> {
     _store.box<KeyUser>().put(KeyUser.fromJson(value));
     return true;
   }
-
+  
+  Future<int?> getId() async {
+    final keyUserBox = _store.box<KeyUser>();
+    final keyUsers = keyUserBox.getAll();
+    return keyUsers.isNotEmpty ? keyUsers.first.id : 1;
+  }
   Future<String?> getKey() async {
     final keyUserBox = _store.box<KeyUser>();
     final keyUsers = keyUserBox.getAll();

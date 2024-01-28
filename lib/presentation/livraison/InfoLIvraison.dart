@@ -20,20 +20,12 @@ class InfoLIvraison extends StatefulWidget {
 }
 
 class _InfoLIvraisonState extends State<InfoLIvraison> {
-  final formKeyLivraison = new GlobalKey<FormState>();
-  TextEditingController phone = TextEditingController();
-  TextEditingController libelle = TextEditingController();
-  TextEditingController libelleLocalisation = TextEditingController();
-  TextEditingController contactEmetteur = TextEditingController();
-
-  TextEditingController description = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LivraisonBloc, LivraisonState>(
         builder: (context, state) {
       return Form(
-          key: formKeyLivraison,
+          key: state.formKeyLivraison,
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: kMarginX),
             child: SingleChildScrollView(
@@ -43,7 +35,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     top: kMarginY * 1.5,
                   ),
                   child: AppInputNew(
-                    controller: libelle,
+                    controller: state.libelle!,
                     icon: Icon(Icons.label),
                     label: 'Libelle'.tr(),
                     onChanged: (value) {
@@ -63,8 +55,8 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(
-                        color: (!state.isVille)
-                            ? ColorsApp.second
+                        color: (!state.errorVille!)
+                            ? ColorsApp.primary
                             : ColorsApp.grey,
                         width: 1),
                     borderRadius: BorderRadius.circular(8),
@@ -88,6 +80,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                 ),
                               ),
                               iconSize: 25,
+                              isExpanded: true,
                               underline: SizedBox(),
                               style: TextStyle(
                                   color: ColorsApp.primary, fontSize: 12),
@@ -109,7 +102,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                               }).toList(),
                             ),
                 ),
-                if (!state.isVille)
+                if (state.errorVille!)
                   Container(
                       padding: EdgeInsets.only(
                         top: kMarginY,
@@ -123,7 +116,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                         style: TextStyle(
                             fontSize: 8,
                             fontFamily: 'Lato',
-                            color: ColorsApp.second),
+                            color: ColorsApp.red),
                       )),
                 Container(
                     padding: EdgeInsets.only(
@@ -138,12 +131,12 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        (state.position == null)
+                        (!state.isMapSelectedPointRecuperation)
                             ? Container(
                                 decoration: BoxDecoration(
                                   border: Border.all(
-                                      color: (!state.isPointRecuperation)
-                                          ? ColorsApp.second
+                                      color: (!state.errorPointRecuperation!)
+                                          ? ColorsApp.primary
                                           : ColorsApp.grey,
                                       width: 1),
                                   borderRadius: BorderRadius.circular(8),
@@ -155,12 +148,16 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                 ),
                                 alignment: Alignment.center,
                                 child: DropdownButton<PointLivraisonModel>(
+                              isExpanded: true,
                                   value: state.selected_recuperation_point,
                                   hint: Container(
                                     width: kWidth * .65,
                                     alignment: Alignment.center,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 7,
+                                    ),
                                     child: Text(
-                                      'Selectionner un point de recuperation',
+                                      'Selectionner un point',
                                       style: TextStyle(
                                           overflow: TextOverflow.ellipsis),
                                     ),
@@ -202,9 +199,8 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     color: ColorsApp.grey),
-                                child: Text(state.selectedVIlle == null
-                                    ? 'Selectionner'
-                                    : state.selectedVIlle!.libelle)),
+                                child: Text(state
+                                    .selected_recuperation_point!.libelle)),
                         InkWell(
                             child: Container(
                                 padding: EdgeInsets.all(10),
@@ -221,7 +217,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                             }),
                       ],
                     )),
-                if (!state.isPointRecuperation)
+                if (state.errorPointRecuperation!)
                   Container(
                       padding: EdgeInsets.only(
                         top: kMarginY,
@@ -235,14 +231,14 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                         style: TextStyle(
                             fontSize: 8,
                             fontFamily: 'Lato',
-                            color: ColorsApp.second),
+                            color: ColorsApp.red),
                       )),
                 Container(
                   margin: EdgeInsets.only(
                     top: kMarginY * 1.5,
                   ),
                   child: AppInputNew(
-                    controller: contactEmetteur,
+                    controller: state.contactEmetteur!,
                     icon: Icon(Icons.phone),
                     label: 'Contact de l\'expediteur'.tr(),
                     onChanged: (value) {},
@@ -256,7 +252,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     top: kMarginY * 1.5,
                   ),
                   child: TextFormField(
-                    controller: description,
+                    controller: state.description,
                     onChanged: (value) {},
                     validator: (value) {
                       return Validators.isValidUsername(value!);

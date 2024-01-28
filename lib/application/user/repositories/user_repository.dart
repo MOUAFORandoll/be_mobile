@@ -6,19 +6,16 @@ import '../../../utils/Services/ApiClientNew.dart';
 
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:BananaExpress/application/database/database_cubit.dart';
-  
- 
 
 class UserRepo {
   final ApiClient apiClient;
   UserRepo({required this.apiClient});
   var dababase = sl.get<DatabaseCubit>();
   Future getUser() async {
-    var getU = await dababase.getKey();
+    var getId = await dababase.getId();
 
-    if (getU != null) {
-      Response a =
-          await apiClient.getData(ApiRoutes.USER + '?keySecret=${getU}');
+    if (getId != null) {
+      Response a = await apiClient.getData(ApiRoutes.USER + '?id=${getId}');
       ;
 
       return a;

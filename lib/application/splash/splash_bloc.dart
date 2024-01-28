@@ -19,7 +19,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
   SplashBloc({required this.database}) : super(const SplashState.loading()) {
     on<SplashEvent>((event, emit) {
       GetStorage box = sl.get<GetStorage>();
-    // box.write('first', 0);
+      // box.write('first', 0);
     });
     on<StartLoading>((event, emit) async {
       GetStorage box = sl.get<GetStorage>();
@@ -27,7 +27,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
 
       await Future.delayed(Duration(seconds: 5), () {
         PageRouteInfo<dynamic> route;
-        
+
         route = (box.read('first') != 1)
             ? const OnBoardingRoute()
             : isConnected

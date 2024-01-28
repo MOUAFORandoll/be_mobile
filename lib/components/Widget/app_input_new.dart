@@ -48,11 +48,11 @@ class _AppInputNewState extends State<AppInputNew> {
         onChanged: widget.onChanged,
         decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: ColorsApp.tird, width: 1),
+              borderSide: BorderSide(color: ColorsApp.primary, width: 1),
               borderRadius: BorderRadius.circular(8),
             ),
             errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: ColorsApp.second, width: 1),
+              borderSide: BorderSide(color: ColorsApp.red, width: 1),
               borderRadius: BorderRadius.circular(8),
             ),
             enabledBorder: OutlineInputBorder(

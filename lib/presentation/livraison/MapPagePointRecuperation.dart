@@ -77,9 +77,10 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
     context
         .read<LivraisonBloc>()
         .add(SetLogLat(latLng: LatLng(value.latitude, value.longitude)));
-    setState(() {
+   
+  setState(() {
       print('-------000------');
-
+      
       print('-----1----------------');
 
       setState(() {
@@ -211,7 +212,13 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                   // bgColor: ColorsApp.primary,
                                   text: 'Valider'.tr(),
                                   onTap: () async {
-                                    AutoRouter.of(context)
+                                    context
+                                        .read<LivraisonBloc>()
+                                        .add(MapValidatePoint(libelle: libelleLocalisation.text,
+                                            quartier:quartier.text));
+                                        
+                                        
+                                          AutoRouter.of(context)
                                         .pushNamed(NewLivraisonPage.routeName);
                                   }),
                             ]),

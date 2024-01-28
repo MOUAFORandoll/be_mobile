@@ -1,5 +1,6 @@
 import 'package:BananaExpress/application/livraison/repositories/livraisonRepo.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
@@ -21,10 +22,27 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       emit(state.copyWith(index: 0));
     });
     on<VerifyFormEvent>((event, emit) async {
-      print('VerifyFormEvent');
-      // if (state.isVille && state.isPointRecuperation) {
-      emit(state.copyWith(index: 1));
-      // }
+      if (state.selectedVIlle == null) {
+        emit(state.copyWith(errorVille: true));
+      } else {
+        emit(state.copyWith(errorVille: false));
+      }
+      if (state.selected_recuperation_point == null) {
+        emit(state.copyWith(errorPointRecuperation: true));
+      } else {
+        emit(state.copyWith(errorPointRecuperation: false));
+      }
+  if (state.formKeyLivraison!.currentState!.validate()) {
+        print('VerifyFormEvent');
+      
+        if (state.selectedVIlle != null &&
+            state.selected_recuperation_point != null &&
+            state.contactEmetteur!.text.length != 0 &&
+            state.libelle!.text.length != 0) {
+          emit(state.copyWith(
+              index: 1, errorVille: false, errorPointRecuperation: false));
+        }
+      }
     });
     on<GetVilleEvent>(_getVille);
     on<GetRecupPointEvent>(_getpointLocalisation);
@@ -35,8 +53,44 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       // }
     });
     on<SetLogLat>(_setLongLat);
+    on<SelectedPointLocalisation>(_selectPointRecuperation);
+    on<MapValidatePoint>(_mapValidatePoint);
+    on<MapSelected>(_mapSelected);
     on<StartLogLat>(_setStartLongLat);
     on<SearchPointEvent>(_searchPointRecuperationPointLivraison);
+  }
+
+  Future<void> _selectPointRecuperation(
+      SelectedPointLocalisation event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(
+      selected_recuperation_point: event.point_recup,
+    ));
+  }
+
+  Future<void> _mapValidatePoint(
+      MapValidatePoint event, Emitter<LivraisonState> emit) async {
+    PointLivraisonModel _point = new PointLivraisonModel(
+        id: 0,
+        libelle: event.libelle,
+        quartier: event.quartier,
+        ville: state.selectedVIlle!.libelle,
+        longitude: state.position!.longitude,
+        latitude: state.position!.latitude);
+
+    emit(state.copyWith(
+      selected_recuperation_point: _point,
+      errorVille: false,
+      errorPointRecuperation: false,
+      isMapSelectedPointRecuperation: true,
+    ));
+  }
+
+  Future<void> _mapSelected(
+      MapSelected event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(
+      errorPointRecuperation: false,
+      isMapSelectedPointRecuperation: event.status,
+    ));
   }
 
   void _searchPointRecuperationPointLivraison(
