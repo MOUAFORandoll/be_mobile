@@ -1,4 +1,4 @@
-import 'package:BananaExpress/components/Text/smallText.dart';
+import 'package:BananaExpress/old/components/Text/smallText.dart';
 import 'package:flutter/material.dart';
 class AboutUsView extends StatelessWidget {
   const AboutUsView({Key? key}) : super(key: key);

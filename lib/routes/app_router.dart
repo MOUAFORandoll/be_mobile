@@ -1,5 +1,6 @@
 import 'package:BananaExpress/presentation/home/home_page.dart';
 import 'package:BananaExpress/presentation/layer/onboardingpage.dart';
+import 'package:BananaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BananaExpress/presentation/user/auth_page.dart';
 import 'package:auto_route/auto_route.dart';
 
@@ -22,5 +23,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
             page: MapRoutePointRecuperation.page,
             path: MapPagePointRecuperation.routeName),
+        AutoRoute(
+            page: MapRoutePointLivraisonColis.page,
+            path: MapPagePointLivraisonColis.routeName),
       ];
 }

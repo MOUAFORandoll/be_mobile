@@ -27,6 +27,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
+    MapRoutePointLivraisonColis.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MapPagePointLivraisonColis(),
+      );
+    },
     MapRoutePointRecuperation.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -78,6 +84,20 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MapPagePointLivraisonColis]
+class MapRoutePointLivraisonColis extends PageRouteInfo<void> {
+  const MapRoutePointLivraisonColis({List<PageRouteInfo>? children})
+      : super(
+          MapRoutePointLivraisonColis.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MapRoutePointLivraisonColis';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

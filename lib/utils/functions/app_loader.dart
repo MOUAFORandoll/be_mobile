@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'bounce_loader.dart';
 
-import 'package:BananaExpress/components/exportcomponent.dart';
+import 'package:BananaExpress/old/components/exportcomponent.dart';
 import 'package:flutter/material.dart';
 
 /// App loaders

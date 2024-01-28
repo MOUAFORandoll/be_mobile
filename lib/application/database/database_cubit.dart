@@ -1,36 +1,37 @@
+import 'package:BananaExpress/entity.dart';
 import 'package:BananaExpress/objectbox.g.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:path/path.dart' as p;
-import 'package:BananaExpress/old/controller/entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'database_state.dart';
 part 'database_cubit.freezed.dart';
-      
+
 class DatabaseCubit extends Cubit<DatabaseState> {
- final GetStorage box = GetStorage();
-  final String linkDb = 'babana_express';
+  final GetStorage box = GetStorage();
+  final String linkDb = 'babana_express_local';
   late final Store _store;
 
   DatabaseCubit() : super(const DatabaseState.initial()) {
     _createInstance();
   }
-  
+
   Future<void> _createInstance() async {
     emit(const DatabaseState.loading());
 
     try {
       final databasesPath = await getApplicationDocumentsDirectory();
-      
+
       _store = await openStore(directory: p.join(databasesPath.path, linkDb));
       emit(DatabaseState.initialized(store: _store));
     } catch (e) {
       emit(DatabaseState.error(error: e.toString()));
     }
   }
+
   // Insert operation
   Future<bool> insertCommande(
       int id, String codeCommande, String codeClient, String date) async {
@@ -63,6 +64,7 @@ class DatabaseCubit extends Cubit<DatabaseState> {
   // Get operations
   User? getUser() {
     final userBox = _store.box<User>();
+
     final users = userBox.getAll();
     print(users.length);
     return users.isNotEmpty ? users.first : null;
@@ -92,16 +94,19 @@ class DatabaseCubit extends Cubit<DatabaseState> {
   }
 
   saveKeyKen(value) async {
+    print('---------------------Jwt.parseJwt )');
     print(Jwt.parseJwt(value['token']));
     _store.box<KeyUser>().put(KeyUser.fromJson(value));
+    print('---------------------${getKey()}');
     return true;
   }
-  
+
   Future<int?> getId() async {
     final keyUserBox = _store.box<KeyUser>();
     final keyUsers = keyUserBox.getAll();
-    return keyUsers.isNotEmpty ? keyUsers.first.id : 1;
+    return keyUsers.isNotEmpty ? keyUsers.first.userId : null;
   }
+
   Future<String?> getKey() async {
     final keyUserBox = _store.box<KeyUser>();
     final keyUsers = keyUserBox.getAll();
@@ -142,19 +147,24 @@ class DatabaseCubit extends Cubit<DatabaseState> {
 
   // InsertAll operation
   insertAllCommandes() {
-     
     for (var i = 10; i < 100; i++) {
       // final commandeBox =;
       print('-------ii--${i}');
       _store.box<Commande>().put(Commande(
           codeCommande: 'codeCommande$i', codeClient: '', date: 'date$i'));
-     
     }
     return true;
   }
 
   @override
   Future<void> close() async {
-    return super.close();
+    _store.box<Commande>().removeAll();
+    _store.box<Theme>().removeAll();
+    _store.box<Lang>().removeAll();
+    _store.box<Localisation>().removeAll();
+    _store.box<KeyUser>().removeAll();
+    _store.box<User>().removeAll();
+    // _createInstance();
+    // return super.close();
   }
 }

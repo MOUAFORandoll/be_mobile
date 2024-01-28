@@ -1,6 +1,6 @@
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/components/exportcomponent.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Widget/app_input_new.dart';
+import 'package:BananaExpress/old/components/exportcomponent.dart';
 import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
@@ -174,7 +174,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
             margin: EdgeInsets.only(
               top: kMarginY * 1.5,
             ),
-            width: kWidth * .8,
+            width: getWith(context) * .8,
             child: Text(
               'Longitude : ${livraison.longitudeRecuperation}',
               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -184,7 +184,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
             margin: EdgeInsets.only(
               top: kMarginY * 1.5,
             ),
-            width: kWidth * .8,
+            width: getWith(context) * .8,
             child: Text(
               'Latitude : ${livraison.latitudeRecuperation}',
               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -218,7 +218,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
             body: Stack(
               children: [
                 Container(
-                    height: kHeight * .95,
+                    height: getHeight(context) * .95,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(15),
@@ -309,8 +309,8 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                   ),
                                   color: ColorsApp.white,
                                 ),
-                                height: kHeight / 15,
-                                width: kWidth * .95,
+                                height: getHeight(context) / 15,
+                                width: getWith(context) * .95,
                                 child: TextField(
                                   controller: controller
                                       .searchPointRecuperationController,
@@ -354,10 +354,10 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                         if (isOpen)
                           Container(
                             height: controller
-                                        .list_search_recuperation_point.length <
+                                        .list_search_point_localisation.length <
                                     5
-                                ? kHeight * .15
-                                : kHeight * .3,
+                                ? getHeight(context) * .15
+                                : getHeight(context) * .3,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               border: Border.all(
@@ -366,13 +366,13 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                               color: ColorsApp.white,
                             ),
                             child:
-                                controller.list_search_recuperation_point
+                                controller.list_search_point_localisation
                                             .length ==
                                         0
                                     ? Text('Aucun point de recuperation trouve')
                                     : SingleChildScrollView(
                                         child: Container(
-                                          width: kWidth * .95,
+                                          width: getWith(context) * .95,
                                           child: controller
                                                   .searchPointRecuperationController
                                                   .text
@@ -444,17 +444,17 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                       NeverScrollableScrollPhysics(),
                                                   shrinkWrap: true,
                                                   itemCount: controller
-                                                      .list_search_recuperation_point
+                                                      .list_search_point_localisation
                                                       .length,
                                                   itemBuilder:
                                                       (_, index) => InkWell(
                                                             onTap: () {
                                                               selectPoint(controller
-                                                                      .list_search_recuperation_point[
+                                                                      .list_search_point_localisation[
                                                                   index]);
                                                               controller.setLibelleAndQuartier(
                                                                   controller
-                                                                          .list_search_recuperation_point[
+                                                                          .list_search_point_localisation[
                                                                       index]);
                                                               FocusScope.of(
                                                                       context)
@@ -472,7 +472,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                     children: [
                                                                       Container(
                                                                         child: Text(controller
-                                                                            .list_search_recuperation_point[index]
+                                                                            .list_search_point_localisation[index]
                                                                             .libelle),
                                                                       ),
                                                                       Container(
@@ -480,7 +480,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                             left:
                                                                                 10),
                                                                         child: Text(controller
-                                                                            .list_search_recuperation_point[index]
+                                                                            .list_search_point_localisation[index]
                                                                             .quartier),
                                                                       ),
                                                                       Container(
@@ -488,7 +488,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                             left:
                                                                                 10),
                                                                         child: Text(controller
-                                                                            .list_search_recuperation_point[index]
+                                                                            .list_search_point_localisation[index]
                                                                             .ville),
                                                                       ),
                                                                     ],

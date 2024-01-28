@@ -1,5 +1,5 @@
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Widget/app_input.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Widget/app_input.dart';
 import 'package:BananaExpress/presentation/home/home_page.dart';
 import 'package:BananaExpress/routes/app_router.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 
 import '../../styles/colorApp.dart';
 import '../../styles/textStyle.dart';
+import 'package:BananaExpress/core.dart';
 
 class RegisterView extends StatelessWidget {
   var loader = AppLoader.bounceLargeColorLoaderController();
@@ -54,12 +55,10 @@ class RegisterView extends StatelessWidget {
                 showError(state.authenticationFailedMessage!, context);
               } else if (state.isLoading == 2) {
                 loader.close();
-                BlocProvider.of<LivraisonBloc>(context).add(GetVilleEvent());
                 AutoRouter.of(context).replaceAll([HomeRoute()]);
 
                 showSuccess('Connecte', context);
-                BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
-                print('-----44--------*********');
+              initLoad(context);  print('-----44--------*********');
               }
             },
             builder: (context, state) {

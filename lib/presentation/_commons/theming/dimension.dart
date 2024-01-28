@@ -21,9 +21,7 @@ final kPaddingLeft = 10;
 final kPaddingRight = 10;
 final kPaddingX = 10;
 final kPaddingY = 10;
-
-final kHeight = 844.0;
-final kWidth = 390.0;
+ 
 
 final kTitle = 14.0 /* * proportion */;
 final kDescription = 9.0 /* * proportion */;

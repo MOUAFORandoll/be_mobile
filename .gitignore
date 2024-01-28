@@ -52,3 +52,5 @@ app.*.map.json
 /.json_models/
 models.jsonc 
 /
+.vscode
+.dart_tool

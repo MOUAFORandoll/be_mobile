@@ -1,5 +1,6 @@
 import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/components/Widget/app_input_new.dart';
+import 'package:BananaExpress/application/model/exportmodel.dart';
+import 'package:BananaExpress/old/components/Widget/app_input_new.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
@@ -8,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import '../../../old/model/data/VilleModel.dart';
-import '../../old/model/exportmodel.dart';
 import 'MapPagePointRecuperation.dart';
 
 class InfoLIvraison extends StatefulWidget {
@@ -55,14 +54,14 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(
-                        color: (!state.errorVille!)
-                            ? ColorsApp.primary
+                        color: (state.errorVille!)
+                            ? ColorsApp.red
                             : ColorsApp.grey,
                         width: 1),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  height: kHeight * .08,
-                  width: kWidth,
+                  height: getHeight(context) * .08,
+                  width: getWith(context),
                   margin: EdgeInsets.only(
                     top: kMarginY * 1.5,
                   ),
@@ -77,6 +76,21 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                 // padding: EdgeInsets.only(top: 4),
                                 child: Icon(
                                   Icons.keyboard_arrow_down_outlined,
+                                ),
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 7,
+                              ),
+                              hint: Container(
+                                width: getWith(context) * .65,
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 7,
+                                ),
+                                child: Text(
+                                  'Selectionner une ville',
+                                  style: TextStyle(
+                                      overflow: TextOverflow.ellipsis),
                                 ),
                               ),
                               iconSize: 25,
@@ -135,23 +149,26 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                             ? Container(
                                 decoration: BoxDecoration(
                                   border: Border.all(
-                                      color: (!state.errorPointRecuperation!)
-                                          ? ColorsApp.primary
+                                      color: (state.errorPointRecuperation!)
+                                          ? ColorsApp.red
                                           : ColorsApp.grey,
                                       width: 1),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                height: kHeight * .08,
-                                width: kWidth * .65,
+                                height: getHeight(context) * .08,
+                                width: getWith(context) * .65,
                                 margin: EdgeInsets.only(
                                   top: kMarginY * 1.5,
                                 ),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 7,
+                                ),
                                 alignment: Alignment.center,
                                 child: DropdownButton<PointLivraisonModel>(
-                              isExpanded: true,
+                                  isExpanded: true,
                                   value: state.selected_recuperation_point,
                                   hint: Container(
-                                    width: kWidth * .65,
+                                    width: getWith(context) * .65,
                                     alignment: Alignment.center,
                                     padding: EdgeInsets.symmetric(
                                       horizontal: 7,
@@ -174,10 +191,10 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                       color: ColorsApp.primary, fontSize: 12),
                                   onChanged: (PointLivraisonModel? newValue) {
                                     context.read<LivraisonBloc>().add(
-                                        SelectedPointLocalisation(
+                                        SelectPointRecuperation(
                                             point_recup: newValue!));
                                   },
-                                  items: state.list_recuperation_point!
+                                  items: state.list_localisation_point!
                                       .map((PointLivraisonModel value) {
                                     return DropdownMenuItem(
                                       value: value,
@@ -193,9 +210,9 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                             : Container(
                                 padding: EdgeInsets.symmetric(
                                     vertical: kMarginY, horizontal: kMarginX),
-                                height: kHeight * .06,
+                                height: getHeight(context) * .06,
                                 alignment: Alignment.center,
-                                width: kWidth * .65,
+                                width: getWith(context) * .65,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     color: ColorsApp.grey),
@@ -212,9 +229,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                             onTap: () {
                               AutoRouter.of(context).pushNamed(
                                   MapPagePointRecuperation.routeName);
-
-                              //  Get.to(MapPagePointRecuperation());
-                            }),
+    }),
                       ],
                     )),
                 if (state.errorPointRecuperation!)
@@ -265,12 +280,19 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     maxLines: 10,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: ColorsApp.tird, width: 2),
+                        borderSide:
+                            BorderSide(color: ColorsApp.primary, width: 1),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(color: ColorsApp.grey),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: ColorsApp.red, width: 1),
                         borderRadius: BorderRadius.circular(8),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: ColorsApp.grey, width: 1),
+                        borderRadius: BorderRadius.circular(8),
+                        // borderSide:
+                        //     BorderSide(color: ColorsApp.tird, width: 1),
                       ),
                       errorStyle: TextStyle(
                         fontSize: 8,

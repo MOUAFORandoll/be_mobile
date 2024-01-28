@@ -54,8 +54,8 @@ class _PolitiqueViewState extends State<PolitiqueView> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                   Container(
-                      height: kHeight * .08,
-                      width: kWidth * 1.2,
+                      height: getHeight(context) * .08,
+                      width: getWith(context) * 1.2,
                       // margin: EdgeInsets.symmetric(
                       //     horizontal: kMarginX * 10),
                       alignment: Alignment.center,
@@ -95,7 +95,7 @@ class _PolitiqueViewState extends State<PolitiqueView> {
                             Container(
                                 margin: EdgeInsets.only(top: 2, bottom: 3),
                                 height: 3,
-                                width: kWidth * .5,
+                                width: getWith(context) * .5,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30)),
                                 child: Container())

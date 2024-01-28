@@ -27,7 +27,7 @@ class CommentShortModel {
 
   factory CommentShortModel.fromJson(Map<String, dynamic> json) =>
       CommentShortModel(
-        id: json["id"],
+        id: json['id'],
         date: json["date"],
         commentaire_text: json["commentaire"],
         target_user: json["target_user"],
@@ -41,7 +41,7 @@ class CommentShortModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        'id': id,
         "date": date,
         "commentaire": commentaire_text,
         "username": username,

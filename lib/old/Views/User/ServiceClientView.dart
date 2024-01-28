@@ -58,7 +58,7 @@
 //                       mainAxisAlignment: MainAxisAlignment.center,
 //                       children: [
 //                         Container(
-//                           margin: EdgeInsets.symmetric(horizontal: kWidth / 12),
+//                           margin: EdgeInsets.symmetric(horizontal: getWith(context) / 12),
 //                           child: Row(
 //                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //                             children: [
@@ -152,7 +152,7 @@
 //                                 Container(
 //                                   margin: EdgeInsets.only(top: 2, bottom: 3),
 //                                   height: 3,
-//                                   width: kWidth * .5,
+//                                   width: getWith(context) * .5,
 //                                   decoration: BoxDecoration(
 //                                     ,
 //                                     borderRadius: BorderRadius.circular(30),

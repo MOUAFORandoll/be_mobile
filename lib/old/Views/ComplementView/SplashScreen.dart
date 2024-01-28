@@ -59,8 +59,9 @@ class _SplashScreenPageState extends State<SplashScreenPage>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                      margin: EdgeInsets.symmetric(vertical: kHeight * .20)
-                          .add(EdgeInsets.only(top: kHeight * .10)),
+                      margin: EdgeInsets.symmetric(
+                              vertical: getHeight(context) * .20)
+                          .add(EdgeInsets.only(top: getHeight(context) * .10)),
                       child: SvgPicture.asset(
                         Assets.babana,
                       )),

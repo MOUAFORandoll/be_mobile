@@ -180,11 +180,11 @@ class GeneralController extends GetxController {
     Get.changeTheme(!_dark ? ThemeData.light() : ThemeData.dark());
   }
 
-  getThemeInit(context) async {
+  getThemeInit() async {
     var theme = await dababase.getTheme();
     _dark = theme != null
         ? theme == '1'
-        : Theme.of(context).brightness == Brightness.dark;
+        : Theme.of(Get.context!).brightness == Brightness.dark;
     Get.changeTheme(!_dark ? ThemeData.light() : ThemeData.dark());
     update();
   }
@@ -282,8 +282,8 @@ class GeneralController extends GetxController {
       items: [
         CustomNavigationBarItem(
             icon: Container(
-              height: kHeight / 1.7,
-              width: kWidth / 4.2,
+              height: getHeight(Get.context) / 1.7,
+              width: getWith(Get.context) / 4.2,
               child: SvgPicture.asset(
                 Assets.home,
                 width: 90,
@@ -312,8 +312,8 @@ class GeneralController extends GetxController {
           if (Get.find<ManagerController>().Userget.typeUser == 2)
             CustomNavigationBarItem(
               icon: Container(
-                height: kHeight / 1.7,
-                width: kWidth / 4.2,
+                height: getHeight(Get.context) / 1.7,
+                width: getWith(Get.context) / 4.2,
                 child: SvgPicture.asset(
                   Assets.grid1,
                   width: 80,
@@ -342,8 +342,8 @@ class GeneralController extends GetxController {
 
         // CustomNavigationBarItem(
         //   icon: Container(
-        //     height: kHeight / 1.7,
-        //     width: kWidth / 4.2,
+        //     height: getHeight(Get.context) / 1.7,
+        //     width: getWith(Get.context) / 4.2,
         //     child: Icon(
         //       Icons.settings,
         //       size: 25,

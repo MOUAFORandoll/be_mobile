@@ -1,8 +1,8 @@
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Button/button.dart';
-import 'package:BananaExpress/components/Widget/app_back_button.dart';
-import 'package:BananaExpress/components/Widget/app_input.dart';
-import 'package:BananaExpress/components/Widget/app_title_right.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Button/button.dart';
+import 'package:BananaExpress/old/components/Widget/app_back_button.dart';
+import 'package:BananaExpress/old/components/Widget/app_input.dart';
+import 'package:BananaExpress/old/components/Widget/app_title_right.dart';
 import 'package:BananaExpress/old/controller/managerController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
@@ -495,7 +495,7 @@ class _ForgotPassordScreenState extends State<ForgotPassordScreen>
                     Button(
                         height: 45,
                         title: "Validate",
-                        width: Get.size.width,
+                        width: getWith(context),
                         textColor: Colors.white,
                         itemColor: ColorsApp.tird,
                         loaderColor: Colors.white,
@@ -601,7 +601,7 @@ class _ForgotPassordScreenState extends State<ForgotPassordScreen>
                         children: [
                           Button(
                             height: 40,
-                            width: Get.size.width * .4,
+                            width: getWith(context) * .4,
                             // margin: EdgeInsets.only(left: 40, right: 40),
                             title: "Back",
                             itemColor: Colors.transparent,
@@ -614,7 +614,7 @@ class _ForgotPassordScreenState extends State<ForgotPassordScreen>
                             },
                           ),
                           // Button(
-                          //   height: 40, width: Get.size.width * .4,
+                          //   height: 40, width: getWith(context)  * .4,
                           //   // margin: EdgeInsets.only(left: 40, right: 40),
                           //   title: "Se Connecter",
                           //   itemColor: Colors.transparent,

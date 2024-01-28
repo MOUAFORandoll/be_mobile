@@ -1,7 +1,7 @@
 import 'package:BananaExpress/old/Views/Livraison/InfoColis.dart';
 import 'package:BananaExpress/old/Views/Livraison/InfoLIvraison.dart';
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Widget/app_back_button.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Widget/app_back_button.dart';
 import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
@@ -28,7 +28,7 @@ class _NewLivraisonViewState extends State<NewLivraisonView> {
             centerTitle: true,
           ),
           body: Container(
-              height: kHeight,
+              height: getHeight(context),
               margin: EdgeInsets.symmetric(
                   horizontal: kMarginX, vertical: kMarginY),
               child: Column(

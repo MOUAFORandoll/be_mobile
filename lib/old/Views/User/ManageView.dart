@@ -1,7 +1,7 @@
 import 'package:BananaExpress/old/Views/User/LoginScreen.dart';
 import 'package:BananaExpress/old/Views/User/RegisterScreen.dart';
-import 'package:BananaExpress/components/Text/TextBackSpace.dart';
-import 'package:BananaExpress/components/exportcomponent.dart';
+import 'package:BananaExpress/old/components/Text/TextBackSpace.dart';
+import 'package:BananaExpress/old/components/exportcomponent.dart';
 import 'package:BananaExpress/old/controller/managerController.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
 import 'LoginScreen.dart';
@@ -29,8 +29,8 @@ class ManageView extends StatelessWidget {
                                   InkWell(
                                     onTap: () => _manager.updateImageUser(),
                                     child: CachedNetworkImage(
-                                      height: kHeight / 10,
-                                      width: kHeight / 10,
+                                      height: getHeight(context) / 10,
+                                      width: getHeight(context) / 10,
                                       fit: BoxFit.cover,
                                       imageUrl: _manager.Userget.profile,
                                       imageBuilder: (context, imageProvider) {
@@ -95,7 +95,7 @@ class ManageView extends StatelessWidget {
                                         ),
                                         Container(
                                           margin: EdgeInsets.only(
-                                              left: kWidth * .010),
+                                              left: getWith(context) * .010),
                                           child: TextBackSpace(
                                             text: _manager.Userget.phone,
                                             // bolder: true,
@@ -147,7 +147,7 @@ class ManageView extends StatelessWidget {
                                         ),
                                         InkWell(
                                           child: Container(
-                                            width: kWidth * .5,
+                                            width: getWith(context) * .5,
                                             margin:
                                                 EdgeInsets.only(top: kMarginY),
                                             padding: EdgeInsets.all(10),
@@ -186,7 +186,8 @@ class ManageView extends StatelessWidget {
                                   ),
                                 ])
                           : Container(
-                              margin: EdgeInsets.only(top: kHeight / 2.5),
+                              margin: EdgeInsets.only(
+                                  top: getHeight(context) / 2.5),
                               alignment: Alignment.center,
                               child: Row(
                                 mainAxisAlignment:
@@ -194,8 +195,8 @@ class ManageView extends StatelessWidget {
                                 children: [
                                   InkWell(
                                     child: Container(
-                                      constraints:
-                                          BoxConstraints(maxWidth: kWidth * .4),
+                                      constraints: BoxConstraints(
+                                          maxWidth: getWith(context) * .4),
                                       margin: EdgeInsets.only(top: kMarginY),
                                       padding: EdgeInsets.all(10),
                                       alignment: Alignment.center,
@@ -269,8 +270,8 @@ class ManageView extends StatelessWidget {
                                   ),
                                   InkWell(
                                     child: Container(
-                                      constraints:
-                                          BoxConstraints(maxWidth: kWidth * .4),
+                                      constraints: BoxConstraints(
+                                          maxWidth: getWith(context) * .4),
                                       margin: EdgeInsets.only(top: kMarginY),
                                       padding: EdgeInsets.all(10),
                                       alignment: Alignment.center,

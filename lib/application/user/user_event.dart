@@ -1,4 +1,3 @@
-
 part of 'user_bloc.dart';
 
 @freezed
@@ -16,8 +15,9 @@ class UserEvent with _$UserEvent {
   }) = RegisterEvent;
 
   // Uncomment and customize these events as needed
-  // const factory UserEvent.signOut() = SignOutEvent;
+  const factory UserEvent.signOut({required BuildContext context}) =
+      SignOutEvent;
   // const factory UserEvent.getDataBase() = GetDataBateEvent;
   // const factory UserEvent.checkUserIsConnected() = CheckUserIsConnectedEvent;
-  // const factory UserEvent.getUserDB() = GetUserDBEvent;
+  const factory UserEvent.getUserEvent() = GetUserEvent;
 }

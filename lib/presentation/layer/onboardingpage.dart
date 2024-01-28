@@ -1,11 +1,9 @@
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Widget/app_carroussel_item.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Widget/app_carroussel_item.dart';
 import 'package:BananaExpress/core.dart';
-import 'package:BananaExpress/presentation/user/auth_page.dart';
 import 'package:BananaExpress/routes/app_router.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/utils/Services/routing.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -22,7 +20,6 @@ class OnBoardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GetStorage box = GetStorage();
     final CarouselController controller = CarouselController();
 
     return BlocBuilder<AppActionCubit, AppActionState>(
@@ -56,7 +53,7 @@ class OnBoardingPage extends StatelessWidget {
                       context.read<AppActionCubit>().setIndex(index);
                     },
                     disableCenter: true,
-                    height: kHeight,
+                    height: getHeight(context),
                     // enlargeCenterPage: true,
                     // autoPlay: true,
 
@@ -67,7 +64,7 @@ class OnBoardingPage extends StatelessWidget {
                     scrollDirection: Axis.horizontal),
               ),
               Positioned(
-                  bottom: kHeight / 5,
+                  bottom: getHeight(context) / 5,
                   left: 0,
                   right: 0,
                   child: Container(
@@ -97,7 +94,7 @@ class OnBoardingPage extends StatelessWidget {
                     ),
                   )),
               Positioned(
-                  bottom: kHeight / 8,
+                  bottom: getHeight(context) / 8,
                   left: 0,
                   right: 0,
                   child: AppButton(

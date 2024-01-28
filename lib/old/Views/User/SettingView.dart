@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 import 'package:BananaExpress/utils/functions/viewFunctions.dart';
-import 'package:BananaExpress/components/Widget/settingComponent.dart';
+import 'package:BananaExpress/old/components/Widget/settingComponent.dart';
 import 'package:BananaExpress/old/controller/GeneralController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
@@ -87,7 +87,7 @@ class SettingView extends StatelessWidget {
                         SettingComponent(
                             title: 'Langue de l\'application',
                             action: Container(
-                              // width: kWidth * .6,
+                              // width: getWith(context) * .6,
                               // margin: EdgeInsets.only(
                               //     top: Get.height * .005,
                               //     left: Get.width * .008),

@@ -3,7 +3,7 @@ import 'package:BananaExpress/presentation/user/register_view.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../components/exportcomponent.dart';
+import '../../old/components/exportcomponent.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 
 @RoutePage()

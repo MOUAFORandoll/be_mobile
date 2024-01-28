@@ -2,29 +2,45 @@ import 'package:BananaExpress/utils/Services/apiUrl.dart';
 import 'package:dio/dio.dart';
 
 class ApiClient {
-  Dio dio = Dio(BaseOptions(
-    baseUrl: ApiUrl.baseUrl,
-    connectTimeout:
-        Duration(seconds: 600), // Temps d'attente de connexion en millisecondes
-    receiveTimeout: Duration(
-        seconds:
-            600), // Temps d'attente pour recevoir des données en millisecondes
-  ));
+  final Dio _dio;
 
-  Future<Response> getData(url) async {
-    Response rep = await dio.get(url);
-    return rep;
+  ApiClient()
+      : _dio = Dio(BaseOptions(
+          baseUrl: ApiUrl.baseUrl,
+          connectTimeout: Duration(
+              seconds: 60), // Temps d'attente de connexion en millisecondes
+          receiveTimeout: Duration(
+              seconds:
+                  60), // Temps d'attente pour recevoir des données en millisecondes
+        ));
+
+  Future<Response> getData(String url) async {
+    try {
+      return await _dio.get(url);
+    } catch (e) {
+      // Gestion des erreurs
+      print('Erreur lors de la requête GET : $e');
+      rethrow; // Renvoie l'erreur pour qu'elle puisse être gérée ailleurs si nécessaire
+    }
   }
 
-  Future<Response> postData(url, data) async {
-    Response rep = await dio.post(url.toString(), data: data);
-    return rep;
+  Future<Response> postData(String url, dynamic data) async {
+    try {
+      return await _dio.post(url, data: data);
+    } catch (e) {
+      // Gestion des erreurs
+      print('Erreur lors de la requête POST : $e');
+      rethrow; // Renvoie l'erreur pour qu'elle puisse être gérée ailleurs si nécessaire
+    }
   }
 
-  Future<Response> patchData(url, data) async {
-    // //print(this.httpClient.defaultContentType);
-    //print(data);
-    Response rep = await dio.patch(url.toString(), data: data);
-    return rep;
+  Future<Response> patchData(String url, dynamic data) async {
+    try {
+      return await _dio.patch(url, data: data);
+    } catch (e) {
+      // Gestion des erreurs
+      print('Erreur lors de la requête PATCH : $e');
+      rethrow; // Renvoie l'erreur pour qu'elle puisse être gérée ailleurs si nécessaire
+    }
   }
 }

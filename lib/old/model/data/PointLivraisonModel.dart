@@ -23,7 +23,7 @@ class PointLivraisonModel {
 
   factory PointLivraisonModel.fromJson(Map<String, dynamic> json) =>
       PointLivraisonModel(
-        id: json["id"] == null ? null : json["id"],
+        id: json['id'] == null ? null : json['id'],
         latitude: json["latitude"] == null
             ? null
             : double.parse(json["latitude"].toString()),
@@ -38,7 +38,7 @@ class PointLivraisonModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        'id': id,
         "ville": ville,
         "libelle": libelle,
         "quartier": quartier,

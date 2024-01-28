@@ -1,6 +1,6 @@
-import 'package:BananaExpress/components/Widget/LivraisonUserComponent.dart';
-import 'package:BananaExpress/components/Widget/ShimmerLivraison.dart';
-import 'package:BananaExpress/components/Widget/icon_svg.dart';
+import 'package:BananaExpress/old/components/Widget/LivraisonUserComponent.dart';
+import 'package:BananaExpress/old/components/Widget/ShimmerLivraison.dart';
+import 'package:BananaExpress/old/components/Widget/icon_svg.dart';
 import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
@@ -9,7 +9,7 @@ import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import '../../../components/Widget/EmptyLivraisonsComponent.dart';
+import '../../components/Widget/EmptyLivraisonsComponent.dart';
 
 // ignore: must_be_immutable
 class LivraisonView extends StatelessWidget {

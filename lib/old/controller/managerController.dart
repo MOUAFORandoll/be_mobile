@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:BananaExpress/old/controller/LivraisonController.dart';
-import 'package:BananaExpress/old/controller/entity.dart';
+import 'package:BananaExpress/entity.dart';
 import 'package:BananaExpress/old/model/data/UserModel.dart';
 import 'package:BananaExpress/old/repository/ManageRepo.dart';
 import 'package:BananaExpress/utils/Services/core.dart';

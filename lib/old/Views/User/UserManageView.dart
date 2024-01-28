@@ -1,7 +1,7 @@
-import 'package:BananaExpress/components/Widget/app_input.dart';
-import 'package:BananaExpress/components/Widget/app_text_divider.dart';
+import 'package:BananaExpress/old/components/Widget/app_input.dart';
+import 'package:BananaExpress/old/components/Widget/app_text_divider.dart';
 
-import 'package:BananaExpress/components/Button/customBtn.dart';
+import 'package:BananaExpress/old/components/Button/customBtn.dart';
 import 'package:BananaExpress/old/controller/managerController.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
@@ -9,7 +9,7 @@ import "package:flutter/material.dart";
 import 'package:get/get.dart';
 // import 'package:BananaExpress/components/informationComponent.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/components/Text/TextBackSpace.dart';
+import 'package:BananaExpress/old/components/Text/TextBackSpace.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 // ignore: must_be_immutable
@@ -54,8 +54,8 @@ class UserManageView extends StatelessWidget {
                                 InkWell(
                                   onTap: () => _manager.updateImageUser(),
                                   child: CachedNetworkImage(
-                                    height: kHeight / 10,
-                                    width: kHeight / 10,
+                                    height: getHeight(context) / 10,
+                                    width: getHeight(context) / 10,
                                     fit: BoxFit.cover,
                                     imageUrl: _manager.Userget.profile,
                                     imageBuilder: (context, imageProvider) {
@@ -99,8 +99,8 @@ class UserManageView extends StatelessWidget {
                                       size: 18,
                                     ),
                                     Container(
-                                      margin:
-                                          EdgeInsets.only(left: kWidth * .010),
+                                      margin: EdgeInsets.only(
+                                          left: getWith(context) * .010),
                                       child: TextBackSpace(
                                         text: _manager.Userget.phone,
                                         // bolder: true,

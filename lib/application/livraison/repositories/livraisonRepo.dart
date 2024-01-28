@@ -1,89 +1,91 @@
+import 'package:BananaExpress/infrastructure/_commons/network/app_requests.dart';
+import 'package:BananaExpress/infrastructure/_commons/network/network_info.dart';
 import 'package:dio/dio.dart';
 
 import '../../../utils/Services/ApiClientNew.dart';
 import '../../../utils/constants/apiRoute.dart';
 
-class LivraisonRepo   {
-  final ApiClient apiClient;
+class LivraisonRepo {
+  final IAppRequests apiClient;
   LivraisonRepo({required this.apiClient});
 
   Future newLivraison(data) async {
-    Response a = await apiClient.postData(ApiRoutes.LIVRAISONS, data);
+    Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS, body: data);
 
     return a;
   }
 
   Future calculFraisLivraison(data) async {
-    Response a =
-        await apiClient.postData(ApiRoutes.LIVRAISONS + '/frais', data);
+    Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/frais',
+        body: data);
 
     return a;
   }
 
   Future recuperationColis(data) async {
-    Response a =
-        await apiClient.patchData(ApiRoutes.LIVRAISONS + "/recuperation", data);
+    Response a = await apiClient
+        .patchRequest(ApiRoutes.LIVRAISONS + "/recuperation", body: data);
 
     return a;
   }
 
   Future receptionColis(data) async {
-    Response a =
-        await apiClient.patchData(ApiRoutes.LIVRAISONS + "/reception", data);
+    Response a = await apiClient
+        .patchRequest(ApiRoutes.LIVRAISONS + "/reception", body: data);
 
     return a;
   }
 
   Future getHistoryLivraisons(keySecret) async {
     Response a = await apiClient
-        .getData(ApiRoutes.LIVRAISONS + '/user?keySecret=${keySecret}');
+        .getRequest(ApiRoutes.LIVRAISONS + '/user?keySecret=${keySecret}');
 
     return a;
   }
 
   Future getInfoLivraisonsForHistory(keySecret) async {
     Response a = await apiClient
-        .getData(ApiRoutes.LIVRAISONS + '?keySecret=${keySecret}');
+        .getRequest(ApiRoutes.LIVRAISONS + '?keySecret=${keySecret}');
 
     return a;
   }
 
   Future getHistoryLivraisonsBabana(keySecret) async {
     Response a = await apiClient
-        .getData(ApiRoutes.LIVRAISONS + '/babana?keySecret=${keySecret}');
+        .getRequest(ApiRoutes.LIVRAISONS + '/babana?keySecret=${keySecret}');
 
     return a;
   }
 
   Future getInfoLivraisonsForBabana(id) async {
-    Response a =
-        await apiClient.getData(ApiRoutes.LIVRAISONS + 'babana/info?id=${id}');
+    Response a = await apiClient
+        .getRequest(ApiRoutes.LIVRAISONS + 'babana/info?id=${id}');
 
     return a;
   }
 
   Future getLivraisonPointByVille(id) async {
     Response a =
-        await apiClient.getData(ApiRoutes.LIVRAISON_POINT + '?ville=${id}');
+        await apiClient.getRequest(ApiRoutes.LIVRAISON_POINT + '?ville=${id}');
 
     return a;
   }
 
   Future getPointRecuperationUser(keySecret) async {
     Response a = await apiClient
-        .getData(ApiRoutes.LIVRAISON_POINT + '/user?keySecret=${keySecret}');
+        .getRequest(ApiRoutes.LIVRAISON_POINT + '/user?keySecret=${keySecret}');
 
     return a;
   }
 
   Future verifyCom(data) async {
-    Response a = await apiClient.postData(ApiRoutes.VERIFY, data);
+    Response a = await apiClient.postRequest(ApiRoutes.VERIFY, body: data);
 
     return a;
   }
-   
+
   Future test(indexC) async {
-    Response a = await apiClient.getData(
+    Response a = await apiClient.getRequest(
       ApiRoutes.TEST + '/' + indexC.toString(),
     );
 
@@ -91,7 +93,7 @@ class LivraisonRepo   {
   }
 
   Future getCategory() async {
-    Response a = await apiClient.getData(
+    Response a = await apiClient.getRequest(
       ApiRoutes.CATEGORY,
     );
 
@@ -99,7 +101,7 @@ class LivraisonRepo   {
   }
 
   Future getVille() async {
-    Response a = await apiClient.getData(
+    Response a = await apiClient.getRequest(
       ApiRoutes.VILLE,
     );
 
@@ -107,7 +109,7 @@ class LivraisonRepo   {
   }
 
   Future getModePaiement() async {
-    Response a = await apiClient.getData(
+    Response a = await apiClient.getRequest(
       ApiRoutes.MODEPAIEMENT,
     );
 
@@ -115,24 +117,17 @@ class LivraisonRepo   {
   }
 
   Future getListNotifications(index, keySecret) async {
-    Response a = await apiClient.getData(
+    Response a = await apiClient.getRequest(
       ApiRoutes.LIST_NOTIFICATIONS +
           "?page=${index.toString()}&keySecret=${keySecret.toString()}",
     );
 
     return a;
   }
-
-  Future getHome(keySecret) async {
-    Response a = await apiClient.getData(
-      ApiRoutes.HOME + "?keySecret=${keySecret.toString()}",
-    );
-
-    return a;
-  }
+ 
 
   Future readNotifications(idNotification) async {
-    Response a = await apiClient.getData(
+    Response a = await apiClient.getRequest(
       ApiRoutes.READ_NOTIFICATIONS + "?id=${idNotification.toString()}",
     );
 

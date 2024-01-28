@@ -1,4 +1,5 @@
 import 'package:BananaExpress/core.dart';
+import 'package:BananaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:dio/dio.dart';
 import 'package:BananaExpress/utils/constants/apiRoute.dart';
 
@@ -8,14 +9,16 @@ import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:BananaExpress/application/database/database_cubit.dart';
 
 class UserRepo {
-  final ApiClient apiClient;
+  final IAppRequests apiClient;
+
   UserRepo({required this.apiClient});
   var dababase = sl.get<DatabaseCubit>();
   Future getUser() async {
     var getId = await dababase.getId();
-
+    print('-----user---${getId}');
     if (getId != null) {
-      Response a = await apiClient.getData(ApiRoutes.USER + '?id=${getId}');
+      Response a =
+          await apiClient.getRequest(ApiRoutes.USER + '?id=${getId}');
       ;
 
       return a;
@@ -27,8 +30,8 @@ class UserRepo {
   Future userRefresh() async {
     var kk = await dababase.getKeyKen();
     if (kk != null) {
-      Response a = await apiClient
-          .postData(ApiRoutes.Refresh, {'refreshToken': kk['refreshToken']});
+      Response a = await apiClient.postRequest(ApiRoutes.Refresh,
+          body: {'refreshToken': kk['refreshToken']});
 
       dababase.saveKeyKen(a.data);
     } else {
@@ -37,7 +40,7 @@ class UserRepo {
   }
 
   Future updateUser(data) async {
-    Response a = await apiClient.postData(ApiRoutes.UPDATE_USER, data);
+    Response a = await apiClient.postRequest(ApiRoutes.UPDATE_USER, body: data);
 
     return a;
   }
@@ -58,7 +61,8 @@ class UserRepo {
         };
         await dababase.saveLonLat(data);
 
-        Response a = await apiClient.postData(ApiRoutes.LOCATION_USER, data);
+        Response a =
+            await apiClient.postRequest(ApiRoutes.LOCATION_USER, body: data);
 
         // //print('ssnewlocatio-------------------------');
         // //print(a.body);
@@ -76,27 +80,28 @@ class UserRepo {
   }
 
   Future Login(data) async {
-    Response a = await apiClient.postData(ApiRoutes.LOGIN, data);
+    Response a = await apiClient.postRequest(ApiRoutes.LOGIN, body: data);
 
     return a;
   }
 
   Future SignUp(data) async {
     //print(data);
-    Response a0 = await apiClient.postData(ApiRoutes.SIGNUP, data);
+    Response a0 = await apiClient.postRequest(ApiRoutes.SIGNUP, body: data);
 
     return a0;
   }
 
   Future getListFieul(keySecret, page) async {
-    Response a = await apiClient
-        .getData(ApiRoutes.LIST_FIEUL + '?keySecret=${keySecret}&page=${page}');
+    Response a = await apiClient.getRequest(
+        ApiRoutes.LIST_FIEUL + '?keySecret=${keySecret}&page=${page}');
 
     return a;
   }
 
   Future updateImageUser(data) async {
-    Response a = await apiClient.postData(ApiRoutes.USER_IMAGE_UPDATE, data);
+    Response a =
+        await apiClient.postRequest(ApiRoutes.USER_IMAGE_UPDATE, body: data);
 
     return a;
   }

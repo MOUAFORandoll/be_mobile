@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:BananaExpress/application/database/database_cubit.dart';
-import 'package:BananaExpress/old/controller/entity.dart';
+import 'package:BananaExpress/entity.dart';
 
 import 'package:BananaExpress/old/model/exportmodel.dart';
 import 'package:bloc/bloc.dart';
@@ -17,9 +17,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<UserDataEvent>((event, emit) async {
       emit(state.copyWith(index: 0));
       
-      print('---------UserD-------------------------*ataEvent');
+      print('---------UserD-------------------------');
       var user = await database.getUser();
-      print('---------UserD-------------------------*${user!.phone}');
+      print('---------UserD-----*${user!.id}--------------------*${user!.phone}');
       
       emit(state.copyWith(user: user));
 

@@ -1,6 +1,6 @@
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/components/exportcomponent.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Widget/app_input_new.dart';
+import 'package:BananaExpress/old/components/exportcomponent.dart';
 import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -176,7 +176,7 @@ class _MapPagePointLivraisonColisState
             margin: EdgeInsets.only(
               top: kMarginY * 1.5,
             ),
-            width: kWidth * .8,
+            width: getWith(context) * .8,
             child: Text(
               'Longitude : ${livraison.latitudeColis}',
               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -186,7 +186,7 @@ class _MapPagePointLivraisonColisState
             margin: EdgeInsets.only(
               top: kMarginY * 1.5,
             ),
-            width: kWidth * .8,
+            width: getWith(context) * .8,
             child: Text(
               'Latitude : ${livraison.longitudeColis}',
               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -220,7 +220,7 @@ class _MapPagePointLivraisonColisState
             body: Stack(
               children: [
                 Container(
-                    height: kHeight * .95,
+                    height: getHeight(context) * .95,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(15),
@@ -311,8 +311,8 @@ class _MapPagePointLivraisonColisState
                                   ),
                                   color: ColorsApp.white,
                                 ),
-                                height: kHeight / 15,
-                                width: kWidth * .95,
+                                height: getHeight(context) / 15,
+                                width: getWith(context) * .95,
                                 child: TextField(
                                   controller: controller.searchController,
                                   onChanged: (String value) {
@@ -354,8 +354,8 @@ class _MapPagePointLivraisonColisState
                         if (isOpen)
                           Container(
                             height: controller.search_livraison_point.length < 5
-                                ? kHeight * .15
-                                : kHeight * .3,
+                                ? getHeight(context) * .15
+                                : getHeight(context) * .3,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               border: Border.all(
@@ -367,7 +367,7 @@ class _MapPagePointLivraisonColisState
                                 ? Text('Aucun point de livraison trouve')
                                 : SingleChildScrollView(
                                     child: Container(
-                                      width: kWidth * .95,
+                                      width: getWith(context) * .95,
                                       child: controller
                                               .searchController.text.isEmpty
                                           ? ListView.builder(

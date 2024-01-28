@@ -1,6 +1,6 @@
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Widget/app_input.dart';
-import 'package:BananaExpress/components/exportcomponent.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Widget/app_input.dart';
+import 'package:BananaExpress/old/components/exportcomponent.dart';
 import 'package:BananaExpress/old/controller/managerController.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
@@ -65,7 +65,8 @@ Widget step1() => GetBuilder<ManagerController>(
             new Hero(
               tag: "login screen",
               child: new Container(
-                  child: Image.asset(Assets.logImg, height: kHeight / 3.5)),
+                  child: Image.asset(Assets.logImg,
+                      height: getHeight(Get.context) / 3.5)),
             ),
             Container(
               margin: EdgeInsets.only(bottom: kMarginY * 3),
@@ -158,7 +159,7 @@ Widget step2() => GetBuilder<ManagerController>(
             ),
             Padding(
                 padding: EdgeInsets.only(
-                  top: kHeight / 3.4,
+                  top: getHeight(Get.context) / 3.4,
                 ),
                 child: GetBuilder<ManagerController>(
                     builder: (_manager) => Row(

@@ -1,4 +1,4 @@
-import 'package:BananaExpress/components/Widget/app_input_new.dart';
+import 'package:BananaExpress/old/components/Widget/app_input_new.dart';
 import 'package:BananaExpress/old/controller/GeneralController.dart';
 import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
@@ -56,8 +56,8 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                           width: 1),
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    height: kHeight * .08,
-                    width: kWidth,
+                    height: getHeight(context) * .08,
+                    width: getWith(context),
                     margin: EdgeInsets.only(
                       top: kMarginY * 1.5,
                     ),
@@ -132,8 +132,8 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                         width: 1),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
-                                  height: kHeight * .08,
-                                  width: kWidth * .7,
+                                  height: getHeight(context) * .08,
+                                  width: getWith(context) * .7,
                                   margin: EdgeInsets.only(
                                     top: kMarginY * 1.5,
                                   ),
@@ -142,7 +142,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                     value:
                                         _controller.selected_recuperation_point,
                                     hint: Container(
-                                      width: kWidth * .6,
+                                      width: getWith(context) * .6,
                                       alignment: Alignment.center,
                                       child: Text(
                                         'Selectionner un point de recuperation',
@@ -180,9 +180,9 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                               : Container(
                                   padding: EdgeInsets.symmetric(
                                       vertical: kMarginY, horizontal: kMarginX),
-                                  height: kHeight * .06,
+                                  height: getHeight(context) * .06,
                                   alignment: Alignment.center,
-                                  width: kWidth * .7,
+                                  width: getWith(context) * .7,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       color: ColorsApp.grey),

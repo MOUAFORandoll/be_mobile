@@ -33,7 +33,7 @@ class TransactionModel {
 
   factory TransactionModel.fromJson(Map<String, dynamic> json) =>
       TransactionModel(
-        id: json["id"],
+        id: json['id'],
         nom: json["nom"],
         prenom: json["prenom"],
         montant: json["montant"],
@@ -44,7 +44,7 @@ class TransactionModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        'id': id,
         "nom": nom,
         "prenom": prenom,
         "montant": montant,

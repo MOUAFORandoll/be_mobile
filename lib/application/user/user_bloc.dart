@@ -2,11 +2,14 @@ import 'dart:async';
 import 'package:BananaExpress/application/database/database_cubit.dart';
 
 import 'package:BananaExpress/application/user/repositories/user_repository.dart';
+import 'package:BananaExpress/routes/app_router.dart';
+import 'package:BananaExpress/utils/functions/app_loader.dart';
 import 'package:BananaExpress/utils/functions/viewFunctions.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import '../../../old/controller/entity.dart';
+import '/entity.dart';
 import '../export_bloc.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -27,7 +30,37 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     // });
 
     on<SignInEvent>(_Login);
+    on<SignOutEvent>(_OnSignOut);
+
     on<RegisterEvent>(_Register);
+    on<GetUserEvent>(_GetUserEvent);
+    // on<FailedRegister>(_Register);
+  }
+
+  _OnSignOut(SignOutEvent event, Emitter<UserState> emit) async {
+    var loader = AppLoader.bounceLargeColorLoaderController();
+    loader.open(event.context);
+    await Future.delayed(Duration(seconds: 5), () {
+      database.close();
+      loader.close();
+      AutoRouter.of(event.context).replaceAll([AuthRoute()]);
+    });
+    try {
+      // database.saveKeyKen( );
+    } catch (e) {}
+  }
+
+  _GetUserEvent(GetUserEvent event, Emitter<UserState> emit) async {
+    await userRepo.getUser().then((value) async {
+      print('------------------value----------${value.data}-');
+      if (value.data['data'] != null &&
+          value.data['data'] != [] &&
+          value.data['data'].length != 0) {
+        var _UserSave = User.fromJson(value.data['data']);
+
+        await database.saveUser(_UserSave);
+      }
+    }).catchError((error) {});
   }
 
   _Login(SignInEvent event, Emitter<UserState> emit) async {
@@ -37,52 +70,43 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     };
     print(data);
     emit(state.copyWith(isLoading: 1));
-    emit(UserState.loginIngUser());
-
-    try {
-      var response = await userRepo.Login(data);
-
+    await userRepo.Login(data).then((response) async {
       if (response.statusCode == 200) {
         database.saveKeyKen(response.data);
 
         await userRepo.getUser().then((value) async {
-          print('------------------value----------${value.data}-');
-          if (value.data['data'] != null &&
-              value.data['data'] != [] &&
-              value.data['data'].length != 0) {
-            emit(state.copyWith(
-              isLoading: 2,
-            ));
-            emit(UserState.authenticated());
+          if (value != null) {
+            print('------------------value----------${value.data}-');
+            if (value.data['data'] != null &&
+                value.data['data'] != [] &&
+                value.data['data'].length != 0) {
+              emit(state.copyWith(
+                  isLoading: 2, authenticationFailedMessage: ''));
+              emit(UserState.authenticated());
 
-            var _UserSave = User.fromJson(value.data['data']);
+              var _UserSave = User.fromJson(value.data['data']);
 
-            await database.saveUser(_UserSave);
+              await database.saveUser(_UserSave);
+            }
           }
         }).catchError((error) {
-          emit(state.copyWith(isLoading: 3));
-          emit(UserState.loginIngFailed(
-            message: 'Identifiants incorrects',
-          ));
-
-          fn.closeLoader();
+          emit(state.copyWith(
+              isLoading: 3,
+              authenticationFailedMessage:
+                  'Une erreur est survenue recommencer'));
         });
       } else {
-        emit(state.copyWith(isLoading: 3));
-        emit(UserState.loginIngFailed(
-          message: 'Identifiants incorrects',
-        ));
-
-        fn.closeLoader();
-
-        fn.snackBar('Connexion', 'Identifiants incorrects', false);
+        emit(state.copyWith(
+            isLoading: 3,
+            authenticationFailedMessage: 'Phone ou mot de passe incorrect'));
       }
-    } catch (e) {
-      emit(state.copyWith(isLoading: 3));
-      emit(UserState.loginIngFailed(
-        message: 'Identifiants incorrects',
-      ));
-    }
+    }).onError((error, s) {
+      // print('----${s}-----');
+      // print('------${error}---');
+      emit(state.copyWith(
+          isLoading: 3,
+          authenticationFailedMessage: 'Phone ou mot de passe incorrect'));
+    });
   }
 
   _Register(RegisterEvent event, Emitter<UserState> emit) async {
@@ -118,8 +142,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
                   value.data['data'] != [] &&
                   value.data['data'].length != 0) {
                 emit(state.copyWith(
-                  isLoading: 2,
-                ));
+                    isLoading: 2, authenticationFailedMessage: ''));
                 emit(UserState.authenticated());
 
                 var _UserSave = User.fromJson(value.data['data']);
@@ -127,41 +150,31 @@ class UserBloc extends Bloc<UserEvent, UserState> {
                 await database.saveUser(_UserSave);
               }
             }).catchError((error) {
-              emit(state.copyWith(isLoading: 3));
-              emit(UserState.loginIngFailed(
-                message: 'Identifiants incorrects',
-              ));
-
-              fn.closeLoader();
+              emit(state.copyWith(
+                  isLoading: 3,
+                  authenticationFailedMessage:
+                      'Une erreur est survenue recommencer'));
             });
           } else {
-            emit(state.copyWith(isLoading: 3));
-            emit(UserState.loginIngFailed(
-              message: 'Identifiants incorrects',
-            ));
-
-            fn.closeLoader();
-
-            fn.snackBar('Connexion', 'Identifiants incorrects', false);
+            emit(state.copyWith(
+                isLoading: 3,
+                authenticationFailedMessage: 'Identifiants incorrects'));
           }
         } catch (e) {
-          emit(state.copyWith(isLoading: 3));
-          emit(UserState.loginIngFailed(
-            message: 'Identifiants incorrects',
-          ));
+          emit(state.copyWith(
+              isLoading: 3,
+              authenticationFailedMessage:
+                  'Une erreur est survenue recommencer'));
         }
       } else {
-        emit(state.copyWith(isLoading: 3));
-
-        fn.closeLoader();
-
-        fn.snackBar('Connexion', 'Identifiants incorrects', false);
+        emit(state.copyWith(
+            isLoading: 3,
+            authenticationFailedMessage: 'Identifiants incorrects'));
       }
     } catch (e) {
-      emit(state.copyWith(isLoading: 3));
-      emit(UserState.loginIngFailed(
-        message: 'Identifiants incorrects',
-      ));
+      emit(state.copyWith(
+          isLoading: 3,
+          authenticationFailedMessage: 'Une erreur est survenue recommencer'));
     }
   }
 
@@ -212,12 +225,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       // // Get.back(closeOverlays: true);
       // update();
     } catch (e) {}
-  }
-
-  Future<void> onRegister(
-    SignInEvent event,
-  ) async {
-    print(event.phone);
   }
 
   // @override

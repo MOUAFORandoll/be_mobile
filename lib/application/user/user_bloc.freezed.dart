@@ -16,14 +16,14 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$UserEvent {
-  String get phone => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String phone, String password) chooseExperience,
     required TResult Function(
             String name, String phone, String password, String re_password)
         register,
+    required TResult Function(BuildContext context) signOut,
+    required TResult Function() getUserEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +32,8 @@ mixin _$UserEvent {
     TResult? Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult? Function(BuildContext context)? signOut,
+    TResult? Function()? getUserEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +42,8 @@ mixin _$UserEvent {
     TResult Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult Function(BuildContext context)? signOut,
+    TResult Function()? getUserEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,24 +51,26 @@ mixin _$UserEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInEvent value) chooseExperience,
     required TResult Function(RegisterEvent value) register,
+    required TResult Function(SignOutEvent value) signOut,
+    required TResult Function(GetUserEvent value) getUserEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignInEvent value)? chooseExperience,
     TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SignOutEvent value)? signOut,
+    TResult? Function(GetUserEvent value)? getUserEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInEvent value)? chooseExperience,
     TResult Function(RegisterEvent value)? register,
+    TResult Function(SignOutEvent value)? signOut,
+    TResult Function(GetUserEvent value)? getUserEvent,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $UserEventCopyWith<UserEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -72,8 +78,6 @@ mixin _$UserEvent {
 abstract class $UserEventCopyWith<$Res> {
   factory $UserEventCopyWith(UserEvent value, $Res Function(UserEvent) then) =
       _$UserEventCopyWithImpl<$Res, UserEvent>;
-  @useResult
-  $Res call({String phone, String password});
 }
 
 /// @nodoc
@@ -85,33 +89,13 @@ class _$UserEventCopyWithImpl<$Res, $Val extends UserEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? phone = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$SignInEventImplCopyWith<$Res>
-    implements $UserEventCopyWith<$Res> {
+abstract class _$$SignInEventImplCopyWith<$Res> {
   factory _$$SignInEventImplCopyWith(
           _$SignInEventImpl value, $Res Function(_$SignInEventImpl) then) =
       __$$SignInEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String phone, String password});
 }
@@ -184,6 +168,8 @@ class _$SignInEventImpl implements SignInEvent {
     required TResult Function(
             String name, String phone, String password, String re_password)
         register,
+    required TResult Function(BuildContext context) signOut,
+    required TResult Function() getUserEvent,
   }) {
     return chooseExperience(phone, password);
   }
@@ -195,6 +181,8 @@ class _$SignInEventImpl implements SignInEvent {
     TResult? Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult? Function(BuildContext context)? signOut,
+    TResult? Function()? getUserEvent,
   }) {
     return chooseExperience?.call(phone, password);
   }
@@ -206,6 +194,8 @@ class _$SignInEventImpl implements SignInEvent {
     TResult Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult Function(BuildContext context)? signOut,
+    TResult Function()? getUserEvent,
     required TResult orElse(),
   }) {
     if (chooseExperience != null) {
@@ -219,6 +209,8 @@ class _$SignInEventImpl implements SignInEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInEvent value) chooseExperience,
     required TResult Function(RegisterEvent value) register,
+    required TResult Function(SignOutEvent value) signOut,
+    required TResult Function(GetUserEvent value) getUserEvent,
   }) {
     return chooseExperience(this);
   }
@@ -228,6 +220,8 @@ class _$SignInEventImpl implements SignInEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignInEvent value)? chooseExperience,
     TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SignOutEvent value)? signOut,
+    TResult? Function(GetUserEvent value)? getUserEvent,
   }) {
     return chooseExperience?.call(this);
   }
@@ -237,6 +231,8 @@ class _$SignInEventImpl implements SignInEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInEvent value)? chooseExperience,
     TResult Function(RegisterEvent value)? register,
+    TResult Function(SignOutEvent value)? signOut,
+    TResult Function(GetUserEvent value)? getUserEvent,
     required TResult orElse(),
   }) {
     if (chooseExperience != null) {
@@ -251,23 +247,18 @@ abstract class SignInEvent implements UserEvent {
       {required final String phone,
       required final String password}) = _$SignInEventImpl;
 
-  @override
   String get phone;
-  @override
   String get password;
-  @override
   @JsonKey(ignore: true)
   _$$SignInEventImplCopyWith<_$SignInEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RegisterEventImplCopyWith<$Res>
-    implements $UserEventCopyWith<$Res> {
+abstract class _$$RegisterEventImplCopyWith<$Res> {
   factory _$$RegisterEventImplCopyWith(
           _$RegisterEventImpl value, $Res Function(_$RegisterEventImpl) then) =
       __$$RegisterEventImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String name, String phone, String password, String re_password});
 }
@@ -362,6 +353,8 @@ class _$RegisterEventImpl implements RegisterEvent {
     required TResult Function(
             String name, String phone, String password, String re_password)
         register,
+    required TResult Function(BuildContext context) signOut,
+    required TResult Function() getUserEvent,
   }) {
     return register(name, phone, password, re_password);
   }
@@ -373,6 +366,8 @@ class _$RegisterEventImpl implements RegisterEvent {
     TResult? Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult? Function(BuildContext context)? signOut,
+    TResult? Function()? getUserEvent,
   }) {
     return register?.call(name, phone, password, re_password);
   }
@@ -384,6 +379,8 @@ class _$RegisterEventImpl implements RegisterEvent {
     TResult Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult Function(BuildContext context)? signOut,
+    TResult Function()? getUserEvent,
     required TResult orElse(),
   }) {
     if (register != null) {
@@ -397,6 +394,8 @@ class _$RegisterEventImpl implements RegisterEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInEvent value) chooseExperience,
     required TResult Function(RegisterEvent value) register,
+    required TResult Function(SignOutEvent value) signOut,
+    required TResult Function(GetUserEvent value) getUserEvent,
   }) {
     return register(this);
   }
@@ -406,6 +405,8 @@ class _$RegisterEventImpl implements RegisterEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignInEvent value)? chooseExperience,
     TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SignOutEvent value)? signOut,
+    TResult? Function(GetUserEvent value)? getUserEvent,
   }) {
     return register?.call(this);
   }
@@ -415,6 +416,8 @@ class _$RegisterEventImpl implements RegisterEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInEvent value)? chooseExperience,
     TResult Function(RegisterEvent value)? register,
+    TResult Function(SignOutEvent value)? signOut,
+    TResult Function(GetUserEvent value)? getUserEvent,
     required TResult orElse(),
   }) {
     if (register != null) {
@@ -432,15 +435,284 @@ abstract class RegisterEvent implements UserEvent {
       required final String re_password}) = _$RegisterEventImpl;
 
   String get name;
-  @override
   String get phone;
-  @override
   String get password;
   String get re_password;
-  @override
   @JsonKey(ignore: true)
   _$$RegisterEventImplCopyWith<_$RegisterEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SignOutEventImplCopyWith<$Res> {
+  factory _$$SignOutEventImplCopyWith(
+          _$SignOutEventImpl value, $Res Function(_$SignOutEventImpl) then) =
+      __$$SignOutEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$SignOutEventImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$SignOutEventImpl>
+    implements _$$SignOutEventImplCopyWith<$Res> {
+  __$$SignOutEventImplCopyWithImpl(
+      _$SignOutEventImpl _value, $Res Function(_$SignOutEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$SignOutEventImpl(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SignOutEventImpl implements SignOutEvent {
+  const _$SignOutEventImpl({required this.context});
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'UserEvent.signOut(context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignOutEventImpl &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignOutEventImplCopyWith<_$SignOutEventImpl> get copyWith =>
+      __$$SignOutEventImplCopyWithImpl<_$SignOutEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String phone, String password) chooseExperience,
+    required TResult Function(
+            String name, String phone, String password, String re_password)
+        register,
+    required TResult Function(BuildContext context) signOut,
+    required TResult Function() getUserEvent,
+  }) {
+    return signOut(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String phone, String password)? chooseExperience,
+    TResult? Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult? Function(BuildContext context)? signOut,
+    TResult? Function()? getUserEvent,
+  }) {
+    return signOut?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String phone, String password)? chooseExperience,
+    TResult Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult Function(BuildContext context)? signOut,
+    TResult Function()? getUserEvent,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignInEvent value) chooseExperience,
+    required TResult Function(RegisterEvent value) register,
+    required TResult Function(SignOutEvent value) signOut,
+    required TResult Function(GetUserEvent value) getUserEvent,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignInEvent value)? chooseExperience,
+    TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SignOutEvent value)? signOut,
+    TResult? Function(GetUserEvent value)? getUserEvent,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignInEvent value)? chooseExperience,
+    TResult Function(RegisterEvent value)? register,
+    TResult Function(SignOutEvent value)? signOut,
+    TResult Function(GetUserEvent value)? getUserEvent,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOutEvent implements UserEvent {
+  const factory SignOutEvent({required final BuildContext context}) =
+      _$SignOutEventImpl;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$SignOutEventImplCopyWith<_$SignOutEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetUserEventImplCopyWith<$Res> {
+  factory _$$GetUserEventImplCopyWith(
+          _$GetUserEventImpl value, $Res Function(_$GetUserEventImpl) then) =
+      __$$GetUserEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetUserEventImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$GetUserEventImpl>
+    implements _$$GetUserEventImplCopyWith<$Res> {
+  __$$GetUserEventImplCopyWithImpl(
+      _$GetUserEventImpl _value, $Res Function(_$GetUserEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetUserEventImpl implements GetUserEvent {
+  const _$GetUserEventImpl();
+
+  @override
+  String toString() {
+    return 'UserEvent.getUserEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetUserEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String phone, String password) chooseExperience,
+    required TResult Function(
+            String name, String phone, String password, String re_password)
+        register,
+    required TResult Function(BuildContext context) signOut,
+    required TResult Function() getUserEvent,
+  }) {
+    return getUserEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String phone, String password)? chooseExperience,
+    TResult? Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult? Function(BuildContext context)? signOut,
+    TResult? Function()? getUserEvent,
+  }) {
+    return getUserEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String phone, String password)? chooseExperience,
+    TResult Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult Function(BuildContext context)? signOut,
+    TResult Function()? getUserEvent,
+    required TResult orElse(),
+  }) {
+    if (getUserEvent != null) {
+      return getUserEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignInEvent value) chooseExperience,
+    required TResult Function(RegisterEvent value) register,
+    required TResult Function(SignOutEvent value) signOut,
+    required TResult Function(GetUserEvent value) getUserEvent,
+  }) {
+    return getUserEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignInEvent value)? chooseExperience,
+    TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SignOutEvent value)? signOut,
+    TResult? Function(GetUserEvent value)? getUserEvent,
+  }) {
+    return getUserEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignInEvent value)? chooseExperience,
+    TResult Function(RegisterEvent value)? register,
+    TResult Function(SignOutEvent value)? signOut,
+    TResult Function(GetUserEvent value)? getUserEvent,
+    required TResult orElse(),
+  }) {
+    if (getUserEvent != null) {
+      return getUserEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUserEvent implements UserEvent {
+  const factory GetUserEvent() = _$GetUserEventImpl;
 }
 
 /// @nodoc

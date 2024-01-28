@@ -6,15 +6,19 @@ class LivraisonEvent with _$LivraisonEvent {
 
   const factory LivraisonEvent.backIndex() = BackIndexEvent;
 
-  const factory LivraisonEvent.getVille() = GetVilleEvent;
+  const factory LivraisonEvent.getVilleAndCategory() = GetVilleAndCategoryEvent;
 
   const factory LivraisonEvent.selectedVille({
     required VilleModel ville,
   }) = SelectedVille;
 
-  const factory LivraisonEvent.selectedPointLocalisation({
+  const factory LivraisonEvent.selectedCategory({
+    required CategoryModel categoryColis,
+  }) = SelectedCategory;
+
+  const factory LivraisonEvent.selectPointRecuperation({
     required PointLivraisonModel point_recup,
-  }) = SelectedPointLocalisation;
+  }) = SelectPointRecuperation;
 
   const factory LivraisonEvent.Start(
       {required LatLng latLng,
@@ -35,4 +39,47 @@ class LivraisonEvent with _$LivraisonEvent {
     required String libelle,
     required String quartier,
   }) = MapValidatePoint;
+
+  const factory LivraisonEvent.mapValidatePointLivraison({
+    required String libelle,
+    required String quartier,
+  }) = MapValidatePointLivraison;
+
+  const factory LivraisonEvent.addColis() = AddColis;
+
+  const factory LivraisonEvent.updateColis({
+    required int idColis,
+  }) = UpdateColis;
+
+  const factory LivraisonEvent.deleteColis({
+    required int idColis,
+  }) = DeleteColis;
+
+  const factory LivraisonEvent.getImageColisAppareil() = GetImageColisAppareil;
+
+  const factory LivraisonEvent.getImageColisGalerie() = GetImageColisGalerie;
+  const factory LivraisonEvent.addImageColisAppareil({
+    required int idColis,
+  }) = AddImageColisAppareil;
+
+  const factory LivraisonEvent.addImageColisGalerie({
+    required int idColis,
+  }) = AddImageColisGalerie;
+ 
+  const factory LivraisonEvent.selectPointLivraisonColis({
+    required PointLivraisonModel point_livraison,
+  }) = SelectPointLivraisonColis;
+
+  const factory LivraisonEvent.removeImageFromColis({
+    required int idColis,
+    required int position,
+  }) = RemoveImageFromColis;
+  const factory LivraisonEvent.updateImageInColis(
+      {required int idColis,
+      required int position,
+      required File updatedImage}) = UpdateImageInColis;
+  const factory LivraisonEvent.selectColis(
+      {required Colis colis }) = SelectColis;
+  const factory LivraisonEvent.manageQte({required bool state}) =
+      ManageQte;
 }

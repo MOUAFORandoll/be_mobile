@@ -20,10 +20,11 @@ mixin _$LivraisonEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -32,16 +33,32 @@ mixin _$LivraisonEvent {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -49,22 +66,54 @@ mixin _$LivraisonEvent {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,48 +121,97 @@ mixin _$LivraisonEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -177,10 +275,11 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -189,6 +288,22 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
     return verifyForm();
   }
@@ -198,10 +313,10 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -209,6 +324,22 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
     return verifyForm?.call();
   }
@@ -218,16 +349,32 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -241,16 +388,35 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
     return verifyForm(this);
   }
@@ -260,16 +426,31 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
     return verifyForm?.call(this);
   }
@@ -279,16 +460,31 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -342,10 +538,11 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -354,6 +551,22 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
     return backIndex();
   }
@@ -363,10 +576,10 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -374,6 +587,22 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
     return backIndex?.call();
   }
@@ -383,16 +612,32 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -406,16 +651,35 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
     return backIndex(this);
   }
@@ -425,16 +689,31 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
     return backIndex?.call(this);
   }
@@ -444,16 +723,31 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -468,35 +762,38 @@ abstract class BackIndexEvent implements LivraisonEvent {
 }
 
 /// @nodoc
-abstract class _$$GetVilleEventImplCopyWith<$Res> {
-  factory _$$GetVilleEventImplCopyWith(
-          _$GetVilleEventImpl value, $Res Function(_$GetVilleEventImpl) then) =
-      __$$GetVilleEventImplCopyWithImpl<$Res>;
+abstract class _$$GetVilleAndCategoryEventImplCopyWith<$Res> {
+  factory _$$GetVilleAndCategoryEventImplCopyWith(
+          _$GetVilleAndCategoryEventImpl value,
+          $Res Function(_$GetVilleAndCategoryEventImpl) then) =
+      __$$GetVilleAndCategoryEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetVilleEventImplCopyWithImpl<$Res>
-    extends _$LivraisonEventCopyWithImpl<$Res, _$GetVilleEventImpl>
-    implements _$$GetVilleEventImplCopyWith<$Res> {
-  __$$GetVilleEventImplCopyWithImpl(
-      _$GetVilleEventImpl _value, $Res Function(_$GetVilleEventImpl) _then)
+class __$$GetVilleAndCategoryEventImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$GetVilleAndCategoryEventImpl>
+    implements _$$GetVilleAndCategoryEventImplCopyWith<$Res> {
+  __$$GetVilleAndCategoryEventImplCopyWithImpl(
+      _$GetVilleAndCategoryEventImpl _value,
+      $Res Function(_$GetVilleAndCategoryEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetVilleEventImpl implements GetVilleEvent {
-  const _$GetVilleEventImpl();
+class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
+  const _$GetVilleAndCategoryEventImpl();
 
   @override
   String toString() {
-    return 'LivraisonEvent.getVille()';
+    return 'LivraisonEvent.getVilleAndCategory()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetVilleEventImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$GetVilleAndCategoryEventImpl);
   }
 
   @override
@@ -507,10 +804,11 @@ class _$GetVilleEventImpl implements GetVilleEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -519,8 +817,24 @@ class _$GetVilleEventImpl implements GetVilleEvent {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
-    return getVille();
+    return getVilleAndCategory();
   }
 
   @override
@@ -528,10 +842,10 @@ class _$GetVilleEventImpl implements GetVilleEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -539,8 +853,24 @@ class _$GetVilleEventImpl implements GetVilleEvent {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
-    return getVille?.call();
+    return getVilleAndCategory?.call();
   }
 
   @override
@@ -548,20 +878,36 @@ class _$GetVilleEventImpl implements GetVilleEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
-    if (getVille != null) {
-      return getVille();
+    if (getVilleAndCategory != null) {
+      return getVilleAndCategory();
     }
     return orElse();
   }
@@ -571,18 +917,37 @@ class _$GetVilleEventImpl implements GetVilleEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
-    return getVille(this);
+    return getVilleAndCategory(this);
   }
 
   @override
@@ -590,18 +955,33 @@ class _$GetVilleEventImpl implements GetVilleEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
-    return getVille?.call(this);
+    return getVilleAndCategory?.call(this);
   }
 
   @override
@@ -609,27 +989,42 @@ class _$GetVilleEventImpl implements GetVilleEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
-    if (getVille != null) {
-      return getVille(this);
+    if (getVilleAndCategory != null) {
+      return getVilleAndCategory(this);
     }
     return orElse();
   }
 }
 
-abstract class GetVilleEvent implements LivraisonEvent {
-  const factory GetVilleEvent() = _$GetVilleEventImpl;
+abstract class GetVilleAndCategoryEvent implements LivraisonEvent {
+  const factory GetVilleAndCategoryEvent() = _$GetVilleAndCategoryEventImpl;
 }
 
 /// @nodoc
@@ -698,10 +1093,11 @@ class _$SelectedVilleImpl implements SelectedVille {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -710,6 +1106,22 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
     return selectedVille(ville);
   }
@@ -719,10 +1131,10 @@ class _$SelectedVilleImpl implements SelectedVille {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -730,6 +1142,22 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
     return selectedVille?.call(ville);
   }
@@ -739,16 +1167,32 @@ class _$SelectedVilleImpl implements SelectedVille {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -762,16 +1206,35 @@ class _$SelectedVilleImpl implements SelectedVille {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
     return selectedVille(this);
   }
@@ -781,16 +1244,31 @@ class _$SelectedVilleImpl implements SelectedVille {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
     return selectedVille?.call(this);
   }
@@ -800,16 +1278,31 @@ class _$SelectedVilleImpl implements SelectedVille {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -830,22 +1323,319 @@ abstract class SelectedVille implements LivraisonEvent {
 }
 
 /// @nodoc
-abstract class _$$SelectedPointLocalisationImplCopyWith<$Res> {
-  factory _$$SelectedPointLocalisationImplCopyWith(
-          _$SelectedPointLocalisationImpl value,
-          $Res Function(_$SelectedPointLocalisationImpl) then) =
-      __$$SelectedPointLocalisationImplCopyWithImpl<$Res>;
+abstract class _$$SelectedCategoryImplCopyWith<$Res> {
+  factory _$$SelectedCategoryImplCopyWith(_$SelectedCategoryImpl value,
+          $Res Function(_$SelectedCategoryImpl) then) =
+      __$$SelectedCategoryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CategoryModel categoryColis});
+}
+
+/// @nodoc
+class __$$SelectedCategoryImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$SelectedCategoryImpl>
+    implements _$$SelectedCategoryImplCopyWith<$Res> {
+  __$$SelectedCategoryImplCopyWithImpl(_$SelectedCategoryImpl _value,
+      $Res Function(_$SelectedCategoryImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categoryColis = null,
+  }) {
+    return _then(_$SelectedCategoryImpl(
+      categoryColis: null == categoryColis
+          ? _value.categoryColis
+          : categoryColis // ignore: cast_nullable_to_non_nullable
+              as CategoryModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectedCategoryImpl implements SelectedCategory {
+  const _$SelectedCategoryImpl({required this.categoryColis});
+
+  @override
+  final CategoryModel categoryColis;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.selectedCategory(categoryColis: $categoryColis)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectedCategoryImpl &&
+            (identical(other.categoryColis, categoryColis) ||
+                other.categoryColis == categoryColis));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, categoryColis);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectedCategoryImplCopyWith<_$SelectedCategoryImpl> get copyWith =>
+      __$$SelectedCategoryImplCopyWithImpl<_$SelectedCategoryImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return selectedCategory(categoryColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return selectedCategory?.call(categoryColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (selectedCategory != null) {
+      return selectedCategory(categoryColis);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return selectedCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return selectedCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (selectedCategory != null) {
+      return selectedCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectedCategory implements LivraisonEvent {
+  const factory SelectedCategory({required final CategoryModel categoryColis}) =
+      _$SelectedCategoryImpl;
+
+  CategoryModel get categoryColis;
+  @JsonKey(ignore: true)
+  _$$SelectedCategoryImplCopyWith<_$SelectedCategoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectPointRecuperationImplCopyWith<$Res> {
+  factory _$$SelectPointRecuperationImplCopyWith(
+          _$SelectPointRecuperationImpl value,
+          $Res Function(_$SelectPointRecuperationImpl) then) =
+      __$$SelectPointRecuperationImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PointLivraisonModel point_recup});
 }
 
 /// @nodoc
-class __$$SelectedPointLocalisationImplCopyWithImpl<$Res>
-    extends _$LivraisonEventCopyWithImpl<$Res, _$SelectedPointLocalisationImpl>
-    implements _$$SelectedPointLocalisationImplCopyWith<$Res> {
-  __$$SelectedPointLocalisationImplCopyWithImpl(
-      _$SelectedPointLocalisationImpl _value,
-      $Res Function(_$SelectedPointLocalisationImpl) _then)
+class __$$SelectPointRecuperationImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$SelectPointRecuperationImpl>
+    implements _$$SelectPointRecuperationImplCopyWith<$Res> {
+  __$$SelectPointRecuperationImplCopyWithImpl(
+      _$SelectPointRecuperationImpl _value,
+      $Res Function(_$SelectPointRecuperationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -853,7 +1643,7 @@ class __$$SelectedPointLocalisationImplCopyWithImpl<$Res>
   $Res call({
     Object? point_recup = null,
   }) {
-    return _then(_$SelectedPointLocalisationImpl(
+    return _then(_$SelectPointRecuperationImpl(
       point_recup: null == point_recup
           ? _value.point_recup
           : point_recup // ignore: cast_nullable_to_non_nullable
@@ -864,22 +1654,22 @@ class __$$SelectedPointLocalisationImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
-  const _$SelectedPointLocalisationImpl({required this.point_recup});
+class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
+  const _$SelectPointRecuperationImpl({required this.point_recup});
 
   @override
   final PointLivraisonModel point_recup;
 
   @override
   String toString() {
-    return 'LivraisonEvent.selectedPointLocalisation(point_recup: $point_recup)';
+    return 'LivraisonEvent.selectPointRecuperation(point_recup: $point_recup)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SelectedPointLocalisationImpl &&
+            other is _$SelectPointRecuperationImpl &&
             (identical(other.point_recup, point_recup) ||
                 other.point_recup == point_recup));
   }
@@ -890,19 +1680,20 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SelectedPointLocalisationImplCopyWith<_$SelectedPointLocalisationImpl>
-      get copyWith => __$$SelectedPointLocalisationImplCopyWithImpl<
-          _$SelectedPointLocalisationImpl>(this, _$identity);
+  _$$SelectPointRecuperationImplCopyWith<_$SelectPointRecuperationImpl>
+      get copyWith => __$$SelectPointRecuperationImplCopyWithImpl<
+          _$SelectPointRecuperationImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -911,8 +1702,24 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
-    return selectedPointLocalisation(point_recup);
+    return selectPointRecuperation(point_recup);
   }
 
   @override
@@ -920,10 +1727,10 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -931,8 +1738,24 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
-    return selectedPointLocalisation?.call(point_recup);
+    return selectPointRecuperation?.call(point_recup);
   }
 
   @override
@@ -940,20 +1763,36 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
-    if (selectedPointLocalisation != null) {
-      return selectedPointLocalisation(point_recup);
+    if (selectPointRecuperation != null) {
+      return selectPointRecuperation(point_recup);
     }
     return orElse();
   }
@@ -963,18 +1802,37 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
-    return selectedPointLocalisation(this);
+    return selectPointRecuperation(this);
   }
 
   @override
@@ -982,18 +1840,33 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
-    return selectedPointLocalisation?.call(this);
+    return selectPointRecuperation?.call(this);
   }
 
   @override
@@ -1001,33 +1874,48 @@ class _$SelectedPointLocalisationImpl implements SelectedPointLocalisation {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
-    if (selectedPointLocalisation != null) {
-      return selectedPointLocalisation(this);
+    if (selectPointRecuperation != null) {
+      return selectPointRecuperation(this);
     }
     return orElse();
   }
 }
 
-abstract class SelectedPointLocalisation implements LivraisonEvent {
-  const factory SelectedPointLocalisation(
+abstract class SelectPointRecuperation implements LivraisonEvent {
+  const factory SelectPointRecuperation(
           {required final PointLivraisonModel point_recup}) =
-      _$SelectedPointLocalisationImpl;
+      _$SelectPointRecuperationImpl;
 
   PointLivraisonModel get point_recup;
   @JsonKey(ignore: true)
-  _$$SelectedPointLocalisationImplCopyWith<_$SelectedPointLocalisationImpl>
+  _$$SelectPointRecuperationImplCopyWith<_$SelectPointRecuperationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1110,10 +1998,11 @@ class _$SetLogLatImpl implements SetLogLat {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -1122,6 +2011,22 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
     return Start(latLng, quartier_recuperation_point);
   }
@@ -1131,10 +2036,10 @@ class _$SetLogLatImpl implements SetLogLat {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -1142,6 +2047,22 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
     return Start?.call(latLng, quartier_recuperation_point);
   }
@@ -1151,16 +2072,32 @@ class _$SetLogLatImpl implements SetLogLat {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -1174,16 +2111,35 @@ class _$SetLogLatImpl implements SetLogLat {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
     return Start(this);
   }
@@ -1193,16 +2149,31 @@ class _$SetLogLatImpl implements SetLogLat {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
     return Start?.call(this);
   }
@@ -1212,16 +2183,31 @@ class _$SetLogLatImpl implements SetLogLat {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -1283,10 +2269,11 @@ class _$StartLogLatImpl implements StartLogLat {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -1295,6 +2282,22 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
     return setStartLogLat();
   }
@@ -1304,10 +2307,10 @@ class _$StartLogLatImpl implements StartLogLat {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -1315,6 +2318,22 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
     return setStartLogLat?.call();
   }
@@ -1324,16 +2343,32 @@ class _$StartLogLatImpl implements StartLogLat {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -1347,16 +2382,35 @@ class _$StartLogLatImpl implements StartLogLat {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
     return setStartLogLat(this);
   }
@@ -1366,16 +2420,31 @@ class _$StartLogLatImpl implements StartLogLat {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
     return setStartLogLat?.call(this);
   }
@@ -1385,16 +2454,31 @@ class _$StartLogLatImpl implements StartLogLat {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -1475,10 +2559,11 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -1487,6 +2572,22 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
     return getRecupPoint(ville);
   }
@@ -1496,10 +2597,10 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -1507,6 +2608,22 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
     return getRecupPoint?.call(ville);
   }
@@ -1516,16 +2633,32 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -1539,16 +2672,35 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
     return getRecupPoint(this);
   }
@@ -1558,16 +2710,31 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
     return getRecupPoint?.call(this);
   }
@@ -1577,16 +2744,31 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -1673,10 +2855,11 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -1685,6 +2868,22 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
     return searchpointevent(text);
   }
@@ -1694,10 +2893,10 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -1705,6 +2904,22 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
     return searchpointevent?.call(text);
   }
@@ -1714,16 +2929,32 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -1737,16 +2968,35 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
     return searchpointevent(this);
   }
@@ -1756,16 +3006,31 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
     return searchpointevent?.call(this);
   }
@@ -1775,16 +3040,31 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -1870,10 +3150,11 @@ class _$MapSelectedImpl implements MapSelected {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -1882,6 +3163,22 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
     return mapSelected(status);
   }
@@ -1891,10 +3188,10 @@ class _$MapSelectedImpl implements MapSelected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -1902,6 +3199,22 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
     return mapSelected?.call(status);
   }
@@ -1911,16 +3224,32 @@ class _$MapSelectedImpl implements MapSelected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -1934,16 +3263,35 @@ class _$MapSelectedImpl implements MapSelected {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
     return mapSelected(this);
   }
@@ -1953,16 +3301,31 @@ class _$MapSelectedImpl implements MapSelected {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
     return mapSelected?.call(this);
   }
@@ -1972,16 +3335,31 @@ class _$MapSelectedImpl implements MapSelected {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -2076,10 +3454,11 @@ class _$MapValidatePointImpl implements MapValidatePoint {
   TResult when<TResult extends Object?>({
     required TResult Function() verifyForm,
     required TResult Function() backIndex,
-    required TResult Function() getVille,
+    required TResult Function() getVilleAndCategory,
     required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
-        selectedPointLocalisation,
+        selectPointRecuperation,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -2088,6 +3467,22 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(String text) searchpointevent,
     required TResult Function(bool status) mapSelected,
     required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
   }) {
     return mapValidatePoint(libelle, quartier);
   }
@@ -2097,10 +3492,10 @@ class _$MapValidatePointImpl implements MapValidatePoint {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? verifyForm,
     TResult? Function()? backIndex,
-    TResult? Function()? getVille,
+    TResult? Function()? getVilleAndCategory,
     TResult? Function(VilleModel ville)? selectedVille,
-    TResult? Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -2108,6 +3503,22 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(String text)? searchpointevent,
     TResult? Function(bool status)? mapSelected,
     TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
   }) {
     return mapValidatePoint?.call(libelle, quartier);
   }
@@ -2117,16 +3528,32 @@ class _$MapValidatePointImpl implements MapValidatePoint {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? verifyForm,
     TResult Function()? backIndex,
-    TResult Function()? getVille,
+    TResult Function()? getVilleAndCategory,
     TResult Function(VilleModel ville)? selectedVille,
-    TResult Function(PointLivraisonModel point_recup)?
-        selectedPointLocalisation,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
     TResult Function(String text)? searchpointevent,
     TResult Function(bool status)? mapSelected,
     TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -2140,16 +3567,35 @@ class _$MapValidatePointImpl implements MapValidatePoint {
   TResult map<TResult extends Object?>({
     required TResult Function(VerifyFormEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
-    required TResult Function(GetVilleEvent value) getVille,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
     required TResult Function(SelectedVille value) selectedVille,
-    required TResult Function(SelectedPointLocalisation value)
-        selectedPointLocalisation,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
     required TResult Function(SearchPointEvent value) searchpointevent,
     required TResult Function(MapSelected value) mapSelected,
     required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
   }) {
     return mapValidatePoint(this);
   }
@@ -2159,16 +3605,31 @@ class _$MapValidatePointImpl implements MapValidatePoint {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(VerifyFormEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
-    TResult? Function(GetVilleEvent value)? getVille,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
-    TResult? Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
     TResult? Function(SearchPointEvent value)? searchpointevent,
     TResult? Function(MapSelected value)? mapSelected,
     TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
   }) {
     return mapValidatePoint?.call(this);
   }
@@ -2178,16 +3639,31 @@ class _$MapValidatePointImpl implements MapValidatePoint {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(VerifyFormEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
-    TResult Function(GetVilleEvent value)? getVille,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
-    TResult Function(SelectedPointLocalisation value)?
-        selectedPointLocalisation,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
     TResult Function(SearchPointEvent value)? searchpointevent,
     TResult Function(MapSelected value)? mapSelected,
     TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -2210,6 +3686,3808 @@ abstract class MapValidatePoint implements LivraisonEvent {
 }
 
 /// @nodoc
+abstract class _$$MapValidatePointLivraisonImplCopyWith<$Res> {
+  factory _$$MapValidatePointLivraisonImplCopyWith(
+          _$MapValidatePointLivraisonImpl value,
+          $Res Function(_$MapValidatePointLivraisonImpl) then) =
+      __$$MapValidatePointLivraisonImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String libelle, String quartier});
+}
+
+/// @nodoc
+class __$$MapValidatePointLivraisonImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$MapValidatePointLivraisonImpl>
+    implements _$$MapValidatePointLivraisonImplCopyWith<$Res> {
+  __$$MapValidatePointLivraisonImplCopyWithImpl(
+      _$MapValidatePointLivraisonImpl _value,
+      $Res Function(_$MapValidatePointLivraisonImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? libelle = null,
+    Object? quartier = null,
+  }) {
+    return _then(_$MapValidatePointLivraisonImpl(
+      libelle: null == libelle
+          ? _value.libelle
+          : libelle // ignore: cast_nullable_to_non_nullable
+              as String,
+      quartier: null == quartier
+          ? _value.quartier
+          : quartier // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
+  const _$MapValidatePointLivraisonImpl(
+      {required this.libelle, required this.quartier});
+
+  @override
+  final String libelle;
+  @override
+  final String quartier;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.mapValidatePointLivraison(libelle: $libelle, quartier: $quartier)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MapValidatePointLivraisonImpl &&
+            (identical(other.libelle, libelle) || other.libelle == libelle) &&
+            (identical(other.quartier, quartier) ||
+                other.quartier == quartier));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, libelle, quartier);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MapValidatePointLivraisonImplCopyWith<_$MapValidatePointLivraisonImpl>
+      get copyWith => __$$MapValidatePointLivraisonImplCopyWithImpl<
+          _$MapValidatePointLivraisonImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return mapValidatePointLivraison(libelle, quartier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return mapValidatePointLivraison?.call(libelle, quartier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (mapValidatePointLivraison != null) {
+      return mapValidatePointLivraison(libelle, quartier);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return mapValidatePointLivraison(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return mapValidatePointLivraison?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (mapValidatePointLivraison != null) {
+      return mapValidatePointLivraison(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MapValidatePointLivraison implements LivraisonEvent {
+  const factory MapValidatePointLivraison(
+      {required final String libelle,
+      required final String quartier}) = _$MapValidatePointLivraisonImpl;
+
+  String get libelle;
+  String get quartier;
+  @JsonKey(ignore: true)
+  _$$MapValidatePointLivraisonImplCopyWith<_$MapValidatePointLivraisonImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddColisImplCopyWith<$Res> {
+  factory _$$AddColisImplCopyWith(
+          _$AddColisImpl value, $Res Function(_$AddColisImpl) then) =
+      __$$AddColisImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AddColisImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$AddColisImpl>
+    implements _$$AddColisImplCopyWith<$Res> {
+  __$$AddColisImplCopyWithImpl(
+      _$AddColisImpl _value, $Res Function(_$AddColisImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AddColisImpl implements AddColis {
+  const _$AddColisImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.addColis()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AddColisImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return addColis();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return addColis?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (addColis != null) {
+      return addColis();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return addColis(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return addColis?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (addColis != null) {
+      return addColis(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddColis implements LivraisonEvent {
+  const factory AddColis() = _$AddColisImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateColisImplCopyWith<$Res> {
+  factory _$$UpdateColisImplCopyWith(
+          _$UpdateColisImpl value, $Res Function(_$UpdateColisImpl) then) =
+      __$$UpdateColisImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int idColis});
+}
+
+/// @nodoc
+class __$$UpdateColisImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$UpdateColisImpl>
+    implements _$$UpdateColisImplCopyWith<$Res> {
+  __$$UpdateColisImplCopyWithImpl(
+      _$UpdateColisImpl _value, $Res Function(_$UpdateColisImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idColis = null,
+  }) {
+    return _then(_$UpdateColisImpl(
+      idColis: null == idColis
+          ? _value.idColis
+          : idColis // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateColisImpl implements UpdateColis {
+  const _$UpdateColisImpl({required this.idColis});
+
+  @override
+  final int idColis;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.updateColis(idColis: $idColis)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateColisImpl &&
+            (identical(other.idColis, idColis) || other.idColis == idColis));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idColis);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateColisImplCopyWith<_$UpdateColisImpl> get copyWith =>
+      __$$UpdateColisImplCopyWithImpl<_$UpdateColisImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return updateColis(idColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return updateColis?.call(idColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (updateColis != null) {
+      return updateColis(idColis);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return updateColis(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return updateColis?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (updateColis != null) {
+      return updateColis(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateColis implements LivraisonEvent {
+  const factory UpdateColis({required final int idColis}) = _$UpdateColisImpl;
+
+  int get idColis;
+  @JsonKey(ignore: true)
+  _$$UpdateColisImplCopyWith<_$UpdateColisImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteColisImplCopyWith<$Res> {
+  factory _$$DeleteColisImplCopyWith(
+          _$DeleteColisImpl value, $Res Function(_$DeleteColisImpl) then) =
+      __$$DeleteColisImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int idColis});
+}
+
+/// @nodoc
+class __$$DeleteColisImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$DeleteColisImpl>
+    implements _$$DeleteColisImplCopyWith<$Res> {
+  __$$DeleteColisImplCopyWithImpl(
+      _$DeleteColisImpl _value, $Res Function(_$DeleteColisImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idColis = null,
+  }) {
+    return _then(_$DeleteColisImpl(
+      idColis: null == idColis
+          ? _value.idColis
+          : idColis // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteColisImpl implements DeleteColis {
+  const _$DeleteColisImpl({required this.idColis});
+
+  @override
+  final int idColis;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.deleteColis(idColis: $idColis)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteColisImpl &&
+            (identical(other.idColis, idColis) || other.idColis == idColis));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idColis);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteColisImplCopyWith<_$DeleteColisImpl> get copyWith =>
+      __$$DeleteColisImplCopyWithImpl<_$DeleteColisImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return deleteColis(idColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return deleteColis?.call(idColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (deleteColis != null) {
+      return deleteColis(idColis);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return deleteColis(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return deleteColis?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (deleteColis != null) {
+      return deleteColis(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteColis implements LivraisonEvent {
+  const factory DeleteColis({required final int idColis}) = _$DeleteColisImpl;
+
+  int get idColis;
+  @JsonKey(ignore: true)
+  _$$DeleteColisImplCopyWith<_$DeleteColisImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetImageColisAppareilImplCopyWith<$Res> {
+  factory _$$GetImageColisAppareilImplCopyWith(
+          _$GetImageColisAppareilImpl value,
+          $Res Function(_$GetImageColisAppareilImpl) then) =
+      __$$GetImageColisAppareilImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetImageColisAppareilImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$GetImageColisAppareilImpl>
+    implements _$$GetImageColisAppareilImplCopyWith<$Res> {
+  __$$GetImageColisAppareilImplCopyWithImpl(_$GetImageColisAppareilImpl _value,
+      $Res Function(_$GetImageColisAppareilImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
+  const _$GetImageColisAppareilImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.getImageColisAppareil()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetImageColisAppareilImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return getImageColisAppareil();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return getImageColisAppareil?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (getImageColisAppareil != null) {
+      return getImageColisAppareil();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return getImageColisAppareil(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return getImageColisAppareil?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (getImageColisAppareil != null) {
+      return getImageColisAppareil(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetImageColisAppareil implements LivraisonEvent {
+  const factory GetImageColisAppareil() = _$GetImageColisAppareilImpl;
+}
+
+/// @nodoc
+abstract class _$$GetImageColisGalerieImplCopyWith<$Res> {
+  factory _$$GetImageColisGalerieImplCopyWith(_$GetImageColisGalerieImpl value,
+          $Res Function(_$GetImageColisGalerieImpl) then) =
+      __$$GetImageColisGalerieImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetImageColisGalerieImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$GetImageColisGalerieImpl>
+    implements _$$GetImageColisGalerieImplCopyWith<$Res> {
+  __$$GetImageColisGalerieImplCopyWithImpl(_$GetImageColisGalerieImpl _value,
+      $Res Function(_$GetImageColisGalerieImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
+  const _$GetImageColisGalerieImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.getImageColisGalerie()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetImageColisGalerieImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return getImageColisGalerie();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return getImageColisGalerie?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (getImageColisGalerie != null) {
+      return getImageColisGalerie();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return getImageColisGalerie(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return getImageColisGalerie?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (getImageColisGalerie != null) {
+      return getImageColisGalerie(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetImageColisGalerie implements LivraisonEvent {
+  const factory GetImageColisGalerie() = _$GetImageColisGalerieImpl;
+}
+
+/// @nodoc
+abstract class _$$AddImageColisAppareilImplCopyWith<$Res> {
+  factory _$$AddImageColisAppareilImplCopyWith(
+          _$AddImageColisAppareilImpl value,
+          $Res Function(_$AddImageColisAppareilImpl) then) =
+      __$$AddImageColisAppareilImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int idColis});
+}
+
+/// @nodoc
+class __$$AddImageColisAppareilImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$AddImageColisAppareilImpl>
+    implements _$$AddImageColisAppareilImplCopyWith<$Res> {
+  __$$AddImageColisAppareilImplCopyWithImpl(_$AddImageColisAppareilImpl _value,
+      $Res Function(_$AddImageColisAppareilImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idColis = null,
+  }) {
+    return _then(_$AddImageColisAppareilImpl(
+      idColis: null == idColis
+          ? _value.idColis
+          : idColis // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
+  const _$AddImageColisAppareilImpl({required this.idColis});
+
+  @override
+  final int idColis;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.addImageColisAppareil(idColis: $idColis)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddImageColisAppareilImpl &&
+            (identical(other.idColis, idColis) || other.idColis == idColis));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idColis);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddImageColisAppareilImplCopyWith<_$AddImageColisAppareilImpl>
+      get copyWith => __$$AddImageColisAppareilImplCopyWithImpl<
+          _$AddImageColisAppareilImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return addImageColisAppareil(idColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return addImageColisAppareil?.call(idColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (addImageColisAppareil != null) {
+      return addImageColisAppareil(idColis);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return addImageColisAppareil(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return addImageColisAppareil?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (addImageColisAppareil != null) {
+      return addImageColisAppareil(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddImageColisAppareil implements LivraisonEvent {
+  const factory AddImageColisAppareil({required final int idColis}) =
+      _$AddImageColisAppareilImpl;
+
+  int get idColis;
+  @JsonKey(ignore: true)
+  _$$AddImageColisAppareilImplCopyWith<_$AddImageColisAppareilImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddImageColisGalerieImplCopyWith<$Res> {
+  factory _$$AddImageColisGalerieImplCopyWith(_$AddImageColisGalerieImpl value,
+          $Res Function(_$AddImageColisGalerieImpl) then) =
+      __$$AddImageColisGalerieImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int idColis});
+}
+
+/// @nodoc
+class __$$AddImageColisGalerieImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$AddImageColisGalerieImpl>
+    implements _$$AddImageColisGalerieImplCopyWith<$Res> {
+  __$$AddImageColisGalerieImplCopyWithImpl(_$AddImageColisGalerieImpl _value,
+      $Res Function(_$AddImageColisGalerieImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idColis = null,
+  }) {
+    return _then(_$AddImageColisGalerieImpl(
+      idColis: null == idColis
+          ? _value.idColis
+          : idColis // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
+  const _$AddImageColisGalerieImpl({required this.idColis});
+
+  @override
+  final int idColis;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.addImageColisGalerie(idColis: $idColis)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddImageColisGalerieImpl &&
+            (identical(other.idColis, idColis) || other.idColis == idColis));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idColis);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddImageColisGalerieImplCopyWith<_$AddImageColisGalerieImpl>
+      get copyWith =>
+          __$$AddImageColisGalerieImplCopyWithImpl<_$AddImageColisGalerieImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return addImageColisGalerie(idColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return addImageColisGalerie?.call(idColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (addImageColisGalerie != null) {
+      return addImageColisGalerie(idColis);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return addImageColisGalerie(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return addImageColisGalerie?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (addImageColisGalerie != null) {
+      return addImageColisGalerie(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddImageColisGalerie implements LivraisonEvent {
+  const factory AddImageColisGalerie({required final int idColis}) =
+      _$AddImageColisGalerieImpl;
+
+  int get idColis;
+  @JsonKey(ignore: true)
+  _$$AddImageColisGalerieImplCopyWith<_$AddImageColisGalerieImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectPointLivraisonColisImplCopyWith<$Res> {
+  factory _$$SelectPointLivraisonColisImplCopyWith(
+          _$SelectPointLivraisonColisImpl value,
+          $Res Function(_$SelectPointLivraisonColisImpl) then) =
+      __$$SelectPointLivraisonColisImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PointLivraisonModel point_livraison});
+}
+
+/// @nodoc
+class __$$SelectPointLivraisonColisImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$SelectPointLivraisonColisImpl>
+    implements _$$SelectPointLivraisonColisImplCopyWith<$Res> {
+  __$$SelectPointLivraisonColisImplCopyWithImpl(
+      _$SelectPointLivraisonColisImpl _value,
+      $Res Function(_$SelectPointLivraisonColisImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? point_livraison = null,
+  }) {
+    return _then(_$SelectPointLivraisonColisImpl(
+      point_livraison: null == point_livraison
+          ? _value.point_livraison
+          : point_livraison // ignore: cast_nullable_to_non_nullable
+              as PointLivraisonModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
+  const _$SelectPointLivraisonColisImpl({required this.point_livraison});
+
+  @override
+  final PointLivraisonModel point_livraison;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.selectPointLivraisonColis(point_livraison: $point_livraison)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectPointLivraisonColisImpl &&
+            (identical(other.point_livraison, point_livraison) ||
+                other.point_livraison == point_livraison));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, point_livraison);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectPointLivraisonColisImplCopyWith<_$SelectPointLivraisonColisImpl>
+      get copyWith => __$$SelectPointLivraisonColisImplCopyWithImpl<
+          _$SelectPointLivraisonColisImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return selectPointLivraisonColis(point_livraison);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return selectPointLivraisonColis?.call(point_livraison);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (selectPointLivraisonColis != null) {
+      return selectPointLivraisonColis(point_livraison);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return selectPointLivraisonColis(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return selectPointLivraisonColis?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (selectPointLivraisonColis != null) {
+      return selectPointLivraisonColis(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectPointLivraisonColis implements LivraisonEvent {
+  const factory SelectPointLivraisonColis(
+          {required final PointLivraisonModel point_livraison}) =
+      _$SelectPointLivraisonColisImpl;
+
+  PointLivraisonModel get point_livraison;
+  @JsonKey(ignore: true)
+  _$$SelectPointLivraisonColisImplCopyWith<_$SelectPointLivraisonColisImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveImageFromColisImplCopyWith<$Res> {
+  factory _$$RemoveImageFromColisImplCopyWith(_$RemoveImageFromColisImpl value,
+          $Res Function(_$RemoveImageFromColisImpl) then) =
+      __$$RemoveImageFromColisImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int idColis, int position});
+}
+
+/// @nodoc
+class __$$RemoveImageFromColisImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$RemoveImageFromColisImpl>
+    implements _$$RemoveImageFromColisImplCopyWith<$Res> {
+  __$$RemoveImageFromColisImplCopyWithImpl(_$RemoveImageFromColisImpl _value,
+      $Res Function(_$RemoveImageFromColisImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idColis = null,
+    Object? position = null,
+  }) {
+    return _then(_$RemoveImageFromColisImpl(
+      idColis: null == idColis
+          ? _value.idColis
+          : idColis // ignore: cast_nullable_to_non_nullable
+              as int,
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
+  const _$RemoveImageFromColisImpl(
+      {required this.idColis, required this.position});
+
+  @override
+  final int idColis;
+  @override
+  final int position;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.removeImageFromColis(idColis: $idColis, position: $position)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveImageFromColisImpl &&
+            (identical(other.idColis, idColis) || other.idColis == idColis) &&
+            (identical(other.position, position) ||
+                other.position == position));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idColis, position);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveImageFromColisImplCopyWith<_$RemoveImageFromColisImpl>
+      get copyWith =>
+          __$$RemoveImageFromColisImplCopyWithImpl<_$RemoveImageFromColisImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return removeImageFromColis(idColis, position);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return removeImageFromColis?.call(idColis, position);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (removeImageFromColis != null) {
+      return removeImageFromColis(idColis, position);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return removeImageFromColis(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return removeImageFromColis?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (removeImageFromColis != null) {
+      return removeImageFromColis(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveImageFromColis implements LivraisonEvent {
+  const factory RemoveImageFromColis(
+      {required final int idColis,
+      required final int position}) = _$RemoveImageFromColisImpl;
+
+  int get idColis;
+  int get position;
+  @JsonKey(ignore: true)
+  _$$RemoveImageFromColisImplCopyWith<_$RemoveImageFromColisImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateImageInColisImplCopyWith<$Res> {
+  factory _$$UpdateImageInColisImplCopyWith(_$UpdateImageInColisImpl value,
+          $Res Function(_$UpdateImageInColisImpl) then) =
+      __$$UpdateImageInColisImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int idColis, int position, File updatedImage});
+}
+
+/// @nodoc
+class __$$UpdateImageInColisImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$UpdateImageInColisImpl>
+    implements _$$UpdateImageInColisImplCopyWith<$Res> {
+  __$$UpdateImageInColisImplCopyWithImpl(_$UpdateImageInColisImpl _value,
+      $Res Function(_$UpdateImageInColisImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idColis = null,
+    Object? position = null,
+    Object? updatedImage = null,
+  }) {
+    return _then(_$UpdateImageInColisImpl(
+      idColis: null == idColis
+          ? _value.idColis
+          : idColis // ignore: cast_nullable_to_non_nullable
+              as int,
+      position: null == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int,
+      updatedImage: null == updatedImage
+          ? _value.updatedImage
+          : updatedImage // ignore: cast_nullable_to_non_nullable
+              as File,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateImageInColisImpl implements UpdateImageInColis {
+  const _$UpdateImageInColisImpl(
+      {required this.idColis,
+      required this.position,
+      required this.updatedImage});
+
+  @override
+  final int idColis;
+  @override
+  final int position;
+  @override
+  final File updatedImage;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.updateImageInColis(idColis: $idColis, position: $position, updatedImage: $updatedImage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateImageInColisImpl &&
+            (identical(other.idColis, idColis) || other.idColis == idColis) &&
+            (identical(other.position, position) ||
+                other.position == position) &&
+            (identical(other.updatedImage, updatedImage) ||
+                other.updatedImage == updatedImage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idColis, position, updatedImage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateImageInColisImplCopyWith<_$UpdateImageInColisImpl> get copyWith =>
+      __$$UpdateImageInColisImplCopyWithImpl<_$UpdateImageInColisImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return updateImageInColis(idColis, position, updatedImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return updateImageInColis?.call(idColis, position, updatedImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (updateImageInColis != null) {
+      return updateImageInColis(idColis, position, updatedImage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return updateImageInColis(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return updateImageInColis?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (updateImageInColis != null) {
+      return updateImageInColis(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateImageInColis implements LivraisonEvent {
+  const factory UpdateImageInColis(
+      {required final int idColis,
+      required final int position,
+      required final File updatedImage}) = _$UpdateImageInColisImpl;
+
+  int get idColis;
+  int get position;
+  File get updatedImage;
+  @JsonKey(ignore: true)
+  _$$UpdateImageInColisImplCopyWith<_$UpdateImageInColisImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectColisImplCopyWith<$Res> {
+  factory _$$SelectColisImplCopyWith(
+          _$SelectColisImpl value, $Res Function(_$SelectColisImpl) then) =
+      __$$SelectColisImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Colis colis});
+}
+
+/// @nodoc
+class __$$SelectColisImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$SelectColisImpl>
+    implements _$$SelectColisImplCopyWith<$Res> {
+  __$$SelectColisImplCopyWithImpl(
+      _$SelectColisImpl _value, $Res Function(_$SelectColisImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? colis = null,
+  }) {
+    return _then(_$SelectColisImpl(
+      colis: null == colis
+          ? _value.colis
+          : colis // ignore: cast_nullable_to_non_nullable
+              as Colis,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectColisImpl implements SelectColis {
+  const _$SelectColisImpl({required this.colis});
+
+  @override
+  final Colis colis;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.selectColis(colis: $colis)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectColisImpl &&
+            (identical(other.colis, colis) || other.colis == colis));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, colis);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectColisImplCopyWith<_$SelectColisImpl> get copyWith =>
+      __$$SelectColisImplCopyWithImpl<_$SelectColisImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return selectColis(colis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return selectColis?.call(colis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (selectColis != null) {
+      return selectColis(colis);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return selectColis(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return selectColis?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (selectColis != null) {
+      return selectColis(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectColis implements LivraisonEvent {
+  const factory SelectColis({required final Colis colis}) = _$SelectColisImpl;
+
+  Colis get colis;
+  @JsonKey(ignore: true)
+  _$$SelectColisImplCopyWith<_$SelectColisImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ManageQteImplCopyWith<$Res> {
+  factory _$$ManageQteImplCopyWith(
+          _$ManageQteImpl value, $Res Function(_$ManageQteImpl) then) =
+      __$$ManageQteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool state});
+}
+
+/// @nodoc
+class __$$ManageQteImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$ManageQteImpl>
+    implements _$$ManageQteImplCopyWith<$Res> {
+  __$$ManageQteImplCopyWithImpl(
+      _$ManageQteImpl _value, $Res Function(_$ManageQteImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? state = null,
+  }) {
+    return _then(_$ManageQteImpl(
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ManageQteImpl implements ManageQte {
+  const _$ManageQteImpl({required this.state});
+
+  @override
+  final bool state;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.manageQte(state: $state)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ManageQteImpl &&
+            (identical(other.state, state) || other.state == state));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, state);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ManageQteImplCopyWith<_$ManageQteImpl> get copyWith =>
+      __$$ManageQteImplCopyWithImpl<_$ManageQteImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+  }) {
+    return manageQte(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+  }) {
+    return manageQte?.call(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (manageQte != null) {
+      return manageQte(state);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+  }) {
+    return manageQte(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+  }) {
+    return manageQte?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    required TResult orElse(),
+  }) {
+    if (manageQte != null) {
+      return manageQte(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ManageQte implements LivraisonEvent {
+  const factory ManageQte({required final bool state}) = _$ManageQteImpl;
+
+  bool get state;
+  @JsonKey(ignore: true)
+  _$$ManageQteImplCopyWith<_$ManageQteImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$LivraisonState {
   bool? get errorVille => throw _privateConstructorUsedError;
   bool? get errorPointRecuperation => throw _privateConstructorUsedError;
@@ -2220,9 +7498,12 @@ mixin _$LivraisonState {
       throw _privateConstructorUsedError;
   String? get quartier_recuperation_point => throw _privateConstructorUsedError;
   List<VilleModel>? get villeList => throw _privateConstructorUsedError;
-  List<PointLivraisonModel>? get list_recuperation_point =>
+  int? get idColis => throw _privateConstructorUsedError;
+  List<Colis>? get listColis => throw _privateConstructorUsedError;
+  List<File>? get imageColis => throw _privateConstructorUsedError;
+  List<PointLivraisonModel>? get list_localisation_point =>
       throw _privateConstructorUsedError;
-  List<PointLivraisonModel>? get list_search_recuperation_point =>
+  List<PointLivraisonModel>? get list_search_point_localisation =>
       throw _privateConstructorUsedError;
   VilleModel? get selectedVIlle => throw _privateConstructorUsedError;
   TextEditingController? get phone => throw _privateConstructorUsedError;
@@ -2232,6 +7513,22 @@ mixin _$LivraisonState {
   TextEditingController? get description => throw _privateConstructorUsedError;
   GlobalKey<FormState>? get formKeyLivraison =>
       throw _privateConstructorUsedError;
+  TextEditingController? get nomColis => throw _privateConstructorUsedError;
+  TextEditingController? get quantiteColis =>
+      throw _privateConstructorUsedError;
+  TextEditingController? get contactRecepteur =>
+      throw _privateConstructorUsedError;
+  TextEditingController? get valeurColis => throw _privateConstructorUsedError;
+  CategoryModel? get categoryColis => throw _privateConstructorUsedError;
+  List<CategoryModel>? get list_category_colis =>
+      throw _privateConstructorUsedError;
+  bool get isMapSelectedPointLivraison => throw _privateConstructorUsedError;
+  PointLivraisonModel? get selected_livraison_point =>
+      throw _privateConstructorUsedError;
+  bool? get errorCategory => throw _privateConstructorUsedError;
+  bool? get errorPointLivraison => throw _privateConstructorUsedError;
+  bool? get errorQte => throw _privateConstructorUsedError;
+  bool? get errorImage => throw _privateConstructorUsedError;
   LatLng? get position => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -2253,14 +7550,29 @@ abstract class $LivraisonStateCopyWith<$Res> {
       PointLivraisonModel? selected_recuperation_point,
       String? quartier_recuperation_point,
       List<VilleModel>? villeList,
-      List<PointLivraisonModel>? list_recuperation_point,
-      List<PointLivraisonModel>? list_search_recuperation_point,
+      int? idColis,
+      List<Colis>? listColis,
+      List<File>? imageColis,
+      List<PointLivraisonModel>? list_localisation_point,
+      List<PointLivraisonModel>? list_search_point_localisation,
       VilleModel? selectedVIlle,
       TextEditingController? phone,
       TextEditingController? libelle,
       TextEditingController? contactEmetteur,
       TextEditingController? description,
       GlobalKey<FormState>? formKeyLivraison,
+      TextEditingController? nomColis,
+      TextEditingController? quantiteColis,
+      TextEditingController? contactRecepteur,
+      TextEditingController? valeurColis,
+      CategoryModel? categoryColis,
+      List<CategoryModel>? list_category_colis,
+      bool isMapSelectedPointLivraison,
+      PointLivraisonModel? selected_livraison_point,
+      bool? errorCategory,
+      bool? errorPointLivraison,
+      bool? errorQte,
+      bool? errorImage,
       LatLng? position});
 }
 
@@ -2284,14 +7596,29 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? selected_recuperation_point = freezed,
     Object? quartier_recuperation_point = freezed,
     Object? villeList = freezed,
-    Object? list_recuperation_point = freezed,
-    Object? list_search_recuperation_point = freezed,
+    Object? idColis = freezed,
+    Object? listColis = freezed,
+    Object? imageColis = freezed,
+    Object? list_localisation_point = freezed,
+    Object? list_search_point_localisation = freezed,
     Object? selectedVIlle = freezed,
     Object? phone = freezed,
     Object? libelle = freezed,
     Object? contactEmetteur = freezed,
     Object? description = freezed,
     Object? formKeyLivraison = freezed,
+    Object? nomColis = freezed,
+    Object? quantiteColis = freezed,
+    Object? contactRecepteur = freezed,
+    Object? valeurColis = freezed,
+    Object? categoryColis = freezed,
+    Object? list_category_colis = freezed,
+    Object? isMapSelectedPointLivraison = null,
+    Object? selected_livraison_point = freezed,
+    Object? errorCategory = freezed,
+    Object? errorPointLivraison = freezed,
+    Object? errorQte = freezed,
+    Object? errorImage = freezed,
     Object? position = freezed,
   }) {
     return _then(_value.copyWith(
@@ -2323,13 +7650,25 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.villeList
           : villeList // ignore: cast_nullable_to_non_nullable
               as List<VilleModel>?,
-      list_recuperation_point: freezed == list_recuperation_point
-          ? _value.list_recuperation_point
-          : list_recuperation_point // ignore: cast_nullable_to_non_nullable
+      idColis: freezed == idColis
+          ? _value.idColis
+          : idColis // ignore: cast_nullable_to_non_nullable
+              as int?,
+      listColis: freezed == listColis
+          ? _value.listColis
+          : listColis // ignore: cast_nullable_to_non_nullable
+              as List<Colis>?,
+      imageColis: freezed == imageColis
+          ? _value.imageColis
+          : imageColis // ignore: cast_nullable_to_non_nullable
+              as List<File>?,
+      list_localisation_point: freezed == list_localisation_point
+          ? _value.list_localisation_point
+          : list_localisation_point // ignore: cast_nullable_to_non_nullable
               as List<PointLivraisonModel>?,
-      list_search_recuperation_point: freezed == list_search_recuperation_point
-          ? _value.list_search_recuperation_point
-          : list_search_recuperation_point // ignore: cast_nullable_to_non_nullable
+      list_search_point_localisation: freezed == list_search_point_localisation
+          ? _value.list_search_point_localisation
+          : list_search_point_localisation // ignore: cast_nullable_to_non_nullable
               as List<PointLivraisonModel>?,
       selectedVIlle: freezed == selectedVIlle
           ? _value.selectedVIlle
@@ -2355,6 +7694,54 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.formKeyLivraison
           : formKeyLivraison // ignore: cast_nullable_to_non_nullable
               as GlobalKey<FormState>?,
+      nomColis: freezed == nomColis
+          ? _value.nomColis
+          : nomColis // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      quantiteColis: freezed == quantiteColis
+          ? _value.quantiteColis
+          : quantiteColis // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      contactRecepteur: freezed == contactRecepteur
+          ? _value.contactRecepteur
+          : contactRecepteur // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      valeurColis: freezed == valeurColis
+          ? _value.valeurColis
+          : valeurColis // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      categoryColis: freezed == categoryColis
+          ? _value.categoryColis
+          : categoryColis // ignore: cast_nullable_to_non_nullable
+              as CategoryModel?,
+      list_category_colis: freezed == list_category_colis
+          ? _value.list_category_colis
+          : list_category_colis // ignore: cast_nullable_to_non_nullable
+              as List<CategoryModel>?,
+      isMapSelectedPointLivraison: null == isMapSelectedPointLivraison
+          ? _value.isMapSelectedPointLivraison
+          : isMapSelectedPointLivraison // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selected_livraison_point: freezed == selected_livraison_point
+          ? _value.selected_livraison_point
+          : selected_livraison_point // ignore: cast_nullable_to_non_nullable
+              as PointLivraisonModel?,
+      errorCategory: freezed == errorCategory
+          ? _value.errorCategory
+          : errorCategory // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      errorPointLivraison: freezed == errorPointLivraison
+          ? _value.errorPointLivraison
+          : errorPointLivraison // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      errorQte: freezed == errorQte
+          ? _value.errorQte
+          : errorQte // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      errorImage: freezed == errorImage
+          ? _value.errorImage
+          : errorImage // ignore: cast_nullable_to_non_nullable
+              as bool?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -2379,14 +7766,29 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       PointLivraisonModel? selected_recuperation_point,
       String? quartier_recuperation_point,
       List<VilleModel>? villeList,
-      List<PointLivraisonModel>? list_recuperation_point,
-      List<PointLivraisonModel>? list_search_recuperation_point,
+      int? idColis,
+      List<Colis>? listColis,
+      List<File>? imageColis,
+      List<PointLivraisonModel>? list_localisation_point,
+      List<PointLivraisonModel>? list_search_point_localisation,
       VilleModel? selectedVIlle,
       TextEditingController? phone,
       TextEditingController? libelle,
       TextEditingController? contactEmetteur,
       TextEditingController? description,
       GlobalKey<FormState>? formKeyLivraison,
+      TextEditingController? nomColis,
+      TextEditingController? quantiteColis,
+      TextEditingController? contactRecepteur,
+      TextEditingController? valeurColis,
+      CategoryModel? categoryColis,
+      List<CategoryModel>? list_category_colis,
+      bool isMapSelectedPointLivraison,
+      PointLivraisonModel? selected_livraison_point,
+      bool? errorCategory,
+      bool? errorPointLivraison,
+      bool? errorQte,
+      bool? errorImage,
       LatLng? position});
 }
 
@@ -2408,14 +7810,29 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? selected_recuperation_point = freezed,
     Object? quartier_recuperation_point = freezed,
     Object? villeList = freezed,
-    Object? list_recuperation_point = freezed,
-    Object? list_search_recuperation_point = freezed,
+    Object? idColis = freezed,
+    Object? listColis = freezed,
+    Object? imageColis = freezed,
+    Object? list_localisation_point = freezed,
+    Object? list_search_point_localisation = freezed,
     Object? selectedVIlle = freezed,
     Object? phone = freezed,
     Object? libelle = freezed,
     Object? contactEmetteur = freezed,
     Object? description = freezed,
     Object? formKeyLivraison = freezed,
+    Object? nomColis = freezed,
+    Object? quantiteColis = freezed,
+    Object? contactRecepteur = freezed,
+    Object? valeurColis = freezed,
+    Object? categoryColis = freezed,
+    Object? list_category_colis = freezed,
+    Object? isMapSelectedPointLivraison = null,
+    Object? selected_livraison_point = freezed,
+    Object? errorCategory = freezed,
+    Object? errorPointLivraison = freezed,
+    Object? errorQte = freezed,
+    Object? errorImage = freezed,
     Object? position = freezed,
   }) {
     return _then(_$LivraisonStateImpl(
@@ -2447,13 +7864,25 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value._villeList
           : villeList // ignore: cast_nullable_to_non_nullable
               as List<VilleModel>?,
-      list_recuperation_point: freezed == list_recuperation_point
-          ? _value._list_recuperation_point
-          : list_recuperation_point // ignore: cast_nullable_to_non_nullable
+      idColis: freezed == idColis
+          ? _value.idColis
+          : idColis // ignore: cast_nullable_to_non_nullable
+              as int?,
+      listColis: freezed == listColis
+          ? _value._listColis
+          : listColis // ignore: cast_nullable_to_non_nullable
+              as List<Colis>?,
+      imageColis: freezed == imageColis
+          ? _value._imageColis
+          : imageColis // ignore: cast_nullable_to_non_nullable
+              as List<File>?,
+      list_localisation_point: freezed == list_localisation_point
+          ? _value._list_localisation_point
+          : list_localisation_point // ignore: cast_nullable_to_non_nullable
               as List<PointLivraisonModel>?,
-      list_search_recuperation_point: freezed == list_search_recuperation_point
-          ? _value._list_search_recuperation_point
-          : list_search_recuperation_point // ignore: cast_nullable_to_non_nullable
+      list_search_point_localisation: freezed == list_search_point_localisation
+          ? _value._list_search_point_localisation
+          : list_search_point_localisation // ignore: cast_nullable_to_non_nullable
               as List<PointLivraisonModel>?,
       selectedVIlle: freezed == selectedVIlle
           ? _value.selectedVIlle
@@ -2479,6 +7908,54 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value.formKeyLivraison
           : formKeyLivraison // ignore: cast_nullable_to_non_nullable
               as GlobalKey<FormState>?,
+      nomColis: freezed == nomColis
+          ? _value.nomColis
+          : nomColis // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      quantiteColis: freezed == quantiteColis
+          ? _value.quantiteColis
+          : quantiteColis // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      contactRecepteur: freezed == contactRecepteur
+          ? _value.contactRecepteur
+          : contactRecepteur // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      valeurColis: freezed == valeurColis
+          ? _value.valeurColis
+          : valeurColis // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      categoryColis: freezed == categoryColis
+          ? _value.categoryColis
+          : categoryColis // ignore: cast_nullable_to_non_nullable
+              as CategoryModel?,
+      list_category_colis: freezed == list_category_colis
+          ? _value._list_category_colis
+          : list_category_colis // ignore: cast_nullable_to_non_nullable
+              as List<CategoryModel>?,
+      isMapSelectedPointLivraison: null == isMapSelectedPointLivraison
+          ? _value.isMapSelectedPointLivraison
+          : isMapSelectedPointLivraison // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selected_livraison_point: freezed == selected_livraison_point
+          ? _value.selected_livraison_point
+          : selected_livraison_point // ignore: cast_nullable_to_non_nullable
+              as PointLivraisonModel?,
+      errorCategory: freezed == errorCategory
+          ? _value.errorCategory
+          : errorCategory // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      errorPointLivraison: freezed == errorPointLivraison
+          ? _value.errorPointLivraison
+          : errorPointLivraison // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      errorQte: freezed == errorQte
+          ? _value.errorQte
+          : errorQte // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      errorImage: freezed == errorImage
+          ? _value.errorImage
+          : errorImage // ignore: cast_nullable_to_non_nullable
+              as bool?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -2498,18 +7975,36 @@ class _$LivraisonStateImpl implements _LivraisonState {
       this.selected_recuperation_point,
       this.quartier_recuperation_point,
       final List<VilleModel>? villeList,
-      final List<PointLivraisonModel>? list_recuperation_point,
-      final List<PointLivraisonModel>? list_search_recuperation_point,
+      this.idColis,
+      final List<Colis>? listColis,
+      final List<File>? imageColis,
+      final List<PointLivraisonModel>? list_localisation_point,
+      final List<PointLivraisonModel>? list_search_point_localisation,
       this.selectedVIlle,
       this.phone,
       this.libelle,
       this.contactEmetteur,
       this.description,
       this.formKeyLivraison,
+      this.nomColis,
+      this.quantiteColis,
+      this.contactRecepteur,
+      this.valeurColis,
+      this.categoryColis,
+      final List<CategoryModel>? list_category_colis,
+      required this.isMapSelectedPointLivraison,
+      this.selected_livraison_point,
+      this.errorCategory,
+      this.errorPointLivraison,
+      this.errorQte,
+      this.errorImage,
       this.position})
       : _villeList = villeList,
-        _list_recuperation_point = list_recuperation_point,
-        _list_search_recuperation_point = list_search_recuperation_point;
+        _listColis = listColis,
+        _imageColis = imageColis,
+        _list_localisation_point = list_localisation_point,
+        _list_search_point_localisation = list_search_point_localisation,
+        _list_category_colis = list_category_colis;
 
   @override
   final bool? errorVille;
@@ -2534,24 +8029,46 @@ class _$LivraisonStateImpl implements _LivraisonState {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<PointLivraisonModel>? _list_recuperation_point;
   @override
-  List<PointLivraisonModel>? get list_recuperation_point {
-    final value = _list_recuperation_point;
+  final int? idColis;
+  final List<Colis>? _listColis;
+  @override
+  List<Colis>? get listColis {
+    final value = _listColis;
     if (value == null) return null;
-    if (_list_recuperation_point is EqualUnmodifiableListView)
-      return _list_recuperation_point;
+    if (_listColis is EqualUnmodifiableListView) return _listColis;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<PointLivraisonModel>? _list_search_recuperation_point;
+  final List<File>? _imageColis;
   @override
-  List<PointLivraisonModel>? get list_search_recuperation_point {
-    final value = _list_search_recuperation_point;
+  List<File>? get imageColis {
+    final value = _imageColis;
     if (value == null) return null;
-    if (_list_search_recuperation_point is EqualUnmodifiableListView)
-      return _list_search_recuperation_point;
+    if (_imageColis is EqualUnmodifiableListView) return _imageColis;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<PointLivraisonModel>? _list_localisation_point;
+  @override
+  List<PointLivraisonModel>? get list_localisation_point {
+    final value = _list_localisation_point;
+    if (value == null) return null;
+    if (_list_localisation_point is EqualUnmodifiableListView)
+      return _list_localisation_point;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<PointLivraisonModel>? _list_search_point_localisation;
+  @override
+  List<PointLivraisonModel>? get list_search_point_localisation {
+    final value = _list_search_point_localisation;
+    if (value == null) return null;
+    if (_list_search_point_localisation is EqualUnmodifiableListView)
+      return _list_search_point_localisation;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -2569,11 +8086,44 @@ class _$LivraisonStateImpl implements _LivraisonState {
   @override
   final GlobalKey<FormState>? formKeyLivraison;
   @override
+  final TextEditingController? nomColis;
+  @override
+  final TextEditingController? quantiteColis;
+  @override
+  final TextEditingController? contactRecepteur;
+  @override
+  final TextEditingController? valeurColis;
+  @override
+  final CategoryModel? categoryColis;
+  final List<CategoryModel>? _list_category_colis;
+  @override
+  List<CategoryModel>? get list_category_colis {
+    final value = _list_category_colis;
+    if (value == null) return null;
+    if (_list_category_colis is EqualUnmodifiableListView)
+      return _list_category_colis;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final bool isMapSelectedPointLivraison;
+  @override
+  final PointLivraisonModel? selected_livraison_point;
+  @override
+  final bool? errorCategory;
+  @override
+  final bool? errorPointLivraison;
+  @override
+  final bool? errorQte;
+  @override
+  final bool? errorImage;
+  @override
   final LatLng? position;
 
   @override
   String toString() {
-    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, villeList: $villeList, list_recuperation_point: $list_recuperation_point, list_search_recuperation_point: $list_search_recuperation_point, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, position: $position)';
+    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, errorQte: $errorQte, errorImage: $errorImage, position: $position)';
   }
 
   @override
@@ -2585,26 +8135,28 @@ class _$LivraisonStateImpl implements _LivraisonState {
                 other.errorVille == errorVille) &&
             (identical(other.errorPointRecuperation, errorPointRecuperation) ||
                 other.errorPointRecuperation == errorPointRecuperation) &&
-            (identical(other.isMapSelectedPointRecuperation,
-                    isMapSelectedPointRecuperation) ||
+            (identical(other.isMapSelectedPointRecuperation, isMapSelectedPointRecuperation) ||
                 other.isMapSelectedPointRecuperation ==
                     isMapSelectedPointRecuperation) &&
             (identical(other.index, index) || other.index == index) &&
-            (identical(other.selected_recuperation_point,
-                    selected_recuperation_point) ||
+            (identical(other.selected_recuperation_point, selected_recuperation_point) ||
                 other.selected_recuperation_point ==
                     selected_recuperation_point) &&
-            (identical(other.quartier_recuperation_point,
-                    quartier_recuperation_point) ||
+            (identical(other.quartier_recuperation_point, quartier_recuperation_point) ||
                 other.quartier_recuperation_point ==
                     quartier_recuperation_point) &&
             const DeepCollectionEquality()
                 .equals(other._villeList, _villeList) &&
+            (identical(other.idColis, idColis) || other.idColis == idColis) &&
+            const DeepCollectionEquality()
+                .equals(other._listColis, _listColis) &&
+            const DeepCollectionEquality()
+                .equals(other._imageColis, _imageColis) &&
             const DeepCollectionEquality().equals(
-                other._list_recuperation_point, _list_recuperation_point) &&
+                other._list_localisation_point, _list_localisation_point) &&
             const DeepCollectionEquality().equals(
-                other._list_search_recuperation_point,
-                _list_search_recuperation_point) &&
+                other._list_search_point_localisation,
+                _list_search_point_localisation) &&
             (identical(other.selectedVIlle, selectedVIlle) ||
                 other.selectedVIlle == selectedVIlle) &&
             (identical(other.phone, phone) || other.phone == phone) &&
@@ -2615,29 +8167,64 @@ class _$LivraisonStateImpl implements _LivraisonState {
                 other.description == description) &&
             (identical(other.formKeyLivraison, formKeyLivraison) ||
                 other.formKeyLivraison == formKeyLivraison) &&
-            (identical(other.position, position) ||
-                other.position == position));
+            (identical(other.nomColis, nomColis) ||
+                other.nomColis == nomColis) &&
+            (identical(other.quantiteColis, quantiteColis) ||
+                other.quantiteColis == quantiteColis) &&
+            (identical(other.contactRecepteur, contactRecepteur) ||
+                other.contactRecepteur == contactRecepteur) &&
+            (identical(other.valeurColis, valeurColis) ||
+                other.valeurColis == valeurColis) &&
+            (identical(other.categoryColis, categoryColis) ||
+                other.categoryColis == categoryColis) &&
+            const DeepCollectionEquality()
+                .equals(other._list_category_colis, _list_category_colis) &&
+            (identical(other.isMapSelectedPointLivraison, isMapSelectedPointLivraison) ||
+                other.isMapSelectedPointLivraison ==
+                    isMapSelectedPointLivraison) &&
+            (identical(other.selected_livraison_point, selected_livraison_point) || other.selected_livraison_point == selected_livraison_point) &&
+            (identical(other.errorCategory, errorCategory) || other.errorCategory == errorCategory) &&
+            (identical(other.errorPointLivraison, errorPointLivraison) || other.errorPointLivraison == errorPointLivraison) &&
+            (identical(other.errorQte, errorQte) || other.errorQte == errorQte) &&
+            (identical(other.errorImage, errorImage) || other.errorImage == errorImage) &&
+            (identical(other.position, position) || other.position == position));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      errorVille,
-      errorPointRecuperation,
-      isMapSelectedPointRecuperation,
-      index,
-      selected_recuperation_point,
-      quartier_recuperation_point,
-      const DeepCollectionEquality().hash(_villeList),
-      const DeepCollectionEquality().hash(_list_recuperation_point),
-      const DeepCollectionEquality().hash(_list_search_recuperation_point),
-      selectedVIlle,
-      phone,
-      libelle,
-      contactEmetteur,
-      description,
-      formKeyLivraison,
-      position);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        errorVille,
+        errorPointRecuperation,
+        isMapSelectedPointRecuperation,
+        index,
+        selected_recuperation_point,
+        quartier_recuperation_point,
+        const DeepCollectionEquality().hash(_villeList),
+        idColis,
+        const DeepCollectionEquality().hash(_listColis),
+        const DeepCollectionEquality().hash(_imageColis),
+        const DeepCollectionEquality().hash(_list_localisation_point),
+        const DeepCollectionEquality().hash(_list_search_point_localisation),
+        selectedVIlle,
+        phone,
+        libelle,
+        contactEmetteur,
+        description,
+        formKeyLivraison,
+        nomColis,
+        quantiteColis,
+        contactRecepteur,
+        valeurColis,
+        categoryColis,
+        const DeepCollectionEquality().hash(_list_category_colis),
+        isMapSelectedPointLivraison,
+        selected_livraison_point,
+        errorCategory,
+        errorPointLivraison,
+        errorQte,
+        errorImage,
+        position
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -2656,14 +8243,29 @@ abstract class _LivraisonState implements LivraisonState {
       final PointLivraisonModel? selected_recuperation_point,
       final String? quartier_recuperation_point,
       final List<VilleModel>? villeList,
-      final List<PointLivraisonModel>? list_recuperation_point,
-      final List<PointLivraisonModel>? list_search_recuperation_point,
+      final int? idColis,
+      final List<Colis>? listColis,
+      final List<File>? imageColis,
+      final List<PointLivraisonModel>? list_localisation_point,
+      final List<PointLivraisonModel>? list_search_point_localisation,
       final VilleModel? selectedVIlle,
       final TextEditingController? phone,
       final TextEditingController? libelle,
       final TextEditingController? contactEmetteur,
       final TextEditingController? description,
       final GlobalKey<FormState>? formKeyLivraison,
+      final TextEditingController? nomColis,
+      final TextEditingController? quantiteColis,
+      final TextEditingController? contactRecepteur,
+      final TextEditingController? valeurColis,
+      final CategoryModel? categoryColis,
+      final List<CategoryModel>? list_category_colis,
+      required final bool isMapSelectedPointLivraison,
+      final PointLivraisonModel? selected_livraison_point,
+      final bool? errorCategory,
+      final bool? errorPointLivraison,
+      final bool? errorQte,
+      final bool? errorImage,
       final LatLng? position}) = _$LivraisonStateImpl;
 
   @override
@@ -2681,9 +8283,15 @@ abstract class _LivraisonState implements LivraisonState {
   @override
   List<VilleModel>? get villeList;
   @override
-  List<PointLivraisonModel>? get list_recuperation_point;
+  int? get idColis;
   @override
-  List<PointLivraisonModel>? get list_search_recuperation_point;
+  List<Colis>? get listColis;
+  @override
+  List<File>? get imageColis;
+  @override
+  List<PointLivraisonModel>? get list_localisation_point;
+  @override
+  List<PointLivraisonModel>? get list_search_point_localisation;
   @override
   VilleModel? get selectedVIlle;
   @override
@@ -2696,6 +8304,30 @@ abstract class _LivraisonState implements LivraisonState {
   TextEditingController? get description;
   @override
   GlobalKey<FormState>? get formKeyLivraison;
+  @override
+  TextEditingController? get nomColis;
+  @override
+  TextEditingController? get quantiteColis;
+  @override
+  TextEditingController? get contactRecepteur;
+  @override
+  TextEditingController? get valeurColis;
+  @override
+  CategoryModel? get categoryColis;
+  @override
+  List<CategoryModel>? get list_category_colis;
+  @override
+  bool get isMapSelectedPointLivraison;
+  @override
+  PointLivraisonModel? get selected_livraison_point;
+  @override
+  bool? get errorCategory;
+  @override
+  bool? get errorPointLivraison;
+  @override
+  bool? get errorQte;
+  @override
+  bool? get errorImage;
   @override
   LatLng? get position;
   @override

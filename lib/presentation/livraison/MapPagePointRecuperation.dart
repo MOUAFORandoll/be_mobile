@@ -1,13 +1,10 @@
 import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/old/controller/LivraisonController.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Widget/app_input_new.dart';
 import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
-import 'package:BananaExpress/utils/Services/routing.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
@@ -30,7 +27,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
       TextEditingController();
   TextEditingController libelleLocalisation = TextEditingController();
   TextEditingController quartier = TextEditingController();
-  // var livraison = Get.find<LivraisonController>();
+
   var latitude = 0.0;
   var longitude = 0.0;
   var _kLake;
@@ -77,10 +74,10 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
     context
         .read<LivraisonBloc>()
         .add(SetLogLat(latLng: LatLng(value.latitude, value.longitude)));
-   
-  setState(() {
+
+    setState(() {
       print('-------000------');
-      
+
       print('-----1----------------');
 
       setState(() {
@@ -119,7 +116,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
         builder: (BuildContext context) => BlocBuilder<LivraisonBloc,
                 LivraisonState>(
             builder: (context, state) => Container(
-                height: kHeight * .5,
+                height: getHeight(context) * .5,
                 padding: EdgeInsets.symmetric(horizontal: kMarginX),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -184,7 +181,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             margin: EdgeInsets.only(
                               top: kMarginY * 1.5,
                             ),
-                            width: kWidth * .8,
+                            width: getWith(context) * .8,
                             child: Text(
                               'Longitude : ${state.position!.longitude}',
                               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -194,7 +191,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             margin: EdgeInsets.only(
                               top: kMarginY * 1.5,
                             ),
-                            width: kWidth * .8,
+                            width: getWith(context) * .8,
                             child: Text(
                               'Latitude : ${state.position!.latitude}',
                               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -212,13 +209,12 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                   // bgColor: ColorsApp.primary,
                                   text: 'Valider'.tr(),
                                   onTap: () async {
-                                    context
-                                        .read<LivraisonBloc>()
-                                        .add(MapValidatePoint(libelle: libelleLocalisation.text,
-                                            quartier:quartier.text));
-                                        
-                                        
-                                          AutoRouter.of(context)
+                                    context.read<LivraisonBloc>().add(
+                                        MapValidatePoint(
+                                            libelle: libelleLocalisation.text,
+                                            quartier: quartier.text));
+
+                                    AutoRouter.of(context)
                                         .pushNamed(NewLivraisonPage.routeName);
                                   }),
                             ]),
@@ -249,7 +245,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
             body: Stack(
               children: [
                 Container(
-                    height: kHeight * .95,
+                    height: getHeight(context) * .95,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(15),
@@ -343,8 +339,8 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                   ),
                                   color: ColorsApp.white,
                                 ),
-                                height: kHeight / 15,
-                                width: kWidth * .88,
+                                height: getHeight(context) / 15,
+                                width: getWith(context) * .88,
                                 child: TextField(
                                   controller: searchPointRecuperationController,
                                   onChanged: (String value) {
@@ -388,9 +384,9 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                         if (isOpen)
                           Container(
                             height:
-                                state.list_search_recuperation_point!.length < 5
-                                    ? kHeight * .15
-                                    : kHeight * .3,
+                                state.list_search_point_localisation!.length < 5
+                                    ? getHeight(context) * .15
+                                    : getHeight(context) * .3,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               border: Border.all(
@@ -399,12 +395,12 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                               color: ColorsApp.white,
                             ),
                             child:
-                                state.list_search_recuperation_point!.length ==
+                                state.list_search_point_localisation!.length ==
                                         0
                                     ? Text('Aucun point de recuperation trouve')
                                     : SingleChildScrollView(
                                         child: Container(
-                                          width: kWidth * .95,
+                                          width: getWith(context) * .95,
                                           child: searchPointRecuperationController
                                                   .text.isEmpty
                                               ? ListView.builder(
@@ -412,17 +408,17 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                       NeverScrollableScrollPhysics(),
                                                   shrinkWrap: true,
                                                   itemCount: state
-                                                      .list_recuperation_point!
+                                                      .list_localisation_point!
                                                       .length,
                                                   itemBuilder:
                                                       (_, index) => InkWell(
                                                             onTap: () {
                                                               selectPoint(
                                                                   state,
-                                                                  state.list_recuperation_point![
+                                                                  state.list_localisation_point![
                                                                       index]);
                                                               // state.setLibelleAndQuartier(
-                                                              //     state.list_recuperation_point![
+                                                              //     state.list_localisation_point![
                                                               //         index]);
                                                               FocusScope.of(
                                                                       context)
@@ -440,7 +436,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                     children: [
                                                                       Container(
                                                                         child: Text(state
-                                                                            .list_recuperation_point![index]
+                                                                            .list_localisation_point![index]
                                                                             .libelle),
                                                                       ),
                                                                       Container(
@@ -448,7 +444,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                             left:
                                                                                 10),
                                                                         child: Text(state
-                                                                            .list_recuperation_point![index]
+                                                                            .list_localisation_point![index]
                                                                             .quartier),
                                                                       ),
                                                                       Container(
@@ -456,7 +452,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                             left:
                                                                                 10),
                                                                         child: Text(state
-                                                                            .list_recuperation_point![index]
+                                                                            .list_localisation_point![index]
                                                                             .ville),
                                                                       ),
                                                                     ],
@@ -474,17 +470,17 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                       NeverScrollableScrollPhysics(),
                                                   shrinkWrap: true,
                                                   itemCount: state
-                                                      .list_search_recuperation_point!
+                                                      .list_search_point_localisation!
                                                       .length,
                                                   itemBuilder:
                                                       (_, index) => InkWell(
                                                             onTap: () {
                                                               selectPoint(
                                                                   state,
-                                                                  state.list_search_recuperation_point![
+                                                                  state.list_search_point_localisation![
                                                                       index]);
                                                               // state.setLibelleAndQuartier(
-                                                              //     state.list_search_recuperation_point![
+                                                              //     state.list_search_point_localisation![
                                                               //         index]);
                                                               FocusScope.of(
                                                                       context)
@@ -502,7 +498,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                     children: [
                                                                       Container(
                                                                         child: Text(state
-                                                                            .list_search_recuperation_point![index]
+                                                                            .list_search_point_localisation![index]
                                                                             .libelle),
                                                                       ),
                                                                       Container(
@@ -510,7 +506,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                             left:
                                                                                 10),
                                                                         child: Text(state
-                                                                            .list_search_recuperation_point![index]
+                                                                            .list_search_point_localisation![index]
                                                                             .quartier),
                                                                       ),
                                                                       Container(
@@ -518,7 +514,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                             left:
                                                                                 10),
                                                                         child: Text(state
-                                                                            .list_search_recuperation_point![index]
+                                                                            .list_search_point_localisation![index]
                                                                             .ville),
                                                                       ),
                                                                     ],

@@ -181,7 +181,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ManagerController>(builder: (_controller) {
       return Drawer(
-        width: kWidth / 1.35,
+        width: getWith(context) / 1.35,
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -194,8 +194,8 @@ class CustomDrawer extends StatelessWidget {
                       child: InkWell(
                         onTap: () => _controller.updateImageUser(),
                         child: CachedNetworkImage(
-                          height: kHeight / 10,
-                          width: kHeight / 10,
+                          height: getHeight(context) / 10,
+                          width: getHeight(context) / 10,
                           fit: BoxFit.cover,
                           imageUrl: _controller.Userget.profile,
                           imageBuilder: (context, imageProvider) {

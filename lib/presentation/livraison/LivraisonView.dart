@@ -1,7 +1,7 @@
-import 'package:BananaExpress/components/Widget/EmptyLivraisonsComponent.dart';
-import 'package:BananaExpress/components/Widget/LivraisonUserComponent.dart';
-import 'package:BananaExpress/components/Widget/ShimmerLivraison.dart';
-import 'package:BananaExpress/components/Widget/icon_svg.dart';
+import 'package:BananaExpress/old/components/Widget/EmptyLivraisonsComponent.dart';
+import 'package:BananaExpress/old/components/Widget/LivraisonUserComponent.dart';
+import 'package:BananaExpress/old/components/Widget/ShimmerLivraison.dart';
+import 'package:BananaExpress/old/components/Widget/icon_svg.dart';
 import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';

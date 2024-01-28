@@ -1,6 +1,6 @@
-import 'package:BananaExpress/components/Form/search_field.dart';
-import 'package:BananaExpress/components/Widget/HomeModuleComponent.dart';
-import 'package:BananaExpress/components/Widget/icon_svg.dart';
+import 'package:BananaExpress/old/components/Form/search_field.dart';
+import 'package:BananaExpress/old/components/Widget/HomeModuleComponent.dart';
+import 'package:BananaExpress/old/components/Widget/icon_svg.dart';
 import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
 import 'package:BananaExpress/routes/app_router.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../components/Button/app_button.dart';
+import '../../old/components/Button/app_button.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 
 import 'package:easy_localization/easy_localization.dart';
@@ -113,7 +113,7 @@ class SimpleUserView extends StatelessWidget {
   openModalLivraison(context) => showModalBottomSheet(
         context: context,
         builder: (BuildContext context) => Container(
-            height: kHeight * .4,
+            height: getHeight(context) * .4,
             padding: EdgeInsets.symmetric(horizontal: kMarginX),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -149,7 +149,7 @@ class SimpleUserView extends StatelessWidget {
                         margin: EdgeInsets.only(bottom: 8),
                         child: AppButton(
                             text: 'Livrer mon colis'.tr(),
-                            // width: kWidth / 2.5,
+                            // width: getWith(context) / 2.5,
                             size: MainAxisSize.max,
                             bgColor: ColorsApp.second,
                             onTap: () {
@@ -160,7 +160,7 @@ class SimpleUserView extends StatelessWidget {
                       ),
                       AppButton(
                           text: 'Me faire livrer'.tr(),
-                          // width: kWidth / 2.5,
+                          // width: getWith(context) / 2.5,
                           size: MainAxisSize.max,
                           // bgColor: AppColors.secondarytext,
                           onTap: () {

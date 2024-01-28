@@ -18,7 +18,7 @@ dependencies:
   flutter_spinkit: any
   flutter_svg: any
   font_awesome_flutter: ^10.4.0
-  geolocator: ^8.0.1
+  geolocator: ^10.1.0
   get: ^4.6.5
   get_storage: any
   google_maps_flutter: ^2.2.8
@@ -30,7 +30,6 @@ dependencies:
   intl_translation: any
   jwt_decode: null
   loading_indicator: ^3.1.1
-  location: ^4.4.0
   new_version_plus: ^0.0.11
   objectbox: ^2.2.1
   objectbox_flutter_libs: any
@@ -47,7 +46,7 @@ dependencies:
   socket_io_client: any
   syncfusion_flutter_pdf: ^22.2.10
   toast: ^0.3.0
-  uni_links: ^0.5.0
+  uni_links: ^0.5.1
   webview_flutter: ^4.2.3
 
   auto_route: ^7.8.3

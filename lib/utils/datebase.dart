@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:BananaExpress/old/controller/entity.dart';
+import 'package:BananaExpress/entity.dart';
 import 'package:BananaExpress/objectbox.g.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

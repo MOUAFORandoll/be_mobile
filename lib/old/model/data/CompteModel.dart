@@ -1,4 +1,3 @@
- 
 import 'dart:convert';
 
 CompteModel cmopteModelFromJson(String str) =>
@@ -16,12 +15,12 @@ class CompteModel {
   int solde;
 
   factory CompteModel.fromJson(Map<String, dynamic> json) => CompteModel(
-        id: json["id"],
+        id: json['id'],
         solde: json["solde"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
+        'id': id,
         "solde": solde,
       };
 }

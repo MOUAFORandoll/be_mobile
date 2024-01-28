@@ -34,7 +34,7 @@
     },
     {
       "id": "2:8984566840537087468",
-      "lastPropertyId": "4:34511884449713588",
+      "lastPropertyId": "5:3050349477534242606",
       "name": "KeyUser",
       "properties": [
         {
@@ -57,6 +57,11 @@
           "id": "4:34511884449713588",
           "name": "refreshToken",
           "type": 9
+        },
+        {
+          "id": "5:3050349477534242606",
+          "name": "userId",
+          "type": 6
         }
       ],
       "relations": []

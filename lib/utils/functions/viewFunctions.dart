@@ -75,7 +75,7 @@ class ViewFunctions {
   //         borderRadius: BorderRadius.circular(10),
   //       ),
   //       margin: EdgeInsets.symmetric(
-  //           vertical: kHeight * .43, horizontal: kWidth * .40),
+  //           vertical: getHeight(context) * .43, horizontal: getWith(context) * .40),
   //       child: Container(
   //           child: Center(
   //               child: CircularProgressIndicator(
@@ -369,7 +369,7 @@ Future<void> _checkInternetConnection() async {
     //   });
   }
 
-  showToast(bool status) {
+  showToast(context,bool status) {
     Color? color = status ? Colors.green : Colors.orange[600];
     String message = !status
         ? "Votre appareil n'es pas connecté à Internet."
@@ -389,7 +389,7 @@ Future<void> _checkInternetConnection() async {
           status ? const Duration(seconds: 4) : const Duration(seconds: 10),
       barBlur: 200,
       shouldIconPulse: true,
-      maxWidth: kWidth,
+      maxWidth: getWith(context),
       snackStyle: SnackStyle.GROUNDED,
       leftBarIndicatorColor: color,
       backgroundColor: Colors.white,

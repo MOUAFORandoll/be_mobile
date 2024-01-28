@@ -1,6 +1,6 @@
-import 'package:BananaExpress/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
 import 'package:BananaExpress/utils/Services/routing.dart';
-import '../../../components/exportcomponent.dart';
+import '../../components/exportcomponent.dart';
 
 class SuccesRecuperationview extends StatelessWidget {
   @override

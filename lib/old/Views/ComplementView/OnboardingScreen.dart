@@ -1,5 +1,5 @@
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Widget/app_carroussel_item.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Widget/app_carroussel_item.dart';
 import 'package:BananaExpress/old/controller/GeneralController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
@@ -55,7 +55,7 @@ class OnBoardingView extends StatelessWidget {
                         scrollDirection: Axis.horizontal),
                   ),
                   Positioned(
-                      bottom: kHeight / 11,
+                      bottom: getHeight(context) / 11,
                       left: 0,
                       right: 0,
                       child: Container(

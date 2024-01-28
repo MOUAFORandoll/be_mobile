@@ -1,8 +1,8 @@
-import 'package:BananaExpress/components/Form/search_field.dart';
-import 'package:BananaExpress/components/Widget/HomeModuleComponent.dart';
-import 'package:BananaExpress/components/Widget/ShimmerBox.dart';
-import 'package:BananaExpress/components/Widget/ShimmerProduit.dart';
-import 'package:BananaExpress/components/Widget/icon_svg.dart';
+import 'package:BananaExpress/old/components/Form/search_field.dart';
+import 'package:BananaExpress/old/components/Widget/HomeModuleComponent.dart';
+import 'package:BananaExpress/old/components/Widget/ShimmerBox.dart';
+import 'package:BananaExpress/old/components/Widget/ShimmerProduit.dart';
+import 'package:BananaExpress/old/components/Widget/icon_svg.dart';
 import 'package:BananaExpress/old/controller/GeneralController.dart';
 import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
@@ -143,7 +143,7 @@ class SimpleUserView extends StatelessWidget {
                                                                         constraints:
                                                                             BoxConstraints(
                                                                           maxWidth:
-                                                                              kHeight / 8,
+                                                                              getHeight(context) / 8,
                                                                         ),
                                                                         alignment:
                                                                             Alignment
@@ -151,7 +151,7 @@ class SimpleUserView extends StatelessWidget {
                                                                         child: Column(
                                                                             children: [
                                                                               Container(
-                                                                                height: kHeight / 8,
+                                                                                height: getHeight(context) / 8,
                                                                                 padding: EdgeInsets.all(2),
                                                                                 decoration: BoxDecoration(
                                                                                   color: ColorsApp.white,
@@ -162,8 +162,8 @@ class SimpleUserView extends StatelessWidget {
                                                                                   imageUrl: generalController.categoryList[index].logo! /* 'https://placehold.co/600x400@2x.png' */,
                                                                                   imageBuilder: (context, imageProvider) {
                                                                                     return Container(
-                                                                                        height: kHeight / 8,
-                                                                                        width: kHeight / 8,
+                                                                                        height: getHeight(context) / 8,
+                                                                                        width: getHeight(context) / 8,
                                                                                         // margin: EdgeInsets.only(bottom: 10),
                                                                                         // padding: EdgeInsets.symmetric(vertical: 4, horizontal: 1),
                                                                                         decoration: BoxDecoration(
@@ -177,8 +177,8 @@ class SimpleUserView extends StatelessWidget {
                                                                                   },
                                                                                   errorWidget: (context, url, error) {
                                                                                     return Container(
-                                                                                        height: kHeight / 8,
-                                                                                        width: kHeight / 8,
+                                                                                        height: getHeight(context) / 8,
+                                                                                        width: getHeight(context) / 8,
                                                                                         decoration: BoxDecoration(
                                                                                             image: DecorationImage(
                                                                                           image: AssetImage('assets/logo/logo.png'),

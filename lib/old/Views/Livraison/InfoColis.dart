@@ -1,10 +1,10 @@
 import 'package:BananaExpress/old/Views/Livraison/MapPagePointLivraisonColis.dart';
-import 'package:BananaExpress/components/Button/addColis.dart';
-import 'package:BananaExpress/components/Button/app_button.dart';
-import 'package:BananaExpress/components/Button/uploadImage.dart';
-import 'package:BananaExpress/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/components/Widget/colisComponent.dart';
-import 'package:BananaExpress/components/Widget/imageComp.dart';
+import 'package:BananaExpress/old/components/Button/addColis.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Button/uploadImage.dart';
+import 'package:BananaExpress/old/components/Widget/app_input_new.dart';
+import 'package:BananaExpress/old/components/Widget/colisComponent.dart';
+import 'package:BananaExpress/old/components/Widget/imageComp.dart';
 import 'package:BananaExpress/old/controller/GeneralController.dart';
 import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
@@ -22,12 +22,14 @@ class InfoColis extends StatefulWidget {
 
 class _InfoColisState extends State<InfoColis> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext  context) {
     return GetBuilder<LivraisonController>(builder: (_controller) {
       return SingleChildScrollView(
           child: Column(children: [
         SizedBox(
-            height: _controller.listColis.length == 0 ? 0 : kHeight * .65,
+            height: _controller.listColis.length == 0
+                ? 0
+                : getHeight(Get.context) * .65,
             child: Stack(children: [
               GridView.builder(
                   shrinkWrap: true,
@@ -65,7 +67,7 @@ openModalAddColis() {
             child: SafeArea(
                 minimum: EdgeInsets.only(top: 50),
                 child: Container(
-                    height: kHeight * .9,
+                    height: getHeight(Get.context) * .9,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
@@ -133,8 +135,8 @@ openModalAddColis() {
                                         width: 1),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
-                                  height: kHeight * .08,
-                                  width: kWidth,
+                                  height: getHeight(Get.context) * .08,
+                                  width: getWith(Get.context),
                                   margin: EdgeInsets.only(
                                     top: kMarginY * 1.5,
                                   ),
@@ -248,8 +250,10 @@ openModalAddColis() {
                                                           BorderRadius.circular(
                                                               8),
                                                     ),
-                                                    height: kHeight * .08,
-                                                    width: kWidth * .7,
+                                                    height: getHeight(Get.context) *
+                                                        .08,
+                                                    width:
+                                                        getWith(Get.context) * .7,
                                                     margin: EdgeInsets.only(
                                                       top: kMarginY * 1.5,
                                                     ),
@@ -258,7 +262,9 @@ openModalAddColis() {
                                                       value: _controllerE
                                                           .selected_livraison_point,
                                                       hint: Container(
-                                                        width: kWidth * .6,
+                                                        width:
+                                                            getWith(Get.context) *
+                                                                .6,
                                                         alignment:
                                                             Alignment.center,
                                                         child: Text(
@@ -304,14 +310,20 @@ openModalAddColis() {
                                                     ),
                                                   )
                                                 : Container(
-                                                    padding: EdgeInsets
-                                                        .symmetric(
-                                                            vertical: kMarginY,
-                                                            horizontal:
-                                                                kMarginX),
-                                                    height: kHeight * .06,
+                                                    padding:
+                                                        EdgeInsets
+                                                            .symmetric(
+                                                                vertical:
+                                                                    kMarginY,
+                                                                horizontal:
+                                                                    kMarginX),
+                                                    height: getHeight(
+                                                            Get.context) *
+                                                        .06,
                                                     alignment: Alignment.center,
-                                                    width: kWidth * .7,
+                                                    width: getWith(
+                                                            Get.context) *
+                                                        .7,
                                                     decoration: BoxDecoration(
                                                         borderRadius:
                                                             BorderRadius
@@ -375,7 +387,7 @@ openModalAddColis() {
                                                 top: kMarginY * 1.5,
                                               ),
                                               // height: 150,
-                                              width: kWidth / 2.5,
+                                              width: getWith(Get.context) / 2.5,
                                               child: AppInputNew(
                                                 textInputType:
                                                     TextInputType.number,
@@ -406,7 +418,8 @@ openModalAddColis() {
                                                 padding: EdgeInsets.symmetric(
                                                     vertical: kMarginY,
                                                     horizontal: kMarginX),
-                                                height: kHeight * .06,
+                                                height:
+                                                    getHeight(Get.context) * .06,
                                                 decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -446,7 +459,9 @@ openModalAddColis() {
                                                                           12),
                                                               color: ColorsApp
                                                                   .grey),
-                                                          width: kWidth / 2,
+                                                          width:
+                                                              getWith(Get.context) /
+                                                                  2,
                                                           // height: 35,
                                                           // alignment: Alignment.center,
                                                           margin:
@@ -508,139 +523,143 @@ openModalAddColis() {
                                                 CrossAxisAlignment.start,
                                             children: [
                                           GetBuilder<LivraisonController>(
-                                              builder: (_Ncontroller) =>
-                                                  InkWell(
-                                                    child: _Ncontroller
-                                                                .imageColis
-                                                                .length !=
-                                                            0
-                                                        ? Container(
-                                                            height: kHeight * 2,
-                                                            margin:
-                                                                EdgeInsets.only(
-                                                              top: kMarginY,
-                                                            ),
-                                                            child: ImageComp(
-                                                                file: _Ncontroller
-                                                                        .imageColis[
-                                                                    0],
-                                                                index: 0))
-                                                        : UploadImage(
-                                                            color:
-                                                                ColorsApp.tird,
-                                                            title:
-                                                                'Appareil photo',
-                                                            icon: Icons
-                                                                .camera_alt),
-                                                    onTap: () =>
-                                                        Get.bottomSheet(
-                                                      Container(
-                                                          height: kHeight * .4,
-                                                          padding: EdgeInsets
-                                                              .symmetric(
-                                                                  horizontal:
-                                                                      kMarginX),
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              topLeft: Radius
-                                                                  .circular(10),
-                                                              topRight: Radius
-                                                                  .circular(10),
-                                                            ),
-                                                            color:
-                                                                ColorsApp.white,
-                                                          ),
-                                                          child: Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                    alignment:
-                                                                        Alignment
-                                                                            .topRight,
-                                                                    margin: EdgeInsets.symmetric(
-                                                                        vertical:
-                                                                            kMarginY *
-                                                                                2),
-                                                                    // padding: EdgeInsets.symmetric(
-                                                                    //     horizontal: kMarginX / 2),
-                                                                    child:
-                                                                        InkWell(
-                                                                      onTap: () =>
-                                                                          Get.back(),
-                                                                      child: Icon(
-                                                                          Icons
-                                                                              .close),
-                                                                    )),
-                                                                Container(
-                                                                    alignment:
-                                                                        Alignment
-                                                                            .center,
-                                                                    margin: EdgeInsets.symmetric(
-                                                                        vertical:
-                                                                            kMarginY),
-                                                                    child: Text(
-                                                                      'selectsize'
-                                                                          .tr,
-                                                                      style: TextStyle(
-                                                                          fontWeight:
-                                                                              FontWeight.w500
-                                                                          // color: AppColors.secondarytext,
-                                                                          ),
-                                                                    )),
-                                                                Container(
-                                                                    child:
-                                                                        Column(
-                                                                  // mainAxisSize: MainAxisSize.max,
+                                              builder:
+                                                  (_Ncontroller) => InkWell(
+                                                        child: _Ncontroller
+                                                                    .imageColis
+                                                                    .length !=
+                                                                0
+                                                            ? Container(
+                                                                height: getHeight(
+                                                                        Get.context) *
+                                                                    2,
+                                                                margin:
+                                                                    EdgeInsets
+                                                                        .only(
+                                                                  top: kMarginY,
+                                                                ),
+                                                                child: ImageComp(
+                                                                    file: _Ncontroller
+                                                                            .imageColis[
+                                                                        0],
+                                                                    index: 0))
+                                                            : UploadImage(
+                                                                color: ColorsApp
+                                                                    .tird,
+                                                                title:
+                                                                    'Appareil photo',
+                                                                icon: Icons
+                                                                    .camera_alt),
+                                                        onTap: () =>
+                                                            Get.bottomSheet(
+                                                          Container(
+                                                              height: getHeight(
+                                                                      Get.context) *
+                                                                  .4,
+                                                              padding: EdgeInsets
+                                                                  .symmetric(
+                                                                      horizontal:
+                                                                          kMarginX),
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .only(
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          10),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          10),
+                                                                ),
+                                                                color: ColorsApp
+                                                                    .white,
+                                                              ),
+                                                              child: Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
                                                                   children: [
                                                                     Container(
-                                                                      margin: EdgeInsets.only(
-                                                                          bottom:
-                                                                              8),
-                                                                      child:
-                                                                          AppButton(
-                                                                        text: 'Camera'
-                                                                            .tr,
-                                                                        // width: kWidth / 2.5,
-                                                                        size: MainAxisSize
-                                                                            .max,
-                                                                        // bgColor: AppColors.primaryGreen,
-                                                                        onTap: () =>
-                                                                            _controller.getImageColisAppareil(),
-                                                                      ),
-                                                                    ),
-                                                                    AppButton(
-                                                                        text: 'Galerie'
-                                                                            .tr,
-                                                                        // width: kWidth / 2.5,
-                                                                        size: MainAxisSize
-                                                                            .max,
-                                                                        // bgColor: AppColors.secondarytext,
-                                                                        onTap: () =>
-                                                                            _controller.getImageColisGalerie()),
-                                                                  ],
-                                                                ))
-                                                              ])),
-                                                      isScrollControlled: true,
-                                                      barrierColor:
-                                                          ColorsApp.primary,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius.vertical(
-                                                                top: Radius
-                                                                    .circular(
-                                                                        16)),
-                                                      ),
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                    ),
-                                                    /*  Get.dialog(ModalDialogImage()), */
-                                                  )),
+                                                                        alignment:
+                                                                            Alignment
+                                                                                .topRight,
+                                                                        margin: EdgeInsets.symmetric(
+                                                                            vertical: kMarginY *
+                                                                                2),
+                                                                        // padding: EdgeInsets.symmetric(
+                                                                        //     horizontal: kMarginX / 2),
+                                                                        child:
+                                                                            InkWell(
+                                                                          onTap: () =>
+                                                                              Get.back(),
+                                                                          child:
+                                                                              Icon(Icons.close),
+                                                                        )),
+                                                                    Container(
+                                                                        alignment:
+                                                                            Alignment
+                                                                                .center,
+                                                                        margin: EdgeInsets.symmetric(
+                                                                            vertical:
+                                                                                kMarginY),
+                                                                        child:
+                                                                            Text(
+                                                                          'selectsize'
+                                                                              .tr,
+                                                                          style: TextStyle(
+                                                                              fontWeight: FontWeight.w500
+                                                                              // color: AppColors.secondarytext,
+                                                                              ),
+                                                                        )),
+                                                                    Container(
+                                                                        child:
+                                                                            Column(
+                                                                      // mainAxisSize: MainAxisSize.max,
+                                                                      children: [
+                                                                        Container(
+                                                                          margin:
+                                                                              EdgeInsets.only(bottom: 8),
+                                                                          child:
+                                                                              AppButton(
+                                                                            text:
+                                                                                'Camera'.tr,
+                                                                            // width: getWith(Get.context) / 2.5,
+                                                                            size:
+                                                                                MainAxisSize.max,
+                                                                            // bgColor: AppColors.primaryGreen,
+                                                                            onTap: () =>
+                                                                                _controller.getImageColisAppareil(),
+                                                                          ),
+                                                                        ),
+                                                                        AppButton(
+                                                                            text:
+                                                                                'Galerie'.tr,
+                                                                            // width: getWith(Get.context) / 2.5,
+                                                                            size: MainAxisSize.max,
+                                                                            // bgColor: AppColors.secondarytext,
+                                                                            onTap: () => _controller.getImageColisGalerie()),
+                                                                      ],
+                                                                    ))
+                                                                  ])),
+                                                          isScrollControlled:
+                                                              true,
+                                                          barrierColor:
+                                                              ColorsApp.primary,
+                                                          shape:
+                                                              RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius.vertical(
+                                                                    top: Radius
+                                                                        .circular(
+                                                                            16)),
+                                                          ),
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                        ),
+                                                        /*  Get.dialog(ModalDialogImage()), */
+                                                      )),
                                           if (!_controller.isImage)
                                             Container(
                                                 padding: EdgeInsets.only(

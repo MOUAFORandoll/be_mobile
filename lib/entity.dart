@@ -1,216 +1,222 @@
-// import 'package:jwt_decode/jwt_decode.dart';
-// import 'package:objectbox/objectbox.dart';
+import 'package:jwt_decode/jwt_decode.dart';
+import 'package:objectbox/objectbox.dart';
 
-// @Entity()
-// class YourDataModel {
-//   int id;
-//   String name;
+@Entity()
+class YourDataModel {
+  int id;
+  String name;
 
-//   YourDataModel({this.id = 0, required this.name});
-// }
+  YourDataModel({this.id = 0, required this.name});
+}
 
-// @Entity()
-// class Second {
-//   int id;
-//   String name;
+@Entity()
+class Second {
+  int id;
+  String name;
 
-//   Second({this.id = 0, required this.name});
-// }
+  Second({this.id = 0, required this.name});
+}
 
-// @Entity()
-// class User {
-//   int id = 0;
+@Entity()
+class User {
+  int id = 0;
+  @Property()
+  int userId = 0;
 
-//   @Property()
-//   String nom;
+  @Property()
+  String nom;
 
-//   @Property()
-//   String prenom;
+  @Property()
+  String prenom;
 
-//   @Property()
-//   String email;
+  @Property()
+  String email;
 
-//   @Property()
-//   String profile;
+  @Property()
+  String profile;
 
-//   @Property()
-//   int phone;
+  @Property()
+  String phone;
 
-//   @Property()
-//   String dateCreated;
+  @Property()
+  String dateCreated;
 
-//   User({
-//     required this.nom,
-//     required this.prenom,
-//     required this.email,
-//     required this.profile,
-//     required this.phone,
-//     required this.dateCreated,
-//   });
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'nom': nom,
-//       'prenom': prenom,
-//       'email': email,
-//       'profile': profile,
-//       'phone': phone,
-//       'dateCreated': dateCreated,
-//     };
-//   }
+  @Property()
+  int typeUser;
 
-//   factory User.fromJson(Map<String, dynamic> json) {
-//     return User(
-//       nom: json['nom'],
-//       prenom: json['prenom'],
-//       email: json['email'],
-//       profile: json['profile'],
-//       phone: json['phone'],
-//       dateCreated: json['dateCreated'],
-//     );
-//   }
-// }
+  User({
+    required this.userId,
+    required this.nom,
+    required this.prenom,
+    required this.typeUser,
+    required this.email,
+    required this.profile,
+    required this.phone,
+    required this.dateCreated,
+  });
+  Map<String, dynamic> toMap() {
+    return {
+      'userId': userId,
+      'nom': nom,
+      'prenom': prenom,
+      'typeUser': typeUser,
+      'email': email,
+      'profile': profile,
+      'phone': phone,
+      'dateCreated': dateCreated,
+    };
+  }
 
-// @Entity()
-// class Lang {
-//   int id = 0;
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      userId: json['id'],
+      typeUser: json['typeUser'],
+      nom: json['nom'],
+      prenom: json['prenom'],
+      email: json['email'],
+      profile: json['profile'],
+      phone: json['phone'],
+      dateCreated: json['date_created'],
+    );
+  }
+}
 
-//   @Property()
-//   String name;
+@Entity()
+class Lang {
+  int id = 0;
 
-//   Lang({required this.name});
-// }
+  @Property()
+  String name;
 
-// @Entity()
-// class Theme {
-//   int id = 0;
+  Lang({required this.name});
+}
 
-//   @Property()
-//   int value;
+@Entity()
+class Theme {
+  int id = 0;
 
-//   Theme({required this.value});
-// }
+  @Property()
+  int value;
 
-// @Entity()
-// class Localisation {
-//   int id = 0;
+  Theme({required this.value});
+}
 
-//   @Property()
-//   String ville;
+@Entity()
+class Localisation {
+  int id = 0;
 
-//   @Property()
-//   String long;
+  @Property()
+  String ville;
 
-//   @Property()
-//   String lat;
+  @Property()
+  String longitude;
 
-//   @Property()
-//   String ip;
+  @Property()
+  String latitude;
 
-//   Localisation({
-//     required this.ville,
-//     required this.long,
-//     required this.lat,
-//     required this.ip,
-//   });
+  @Property()
+  String ip;
 
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'ville': ville,
-//       'long': long,
-//       'lat': lat,
-//       'ip': ip,
-//     };
-//   }
+  Localisation({
+    required this.ville,
+    required this.longitude,
+    required this.latitude,
+    required this.ip,
+  });
 
-//   factory Localisation.fromJson(Map<String, dynamic> json) {
-//     return Localisation(
-//       ville: json['ville'],
-//       long: json['long'],
-//       lat: json['lat'],
-//       ip: json['ip'],
-//     );
-//   }
-// }
+  Map<String, dynamic> toMap() {
+    return {
+      'ville': ville,
+      'longitude': longitude.toString(),
+      'latitude': latitude.toString(),
+      'ip': ip,
+    };
+  }
 
-// @Entity()
-// class Commande {
-//   int id = 0;
+  factory Localisation.fromJson(Map<String, dynamic> json) {
+    return Localisation(
+      ville: json['ville'],
+      longitude: json['longitude'].toString(),
+      latitude: json['latitude'].toString(),
+      ip: json['ip'],
+    );
+  }
+}
 
-//   @Property()
-//   String codeCommande;
+@Entity()
+class Commande {
+  int id = 0;
 
-//   @Property()
-//   String codeClient;
+  @Property()
+  String codeCommande;
 
-//   @Property()
-//   String date;
+  @Property()
+  String codeClient;
 
-//   Commande(
-//       {required this.codeCommande,
-//       required this.codeClient,
-//       required this.date});
+  @Property()
+  String date;
 
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'codeCommande': codeCommande,
-//       'codeClient': codeClient,
-//       'date': date,
-//     };
-//   }
+  Commande(
+      {this.id = 0,
+      required this.codeCommande,
+      required this.codeClient,
+      required this.date});
 
-//   factory Commande.fromJson(Map<String, dynamic> json) {
-//     return Commande(
-//       codeCommande: json['codeCommande'],
-//       codeClient: json['codeClient'],
-//       date: json['date'],
-//     );
-//   }
-// }
+  Map<String, dynamic> toMap() {
+    return {
+      'codeCommande': codeCommande,
+      'codeClient': codeClient,
+      'date': date,
+    };
+  }
 
-// @Entity()
-// class KeyUser {
-//   int id = 0;
+  factory Commande.fromJson(Map<String, dynamic> json) {
+    return Commande(
+      id: json['id'],
+      codeCommande: json['codeCommande'],
+      codeClient: json['codeClient'],
+      date: json['date'],
+    );
+  }
+}
 
-//   @Property()
-//   String keySecret;
+@Entity()
+class KeyUser {
+  int id = 0;
 
-//   @Property()
-//   String codeCommunication;
+  @Property()
+  int userId = 0;
+  @Property()
+  String keySecret;
 
-//   @Property()
-//   String token;
+  @Property()
+  String token;
 
-//   @Property()
-//   String codeParrainnage;
+  @Property()
+  String refreshToken;
 
-//   @Property()
-//   String refreshToken;
+  KeyUser({
+    required this.keySecret,
+    required this.userId,
+    required this.token,
+    required this.refreshToken,
+  });
 
-//   KeyUser({
-//     required this.keySecret,
-//     required this.codeCommunication,
-//     required this.token,
-//     required this.codeParrainnage,
-//     required this.refreshToken,
-//   });
+  Map<String, dynamic> toMap() {
+    return {
+      'userId': userId,
+      'keySecret': keySecret,
+      'token': token,
+      'refreshToken': refreshToken,
+    };
+  }
 
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'keySecret': keySecret,
-//       'codeCommunication': codeCommunication,
-//       'token': token,
-//       'codeParrainnage': codeParrainnage,
-//       'refreshToken': refreshToken,
-//     };
-//   }
-
-//   factory KeyUser.fromJson(Map<String, dynamic> json) {
-//     return KeyUser(
-//       keySecret: Jwt.parseJwt(json['token'])['keySecret'],
-//       codeCommunication: Jwt.parseJwt(json['token'])['codeCommunication'],
-//       token: json['token'],
-//       codeParrainnage: Jwt.parseJwt(json['token'])['codeParrainnage'],
-//       refreshToken: json['refreshToken'],
-//     );
-//   }
-// }
+  factory KeyUser.fromJson(Map<String, dynamic> json) {
+    return KeyUser(
+      userId: Jwt.parseJwt(json['token'])['id'],
+      keySecret: Jwt.parseJwt(json['token'])['keySecret'],
+      token: json['token'],
+      refreshToken: json['refreshToken'],
+    );
+  }
+}

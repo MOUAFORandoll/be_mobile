@@ -14,7 +14,7 @@ import 'package:objectbox/internal.dart'; // generated code can access "internal
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'old/controller/entity.dart';
+import 'entity.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
@@ -51,7 +51,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(2, 8984566840537087468),
       name: 'KeyUser',
-      lastPropertyId: const IdUid(4, 34511884449713588),
+      lastPropertyId: const IdUid(5, 3050349477534242606),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -73,6 +73,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(4, 34511884449713588),
             name: 'refreshToken',
             type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 3050349477534242606),
+            name: 'userId',
+            type: 6,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -335,11 +340,12 @@ ModelDefinition getObjectBoxModel() {
           final keySecretOffset = fbb.writeString(object.keySecret);
           final tokenOffset = fbb.writeString(object.token);
           final refreshTokenOffset = fbb.writeString(object.refreshToken);
-          fbb.startTable(5);
+          fbb.startTable(6);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, keySecretOffset);
           fbb.addOffset(2, tokenOffset);
           fbb.addOffset(3, refreshTokenOffset);
+          fbb.addInt64(4, object.userId);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -348,6 +354,8 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
           final keySecretParam = const fb.StringReader(asciiOptimization: true)
               .vTableGet(buffer, rootOffset, 6, '');
+          final userIdParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 12, 0);
           final tokenParam = const fb.StringReader(asciiOptimization: true)
               .vTableGet(buffer, rootOffset, 8, '');
           final refreshTokenParam =
@@ -355,6 +363,7 @@ ModelDefinition getObjectBoxModel() {
                   .vTableGet(buffer, rootOffset, 10, '');
           final object = KeyUser(
               keySecret: keySecretParam,
+              userId: userIdParam,
               token: tokenParam,
               refreshToken: refreshTokenParam)
             ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
@@ -606,6 +615,10 @@ class KeyUser_ {
   /// see [KeyUser.refreshToken]
   static final refreshToken =
       QueryStringProperty<KeyUser>(_entities[1].properties[3]);
+
+  /// see [KeyUser.userId]
+  static final userId =
+      QueryIntegerProperty<KeyUser>(_entities[1].properties[4]);
 }
 
 /// [Lang] entity fields to define ObjectBox queries.

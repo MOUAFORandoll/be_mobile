@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:BananaExpress/old/Views/Livraison/SuccesReceptionview.dart';
 import 'package:BananaExpress/old/Views/Livraison/SuccesRecuperationview.dart';
-import 'package:BananaExpress/components/Button/app_button.dart';
+import 'package:BananaExpress/old/components/Button/app_button.dart';
 import 'package:BananaExpress/old/controller/DataBaseController.dart';
 import 'package:BananaExpress/old/controller/managerController.dart';
 import 'package:BananaExpress/old/model/data/PointLivraisonModel.dart';
@@ -20,7 +20,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:geolocator/geolocator.dart';
 
-import '../../components/exportcomponent.dart';
+import '../components/exportcomponent.dart';
 
 class Colis {
   String nom;
@@ -100,24 +100,24 @@ class LivraisonController extends GetxController {
  * Recuperation colis pointttttt
  */
 
-  List<PointLivraisonModel> _list_search_recuperation_point = [];
-  List<PointLivraisonModel> get list_search_recuperation_point =>
-      _list_search_recuperation_point;
+  List<PointLivraisonModel> _list_search_point_localisation = [];
+  List<PointLivraisonModel> get list_search_point_localisation =>
+      _list_search_point_localisation;
   TextEditingController _searchPointRecuperationController =
       new TextEditingController();
 
   TextEditingController get searchPointRecuperationController =>
       _searchPointRecuperationController;
-  
+
   void searchPointRecuperationPointLivraison() {
     String searchPointRecuperationText = searchController.text.toLowerCase();
 
-    _list_search_recuperation_point.clear();
+    _list_search_point_localisation.clear();
 
     if (searchPointRecuperationText.isEmpty) {
-      _list_search_recuperation_point.addAll(list_recuperation_point);
+      _list_search_point_localisation.addAll(list_recuperation_point);
     } else {
-      _list_search_recuperation_point.addAll(
+      _list_search_point_localisation.addAll(
         list_recuperation_point.where(
           (element) =>
               element.libelle
@@ -320,7 +320,7 @@ class LivraisonController extends GetxController {
       print(e);
     }
   }
-  
+
   var position;
   Future<Position> determinePosition() async {
     bool serviceEnabled;
@@ -349,7 +349,7 @@ class LivraisonController extends GetxController {
         'ma position est-**************--${position.latitude}-----------*************-----${position.longitude}');
     return await Geolocator.getCurrentPosition();
   }
-  
+
   bool _isOk = false;
   bool get isOk => _isOk;
 
@@ -464,58 +464,6 @@ class LivraisonController extends GetxController {
     // update();
   }
 
-  File imageFile = new File('');
-
-  Future getImageAppareil() async {
-    try {
-      //print("wwwwwwwww");
-
-      var image = await ImagePicker().pickImage(
-          source: ImageSource.camera,
-          imageQuality: 100,
-          maxHeight: 500,
-          maxWidth: 500);
-
-      // File? croppedFile = await ImageCropper().cropImage(
-      //   aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
-      //   sourcePath: image.path,
-      // );
-      _listImgColis.add(File(image!.path));
-
-      update();
-    } catch (e) {
-      // _showToastPictureError(context);
-    }
-  }
-
-  Future getImageGalerie() async {
-    try {
-      //print("wwwwwwwww");
-
-      var image = await ImagePicker().pickImage(
-          source: ImageSource.gallery,
-          imageQuality: 100,
-          maxHeight: 500,
-          maxWidth: 500);
-
-      // File? croppedFile = await ImageCropper().cropImage(
-      //   aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
-      //   sourcePath: image.path,
-      // );
-      _listImgColis.add(File(image!.path));
-      //print(_listImgColis.length);
-      update();
-    } catch (e) {
-      // _showToastPictureError(context);
-    }
-  }
-
-  deleteImage(index) {
-    _listImgColis.remove(_listImgColis[index]);
-
-    update();
-  }
-
   socketMessageNegociation(data) {
     fn.snackBar('Message negociation', data['message'], true);
     // ici on doit faire l'ajout a la liste des message en locale dans le telephone du user
@@ -591,11 +539,37 @@ class LivraisonController extends GetxController {
   TextEditingController _quantite = TextEditingController();
   get quantite => _quantite;
 
+  var _villeSelect;
+  get villeSelect => _villeSelect;
+  selectVille(cat) {
+    _villeSelect = cat;
+    verifyForm();
+    getPointLivraisom();
+    update();
+  }
+
   TextEditingController _description = TextEditingController();
   get description => _description;
   setContactEmetteur(cont) {
     _contactEmetteur.text = cont;
     update();
+  }
+
+  int service = 1;
+  setService(s) async {
+    service = s;
+    var data = await dababase.getUser();
+    if (s == 1) {
+      _contactEmetteur.text = data!.phone;
+      _contactRecepteur.text = '';
+
+      update();
+    } else {
+      print('55');
+      _contactRecepteur.text = data!.phone;
+      _contactEmetteur.text = '';
+      update();
+    }
   }
 
   TextEditingController _contactEmetteur = TextEditingController();
@@ -623,30 +597,52 @@ class LivraisonController extends GetxController {
     update();
   }
 
-  var _villeSelect;
-  get villeSelect => _villeSelect;
-  selectVille(cat) {
-    _villeSelect = cat;
-    verifyForm();
-    getPointLivraisom();
-    update();
+  File imageFile = new File('');
+
+  Future getImageAppareil() async {
+    try {
+      //print("wwwwwwwww");
+
+      var image = await ImagePicker().pickImage(
+          source: ImageSource.camera,
+          imageQuality: 100,
+          maxHeight: 500,
+          maxWidth: 500);
+
+      // File? croppedFile = await ImageCropper().cropImage(
+      //   aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
+      //   sourcePath: image.path,
+      // );
+      _listImgColis.add(File(image!.path));
+
+      update();
+    } catch (e) {
+      // _showToastPictureError(context);
+    }
   }
 
-  int service = 1;
-  setService(s) async {
-    service = s;
-    var data = await dababase.getUser();
-    if (s == 1) {
-      _contactEmetteur.text = data!.phone;
-      _contactRecepteur.text = '';
+  Future getImageGalerie() async {
+    try {
+      //print("wwwwwwwww");
+
+      var image = await ImagePicker().pickImage(
+          source: ImageSource.gallery,
+          imageQuality: 100,
+          maxHeight: 500,
+          maxWidth: 500);
+
+      _listImgColis.add(File(image!.path));
 
       update();
-    } else {
-      print('55');
-      _contactRecepteur.text = data!.phone;
-      _contactEmetteur.text = '';
-      update();
+    } catch (e) {
+      // _showToastPictureError(context);
     }
+  }
+
+  deleteImage(index) {
+    _listImgColis.remove(_listImgColis[index]);
+
+    update();
   }
 
   List<File> _imageColis = [];
@@ -1111,7 +1107,7 @@ class LivraisonController extends GetxController {
 
   openModalLivraison() => Get.bottomSheet(
         Container(
-            height: kHeight * .4,
+            height: getHeight(Get.context) * .4,
             padding: EdgeInsets.symmetric(horizontal: kMarginX),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -1147,7 +1143,7 @@ class LivraisonController extends GetxController {
                         margin: EdgeInsets.only(bottom: 8),
                         child: AppButton(
                             text: 'Livrer mon colis'.tr,
-                            // width: kWidth / 2.5,
+                            // width: getWith(context) / 2.5,
                             size: MainAxisSize.max,
                             bgColor: ColorsApp.second,
                             onTap: () {
@@ -1157,7 +1153,7 @@ class LivraisonController extends GetxController {
                       ),
                       AppButton(
                           text: 'Me faire livrer'.tr,
-                          // width: kWidth / 2.5,
+                          // width: getWith(context) / 2.5,
                           size: MainAxisSize.max,
                           // bgColor: AppColors.secondarytext,
                           onTap: () {
@@ -1176,7 +1172,7 @@ class LivraisonController extends GetxController {
 
   validateLivraison() => Get.bottomSheet(
         Container(
-            height: kHeight * .4,
+            height: getHeight(Get.context) * .4,
             padding: EdgeInsets.symmetric(horizontal: kMarginX),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -1227,7 +1223,7 @@ class LivraisonController extends GetxController {
                         margin: EdgeInsets.only(bottom: 8),
                         child: AppButton(
                             text: 'Valider Ma Demande'.tr,
-                            // width: kWidth / 2.5,
+                            // width: getWith(context) / 2.5,
                             size: MainAxisSize.max,
                             bgColor: ColorsApp.second,
                             onTap: () => newLivraison()),

@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
+import 'package:bloc/bloc.dart'; 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'app_action_state.dart';

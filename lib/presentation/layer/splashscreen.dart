@@ -32,12 +32,10 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         listener: (context, state) {
           if (state is Loaded) {
             if (state.isLogin == true) {
-              BlocProvider.of<LivraisonBloc>(context).add(StartLogLat());
-              BlocProvider.of<LivraisonBloc>(context).add(
-                  GetVilleEvent()); // All services we need to start before launch app
+              initLoad(context);
             }
-            final HomeBloc h = BlocProvider.of<HomeBloc>(context);
-            h.add(UserDataEvent());
+            // final HomeBloc h = BlocProvider.of<HomeBloc>(context);
+            // h.add(UserDataEvent());
             print('**----');
             AutoRouter.of(context).replace(state.route);
           }
@@ -45,27 +43,30 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         builder: (context, state) {
           return Scaffold(
               backgroundColor: ColorsApp.white,
-              body: Container(
-                  alignment: Alignment.center,
-                  child: new Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                            margin:
-                                EdgeInsets.symmetric(vertical: kHeight * .20)
-                                    .add(EdgeInsets.only(top: kHeight * .10)),
-                            child: SvgPicture.asset(
-                              Assets.babana,
-                            )),
-                        Container(
-                            child: Container(
-                                height: 30,
-                                width: 30,
-                                child: CircularProgressIndicator(
-                                  color: ColorsApp.second,
-                                )))
-                      ])));
+              body: SingleChildScrollView(
+                child: Container(
+                    alignment: Alignment.center,
+                    child: new Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                              margin: EdgeInsets.symmetric(
+                                      vertical: getHeight(context) * .20)
+                                  .add(EdgeInsets.only(
+                                      top: getHeight(context) * .10)),
+                              child: SvgPicture.asset(
+                                Assets.babana,
+                              )),
+                          Container(
+                              child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  child: CircularProgressIndicator(
+                                    color: ColorsApp.second,
+                                  )))
+                        ])),
+              ));
         },
       ),
     );
