@@ -2,14 +2,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flavor/flavor.dart' as flv;
 
-enum Environment { dev, stage, prod }
+enum Environment { dev, dev_bureau, prod }
 
 Map<String, dynamic> devConstants = {
   'env_path': 'assets/env/.dev',
 };
 
-Map<String, dynamic> stageConstants = {
-  'env_path': 'assets/env/.stage',
+Map<String, dynamic> dev_bureauConstants = {
+  'env_path': 'assets/env/.dev_bureau',
 };
 
 Map<String, dynamic> prodConstants = {
@@ -30,7 +30,7 @@ class EnvManager implements IEnvManager {
   static const Environment defaultEnv = Environment.dev;
   static const emailEnv = 'env@app.com';
   static const envKey = 'ENV_KEY';
-
+  
   init({Environment? env}) async {
     return _setEnvironment(env: env ?? await getEnvironment(), restart: false);
   }
@@ -56,27 +56,27 @@ class EnvManager implements IEnvManager {
       }
     }
   }
-
+  
   Future<void> _setEnvironment(
       {required Environment? env, required bool restart}) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     Map<String, dynamic> config = {};
     if (env == null) {
       env = defaultEnv;
-      config = stageConstants;
+      config = dev_bureauConstants;
     } else {
       switch (env) {
         case Environment.dev:
           config = devConstants;
           break;
-        case Environment.stage:
-          config = stageConstants;
+        case Environment.dev_bureau:
+          config = dev_bureauConstants;
           break;
         case Environment.prod:
           config = prodConstants;
           break;
         default:
-          config = stageConstants;
+          config = dev_bureauConstants;
           break;
       }
     }
@@ -90,15 +90,17 @@ class EnvManager implements IEnvManager {
   @override
   String getEnvName() => dotenv.env['NAME']!;
 
-  bool get isStaging => dotenv.env['NAME']! == 'staging';
+  bool get isDev => dotenv.env['NAME']! == 'dev';
   bool get isProdruction => dotenv.env['NAME']! == 'production';
-  bool get isDevelopment => dotenv.env['NAME']! == 'testing';
+  bool get isDevBureau => dotenv.env['NAME']! == 'dev_bureau';
 
   @override
   flv.Environment getFlavorEnv() {
     switch (getEnvName()) {
-      case 'development':
+      case 'dev':
         return flv.Environment.dev;
+      case 'dev_bureau':
+        return flv.Environment.alpha;
       case 'production':
         return flv.Environment.production;
       default:

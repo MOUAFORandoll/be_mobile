@@ -524,7 +524,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       SelectColis event, Emitter<LivraisonState> emit) async {
     emit(state.copyWith(
       nomColis: TextEditingController(text: event.colis.nom),
-      quantiteColis: TextEditingController(text: event.colis.nom),
+      quantiteColis: TextEditingController(text: event.colis.quantite),
       contactRecepteur:
           TextEditingController(text: event.colis.contactRecepteur),
       valeurColis: TextEditingController(text: event.colis.valeurColis),

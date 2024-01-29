@@ -10,7 +10,7 @@
 
 // // ignore: must_be_immutable
 // class ServiceClientView extends StatefulWidget {
-//   ServiceClientView({Key? key}) : super(key: key);
+//   ServiceClientView({super.key});
 
 //   @override
 //   State<ServiceClientView> createState() => _ServiceClientViewState();

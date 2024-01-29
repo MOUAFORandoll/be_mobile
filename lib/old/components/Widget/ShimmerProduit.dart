@@ -5,7 +5,7 @@ import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerProduit extends StatelessWidget {
-  const ShimmerProduit({Key? key}) : super(key: key);
+  const ShimmerProduit({super.key});
 
   @override
   Widget build(BuildContext context) {

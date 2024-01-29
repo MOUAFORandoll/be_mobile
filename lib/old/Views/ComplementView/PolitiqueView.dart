@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PolitiqueView extends StatefulWidget {
-  PolitiqueView({Key? key}) : super(key: key);
+  PolitiqueView({super.key});
 
   @override
   _PolitiqueViewState createState() => _PolitiqueViewState();

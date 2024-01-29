@@ -2,7 +2,8 @@ import 'dart:async';
 import 'package:BananaExpress/application/database/database_cubit.dart';
 
 import 'package:BananaExpress/application/user/repositories/user_repository.dart';
-import 'package:BananaExpress/routes/app_router.dart';
+import 'package:BananaExpress/routes/app_router.gr.dart';
+
 import 'package:BananaExpress/utils/functions/app_loader.dart';
 import 'package:BananaExpress/utils/functions/viewFunctions.dart';
 import 'package:auto_route/auto_route.dart';

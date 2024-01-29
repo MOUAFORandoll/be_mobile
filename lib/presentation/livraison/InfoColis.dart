@@ -16,7 +16,7 @@ import 'package:easy_localization/easy_localization.dart';
 import '../../application/export_bloc.dart';
 
 class InfoColis extends StatefulWidget {
-  InfoColis({Key? key}) : super(key: key);
+  InfoColis({super.key});
 
   @override
   State<InfoColis> createState() => _InfoColisState();

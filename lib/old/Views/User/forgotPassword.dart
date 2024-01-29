@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ForgotPassordScreen extends StatefulWidget {
-  const ForgotPassordScreen({Key? key}) : super(key: key);
+  const ForgotPassordScreen({super.key});
 
   @override
   _ForgotPassordScreenState createState() => _ForgotPassordScreenState();

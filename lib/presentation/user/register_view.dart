@@ -1,11 +1,9 @@
 import 'package:BananaExpress/old/components/Button/app_button.dart';
 import 'package:BananaExpress/old/components/Widget/app_input.dart';
-import 'package:BananaExpress/presentation/home/home_page.dart';
-import 'package:BananaExpress/routes/app_router.dart';
+import 'package:BananaExpress/routes/app_router.gr.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:BananaExpress/utils/functions/app_loader.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../utils/functions/showToast.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
@@ -26,7 +24,8 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-        onPopInvoked: (value) async {
+        onPopInvoked: (value) {
+          print(value);
           loader.close();
           BlocProvider.of<AppActionCubit>(context).toLogin();
         },
@@ -58,7 +57,8 @@ class RegisterView extends StatelessWidget {
                 AutoRouter.of(context).replaceAll([HomeRoute()]);
 
                 showSuccess('Connecte', context);
-              initLoad(context);  print('-----44--------*********');
+                initLoad(context);
+                print('-----44--------*********');
               }
             },
             builder: (context, state) {

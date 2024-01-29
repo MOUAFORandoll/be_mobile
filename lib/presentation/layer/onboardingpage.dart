@@ -1,14 +1,14 @@
-import 'package:BananaExpress/old/components/Button/app_button.dart';
-import 'package:BananaExpress/old/components/Widget/app_carroussel_item.dart';
+import 'package:BananaExpress/presentation/components/Button/app_button.dart';
+import 'package:BananaExpress/presentation/components/Widget/app_carroussel_item.dart';
 import 'package:BananaExpress/core.dart';
-import 'package:BananaExpress/routes/app_router.dart';
+import 'package:BananaExpress/routes/app_router.gr.dart';
+
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/material.dart'; 
 import 'package:get_storage/get_storage.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -64,7 +64,7 @@ class OnBoardingPage extends StatelessWidget {
                     scrollDirection: Axis.horizontal),
               ),
               Positioned(
-                  bottom: getHeight(context) / 5,
+                  bottom: getHeight(context) / 10,
                   left: 0,
                   right: 0,
                   child: Container(
@@ -94,7 +94,7 @@ class OnBoardingPage extends StatelessWidget {
                     ),
                   )),
               Positioned(
-                  bottom: getHeight(context) / 8,
+                  bottom: getHeight(context) / 40,
                   left: 0,
                   right: 0,
                   child: AppButton(

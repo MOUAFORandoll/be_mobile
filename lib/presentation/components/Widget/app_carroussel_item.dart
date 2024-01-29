@@ -18,11 +18,12 @@ class AppCarrousselItem extends StatelessWidget {
         color: ColorsApp.tird,
       ),
       padding: EdgeInsets.only(
-        top: getHeight(context) * .60,
+        top: getHeight(context) * .20,
       ),
       child: Column(
         children: [
           Container(
+            height: getHeight(context) * .50,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(image),
@@ -35,7 +36,7 @@ class AppCarrousselItem extends StatelessWidget {
                 border: Border(top: BorderSide.none),
               ),
               margin: EdgeInsets.only(
-                bottom: kMarginY * 10,
+                bottom: kMarginY,
               ),
               padding: EdgeInsets.all(kMarginX),
               // margin: EdgeInsets.symmetric(

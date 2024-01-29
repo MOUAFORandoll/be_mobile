@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:BananaExpress/old/Views/Livraison/MapPagePointRecuperation.dart';
 
 class InfoLIvraison extends StatefulWidget {
-  InfoLIvraison({Key? key}) : super(key: key);
+  InfoLIvraison({super.key});
 
   @override
   State<InfoLIvraison> createState() => _InfoLIvraisonState();

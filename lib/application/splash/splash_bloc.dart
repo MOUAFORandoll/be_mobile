@@ -1,4 +1,5 @@
-import 'package:BananaExpress/routes/app_router.dart';
+import 'package:BananaExpress/routes/app_router.gr.dart';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:bloc/bloc.dart';
@@ -17,7 +18,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
 
   SplashBloc({required this.database}) : super(const SplashState.loading()) {
     on<SplashEvent>((event, emit) {
-      GetStorage box = sl.get<GetStorage>();
+      // GetStorage box = sl.get<GetStorage>();
       // box.write('first', 0);
     });
     on<StartLoading>((event, emit) async {
@@ -26,7 +27,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
 
       await Future.delayed(Duration(seconds: 5), () {
         PageRouteInfo<dynamic> route;
-
+        
         route = (box.read('first') != 1)
             ? const OnBoardingRoute()
             : isConnected

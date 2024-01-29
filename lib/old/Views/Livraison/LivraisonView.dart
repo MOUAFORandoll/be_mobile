@@ -13,7 +13,7 @@ import '../../components/Widget/EmptyLivraisonsComponent.dart';
 
 // ignore: must_be_immutable
 class LivraisonView extends StatelessWidget {
-  LivraisonView({Key? key}) : super(key: key);
+  LivraisonView({super.key});
   ScrollController _scrollController = new ScrollController();
 
   @override

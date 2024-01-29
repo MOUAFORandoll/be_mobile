@@ -14,7 +14,7 @@ import '../../core.dart';
 @RoutePage()
 class SplashScreenPage extends StatefulWidget {
   static const String routeName = '/';
-  const SplashScreenPage({Key? key}) : super(key: key);
+  const SplashScreenPage({super.key});
 
   @override
   State<SplashScreenPage> createState() => _SplashScreenPageState();
@@ -51,14 +51,14 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Container(
-                              margin: EdgeInsets.symmetric(
-                                      vertical: getHeight(context) * .20)
-                                  .add(EdgeInsets.only(
-                                      top: getHeight(context) * .10)),
+                              margin: EdgeInsets.only(
+                                  top: getHeight(context) * .45),
                               child: SvgPicture.asset(
                                 Assets.babana,
                               )),
                           Container(
+                              margin: EdgeInsets.only(
+                                  top: getHeight(context) * .25),
                               child: Container(
                                   height: 30,
                                   width: 30,

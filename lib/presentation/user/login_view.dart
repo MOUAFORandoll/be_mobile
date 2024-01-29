@@ -1,19 +1,16 @@
 import 'package:BananaExpress/old/components/Button/app_button.dart';
 import 'package:BananaExpress/old/components/Widget/app_input.dart';
-import 'package:BananaExpress/presentation/home/home_page.dart';
-import 'package:BananaExpress/routes/app_router.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:BananaExpress/utils/functions/showToast.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:BananaExpress/core.dart';
+import 'package:BananaExpress/routes/app_router.gr.dart';
 
 import '../../styles/colorApp.dart';
 import '../../styles/textStyle.dart';
-import '../../../utils/Services/routes.dart';
 import '../../../utils/functions/app_loader.dart';
 
 class LoginView extends StatelessWidget {
@@ -39,12 +36,12 @@ class LoginView extends StatelessWidget {
           } else if (state.isLoading == 2) {
             AutoRouter.of(context).replaceAll([HomeRoute()]);
             showSuccess('Connecte', context);
-          initLoad(context);   loader.close();
+            initLoad(context);
+            loader.close();
             print('-----44--------*********');
           }
         },
         builder: (context, state) {
-         
           return SingleChildScrollView(
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: kMarginX),
@@ -86,8 +83,7 @@ class LoginView extends StatelessWidget {
                                 child: AppInput(
                                   controller: phone,
                                   onChanged: (value) {},
-                                  placeholder:
-                                      'Nom d’utilisateur / labelphone'.tr(),
+                                  placeholder: 'labelphone'.tr(),
                                   validator: (value) {
                                     return Validators.usPhoneValid(value!);
                                   },

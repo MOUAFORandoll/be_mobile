@@ -6,9 +6,9 @@ class Assets {
   static const shop2 = 'assets/images/shop2.png';
   static const splash = 'assets/images/splash.png';
   static const empty_shop = 'assets/images/empty_shop.png';
-  static const onb1 = 'assets/svg_icones/onbo1.png';
-  static const onb2 = 'assets/svg_icones/onbo2.png';
-  static const onb3 = 'assets/svg_icones/onbo3.png';
+  static const onb1 = 'assets/images/ob1.png';
+  static const onb2 = 'assets/images/ob1.png';
+  static const onb3 = 'assets/images/ob1.png';
   static const user = 'assets/svg_icones/user.svg';
   static const logImg = 'assets/svg_icones/logImg.png';
   static const call = 'assets/svg_icones/callreceive.svg';

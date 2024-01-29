@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class NewLivraisonView extends StatefulWidget {
-  NewLivraisonView({Key? key}) : super(key: key);
+  NewLivraisonView({super.key});
 
   @override
   State<NewLivraisonView> createState() => _NewLivraisonViewState();

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class PolitiqueView extends StatefulWidget {
-  PolitiqueView({Key? key}) : super(key: key);
+  PolitiqueView({super.key});
 
   @override
   _PolitiqueViewState createState() => _PolitiqueViewState();

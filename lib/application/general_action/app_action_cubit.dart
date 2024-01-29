@@ -10,7 +10,7 @@ class AppActionCubit extends Cubit<AppActionState> {
   AppActionCubit() : super(AppActionState.initial()) {
     emit(state.copyWith(index: 0));
   }
-
+  
   Future<void> setIndex(int index) async {
     emit(state.copyWith(index: index));
     print(index);

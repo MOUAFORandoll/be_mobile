@@ -6,7 +6,8 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class AppHttpService {
   static Dio? _instance;
-  static String baseUrl = ApiUrl.baseUrl;
+
+  static String baseUrl = RequestUrl().apiUrl;
 
   AppHttpService._internal();
 

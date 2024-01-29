@@ -5,34 +5,37 @@ import 'package:BananaExpress/application/splash/splash_bloc.dart';
 import 'package:BananaExpress/styles/app_theme.dart';
 import 'package:BananaExpress/application/livraison/repositories/livraisonRepo.dart';
 import 'package:BananaExpress/application/user/repositories/user_repository.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'infrastructure/_commons/network/env_config.dart';
 import 'presentation/_commons/theming/app_theme.dart';
 import 'routes/app_router.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core.dart' as co;
 import 'core.dart';
-import 'utils/Services/NotificationService.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await co.init();
+  await EnvManager().init(env: Environment.dev_bureau);
 
-  NotificationService().initializePlatformNotifications();
+  co.init();
+
+  // NotificationService().initializePlatformNotifications();
 
   runApp(
     EasyLocalization(
         supportedLocales: const [Locale('fr', 'FR'), Locale('en', 'US')],
         path: 'assets/translations',
         fallbackLocale: const Locale('fr', 'FR'),
-        child: const MyApp()),
+        child: Phoenix(child: const MyApp())),
   );
 }
 
@@ -41,15 +44,18 @@ var supportedLocales = const [
   Locale('fr', 'FR'),
 ];
 
-class MyApp extends StatelessWidget {
-  const MyApp({
-    Key? key,
-  }) : super(key: key);
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-        BlocProvider(create: (_) => sl<ConnectedBloc>()),
+      BlocProvider(create: (_) => sl<ConnectedBloc>()),
       BlocProvider<AppActionCubit>(
         create: (BuildContext context) => AppActionCubit(),
       ),
@@ -78,7 +84,7 @@ class MyApp extends StatelessWidget {
 }
 
 class AppContent extends StatelessWidget {
-  AppContent({Key? key}) : super(key: key);
+  AppContent({super.key});
   final _appRouter = AppRouter();
 
   @override
@@ -93,7 +99,6 @@ class AppContent extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       builder: (context, router) {
-        FToastBuilder();
         return ResponsiveBreakpoints.builder(
           breakpoints: const [
             Breakpoint(start: 0, end: 450, name: MOBILE),

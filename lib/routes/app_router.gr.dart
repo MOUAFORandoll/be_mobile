@@ -7,63 +7,73 @@
 // ignore_for_file: type=lint
 // coverage:ignore-file
 
-part of 'app_router.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:auto_route/auto_route.dart' as _i8;
+import 'package:BananaExpress/presentation/home/home_page.dart' as _i2;
+import 'package:BananaExpress/presentation/layer/onboardingpage.dart' as _i6;
+import 'package:BananaExpress/presentation/layer/splashscreen.dart' as _i7;
+import 'package:BananaExpress/presentation/livraison/MapPagePointLivraisonColis.dart'
+    as _i3;
+import 'package:BananaExpress/presentation/livraison/MapPagePointRecuperation.dart'
+    as _i4;
+import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart'
+    as _i5;
+import 'package:BananaExpress/presentation/user/auth_page.dart' as _i1;
 
-abstract class _$AppRouter extends RootStackRouter {
-  // ignore: unused_element
-  _$AppRouter({super.navigatorKey});
+abstract class $AppRouter extends _i8.RootStackRouter {
+  $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, PageFactory> pagesMap = {
+  final Map<String, _i8.PageFactory> pagesMap = {
     AuthRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
+      return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: AuthPage(),
+        child: const _i1.AuthPage(),
       );
     },
     HomeRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
+      return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const HomePage(),
+        child: const _i2.HomePage(),
       );
     },
     MapRoutePointLivraisonColis.name: (routeData) {
-      return AutoRoutePage<dynamic>(
+      return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: MapPagePointLivraisonColis(),
+        child: _i3.MapPagePointLivraisonColis(),
       );
     },
     MapRoutePointRecuperation.name: (routeData) {
-      return AutoRoutePage<dynamic>(
+      return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MapPagePointRecuperation(),
+        child: const _i4.MapPagePointRecuperation(),
       );
     },
     NewLivraisonRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
+      return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const NewLivraisonPage(),
+        child: const _i5.NewLivraisonPage(),
       );
     },
     OnBoardingRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
+      return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const OnBoardingPage(),
+        child: const _i6.OnBoardingPage(),
       );
     },
     SplashScreenRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
+      return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SplashScreenPage(),
+        child: const _i7.SplashScreenPage(),
       );
     },
   };
 }
 
 /// generated route for
-/// [AuthPage]
-class AuthRoute extends PageRouteInfo<void> {
-  const AuthRoute({List<PageRouteInfo>? children})
+/// [_i1.AuthPage]
+class AuthRoute extends _i8.PageRouteInfo<void> {
+  const AuthRoute({List<_i8.PageRouteInfo>? children})
       : super(
           AuthRoute.name,
           initialChildren: children,
@@ -71,13 +81,13 @@ class AuthRoute extends PageRouteInfo<void> {
 
   static const String name = 'AuthRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children})
+/// [_i2.HomePage]
+class HomeRoute extends _i8.PageRouteInfo<void> {
+  const HomeRoute({List<_i8.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -85,13 +95,13 @@ class HomeRoute extends PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [MapPagePointLivraisonColis]
-class MapRoutePointLivraisonColis extends PageRouteInfo<void> {
-  const MapRoutePointLivraisonColis({List<PageRouteInfo>? children})
+/// [_i3.MapPagePointLivraisonColis]
+class MapRoutePointLivraisonColis extends _i8.PageRouteInfo<void> {
+  const MapRoutePointLivraisonColis({List<_i8.PageRouteInfo>? children})
       : super(
           MapRoutePointLivraisonColis.name,
           initialChildren: children,
@@ -99,13 +109,13 @@ class MapRoutePointLivraisonColis extends PageRouteInfo<void> {
 
   static const String name = 'MapRoutePointLivraisonColis';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [MapPagePointRecuperation]
-class MapRoutePointRecuperation extends PageRouteInfo<void> {
-  const MapRoutePointRecuperation({List<PageRouteInfo>? children})
+/// [_i4.MapPagePointRecuperation]
+class MapRoutePointRecuperation extends _i8.PageRouteInfo<void> {
+  const MapRoutePointRecuperation({List<_i8.PageRouteInfo>? children})
       : super(
           MapRoutePointRecuperation.name,
           initialChildren: children,
@@ -113,13 +123,13 @@ class MapRoutePointRecuperation extends PageRouteInfo<void> {
 
   static const String name = 'MapRoutePointRecuperation';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [NewLivraisonPage]
-class NewLivraisonRoute extends PageRouteInfo<void> {
-  const NewLivraisonRoute({List<PageRouteInfo>? children})
+/// [_i5.NewLivraisonPage]
+class NewLivraisonRoute extends _i8.PageRouteInfo<void> {
+  const NewLivraisonRoute({List<_i8.PageRouteInfo>? children})
       : super(
           NewLivraisonRoute.name,
           initialChildren: children,
@@ -127,13 +137,13 @@ class NewLivraisonRoute extends PageRouteInfo<void> {
 
   static const String name = 'NewLivraisonRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [OnBoardingPage]
-class OnBoardingRoute extends PageRouteInfo<void> {
-  const OnBoardingRoute({List<PageRouteInfo>? children})
+/// [_i6.OnBoardingPage]
+class OnBoardingRoute extends _i8.PageRouteInfo<void> {
+  const OnBoardingRoute({List<_i8.PageRouteInfo>? children})
       : super(
           OnBoardingRoute.name,
           initialChildren: children,
@@ -141,13 +151,13 @@ class OnBoardingRoute extends PageRouteInfo<void> {
 
   static const String name = 'OnBoardingRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [SplashScreenPage]
-class SplashScreenRoute extends PageRouteInfo<void> {
-  const SplashScreenRoute({List<PageRouteInfo>? children})
+/// [_i7.SplashScreenPage]
+class SplashScreenRoute extends _i8.PageRouteInfo<void> {
+  const SplashScreenRoute({List<_i8.PageRouteInfo>? children})
       : super(
           SplashScreenRoute.name,
           initialChildren: children,
@@ -155,5 +165,5 @@ class SplashScreenRoute extends PageRouteInfo<void> {
 
   static const String name = 'SplashScreenRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
 }

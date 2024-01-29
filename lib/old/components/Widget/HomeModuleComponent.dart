@@ -25,18 +25,18 @@ class HomeModuleComponent extends StatelessWidget {
         color: Color.fromARGB(255, 231, 229, 229),
         borderRadius: BorderRadius.circular(10),
       ),
-      padding: EdgeInsets.symmetric(horizontal: kMarginX),
+      padding: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: getWith(context) * .4,
+            width: getWith(context) * .5,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  width: getWith(context) * .4,
+                  width: getWith(context) * .5,
                   child: Text(
                     title,
                     maxLines: 4,
@@ -49,7 +49,8 @@ class HomeModuleComponent extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: kMarginY),
-                  width: getWith(context) * .4,
+                  alignment: Alignment.topLeft,
+                  width: getWith(context) * .5,
                   child: AppButton(
                     size: MainAxisSize.max,
                     bgColor: ColorsApp.primary,

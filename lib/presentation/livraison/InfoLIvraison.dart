@@ -12,7 +12,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'MapPagePointRecuperation.dart';
 
 class InfoLIvraison extends StatefulWidget {
-  InfoLIvraison({Key? key}) : super(key: key);
+  InfoLIvraison({super.key});
 
   @override
   State<InfoLIvraison> createState() => _InfoLIvraisonState();
@@ -229,7 +229,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                             onTap: () {
                               AutoRouter.of(context).pushNamed(
                                   MapPagePointRecuperation.routeName);
-    }),
+                            }),
                       ],
                     )),
                 if (state.errorPointRecuperation!)

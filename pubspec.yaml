@@ -129,6 +129,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/env/
     - assets/translations/
     - assets/images/
     - assets/svg_icones/
