@@ -1,4 +1,5 @@
 import 'package:BananaExpress/old/Views/ComplementView/PolitiqueView.dart';
+import 'package:BananaExpress/old/Views/Livraison/SuccesLivraisonview.dart';
 import 'package:BananaExpress/old/Views/User/SettingView.dart';
 import 'package:BananaExpress/old/Views/User/UserManageView.dart';
 import 'package:BananaExpress/old/Views/User/forgotPassword.dart';
@@ -12,7 +13,7 @@ import '../../presentation/home/home_page.dart';
 import '../../presentation/layer/onboardingpage.dart';
 import '../../presentation/layer/splashscreen.dart';
 import '../../presentation/livraison/NewLivraisonPage.dart';
-import '../../presentation/livraison/SuccesLivraisonview.dart';
+import '../../presentation/livraison/SuccesLivraisonPage.dart';
 import '../../presentation/livraison/SuccesReceptionview.dart';
 import '../../presentation/livraison/SuccesRecuperationview.dart';
 import '../../presentation/user/auth_page.dart';

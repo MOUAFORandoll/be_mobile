@@ -2,7 +2,7 @@ part of 'livraison_bloc.dart';
 
 @freezed
 class LivraisonEvent with _$LivraisonEvent {
-  const factory LivraisonEvent.verifyForm() = VerifyFormEvent;
+  const factory LivraisonEvent.verifyForm() = VerifyFormLivraisonEvent;
 
   const factory LivraisonEvent.backIndex() = BackIndexEvent;
 
@@ -65,7 +65,7 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.addImageColisGalerie({
     required int idColis,
   }) = AddImageColisGalerie;
- 
+
   const factory LivraisonEvent.selectPointLivraisonColis({
     required PointLivraisonModel point_livraison,
   }) = SelectPointLivraisonColis;
@@ -78,8 +78,11 @@ class LivraisonEvent with _$LivraisonEvent {
       {required int idColis,
       required int position,
       required File updatedImage}) = UpdateImageInColis;
-  const factory LivraisonEvent.selectColis(
-      {required Colis colis }) = SelectColis;
-  const factory LivraisonEvent.manageQte({required bool state}) =
-      ManageQte;
+  const factory LivraisonEvent.selectColis({required Colis colis}) =
+      SelectColis;
+  const factory LivraisonEvent.manageQte({required bool state}) = ManageQte;
+  const factory LivraisonEvent.calculFrais() = CalculFrais;
+  const factory LivraisonEvent.newLivraison() = NewLivraison;
+  const factory LivraisonEvent.getLivraison() = ListLivraison;
+  const factory LivraisonEvent.downloadFacture() = DownloadFacture;
 }

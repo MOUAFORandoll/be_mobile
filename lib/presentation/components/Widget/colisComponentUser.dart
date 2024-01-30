@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:BananaExpress/old/components/Button/app_button_icon.dart';
-import 'package:BananaExpress/old/model/data/LivraisonModel.dart';
+import 'package:BananaExpress/application/model/exportmodel.dart';
+import 'package:BananaExpress/presentation/components/Button/app_button_icon.dart';
+
 import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:BananaExpress/old/controller/LivraisonController.dart';
 import 'package:BananaExpress/styles/colorApp.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -19,6 +19,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:path/path.dart' as path;
+import 'package:BananaExpress/application/export_bloc.dart';
 
 // ignore: must_be_immutable
 class ColisComponentUser extends StatelessWidget {
@@ -31,8 +32,8 @@ class ColisComponentUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<LivraisonController>(
-      builder: (_controller) => InkWell(
+    return BlocBuilder<LivraisonBloc, LivraisonState>(
+      builder: (context, state) => InkWell(
         onTap: () => onOpenColis(context),
         child: Container(
           decoration: BoxDecoration(
@@ -115,107 +116,110 @@ class ColisComponentUser extends StatelessWidget {
     );
   }
 
-  onOpenColis(context) => Get.bottomSheet(Container(
-      decoration: BoxDecoration(
-          color: ColorsApp.grey,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(15), topRight: Radius.circular(15))),
-      padding: EdgeInsets.symmetric(horizontal: getWith(context) * .07),
-      height: 800,
-      child: SingleChildScrollView(
-          child: Column(
-              // mainAxisSize: MainAxisSize.min,
-              children: [
-            Container(
-              height: getHeight(context) * .20,
-              padding: EdgeInsets.symmetric(vertical: 10),
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: colis.images.length,
-                itemBuilder: (context, index) => Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5),
-                    child: CachedNetworkImage(
-                      height: getHeight(context) * .15,
-                      width: getWith(context) * .3,
-                      fit: BoxFit.cover,
-                      imageUrl: colis.images[index].src,
-                      imageBuilder: (context, imageProvider) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            image: DecorationImage(
-                                image: imageProvider,
-                                fit: BoxFit.cover,
-                                colorFilter: ColorFilter.mode(
-                                    Colors.transparent, BlendMode.colorBurn)),
-                          ),
-                        );
-                      },
-                      placeholder: (context, url) {
-                        return Container(
-                          child: Center(
-                              child: CircularProgressIndicator(
-                            color: ColorsApp.second,
-                          )),
-                        );
-                      },
-                      errorWidget: (context, url, error) {
-                        return CircleAvatar(
-                            backgroundColor: ColorsApp.second,
-                            radius: 50,
-                            backgroundImage:
-                                AssetImage("assets/logo/logo.png"));
-                      },
-                    )),
-              ),
-            ),
-            if (colis.statusLivraisonColis == 0)
-              Text('Livraison en attente de validation'),
-            if (colis.statusLivraisonColis == 1)
-              Column(
-                children: [
-                  Text('Presentez ce code a scanner au livreur'),
-                  QrImageView(
-                    data: colis.code_recuperation_colis,
-                    version: QrVersions.auto,
-                    gapless: true,
-                    embeddedImage: AssetImage("assets/logo/logo.png"),
-                    // embeddedImageStyle:
-                    //     QrEmbeddedImageStyle(size: Size(20, 20)),
-                    size: 200.0,
+  onOpenColis(context) => showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) => Container(
+          decoration: BoxDecoration(
+              color: ColorsApp.grey,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15), topRight: Radius.circular(15))),
+          padding: EdgeInsets.symmetric(horizontal: getWith(context) * .07),
+          height: 800,
+          child: SingleChildScrollView(
+              child: Column(
+                  // mainAxisSize: MainAxisSize.min,
+                  children: [
+                Container(
+                  height: getHeight(context) * .20,
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: colis.images.length,
+                    itemBuilder: (context, index) => Container(
+                        margin: EdgeInsets.symmetric(horizontal: 5),
+                        child: CachedNetworkImage(
+                          height: getHeight(context) * .15,
+                          width: getWith(context) * .3,
+                          fit: BoxFit.cover,
+                          imageUrl: colis.images[index].src,
+                          imageBuilder: (context, imageProvider) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: imageProvider,
+                                    fit: BoxFit.cover,
+                                    colorFilter: ColorFilter.mode(
+                                        Colors.transparent,
+                                        BlendMode.colorBurn)),
+                              ),
+                            );
+                          },
+                          placeholder: (context, url) {
+                            return Container(
+                              child: Center(
+                                  child: CircularProgressIndicator(
+                                color: ColorsApp.second,
+                              )),
+                            );
+                          },
+                          errorWidget: (context, url, error) {
+                            return CircleAvatar(
+                                backgroundColor: ColorsApp.second,
+                                radius: 50,
+                                backgroundImage:
+                                    AssetImage("assets/logo/logo.png"));
+                          },
+                        )),
                   ),
-                ],
-              ),
-            Container(
-              height: 0,
-              child: RepaintBoundary(
-                key: globalKey,
-                child: QrImageView(
-                  data: colis.code_livraison_colis,
-                  version: QrVersions.auto,
-                  embeddedImage: AssetImage("assets/logo/logo.png"),
-                  // embeddedImageStyle:
-                  //     QrEmbeddedImageStyle(size: Size(20, 20)),
-                  size: 200.0,
                 ),
-              ),
-            ),
-            if (colis.statusLivraisonColis == 2)
-              Text('Livraison de ce colis en cours'),
-            if (colis.statusLivraisonColis == 3)
-              Text('Livraison de ce colis terminee'),
-            if (colis.statusLivraisonColis == 1)
-              Container(
-                  margin: EdgeInsets.symmetric(
-                    vertical: kMarginY * 1.5,
+                if (colis.statusLivraisonColis == 0)
+                  Text('Livraison en attente de validation'),
+                if (colis.statusLivraisonColis == 1)
+                  Column(
+                    children: [
+                      Text('Presentez ce code a scanner au livreur'),
+                      QrImageView(
+                        data: colis.code_recuperation_colis,
+                        version: QrVersions.auto,
+                        gapless: true,
+                        embeddedImage: AssetImage("assets/logo/logo.png"),
+                        // embeddedImageStyle:
+                        //     QrEmbeddedImageStyle(size: Size(20, 20)),
+                        size: 200.0,
+                      ),
+                    ],
                   ),
-                  decoration: BoxDecoration(color: ColorsApp.grey),
-                  child: AppButtonIcon(
-                      icon: Icons.switch_access_shortcut_add_outlined,
-                      bgColor: ColorsApp.second,
-                      text: 'Partager le code de recuperation '.tr,
-                      onTap: () async => _captureAndSavePng())),
-          ]))));
+                Container(
+                  height: 0,
+                  child: RepaintBoundary(
+                    key: globalKey,
+                    child: QrImageView(
+                      data: colis.code_livraison_colis,
+                      version: QrVersions.auto,
+                      embeddedImage: AssetImage("assets/logo/logo.png"),
+                      // embeddedImageStyle:
+                      //     QrEmbeddedImageStyle(size: Size(20, 20)),
+                      size: 200.0,
+                    ),
+                  ),
+                ),
+                if (colis.statusLivraisonColis == 2)
+                  Text('Livraison de ce colis en cours'),
+                if (colis.statusLivraisonColis == 3)
+                  Text('Livraison de ce colis terminee'),
+                if (colis.statusLivraisonColis == 1)
+                  Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical: kMarginY * 1.5,
+                      ),
+                      decoration: BoxDecoration(color: ColorsApp.grey),
+                      child: AppButtonIcon(
+                          icon: Icons.switch_access_shortcut_add_outlined,
+                          bgColor: ColorsApp.second,
+                          text: 'Partager le code de recuperation '.tr,
+                          onTap: () async => _captureAndSavePng())),
+              ]))));
 
   Future<void> requestPermission() async {
     PermissionStatus status = await Permission.storage.request();

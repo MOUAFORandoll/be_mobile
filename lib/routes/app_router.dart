@@ -1,9 +1,10 @@
 import 'package:BananaExpress/presentation/home/home_page.dart';
 import 'package:BananaExpress/presentation/layer/onboardingpage.dart';
 import 'package:BananaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
+import 'package:BananaExpress/presentation/livraison/SuccesLivraisonPage.dart';
 import 'package:BananaExpress/presentation/user/auth_page.dart';
 import 'package:auto_route/auto_route.dart';
- 
+
 import '../presentation/layer/SplashScreen.dart';
 import '../presentation/livraison/MapPagePointRecuperation.dart';
 import '../presentation/livraison/NewLivraisonPage.dart';
@@ -27,5 +28,8 @@ class AppRouter extends $AppRouter {
         AutoRoute(
             page: MapRoutePointLivraisonColis.page,
             path: MapPagePointLivraisonColis.routeName),
+        AutoRoute(
+            page: SuccesLivraisonRoute.page,
+            path: SuccesLivraisonPage.routeName),
       ];
 }

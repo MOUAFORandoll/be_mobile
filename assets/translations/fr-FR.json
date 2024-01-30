@@ -81,7 +81,6 @@
   "invalidChiffre": "Entrer des chiffres",
   "lbselectphoto": "Selectionner image",
   "lbaddprod": "Ajouter",
-  "labelnewpassword": "Mot de passe actuel",
-  "lbtitleshort": "Titre du short",
-  "lbdescshort": "Description du short"
+  "labelnewpassword": "Mot de passe actuel", 
+  "succesLivraison":"Votre demande de livraison a ete enregistre avec succes. Suivez la progression demande dans le menu Livaison"
 }

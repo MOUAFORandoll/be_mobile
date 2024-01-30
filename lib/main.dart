@@ -24,7 +24,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await EnvManager().init(env: Environment.dev_bureau);
+  await EnvManager().init(env: Environment.dev);
 
   co.init();
 
@@ -65,6 +65,7 @@ class _MyAppState extends State<MyApp> {
       BlocProvider<LivraisonBloc>(
         create: (BuildContext context) => LivraisonBloc(
           livraisonRepo: sl.get<LivraisonRepo>(),
+          database: sl.get<DatabaseCubit>(),
         ),
       ),
       BlocProvider<UserBloc>(

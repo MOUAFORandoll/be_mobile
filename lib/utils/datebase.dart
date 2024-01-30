@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:BananaExpress/entity.dart';
-import 'package:BananaExpress/objectbox.g.dart';
-import 'package:get/get.dart';
+import 'package:BananaExpress/objectbox.g.dart'; 
 import 'package:get_storage/get_storage.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 import 'package:path_provider/path_provider.dart';

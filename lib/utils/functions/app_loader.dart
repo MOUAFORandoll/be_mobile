@@ -89,9 +89,10 @@ class _LoaderDialogState extends State<_LoaderDialog> {
     widget.controller.stream.listen((event) {
       if (mounted) {
         if (event == 'close' && loading) {
-          print("close loader required");
+          print('close loader required');
           setState(() {
             loading = false;
+            print('---------------close loader required');
           });
           WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
             Navigator.of(context).canPop() ? Navigator.of(context).pop() : null;
@@ -130,7 +131,7 @@ class LoaderDialogController {
     _streamController = StreamController<String>();
     _LoaderDialog(loader: loader, controller: _streamController).open(context);
   }
-  
+
   /// Close the dialog
   StreamController<String> close() {
     if (_streamController.isClosed) {

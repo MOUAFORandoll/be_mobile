@@ -49,6 +49,10 @@ mixin _$LivraisonEvent {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +86,10 @@ mixin _$LivraisonEvent {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -114,12 +122,16 @@ mixin _$LivraisonEvent {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -150,11 +162,15 @@ mixin _$LivraisonEvent {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -181,11 +197,15 @@ mixin _$LivraisonEvent {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -212,6 +232,10 @@ mixin _$LivraisonEvent {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -236,25 +260,27 @@ class _$LivraisonEventCopyWithImpl<$Res, $Val extends LivraisonEvent>
 }
 
 /// @nodoc
-abstract class _$$VerifyFormEventImplCopyWith<$Res> {
-  factory _$$VerifyFormEventImplCopyWith(_$VerifyFormEventImpl value,
-          $Res Function(_$VerifyFormEventImpl) then) =
-      __$$VerifyFormEventImplCopyWithImpl<$Res>;
+abstract class _$$VerifyFormLivraisonEventImplCopyWith<$Res> {
+  factory _$$VerifyFormLivraisonEventImplCopyWith(
+          _$VerifyFormLivraisonEventImpl value,
+          $Res Function(_$VerifyFormLivraisonEventImpl) then) =
+      __$$VerifyFormLivraisonEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$VerifyFormEventImplCopyWithImpl<$Res>
-    extends _$LivraisonEventCopyWithImpl<$Res, _$VerifyFormEventImpl>
-    implements _$$VerifyFormEventImplCopyWith<$Res> {
-  __$$VerifyFormEventImplCopyWithImpl(
-      _$VerifyFormEventImpl _value, $Res Function(_$VerifyFormEventImpl) _then)
+class __$$VerifyFormLivraisonEventImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$VerifyFormLivraisonEventImpl>
+    implements _$$VerifyFormLivraisonEventImplCopyWith<$Res> {
+  __$$VerifyFormLivraisonEventImplCopyWithImpl(
+      _$VerifyFormLivraisonEventImpl _value,
+      $Res Function(_$VerifyFormLivraisonEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$VerifyFormEventImpl implements VerifyFormEvent {
-  const _$VerifyFormEventImpl();
+class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
+  const _$VerifyFormLivraisonEventImpl();
 
   @override
   String toString() {
@@ -264,7 +290,8 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$VerifyFormEventImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$VerifyFormLivraisonEventImpl);
   }
 
   @override
@@ -304,6 +331,10 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return verifyForm();
   }
@@ -340,6 +371,10 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return verifyForm?.call();
   }
@@ -375,6 +410,10 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -386,7 +425,7 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -417,6 +456,10 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return verifyForm(this);
   }
@@ -424,7 +467,7 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -451,6 +494,10 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return verifyForm?.call(this);
   }
@@ -458,7 +505,7 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -485,6 +532,10 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -494,8 +545,8 @@ class _$VerifyFormEventImpl implements VerifyFormEvent {
   }
 }
 
-abstract class VerifyFormEvent implements LivraisonEvent {
-  const factory VerifyFormEvent() = _$VerifyFormEventImpl;
+abstract class VerifyFormLivraisonEvent implements LivraisonEvent {
+  const factory VerifyFormLivraisonEvent() = _$VerifyFormLivraisonEventImpl;
 }
 
 /// @nodoc
@@ -567,6 +618,10 @@ class _$BackIndexEventImpl implements BackIndexEvent {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return backIndex();
   }
@@ -603,6 +658,10 @@ class _$BackIndexEventImpl implements BackIndexEvent {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return backIndex?.call();
   }
@@ -638,6 +697,10 @@ class _$BackIndexEventImpl implements BackIndexEvent {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -649,7 +712,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -680,6 +743,10 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return backIndex(this);
   }
@@ -687,7 +754,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -714,6 +781,10 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return backIndex?.call(this);
   }
@@ -721,7 +792,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -748,6 +819,10 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -833,6 +908,10 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return getVilleAndCategory();
   }
@@ -869,6 +948,10 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return getVilleAndCategory?.call();
   }
@@ -904,6 +987,10 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -915,7 +1002,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -946,6 +1033,10 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return getVilleAndCategory(this);
   }
@@ -953,7 +1044,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -980,6 +1071,10 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return getVilleAndCategory?.call(this);
   }
@@ -987,7 +1082,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -1014,6 +1109,10 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1122,6 +1221,10 @@ class _$SelectedVilleImpl implements SelectedVille {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return selectedVille(ville);
   }
@@ -1158,6 +1261,10 @@ class _$SelectedVilleImpl implements SelectedVille {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return selectedVille?.call(ville);
   }
@@ -1193,6 +1300,10 @@ class _$SelectedVilleImpl implements SelectedVille {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1204,7 +1315,7 @@ class _$SelectedVilleImpl implements SelectedVille {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -1235,6 +1346,10 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return selectedVille(this);
   }
@@ -1242,7 +1357,7 @@ class _$SelectedVilleImpl implements SelectedVille {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -1269,6 +1384,10 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return selectedVille?.call(this);
   }
@@ -1276,7 +1395,7 @@ class _$SelectedVilleImpl implements SelectedVille {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -1303,6 +1422,10 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1419,6 +1542,10 @@ class _$SelectedCategoryImpl implements SelectedCategory {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return selectedCategory(categoryColis);
   }
@@ -1455,6 +1582,10 @@ class _$SelectedCategoryImpl implements SelectedCategory {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return selectedCategory?.call(categoryColis);
   }
@@ -1490,6 +1621,10 @@ class _$SelectedCategoryImpl implements SelectedCategory {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -1501,7 +1636,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -1532,6 +1667,10 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return selectedCategory(this);
   }
@@ -1539,7 +1678,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -1566,6 +1705,10 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return selectedCategory?.call(this);
   }
@@ -1573,7 +1716,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -1600,6 +1743,10 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -1718,6 +1865,10 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return selectPointRecuperation(point_recup);
   }
@@ -1754,6 +1905,10 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return selectPointRecuperation?.call(point_recup);
   }
@@ -1789,6 +1944,10 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -1800,7 +1959,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -1831,6 +1990,10 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return selectPointRecuperation(this);
   }
@@ -1838,7 +2001,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -1865,6 +2028,10 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return selectPointRecuperation?.call(this);
   }
@@ -1872,7 +2039,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -1899,6 +2066,10 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -2027,6 +2198,10 @@ class _$SetLogLatImpl implements SetLogLat {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return Start(latLng, quartier_recuperation_point);
   }
@@ -2063,6 +2238,10 @@ class _$SetLogLatImpl implements SetLogLat {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return Start?.call(latLng, quartier_recuperation_point);
   }
@@ -2098,6 +2277,10 @@ class _$SetLogLatImpl implements SetLogLat {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -2109,7 +2292,7 @@ class _$SetLogLatImpl implements SetLogLat {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -2140,6 +2323,10 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return Start(this);
   }
@@ -2147,7 +2334,7 @@ class _$SetLogLatImpl implements SetLogLat {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -2174,6 +2361,10 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return Start?.call(this);
   }
@@ -2181,7 +2372,7 @@ class _$SetLogLatImpl implements SetLogLat {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -2208,6 +2399,10 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -2298,6 +2493,10 @@ class _$StartLogLatImpl implements StartLogLat {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return setStartLogLat();
   }
@@ -2334,6 +2533,10 @@ class _$StartLogLatImpl implements StartLogLat {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return setStartLogLat?.call();
   }
@@ -2369,6 +2572,10 @@ class _$StartLogLatImpl implements StartLogLat {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -2380,7 +2587,7 @@ class _$StartLogLatImpl implements StartLogLat {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -2411,6 +2618,10 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return setStartLogLat(this);
   }
@@ -2418,7 +2629,7 @@ class _$StartLogLatImpl implements StartLogLat {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -2445,6 +2656,10 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return setStartLogLat?.call(this);
   }
@@ -2452,7 +2667,7 @@ class _$StartLogLatImpl implements StartLogLat {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -2479,6 +2694,10 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -2588,6 +2807,10 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return getRecupPoint(ville);
   }
@@ -2624,6 +2847,10 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return getRecupPoint?.call(ville);
   }
@@ -2659,6 +2886,10 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -2670,7 +2901,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -2701,6 +2932,10 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return getRecupPoint(this);
   }
@@ -2708,7 +2943,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -2735,6 +2970,10 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return getRecupPoint?.call(this);
   }
@@ -2742,7 +2981,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -2769,6 +3008,10 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -2884,6 +3127,10 @@ class _$SearchPointEventImpl implements SearchPointEvent {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return searchpointevent(text);
   }
@@ -2920,6 +3167,10 @@ class _$SearchPointEventImpl implements SearchPointEvent {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return searchpointevent?.call(text);
   }
@@ -2955,6 +3206,10 @@ class _$SearchPointEventImpl implements SearchPointEvent {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -2966,7 +3221,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -2997,6 +3252,10 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return searchpointevent(this);
   }
@@ -3004,7 +3263,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -3031,6 +3290,10 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return searchpointevent?.call(this);
   }
@@ -3038,7 +3301,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -3065,6 +3328,10 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -3179,6 +3446,10 @@ class _$MapSelectedImpl implements MapSelected {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return mapSelected(status);
   }
@@ -3215,6 +3486,10 @@ class _$MapSelectedImpl implements MapSelected {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return mapSelected?.call(status);
   }
@@ -3250,6 +3525,10 @@ class _$MapSelectedImpl implements MapSelected {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -3261,7 +3540,7 @@ class _$MapSelectedImpl implements MapSelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -3292,6 +3571,10 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return mapSelected(this);
   }
@@ -3299,7 +3582,7 @@ class _$MapSelectedImpl implements MapSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -3326,6 +3609,10 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return mapSelected?.call(this);
   }
@@ -3333,7 +3620,7 @@ class _$MapSelectedImpl implements MapSelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -3360,6 +3647,10 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -3483,6 +3774,10 @@ class _$MapValidatePointImpl implements MapValidatePoint {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return mapValidatePoint(libelle, quartier);
   }
@@ -3519,6 +3814,10 @@ class _$MapValidatePointImpl implements MapValidatePoint {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return mapValidatePoint?.call(libelle, quartier);
   }
@@ -3554,6 +3853,10 @@ class _$MapValidatePointImpl implements MapValidatePoint {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -3565,7 +3868,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -3596,6 +3899,10 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return mapValidatePoint(this);
   }
@@ -3603,7 +3910,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -3630,6 +3937,10 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return mapValidatePoint?.call(this);
   }
@@ -3637,7 +3948,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -3664,6 +3975,10 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -3793,6 +4108,10 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return mapValidatePointLivraison(libelle, quartier);
   }
@@ -3829,6 +4148,10 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return mapValidatePointLivraison?.call(libelle, quartier);
   }
@@ -3864,6 +4187,10 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -3875,7 +4202,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -3906,6 +4233,10 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return mapValidatePointLivraison(this);
   }
@@ -3913,7 +4244,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -3940,6 +4271,10 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return mapValidatePointLivraison?.call(this);
   }
@@ -3947,7 +4282,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -3974,6 +4309,10 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -4064,6 +4403,10 @@ class _$AddColisImpl implements AddColis {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return addColis();
   }
@@ -4100,6 +4443,10 @@ class _$AddColisImpl implements AddColis {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return addColis?.call();
   }
@@ -4135,6 +4482,10 @@ class _$AddColisImpl implements AddColis {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (addColis != null) {
@@ -4146,7 +4497,7 @@ class _$AddColisImpl implements AddColis {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -4177,6 +4528,10 @@ class _$AddColisImpl implements AddColis {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return addColis(this);
   }
@@ -4184,7 +4539,7 @@ class _$AddColisImpl implements AddColis {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -4211,6 +4566,10 @@ class _$AddColisImpl implements AddColis {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return addColis?.call(this);
   }
@@ -4218,7 +4577,7 @@ class _$AddColisImpl implements AddColis {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -4245,6 +4604,10 @@ class _$AddColisImpl implements AddColis {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (addColis != null) {
@@ -4353,6 +4716,10 @@ class _$UpdateColisImpl implements UpdateColis {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return updateColis(idColis);
   }
@@ -4389,6 +4756,10 @@ class _$UpdateColisImpl implements UpdateColis {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return updateColis?.call(idColis);
   }
@@ -4424,6 +4795,10 @@ class _$UpdateColisImpl implements UpdateColis {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -4435,7 +4810,7 @@ class _$UpdateColisImpl implements UpdateColis {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -4466,6 +4841,10 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return updateColis(this);
   }
@@ -4473,7 +4852,7 @@ class _$UpdateColisImpl implements UpdateColis {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -4500,6 +4879,10 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return updateColis?.call(this);
   }
@@ -4507,7 +4890,7 @@ class _$UpdateColisImpl implements UpdateColis {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -4534,6 +4917,10 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -4647,6 +5034,10 @@ class _$DeleteColisImpl implements DeleteColis {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return deleteColis(idColis);
   }
@@ -4683,6 +5074,10 @@ class _$DeleteColisImpl implements DeleteColis {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return deleteColis?.call(idColis);
   }
@@ -4718,6 +5113,10 @@ class _$DeleteColisImpl implements DeleteColis {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -4729,7 +5128,7 @@ class _$DeleteColisImpl implements DeleteColis {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -4760,6 +5159,10 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return deleteColis(this);
   }
@@ -4767,7 +5170,7 @@ class _$DeleteColisImpl implements DeleteColis {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -4794,6 +5197,10 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return deleteColis?.call(this);
   }
@@ -4801,7 +5208,7 @@ class _$DeleteColisImpl implements DeleteColis {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -4828,6 +5235,10 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -4917,6 +5328,10 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return getImageColisAppareil();
   }
@@ -4953,6 +5368,10 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return getImageColisAppareil?.call();
   }
@@ -4988,6 +5407,10 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -4999,7 +5422,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -5030,6 +5453,10 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return getImageColisAppareil(this);
   }
@@ -5037,7 +5464,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -5064,6 +5491,10 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return getImageColisAppareil?.call(this);
   }
@@ -5071,7 +5502,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -5098,6 +5529,10 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -5181,6 +5616,10 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return getImageColisGalerie();
   }
@@ -5217,6 +5656,10 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return getImageColisGalerie?.call();
   }
@@ -5252,6 +5695,10 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -5263,7 +5710,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -5294,6 +5741,10 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return getImageColisGalerie(this);
   }
@@ -5301,7 +5752,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -5328,6 +5779,10 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return getImageColisGalerie?.call(this);
   }
@@ -5335,7 +5790,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -5362,6 +5817,10 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -5472,6 +5931,10 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return addImageColisAppareil(idColis);
   }
@@ -5508,6 +5971,10 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return addImageColisAppareil?.call(idColis);
   }
@@ -5543,6 +6010,10 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -5554,7 +6025,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -5585,6 +6056,10 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return addImageColisAppareil(this);
   }
@@ -5592,7 +6067,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -5619,6 +6094,10 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return addImageColisAppareil?.call(this);
   }
@@ -5626,7 +6105,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -5653,6 +6132,10 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -5769,6 +6252,10 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return addImageColisGalerie(idColis);
   }
@@ -5805,6 +6292,10 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return addImageColisGalerie?.call(idColis);
   }
@@ -5840,6 +6331,10 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -5851,7 +6346,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -5882,6 +6377,10 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return addImageColisGalerie(this);
   }
@@ -5889,7 +6388,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -5916,6 +6415,10 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return addImageColisGalerie?.call(this);
   }
@@ -5923,7 +6426,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -5950,6 +6453,10 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -6068,6 +6575,10 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return selectPointLivraisonColis(point_livraison);
   }
@@ -6104,6 +6615,10 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return selectPointLivraisonColis?.call(point_livraison);
   }
@@ -6139,6 +6654,10 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -6150,7 +6669,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -6181,6 +6700,10 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return selectPointLivraisonColis(this);
   }
@@ -6188,7 +6711,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -6215,6 +6738,10 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return selectPointLivraisonColis?.call(this);
   }
@@ -6222,7 +6749,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -6249,6 +6776,10 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -6376,6 +6907,10 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return removeImageFromColis(idColis, position);
   }
@@ -6412,6 +6947,10 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return removeImageFromColis?.call(idColis, position);
   }
@@ -6447,6 +6986,10 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -6458,7 +7001,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -6489,6 +7032,10 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return removeImageFromColis(this);
   }
@@ -6496,7 +7043,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -6523,6 +7070,10 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return removeImageFromColis?.call(this);
   }
@@ -6530,7 +7081,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -6557,6 +7108,10 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -6695,6 +7250,10 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return updateImageInColis(idColis, position, updatedImage);
   }
@@ -6731,6 +7290,10 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return updateImageInColis?.call(idColis, position, updatedImage);
   }
@@ -6766,6 +7329,10 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -6777,7 +7344,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -6808,6 +7375,10 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return updateImageInColis(this);
   }
@@ -6815,7 +7386,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -6842,6 +7413,10 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return updateImageInColis?.call(this);
   }
@@ -6849,7 +7424,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -6876,6 +7451,10 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -6994,6 +7573,10 @@ class _$SelectColisImpl implements SelectColis {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return selectColis(colis);
   }
@@ -7030,6 +7613,10 @@ class _$SelectColisImpl implements SelectColis {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return selectColis?.call(colis);
   }
@@ -7065,6 +7652,10 @@ class _$SelectColisImpl implements SelectColis {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -7076,7 +7667,7 @@ class _$SelectColisImpl implements SelectColis {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -7107,6 +7698,10 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return selectColis(this);
   }
@@ -7114,7 +7709,7 @@ class _$SelectColisImpl implements SelectColis {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -7141,6 +7736,10 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return selectColis?.call(this);
   }
@@ -7148,7 +7747,7 @@ class _$SelectColisImpl implements SelectColis {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -7175,6 +7774,10 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -7288,6 +7891,10 @@ class _$ManageQteImpl implements ManageQte {
         updateImageInColis,
     required TResult Function(Colis colis) selectColis,
     required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
   }) {
     return manageQte(state);
   }
@@ -7324,6 +7931,10 @@ class _$ManageQteImpl implements ManageQte {
         updateImageInColis,
     TResult? Function(Colis colis)? selectColis,
     TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
   }) {
     return manageQte?.call(state);
   }
@@ -7359,6 +7970,10 @@ class _$ManageQteImpl implements ManageQte {
         updateImageInColis,
     TResult Function(Colis colis)? selectColis,
     TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -7370,7 +7985,7 @@ class _$ManageQteImpl implements ManageQte {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(VerifyFormEvent value) verifyForm,
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
     required TResult Function(BackIndexEvent value) backIndex,
     required TResult Function(GetVilleAndCategoryEvent value)
         getVilleAndCategory,
@@ -7401,6 +8016,10 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
     required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
   }) {
     return manageQte(this);
   }
@@ -7408,7 +8027,7 @@ class _$ManageQteImpl implements ManageQte {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(VerifyFormEvent value)? verifyForm,
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult? Function(BackIndexEvent value)? backIndex,
     TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult? Function(SelectedVille value)? selectedVille,
@@ -7435,6 +8054,10 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
     TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
   }) {
     return manageQte?.call(this);
   }
@@ -7442,7 +8065,7 @@ class _$ManageQteImpl implements ManageQte {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(VerifyFormEvent value)? verifyForm,
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
     TResult Function(BackIndexEvent value)? backIndex,
     TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
     TResult Function(SelectedVille value)? selectedVille,
@@ -7469,6 +8092,10 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
     TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -7485,6 +8112,1154 @@ abstract class ManageQte implements LivraisonEvent {
   @JsonKey(ignore: true)
   _$$ManageQteImplCopyWith<_$ManageQteImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CalculFraisImplCopyWith<$Res> {
+  factory _$$CalculFraisImplCopyWith(
+          _$CalculFraisImpl value, $Res Function(_$CalculFraisImpl) then) =
+      __$$CalculFraisImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CalculFraisImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$CalculFraisImpl>
+    implements _$$CalculFraisImplCopyWith<$Res> {
+  __$$CalculFraisImplCopyWithImpl(
+      _$CalculFraisImpl _value, $Res Function(_$CalculFraisImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CalculFraisImpl implements CalculFrais {
+  const _$CalculFraisImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.calculFrais()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CalculFraisImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+  }) {
+    return calculFrais();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+  }) {
+    return calculFrais?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    required TResult orElse(),
+  }) {
+    if (calculFrais != null) {
+      return calculFrais();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+  }) {
+    return calculFrais(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+  }) {
+    return calculFrais?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    required TResult orElse(),
+  }) {
+    if (calculFrais != null) {
+      return calculFrais(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CalculFrais implements LivraisonEvent {
+  const factory CalculFrais() = _$CalculFraisImpl;
+}
+
+/// @nodoc
+abstract class _$$NewLivraisonImplCopyWith<$Res> {
+  factory _$$NewLivraisonImplCopyWith(
+          _$NewLivraisonImpl value, $Res Function(_$NewLivraisonImpl) then) =
+      __$$NewLivraisonImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NewLivraisonImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$NewLivraisonImpl>
+    implements _$$NewLivraisonImplCopyWith<$Res> {
+  __$$NewLivraisonImplCopyWithImpl(
+      _$NewLivraisonImpl _value, $Res Function(_$NewLivraisonImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NewLivraisonImpl implements NewLivraison {
+  const _$NewLivraisonImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.newLivraison()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NewLivraisonImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+  }) {
+    return newLivraison();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+  }) {
+    return newLivraison?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    required TResult orElse(),
+  }) {
+    if (newLivraison != null) {
+      return newLivraison();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+  }) {
+    return newLivraison(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+  }) {
+    return newLivraison?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    required TResult orElse(),
+  }) {
+    if (newLivraison != null) {
+      return newLivraison(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NewLivraison implements LivraisonEvent {
+  const factory NewLivraison() = _$NewLivraisonImpl;
+}
+
+/// @nodoc
+abstract class _$$ListLivraisonImplCopyWith<$Res> {
+  factory _$$ListLivraisonImplCopyWith(
+          _$ListLivraisonImpl value, $Res Function(_$ListLivraisonImpl) then) =
+      __$$ListLivraisonImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ListLivraisonImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$ListLivraisonImpl>
+    implements _$$ListLivraisonImplCopyWith<$Res> {
+  __$$ListLivraisonImplCopyWithImpl(
+      _$ListLivraisonImpl _value, $Res Function(_$ListLivraisonImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ListLivraisonImpl implements ListLivraison {
+  const _$ListLivraisonImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.getLivraison()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ListLivraisonImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+  }) {
+    return getLivraison();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+  }) {
+    return getLivraison?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    required TResult orElse(),
+  }) {
+    if (getLivraison != null) {
+      return getLivraison();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+  }) {
+    return getLivraison(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+  }) {
+    return getLivraison?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    required TResult orElse(),
+  }) {
+    if (getLivraison != null) {
+      return getLivraison(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListLivraison implements LivraisonEvent {
+  const factory ListLivraison() = _$ListLivraisonImpl;
+}
+
+/// @nodoc
+abstract class _$$DownloadFactureImplCopyWith<$Res> {
+  factory _$$DownloadFactureImplCopyWith(_$DownloadFactureImpl value,
+          $Res Function(_$DownloadFactureImpl) then) =
+      __$$DownloadFactureImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DownloadFactureImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$DownloadFactureImpl>
+    implements _$$DownloadFactureImplCopyWith<$Res> {
+  __$$DownloadFactureImplCopyWithImpl(
+      _$DownloadFactureImpl _value, $Res Function(_$DownloadFactureImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DownloadFactureImpl implements DownloadFacture {
+  const _$DownloadFactureImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.downloadFacture()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DownloadFactureImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+  }) {
+    return downloadFacture();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+  }) {
+    return downloadFacture?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    required TResult orElse(),
+  }) {
+    if (downloadFacture != null) {
+      return downloadFacture();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+  }) {
+    return downloadFacture(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+  }) {
+    return downloadFacture?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    required TResult orElse(),
+  }) {
+    if (downloadFacture != null) {
+      return downloadFacture(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DownloadFacture implements LivraisonEvent {
+  const factory DownloadFacture() = _$DownloadFactureImpl;
 }
 
 /// @nodoc
@@ -7513,6 +9288,7 @@ mixin _$LivraisonState {
   TextEditingController? get description => throw _privateConstructorUsedError;
   GlobalKey<FormState>? get formKeyLivraison =>
       throw _privateConstructorUsedError;
+  GlobalKey<FormState>? get formKeyColis => throw _privateConstructorUsedError;
   TextEditingController? get nomColis => throw _privateConstructorUsedError;
   TextEditingController? get quantiteColis =>
       throw _privateConstructorUsedError;
@@ -7527,8 +9303,17 @@ mixin _$LivraisonState {
       throw _privateConstructorUsedError;
   bool? get errorCategory => throw _privateConstructorUsedError;
   bool? get errorPointLivraison => throw _privateConstructorUsedError;
+  int? get isRequest => throw _privateConstructorUsedError;
+  double? get frais => throw _privateConstructorUsedError;
   bool? get errorQte => throw _privateConstructorUsedError;
+  int? get isDownloadFacture => throw _privateConstructorUsedError;
   bool? get errorImage => throw _privateConstructorUsedError;
+  int? get isLoadedPLivraison => throw _privateConstructorUsedError;
+  int? get isLoadedVille => throw _privateConstructorUsedError;
+  int? get isLoadedVCategory => throw _privateConstructorUsedError;
+  String? get urlFacture => throw _privateConstructorUsedError;
+  List<LivraisonModel>? get userLivraisonList =>
+      throw _privateConstructorUsedError;
   LatLng? get position => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -7561,6 +9346,7 @@ abstract class $LivraisonStateCopyWith<$Res> {
       TextEditingController? contactEmetteur,
       TextEditingController? description,
       GlobalKey<FormState>? formKeyLivraison,
+      GlobalKey<FormState>? formKeyColis,
       TextEditingController? nomColis,
       TextEditingController? quantiteColis,
       TextEditingController? contactRecepteur,
@@ -7571,8 +9357,16 @@ abstract class $LivraisonStateCopyWith<$Res> {
       PointLivraisonModel? selected_livraison_point,
       bool? errorCategory,
       bool? errorPointLivraison,
+      int? isRequest,
+      double? frais,
       bool? errorQte,
+      int? isDownloadFacture,
       bool? errorImage,
+      int? isLoadedPLivraison,
+      int? isLoadedVille,
+      int? isLoadedVCategory,
+      String? urlFacture,
+      List<LivraisonModel>? userLivraisonList,
       LatLng? position});
 }
 
@@ -7607,6 +9401,7 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? contactEmetteur = freezed,
     Object? description = freezed,
     Object? formKeyLivraison = freezed,
+    Object? formKeyColis = freezed,
     Object? nomColis = freezed,
     Object? quantiteColis = freezed,
     Object? contactRecepteur = freezed,
@@ -7617,8 +9412,16 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? selected_livraison_point = freezed,
     Object? errorCategory = freezed,
     Object? errorPointLivraison = freezed,
+    Object? isRequest = freezed,
+    Object? frais = freezed,
     Object? errorQte = freezed,
+    Object? isDownloadFacture = freezed,
     Object? errorImage = freezed,
+    Object? isLoadedPLivraison = freezed,
+    Object? isLoadedVille = freezed,
+    Object? isLoadedVCategory = freezed,
+    Object? urlFacture = freezed,
+    Object? userLivraisonList = freezed,
     Object? position = freezed,
   }) {
     return _then(_value.copyWith(
@@ -7694,6 +9497,10 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.formKeyLivraison
           : formKeyLivraison // ignore: cast_nullable_to_non_nullable
               as GlobalKey<FormState>?,
+      formKeyColis: freezed == formKeyColis
+          ? _value.formKeyColis
+          : formKeyColis // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>?,
       nomColis: freezed == nomColis
           ? _value.nomColis
           : nomColis // ignore: cast_nullable_to_non_nullable
@@ -7734,14 +9541,46 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.errorPointLivraison
           : errorPointLivraison // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isRequest: freezed == isRequest
+          ? _value.isRequest
+          : isRequest // ignore: cast_nullable_to_non_nullable
+              as int?,
+      frais: freezed == frais
+          ? _value.frais
+          : frais // ignore: cast_nullable_to_non_nullable
+              as double?,
       errorQte: freezed == errorQte
           ? _value.errorQte
           : errorQte // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isDownloadFacture: freezed == isDownloadFacture
+          ? _value.isDownloadFacture
+          : isDownloadFacture // ignore: cast_nullable_to_non_nullable
+              as int?,
       errorImage: freezed == errorImage
           ? _value.errorImage
           : errorImage // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isLoadedPLivraison: freezed == isLoadedPLivraison
+          ? _value.isLoadedPLivraison
+          : isLoadedPLivraison // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isLoadedVille: freezed == isLoadedVille
+          ? _value.isLoadedVille
+          : isLoadedVille // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isLoadedVCategory: freezed == isLoadedVCategory
+          ? _value.isLoadedVCategory
+          : isLoadedVCategory // ignore: cast_nullable_to_non_nullable
+              as int?,
+      urlFacture: freezed == urlFacture
+          ? _value.urlFacture
+          : urlFacture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userLivraisonList: freezed == userLivraisonList
+          ? _value.userLivraisonList
+          : userLivraisonList // ignore: cast_nullable_to_non_nullable
+              as List<LivraisonModel>?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -7777,6 +9616,7 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       TextEditingController? contactEmetteur,
       TextEditingController? description,
       GlobalKey<FormState>? formKeyLivraison,
+      GlobalKey<FormState>? formKeyColis,
       TextEditingController? nomColis,
       TextEditingController? quantiteColis,
       TextEditingController? contactRecepteur,
@@ -7787,8 +9627,16 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       PointLivraisonModel? selected_livraison_point,
       bool? errorCategory,
       bool? errorPointLivraison,
+      int? isRequest,
+      double? frais,
       bool? errorQte,
+      int? isDownloadFacture,
       bool? errorImage,
+      int? isLoadedPLivraison,
+      int? isLoadedVille,
+      int? isLoadedVCategory,
+      String? urlFacture,
+      List<LivraisonModel>? userLivraisonList,
       LatLng? position});
 }
 
@@ -7821,6 +9669,7 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? contactEmetteur = freezed,
     Object? description = freezed,
     Object? formKeyLivraison = freezed,
+    Object? formKeyColis = freezed,
     Object? nomColis = freezed,
     Object? quantiteColis = freezed,
     Object? contactRecepteur = freezed,
@@ -7831,8 +9680,16 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? selected_livraison_point = freezed,
     Object? errorCategory = freezed,
     Object? errorPointLivraison = freezed,
+    Object? isRequest = freezed,
+    Object? frais = freezed,
     Object? errorQte = freezed,
+    Object? isDownloadFacture = freezed,
     Object? errorImage = freezed,
+    Object? isLoadedPLivraison = freezed,
+    Object? isLoadedVille = freezed,
+    Object? isLoadedVCategory = freezed,
+    Object? urlFacture = freezed,
+    Object? userLivraisonList = freezed,
     Object? position = freezed,
   }) {
     return _then(_$LivraisonStateImpl(
@@ -7908,6 +9765,10 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value.formKeyLivraison
           : formKeyLivraison // ignore: cast_nullable_to_non_nullable
               as GlobalKey<FormState>?,
+      formKeyColis: freezed == formKeyColis
+          ? _value.formKeyColis
+          : formKeyColis // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>?,
       nomColis: freezed == nomColis
           ? _value.nomColis
           : nomColis // ignore: cast_nullable_to_non_nullable
@@ -7948,14 +9809,46 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value.errorPointLivraison
           : errorPointLivraison // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isRequest: freezed == isRequest
+          ? _value.isRequest
+          : isRequest // ignore: cast_nullable_to_non_nullable
+              as int?,
+      frais: freezed == frais
+          ? _value.frais
+          : frais // ignore: cast_nullable_to_non_nullable
+              as double?,
       errorQte: freezed == errorQte
           ? _value.errorQte
           : errorQte // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isDownloadFacture: freezed == isDownloadFacture
+          ? _value.isDownloadFacture
+          : isDownloadFacture // ignore: cast_nullable_to_non_nullable
+              as int?,
       errorImage: freezed == errorImage
           ? _value.errorImage
           : errorImage // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isLoadedPLivraison: freezed == isLoadedPLivraison
+          ? _value.isLoadedPLivraison
+          : isLoadedPLivraison // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isLoadedVille: freezed == isLoadedVille
+          ? _value.isLoadedVille
+          : isLoadedVille // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isLoadedVCategory: freezed == isLoadedVCategory
+          ? _value.isLoadedVCategory
+          : isLoadedVCategory // ignore: cast_nullable_to_non_nullable
+              as int?,
+      urlFacture: freezed == urlFacture
+          ? _value.urlFacture
+          : urlFacture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userLivraisonList: freezed == userLivraisonList
+          ? _value._userLivraisonList
+          : userLivraisonList // ignore: cast_nullable_to_non_nullable
+              as List<LivraisonModel>?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -7986,6 +9879,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
       this.contactEmetteur,
       this.description,
       this.formKeyLivraison,
+      this.formKeyColis,
       this.nomColis,
       this.quantiteColis,
       this.contactRecepteur,
@@ -7996,15 +9890,24 @@ class _$LivraisonStateImpl implements _LivraisonState {
       this.selected_livraison_point,
       this.errorCategory,
       this.errorPointLivraison,
+      this.isRequest,
+      this.frais,
       this.errorQte,
+      this.isDownloadFacture,
       this.errorImage,
+      this.isLoadedPLivraison,
+      this.isLoadedVille,
+      this.isLoadedVCategory,
+      this.urlFacture,
+      final List<LivraisonModel>? userLivraisonList,
       this.position})
       : _villeList = villeList,
         _listColis = listColis,
         _imageColis = imageColis,
         _list_localisation_point = list_localisation_point,
         _list_search_point_localisation = list_search_point_localisation,
-        _list_category_colis = list_category_colis;
+        _list_category_colis = list_category_colis,
+        _userLivraisonList = userLivraisonList;
 
   @override
   final bool? errorVille;
@@ -8086,6 +9989,8 @@ class _$LivraisonStateImpl implements _LivraisonState {
   @override
   final GlobalKey<FormState>? formKeyLivraison;
   @override
+  final GlobalKey<FormState>? formKeyColis;
+  @override
   final TextEditingController? nomColis;
   @override
   final TextEditingController? quantiteColis;
@@ -8115,15 +10020,40 @@ class _$LivraisonStateImpl implements _LivraisonState {
   @override
   final bool? errorPointLivraison;
   @override
+  final int? isRequest;
+  @override
+  final double? frais;
+  @override
   final bool? errorQte;
   @override
+  final int? isDownloadFacture;
+  @override
   final bool? errorImage;
+  @override
+  final int? isLoadedPLivraison;
+  @override
+  final int? isLoadedVille;
+  @override
+  final int? isLoadedVCategory;
+  @override
+  final String? urlFacture;
+  final List<LivraisonModel>? _userLivraisonList;
+  @override
+  List<LivraisonModel>? get userLivraisonList {
+    final value = _userLivraisonList;
+    if (value == null) return null;
+    if (_userLivraisonList is EqualUnmodifiableListView)
+      return _userLivraisonList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final LatLng? position;
 
   @override
   String toString() {
-    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, errorQte: $errorQte, errorImage: $errorImage, position: $position)';
+    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedVille: $isLoadedVille, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, position: $position)';
   }
 
   @override
@@ -8167,6 +10097,8 @@ class _$LivraisonStateImpl implements _LivraisonState {
                 other.description == description) &&
             (identical(other.formKeyLivraison, formKeyLivraison) ||
                 other.formKeyLivraison == formKeyLivraison) &&
+            (identical(other.formKeyColis, formKeyColis) ||
+                other.formKeyColis == formKeyColis) &&
             (identical(other.nomColis, nomColis) ||
                 other.nomColis == nomColis) &&
             (identical(other.quantiteColis, quantiteColis) ||
@@ -8180,13 +10112,20 @@ class _$LivraisonStateImpl implements _LivraisonState {
             const DeepCollectionEquality()
                 .equals(other._list_category_colis, _list_category_colis) &&
             (identical(other.isMapSelectedPointLivraison, isMapSelectedPointLivraison) ||
-                other.isMapSelectedPointLivraison ==
-                    isMapSelectedPointLivraison) &&
+                other.isMapSelectedPointLivraison == isMapSelectedPointLivraison) &&
             (identical(other.selected_livraison_point, selected_livraison_point) || other.selected_livraison_point == selected_livraison_point) &&
             (identical(other.errorCategory, errorCategory) || other.errorCategory == errorCategory) &&
             (identical(other.errorPointLivraison, errorPointLivraison) || other.errorPointLivraison == errorPointLivraison) &&
+            (identical(other.isRequest, isRequest) || other.isRequest == isRequest) &&
+            (identical(other.frais, frais) || other.frais == frais) &&
             (identical(other.errorQte, errorQte) || other.errorQte == errorQte) &&
+            (identical(other.isDownloadFacture, isDownloadFacture) || other.isDownloadFacture == isDownloadFacture) &&
             (identical(other.errorImage, errorImage) || other.errorImage == errorImage) &&
+            (identical(other.isLoadedPLivraison, isLoadedPLivraison) || other.isLoadedPLivraison == isLoadedPLivraison) &&
+            (identical(other.isLoadedVille, isLoadedVille) || other.isLoadedVille == isLoadedVille) &&
+            (identical(other.isLoadedVCategory, isLoadedVCategory) || other.isLoadedVCategory == isLoadedVCategory) &&
+            (identical(other.urlFacture, urlFacture) || other.urlFacture == urlFacture) &&
+            const DeepCollectionEquality().equals(other._userLivraisonList, _userLivraisonList) &&
             (identical(other.position, position) || other.position == position));
   }
 
@@ -8211,6 +10150,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
         contactEmetteur,
         description,
         formKeyLivraison,
+        formKeyColis,
         nomColis,
         quantiteColis,
         contactRecepteur,
@@ -8221,8 +10161,16 @@ class _$LivraisonStateImpl implements _LivraisonState {
         selected_livraison_point,
         errorCategory,
         errorPointLivraison,
+        isRequest,
+        frais,
         errorQte,
+        isDownloadFacture,
         errorImage,
+        isLoadedPLivraison,
+        isLoadedVille,
+        isLoadedVCategory,
+        urlFacture,
+        const DeepCollectionEquality().hash(_userLivraisonList),
         position
       ]);
 
@@ -8254,6 +10202,7 @@ abstract class _LivraisonState implements LivraisonState {
       final TextEditingController? contactEmetteur,
       final TextEditingController? description,
       final GlobalKey<FormState>? formKeyLivraison,
+      final GlobalKey<FormState>? formKeyColis,
       final TextEditingController? nomColis,
       final TextEditingController? quantiteColis,
       final TextEditingController? contactRecepteur,
@@ -8264,8 +10213,16 @@ abstract class _LivraisonState implements LivraisonState {
       final PointLivraisonModel? selected_livraison_point,
       final bool? errorCategory,
       final bool? errorPointLivraison,
+      final int? isRequest,
+      final double? frais,
       final bool? errorQte,
+      final int? isDownloadFacture,
       final bool? errorImage,
+      final int? isLoadedPLivraison,
+      final int? isLoadedVille,
+      final int? isLoadedVCategory,
+      final String? urlFacture,
+      final List<LivraisonModel>? userLivraisonList,
       final LatLng? position}) = _$LivraisonStateImpl;
 
   @override
@@ -8305,6 +10262,8 @@ abstract class _LivraisonState implements LivraisonState {
   @override
   GlobalKey<FormState>? get formKeyLivraison;
   @override
+  GlobalKey<FormState>? get formKeyColis;
+  @override
   TextEditingController? get nomColis;
   @override
   TextEditingController? get quantiteColis;
@@ -8325,9 +10284,25 @@ abstract class _LivraisonState implements LivraisonState {
   @override
   bool? get errorPointLivraison;
   @override
+  int? get isRequest;
+  @override
+  double? get frais;
+  @override
   bool? get errorQte;
   @override
+  int? get isDownloadFacture;
+  @override
   bool? get errorImage;
+  @override
+  int? get isLoadedPLivraison;
+  @override
+  int? get isLoadedVille;
+  @override
+  int? get isLoadedVCategory;
+  @override
+  String? get urlFacture;
+  @override
+  List<LivraisonModel>? get userLivraisonList;
   @override
   LatLng? get position;
   @override

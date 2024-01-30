@@ -1,10 +1,5 @@
 import 'dart:async';
-
-import 'package:BananaExpress/old/Views/User/RegisterScreen.dart';
-import 'package:BananaExpress/old/controller/managerController.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:flutter/material.dart';
+ 
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 

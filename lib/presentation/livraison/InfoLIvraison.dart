@@ -51,71 +51,75 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     ),
                     alignment: Alignment.centerLeft,
                     child: Text('Ville')),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                        color: (state.errorVille!)
-                            ? ColorsApp.red
-                            : ColorsApp.grey,
-                        width: 1),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  height: getHeight(context) * .08,
-                  width: getWith(context),
-                  margin: EdgeInsets.only(
-                    top: kMarginY * 1.5,
-                  ),
-                  alignment: Alignment.center,
-                  child: state.villeList == null
-                      ? Container()
-                      : state.villeList!.isEmpty
-                          ? Container()
-                          : DropdownButton<VilleModel>(
-                              value: state.selectedVIlle,
-                              icon: Container(
-                                // padding: EdgeInsets.only(top: 4),
-                                child: Icon(
-                                  Icons.keyboard_arrow_down_outlined,
-                                ),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 7,
-                              ),
-                              hint: Container(
-                                width: getWith(context) * .65,
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 7,
-                                ),
-                                child: Text(
-                                  'Selectionner une ville',
-                                  style: TextStyle(
-                                      overflow: TextOverflow.ellipsis),
-                                ),
-                              ),
-                              iconSize: 25,
-                              isExpanded: true,
-                              underline: SizedBox(),
-                              style: TextStyle(
-                                  color: ColorsApp.primary, fontSize: 12),
-                              onChanged: (newValue) {
-                                context.read<LivraisonBloc>().add(SelectedVille(
-                                    ville: newValue as VilleModel));
-                                context.read<LivraisonBloc>().add(
-                                    GetRecupPointEvent(ville: newValue.id));
-                              },
-                              items: state.villeList!.map((value) {
-                                return DropdownMenuItem(
-                                  value: value,
-                                  child: Center(
-                                    child: Text(
-                                      value.libelle,
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
+                state.isLoadedVille == 0
+                    ? CircularProgressIndicator()
+                    : state.isLoadedVille == 2
+                        ? Text('Error')
+                        : Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: (state.errorVille!)
+                                      ? ColorsApp.red
+                                      : ColorsApp.grey,
+                                  width: 1),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                ),
+                            height: getHeight(context) * .08,
+                            width: getWith(context),
+                            margin: EdgeInsets.only(
+                              top: kMarginY * 1.5,
+                            ),
+                            alignment: Alignment.center,
+                            child: state.villeList!.isEmpty
+                                ? Container()
+                                : DropdownButton<VilleModel>(
+                                    value: state.selectedVIlle,
+                                    icon: Container(
+                                      // padding: EdgeInsets.only(top: 4),
+                                      child: Icon(
+                                        Icons.keyboard_arrow_down_outlined,
+                                      ),
+                                    ),
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 7,
+                                    ),
+                                    hint: Container(
+                                      width: getWith(context) * .65,
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 7,
+                                      ),
+                                      child: Text(
+                                        'Selectionner une ville',
+                                        style: TextStyle(
+                                            overflow: TextOverflow.ellipsis),
+                                      ),
+                                    ),
+                                    iconSize: 25,
+                                    isExpanded: true,
+                                    underline: SizedBox(),
+                                    style: TextStyle(
+                                        color: ColorsApp.primary, fontSize: 12),
+                                    onChanged: (newValue) {
+                                      context.read<LivraisonBloc>().add(
+                                          SelectedVille(
+                                              ville: newValue as VilleModel));
+                                      context.read<LivraisonBloc>().add(
+                                          GetRecupPointEvent(
+                                              ville: newValue.id));
+                                    },
+                                    items: state.villeList!.map((value) {
+                                      return DropdownMenuItem(
+                                        value: value,
+                                        child: Center(
+                                          child: Text(
+                                            value.libelle,
+                                          ),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                          ),
                 if (state.errorVille!)
                   Container(
                       padding: EdgeInsets.only(
@@ -255,6 +259,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                   child: AppInputNew(
                     controller: state.contactEmetteur!,
                     icon: Icon(Icons.phone),
+                    textInputType: TextInputType.number,
                     label: 'Contact de l\'expediteur'.tr(),
                     onChanged: (value) {},
                     validator: (value) {
