@@ -1,14 +1,12 @@
-import 'package:BananaExpress/old/components/Button/app_button.dart';
+import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
 import 'package:BananaExpress/utils/functions/app_loader.dart';
 import 'package:BananaExpress/utils/functions/showToast.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import '../../application/export_bloc.dart';
-import '../../styles/colorApp.dart';
-import '../../styles/textStyle.dart';
 
 @RoutePage()
 class SuccesLivraisonPage extends StatelessWidget {

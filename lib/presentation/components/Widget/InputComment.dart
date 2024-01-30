@@ -1,4 +1,4 @@
-import 'package:BananaExpress/old/components/exportcomponent.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class InputComment extends StatelessWidget {
@@ -59,7 +59,7 @@ class InputComment extends StatelessWidget {
           //       )
           //     : null,
 
-          counterText: "",
+          counterText: '',
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(50),
               borderSide: BorderSide(

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class FormComponent2 extends StatefulWidget {
@@ -47,7 +46,7 @@ class _FormComponent2State extends State<FormComponent2> {
             TextFormField(
               controller: widget.controller,
               validator: (value) {
-                return value == "" ? "veillez remplir se champs" : null;
+                return value == '' ? 'veillez remplir se champs' : null;
               },
               enabled: widget.enabled,
               onChanged: (val) {
@@ -62,7 +61,7 @@ class _FormComponent2State extends State<FormComponent2> {
               obscureText: widget.type == 1 ? true : false,
               decoration: new InputDecoration(
                 prefixIcon: Icon(widget.icon),
-                counterText: "",
+                counterText: '',
                 // focusedBorder: OutlineInputBorder(
                 //     // borderRadius: BorderRadius.circular(15),
                 //     borderSide: BorderSide(

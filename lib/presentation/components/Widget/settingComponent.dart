@@ -1,8 +1,6 @@
 // ignore: must_be_immutable
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:get/get.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
+
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class SettingComponent extends StatelessWidget {
@@ -30,7 +28,8 @@ class SettingComponent extends StatelessWidget {
                   Container(
                     // width: getWith(context) * .6,
                     margin: EdgeInsets.only(
-                        top: Get.height * .005, left: Get.width * .008),
+                        top: getHeight(context) * .005,
+                        left: getWith(context) * .008),
                     child: Text(title,
                         overflow: TextOverflow.ellipsis,
                         style:

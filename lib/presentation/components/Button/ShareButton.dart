@@ -1,9 +1,8 @@
-import 'package:BananaExpress/old/components/Button/AppIconButton.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
+import 'package:BananaExpress/presentation/components/Button/AppIconButton.dart';
 
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:share_plus/share_plus.dart';
- 
 
 // ignore: must_be_immutable
 class ShareButton extends StatelessWidget {

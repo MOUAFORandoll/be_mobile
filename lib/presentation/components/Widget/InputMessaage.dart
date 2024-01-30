@@ -1,4 +1,4 @@
-import 'package:BananaExpress/old/components/exportcomponent.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class InputMessaage extends StatelessWidget {
@@ -47,7 +47,7 @@ class InputMessaage extends StatelessWidget {
           labelStyle: TextStyle(
               color: Colors.blue, fontWeight: FontWeight.w600, fontSize: 12),
 
-          counterText: "",
+          counterText: '',
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(50),
               borderSide: BorderSide(

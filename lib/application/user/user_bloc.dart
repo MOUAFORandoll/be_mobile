@@ -4,12 +4,12 @@ import 'package:BananaExpress/application/database/database_cubit.dart';
 import 'package:BananaExpress/application/user/repositories/user_repository.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
 
-import 'package:BananaExpress/utils/functions/app_loader.dart';
-import 'package:BananaExpress/utils/functions/viewFunctions.dart';
+import 'package:BananaExpress/utils/functions/app_loader.dart'; 
 import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import '/entity.dart';
 import '../export_bloc.dart';
 
@@ -42,7 +42,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     var loader = AppLoader.bounceLargeColorLoaderController();
     loader.open(event.context);
     await Future.delayed(Duration(seconds: 5), () {
-      database.close();
+      database.disconnect();
       loader.close();
       AutoRouter.of(event.context).replaceAll([AuthRoute()]);
     });
@@ -190,63 +190,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   var fn = new ViewFunctions();
 
-  Future<void> onLogin(
-    SignInEvent event,
-  ) async {
-    var data = {
-      'phone': event.phone,
-      'password': event.password,
-    };
-    print(data);
-    try {
-      fn.loading('connection', 'encours');
-      Response response = await userRepo.Login(data);
-
-      if (response.statusCode == 200) {
-        database.saveKeyKen(response.data);
-        // await getUser();
-        // await getUserDB();
-        // refresh();
-        // //
-        // // await getUser();
-        // await initAllApp();
-        // _isConnected = true;
-        // // Get.back(closeOverlays: true);
-        // update(); // await MyBinding().onGetAll();
-        fn.closeLoader();
-      } else {
-        // fn.closeLoader();
-        fn.closeLoader();
-
-        fn.snackBar('Connexion', 'Identifiants incorrects', false);
-      }
-
-      // fn.snackBar('Mise a jour', response.body['message'], true);
-      // _isConnected = true;
-      // // Get.back(closeOverlays: true);
-      // update();
-    } catch (e) {}
-  }
-
-  // @override
-  // void onError(Object error, StackTrace stacktrace) {
-  //   _addErr(error);
-  //   super.onError(error, stacktrace);
-  // }
-
   @override
   Future<void> close() async {
     await super.close();
   }
-
-  // void _addErr(e) {
-  //   if (e is StateError) return;
-  //   try {
-  //     add(ErrorEvent((e is String)
-  //         ? e
-  //         : (e.message ?? "Something went wrong. Please try again!")));
-  //   } catch (e) {
-  //     add(ErrorEvent("Something went wrong. Please try again!"));
-  //   }
-  // }
 }

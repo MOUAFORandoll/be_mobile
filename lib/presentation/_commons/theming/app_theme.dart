@@ -1,6 +1,4 @@
-import 'app_color.dart';
-import 'dimension.dart';
-import 'package:flutter/material.dart';
+import '../../components/exportcomponent.dart';   
 
 ThemeData darkTheme = ThemeData(
   primaryColor: ColorsApp.primary,

@@ -1,8 +1,6 @@
-import 'package:BananaExpress/infrastructure/_commons/network/app_requests.dart';
-import 'package:BananaExpress/infrastructure/_commons/network/network_info.dart';
+import 'package:BananaExpress/infrastructure/_commons/network/app_requests.dart'; 
 import 'package:dio/dio.dart';
-
-import '../../../utils/Services/ApiClientNew.dart';
+ 
 import '../../../utils/constants/apiRoute.dart';
 
 class LivraisonRepo {
@@ -24,14 +22,14 @@ class LivraisonRepo {
 
   Future recuperationColis(data) async {
     Response a = await apiClient
-        .patchRequest(ApiRoutes.LIVRAISONS + "/recuperation", body: data);
+        .patchRequest(ApiRoutes.LIVRAISONS + '/recuperation', body: data);
 
     return a;
   }
 
   Future receptionColis(data) async {
     Response a = await apiClient
-        .patchRequest(ApiRoutes.LIVRAISONS + "/reception", body: data);
+        .patchRequest(ApiRoutes.LIVRAISONS + '/reception', body: data);
 
     return a;
   }
@@ -119,7 +117,7 @@ class LivraisonRepo {
   Future getListNotifications(index, keySecret) async {
     Response a = await apiClient.getRequest(
       ApiRoutes.LIST_NOTIFICATIONS +
-          "?page=${index.toString()}&keySecret=${keySecret.toString()}",
+          '?page=${index.toString()}&keySecret=${keySecret.toString()}',
     );
 
     return a;
@@ -128,7 +126,7 @@ class LivraisonRepo {
 
   Future readNotifications(idNotification) async {
     Response a = await apiClient.getRequest(
-      ApiRoutes.READ_NOTIFICATIONS + "?id=${idNotification.toString()}",
+      ApiRoutes.READ_NOTIFICATIONS + '?id=${idNotification.toString()}',
     );
 
     return a;

@@ -1,7 +1,5 @@
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 class CircleImage extends StatelessWidget {
   CircleImage({required this.imageUrl, this.radius = 25});

@@ -1,6 +1,6 @@
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:flutter/material.dart';
+ 
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+ 
 
 class TexteStyle {
   final errorStyle = TextStyle(
@@ -51,26 +51,21 @@ class TexteStyle {
       fontWeight: FontWeight.w600);
 }
 
-class ThemeStyle {
+class AppThemes {
   final darkTheme = ThemeData(
     primarySwatch: Colors.grey,
     primaryColor: ColorsApp.primary,
     brightness: Brightness.dark,
-    backgroundColor: const Color(0xFF212121),
+      
     dividerColor: ColorsApp.grey,
-    textTheme: TextTheme(
-      bodyText2: TextStyle(fontFamily: 'Lato', color: ColorsApp.primary),
-    ),
+     
   );
 
   final lightTheme = ThemeData(
     primaryColor: Colors.white,
     brightness: Brightness.light,
     // Couleur du texte principal
-    backgroundColor: ColorsApp.bg,
-
-    primaryTextTheme: TextTheme(headline6: TexteStyle().primaryTextStyle),
-
+      
     // Couleur du bouton pour autoriser la localisation
     // Couleur du bouton pour refuser la localisation
     disabledColor: ColorsApp.grey,

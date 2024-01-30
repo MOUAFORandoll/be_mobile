@@ -11,7 +11,6 @@ import 'package:get_storage/get_storage.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'utils/Services/ApiClientNew.dart';
 import 'package:BananaExpress/infrastructure/_commons/network/network_info.dart';
 
 final sl = GetIt.instance;
@@ -25,7 +24,7 @@ Future<void> init() async {
   sl.registerLazySingleton<GetStorage>(() => box);
   sl.registerLazySingleton<DatabaseCubit>(() => db);
   sl..registerFactory(() => SplashBloc(database: sl()));
-  sl..registerFactory(() => ApiClient());
+
   sl
     ..registerFactory(() => UserBloc(userRepo: sl(), database: sl()))
     ..registerLazySingleton(() => UserRepo(apiClient: sl()));

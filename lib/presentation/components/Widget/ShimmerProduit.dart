@@ -1,9 +1,5 @@
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:shimmer/shimmer.dart';
-
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+ 
 class ShimmerProduit extends StatelessWidget {
   const ShimmerProduit({super.key});
 

@@ -1,11 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 final designSize = 414.0;
-double proportion = MediaQuery.textScaleFactorOf(
-    Get.context!); //  screenSize.width / designSize;
-// final proportion = designSize / screenSize.width;
-
 final kMarginBottom = 10;
 final kMarginLeft = 10;
 final kMarginRight = 10;
@@ -19,9 +14,9 @@ final kPaddingRight = 10;
 final kPaddingX = 10;
 final kPaddingY = 10;
 
-final kTitle = 14.0 /* * proportion */;
-final kDescription = 9.0 /* * proportion */;
-final kBasics = 10.0 /* * proportion */;
+final kTitle = 14.0;
+final kDescription = 9.0;
+final kBasics = 10.0;
 final kMin = 7.0;
 final kLgText = kTitle;
 

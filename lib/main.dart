@@ -1,12 +1,12 @@
 import 'package:BananaExpress/application/connected/connected_bloc.dart';
 import 'package:BananaExpress/application/database/database_cubit.dart';
 import 'package:BananaExpress/application/splash/splash_bloc.dart';
-
-import 'package:BananaExpress/styles/app_theme.dart';
+ 
 import 'package:BananaExpress/application/livraison/repositories/livraisonRepo.dart';
 import 'package:BananaExpress/application/user/repositories/user_repository.dart';
 
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'infrastructure/_commons/network/env_config.dart';
 import 'presentation/_commons/theming/app_theme.dart';
@@ -94,7 +94,7 @@ class AppContent extends StatelessWidget {
       routerConfig: _appRouter.config(),
       debugShowCheckedModeBanner: false,
       title: 'Babana Express',
-      darkTheme: AppThemes.themeDataDark,
+      darkTheme: AppThemes().darkTheme,
       themeMode: ThemeMode.light,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

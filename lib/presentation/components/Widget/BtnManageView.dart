@@ -1,8 +1,6 @@
 // ignore: must_be_immutable
 
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class BtnManageView extends StatelessWidget {
@@ -35,7 +33,7 @@ class BtnManageView extends StatelessWidget {
                 //         topLeft: Radius.circular(10)),
                 //     child: Image.asset('assets/om.png',
                 //         height: getHeight(context) ,
-                //         width: Get.width * .5,
+                //         width: getWith(context) * .5,
                 //         fit: BoxFit.cover),
                 //   ),
                 // ),
@@ -54,7 +52,7 @@ class BtnManageView extends StatelessWidget {
                   width: getWith(context),
                   alignment: Alignment.center,
                   // margin: EdgeInsets.only(
-                  //     top: Get.height * .005, left: Get.width * .008),
+                  //     top: getHeight(context) * .005, left: getWith(context) * .008),
                   child: Text(title,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(color: Colors.white, fontSize: 15)),

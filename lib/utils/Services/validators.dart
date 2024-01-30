@@ -4,9 +4,9 @@ class Validators {
   static final RegExp _emailRegExp = RegExp(
     r'^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$',
   );
-  static final RegExp _passwordRegExp = RegExp(
-    r'^(?=.*[A-Za-z!])(?=.*\d)[A-Za-z\d]{8,}$',
-  );
+  // static final RegExp _passwordRegExp = RegExp(
+  //   r'^(?=.*[A-Za-z!])(?=.*\d)[A-Za-z\d]{8,}$',
+  // );
 
   static isValidEmail(String? email) {
     if (email == null) return null;
@@ -33,11 +33,11 @@ class Validators {
   }
 
   static isValidUsername(String username) {
-    return username.length > 3 ? null : "invalidCaract".tr();
+    return username.length > 3 ? null : 'invalidCaract'.tr();
   }
 
   static usPhoneValid(String input) {
-    final RegExp phone = RegExp(r'^(?=.*[A-Za-z!])(?=.*\d)[A-Za-z\d]{8,}$');
+    // final RegExp phone = RegExp(r'^(?=.*[A-Za-z!])(?=.*\d)[A-Za-z\d]{8,}$');
 
     if (input.length == 9) {
       if (int.tryParse(input) != null) {
@@ -76,5 +76,6 @@ class Validators {
     if (date.hasMatch(inputDate!) == false) {
       return 'Invalid date Format';
     }
+    return null;
   }
 }

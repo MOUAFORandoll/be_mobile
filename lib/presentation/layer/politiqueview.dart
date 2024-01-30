@@ -1,5 +1,4 @@
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 
@@ -124,7 +123,7 @@ class _PolitiqueViewState extends State<PolitiqueView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Lire notre politique !",
+                          'Lire notre politique !',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 20,

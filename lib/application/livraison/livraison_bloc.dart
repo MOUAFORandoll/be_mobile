@@ -7,7 +7,8 @@ import 'package:BananaExpress/application/model/exportmodel.dart';
 import 'package:BananaExpress/core.dart';
 import 'package:BananaExpress/infrastructure/_commons/network/env_config.dart';
 
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
@@ -664,7 +665,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       Colis colis = state.listColis![i];
       for (int j = 0; j < colis.listImgColis.length; j++) {
         var file = colis.listImgColis[j];
-        var fileKey = "colis${i}${j}";
+        var fileKey = 'colis${i}${j}';
         formData.files.add(
           MapEntry(
             fileKey,
@@ -729,11 +730,11 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
             //     true);
           }
           // progressDowloading =
-          //     ((rec / total) * 100).toStringAsFixed(0) + "%";
+          //     ((rec / total) * 100).toStringAsFixed(0) + '%';
           // print(progressDowloading);
-          // progress.update(message: "svp veillez patienter ");
+          // progress.update(message: 'svp veillez patienter ');
         },
-      // ignore: body_might_complete_normally_catch_error
+        // ignore: body_might_complete_normally_catch_error
       ).catchError((e) {
         print(e);
         emit(state.copyWith(

@@ -3,11 +3,10 @@ import 'dart:io';
 import 'package:BananaExpress/application/model/exportmodel.dart';
 import 'package:BananaExpress/presentation/components/Button/app_button_icon.dart';
 
-import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:get/get.dart';
-import 'package:flutter/material.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
+
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:qr_flutter/qr_flutter.dart';
 
 import 'dart:typed_data';
@@ -92,7 +91,7 @@ class ColisComponentUser extends StatelessWidget {
                               backgroundColor: ColorsApp.second,
                               radius: 50,
                               backgroundImage:
-                                  AssetImage("assets/logo/logo.png"));
+                                  AssetImage('assets/logo/logo.png'));
                         },
                       )),
                       Container(
@@ -168,7 +167,7 @@ class ColisComponentUser extends StatelessWidget {
                                 backgroundColor: ColorsApp.second,
                                 radius: 50,
                                 backgroundImage:
-                                    AssetImage("assets/logo/logo.png"));
+                                    AssetImage('assets/logo/logo.png'));
                           },
                         )),
                   ),
@@ -183,7 +182,7 @@ class ColisComponentUser extends StatelessWidget {
                         data: colis.code_recuperation_colis,
                         version: QrVersions.auto,
                         gapless: true,
-                        embeddedImage: AssetImage("assets/logo/logo.png"),
+                        embeddedImage: AssetImage('assets/logo/logo.png'),
                         // embeddedImageStyle:
                         //     QrEmbeddedImageStyle(size: Size(20, 20)),
                         size: 200.0,
@@ -197,7 +196,7 @@ class ColisComponentUser extends StatelessWidget {
                     child: QrImageView(
                       data: colis.code_livraison_colis,
                       version: QrVersions.auto,
-                      embeddedImage: AssetImage("assets/logo/logo.png"),
+                      embeddedImage: AssetImage('assets/logo/logo.png'),
                       // embeddedImageStyle:
                       //     QrEmbeddedImageStyle(size: Size(20, 20)),
                       size: 200.0,
@@ -217,7 +216,7 @@ class ColisComponentUser extends StatelessWidget {
                       child: AppButtonIcon(
                           icon: Icons.switch_access_shortcut_add_outlined,
                           bgColor: ColorsApp.second,
-                          text: 'Partager le code de recuperation '.tr,
+                          text: 'Partager le code de recuperation '.tr(),
                           onTap: () async => _captureAndSavePng())),
               ]))));
 

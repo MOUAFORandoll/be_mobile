@@ -155,9 +155,8 @@ class DatabaseCubit extends Cubit<DatabaseState> {
     }
     return true;
   }
-
-  @override
-  Future<void> close() async {
+   
+  Future<void> disconnect() async {
     _store.box<Commande>().removeAll();
     _store.box<Theme>().removeAll();
     _store.box<Lang>().removeAll();

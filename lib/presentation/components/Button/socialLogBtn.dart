@@ -1,5 +1,4 @@
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 class SocialLogBtn extends StatelessWidget {
   SocialLogBtn({this.validate = false, this.icon, this.onTap, this.title});

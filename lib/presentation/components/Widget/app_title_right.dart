@@ -1,5 +1,5 @@
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AppTitleRight extends StatelessWidget {
@@ -42,6 +42,7 @@ class AppTitleRight extends StatelessWidget {
                                   icon,
                                   width: 18,
                                   height: 18,
+                                  // ignore: deprecated_member_use
                                   color: ColorsApp.primary,
                                 )
                               : null),

@@ -1,8 +1,8 @@
 // import 'dart:convert';
 
-// import 'package:get/get.dart';
+// 
 // import 'package:get_storage/get_storage.dart';
-// import 'package:BananaExpress/old/model/data/UserModel.dart';
+// import 'package:BananaExpress/presentation/model/data/UserModel.dart';
 // import 'package:jwt_decode/jwt_decode.dart';
 
 // mixin StorageService {

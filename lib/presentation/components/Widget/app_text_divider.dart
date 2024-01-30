@@ -1,7 +1,5 @@
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
-
-import 'package:flutter/cupertino.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+ 
 
 class AppTextDivider extends StatelessWidget {
   final String texte;

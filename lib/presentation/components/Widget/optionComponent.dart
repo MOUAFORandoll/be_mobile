@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
+ 
+import '../exportcomponent.dart';
 
 // ignore: must_be_immutable
 class OptionComponent extends StatelessWidget {
@@ -14,10 +13,10 @@ class OptionComponent extends StatelessWidget {
         onTap: onTap,
         child: Container(
           padding: EdgeInsets.only(
-              top: Get.height * .04,
-              bottom: Get.height * .04,
-              left: Get.width * .01,
-              right: Get.width * .01),
+              top: getHeight(context) * .04,
+              bottom: getHeight(context) * .04,
+              left: getWith(context) * .01,
+              right: getWith(context) * .01),
           decoration: BoxDecoration(
             color: this.selected ? ColorsApp.grey : null,
           ),

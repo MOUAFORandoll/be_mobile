@@ -1,8 +1,5 @@
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:flutter/material.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:shimmer/shimmer.dart';
-
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+ 
 import 'ShimmerProduit.dart';
 
 class ShimmerHome extends StatelessWidget {
@@ -36,7 +33,7 @@ class ShimmerHome extends StatelessWidget {
                         children: [
                           Container(
                               child: Text(
-                            "Rechercher",
+                            'Rechercher',
                             style: TextStyle(
                               color: Colors.grey,
                               fontSize: kBasics,
@@ -53,7 +50,7 @@ class ShimmerHome extends StatelessWidget {
                   onTap: () {}),
               Container(
                 margin: EdgeInsets.symmetric(vertical: kMarginY * .4),
-                child: Text("Categories",
+                child: Text('Categories',
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                         fontFamily: 'Lato',
@@ -107,7 +104,7 @@ class ShimmerHome extends StatelessWidget {
               ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: kMarginY * .4),
-                child: Text("Boutiques",
+                child: Text('Boutiques',
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                         fontFamily: 'Lato',

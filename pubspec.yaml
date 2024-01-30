@@ -19,7 +19,6 @@ dependencies:
   flutter_svg: any
   font_awesome_flutter: ^10.4.0
   geolocator: ^10.1.0
-  get: ^4.6.5
   get_storage: any
   google_maps_flutter: ^2.2.8
   image_cropper: any

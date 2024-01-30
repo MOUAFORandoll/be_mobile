@@ -1,10 +1,7 @@
-import 'package:BananaExpress/old/components/Button/app_button.dart';
-import 'package:BananaExpress/old/controller/GeneralController.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
+import 'package:BananaExpress/presentation/components/Button/app_button.dart';
+
 import 'package:BananaExpress/utils/constants/assets.dart';
-import 'package:flutter/material.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:get/get.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class EmptyLivraisonsComponent extends StatelessWidget {
@@ -28,7 +25,7 @@ class EmptyLivraisonsComponent extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     horizontal: kMarginX, vertical: kMarginY),
                 child: Text(
-                  "Hey, Your History Is Empty !",
+                  'Hey, Your History Is Empty !',
                   style:
                       TextStyle(fontSize: kBasics, fontWeight: FontWeight.w700),
                 )),
@@ -36,7 +33,7 @@ class EmptyLivraisonsComponent extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     horizontal: kMarginX, vertical: kMarginY),
                 child: Text(
-                  "Retourner en arriere et debuter avec les livraisons.",
+                  'Retourner en arriere et debuter avec les livraisons.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.grey,
@@ -52,7 +49,7 @@ class EmptyLivraisonsComponent extends StatelessWidget {
                   bgColor: ColorsApp.tird,
                   text: 'Go Back',
                   onTap: () {
-                    Get.find<GeneralController>().setGoHome();
+                    // Get.find<GeneralController>().setGoHome();
                   },
                 ))
           ],

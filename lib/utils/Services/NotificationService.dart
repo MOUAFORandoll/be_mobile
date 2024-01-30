@@ -4,7 +4,7 @@ import 'package:BananaExpress/main.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/subjects.dart';
 
-import '../../old/model/socket/NotificationModel.dart';
+import '../../application/model/socket/NotificationModel.dart';
 
 class ReceivedNotification {
   ReceivedNotification({
@@ -72,7 +72,6 @@ class NotificationService {
       print('p----------------------ayload');
       if (payload != null) {
         // Gérer l'action selon la valeur du payload
-       
       }
     });
   }

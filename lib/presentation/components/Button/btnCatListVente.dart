@@ -1,8 +1,5 @@
-// ignore: must_be_immutable
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../../styles/textStyle.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 
 class BtnCatListVente extends StatelessWidget {
   final title, onTap, active, pVal;
@@ -15,7 +12,7 @@ class BtnCatListVente extends StatelessWidget {
         onTap: onTap,
         child: Container(
           width: getWith(context) * 0.3,
-          height: Get.size.height * 0.3,
+          height: getHeight(context) * 0.3,
           alignment: Alignment.center,
           padding: EdgeInsets.all(this.pVal ?? 10),
           margin: EdgeInsets.all(this.pVal ?? 10),

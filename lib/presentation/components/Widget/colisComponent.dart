@@ -1,14 +1,14 @@
 import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/presentation/_commons/theming/app_size.dart';
 import 'package:BananaExpress/presentation/components/Widget/imageUpdateComp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
+
 import 'package:auto_route/auto_route.dart';
-import 'package:get/get.dart';
-import 'package:flutter/material.dart';
+
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/presentation/components/Button/uploadImage.dart';
 import 'package:BananaExpress/presentation/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
+
 import 'package:BananaExpress/utils/Services/validators.dart';
 
 import '../../../application/model/exportmodel.dart';
@@ -79,7 +79,7 @@ class ColisComponent extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  print("*------------------${colis.id}---------");
+                  print('*------------------${colis.id}---------');
                   context.read<LivraisonBloc>().add(SelectColis(colis: colis));
 
                   showModalBottomSheet(
@@ -113,7 +113,7 @@ class ColisComponent extends StatelessWidget {
                                           child: Row(
                                             children: [
                                               Text(
-                                                'alcr'.tr + ' ',
+                                                'alcr'.tr() + ' ',
                                                 style: TextStyle(
                                                     fontWeight:
                                                         FontWeight.w500),
@@ -155,7 +155,7 @@ class ColisComponent extends StatelessWidget {
                                               child: AppInputNew(
                                                 controller: state.nomColis!,
                                                 icon: Icon(Icons.label),
-                                                label: 'Nom du colis'.tr,
+                                                label: 'Nom du colis'.tr(),
                                                 validator: (value) {
                                                   return Validators
                                                       .isValidUsername(value!);
@@ -171,7 +171,7 @@ class ColisComponent extends StatelessWidget {
                                                     state.contactRecepteur!,
                                                 icon: Icon(Icons.phone),
                                                 label:
-                                                    'Contact du recepteur'.tr,
+                                                    'Contact du recepteur'.tr(),
                                                 validator: (value) {
                                                   return Validators
                                                       .usPhoneValid(value!);
@@ -245,7 +245,7 @@ class ColisComponent extends StatelessWidget {
                                                 controller: state.valeurColis!,
                                                 icon:
                                                     Icon(Icons.monetization_on),
-                                                label: 'Valeur du Colis'.tr,
+                                                label: 'Valeur du Colis'.tr(),
                                                 validator: (value) {
                                                   return Validators
                                                       .usNumeriqValid(value!);
@@ -401,7 +401,7 @@ class ColisComponent extends StatelessWidget {
                                   AppButton(
                                       size: MainAxisSize.max,
                                       bgColor: ColorsApp.primary,
-                                      text: 'Mettre a jour'.tr,
+                                      text: 'Mettre a jour'.tr(),
                                       onTap: () async {
                                         context.read<LivraisonBloc>().add(
                                             UpdateColis(idColis: colis.id));

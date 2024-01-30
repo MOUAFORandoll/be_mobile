@@ -144,13 +144,13 @@ class DataBaseController {
 
   // InsertAll operation
   insertAllCommandes() {
-    var j = 8;
+     
     for (var i = 10; i < 100; i++) {
       // final commandeBox =;
       print('-------ii--${i}');
       store.box<Commande>().put(Commande(
           codeCommande: 'codeCommande$i', codeClient: '', date: 'date$i'));
-      j = i;
+     
     }
     return true;
   }

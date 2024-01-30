@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:responsive_framework/responsive_framework.dart';
 
 class AppSize {

@@ -3,12 +3,11 @@ import 'package:BananaExpress/presentation/components/Widget/app_carroussel_item
 import 'package:BananaExpress/core.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
 
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart'; 
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:get_storage/get_storage.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -41,7 +40,7 @@ class OnBoardingPage extends StatelessWidget {
                       title: 'ctitle2'.tr(),
                       description: 'cdescription2'.tr(),
                       image: Assets.onb2,
-                      index: state.index!)
+                      index: state.index)
                 ],
                 options: CarouselOptions(
                     aspectRatio: 4 / 4,
@@ -98,7 +97,7 @@ class OnBoardingPage extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: AppButton(
-                    text: state.index == 0 ? 'Suivant' : "Continuer",
+                    text: state.index == 0 ? 'Suivant' : 'Continuer',
                     onTap: () {
                       if (state.index == 1) {
                         // final AppActionCubit action =

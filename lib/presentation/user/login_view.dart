@@ -1,16 +1,17 @@
-import 'package:BananaExpress/old/components/Button/app_button.dart';
-import 'package:BananaExpress/old/components/Widget/app_input.dart';
+// ignore_for_file: must_be_immutable
+
+import 'package:BananaExpress/presentation/components/Button/app_button.dart';
+import 'package:BananaExpress/presentation/components/Widget/app_input.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:BananaExpress/utils/functions/showToast.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:BananaExpress/core.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
 
-import '../../styles/colorApp.dart';
-import '../../styles/textStyle.dart';
 import '../../../utils/functions/app_loader.dart';
 
 class LoginView extends StatelessWidget {
@@ -59,7 +60,7 @@ class LoginView extends StatelessWidget {
                           top: kMarginY,
                         ),
                         child: Text(
-                          "Acceder a votre compte et faites vous livrer !".tr(),
+                          'Acceder a votre compte et faites vous livrer !'.tr(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 19,
@@ -124,8 +125,8 @@ class LoginView extends StatelessWidget {
                                   text: 'logbtn'.tr(),
                                   onTap: () async {
                                     print({
-                                      "password": password.text,
-                                      "phone": phone.text,
+                                      'password': password.text,
+                                      'phone': phone.text,
                                     });
 
                                     if (formKey.currentState!.validate()) {

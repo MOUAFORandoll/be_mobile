@@ -1,11 +1,10 @@
 import 'package:BananaExpress/application/model/exportmodel.dart';
 import 'package:BananaExpress/presentation/components/Widget/colisComponentUser.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:get/get.dart';
-import 'package:flutter/material.dart';
+
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class LivraisonUserComponent extends StatelessWidget {
@@ -69,7 +68,7 @@ class LivraisonUserComponent extends StatelessWidget {
                               backgroundColor: ColorsApp.second,
                               radius: 50,
                               backgroundImage:
-                                  AssetImage("assets/logo/logo.png"));
+                                  AssetImage('assets/logo/logo.png'));
                         },
                       )),
                       Container(

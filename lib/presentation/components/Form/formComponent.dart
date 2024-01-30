@@ -1,5 +1,4 @@
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 class KFieldType {
   static String password = 'password';
@@ -74,7 +73,7 @@ class _FormComponentState extends State<FormComponent> {
             child: TextFormField(
               controller: widget.controller,
               validator: (value) {
-                return value == "" ? "veillez remplir se champs" : null;
+                return value == '' ? 'veillez remplir se champs' : null;
               },
               // autofocus: true,
               enabled: widget.enabled,
@@ -98,7 +97,7 @@ class _FormComponentState extends State<FormComponent> {
                     fontWeight: FontWeight.w600,
                     fontSize: 12),
                 prefixIcon: Icon(widget.icon),
-                counterText: "",
+                counterText: '',
                 // focusedBorder: OutlineInputBorder(
                 //     // borderRadius: BorderRadius.circular(15),
                 //     borderSide: BorderSide(

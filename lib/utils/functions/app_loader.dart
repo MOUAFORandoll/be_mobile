@@ -2,8 +2,7 @@ import 'dart:async';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'bounce_loader.dart';
 
-import 'package:BananaExpress/old/components/exportcomponent.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart'; 
 
 /// App loaders
 /// final _loaderDialogController = IndeterminateProgress.bounceLargeColorLoaderController();
@@ -94,7 +93,7 @@ class _LoaderDialogState extends State<_LoaderDialog> {
             loading = false;
             print('---------------close loader required');
           });
-          WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+          WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
             Navigator.of(context).canPop() ? Navigator.of(context).pop() : null;
           });
         }
@@ -110,8 +109,8 @@ class _LoaderDialogState extends State<_LoaderDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => !loading,
+    return PopScope(
+      onPopInvoked: (val) async => !loading,
       child: Center(
         child: widget.loader,
       ),

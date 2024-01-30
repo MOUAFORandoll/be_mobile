@@ -1,8 +1,6 @@
-import 'package:BananaExpress/infrastructure/_commons/network/interceptors/request_headers_interceptor.dart';
-import 'package:BananaExpress/infrastructure/_commons/network/request_url.dart';
-import 'package:BananaExpress/utils/Services/apiUrl.dart';
-import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+ import 'package:BananaExpress/infrastructure/_commons/network/request_url.dart';
+ 
+import 'package:dio/dio.dart'; 
 
 class AppHttpService {
   static Dio? _instance;

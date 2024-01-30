@@ -1,6 +1,7 @@
 // ignore: must_be_immutable
-import 'package:get/get.dart'; 
-import 'package:flutter/material.dart';
+
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+ 
 
 // ignore: must_be_immutable
 class PlaceComponent extends StatelessWidget {
@@ -12,8 +13,8 @@ class PlaceComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-          height: Get.height,
-          width: Get.width,
+          height: getHeight(context),
+          width: getWith(context),
           alignment: Alignment.center,
           padding: EdgeInsets.all(0),
           decoration: BoxDecoration(

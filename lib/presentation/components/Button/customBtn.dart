@@ -1,8 +1,5 @@
-// ignore: must_be_immutable
-import 'package:BananaExpress/old/components/Text/smallText.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:flutter/material.dart';
+ 
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 class CustomBtn extends StatelessWidget {
   final title, onTap, color, validator;

@@ -1,9 +1,6 @@
-// ignore: must_be_immutable
-import 'package:BananaExpress/old/components/Text/smallText.dart';
-import 'package:BananaExpress/old/components/exportcomponent.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// ignore: must_be_immutable 
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+ 
 
 class AddColisComponent extends StatelessWidget {
   final title, onTap, color, icon;

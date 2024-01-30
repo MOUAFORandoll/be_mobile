@@ -1,15 +1,15 @@
 import 'dart:convert';
-import 'package:BananaExpress/old/model/data/LivraisonModel.dart';
-import 'package:BananaExpress/old/model/socket/NotificationModel.dart';
-import 'package:BananaExpress/utils/Services/apiUrl.dart';
+import 'package:BananaExpress/application/model/data/LivraisonModel.dart';
+import 'package:BananaExpress/infrastructure/_commons/network/request_url.dart';
+
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class SocketService {
   SocketService();
   // late IO.Socket socket;
-  IO.Socket socket = IO.io(ApiUrl.socketUrl, <String, dynamic>{
-    "transports": ["websocket"],
-    "autoConnect": true,
+  IO.Socket socket = IO.io(RequestUrl().socketUrl, <String, dynamic>{
+    'transports': ['websocket'],
+    'autoConnect': true,
   });
 
   void listLivraison(canal, Function action) {
@@ -48,21 +48,21 @@ class SocketService {
 
 //recepteur ici est l'id du user
   void notifications(recepteur, Function action) {
-    socket.on('notifications', (msg) {
-      print(recepteur);
-      print('------notifications----********************************-------');
+    // socket.on('notifications', (msg) {
+    //   print(recepteur);
+    //   print('------notifications----********************************-------');
 
-      if (msg != null && msg != 'null') {
-        if (jsonDecode(msg)['recepteur'].toString() == recepteur.toString()) {
-          print('-----------------');
-          print(jsonDecode(msg));
-          action(NotificationModel.fromJson(jsonDecode(msg)));
-        }
-      }
-      // socket.close();
-      // setMessage("destination", msg["message"]);
-    });
+    //   if (msg != null && msg != 'null') {
+    //     if (jsonDecode(msg)['recepteur'].toString() == recepteur.toString()) {
+    //       print('-----------------');
+    //       print(jsonDecode(msg));
+    //       action(NotificationModel.fromJson(jsonDecode(msg)));
+    //     }
+    //   }
+    //   // socket.close();
+    //   // setMessage('destination', msg['message']);
     // });
-    print(socket.connected);
+    // // });
+    // print(socket.connected);
   }
 }

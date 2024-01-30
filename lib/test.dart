@@ -1,7 +1,4 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'utils/functions/viewFunctions.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 class Test extends StatefulWidget {
   const Test({
@@ -11,6 +8,7 @@ class Test extends StatefulWidget {
   @override
   State<Test> createState() => _TestState();
 }
+
 //  var fn = new ViewFunctions();
 //                 fn.loading(
 //                     'Eiusmod ex quis deserunt ex eiusmod adipisicing duis fugiat excepteur non velit fugiat id id. ',
@@ -27,7 +25,7 @@ class _TestState extends State<Test> {
             ElevatedButton(
               onPressed: () {}, // _createOffer,
               child:
-                  Container(height: 150, width: 250, child: const Text("Test")),
+                  Container(height: 150, width: 250, child: const Text('Test')),
             ),
             // videoRenderers(),
             Column(

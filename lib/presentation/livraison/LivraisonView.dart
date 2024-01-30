@@ -2,13 +2,11 @@ import 'package:BananaExpress/presentation/components/Widget/EmptyLivraisonsComp
 import 'package:BananaExpress/presentation/components/Widget/LivraisonUserComponent.dart';
 import 'package:BananaExpress/presentation/components/Widget/ShimmerLivraison.dart';
 import 'package:BananaExpress/presentation/components/Widget/icon_svg.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:BananaExpress/utils/Services/routing.dart';
+
 import 'package:BananaExpress/utils/constants/assets.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 
 // ignore: must_be_immutable
@@ -53,7 +51,7 @@ class LivraisonView extends StatelessWidget {
                         margin: EdgeInsets.only(right: kMarginX),
                         child: SvgIcon(icon: Assets.bell)),
                     onTap: () {
-                      Get.toNamed(AppLinks.NOTIFICATION);
+                      // Get.toNamed(AppLinks.NOTIFICATION);
                     }),
               ],
               pinned: true,

@@ -1,7 +1,5 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:BananaExpress/utils/functions/viewFunctions.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 class ThemeButtonWidget extends StatefulWidget {
   @override
@@ -17,7 +15,7 @@ class _ThemeButtonWidgetState extends State<ThemeButtonWidget> {
           ? FontAwesomeIcons.sun
           : FontAwesomeIcons.moon),
       onPressed: () {
-        ViewFunctions().changeTheme(context);
+        // ViewFunctions().changeTheme(context);
       },
     );
   }

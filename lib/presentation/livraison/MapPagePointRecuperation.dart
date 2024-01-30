@@ -1,16 +1,15 @@
 import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/old/components/Button/app_button.dart';
-import 'package:BananaExpress/old/components/Widget/app_input_new.dart';
+import 'package:BananaExpress/presentation/components/Button/app_button.dart';
+import 'package:BananaExpress/presentation/components/Widget/app_input_new.dart';
 import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
-
-import '../../styles/colorApp.dart';
-import '../../styles/textStyle.dart';
+ 
 
 @RoutePage()
 class MapPagePointRecuperation extends StatefulWidget {
@@ -46,7 +45,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
         markerId: MarkerId('1'),
         draggable: true,
         infoWindow: InfoWindow(
-          title: "Ici",
+          title: 'Ici',
         ),
         onTap: () {},
         position: LatLng(latitude, longitude));
@@ -94,7 +93,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
             markerId: MarkerId('1'),
             draggable: true,
             infoWindow: InfoWindow(
-              title: "Ici",
+              title: 'Ici',
             ),
             onTap: () {},
             position: LatLng(value.latitude, value.longitude));
@@ -286,7 +285,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                   BitmapDescriptor.hueCyan),
                               markerId: MarkerId('1'),
                               draggable: true,
-                              infoWindow: InfoWindow(title: "Ici"),
+                              infoWindow: InfoWindow(title: 'Ici'),
                               onTap: () {},
                               position: LatLng(state.position!.latitude,
                                   state.position!.longitude),
@@ -314,7 +313,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                 markerId: MarkerId('1'),
                                 draggable: true,
                                 infoWindow: InfoWindow(
-                                  title: "Ici",
+                                  title: 'Ici',
                                 ),
                                 onTap: () {},
                                 position:
@@ -541,7 +540,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                   child: AppButton(
                     size: MainAxisSize.max,
                     bgColor: ColorsApp.primary,
-                    text: "Valider".tr(),
+                    text: 'Valider'.tr(),
                     onTap: () async {
                       validatePoint();
                     },

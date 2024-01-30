@@ -1,7 +1,4 @@
-import 'package:BananaExpress/styles/textStyle.dart';
-import 'package:get/get.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class CommentForm extends StatelessWidget {
@@ -33,7 +30,7 @@ class CommentForm extends StatelessWidget {
 
         // decoration: BoxDecoration(color: ColorsApp.second),
         height: getHeight(context) / 3,
-        width: width ?? Get.width * .7,
+        width: width ?? getWith(context) * .7,
         alignment: Alignment.topCenter,
         child: Column(
             // mainAxisAlignment: MainAxisAlignment.start,
@@ -49,7 +46,7 @@ class CommentForm extends StatelessWidget {
                 },
                 controller: controller,
                 validator: (value) {
-                  return value!.isEmpty ? "veillez remplir se champs" : null;
+                  return value!.isEmpty ? 'veillez remplir se champs' : null;
                 },
                 keyboardType: type,
                 obscureText: obscureText!,

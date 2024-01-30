@@ -1,5 +1,5 @@
- 
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 
 // ignore: must_be_immutable
@@ -13,6 +13,7 @@ class SvgIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: icon != null
+            // ignore: deprecated_member_use
             ? SvgPicture.asset(icon, width: width, height: height, color: color)
             : null);
   }

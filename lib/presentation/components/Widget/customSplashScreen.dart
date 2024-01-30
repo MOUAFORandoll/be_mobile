@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class NewSplashScreen extends StatelessWidget {
@@ -26,7 +26,7 @@ class NewSplashScreen extends StatelessWidget {
                     radius: double.parse(this.size.toString()),
                     backgroundColor: Colors.transparent,
                     child: Hero(
-                      tag: "splashscreenImage",
+                      tag: 'splashscreenImage',
                       child: new Container(child: Image.asset(this.image)),
                     ),
                   ),

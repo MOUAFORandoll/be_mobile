@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 abstract class ColorsApp {
   static const Color primary = Color(0xFF272D2F);
@@ -13,6 +12,6 @@ abstract class ColorsApp {
 
   static const Color orange = Color(0xffF29F05);
   static const Color red = Color(0xffFF1F1F);
-  static Color textColor =
-      Get.isDarkMode ? Color(0xffB40001) : Color(0xFFF1F6FA);
+  // static Color textColor =
+  //     Get.isDarkMode ? Color(0xffB40001) : Color(0xFFF1F6FA);
 }

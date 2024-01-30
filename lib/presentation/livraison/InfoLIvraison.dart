@@ -1,14 +1,11 @@
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:BananaExpress/application/model/exportmodel.dart';
-import 'package:BananaExpress/old/components/Widget/app_input_new.dart';
-import 'package:BananaExpress/styles/colorApp.dart';
-import 'package:BananaExpress/styles/textStyle.dart';
+import 'package:BananaExpress/presentation/components/Widget/app_input_new.dart';
+
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
-
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+ 
 import 'MapPagePointRecuperation.dart';
 
 class InfoLIvraison extends StatefulWidget {
