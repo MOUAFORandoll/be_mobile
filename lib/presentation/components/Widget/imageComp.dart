@@ -21,12 +21,15 @@ class ImageComp extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50), color: Colors.white),
             margin: EdgeInsets.only(right: 5),
-            height: getHeight(context) / 2,
+            height: getHeight(context) / 4,
             width: getWith(context) / 2.4,
-            child: Image.file(
-              file,
-              fit: BoxFit.cover,
-            ))
+            child: ClipRRect(
+                borderRadius:
+                    BorderRadius.circular(8.0), // Adjust the radius here
+                child: Image.file(
+                  file,
+                  fit: BoxFit.cover,
+                )))
         // Positioned(
         //     right: 0,
         //     top: 0,

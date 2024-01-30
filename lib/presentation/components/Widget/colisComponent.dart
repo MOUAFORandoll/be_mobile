@@ -7,8 +7,6 @@ import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/presentation/components/Button/uploadImage.dart';
-import 'package:BananaExpress/presentation/components/Widget/app_input_new.dart';
-
 import 'package:BananaExpress/utils/Services/validators.dart';
 
 import '../../../application/model/exportmodel.dart';
@@ -26,7 +24,7 @@ class ColisComponent extends StatelessWidget {
     return BlocBuilder<LivraisonBloc, LivraisonState>(
       builder: (context, state) => Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
@@ -50,15 +48,13 @@ class ColisComponent extends StatelessWidget {
                     // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                        ),
                         // margin: EdgeInsets.only(right: 5),
                         width: getWith(context) / 2.2,
-                        height: getHeight(context) / 8,
+                        height: getHeight(context) / 6.5,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10)),
                           child: Image.file(
                             colis.listImgColis[0],
                             fit: BoxFit.cover,
@@ -66,12 +62,13 @@ class ColisComponent extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(left: 5),
+                        margin: EdgeInsets.only(left: 5, top: kMarginY),
                         alignment: Alignment.centerLeft,
                         width: getWith(context) / 2,
                         child: Text(
                           colis.nom,
                           textAlign: TextAlign.start,
+                          maxLines: 2,
                           style: TextStyle(overflow: TextOverflow.ellipsis),
                         ),
                       ),
@@ -113,7 +110,7 @@ class ColisComponent extends StatelessWidget {
                                           child: Row(
                                             children: [
                                               Text(
-                                                'alcr'.tr() + ' ',
+                                                'Colis'.tr() + ' ',
                                                 style: TextStyle(
                                                     fontWeight:
                                                         FontWeight.w500),
@@ -405,6 +402,7 @@ class ColisComponent extends StatelessWidget {
                                       onTap: () async {
                                         context.read<LivraisonBloc>().add(
                                             UpdateColis(idColis: colis.id));
+                                        AutoRouter.of(context).pop();
                                       }),
                                 ])))),
                     isScrollControlled:
@@ -419,7 +417,7 @@ class ColisComponent extends StatelessWidget {
                   );
                 }),
             Positioned(
-              left: getWith(context) / 2.55,
+              left: getWith(context) / 2.7,
               top: 0,
               child: InkWell(
                 child: Container(
@@ -430,7 +428,7 @@ class ColisComponent extends StatelessWidget {
                         bottomLeft: Radius.circular(10)),
                     color: Colors.white,
                   ),
-                  padding: EdgeInsets.all(5),
+                  padding: EdgeInsets.all(8),
                   child: Icon(Icons.close, color: Colors.red, size: 15),
                 ),
                 onTap: () {

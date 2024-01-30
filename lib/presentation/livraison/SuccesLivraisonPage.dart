@@ -20,7 +20,7 @@ class SuccesLivraisonPage extends StatelessWidget {
           if (state.isDownloadFacture == 1) {
             loader.close();
             showSuccess(
-                'La facture de la livraison a ete enregistre dans votre portable',
+                'La facture de la livraison a ete enregistre dans vos documents',
                 context);
           } else if (state.isDownloadFacture == 2) {
             loader.close();

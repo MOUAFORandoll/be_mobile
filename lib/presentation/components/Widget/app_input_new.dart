@@ -12,12 +12,14 @@ class AppInputNew extends StatefulWidget {
   final TextInputType? textInputType;
   final bool alignStart;
   final Icon? icon;
+  final int? maxLength;
   AppInputNew(
       {required this.controller,
       required this.label,
       this.validator,
       this.placeholder,
       this.errorText,
+      this.maxLength,
       this.onChanged,
       this.obscureText = false,
       this.border = false,
@@ -44,10 +46,14 @@ class _AppInputNewState extends State<AppInputNew> {
           fontSize: 12,
           fontFamily: 'Lato',
         ),
+        maxLength: widget.maxLength,
         onChanged: widget.onChanged,
         decoration: InputDecoration(
+            fillColor: ColorsApp.second.withOpacity(0.3),
+            focusColor: ColorsApp.second.withOpacity(0.3),
+            hoverColor: ColorsApp.second.withOpacity(0.3),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: ColorsApp.primary, width: 1),
+              borderSide: BorderSide(color: ColorsApp.second, width: 1),
               borderRadius: BorderRadius.circular(8),
             ),
             errorBorder: OutlineInputBorder(

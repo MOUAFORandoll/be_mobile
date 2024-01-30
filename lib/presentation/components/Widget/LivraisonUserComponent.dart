@@ -29,8 +29,7 @@ class LivraisonUserComponent extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: ColorsApp.grey,
                     borderRadius: BorderRadius.circular(8)),
-                child: /* SingleChildScrollView(
-              child: */
+                child:  
                     Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,

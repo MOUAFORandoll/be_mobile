@@ -2,7 +2,6 @@ import 'package:BananaExpress/application/model/exportmodel.dart';
 import 'package:BananaExpress/presentation/components/Button/addColisComponent.dart';
 import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/presentation/components/Button/uploadImage.dart';
-import 'package:BananaExpress/presentation/components/Widget/app_input_new.dart';
 import 'package:BananaExpress/presentation/components/Widget/imageComp.dart';
 import 'package:BananaExpress/presentation/components/Widget/colisComponent.dart';
 import 'package:BananaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
@@ -10,7 +9,7 @@ import 'package:BananaExpress/presentation/livraison/MapPagePointLivraisonColis.
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
- 
+
 import 'package:BananaExpress/routes/app_router.gr.dart';
 
 import 'package:BananaExpress/utils/functions/app_loader.dart';
@@ -63,14 +62,14 @@ class InfoColis extends StatelessWidget {
                             crossAxisCount: 2,
                             crossAxisSpacing: 10.0,
                             childAspectRatio: 20,
-                            mainAxisExtent: 150,
+                            mainAxisExtent: getHeight(context) / 4.5,
                             mainAxisSpacing: 20.0),
                         itemCount: state.listColis!.length,
                         itemBuilder: (_ctx, index) =>
                             ColisComponent(colis: state.listColis![index])),
                   ])),
               AddColisComponent(
-                color: ColorsApp.tird,
+                color: ColorsApp.second,
                 title: 'Colis',
                 icon: Icons.collections,
                 onTap: () {
@@ -105,7 +104,11 @@ class InfoColis extends StatelessWidget {
                           // padding: EdgeInsets.symmetric(
                           //     horizontal: kMarginX / 2),
                           child: InkWell(
-                            onTap: () => AutoRouter.of(context).pop(),
+                            onTap: () {
+                              AutoRouter.of(context).pop();
+
+                              context.read<LivraisonBloc>().add(NoValidate());
+                            },
                             child: Icon(Icons.close),
                           )),
                       Container(
@@ -154,14 +157,16 @@ class InfoColis extends StatelessWidget {
           borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
         ),
         backgroundColor: Colors.transparent,
-      );
+      ).whenComplete(() {
+        BlocProvider.of<LivraisonBloc>(context).add(NoValidate());
+      });
 
   openModalAddColis(context) => showModalBottomSheet(
         context: context,
         builder: (BuildContext context) => BlocBuilder<LivraisonBloc,
                 LivraisonState>(
             builder: (context, state) => Container(
-                height: getHeight(context) * .8,
+                height: getHeight(context) * .9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
@@ -225,7 +230,8 @@ class InfoColis extends StatelessWidget {
                                     alignment: Alignment.centerLeft,
                                     child: Text('Category de colis')),
                                 state.isLoadedVCategory == 0
-                                    ? CircularProgressIndicator()
+                                    ? CircularProgressIndicator(
+                                        color: ColorsApp.second)
                                     : state.isLoadedVCategory == 2
                                         ? Text('Error')
                                         : Container(
@@ -611,7 +617,6 @@ class InfoColis extends StatelessWidget {
                                     child: InkWell(
                                       child: state.imageColis!.length != 0
                                           ? Container(
-                                              height: getHeight(context) * 2,
                                               margin: EdgeInsets.only(
                                                 top: kMarginY,
                                               ),
@@ -619,8 +624,8 @@ class InfoColis extends StatelessWidget {
                                                   file: state.imageColis![0],
                                                   index: 0))
                                           : UploadImage(
-                                              color: ColorsApp.tird,
-                                              title: 'Appareil photo',
+                                              color: ColorsApp.second,
+                                              title: 'Une photo',
                                               icon: Icons.camera_alt),
                                       onTap: () => showModalBottomSheet(
                                         context: context,
@@ -678,10 +683,12 @@ class InfoColis extends StatelessWidget {
                                                                   alignment:
                                                                       Alignment
                                                                           .center,
-                                                                  margin: EdgeInsets
-                                                                      .symmetric(
-                                                                          vertical:
-                                                                              kMarginY),
+                                                                  margin: EdgeInsets.only(
+                                                                      top:
+                                                                          kMarginY /
+                                                                              2,
+                                                                      bottom:
+                                                                          kMarginY),
                                                                   child: Text(
                                                                     'Selectionner la photo de votre produit'
                                                                         .tr(),
@@ -751,6 +758,7 @@ class InfoColis extends StatelessWidget {
                           text: 'Ajouter'.tr(),
                           onTap: () async {
                             context.read<LivraisonBloc>().add(AddColis());
+                            AutoRouter.of(context).pop();
                           }),
                     ])))),
         shape: RoundedRectangleBorder(

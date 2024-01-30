@@ -1,4 +1,4 @@
-import 'package:BananaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 class AppButton extends StatelessWidget {
   final Color bgColor;
@@ -49,7 +49,7 @@ class AppButton extends StatelessWidget {
                 height: 20,
                 width: 20,
                 child: CircularProgressIndicator(
-                  color: ColorsApp.tird,
+                  color: ColorsApp.second,
                 ),
               )
             : Text(

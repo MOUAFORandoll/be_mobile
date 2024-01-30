@@ -29,14 +29,14 @@ class SocialLogBtn extends StatelessWidget {
               (validate)
                   ? Icon(
                       icon,
-                      color: ColorsApp.tird,
+                      color: ColorsApp.second,
                       size: 18,
                     )
                   : Container(
                       height: 18,
                       width: 18,
                       child: CircularProgressIndicator(
-                        color: ColorsApp.tird,
+                        color: ColorsApp.second,
                       ))
             ]),
       ),

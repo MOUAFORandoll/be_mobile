@@ -53,6 +53,7 @@ mixin _$LivraisonEvent {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +91,7 @@ mixin _$LivraisonEvent {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -126,6 +128,7 @@ mixin _$LivraisonEvent {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -166,6 +169,7 @@ mixin _$LivraisonEvent {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -201,6 +205,7 @@ mixin _$LivraisonEvent {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -236,6 +241,7 @@ mixin _$LivraisonEvent {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -335,6 +341,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return verifyForm();
   }
@@ -375,6 +382,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return verifyForm?.call();
   }
@@ -414,6 +422,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -460,6 +469,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return verifyForm(this);
   }
@@ -498,6 +508,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return verifyForm?.call(this);
   }
@@ -536,6 +547,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -622,6 +634,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return backIndex();
   }
@@ -662,6 +675,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return backIndex?.call();
   }
@@ -701,6 +715,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -747,6 +762,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return backIndex(this);
   }
@@ -785,6 +801,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return backIndex?.call(this);
   }
@@ -823,6 +840,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -912,6 +930,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return getVilleAndCategory();
   }
@@ -952,6 +971,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return getVilleAndCategory?.call();
   }
@@ -991,6 +1011,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1037,6 +1058,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return getVilleAndCategory(this);
   }
@@ -1075,6 +1097,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return getVilleAndCategory?.call(this);
   }
@@ -1113,6 +1136,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1225,6 +1249,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return selectedVille(ville);
   }
@@ -1265,6 +1290,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return selectedVille?.call(ville);
   }
@@ -1304,6 +1330,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1350,6 +1377,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return selectedVille(this);
   }
@@ -1388,6 +1416,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return selectedVille?.call(this);
   }
@@ -1426,6 +1455,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1546,6 +1576,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return selectedCategory(categoryColis);
   }
@@ -1586,6 +1617,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return selectedCategory?.call(categoryColis);
   }
@@ -1625,6 +1657,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -1671,6 +1704,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return selectedCategory(this);
   }
@@ -1709,6 +1743,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return selectedCategory?.call(this);
   }
@@ -1747,6 +1782,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -1869,6 +1905,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return selectPointRecuperation(point_recup);
   }
@@ -1909,6 +1946,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return selectPointRecuperation?.call(point_recup);
   }
@@ -1948,6 +1986,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -1994,6 +2033,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return selectPointRecuperation(this);
   }
@@ -2032,6 +2072,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return selectPointRecuperation?.call(this);
   }
@@ -2070,6 +2111,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -2202,6 +2244,7 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return Start(latLng, quartier_recuperation_point);
   }
@@ -2242,6 +2285,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return Start?.call(latLng, quartier_recuperation_point);
   }
@@ -2281,6 +2325,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -2327,6 +2372,7 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return Start(this);
   }
@@ -2365,6 +2411,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return Start?.call(this);
   }
@@ -2403,6 +2450,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -2497,6 +2545,7 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return setStartLogLat();
   }
@@ -2537,6 +2586,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return setStartLogLat?.call();
   }
@@ -2576,6 +2626,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -2622,6 +2673,7 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return setStartLogLat(this);
   }
@@ -2660,6 +2712,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return setStartLogLat?.call(this);
   }
@@ -2698,6 +2751,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -2811,6 +2865,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return getRecupPoint(ville);
   }
@@ -2851,6 +2906,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return getRecupPoint?.call(ville);
   }
@@ -2890,6 +2946,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -2936,6 +2993,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return getRecupPoint(this);
   }
@@ -2974,6 +3032,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return getRecupPoint?.call(this);
   }
@@ -3012,6 +3071,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -3131,6 +3191,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return searchpointevent(text);
   }
@@ -3171,6 +3232,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return searchpointevent?.call(text);
   }
@@ -3210,6 +3272,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -3256,6 +3319,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return searchpointevent(this);
   }
@@ -3294,6 +3358,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return searchpointevent?.call(this);
   }
@@ -3332,6 +3397,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -3450,6 +3516,7 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return mapSelected(status);
   }
@@ -3490,6 +3557,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return mapSelected?.call(status);
   }
@@ -3529,6 +3597,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -3575,6 +3644,7 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return mapSelected(this);
   }
@@ -3613,6 +3683,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return mapSelected?.call(this);
   }
@@ -3651,6 +3722,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -3778,6 +3850,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return mapValidatePoint(libelle, quartier);
   }
@@ -3818,6 +3891,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return mapValidatePoint?.call(libelle, quartier);
   }
@@ -3857,6 +3931,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -3903,6 +3978,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return mapValidatePoint(this);
   }
@@ -3941,6 +4017,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return mapValidatePoint?.call(this);
   }
@@ -3979,6 +4056,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -4112,6 +4190,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return mapValidatePointLivraison(libelle, quartier);
   }
@@ -4152,6 +4231,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return mapValidatePointLivraison?.call(libelle, quartier);
   }
@@ -4191,6 +4271,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -4237,6 +4318,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return mapValidatePointLivraison(this);
   }
@@ -4275,6 +4357,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return mapValidatePointLivraison?.call(this);
   }
@@ -4313,6 +4396,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -4407,6 +4491,7 @@ class _$AddColisImpl implements AddColis {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return addColis();
   }
@@ -4447,6 +4532,7 @@ class _$AddColisImpl implements AddColis {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return addColis?.call();
   }
@@ -4486,6 +4572,7 @@ class _$AddColisImpl implements AddColis {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (addColis != null) {
@@ -4532,6 +4619,7 @@ class _$AddColisImpl implements AddColis {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return addColis(this);
   }
@@ -4570,6 +4658,7 @@ class _$AddColisImpl implements AddColis {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return addColis?.call(this);
   }
@@ -4608,6 +4697,7 @@ class _$AddColisImpl implements AddColis {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (addColis != null) {
@@ -4720,6 +4810,7 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return updateColis(idColis);
   }
@@ -4760,6 +4851,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return updateColis?.call(idColis);
   }
@@ -4799,6 +4891,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -4845,6 +4938,7 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return updateColis(this);
   }
@@ -4883,6 +4977,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return updateColis?.call(this);
   }
@@ -4921,6 +5016,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -5038,6 +5134,7 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return deleteColis(idColis);
   }
@@ -5078,6 +5175,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return deleteColis?.call(idColis);
   }
@@ -5117,6 +5215,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -5163,6 +5262,7 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return deleteColis(this);
   }
@@ -5201,6 +5301,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return deleteColis?.call(this);
   }
@@ -5239,6 +5340,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -5332,6 +5434,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return getImageColisAppareil();
   }
@@ -5372,6 +5475,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return getImageColisAppareil?.call();
   }
@@ -5411,6 +5515,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -5457,6 +5562,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return getImageColisAppareil(this);
   }
@@ -5495,6 +5601,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return getImageColisAppareil?.call(this);
   }
@@ -5533,6 +5640,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -5620,6 +5728,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return getImageColisGalerie();
   }
@@ -5660,6 +5769,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return getImageColisGalerie?.call();
   }
@@ -5699,6 +5809,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -5745,6 +5856,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return getImageColisGalerie(this);
   }
@@ -5783,6 +5895,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return getImageColisGalerie?.call(this);
   }
@@ -5821,6 +5934,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -5935,6 +6049,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return addImageColisAppareil(idColis);
   }
@@ -5975,6 +6090,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return addImageColisAppareil?.call(idColis);
   }
@@ -6014,6 +6130,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -6060,6 +6177,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return addImageColisAppareil(this);
   }
@@ -6098,6 +6216,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return addImageColisAppareil?.call(this);
   }
@@ -6136,6 +6255,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -6256,6 +6376,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return addImageColisGalerie(idColis);
   }
@@ -6296,6 +6417,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return addImageColisGalerie?.call(idColis);
   }
@@ -6335,6 +6457,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -6381,6 +6504,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return addImageColisGalerie(this);
   }
@@ -6419,6 +6543,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return addImageColisGalerie?.call(this);
   }
@@ -6457,6 +6582,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -6579,6 +6705,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return selectPointLivraisonColis(point_livraison);
   }
@@ -6619,6 +6746,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return selectPointLivraisonColis?.call(point_livraison);
   }
@@ -6658,6 +6786,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -6704,6 +6833,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return selectPointLivraisonColis(this);
   }
@@ -6742,6 +6872,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return selectPointLivraisonColis?.call(this);
   }
@@ -6780,6 +6911,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -6911,6 +7043,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return removeImageFromColis(idColis, position);
   }
@@ -6951,6 +7084,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return removeImageFromColis?.call(idColis, position);
   }
@@ -6990,6 +7124,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -7036,6 +7171,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return removeImageFromColis(this);
   }
@@ -7074,6 +7210,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return removeImageFromColis?.call(this);
   }
@@ -7112,6 +7249,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -7254,6 +7392,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return updateImageInColis(idColis, position, updatedImage);
   }
@@ -7294,6 +7433,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return updateImageInColis?.call(idColis, position, updatedImage);
   }
@@ -7333,6 +7473,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -7379,6 +7520,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return updateImageInColis(this);
   }
@@ -7417,6 +7559,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return updateImageInColis?.call(this);
   }
@@ -7455,6 +7598,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -7577,6 +7721,7 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return selectColis(colis);
   }
@@ -7617,6 +7762,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return selectColis?.call(colis);
   }
@@ -7656,6 +7802,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -7702,6 +7849,7 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return selectColis(this);
   }
@@ -7740,6 +7888,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return selectColis?.call(this);
   }
@@ -7778,6 +7927,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -7895,6 +8045,7 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return manageQte(state);
   }
@@ -7935,6 +8086,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return manageQte?.call(state);
   }
@@ -7974,6 +8126,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -8020,6 +8173,7 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return manageQte(this);
   }
@@ -8058,6 +8212,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return manageQte?.call(this);
   }
@@ -8096,6 +8251,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -8187,6 +8343,7 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return calculFrais();
   }
@@ -8227,6 +8384,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return calculFrais?.call();
   }
@@ -8266,6 +8424,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (calculFrais != null) {
@@ -8312,6 +8471,7 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return calculFrais(this);
   }
@@ -8350,6 +8510,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return calculFrais?.call(this);
   }
@@ -8388,6 +8549,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (calculFrais != null) {
@@ -8474,6 +8636,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return newLivraison();
   }
@@ -8514,6 +8677,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return newLivraison?.call();
   }
@@ -8553,6 +8717,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (newLivraison != null) {
@@ -8599,6 +8764,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return newLivraison(this);
   }
@@ -8637,6 +8803,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return newLivraison?.call(this);
   }
@@ -8675,6 +8842,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (newLivraison != null) {
@@ -8761,6 +8929,7 @@ class _$ListLivraisonImpl implements ListLivraison {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return getLivraison();
   }
@@ -8801,6 +8970,7 @@ class _$ListLivraisonImpl implements ListLivraison {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return getLivraison?.call();
   }
@@ -8840,6 +9010,7 @@ class _$ListLivraisonImpl implements ListLivraison {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (getLivraison != null) {
@@ -8886,6 +9057,7 @@ class _$ListLivraisonImpl implements ListLivraison {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return getLivraison(this);
   }
@@ -8924,6 +9096,7 @@ class _$ListLivraisonImpl implements ListLivraison {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return getLivraison?.call(this);
   }
@@ -8962,6 +9135,7 @@ class _$ListLivraisonImpl implements ListLivraison {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (getLivraison != null) {
@@ -9048,6 +9222,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
     required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
   }) {
     return downloadFacture();
   }
@@ -9088,6 +9263,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
     TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
   }) {
     return downloadFacture?.call();
   }
@@ -9127,6 +9303,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
     TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -9173,6 +9350,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function(NewLivraison value) newLivraison,
     required TResult Function(ListLivraison value) getLivraison,
     required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
   }) {
     return downloadFacture(this);
   }
@@ -9211,6 +9389,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function(NewLivraison value)? newLivraison,
     TResult? Function(ListLivraison value)? getLivraison,
     TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
   }) {
     return downloadFacture?.call(this);
   }
@@ -9249,6 +9428,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function(NewLivraison value)? newLivraison,
     TResult Function(ListLivraison value)? getLivraison,
     TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -9260,6 +9440,299 @@ class _$DownloadFactureImpl implements DownloadFacture {
 
 abstract class DownloadFacture implements LivraisonEvent {
   const factory DownloadFacture() = _$DownloadFactureImpl;
+}
+
+/// @nodoc
+abstract class _$$NoValidateImplCopyWith<$Res> {
+  factory _$$NoValidateImplCopyWith(
+          _$NoValidateImpl value, $Res Function(_$NoValidateImpl) then) =
+      __$$NoValidateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoValidateImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$NoValidateImpl>
+    implements _$$NoValidateImplCopyWith<$Res> {
+  __$$NoValidateImplCopyWithImpl(
+      _$NoValidateImpl _value, $Res Function(_$NoValidateImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NoValidateImpl implements NoValidate {
+  const _$NoValidateImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.noValidate()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoValidateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+  }) {
+    return noValidate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+  }) {
+    return noValidate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    required TResult orElse(),
+  }) {
+    if (noValidate != null) {
+      return noValidate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(ListLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
+  }) {
+    return noValidate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(ListLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
+  }) {
+    return noValidate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(ListLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
+    required TResult orElse(),
+  }) {
+    if (noValidate != null) {
+      return noValidate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoValidate implements LivraisonEvent {
+  const factory NoValidate() = _$NoValidateImpl;
 }
 
 /// @nodoc

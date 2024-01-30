@@ -1,4 +1,6 @@
 import 'package:BananaExpress/presentation/components/Button/app_button.dart';
+import 'package:BananaExpress/presentation/components/Button/themeButton.dart';
+import 'package:BananaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:auto_route/auto_route.dart';
@@ -10,9 +12,8 @@ import '../../presentation/components/exportcomponent.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:BananaExpress/presentation/components/Form/search_field.dart';
 import 'package:BananaExpress/presentation/components/Widget/HomeModuleComponent.dart';
-import 'package:BananaExpress/presentation/components/Widget/icon_svg.dart'; 
+import 'package:BananaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -66,91 +67,99 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
           backgroundColor: ColorsApp.bg,
           drawer: CustomDrawer(user: state.user),
           body: SafeArea(
-              child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: kMarginX),
-                  child: CustomScrollView(slivers: [
-                    SliverAppBar(
-                      backgroundColor: ColorsApp.bg,
-                      automaticallyImplyLeading: false,
-                      leading: Builder(builder: (context) {
-                        return InkWell(
+              child: state.index == 0
+                  ? Container(
+                      margin: EdgeInsets.symmetric(horizontal: kMarginX),
+                      child: CustomScrollView(slivers: [
+                        SliverAppBar(
+                          backgroundColor: ColorsApp.bg,
+                          automaticallyImplyLeading: false,
+                          leading: Builder(builder: (context) {
+                            return InkWell(
+                                child: Container(
+                                  width: 10,
+                                  height: 10,
+                                  child: SvgPicture.asset(Assets.menu,
+                                      fit: BoxFit.none),
+                                ),
+                                onTap: () => Scaffold.of(context).openDrawer());
+                          }),
+                          title: Text(
+                            'Babana Express',
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontFamily: 'Lato',
+                                fontWeight: FontWeight.w600),
+                          ),
+                          centerTitle: true,
+                          actions: [
+                            InkWell(
+                                child: Container(
+                                    margin: EdgeInsets.only(right: kMarginX),
+                                    child: SvgIcon(icon: Assets.bell)),
+                                onTap: () {
+                                  // Get.toNamed(AppLinks.NOTIFICATION);
+                                }),
+                          ],
+                          pinned: true,
+                        ),
+                        SliverToBoxAdapter(
                             child: Container(
-                              width: 10,
-                              height: 10,
-                              child: SvgPicture.asset(Assets.menu,
-                                  fit: BoxFit.none),
-                            ),
-                            onTap: () => Scaffold.of(context).openDrawer());
-                      }),
-                      title: Text(
-                        'Babana Express',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontFamily: 'Lato', fontWeight: FontWeight.w600),
-                      ),
-                      centerTitle: true,
-                      actions: [
-                        InkWell(
-                            child: Container(
-                                margin: EdgeInsets.only(right: kMarginX),
-                                child: SvgIcon(icon: Assets.bell)),
-                            onTap: () {
-                              // Get.toNamed(AppLinks.NOTIFICATION);
-                            }),
-                      ],
-                      pinned: true,
-                    ),
-                    SliverToBoxAdapter(
-                        child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: kMarginX),
-                            padding:
-                                EdgeInsets.symmetric(vertical: kMarginY * 2),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  KSearchField(),
-                                  HomeModuleComponent(
-                                    title:
-                                        'Livraison Express, securite et fiabilite',
-                                    titleBtn: 'Livraisons'.tr(),
-                                    image: Assets.shop2,
-                                    onTap: () => openModalLivraison(context),
-                                  ),
-                                  HomeModuleComponent(
-                                    title:
-                                        'Medicament Express,assurance, securite et fiabilite',
-                                    titleBtn: 'Ordonnance'.tr(),
-                                    image: Assets.medical,
-                                    onTap: () => openModalLivraison(context),
-                                  ),
-                                  Container(
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          margin: EdgeInsets.symmetric(
-                                              vertical: kMarginY * 2),
-                                          child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Container(
-                                                  child: Text(
-                                                    'Top Produits Livre',
-                                                    maxLines: 3,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Lato',
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.w600),
-                                                  ),
-                                                ),
-                                              ]),
+                                margin:
+                                    EdgeInsets.symmetric(horizontal: kMarginX),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: kMarginY * 2),
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      KSearchField(),
+                                      HomeModuleComponent(
+                                        title:
+                                            'Livraison Express, securite et fiabilite',
+                                        titleBtn: 'Livraisons'.tr(),
+                                        image: Assets.shop2,
+                                        onTap: () =>
+                                            openModalLivraison(context),
+                                      ),
+                                      HomeModuleComponent(
+                                        title:
+                                            'Medicament Express,assurance, securite et fiabilite',
+                                        titleBtn: 'Ordonnance'.tr(),
+                                        image: Assets.medical,
+                                        onTap: () =>
+                                            openModalLivraison(context),
+                                      ),
+                                      Container(
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                              margin: EdgeInsets.symmetric(
+                                                  vertical: kMarginY * 2),
+                                              child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Container(
+                                                      child: Text(
+                                                        'Top Produits Livre',
+                                                        maxLines: 3,
+                                                        style: TextStyle(
+                                                            fontFamily: 'Lato',
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
+                                                      ),
+                                                    ),
+                                                  ]),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  )
-                                ])))
-                  ]))),
+                                      )
+                                    ])))
+                      ]))
+                  : LivraisonView()),
           bottomNavigationBar: CustomNavigationBar(
             iconSize: 30.0,
             // elevation: 0.0,
@@ -250,50 +259,85 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          UserAccountsDrawerHeader(
-            accountName: Text(user.nom),
-            accountEmail: Text(user.phone),
-            currentAccountPicture: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: InkWell(
-                // onTap: () => _controller.updateImageUser(),
-                child: CachedNetworkImage(
-                  height: getHeight(context) / 10,
-                  width: getHeight(context) / 10,
-                  fit: BoxFit.cover,
-                  imageUrl: user.profile,
-                  imageBuilder: (context, imageProvider) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: imageProvider,
-                          fit: BoxFit.cover,
+          DrawerHeader(
+              padding: EdgeInsets.zero,
+              margin: EdgeInsets.only(bottom: 8.0),
+              decoration: BoxDecoration(
+                  color: ColorsApp.primary,
+                  border: Border(bottom: BorderSide.none)),
+              child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundColor: Colors.white,
+                          child: InkWell(
+                            // onTap: () => _controller.updateImageUser(),
+                            child: CachedNetworkImage(
+                              height: getHeight(context) / 10,
+                              width: getHeight(context) / 10,
+                              fit: BoxFit.cover,
+                              imageUrl: user.profile,
+                              imageBuilder: (context, imageProvider) {
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      image: imageProvider,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                );
+                              },
+                              placeholder: (context, url) {
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    color: ColorsApp.grey,
+                                  ),
+                                  child: Center(
+                                      child: CircularProgressIndicator(
+                                          color: ColorsApp.second)),
+                                );
+                              },
+                              errorWidget: (context, url, error) {
+                                return CircleAvatar(
+                                    // backgroundColor: ColorsApp.tird,
+                                    radius: 150,
+                                    backgroundImage:
+                                        AssetImage('assets/images/user.jpg'));
+                              },
+                            ),
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                  placeholder: (context, url) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: ColorsApp.grey,
-                      ),
-                      child: Center(
-                          child: CircularProgressIndicator(
-                        color: ColorsApp.tird,
-                      )),
-                    );
-                  },
-                  errorWidget: (context, url, error) {
-                    return CircleAvatar(
-                        // backgroundColor: ColorsApp.tird,
-                        radius: 50,
-                        backgroundImage: AssetImage('assets/images/user.jpg'));
-                  },
-                ),
-              ),
-            ),
-          ),
+                        Container(
+                          margin: EdgeInsets.only(top: kMarginY * 2),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                ViewFunctions().capitalizeFirstLetter(user.nom),
+                                style: TextStyle(
+                                    color: ColorsApp.grey,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              ThemeButtonWidget()
+                            ],
+                          ),
+                        ),
+                        Container(
+                            margin: EdgeInsets.only(top: kMarginY / 2),
+                            child: Text(
+                              user.phone,
+                              style: TextStyle(
+                                  color: ColorsApp.grey,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400),
+                            )),
+                      ]))),
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Home'),

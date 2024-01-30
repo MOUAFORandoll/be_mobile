@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 import 'package:bloc/bloc.dart'; 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,7 +16,10 @@ class AppActionCubit extends Cubit<AppActionState> {
     emit(state.copyWith(index: index));
     print(index);
   }
-
+void changeLanguage(Locale locale) {
+    // languageCubit.setLanguage(locale);
+    // emit(YourLanguageChangedState());
+  }
   void toLogin() {
     emit(state.copyWith(isLogin: true));
   }

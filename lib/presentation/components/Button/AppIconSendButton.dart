@@ -1,6 +1,5 @@
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
-
 // ignore: must_be_immutable
 class AppIconSendButton extends StatelessWidget {
   var icon, color, onTap, inconSize, backgroundColor, sending;
@@ -26,7 +25,9 @@ class AppIconSendButton extends StatelessWidget {
             ? Container(
                 width: 22,
                 height: 22,
-                child: CircularProgressIndicator(color: Colors.white))
+                child: CircularProgressIndicator(
+                  color: ColorsApp.second,
+                ))
             : Icon(icon, color: color, size: inconSize),
       ),
       onTap: onTap,

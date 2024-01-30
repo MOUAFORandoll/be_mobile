@@ -45,7 +45,7 @@ class NewSplashScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   CircularProgressIndicator(
-                    valueColor: new AlwaysStoppedAnimation<Color>(
+                color: ColorsApp.second,    valueColor: new AlwaysStoppedAnimation<Color>(
                         (this.loaderColor == null)
                             ? Colors.blueAccent
                             : this.loaderColor),

@@ -15,6 +15,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:dio/dio.dart';
+import 'package:path_provider/path_provider.dart';
 
 part 'livraison_event.dart';
 part 'livraison_state.dart';
@@ -76,6 +77,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<GetImageColisGalerie>(getImageColisGalerie);
     on<UpdateColis>(updateColis);
     on<DeleteColis>(deleteColis);
+    on<NoValidate>(noValidate);
     on<AddImageColisAppareil>(addImageColisAppareil);
     on<RemoveImageFromColis>(removeImageFromColis);
     on<UpdateImageInColis>(updateImageInColis);
@@ -358,9 +360,16 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         state.listColis?.where((colis) => colis.id != event.idColis).toList();
 
     if (updatedListColis != null) {
-      final newState = state.copyWith(listColis: updatedListColis);
+      final newState =
+          state.copyWith(listColis: updatedListColis, isRequest: 0);
       emit(newState);
     }
+  }
+
+  Future<void> noValidate(
+      NoValidate event, Emitter<LivraisonState> emit) async {
+    final newState = state.copyWith(isRequest: 0);
+    emit(newState);
   }
 
   Future<void> addImageColisAppareil(
@@ -543,6 +552,26 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
             idColis: state.idColis! + 1,
             listColis: listColis); // Update other properties
         emit(newState);
+        emit(state.copyWith(
+          isMapSelectedPointLivraison: false,
+          errorImage: false,
+          isDownloadFacture: 0,
+          isRequest: 0,
+          urlFacture: '',
+          frais: 0,
+          errorQte: false,
+          errorCategory: false,
+          errorPointLivraison: false,
+          // index: 0,
+          imageColis: [],
+          phone: TextEditingController(),
+          contactEmetteur: TextEditingController(),
+          description: TextEditingController(),
+          nomColis: TextEditingController(),
+          quantiteColis: TextEditingController(text: '1'),
+          contactRecepteur: TextEditingController(),
+          valeurColis: TextEditingController(),
+        ));
       }
     }
   }
@@ -630,12 +659,51 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
               isRequest: 5,
               isDownloadFacture: 0,
               urlFacture: response.data['facture']));
+          _cleanData(emit);
           print('00 emit(state.copyWith(isRequest: --------------5))');
         }
       }
     }).onError((e, s) {
       emit(state.copyWith(isRequest: 3));
     });
+  }
+
+  Future<void> _cleanData(Emitter<LivraisonState> emit) async {
+    print(' emit(state.copyWith(isRequest: --------------5))');
+    emit(state.copyWith(
+      isMapSelectedPointLivraison: false,
+      isMapSelectedPointRecuperation: false,
+      errorVille: false,
+      isLoadedVille: 0,
+      isLoadedVCategory: 0,
+      errorImage: false,
+      isDownloadFacture: 0,
+      isRequest: 0,
+      urlFacture: '',
+      isLoadedPLivraison: 0,
+      frais: 0,
+      errorQte: false,
+      errorPointRecuperation: false,
+      errorCategory: false,
+      errorPointLivraison: false,
+      index: 0,
+      idColis: 1,
+      listColis: [],
+      imageColis: [],
+      selectedVIlle: null,
+      list_category_colis: [],
+      list_search_point_localisation: [],
+      phone: TextEditingController(),
+      libelle: TextEditingController(),
+      contactEmetteur: TextEditingController(),
+      description: TextEditingController(),
+      nomColis: TextEditingController(),
+      quantiteColis: TextEditingController(text: '1'),
+      contactRecepteur: TextEditingController(),
+      valeurColis: TextEditingController(),
+      quartier_recuperation_point: '',
+    ));
+    print('00 emit(state.copyWith(isRequest: --------------5))');
   }
 
   List<Map<String, dynamic>> convertListToJson(List<Colis> colisList) {
@@ -708,12 +776,16 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     try {
       await requestPermission();
       DateTime now = DateTime.now(); // ProgressDialog progress;
-      emit(state.copyWith(
-        isDownloadFacture: 3,
-      ));
+      // emit(state.copyWith(
+      //   isDownloadFacture: 3,
+      // ));
+      final directory = await getExternalStorageDirectory();
+      var downloadPath = directory!.path.split('Android')[0] + 'Documents';
+      print(downloadPath);
       final file = File(
-          '/storage/emulated/0/Download/facture_${now.hour}_${now.minute}_${now.second}.pdf');
+          '${downloadPath}/facture_${now.hour}_${now.minute}_${now.second}.pdf');
 
+      print('${EnvManager().getBaseUrl()}' + state.urlFacture!);
       await Dio().download(
         '${EnvManager().getBaseUrl()}' + state.urlFacture!,
         file.path,
@@ -721,28 +793,16 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
           print(rec);
           print(total);
           if (rec == total) {
+            print('okkk');
             emit(state.copyWith(
               isDownloadFacture: 1,
             ));
-            // fn.snackBar(
-            //     'Facture',
-            //     'Une facture de la livraison a ete enregistre dans votre portable',
-            //     true);
           }
-          // progressDowloading =
-          //     ((rec / total) * 100).toStringAsFixed(0) + '%';
-          // print(progressDowloading);
-          // progress.update(message: 'svp veillez patienter ');
         },
-        // ignore: body_might_complete_normally_catch_error
-      ).catchError((e) {
-        print(e);
-        emit(state.copyWith(
-          isDownloadFacture: 2,
-        ));
-      });
-
-      // progress.hide();
+      );
+      emit(state.copyWith(
+        isDownloadFacture: 1,
+      ));
     } catch (e) {
       print(e);
       emit(state.copyWith(

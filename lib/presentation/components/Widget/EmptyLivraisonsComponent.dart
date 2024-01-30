@@ -1,3 +1,4 @@
+import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 
 import 'package:BananaExpress/utils/constants/assets.dart';
@@ -49,7 +50,8 @@ class EmptyLivraisonsComponent extends StatelessWidget {
                   bgColor: ColorsApp.tird,
                   text: 'Go Back',
                   onTap: () {
-                    // Get.find<GeneralController>().setGoHome();
+                    BlocProvider.of<HomeBloc>(context)
+                        .add(SetIndexEvent(index: 0));
                   },
                 ))
           ],

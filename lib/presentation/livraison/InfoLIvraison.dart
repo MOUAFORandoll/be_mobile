@@ -1,11 +1,9 @@
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:BananaExpress/application/model/exportmodel.dart';
-import 'package:BananaExpress/presentation/components/Widget/app_input_new.dart';
-
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
- 
+
 import 'MapPagePointRecuperation.dart';
 
 class InfoLIvraison extends StatefulWidget {
@@ -49,7 +47,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     alignment: Alignment.centerLeft,
                     child: Text('Ville')),
                 state.isLoadedVille == 0
-                    ? CircularProgressIndicator()
+                    ? CircularProgressIndicator(color: ColorsApp.second)
                     : state.isLoadedVille == 2
                         ? Text('Error')
                         : Container(
@@ -257,6 +255,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     controller: state.contactEmetteur!,
                     icon: Icon(Icons.phone),
                     textInputType: TextInputType.number,
+                    // maxLength:13,
                     label: 'Contact de l\'expediteur'.tr(),
                     onChanged: (value) {},
                     validator: (value) {

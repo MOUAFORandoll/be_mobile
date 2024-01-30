@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'bounce_loader.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 /// App loaders
 /// final _loaderDialogController = IndeterminateProgress.bounceLargeColorLoaderController();
@@ -21,6 +21,7 @@ class AppLoader {
             scale: scale,
             child: CircularProgressIndicator(
               strokeWidth: strokeWidth,
+              color: ColorsApp.second,
               valueColor: AlwaysStoppedAnimation<Color>(color),
             ))
       ],

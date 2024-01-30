@@ -1,19 +1,25 @@
+import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:auto_route/auto_route.dart';
 
-class Test extends StatefulWidget {
-  const Test({
+import 'application/export_bloc.dart';
+
+@RoutePage()
+class MyTestPage extends StatefulWidget {
+  const MyTestPage({
     Key? key,
   }) : super(key: key);
+  static const routeName = '/';
 
   @override
-  State<Test> createState() => _TestState();
+  State<MyTestPage> createState() => _MyTestPageState();
 }
 
 //  var fn = new ViewFunctions();
 //                 fn.loading(
 //                     'Eiusmod ex quis deserunt ex eiusmod adipisicing duis fugiat excepteur non velit fugiat id id. ',
 //                     '');
-class _TestState extends State<Test> {
+class _MyTestPageState extends State<MyTestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,18 +36,19 @@ class _TestState extends State<Test> {
             // videoRenderers(),
             Column(
               children: [
-                // Padding(
-                //   padding: const EdgeInsets.all(16.0),
-                //   child: SizedBox(
-                //     width: MediaQuery.of(context).size.width * 0.5,
-                //     child: TextField(
-                //       controller: sdpController,
-                //       keyboardType: TextInputType.multiline,
-                //       maxLines: 4,
-                //       maxLength: TextField.noMaxLength,
-                //     ),
-                //   ),
-                // ),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                    vertical: kMarginY * 2,
+                  ),
+                  child: AppButton(
+                    size: MainAxisSize.max,
+                    // border: Border.all(color: ColorsApp.primary),
+                    text: 'Telecharger facture',
+                    onTap: () async {
+                      context.read<LivraisonBloc>().add(DownloadFacture());
+                    },
+                  ),
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [],

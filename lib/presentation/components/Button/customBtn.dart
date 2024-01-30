@@ -21,8 +21,7 @@ class CustomBtn extends StatelessWidget {
             child: ((validator == null) ? false : validator)
                 ? Center(
                     child: CircularProgressIndicator(
-                      color: Colors.white,
-                    ),
+                      color: ColorsApp.second, ),
                   )
                 : smallText(text: title)));
   }

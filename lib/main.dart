@@ -1,11 +1,13 @@
 import 'package:BananaExpress/application/connected/connected_bloc.dart';
 import 'package:BananaExpress/application/database/database_cubit.dart';
 import 'package:BananaExpress/application/splash/splash_bloc.dart';
- 
+
 import 'package:BananaExpress/application/livraison/repositories/livraisonRepo.dart';
 import 'package:BananaExpress/application/user/repositories/user_repository.dart';
 
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BananaExpress/presentation/layer/splashscreen.dart';
+import 'package:BananaExpress/presentation/user/auth_page.dart';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'infrastructure/_commons/network/env_config.dart';
@@ -32,10 +34,10 @@ Future<void> main() async {
 
   runApp(
     EasyLocalization(
-        supportedLocales: const [Locale('fr', 'FR'), Locale('en', 'US')],
+        supportedLocales: [Locale('fr', 'FR'), Locale('en', 'US')],
         path: 'assets/translations',
         fallbackLocale: const Locale('fr', 'FR'),
-        child: Phoenix(child: const MyApp())),
+        child: Phoenix(child: AppContent())),
   );
 }
 
@@ -44,45 +46,45 @@ var supportedLocales = const [
   Locale('fr', 'FR'),
 ];
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+// class MyApp extends StatefulWidget {
+//   const MyApp({Key? key}) : super(key: key);
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
 
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(providers: [
-      BlocProvider(create: (_) => sl<ConnectedBloc>()),
-      BlocProvider<AppActionCubit>(
-        create: (BuildContext context) => AppActionCubit(),
-      ),
-      BlocProvider<DatabaseCubit>(
-        create: (BuildContext context) => DatabaseCubit(),
-      ),
-      BlocProvider<LivraisonBloc>(
-        create: (BuildContext context) => LivraisonBloc(
-          livraisonRepo: sl.get<LivraisonRepo>(),
-          database: sl.get<DatabaseCubit>(),
-        ),
-      ),
-      BlocProvider<UserBloc>(
-        create: (BuildContext context) => UserBloc(
-            userRepo: sl.get<UserRepo>(), database: sl.get<DatabaseCubit>()),
-      ),
-      BlocProvider<SplashBloc>(
-        create: (BuildContext context) =>
-            SplashBloc(database: sl.get<DatabaseCubit>()),
-      ),
-      BlocProvider<HomeBloc>(
-        create: (BuildContext context) =>
-            HomeBloc(database: sl.get<DatabaseCubit>()),
-      ),
-    ], child: AppContent());
-  }
-}
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MultiBlocProvider(providers: [
+//       BlocProvider(create: (_) => sl<ConnectedBloc>()),
+//       BlocProvider<AppActionCubit>(
+//         create: (BuildContext context) => AppActionCubit(),
+//       ),
+//       BlocProvider<DatabaseCubit>(
+//         create: (BuildContext context) => DatabaseCubit(),
+//       ),
+//       BlocProvider<LivraisonBloc>(
+//         create: (BuildContext context) => LivraisonBloc(
+//           livraisonRepo: sl.get<LivraisonRepo>(),
+//           database: sl.get<DatabaseCubit>(),
+//         ),
+//       ),
+//       BlocProvider<UserBloc>(
+//         create: (BuildContext context) => UserBloc(
+//             userRepo: sl.get<UserRepo>(), database: sl.get<DatabaseCubit>()),
+//       ),
+//       BlocProvider<SplashBloc>(
+//         create: (BuildContext context) =>
+//             SplashBloc(database: sl.get<DatabaseCubit>()),
+//       ),
+//       BlocProvider<HomeBloc>(
+//         create: (BuildContext context) =>
+//             HomeBloc(database: sl.get<DatabaseCubit>()),
+//       ),
+//     ], child: AppContent());
+//   }
+// }
 
 class AppContent extends StatelessWidget {
   AppContent({super.key});
@@ -99,18 +101,75 @@ class AppContent extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      builder: (context, router) {
+      builder: (_, router) {
         return ResponsiveBreakpoints.builder(
-          breakpoints: const [
-            Breakpoint(start: 0, end: 450, name: MOBILE),
-            Breakpoint(start: 451, end: 800, name: TABLET),
-            Breakpoint(start: 801, end: 1920, name: DESKTOP),
-            Breakpoint(start: 1921, end: double.infinity, name: 'XL'),
-          ],
-          child: ClampingScrollWrapper.builder(context, router!),
-        );
+            breakpoints: const [
+              Breakpoint(start: 0, end: 450, name: MOBILE),
+              Breakpoint(start: 451, end: 800, name: TABLET),
+              Breakpoint(start: 801, end: 1920, name: DESKTOP),
+              Breakpoint(start: 1921, end: double.infinity, name: 'XL'),
+            ],
+            child: MultiBlocProvider(
+              providers: [
+                BlocProvider(create: (_) => sl<ConnectedBloc>()),
+                BlocProvider<AppActionCubit>(
+                  create: (BuildContext context) => AppActionCubit(),
+                ),
+                BlocProvider<DatabaseCubit>(
+                  create: (BuildContext context) => DatabaseCubit(),
+                ),
+                BlocProvider<LivraisonBloc>(
+                  create: (BuildContext context) => LivraisonBloc(
+                    livraisonRepo: sl.get<LivraisonRepo>(),
+                    database: sl.get<DatabaseCubit>(),
+                  ),
+                ),
+                BlocProvider<UserBloc>(
+                  create: (BuildContext context) => UserBloc(
+                      userRepo: sl.get<UserRepo>(),
+                      database: sl.get<DatabaseCubit>()),
+                ),
+                BlocProvider<SplashBloc>(
+                  create: (BuildContext context) =>
+                      SplashBloc(database: sl.get<DatabaseCubit>()),
+                ),
+                BlocProvider<HomeBloc>(
+                  create: (BuildContext context) =>
+                      HomeBloc(database: sl.get<DatabaseCubit>()),
+                ),
+              ],
+              child: ClampingScrollWrapper.builder(context, router!),
+            ));
       },
       theme: lightTheme(context),
     );
+
+    // return MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   title: 'Babana Express',
+    //   darkTheme: AppThemes().darkTheme,
+    //   themeMode: ThemeMode.light,
+    //   localizationsDelegates: context.localizationDelegates,
+    //   supportedLocales: context.supportedLocales,
+    //   locale: context.locale,
+    //   home: SplashScreenPage(), // Replace with your initial screen widget
+    //   // Alternatively, you can use 'routes' to define named routes.
+    //   routes: {
+    //     '/anotherPage': (context) => AuthPage(), // Example of a named route
+    //     // Define other routes as needed
+    //   },
+    //   builder: (context, widget) {
+    //     return ResponsiveBreakpoints.builder(
+    //       breakpoints: const [
+    //         Breakpoint(start: 0, end: 450, name: MOBILE),
+    //         Breakpoint(start: 451, end: 800, name: TABLET),
+    //         Breakpoint(start: 801, end: 1920, name: DESKTOP),
+    //         Breakpoint(start: 1921, end: double.infinity, name: 'XL'),
+    //       ],
+    //       child: ClampingScrollWrapper.builder(context, widget!),
+    //     );
+    //   },
+    //   theme: lightTheme(context),
+    // );
   }
 }

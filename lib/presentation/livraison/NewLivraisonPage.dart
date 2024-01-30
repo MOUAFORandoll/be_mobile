@@ -1,5 +1,5 @@
 import 'package:BananaExpress/core.dart';
-import 'package:BananaExpress/presentation/components/Button/app_button.dart'; 
+import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
@@ -60,7 +60,7 @@ class NewLivraisonPage extends StatelessWidget {
                                       }),
                                   AppButton(
                                     size: MainAxisSize.max,
-                                    bgColor: ColorsApp.primary,
+                                    bgColor: ColorsApp.second,
                                     text: state.index == 0
                                         ? 'Next'.tr()
                                         : 'Evaluer'.tr(),

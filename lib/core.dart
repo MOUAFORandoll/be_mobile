@@ -52,6 +52,9 @@ Future<void> initLoad(context) async {
 
 Future<void> requestPermission() async {
   PermissionStatus status = await Permission.storage.request();
+  PermissionStatus status0 = await Permission.manageExternalStorage.request();
+  print(status);
+  print(status0);
   if (status == PermissionStatus.granted) {
     print('accepte');
   } else {
