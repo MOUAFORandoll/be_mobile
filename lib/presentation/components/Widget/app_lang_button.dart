@@ -1,47 +1,54 @@
-// import 'package:BananaExpress/presentation/components/exportcomponent.dart';
- 
+import 'package:flutter/material.dart';
+import 'package:BananaExpress/main.dart';
+import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:easy_localization/easy_localization.dart'; // Assurez-vous d'avoir easy_localization
 
-// import 'package:get/get.dart';
+class AppLangButton extends StatelessWidget {
+  final List<Map<String, dynamic>> supportedLocales = [
+    {'code': 'en', 'c1': 'US', 'name': 'English'},
+    {'code': 'fr', 'c1': 'FR', 'name': 'Français'},
+    // Ajoutez d'autres langues ici
+  ];
 
-// class AppLangButton extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       // width: kSmWidth * .6,
-//       // margin: EdgeInsets.only(
-//       //     top: Get.height * .005,
-//       //     left: Get.width * .008),
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton(
+      value: context.locale
+          .languageCode, // Utilisez le code de langue actuel comme valeur initiale
+      borderRadius: BorderRadius.circular(10),
+      icon: Container(
+        child: Icon(
+          Icons.keyboard_arrow_down_outlined,
+          color: ColorsApp.primary,
+        ),
+      ),
+      iconSize: 25,
+      underline: SizedBox(),
+      style: TextStyle(color: ColorsApp.primary, fontSize: 20),
+      onChanged: (newValue) {
+        if (newValue != null) {
+          final selectedLocale = supportedLocales.firstWhere(
+            (locale) => locale['code'] == newValue,
+            orElse: () => supportedLocales[0],
+          );
 
-//       child: BlocBuilder<AppActionCubit, AppActionState>(builder: (context, state) {
-//       return DropdownButton<String>(
-//             value: actionControl.lang.value,
-//             borderRadius: BorderRadius.circular(10),
-//             icon: Container(
-//               // padding: EdgeInsets.only(top: 4),
-//               child: Icon(
-//                 Icons.keyboard_arrow_down_outlined,
-//                 color: ColorsApp.primary,
-//               ),
-//             ),
-//             iconSize: 25,
-//             underline: SizedBox(),
-//             style: TextStyle(color: ColorsApp.primary, fontSize: 20),
-//             onChanged: (newValue) {
-//               // actionControl.updateLanguage(newValue ?? '');
-//             },
-//             items:
-//                 <String>[...actionControl.locale.map((e) => e['name'])].map<DropdownMenuItem<String>>((String value) {
-//               return DropdownMenuItem<String>(
-//                 value: value,
-//                 child: Center(
-//                   child: Text(
-//                     value,
-//                     style: TextStyle(color: ColorsApp.primary, fontSize: 15),
-//                   ),
-//                 ),
-//               );
-//             }).toList()),
-//       ),
-//     );
-//   }
-// }
+          context.setLocale(Locale(
+            selectedLocale['code'],
+            selectedLocale['c1'],
+          )); // Changez la langue ici
+        }
+      },
+      items: supportedLocales.map<DropdownMenuItem<String>>((locale) {
+        return DropdownMenuItem(
+          value: locale['code'],
+          child: Center(
+            child: Text(
+              locale['name'] ?? '',
+              style: TextStyle(color: ColorsApp.primary, fontSize: 15),
+            ),
+          ),
+        );
+      }).toList(),
+    );
+  }
+}

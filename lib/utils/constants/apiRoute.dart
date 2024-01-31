@@ -13,9 +13,9 @@ class ApiRoutes {
   static const UPDATE_PRODUCT_IMAGE = '/produit/image/update';
   static const ADD_PRODUCT_IMAGE = '/produit/image/add';
 
-  static const LOGIN = '/api/logins';
+  static const LOGIN = '/auth/user';
   static const Refresh = '/api/token/refresh';
-  static const SIGNUP = '/api/user_plateforms';
+  static const SIGNUP = '/create/user';
   static const SEARCH = '/search';
   static const MODEPAIEMENT = '/modepaiement/read';
 

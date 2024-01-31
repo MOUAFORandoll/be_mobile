@@ -260,84 +260,91 @@ class CustomDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-              padding: EdgeInsets.zero,
+              // padding: EdgeInsets.only(bottom: 18.0),
               margin: EdgeInsets.only(bottom: 8.0),
               decoration: BoxDecoration(
                   color: ColorsApp.primary,
                   border: Border(bottom: BorderSide.none)),
               child: Container(
                   padding: EdgeInsets.all(10),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: InkWell(
-                            // onTap: () => _controller.updateImageUser(),
-                            child: CachedNetworkImage(
-                              height: getHeight(context) / 10,
-                              width: getHeight(context) / 10,
-                              fit: BoxFit.cover,
-                              imageUrl: user.profile,
-                              imageBuilder: (context, imageProvider) {
-                                return Container(
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      image: imageProvider,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                );
-                              },
-                              placeholder: (context, url) {
-                                return Container(
-                                  decoration: BoxDecoration(
-                                    color: ColorsApp.grey,
-                                  ),
-                                  child: Center(
-                                      child: CircularProgressIndicator(
-                                          color: ColorsApp.second)),
-                                );
-                              },
-                              errorWidget: (context, url, error) {
-                                return CircleAvatar(
-                                    // backgroundColor: ColorsApp.tird,
-                                    radius: 150,
-                                    backgroundImage:
-                                        AssetImage('assets/images/user.jpg'));
-                              },
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: kMarginY * 2),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                ViewFunctions().capitalizeFirstLetter(user.nom),
-                                style: TextStyle(
-                                    color: ColorsApp.grey,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600),
+                  child: Column(children: [
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.white,
+                      child: InkWell(
+                        onTap: () => context.setLocale(Locale('en', 'US')),
+                        child: CachedNetworkImage(
+                          height: getHeight(context) / 10,
+                          width: getHeight(context) / 10,
+                          fit: BoxFit.cover,
+                          imageUrl: user.profile,
+                          imageBuilder: (context, imageProvider) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                              ThemeButtonWidget()
-                            ],
-                          ),
-                        ),
-                        Container(
-                            margin: EdgeInsets.only(top: kMarginY / 2),
-                            child: Text(
-                              user.phone,
-                              style: TextStyle(
+                            );
+                          },
+                          placeholder: (context, url) {
+                            return Container(
+                              decoration: BoxDecoration(
                                   color: ColorsApp.grey,
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w400),
-                            )),
-                      ]))),
+                                  borderRadius: BorderRadius.circular(50)),
+                              child: Center(
+                                  child: CircularProgressIndicator(
+                                      color: ColorsApp.second)),
+                            );
+                          },
+                          errorWidget: (context, url, error) {
+                            return CircleAvatar(
+                                // backgroundColor: ColorsApp.tird,
+                                radius: 150,
+                                backgroundImage:
+                                    AssetImage('assets/images/user.jpg'));
+                          },
+                        ),
+                      ),
+                    ),
+                    Container(
+                      // margin: EdgeInsets.only(top: kMarginY),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            ViewFunctions().capitalizeFirstLetter(user.nom),
+                            style: TextStyle(
+                                color: ColorsApp.grey,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          ThemeButtonWidget()
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            user.phone,
+                            style: TextStyle(
+                                color: ColorsApp.grey,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]))),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: AppLangButton(),
+            onTap: () {},
+          ),
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Home'),
@@ -356,7 +363,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
+            title: Text('Logout'.tr()),
             onTap: () {
               BlocProvider.of<UserBloc>(context)
                   .add(SignOutEvent(context: context));

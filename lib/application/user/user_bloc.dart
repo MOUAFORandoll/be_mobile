@@ -4,7 +4,7 @@ import 'package:BananaExpress/application/database/database_cubit.dart';
 import 'package:BananaExpress/application/user/repositories/user_repository.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
 
-import 'package:BananaExpress/utils/functions/app_loader.dart'; 
+import 'package:BananaExpress/utils/functions/app_loader.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
@@ -72,7 +72,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     print(data);
     emit(state.copyWith(isLoading: 1));
     await userRepo.Login(data).then((response) async {
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         database.saveKeyKen(response.data);
 
         await userRepo.getUser().then((value) async {
@@ -99,7 +99,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       } else {
         emit(state.copyWith(
             isLoading: 3,
-            authenticationFailedMessage: 'Phone ou mot de passe incorrect'));
+            authenticationFailedMessage: response.data['message']));
       }
     }).onError((error, s) {
       // print('----${s}-----');
@@ -125,52 +125,30 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       Response response = await userRepo.SignUp(data);
 
       if (response.statusCode == 201) {
-        var data = {
-          'phone': event.phone,
-          'password': event.password,
-        };
-        print(data);
+        database.saveKeyKen(response.data);
 
-        try {
-          var responselog = await userRepo.Login(data);
+        await userRepo.getUser().then((value) async {
+          print('------------------value----------${value.data}-');
+          if (value.data['data'] != null &&
+              value.data['data'] != [] &&
+              value.data['data'].length != 0) {
+            emit(state.copyWith(isLoading: 2, authenticationFailedMessage: ''));
+            emit(UserState.authenticated());
 
-          if (responselog.statusCode == 200) {
-            database.saveKeyKen(responselog.data);
+            var _UserSave = User.fromJson(value.data['data']);
 
-            await userRepo.getUser().then((value) async {
-              print('------------------value----------${value.data}-');
-              if (value.data['data'] != null &&
-                  value.data['data'] != [] &&
-                  value.data['data'].length != 0) {
-                emit(state.copyWith(
-                    isLoading: 2, authenticationFailedMessage: ''));
-                emit(UserState.authenticated());
-
-                var _UserSave = User.fromJson(value.data['data']);
-
-                await database.saveUser(_UserSave);
-              }
-            }).catchError((error) {
-              emit(state.copyWith(
-                  isLoading: 3,
-                  authenticationFailedMessage:
-                      'Une erreur est survenue recommencer'));
-            });
-          } else {
-            emit(state.copyWith(
-                isLoading: 3,
-                authenticationFailedMessage: 'Identifiants incorrects'));
+            await database.saveUser(_UserSave);
           }
-        } catch (e) {
+        }).catchError((error) {
           emit(state.copyWith(
               isLoading: 3,
               authenticationFailedMessage:
                   'Une erreur est survenue recommencer'));
-        }
+        });
       } else {
         emit(state.copyWith(
             isLoading: 3,
-            authenticationFailedMessage: 'Identifiants incorrects'));
+            authenticationFailedMessage: response.data['message']));
       }
     } catch (e) {
       emit(state.copyWith(

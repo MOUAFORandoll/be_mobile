@@ -6,8 +6,6 @@ import 'package:BananaExpress/application/livraison/repositories/livraisonRepo.d
 import 'package:BananaExpress/application/user/repositories/user_repository.dart';
 
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
-import 'package:BananaExpress/presentation/layer/splashscreen.dart';
-import 'package:BananaExpress/presentation/user/auth_page.dart';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'infrastructure/_commons/network/env_config.dart';
@@ -16,7 +14,6 @@ import 'routes/app_router.dart';
 import 'core.dart' as co;
 import 'core.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -34,7 +31,7 @@ Future<void> main() async {
 
   runApp(
     EasyLocalization(
-        supportedLocales: [Locale('fr', 'FR'), Locale('en', 'US')],
+        supportedLocales: supportedLocales,
         path: 'assets/translations',
         fallbackLocale: const Locale('fr', 'FR'),
         child: Phoenix(child: AppContent())),
@@ -42,7 +39,7 @@ Future<void> main() async {
 }
 
 var supportedLocales = const [
-  Locale('en', 'EN'),
+  Locale('en', 'US'),
   Locale('fr', 'FR'),
 ];
 

@@ -81,6 +81,7 @@
   "invalidChiffre": "Entrer des chiffres",
   "lbselectphoto": "Selectionner image",
   "lbaddprod": "Ajouter",
-  "labelnewpassword": "Mot de passe actuel", 
-  "succesLivraison":"Votre demande de livraison a ete enregistre avec succes. Suivez la progression demande dans le menu Livaison"
+  "labelnewpassword": "Mot de passe actuel",
+  "Logout": "Se deconnecter",
+  "succesLivraison": "Votre demande de livraison a ete enregistre avec succes. Suivez la progression demande dans le menu Livaison"
 }
