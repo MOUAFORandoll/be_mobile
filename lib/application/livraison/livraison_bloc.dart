@@ -20,6 +20,7 @@ import 'package:path_provider/path_provider.dart';
 part 'livraison_event.dart';
 part 'livraison_state.dart';
 part 'livraison_bloc.freezed.dart';
+// https://maps.googleapis.com/maps/api/geocode/json?latlng=4.0670378,9.7830391&sensor=true&key=AIzaSyB2lLkho9yRrZ9DgZ4btFOZ6x22-zZTJ38
 
 class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   final LivraisonRepo livraisonRepo;
@@ -212,6 +213,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     position = await Geolocator.getCurrentPosition();
 
     emit(state.copyWith(
+      
         position: LatLng(position.latitude, position.longitude)));
   }
 
@@ -275,7 +277,6 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       }
     } catch (e) {}
   }
-
 // Gestion de Colis
 
   Future<void> getImageColisAppareil(

@@ -89,13 +89,14 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                           style: TextStyle(
                               color: ColorsApp.white,
                               fontFamily: 'Lato',
+                              fontSize: 15,
                               fontWeight: FontWeight.w600),
                         ),
                         centerTitle: true,
                         actions: [
                           InkWell(
                               child: Container(
-                                  margin: EdgeInsets.only(right: kMarginX),
+                                  margin: EdgeInsets.only(right: kMarginX * 2),
                                   child: SvgIcon(
                                     icon: Assets.bell,
                                     color: ColorsApp.white,
@@ -109,7 +110,10 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                           child: Container(
                             margin: EdgeInsets.symmetric(
                               horizontal: kMarginX,
-                            ).add(EdgeInsets.only(bottom: kMarginY * 3)),
+                            ).add(EdgeInsets.only(
+                              bottom: kMarginY * 3,
+                              right: kMarginX,
+                            )),
                             child: KHomeInfo(user: state.user),
                           ),
                         ),

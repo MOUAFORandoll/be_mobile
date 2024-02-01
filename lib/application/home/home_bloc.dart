@@ -32,8 +32,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       print('-----------------SetIndexEvent');
       emit(state.copyWith(index: event.index));
     });
+  
   }
-
   @override
   void onError(Object error, StackTrace stacktrace) {
     super.onError(error, stacktrace);

@@ -15,6 +15,8 @@ import '../export_bloc.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 part 'user_event.dart';
 part 'user_state.dart';
 part 'user_bloc.freezed.dart';
@@ -35,7 +37,50 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     on<RegisterEvent>(_Register);
     on<GetUserEvent>(_GetUserEvent);
-    // on<FailedRegister>(_Register);
+    on<GetVilleQuartier>(_getVilleQuartier);
+  }
+
+  Future<void> _getVilleQuartier(
+      GetVilleQuartier event, Emitter<UserState> emit) async {
+    emit(state.copyWith(isVilleQuartier: 0));
+    var position;
+
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {}
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.always ||
+          permission == LocationPermission.unableToDetermine ||
+          permission == LocationPermission.whileInUse) {
+        position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.high,
+        );
+      }
+    }
+    position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+    position = await Geolocator.getCurrentPosition();
+    await userRepo
+        .getVilleQuartier(position.longitude, position.latitude)
+        .then((response) {
+      print(response.data);
+      if (response.data != null) {
+        emit(state.copyWith(
+            quartierUser: response.data['quartier'],
+            villeUser: response.data['ville'],
+            isVilleQuartier: 1));
+      } else {
+        emit(state.copyWith(isVilleQuartier: 2));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(isVilleQuartier: 2));
+    });
   }
 
   _OnSignOut(SignOutEvent event, Emitter<UserState> emit) async {

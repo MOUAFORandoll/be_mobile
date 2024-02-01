@@ -24,6 +24,7 @@ mixin _$UserEvent {
         register,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
+    required TResult Function() getVilleQuartier,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$UserEvent {
         register,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
+    TResult? Function()? getVilleQuartier,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$UserEvent {
         register,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
+    TResult Function()? getVilleQuartier,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +56,7 @@ mixin _$UserEvent {
     required TResult Function(RegisterEvent value) register,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
+    required TResult Function(GetVilleQuartier value) getVilleQuartier,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +65,7 @@ mixin _$UserEvent {
     TResult? Function(RegisterEvent value)? register,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
+    TResult? Function(GetVilleQuartier value)? getVilleQuartier,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$UserEvent {
     TResult Function(RegisterEvent value)? register,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
+    TResult Function(GetVilleQuartier value)? getVilleQuartier,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -170,6 +176,7 @@ class _$SignInEventImpl implements SignInEvent {
         register,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
+    required TResult Function() getVilleQuartier,
   }) {
     return chooseExperience(phone, password);
   }
@@ -183,6 +190,7 @@ class _$SignInEventImpl implements SignInEvent {
         register,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
+    TResult? Function()? getVilleQuartier,
   }) {
     return chooseExperience?.call(phone, password);
   }
@@ -196,6 +204,7 @@ class _$SignInEventImpl implements SignInEvent {
         register,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
+    TResult Function()? getVilleQuartier,
     required TResult orElse(),
   }) {
     if (chooseExperience != null) {
@@ -211,6 +220,7 @@ class _$SignInEventImpl implements SignInEvent {
     required TResult Function(RegisterEvent value) register,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
+    required TResult Function(GetVilleQuartier value) getVilleQuartier,
   }) {
     return chooseExperience(this);
   }
@@ -222,6 +232,7 @@ class _$SignInEventImpl implements SignInEvent {
     TResult? Function(RegisterEvent value)? register,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
+    TResult? Function(GetVilleQuartier value)? getVilleQuartier,
   }) {
     return chooseExperience?.call(this);
   }
@@ -233,6 +244,7 @@ class _$SignInEventImpl implements SignInEvent {
     TResult Function(RegisterEvent value)? register,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
+    TResult Function(GetVilleQuartier value)? getVilleQuartier,
     required TResult orElse(),
   }) {
     if (chooseExperience != null) {
@@ -355,6 +367,7 @@ class _$RegisterEventImpl implements RegisterEvent {
         register,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
+    required TResult Function() getVilleQuartier,
   }) {
     return register(name, phone, password, re_password);
   }
@@ -368,6 +381,7 @@ class _$RegisterEventImpl implements RegisterEvent {
         register,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
+    TResult? Function()? getVilleQuartier,
   }) {
     return register?.call(name, phone, password, re_password);
   }
@@ -381,6 +395,7 @@ class _$RegisterEventImpl implements RegisterEvent {
         register,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
+    TResult Function()? getVilleQuartier,
     required TResult orElse(),
   }) {
     if (register != null) {
@@ -396,6 +411,7 @@ class _$RegisterEventImpl implements RegisterEvent {
     required TResult Function(RegisterEvent value) register,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
+    required TResult Function(GetVilleQuartier value) getVilleQuartier,
   }) {
     return register(this);
   }
@@ -407,6 +423,7 @@ class _$RegisterEventImpl implements RegisterEvent {
     TResult? Function(RegisterEvent value)? register,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
+    TResult? Function(GetVilleQuartier value)? getVilleQuartier,
   }) {
     return register?.call(this);
   }
@@ -418,6 +435,7 @@ class _$RegisterEventImpl implements RegisterEvent {
     TResult Function(RegisterEvent value)? register,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
+    TResult Function(GetVilleQuartier value)? getVilleQuartier,
     required TResult orElse(),
   }) {
     if (register != null) {
@@ -513,6 +531,7 @@ class _$SignOutEventImpl implements SignOutEvent {
         register,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
+    required TResult Function() getVilleQuartier,
   }) {
     return signOut(context);
   }
@@ -526,6 +545,7 @@ class _$SignOutEventImpl implements SignOutEvent {
         register,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
+    TResult? Function()? getVilleQuartier,
   }) {
     return signOut?.call(context);
   }
@@ -539,6 +559,7 @@ class _$SignOutEventImpl implements SignOutEvent {
         register,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
+    TResult Function()? getVilleQuartier,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -554,6 +575,7 @@ class _$SignOutEventImpl implements SignOutEvent {
     required TResult Function(RegisterEvent value) register,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
+    required TResult Function(GetVilleQuartier value) getVilleQuartier,
   }) {
     return signOut(this);
   }
@@ -565,6 +587,7 @@ class _$SignOutEventImpl implements SignOutEvent {
     TResult? Function(RegisterEvent value)? register,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
+    TResult? Function(GetVilleQuartier value)? getVilleQuartier,
   }) {
     return signOut?.call(this);
   }
@@ -576,6 +599,7 @@ class _$SignOutEventImpl implements SignOutEvent {
     TResult Function(RegisterEvent value)? register,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
+    TResult Function(GetVilleQuartier value)? getVilleQuartier,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -639,6 +663,7 @@ class _$GetUserEventImpl implements GetUserEvent {
         register,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
+    required TResult Function() getVilleQuartier,
   }) {
     return getUserEvent();
   }
@@ -652,6 +677,7 @@ class _$GetUserEventImpl implements GetUserEvent {
         register,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
+    TResult? Function()? getVilleQuartier,
   }) {
     return getUserEvent?.call();
   }
@@ -665,6 +691,7 @@ class _$GetUserEventImpl implements GetUserEvent {
         register,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
+    TResult Function()? getVilleQuartier,
     required TResult orElse(),
   }) {
     if (getUserEvent != null) {
@@ -680,6 +707,7 @@ class _$GetUserEventImpl implements GetUserEvent {
     required TResult Function(RegisterEvent value) register,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
+    required TResult Function(GetVilleQuartier value) getVilleQuartier,
   }) {
     return getUserEvent(this);
   }
@@ -691,6 +719,7 @@ class _$GetUserEventImpl implements GetUserEvent {
     TResult? Function(RegisterEvent value)? register,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
+    TResult? Function(GetVilleQuartier value)? getVilleQuartier,
   }) {
     return getUserEvent?.call(this);
   }
@@ -702,6 +731,7 @@ class _$GetUserEventImpl implements GetUserEvent {
     TResult Function(RegisterEvent value)? register,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
+    TResult Function(GetVilleQuartier value)? getVilleQuartier,
     required TResult orElse(),
   }) {
     if (getUserEvent != null) {
@@ -716,10 +746,139 @@ abstract class GetUserEvent implements UserEvent {
 }
 
 /// @nodoc
+abstract class _$$GetVilleQuartierImplCopyWith<$Res> {
+  factory _$$GetVilleQuartierImplCopyWith(_$GetVilleQuartierImpl value,
+          $Res Function(_$GetVilleQuartierImpl) then) =
+      __$$GetVilleQuartierImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetVilleQuartierImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$GetVilleQuartierImpl>
+    implements _$$GetVilleQuartierImplCopyWith<$Res> {
+  __$$GetVilleQuartierImplCopyWithImpl(_$GetVilleQuartierImpl _value,
+      $Res Function(_$GetVilleQuartierImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetVilleQuartierImpl implements GetVilleQuartier {
+  const _$GetVilleQuartierImpl();
+
+  @override
+  String toString() {
+    return 'UserEvent.getVilleQuartier()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetVilleQuartierImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String phone, String password) chooseExperience,
+    required TResult Function(
+            String name, String phone, String password, String re_password)
+        register,
+    required TResult Function(BuildContext context) signOut,
+    required TResult Function() getUserEvent,
+    required TResult Function() getVilleQuartier,
+  }) {
+    return getVilleQuartier();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String phone, String password)? chooseExperience,
+    TResult? Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult? Function(BuildContext context)? signOut,
+    TResult? Function()? getUserEvent,
+    TResult? Function()? getVilleQuartier,
+  }) {
+    return getVilleQuartier?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String phone, String password)? chooseExperience,
+    TResult Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult Function(BuildContext context)? signOut,
+    TResult Function()? getUserEvent,
+    TResult Function()? getVilleQuartier,
+    required TResult orElse(),
+  }) {
+    if (getVilleQuartier != null) {
+      return getVilleQuartier();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignInEvent value) chooseExperience,
+    required TResult Function(RegisterEvent value) register,
+    required TResult Function(SignOutEvent value) signOut,
+    required TResult Function(GetUserEvent value) getUserEvent,
+    required TResult Function(GetVilleQuartier value) getVilleQuartier,
+  }) {
+    return getVilleQuartier(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignInEvent value)? chooseExperience,
+    TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SignOutEvent value)? signOut,
+    TResult? Function(GetUserEvent value)? getUserEvent,
+    TResult? Function(GetVilleQuartier value)? getVilleQuartier,
+  }) {
+    return getVilleQuartier?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignInEvent value)? chooseExperience,
+    TResult Function(RegisterEvent value)? register,
+    TResult Function(SignOutEvent value)? signOut,
+    TResult Function(GetUserEvent value)? getUserEvent,
+    TResult Function(GetVilleQuartier value)? getVilleQuartier,
+    required TResult orElse(),
+  }) {
+    if (getVilleQuartier != null) {
+      return getVilleQuartier(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetVilleQuartier implements UserEvent {
+  const factory GetVilleQuartier() = _$GetVilleQuartierImpl;
+}
+
+/// @nodoc
 mixin _$UserState {
   int? get isLoading => throw _privateConstructorUsedError;
   String? get authenticationFailedMessage => throw _privateConstructorUsedError;
   String? get registerFailedMessage => throw _privateConstructorUsedError;
+  String? get villeUser => throw _privateConstructorUsedError;
+  String? get quartierUser => throw _privateConstructorUsedError;
+  int? get isVilleQuartier => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserStateCopyWith<UserState> get copyWith =>
@@ -734,7 +893,10 @@ abstract class $UserStateCopyWith<$Res> {
   $Res call(
       {int? isLoading,
       String? authenticationFailedMessage,
-      String? registerFailedMessage});
+      String? registerFailedMessage,
+      String? villeUser,
+      String? quartierUser,
+      int? isVilleQuartier});
 }
 
 /// @nodoc
@@ -753,6 +915,9 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
     Object? isLoading = freezed,
     Object? authenticationFailedMessage = freezed,
     Object? registerFailedMessage = freezed,
+    Object? villeUser = freezed,
+    Object? quartierUser = freezed,
+    Object? isVilleQuartier = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: freezed == isLoading
@@ -767,6 +932,18 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
           ? _value.registerFailedMessage
           : registerFailedMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      villeUser: freezed == villeUser
+          ? _value.villeUser
+          : villeUser // ignore: cast_nullable_to_non_nullable
+              as String?,
+      quartierUser: freezed == quartierUser
+          ? _value.quartierUser
+          : quartierUser // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isVilleQuartier: freezed == isVilleQuartier
+          ? _value.isVilleQuartier
+          : isVilleQuartier // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -782,7 +959,10 @@ abstract class _$$UserStateImplCopyWith<$Res>
   $Res call(
       {int? isLoading,
       String? authenticationFailedMessage,
-      String? registerFailedMessage});
+      String? registerFailedMessage,
+      String? villeUser,
+      String? quartierUser,
+      int? isVilleQuartier});
 }
 
 /// @nodoc
@@ -799,6 +979,9 @@ class __$$UserStateImplCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? authenticationFailedMessage = freezed,
     Object? registerFailedMessage = freezed,
+    Object? villeUser = freezed,
+    Object? quartierUser = freezed,
+    Object? isVilleQuartier = freezed,
   }) {
     return _then(_$UserStateImpl(
       isLoading: freezed == isLoading
@@ -813,6 +996,18 @@ class __$$UserStateImplCopyWithImpl<$Res>
           ? _value.registerFailedMessage
           : registerFailedMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      villeUser: freezed == villeUser
+          ? _value.villeUser
+          : villeUser // ignore: cast_nullable_to_non_nullable
+              as String?,
+      quartierUser: freezed == quartierUser
+          ? _value.quartierUser
+          : quartierUser // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isVilleQuartier: freezed == isVilleQuartier
+          ? _value.isVilleQuartier
+          : isVilleQuartier // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -823,7 +1018,10 @@ class _$UserStateImpl implements _UserState {
   const _$UserStateImpl(
       {this.isLoading,
       this.authenticationFailedMessage,
-      this.registerFailedMessage});
+      this.registerFailedMessage,
+      this.villeUser,
+      this.quartierUser,
+      this.isVilleQuartier});
 
   @override
   final int? isLoading;
@@ -831,10 +1029,16 @@ class _$UserStateImpl implements _UserState {
   final String? authenticationFailedMessage;
   @override
   final String? registerFailedMessage;
+  @override
+  final String? villeUser;
+  @override
+  final String? quartierUser;
+  @override
+  final int? isVilleQuartier;
 
   @override
   String toString() {
-    return 'UserState(isLoading: $isLoading, authenticationFailedMessage: $authenticationFailedMessage, registerFailedMessage: $registerFailedMessage)';
+    return 'UserState(isLoading: $isLoading, authenticationFailedMessage: $authenticationFailedMessage, registerFailedMessage: $registerFailedMessage, villeUser: $villeUser, quartierUser: $quartierUser, isVilleQuartier: $isVilleQuartier)';
   }
 
   @override
@@ -849,12 +1053,24 @@ class _$UserStateImpl implements _UserState {
                 other.authenticationFailedMessage ==
                     authenticationFailedMessage) &&
             (identical(other.registerFailedMessage, registerFailedMessage) ||
-                other.registerFailedMessage == registerFailedMessage));
+                other.registerFailedMessage == registerFailedMessage) &&
+            (identical(other.villeUser, villeUser) ||
+                other.villeUser == villeUser) &&
+            (identical(other.quartierUser, quartierUser) ||
+                other.quartierUser == quartierUser) &&
+            (identical(other.isVilleQuartier, isVilleQuartier) ||
+                other.isVilleQuartier == isVilleQuartier));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading,
-      authenticationFailedMessage, registerFailedMessage);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      authenticationFailedMessage,
+      registerFailedMessage,
+      villeUser,
+      quartierUser,
+      isVilleQuartier);
 
   @JsonKey(ignore: true)
   @override
@@ -867,7 +1083,10 @@ abstract class _UserState implements UserState {
   const factory _UserState(
       {final int? isLoading,
       final String? authenticationFailedMessage,
-      final String? registerFailedMessage}) = _$UserStateImpl;
+      final String? registerFailedMessage,
+      final String? villeUser,
+      final String? quartierUser,
+      final int? isVilleQuartier}) = _$UserStateImpl;
 
   @override
   int? get isLoading;
@@ -875,6 +1094,12 @@ abstract class _UserState implements UserState {
   String? get authenticationFailedMessage;
   @override
   String? get registerFailedMessage;
+  @override
+  String? get villeUser;
+  @override
+  String? get quartierUser;
+  @override
+  int? get isVilleQuartier;
   @override
   @JsonKey(ignore: true)
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>

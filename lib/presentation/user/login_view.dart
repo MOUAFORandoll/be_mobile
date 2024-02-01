@@ -20,7 +20,7 @@ class LoginView extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,

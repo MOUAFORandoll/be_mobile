@@ -43,7 +43,8 @@ void initConnected() async {
 
 Future<void> initLoad(context) async {
   BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
-  BlocProvider.of<UserBloc>(context).add(GetUserEvent());
+  BlocProvider.of<UserBloc>(context)..add(GetUserEvent())
+    ..add(GetVilleQuartier());
   BlocProvider.of<LivraisonBloc>(context)
     ..add(StartLogLat())
     ..add(GetVilleAndCategoryEvent())

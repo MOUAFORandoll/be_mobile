@@ -2,7 +2,7 @@ import 'package:BananaExpress/core.dart';
 import 'package:BananaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:dio/dio.dart';
 import 'package:BananaExpress/utils/constants/apiRoute.dart';
- 
+
 import 'package:BananaExpress/application/database/database_cubit.dart';
 
 class UserRepo {
@@ -14,14 +14,21 @@ class UserRepo {
     var getId = await dababase.getId();
     print('-----user---${getId}');
     if (getId != null) {
-      Response a =
-          await apiClient.getRequest(ApiRoutes.USER + '?id=${getId}');
+      Response a = await apiClient.getRequest(ApiRoutes.USER + '?id=${getId}');
       ;
 
       return a;
     } else {
       return null;
     }
+  }
+
+  Future getVilleQuartier(long, lat) async {
+    Response a =
+        await apiClient.getRequest('/location/user?long=${long}&lat=${lat}');
+    ;
+
+    return a;
   }
 
   Future userRefresh() async {

@@ -20,4 +20,5 @@ class UserEvent with _$UserEvent {
   // const factory UserEvent.getDataBase() = GetDataBateEvent;
   // const factory UserEvent.checkUserIsConnected() = CheckUserIsConnectedEvent;
   const factory UserEvent.getUserEvent() = GetUserEvent;
+  const factory UserEvent.getVilleQuartier() = GetVilleQuartier;
 }

@@ -1,4 +1,3 @@
-
 part of 'home_bloc.dart';
 
 @freezed
@@ -6,9 +5,9 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.error({required String error}) = ErrorEvent;
 
   const factory HomeEvent.userData() = UserDataEvent;
-  
+
   const factory HomeEvent.setIndex({required dynamic index}) = SetIndexEvent;
-  
+
   const factory HomeEvent.selectCategory({required CategoryModel category}) =
       SelectCategory;
 
