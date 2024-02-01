@@ -79,7 +79,7 @@ class RegisterView extends StatelessWidget {
                               top: kMarginY,
                             ),
                             child: Text(
-                              'Mettons en place quelques détails !'.tr(),
+                              'regTitle'.tr(),
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 19,
@@ -100,7 +100,7 @@ class RegisterView extends StatelessWidget {
                                     child: AppInput(
                                       controller: name,
                                       onChanged: (value) {},
-                                      placeholder: 'Nom d’utilisateur'.tr(),
+                                      placeholder: 'labelname'.tr(),
                                       validator: (value) {
                                         return Validators.isValidUsername(
                                             value!);

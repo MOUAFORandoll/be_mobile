@@ -9,8 +9,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:get_storage/get_storage.dart';
-import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:BananaExpress/application/export_bloc.dart'; 
 
 @RoutePage()
 class OnBoardingPage extends StatelessWidget {

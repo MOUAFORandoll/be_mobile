@@ -1,7 +1,9 @@
 import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/presentation/components/Button/themeButton.dart';
+import 'package:BananaExpress/presentation/components/Widget/k_home_info.dart';
 import 'package:BananaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
+import 'package:BananaExpress/routes/app_router.gr.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -13,7 +15,6 @@ import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:BananaExpress/presentation/components/Form/search_field.dart';
 import 'package:BananaExpress/presentation/components/Widget/HomeModuleComponent.dart';
 import 'package:BananaExpress/presentation/components/Widget/icon_svg.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -69,96 +70,81 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
           body: SafeArea(
               child: state.index == 0
                   ? Container(
-                      margin: EdgeInsets.symmetric(horizontal: kMarginX),
                       child: CustomScrollView(slivers: [
-                        SliverAppBar(
-                          backgroundColor: ColorsApp.bg,
-                          automaticallyImplyLeading: false,
-                          leading: Builder(builder: (context) {
-                            return InkWell(
-                                child: Container(
-                                  width: 10,
-                                  height: 10,
-                                  child: SvgPicture.asset(Assets.menu,
-                                      fit: BoxFit.none),
-                                ),
-                                onTap: () => Scaffold.of(context).openDrawer());
-                          }),
-                          title: Text(
-                            'Babana Express',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w600),
-                          ),
-                          centerTitle: true,
-                          actions: [
-                            InkWell(
-                                child: Container(
-                                    margin: EdgeInsets.only(right: kMarginX),
-                                    child: SvgIcon(icon: Assets.bell)),
-                                onTap: () {
-                                  // Get.toNamed(AppLinks.NOTIFICATION);
-                                }),
-                          ],
-                          pinned: true,
+                      SliverAppBar(
+                        automaticallyImplyLeading: false,
+                        leading: Builder(builder: (context) {
+                          return InkWell(
+                              child: Container(
+                                width: 10,
+                                height: 10,
+                                child: SvgPicture.asset(Assets.menu,
+                                    color: ColorsApp.white, fit: BoxFit.none),
+                              ),
+                              onTap: () => Scaffold.of(context).openDrawer());
+                        }),
+                        title: Text(
+                          'Babana Express',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              color: ColorsApp.white,
+                              fontFamily: 'Lato',
+                              fontWeight: FontWeight.w600),
                         ),
-                        SliverToBoxAdapter(
-                            child: Container(
-                                margin:
-                                    EdgeInsets.symmetric(horizontal: kMarginX),
-                                padding: EdgeInsets.symmetric(
-                                    vertical: kMarginY * 2),
-                                child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      KSearchField(),
-                                      HomeModuleComponent(
-                                        title:
-                                            'Livraison Express, securite et fiabilite',
-                                        titleBtn: 'Livraisons'.tr(),
-                                        image: Assets.shop2,
-                                        onTap: () =>
-                                            openModalLivraison(context),
-                                      ),
-                                      HomeModuleComponent(
-                                        title:
-                                            'Medicament Express,assurance, securite et fiabilite',
-                                        titleBtn: 'Ordonnance'.tr(),
-                                        image: Assets.medical,
-                                        onTap: () =>
-                                            openModalLivraison(context),
-                                      ),
-                                      Container(
-                                        child: Column(
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.symmetric(
-                                                  vertical: kMarginY * 2),
-                                              child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Container(
-                                                      child: Text(
-                                                        'Top Produits Livre',
-                                                        maxLines: 3,
-                                                        style: TextStyle(
-                                                            fontFamily: 'Lato',
-                                                            fontSize: 14,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w600),
-                                                      ),
-                                                    ),
-                                                  ]),
-                                            ),
-                                          ],
-                                        ),
-                                      )
-                                    ])))
-                      ]))
+                        centerTitle: true,
+                        actions: [
+                          InkWell(
+                              child: Container(
+                                  margin: EdgeInsets.only(right: kMarginX),
+                                  child: SvgIcon(
+                                    icon: Assets.bell,
+                                    color: ColorsApp.white,
+                                  )),
+                              onTap: () {
+                                // Get.toNamed(AppLinks.NOTIFICATION);
+                              }),
+                        ],
+                        bottom: PreferredSize(
+                          preferredSize: Size.fromHeight(18.0),
+                          child: Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: kMarginX,
+                            ).add(EdgeInsets.only(bottom: kMarginY * 3)),
+                            child: KHomeInfo(user: state.user),
+                          ),
+                        ),
+
+                        expandedHeight: getHeight(context) * .22,
+                        elevation: 10.0,
+                        backgroundColor: ColorsApp
+                            .primary, // Set your desired background color
+                        // shape: RoundedRectangleBorder(
+                        //   borderRadius: BorderRadius.vertical(
+                        //     bottom: Radius.circular(30.0),
+                        //   ),
+                        // ),
+                      ),
+                      SliverToBoxAdapter(
+                          child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: kMarginY, horizontal: kMarginX),
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    HomeModuleComponent(
+                                      title: 'ht1'.tr(),
+                                      titleBtn: 'livraison'.tr(),
+                                      image: Assets.shop2,
+                                      onTap: () => openModalLivraison(context),
+                                    ),
+                                    HomeModuleComponent(
+                                      title: 'ht2'.tr(),
+                                      titleBtn: 'ordonnance'.tr(),
+                                      image: Assets.medical,
+                                      onTap: () => openModalLivraison(context),
+                                    ),
+                                  ])))
+                    ]))
                   : LivraisonView()),
           bottomNavigationBar: CustomNavigationBar(
             iconSize: 30.0,
@@ -362,6 +348,13 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: Icon(Icons.policy),
+            title: Text('Politique'),
+            onTap: () {
+              AutoRouter.of(context).replaceAll([PolitiqueRoute()]);
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'.tr()),
             onTap: () {
@@ -402,7 +395,7 @@ openModalLivraison(context) => showModalBottomSheet(
                 alignment: Alignment.center,
                 margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
                 child: Text(
-                  'Quel service vous interesse'.tr(),
+                  'yservice'.tr(),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 )),
             Container(
@@ -413,7 +406,7 @@ openModalLivraison(context) => showModalBottomSheet(
                     Container(
                       margin: EdgeInsets.only(bottom: 8),
                       child: AppButton(
-                          text: 'Livrer mon colis'.tr(),
+                          text: 'ser1'.tr(),
                           // width: getWith(context) / 2.5,
                           size: MainAxisSize.max,
                           bgColor: ColorsApp.second,
@@ -424,7 +417,7 @@ openModalLivraison(context) => showModalBottomSheet(
                           }),
                     ),
                     AppButton(
-                        text: 'Me faire livrer'.tr(),
+                        text: 'ser2'.tr(),
                         // width: getWith(context) / 2.5,
                         size: MainAxisSize.max,
                         // bgColor: AppColors.secondarytext,

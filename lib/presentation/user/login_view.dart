@@ -58,7 +58,7 @@ class LoginView extends StatelessWidget {
                           top: kMarginY,
                         ),
                         child: Text(
-                          'Acceder a votre compte et faites vous livrer !'.tr(),
+                          'logTilte'.tr(),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 19,

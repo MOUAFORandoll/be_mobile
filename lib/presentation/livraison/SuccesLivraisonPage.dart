@@ -19,13 +19,10 @@ class SuccesLivraisonPage extends StatelessWidget {
         listener: (context, state) {
           if (state.isDownloadFacture == 1) {
             loader.close();
-            showSuccess(
-                'La facture de la livraison a ete enregistre dans vos documents',
-                context);
+            showSuccess('successaveFacture'.tr(), context);
           } else if (state.isDownloadFacture == 2) {
             loader.close();
-            showError(
-                'Une erreur est survenue durant votre telechargement', context);
+            showError('errorsaveFature'.tr(), context);
           } else if (state.isDownloadFacture == 3) {
             loader.open(context);
           }
@@ -65,7 +62,7 @@ class SuccesLivraisonPage extends StatelessWidget {
                           child: AppButton(
                             size: MainAxisSize.max,
                             // border: Border.all(color: ColorsApp.primary),
-                            text: 'Telecharger facture'.tr(),
+                            text: 'ydFacture'.tr(),
                             onTap: () async {
                               context
                                   .read<LivraisonBloc>()
@@ -80,7 +77,7 @@ class SuccesLivraisonPage extends StatelessWidget {
                           child: AppButton(
                             size: MainAxisSize.max,
                             // border: Border.all(color: ColorsApp.primary),
-                            text: 'Menu Livaison'.tr(),
+                            text: 'yMenu'.tr(),
                             onTap: () async {
                               context
                                   .read<HomeBloc>()

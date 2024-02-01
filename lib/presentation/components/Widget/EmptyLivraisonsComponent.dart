@@ -26,7 +26,7 @@ class EmptyLivraisonsComponent extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     horizontal: kMarginX, vertical: kMarginY),
                 child: Text(
-                  'Hey, Your History Is Empty !',
+                  'yemtyl'.tr(),
                   style:
                       TextStyle(fontSize: kBasics, fontWeight: FontWeight.w700),
                 )),
@@ -34,7 +34,7 @@ class EmptyLivraisonsComponent extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     horizontal: kMarginX, vertical: kMarginY),
                 child: Text(
-                  'Retourner en arriere et debuter avec les livraisons.',
+                  'yemty2'.tr(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.grey,
@@ -47,7 +47,7 @@ class EmptyLivraisonsComponent extends StatelessWidget {
                     horizontal: kMarginX, vertical: kMarginY),
                 child: AppButton(
                   size: MainAxisSize.max,
-                  bgColor: ColorsApp.tird,
+                  bgColor: ColorsApp.second,
                   text: 'Go Back',
                   onTap: () {
                     BlocProvider.of<HomeBloc>(context)

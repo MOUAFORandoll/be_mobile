@@ -31,7 +31,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                   child: AppInputNew(
                     controller: state.libelle!,
                     icon: Icon(Icons.label),
-                    label: 'Libelle'.tr(),
+                    label: 'yLibelle'.tr(),
                     onChanged: (value) {
                       // verifyForm();
                     },
@@ -45,7 +45,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       top: kMarginY,
                     ),
                     alignment: Alignment.centerLeft,
-                    child: Text('Ville')),
+                    child: Text('yVille'.tr())),
                 state.isLoadedVille == 0
                     ? CircularProgressIndicator(color: ColorsApp.second)
                     : state.isLoadedVille == 2
@@ -85,7 +85,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                         horizontal: 7,
                                       ),
                                       child: Text(
-                                        'Selectionner une ville',
+                                        'yselectville'.tr(),
                                         style: TextStyle(
                                             overflow: TextOverflow.ellipsis),
                                       ),
@@ -125,7 +125,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       ),
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Veuillez selectionner une ville',
+                        'eselectville'.tr(),
                         style: TextStyle(
                             fontSize: 8,
                             fontFamily: 'Lato',
@@ -136,7 +136,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       top: kMarginY,
                     ),
                     alignment: Alignment.centerLeft,
-                    child: Text('Point de recuperation')),
+                    child: Text('yrecup'.tr())),
                 Container(
                     margin: EdgeInsets.only(
                       top: kMarginY,
@@ -173,7 +173,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                       horizontal: 7,
                                     ),
                                     child: Text(
-                                      'Selectionner un point',
+                                      'yselectrecupp'.tr(),
                                       style: TextStyle(
                                           overflow: TextOverflow.ellipsis),
                                     ),
@@ -241,7 +241,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       ),
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Veuillez selectionner un point de recuperation',
+                        'eselectrecup'.tr(),
                         style: TextStyle(
                             fontSize: 8,
                             fontFamily: 'Lato',
@@ -256,7 +256,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     icon: Icon(Icons.phone),
                     textInputType: TextInputType.number,
                     // maxLength:13,
-                    label: 'Contact de l\'expediteur'.tr(),
+                    label: 'yycontact'.tr(),
                     onChanged: (value) {},
                     validator: (value) {
                       return Validators.usPhoneValid(value!);
@@ -305,7 +305,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                         // fontWeight: FontWeight.w500,
                         fontSize: 12,
                       ),
-                      labelText: 'Une description de votre position'.tr(),
+                      labelText: 'ydescript'.tr(),
                       fillColor: ColorsApp.tird,
                       counter: Offstage(),
                       // hintText: 'lbdescprod'.tr(),

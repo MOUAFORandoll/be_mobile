@@ -39,7 +39,7 @@ class LivraisonView extends StatelessWidget {
                     onTap: () => Scaffold.of(context).openDrawer());
               }),
               title: Text(
-                'Liste des livraisons',
+                'yList'.tr(),
                 overflow: TextOverflow.ellipsis,
                 style:
                     TextStyle(fontFamily: 'Lato', fontWeight: FontWeight.w600),

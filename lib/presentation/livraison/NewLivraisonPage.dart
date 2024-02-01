@@ -20,7 +20,7 @@ class NewLivraisonPage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: AppBackButton(),
-          title: Text('Bon de livraison'),
+          title: Text('yNewLivraison'.tr()),
           centerTitle: true,
         ),
         body: RefreshIndicator(
@@ -52,7 +52,7 @@ class NewLivraisonPage extends StatelessWidget {
                                       bgColor: state.index == 0
                                           ? ColorsApp.grey
                                           : ColorsApp.primary,
-                                      text: 'Back'.tr(),
+                                      text: 'yback'.tr(),
                                       onTap: () {
                                         context
                                             .read<LivraisonBloc>()
@@ -62,8 +62,8 @@ class NewLivraisonPage extends StatelessWidget {
                                     size: MainAxisSize.max,
                                     bgColor: ColorsApp.second,
                                     text: state.index == 0
-                                        ? 'Next'.tr()
-                                        : 'Evaluer'.tr(),
+                                        ? 'ynext'.tr()
+                                        : 'yeval'.tr(),
                                     onTap: () {
                                       state.index == 0
                                           ? context

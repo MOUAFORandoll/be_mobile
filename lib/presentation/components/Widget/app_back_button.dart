@@ -1,4 +1,6 @@
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BananaExpress/routes/app_router.dart';
+import 'package:auto_route/auto_route.dart';
 
 // ignore: must_be_immutable
 class AppBackButton extends StatelessWidget {
@@ -35,7 +37,7 @@ class AppBackButton extends StatelessWidget {
         child: Icon(Icons.arrow_back_ios_new, color: color, size: 25.0),
       ),
       onTap: () {
-        Navigator.of(context).pop();
+        AutoRouter.of(context).pop();
       },
     );
   }

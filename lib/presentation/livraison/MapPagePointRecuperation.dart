@@ -134,7 +134,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             Container(
                               alignment: Alignment.center,
                               child: Text(
-                                'Votre point de recuperation',
+                                'yrecup'.tr(),
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600, fontSize: 14),
                               ),
@@ -155,7 +155,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             child: AppInputNew(
                               controller: libelleLocalisation,
                               icon: Icon(Icons.label),
-                              label: 'Libelle'.tr(),
+                              label: 'yLibellePl'.tr(),
                               validator: (value) {
                                 return Validators.isValidUsername(value!);
                               },
@@ -168,7 +168,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             child: AppInputNew(
                               controller: quartier,
                               icon: Icon(Icons.label),
-                              label: 'Quartier'.tr(),
+                              label: 'yQuartierPl'.tr(),
                               validator: (value) {
                                 return Validators.isValidUsername(value!);
                               },
@@ -394,7 +394,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             child:
                                 state.list_search_point_localisation!.length ==
                                         0
-                                    ? Text('Aucun point de recuperation trouve')
+                                    ? Text('yemptyrecupliv'.tr())
                                     : SingleChildScrollView(
                                         child: Container(
                                           width: getWith(context) * .95,
@@ -538,7 +538,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                   child: AppButton(
                     size: MainAxisSize.max,
                     bgColor: ColorsApp.primary,
-                    text: 'Valider'.tr(),
+                    text: 'yvalid'.tr(),
                     onTap: () async {
                       validatePoint();
                     },

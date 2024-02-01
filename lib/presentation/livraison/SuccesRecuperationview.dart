@@ -1,5 +1,4 @@
-import 'package:BananaExpress/presentation/components/Button/app_button.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:BananaExpress/presentation/components/Button/app_button.dart'; 
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 class SuccesRecuperationview extends StatelessWidget {
@@ -31,9 +30,7 @@ class SuccesRecuperationview extends StatelessWidget {
                         margin: EdgeInsets.symmetric(
                           vertical: kMarginY * 2,
                         ),
-                        child: Text(
-                            'Recuperation effectuee avec succes. Poursuivre la livraison'
-                                .tr(),
+                        child: Text('yrecupsucces'.tr(),
                             textAlign: TextAlign.center,
                             style: TextStyle(color: ColorsApp.primary))),
                     Container(
@@ -43,7 +40,7 @@ class SuccesRecuperationview extends StatelessWidget {
                       child: AppButton(
                         size: MainAxisSize.max,
                         border: Border.all(color: ColorsApp.primary),
-                        text: 'Poursuivre la livraison'.tr(),
+                        text: 'ypoursuivre'.tr(),
                         onTap: () async {
                           // Get.offNamedUntil(AppLinks.FIRST, (route) => false);
                         },

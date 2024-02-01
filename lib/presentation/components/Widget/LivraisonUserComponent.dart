@@ -29,11 +29,10 @@ class LivraisonUserComponent extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: ColorsApp.grey,
                     borderRadius: BorderRadius.circular(8)),
-                child:  
-                    Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Container(
                           child: CachedNetworkImage(
                         height: getHeight(context) * .17,
@@ -79,7 +78,9 @@ class LivraisonUserComponent extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text(
-                                    'Libelle : ' + livraison.libelle.toString(),
+                                    'yLibelle'.tr() +
+                                        ' : ' +
+                                        livraison.libelle.toString(),
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       color: ColorsApp.primary,
@@ -87,7 +88,7 @@ class LivraisonUserComponent extends StatelessWidget {
                               ),
                               Container(
                                 child: Text(
-                                    'Prix Livraison: ' +
+                                    'yPrix'.tr() +
                                         livraison.montant.toString() +
                                         ' XAF',
                                     overflow: TextOverflow.ellipsis,
@@ -96,14 +97,13 @@ class LivraisonUserComponent extends StatelessWidget {
                                     )),
                               ),
                               Container(
-                                  child: Text('Date : ' + livraison.date,
+                                  child: Text('yDate'.tr() + livraison.date,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         color: ColorsApp.primary,
                                       ))),
                               Container(
-                                child: Text(
-                                    'Status : ' + livraison.status.toString(),
+                                child: Text(livraison.status.toString(),
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       color: ColorsApp.primary,
@@ -120,7 +120,7 @@ class LivraisonUserComponent extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                     ),
-                    title: Text('Vos produits'),
+                    title: Text('yColis'.tr()),
                     actions: [
                       InkWell(
                           child: Container(
@@ -131,7 +131,7 @@ class LivraisonUserComponent extends StatelessWidget {
                             child:
                                 Row(mainAxisSize: MainAxisSize.min, children: [
                               Text(
-                                'Fermer',
+                                'close'.tr(),
                                 style: TextStyle(
                                     color: ColorsApp.white,
                                     fontWeight: FontWeight.w600,

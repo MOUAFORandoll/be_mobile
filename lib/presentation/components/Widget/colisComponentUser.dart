@@ -173,11 +173,11 @@ class ColisComponentUser extends StatelessWidget {
                   ),
                 ),
                 if (colis.statusLivraisonColis == 0)
-                  Text('Livraison en attente de validation'),
+                  Text('ylAwait'.tr()),
                 if (colis.statusLivraisonColis == 1)
                   Column(
                     children: [
-                      Text('Presentez ce code a scanner au livreur'),
+                      Text('yPresent'.tr()),
                       QrImageView(
                         data: colis.code_recuperation_colis,
                         version: QrVersions.auto,
@@ -204,9 +204,9 @@ class ColisComponentUser extends StatelessWidget {
                   ),
                 ),
                 if (colis.statusLivraisonColis == 2)
-                  Text('Livraison de ce colis en cours'),
+                  Text('ylEncous'.tr()),
                 if (colis.statusLivraisonColis == 3)
-                  Text('Livraison de ce colis terminee'),
+                  Text('ylFinish'.tr()),
                 if (colis.statusLivraisonColis == 1)
                   Container(
                       margin: EdgeInsets.symmetric(
@@ -216,7 +216,7 @@ class ColisComponentUser extends StatelessWidget {
                       child: AppButtonIcon(
                           icon: Icons.switch_access_shortcut_add_outlined,
                           bgColor: ColorsApp.second,
-                          text: 'Partager le code de recuperation '.tr(),
+                          text: 'yShareCodeRecup'.tr(),
                           onTap: () async => _captureAndSavePng())),
               ]))));
 
@@ -281,7 +281,7 @@ class ColisComponentUser extends StatelessWidget {
       final fileX = await XFile(file.path);
       await Share.shareXFiles([fileX],
           text:
-              'Voir votre code de receptin colis : ${colis.code_livraison_colis}');
+      'yCodeThis'.tr() +        ' ${colis.code_livraison_colis}');
       print('save');
     } catch (e) {
       print('error--------${e}');

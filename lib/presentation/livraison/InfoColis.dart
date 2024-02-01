@@ -117,7 +117,7 @@ class InfoColis extends StatelessWidget {
                           child: Row(
                             children: [
                               Text(
-                                'Les frais de livraison seront de : '.tr(),
+                                'yfrais'.tr(),
                                 style: TextStyle(fontWeight: FontWeight.w500),
                               ),
                               Text(
@@ -127,12 +127,12 @@ class InfoColis extends StatelessWidget {
                               ),
                             ],
                           )),
-                      Container(
-                          margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
-                          child: Text(
-                            ' a payer par l\'emetteur: '.tr(),
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          )),
+                      // Container(
+                      //     margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
+                      //     child: Text(
+                      //       ' a payer par l\'emetteur: '.tr(),
+                      //       style: TextStyle(fontWeight: FontWeight.w500),
+                      //     )),
                       Container(
                           margin: EdgeInsets.only(top: kMarginY),
                           child: Column(
@@ -141,7 +141,7 @@ class InfoColis extends StatelessWidget {
                               Container(
                                 margin: EdgeInsets.only(bottom: 8),
                                 child: AppButton(
-                                    text: 'Valider Ma Demande'.tr(),
+                                    text: 'yvalidate'.tr(),
                                     // width: getWith(context) / 2.5,
                                     size: MainAxisSize.max,
                                     bgColor: ColorsApp.second,
@@ -191,7 +191,7 @@ class InfoColis extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Text(
-                                    'Informations de votre colis'.tr() + ' ',
+                                    'yinfoColis'.tr() + ' ',
                                     style:
                                         TextStyle(fontWeight: FontWeight.w500),
                                   ),
@@ -228,7 +228,7 @@ class InfoColis extends StatelessWidget {
                                       top: kMarginY,
                                     ),
                                     alignment: Alignment.centerLeft,
-                                    child: Text('Category de colis')),
+                                    child: Text('ytypecolis'.tr())),
                                 state.isLoadedVCategory == 0
                                     ? CircularProgressIndicator(
                                         color: ColorsApp.second)
@@ -266,7 +266,7 @@ class InfoColis extends StatelessWidget {
                                                   horizontal: 7,
                                                 ),
                                                 child: Text(
-                                                  'Selectionner une category',
+                                                  'ytypecolis'.tr(),
                                                   style: TextStyle(
                                                       overflow: TextOverflow
                                                           .ellipsis),
@@ -308,7 +308,7 @@ class InfoColis extends StatelessWidget {
                                       ),
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        'Veuillez selectionner une Categorie',
+                                        'eselecttype'.tr(),
                                         style: TextStyle(
                                             fontSize: 8,
                                             fontFamily: 'Lato',
@@ -324,7 +324,7 @@ class InfoColis extends StatelessWidget {
                                     onChanged: (newValue) {
                                       // state.verifyFormColis();
                                     },
-                                    label: 'Nom du colis'.tr(),
+                                    label: 'ynomcolis'.tr(),
                                     validator: (value) {
                                       return Validators.isValidUsername(value!);
                                     },
@@ -338,7 +338,7 @@ class InfoColis extends StatelessWidget {
                                     controller: state.contactRecepteur!,
                                     textInputType: TextInputType.number,
                                     icon: Icon(Icons.phone),
-                                    label: 'Contact du recepteur'.tr(),
+                                    label: 'yycontactdest'.tr(),
                                     validator: (value) {
                                       return Validators.usPhoneValid(value!);
                                     },
@@ -349,7 +349,7 @@ class InfoColis extends StatelessWidget {
                                       top: kMarginY,
                                     ),
                                     alignment: Alignment.centerLeft,
-                                    child: Text('Point de livraison')),
+                                    child: Text('ylivraison'.tr())),
                                 Container(
                                     margin: EdgeInsets.only(
                                       top: kMarginY,
@@ -394,7 +394,7 @@ class InfoColis extends StatelessWidget {
                                                       horizontal: 7,
                                                     ),
                                                     child: Text(
-                                                      'Selectionner un point',
+                                                      'yselectpointliv'.tr(),
                                                       style: TextStyle(
                                                           overflow: TextOverflow
                                                               .ellipsis),
@@ -480,7 +480,7 @@ class InfoColis extends StatelessWidget {
                                       ),
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        'Veuillez selectionner un point de livraison',
+                                        'eselectpoitnliv'.tr(),
                                         style: TextStyle(
                                             fontSize: 8,
                                             fontFamily: 'Lato',
@@ -505,7 +505,7 @@ class InfoColis extends StatelessWidget {
                                             onChanged: (newValue) {
                                               // state.verifyFormColis();
                                             },
-                                            label: 'Valeur du Colis'.tr(),
+                                            label: 'yprixcolis'.tr(),
                                             validator: (value) {
                                               return Validators.usNumeriqValid(
                                                   value!);
@@ -525,7 +525,7 @@ class InfoColis extends StatelessWidget {
                                               top: kMarginY,
                                             ),
                                             alignment: Alignment.centerLeft,
-                                            child: Text('Quantite')),
+                                            child: Text('yQuantitecolis')),
                                         Container(
                                             padding: EdgeInsets.symmetric(
                                                 vertical: kMarginY,
@@ -606,7 +606,7 @@ class InfoColis extends StatelessWidget {
                                       ),
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        'Veuillez entrer une quantite',
+                                        'eQuantitecolis'.tr(),
                                         style: TextStyle(
                                             fontSize: 8,
                                             fontFamily: 'Lato',
@@ -625,7 +625,7 @@ class InfoColis extends StatelessWidget {
                                                   index: 0))
                                           : UploadImage(
                                               color: ColorsApp.second,
-                                              title: 'Une photo',
+                                              title: 'yphotoColis'.tr(),
                                               icon: Icons.camera_alt),
                                       onTap: () => showModalBottomSheet(
                                         context: context,
@@ -690,7 +690,7 @@ class InfoColis extends StatelessWidget {
                                                                       bottom:
                                                                           kMarginY),
                                                                   child: Text(
-                                                                    'Selectionner la photo de votre produit'
+                                                                    'yphotoColisT'
                                                                         .tr(),
                                                                     style: TextStyle(
                                                                         fontWeight:
@@ -707,14 +707,14 @@ class InfoColis extends StatelessWidget {
                                                                         bottom:
                                                                             8),
                                                                     child: AppButton(
-                                                                        text: 'Camera'.tr(),
+                                                                        text: 'yCamera'.tr(),
                                                                         // width: getWith(context) / 2.5,
                                                                         size: MainAxisSize.max,
                                                                         // bgColor: AppColors.primaryGreen,
                                                                         onTap: () => context.read<LivraisonBloc>().add(GetImageColisAppareil())),
                                                                   ),
                                                                   AppButton(
-                                                                      text: 'Galerie'
+                                                                      text: 'yGalerie'
                                                                           .tr(),
                                                                       // width: getWith(context) / 2.5,
                                                                       size: MainAxisSize
@@ -745,7 +745,7 @@ class InfoColis extends StatelessWidget {
                                       ),
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        'Veuillez selectionner une image',
+                                        'ephotoColisT'.tr(),
                                         style: TextStyle(
                                             fontSize: 8,
                                             fontFamily: 'Lato',
@@ -755,7 +755,7 @@ class InfoColis extends StatelessWidget {
                       AppButton(
                           size: MainAxisSize.max,
                           bgColor: ColorsApp.primary,
-                          text: 'Ajouter'.tr(),
+                          text: 'lbaddprod'.tr(),
                           onTap: () async {
                             context.read<LivraisonBloc>().add(AddColis());
                             AutoRouter.of(context).pop();

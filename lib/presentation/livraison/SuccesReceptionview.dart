@@ -31,8 +31,7 @@ class SuccesReceptionview extends StatelessWidget {
                         margin: EdgeInsets.symmetric(
                           vertical: kMarginY * 2,
                         ),
-                        child: Text(
-                            'Livraison de ce colis effectuee avec succes.'.tr(),
+                        child: Text('yLivraisonSucces'.tr(),
                             textAlign: TextAlign.center,
                             style: TextStyle(color: ColorsApp.primary))),
                     Container(
@@ -42,7 +41,7 @@ class SuccesReceptionview extends StatelessWidget {
                       child: AppButton(
                         size: MainAxisSize.max,
                         border: Border.all(color: ColorsApp.primary),
-                        text: 'Acceuil'.tr(),
+                        text: 'home'.tr(),
                         onTap: () async {
                           // Get.offNamedUntil(AppLinks.FIRST, (route) => false);
                         },

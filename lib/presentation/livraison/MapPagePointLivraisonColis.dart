@@ -1,5 +1,5 @@
 import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/presentation/components/Button/app_button.dart'; 
+import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:auto_route/auto_route.dart';
@@ -8,7 +8,6 @@ import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
- 
 
 @RoutePage()
 class MapPagePointLivraisonColis extends StatefulWidget {
@@ -135,7 +134,7 @@ class _MapPagePointLivraisonColisState
                             Container(
                               alignment: Alignment.center,
                               child: Text(
-                                'Votre point de livraison',
+                                'yPointlivraison'.tr(),
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600, fontSize: 14),
                               ),
@@ -156,7 +155,7 @@ class _MapPagePointLivraisonColisState
                             child: AppInputNew(
                               controller: libelleLocalisation,
                               icon: Icon(Icons.label),
-                              label: 'Libelle'.tr(),
+                              label: 'yLibellePl'.tr(),
                               validator: (value) {
                                 return Validators.isValidUsername(value!);
                               },
@@ -169,7 +168,7 @@ class _MapPagePointLivraisonColisState
                             child: AppInputNew(
                               controller: quartier,
                               icon: Icon(Icons.label),
-                              label: 'Quartier'.tr(),
+                              label: 'yQuartierPl'.tr(),
                               validator: (value) {
                                 return Validators.isValidUsername(value!);
                               },
@@ -205,7 +204,7 @@ class _MapPagePointLivraisonColisState
                                   size: MainAxisSize.max,
                                   // loading: _userState.isLoading,
                                   // bgColor: ColorsApp.primary,
-                                  text: 'Valider'.tr(),
+                                  text: 'yvalid'.tr(),
                                   onTap: () async {
                                     context.read<LivraisonBloc>().add(
                                         MapValidatePointLivraison(
@@ -227,7 +226,7 @@ class _MapPagePointLivraisonColisState
     return BlocBuilder<LivraisonBloc, LivraisonState>(
         builder: (context, state) => Scaffold(
             appBar: AppBar(
-                title: Text('Selectionner un point de livraison'.tr()),
+                title: Text('ylivraison'.tr()),
                 leading: IconButton(
                   icon: Icon(
                     Icons.keyboard_arrow_left_outlined,
@@ -395,7 +394,7 @@ class _MapPagePointLivraisonColisState
                             child:
                                 state.list_search_point_localisation!.length ==
                                         0
-                                    ? Text('Aucun point de livraison trouve')
+                                    ? Text('yemptypointliv'.tr())
                                     : SingleChildScrollView(
                                         child: Container(
                                           width: getWith(context) * .95,
@@ -539,7 +538,7 @@ class _MapPagePointLivraisonColisState
                   child: AppButton(
                     size: MainAxisSize.max,
                     bgColor: ColorsApp.primary,
-                    text: 'Valider'.tr(),
+                    text: 'yvalid'.tr(),
                     onTap: () async {
                       validatePoint();
                     },
