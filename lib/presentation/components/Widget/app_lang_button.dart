@@ -1,3 +1,4 @@
+import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:BananaExpress/main.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
@@ -42,11 +43,26 @@ class AppLangButton extends StatelessWidget {
         return DropdownMenuItem(
           value: locale['code'],
           child: Center(
-            child: Text(
-              locale['name'] ?? '',
-              style: TextStyle(color: ColorsApp.primary, fontSize: 15),
-            ),
-          ),
+              child: Row(
+                  mainAxisSize:
+                      MainAxisSize.min, // Pour garder les éléments ensemble
+                  children: <Widget>[
+                Image.asset(
+                  locale['code'] == 'en'
+                      ? Assets.en
+                      : Assets.fr, // Assurez-vous que le chemin correspond
+                  width: 20, // Taille du drapeau
+                  height: 20, // Taille du drapeau
+                ),
+                SizedBox(width: 8), // Espace entre le drapeau et le texte
+                Container(
+                  margin: EdgeInsets.only(left: 8),
+                  child: Text(
+                    locale['name'] ?? '',
+                    style: TextStyle(color: ColorsApp.primary, fontSize: 11),
+                  ),
+                )
+              ])),
         );
       }).toList(),
     );

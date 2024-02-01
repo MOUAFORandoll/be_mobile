@@ -97,16 +97,36 @@ class KHomeInfo extends StatelessWidget {
                         ),
                       )),
         Container(
-            decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(color: ColorsApp.white, width: 2))),
-            padding: EdgeInsets.symmetric(vertical: kMarginY / 4),
-            child: Text('Hey, ' + user.nom,
-                style: TextStyle(
-                  color: ColorsApp.white,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 11,
-                )))
+          child: Column(
+            children: [
+              BlocBuilder<AppActionCubit, AppActionState>(
+                  builder: (context, state) => Container(
+                        height: 10,
+                        width: 10,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: state.isInternetConnection
+                                ? ColorsApp.second
+                                : ColorsApp.orange),
+                      )),
+              Container(
+                  decoration: BoxDecoration(
+                      // borderRadius: BorderRadius.circular(50),
+                      border: Border(
+                          bottom: BorderSide(
+                    color: ColorsApp.white,
+                    width: 2,
+                  ))),
+                  padding: EdgeInsets.symmetric(vertical: kMarginY / 4),
+                  child: Text('Hey, ' + user.nom,
+                      style: TextStyle(
+                        color: ColorsApp.white,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 11,
+                      ))),
+            ],
+          ),
+        )
       ],
     ));
   }

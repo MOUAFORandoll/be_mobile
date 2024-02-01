@@ -55,6 +55,8 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                                   top: getHeight(context) * .45),
                               child: SvgPicture.asset(
                                 Assets.babana,
+                                    color: ColorsApp.primary,
+
                               )),
                           Container(
                               margin: EdgeInsets.only(
@@ -63,7 +65,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                                   height: 30,
                                   width: 30,
                                   child: CircularProgressIndicator(
-                                    color: ColorsApp.second,
+                                    color: ColorsApp.primary,
                                   )))
                         ])),
               ));

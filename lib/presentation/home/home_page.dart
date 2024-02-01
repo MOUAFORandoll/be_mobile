@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                       height: 90,
                       // ignore: deprecated_member_use
                       color:
-                          state.index == 0 ? ColorsApp.second : ColorsApp.grey,
+                          state.index == 0 ? ColorsApp.primary : ColorsApp.grey,
                     ),
                   ),
                   title: Container(
@@ -182,7 +182,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                           border: Border(
                               bottom: state.index == 0
                                   ? BorderSide(
-                                      color: ColorsApp.second, width: 2)
+                                      color: ColorsApp.primary, width: 2)
                                   : BorderSide.none,
                               top: BorderSide.none)),
                       child: Text('home'.tr(),
@@ -190,7 +190,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                             fontSize: kMin,
                             fontWeight: FontWeight.w600,
                             color: state.index == 0
-                                ? ColorsApp.second
+                                ? ColorsApp.primary
                                 : ColorsApp.grey,
                           )))), // CustomNavigationBarItem(
 
@@ -206,7 +206,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                         height: 80,
                         // ignore: deprecated_member_use
                         color: state.index == 1
-                            ? ColorsApp.second
+                            ? ColorsApp.primary
                             : ColorsApp.grey,
                       ),
                     ),
@@ -216,7 +216,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                             border: Border(
                                 bottom: state.index == 1
                                     ? BorderSide(
-                                        color: ColorsApp.second, width: 2)
+                                        color: ColorsApp.primary, width: 2)
                                     : BorderSide.none,
                                 top: BorderSide.none)),
                         child: Text('historique'.tr(),
@@ -224,7 +224,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                               fontSize: kMin,
                               fontWeight: FontWeight.w600,
                               color: state.index == 1
-                                  ? ColorsApp.second
+                                  ? ColorsApp.primary
                                   : ColorsApp.grey,
                             ))),
                   ),
@@ -331,7 +331,7 @@ class CustomDrawer extends StatelessWidget {
                     ),
                   ]))),
           ListTile(
-            leading: Icon(Icons.home),
+            // leading: Icon(Icons.home),
             title: AppLangButton(),
             onTap: () {},
           ),
