@@ -14,6 +14,10 @@ class UserEvent with _$UserEvent {
     required String re_password,
   }) = RegisterEvent;
 
+  const factory UserEvent.sendCode({required String data}) = SendCode;
+  const factory UserEvent.verifyCode({required String code}) = VerifyCode;
+  const factory UserEvent.resetpassword({required String password}) =
+      ResetPassword;
   // Uncomment and customize these events as needed
   const factory UserEvent.signOut({required BuildContext context}) =
       SignOutEvent;

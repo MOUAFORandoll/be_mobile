@@ -8,10 +8,19 @@ class UserState with _$UserState {
       String? registerFailedMessage,
       String? villeUser,
       String? quartierUser,
-      int? isVilleQuartier}) = _UserState;
+      String? newPassword,
+      int? isCode,
+      int? isCorrectCode,
+      int? isVilleQuartier,
+      bool? successReset}) = _UserState;
 
   factory UserState.initial() => UserState(
-      isLoading: 0, villeUser: '', quartierUser: '', isVilleQuartier: 0);
+      isCode: 0,
+      isCorrectCode: 0,
+      isLoading: 0,
+      villeUser: '',
+      quartierUser: '',
+      isVilleQuartier: 0);
 
   factory UserState.authenticationFailed({
     required String message,

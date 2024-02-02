@@ -13,7 +13,7 @@ class AppCarrousselItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: ColorsApp.tird,
+        color: ColorsApp.primary,
       ),
       padding: EdgeInsets.only(
         top: getHeight(context) * .20,

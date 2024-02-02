@@ -22,6 +22,7 @@
   "ctitle3": "Policy",
   "cdescription3": "Speed, Trust, and Reliability are our motto. It's Cameroon that wins",
   "sauter": "Skip",
+  "resendCode": "Resend code",
   "deconnecter": "Disconnect",
   "bienvenue": "Welcome",
   "historique": "History",
@@ -36,6 +37,10 @@
   "labelsurname": "Surname",
   "labelemail": "Email",
   "labelphone": "Phone Number",
+  "labelphone_recup": "Phone Number / email recuperation",
+  "logForgot": "Send code",
+  "tilterecu": "Please provide your phone number or email address for account recovery",
+
   "labelrpassword": "Repeat Password",
   "labelpassword": "Password",
   "forgotpass": "Forgot Password?",

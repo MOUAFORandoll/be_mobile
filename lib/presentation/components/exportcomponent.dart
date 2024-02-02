@@ -21,3 +21,5 @@ export 'package:BananaExpress/presentation/components/Widget/app_input.dart';
 export 'package:BananaExpress/presentation/components/Widget/app_input_new.dart';
 export 'package:easy_localization/easy_localization.dart' hide TextDirection;
 export 'package:BananaExpress/presentation/components/Widget/app_lang_button.dart';
+
+export '../../../utils/functions/app_loader.dart';

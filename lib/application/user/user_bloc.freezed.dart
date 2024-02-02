@@ -22,6 +22,9 @@ mixin _$UserEvent {
     required TResult Function(
             String name, String phone, String password, String re_password)
         register,
+    required TResult Function(String data) sendCode,
+    required TResult Function(String code) verifyCode,
+    required TResult Function(String password) resetpassword,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
@@ -33,6 +36,9 @@ mixin _$UserEvent {
     TResult? Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult? Function(String data)? sendCode,
+    TResult? Function(String code)? verifyCode,
+    TResult? Function(String password)? resetpassword,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
@@ -44,6 +50,9 @@ mixin _$UserEvent {
     TResult Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult Function(String data)? sendCode,
+    TResult Function(String code)? verifyCode,
+    TResult Function(String password)? resetpassword,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
@@ -54,6 +63,9 @@ mixin _$UserEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInEvent value) chooseExperience,
     required TResult Function(RegisterEvent value) register,
+    required TResult Function(SendCode value) sendCode,
+    required TResult Function(VerifyCode value) verifyCode,
+    required TResult Function(ResetPassword value) resetpassword,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
@@ -63,6 +75,9 @@ mixin _$UserEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignInEvent value)? chooseExperience,
     TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SendCode value)? sendCode,
+    TResult? Function(VerifyCode value)? verifyCode,
+    TResult? Function(ResetPassword value)? resetpassword,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
@@ -72,6 +87,9 @@ mixin _$UserEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInEvent value)? chooseExperience,
     TResult Function(RegisterEvent value)? register,
+    TResult Function(SendCode value)? sendCode,
+    TResult Function(VerifyCode value)? verifyCode,
+    TResult Function(ResetPassword value)? resetpassword,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
@@ -174,6 +192,9 @@ class _$SignInEventImpl implements SignInEvent {
     required TResult Function(
             String name, String phone, String password, String re_password)
         register,
+    required TResult Function(String data) sendCode,
+    required TResult Function(String code) verifyCode,
+    required TResult Function(String password) resetpassword,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
@@ -188,6 +209,9 @@ class _$SignInEventImpl implements SignInEvent {
     TResult? Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult? Function(String data)? sendCode,
+    TResult? Function(String code)? verifyCode,
+    TResult? Function(String password)? resetpassword,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
@@ -202,6 +226,9 @@ class _$SignInEventImpl implements SignInEvent {
     TResult Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult Function(String data)? sendCode,
+    TResult Function(String code)? verifyCode,
+    TResult Function(String password)? resetpassword,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
@@ -218,6 +245,9 @@ class _$SignInEventImpl implements SignInEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInEvent value) chooseExperience,
     required TResult Function(RegisterEvent value) register,
+    required TResult Function(SendCode value) sendCode,
+    required TResult Function(VerifyCode value) verifyCode,
+    required TResult Function(ResetPassword value) resetpassword,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
@@ -230,6 +260,9 @@ class _$SignInEventImpl implements SignInEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignInEvent value)? chooseExperience,
     TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SendCode value)? sendCode,
+    TResult? Function(VerifyCode value)? verifyCode,
+    TResult? Function(ResetPassword value)? resetpassword,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
@@ -242,6 +275,9 @@ class _$SignInEventImpl implements SignInEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInEvent value)? chooseExperience,
     TResult Function(RegisterEvent value)? register,
+    TResult Function(SendCode value)? sendCode,
+    TResult Function(VerifyCode value)? verifyCode,
+    TResult Function(ResetPassword value)? resetpassword,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
@@ -365,6 +401,9 @@ class _$RegisterEventImpl implements RegisterEvent {
     required TResult Function(
             String name, String phone, String password, String re_password)
         register,
+    required TResult Function(String data) sendCode,
+    required TResult Function(String code) verifyCode,
+    required TResult Function(String password) resetpassword,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
@@ -379,6 +418,9 @@ class _$RegisterEventImpl implements RegisterEvent {
     TResult? Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult? Function(String data)? sendCode,
+    TResult? Function(String code)? verifyCode,
+    TResult? Function(String password)? resetpassword,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
@@ -393,6 +435,9 @@ class _$RegisterEventImpl implements RegisterEvent {
     TResult Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult Function(String data)? sendCode,
+    TResult Function(String code)? verifyCode,
+    TResult Function(String password)? resetpassword,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
@@ -409,6 +454,9 @@ class _$RegisterEventImpl implements RegisterEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInEvent value) chooseExperience,
     required TResult Function(RegisterEvent value) register,
+    required TResult Function(SendCode value) sendCode,
+    required TResult Function(VerifyCode value) verifyCode,
+    required TResult Function(ResetPassword value) resetpassword,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
@@ -421,6 +469,9 @@ class _$RegisterEventImpl implements RegisterEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignInEvent value)? chooseExperience,
     TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SendCode value)? sendCode,
+    TResult? Function(VerifyCode value)? verifyCode,
+    TResult? Function(ResetPassword value)? resetpassword,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
@@ -433,6 +484,9 @@ class _$RegisterEventImpl implements RegisterEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInEvent value)? chooseExperience,
     TResult Function(RegisterEvent value)? register,
+    TResult Function(SendCode value)? sendCode,
+    TResult Function(VerifyCode value)? verifyCode,
+    TResult Function(ResetPassword value)? resetpassword,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
@@ -458,6 +512,533 @@ abstract class RegisterEvent implements UserEvent {
   String get re_password;
   @JsonKey(ignore: true)
   _$$RegisterEventImplCopyWith<_$RegisterEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SendCodeImplCopyWith<$Res> {
+  factory _$$SendCodeImplCopyWith(
+          _$SendCodeImpl value, $Res Function(_$SendCodeImpl) then) =
+      __$$SendCodeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String data});
+}
+
+/// @nodoc
+class __$$SendCodeImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$SendCodeImpl>
+    implements _$$SendCodeImplCopyWith<$Res> {
+  __$$SendCodeImplCopyWithImpl(
+      _$SendCodeImpl _value, $Res Function(_$SendCodeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$SendCodeImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SendCodeImpl implements SendCode {
+  const _$SendCodeImpl({required this.data});
+
+  @override
+  final String data;
+
+  @override
+  String toString() {
+    return 'UserEvent.sendCode(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SendCodeImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SendCodeImplCopyWith<_$SendCodeImpl> get copyWith =>
+      __$$SendCodeImplCopyWithImpl<_$SendCodeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String phone, String password) chooseExperience,
+    required TResult Function(
+            String name, String phone, String password, String re_password)
+        register,
+    required TResult Function(String data) sendCode,
+    required TResult Function(String code) verifyCode,
+    required TResult Function(String password) resetpassword,
+    required TResult Function(BuildContext context) signOut,
+    required TResult Function() getUserEvent,
+    required TResult Function() getVilleQuartier,
+  }) {
+    return sendCode(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String phone, String password)? chooseExperience,
+    TResult? Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult? Function(String data)? sendCode,
+    TResult? Function(String code)? verifyCode,
+    TResult? Function(String password)? resetpassword,
+    TResult? Function(BuildContext context)? signOut,
+    TResult? Function()? getUserEvent,
+    TResult? Function()? getVilleQuartier,
+  }) {
+    return sendCode?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String phone, String password)? chooseExperience,
+    TResult Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult Function(String data)? sendCode,
+    TResult Function(String code)? verifyCode,
+    TResult Function(String password)? resetpassword,
+    TResult Function(BuildContext context)? signOut,
+    TResult Function()? getUserEvent,
+    TResult Function()? getVilleQuartier,
+    required TResult orElse(),
+  }) {
+    if (sendCode != null) {
+      return sendCode(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignInEvent value) chooseExperience,
+    required TResult Function(RegisterEvent value) register,
+    required TResult Function(SendCode value) sendCode,
+    required TResult Function(VerifyCode value) verifyCode,
+    required TResult Function(ResetPassword value) resetpassword,
+    required TResult Function(SignOutEvent value) signOut,
+    required TResult Function(GetUserEvent value) getUserEvent,
+    required TResult Function(GetVilleQuartier value) getVilleQuartier,
+  }) {
+    return sendCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignInEvent value)? chooseExperience,
+    TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SendCode value)? sendCode,
+    TResult? Function(VerifyCode value)? verifyCode,
+    TResult? Function(ResetPassword value)? resetpassword,
+    TResult? Function(SignOutEvent value)? signOut,
+    TResult? Function(GetUserEvent value)? getUserEvent,
+    TResult? Function(GetVilleQuartier value)? getVilleQuartier,
+  }) {
+    return sendCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignInEvent value)? chooseExperience,
+    TResult Function(RegisterEvent value)? register,
+    TResult Function(SendCode value)? sendCode,
+    TResult Function(VerifyCode value)? verifyCode,
+    TResult Function(ResetPassword value)? resetpassword,
+    TResult Function(SignOutEvent value)? signOut,
+    TResult Function(GetUserEvent value)? getUserEvent,
+    TResult Function(GetVilleQuartier value)? getVilleQuartier,
+    required TResult orElse(),
+  }) {
+    if (sendCode != null) {
+      return sendCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendCode implements UserEvent {
+  const factory SendCode({required final String data}) = _$SendCodeImpl;
+
+  String get data;
+  @JsonKey(ignore: true)
+  _$$SendCodeImplCopyWith<_$SendCodeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$VerifyCodeImplCopyWith<$Res> {
+  factory _$$VerifyCodeImplCopyWith(
+          _$VerifyCodeImpl value, $Res Function(_$VerifyCodeImpl) then) =
+      __$$VerifyCodeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String code});
+}
+
+/// @nodoc
+class __$$VerifyCodeImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$VerifyCodeImpl>
+    implements _$$VerifyCodeImplCopyWith<$Res> {
+  __$$VerifyCodeImplCopyWithImpl(
+      _$VerifyCodeImpl _value, $Res Function(_$VerifyCodeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? code = null,
+  }) {
+    return _then(_$VerifyCodeImpl(
+      code: null == code
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VerifyCodeImpl implements VerifyCode {
+  const _$VerifyCodeImpl({required this.code});
+
+  @override
+  final String code;
+
+  @override
+  String toString() {
+    return 'UserEvent.verifyCode(code: $code)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifyCodeImpl &&
+            (identical(other.code, code) || other.code == code));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, code);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerifyCodeImplCopyWith<_$VerifyCodeImpl> get copyWith =>
+      __$$VerifyCodeImplCopyWithImpl<_$VerifyCodeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String phone, String password) chooseExperience,
+    required TResult Function(
+            String name, String phone, String password, String re_password)
+        register,
+    required TResult Function(String data) sendCode,
+    required TResult Function(String code) verifyCode,
+    required TResult Function(String password) resetpassword,
+    required TResult Function(BuildContext context) signOut,
+    required TResult Function() getUserEvent,
+    required TResult Function() getVilleQuartier,
+  }) {
+    return verifyCode(code);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String phone, String password)? chooseExperience,
+    TResult? Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult? Function(String data)? sendCode,
+    TResult? Function(String code)? verifyCode,
+    TResult? Function(String password)? resetpassword,
+    TResult? Function(BuildContext context)? signOut,
+    TResult? Function()? getUserEvent,
+    TResult? Function()? getVilleQuartier,
+  }) {
+    return verifyCode?.call(code);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String phone, String password)? chooseExperience,
+    TResult Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult Function(String data)? sendCode,
+    TResult Function(String code)? verifyCode,
+    TResult Function(String password)? resetpassword,
+    TResult Function(BuildContext context)? signOut,
+    TResult Function()? getUserEvent,
+    TResult Function()? getVilleQuartier,
+    required TResult orElse(),
+  }) {
+    if (verifyCode != null) {
+      return verifyCode(code);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignInEvent value) chooseExperience,
+    required TResult Function(RegisterEvent value) register,
+    required TResult Function(SendCode value) sendCode,
+    required TResult Function(VerifyCode value) verifyCode,
+    required TResult Function(ResetPassword value) resetpassword,
+    required TResult Function(SignOutEvent value) signOut,
+    required TResult Function(GetUserEvent value) getUserEvent,
+    required TResult Function(GetVilleQuartier value) getVilleQuartier,
+  }) {
+    return verifyCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignInEvent value)? chooseExperience,
+    TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SendCode value)? sendCode,
+    TResult? Function(VerifyCode value)? verifyCode,
+    TResult? Function(ResetPassword value)? resetpassword,
+    TResult? Function(SignOutEvent value)? signOut,
+    TResult? Function(GetUserEvent value)? getUserEvent,
+    TResult? Function(GetVilleQuartier value)? getVilleQuartier,
+  }) {
+    return verifyCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignInEvent value)? chooseExperience,
+    TResult Function(RegisterEvent value)? register,
+    TResult Function(SendCode value)? sendCode,
+    TResult Function(VerifyCode value)? verifyCode,
+    TResult Function(ResetPassword value)? resetpassword,
+    TResult Function(SignOutEvent value)? signOut,
+    TResult Function(GetUserEvent value)? getUserEvent,
+    TResult Function(GetVilleQuartier value)? getVilleQuartier,
+    required TResult orElse(),
+  }) {
+    if (verifyCode != null) {
+      return verifyCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class VerifyCode implements UserEvent {
+  const factory VerifyCode({required final String code}) = _$VerifyCodeImpl;
+
+  String get code;
+  @JsonKey(ignore: true)
+  _$$VerifyCodeImplCopyWith<_$VerifyCodeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetPasswordImplCopyWith<$Res> {
+  factory _$$ResetPasswordImplCopyWith(
+          _$ResetPasswordImpl value, $Res Function(_$ResetPasswordImpl) then) =
+      __$$ResetPasswordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String password});
+}
+
+/// @nodoc
+class __$$ResetPasswordImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$ResetPasswordImpl>
+    implements _$$ResetPasswordImplCopyWith<$Res> {
+  __$$ResetPasswordImplCopyWithImpl(
+      _$ResetPasswordImpl _value, $Res Function(_$ResetPasswordImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? password = null,
+  }) {
+    return _then(_$ResetPasswordImpl(
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ResetPasswordImpl implements ResetPassword {
+  const _$ResetPasswordImpl({required this.password});
+
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'UserEvent.resetpassword(password: $password)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetPasswordImpl &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ResetPasswordImplCopyWith<_$ResetPasswordImpl> get copyWith =>
+      __$$ResetPasswordImplCopyWithImpl<_$ResetPasswordImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String phone, String password) chooseExperience,
+    required TResult Function(
+            String name, String phone, String password, String re_password)
+        register,
+    required TResult Function(String data) sendCode,
+    required TResult Function(String code) verifyCode,
+    required TResult Function(String password) resetpassword,
+    required TResult Function(BuildContext context) signOut,
+    required TResult Function() getUserEvent,
+    required TResult Function() getVilleQuartier,
+  }) {
+    return resetpassword(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String phone, String password)? chooseExperience,
+    TResult? Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult? Function(String data)? sendCode,
+    TResult? Function(String code)? verifyCode,
+    TResult? Function(String password)? resetpassword,
+    TResult? Function(BuildContext context)? signOut,
+    TResult? Function()? getUserEvent,
+    TResult? Function()? getVilleQuartier,
+  }) {
+    return resetpassword?.call(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String phone, String password)? chooseExperience,
+    TResult Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult Function(String data)? sendCode,
+    TResult Function(String code)? verifyCode,
+    TResult Function(String password)? resetpassword,
+    TResult Function(BuildContext context)? signOut,
+    TResult Function()? getUserEvent,
+    TResult Function()? getVilleQuartier,
+    required TResult orElse(),
+  }) {
+    if (resetpassword != null) {
+      return resetpassword(password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignInEvent value) chooseExperience,
+    required TResult Function(RegisterEvent value) register,
+    required TResult Function(SendCode value) sendCode,
+    required TResult Function(VerifyCode value) verifyCode,
+    required TResult Function(ResetPassword value) resetpassword,
+    required TResult Function(SignOutEvent value) signOut,
+    required TResult Function(GetUserEvent value) getUserEvent,
+    required TResult Function(GetVilleQuartier value) getVilleQuartier,
+  }) {
+    return resetpassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignInEvent value)? chooseExperience,
+    TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SendCode value)? sendCode,
+    TResult? Function(VerifyCode value)? verifyCode,
+    TResult? Function(ResetPassword value)? resetpassword,
+    TResult? Function(SignOutEvent value)? signOut,
+    TResult? Function(GetUserEvent value)? getUserEvent,
+    TResult? Function(GetVilleQuartier value)? getVilleQuartier,
+  }) {
+    return resetpassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignInEvent value)? chooseExperience,
+    TResult Function(RegisterEvent value)? register,
+    TResult Function(SendCode value)? sendCode,
+    TResult Function(VerifyCode value)? verifyCode,
+    TResult Function(ResetPassword value)? resetpassword,
+    TResult Function(SignOutEvent value)? signOut,
+    TResult Function(GetUserEvent value)? getUserEvent,
+    TResult Function(GetVilleQuartier value)? getVilleQuartier,
+    required TResult orElse(),
+  }) {
+    if (resetpassword != null) {
+      return resetpassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetPassword implements UserEvent {
+  const factory ResetPassword({required final String password}) =
+      _$ResetPasswordImpl;
+
+  String get password;
+  @JsonKey(ignore: true)
+  _$$ResetPasswordImplCopyWith<_$ResetPasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -529,6 +1110,9 @@ class _$SignOutEventImpl implements SignOutEvent {
     required TResult Function(
             String name, String phone, String password, String re_password)
         register,
+    required TResult Function(String data) sendCode,
+    required TResult Function(String code) verifyCode,
+    required TResult Function(String password) resetpassword,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
@@ -543,6 +1127,9 @@ class _$SignOutEventImpl implements SignOutEvent {
     TResult? Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult? Function(String data)? sendCode,
+    TResult? Function(String code)? verifyCode,
+    TResult? Function(String password)? resetpassword,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
@@ -557,6 +1144,9 @@ class _$SignOutEventImpl implements SignOutEvent {
     TResult Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult Function(String data)? sendCode,
+    TResult Function(String code)? verifyCode,
+    TResult Function(String password)? resetpassword,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
@@ -573,6 +1163,9 @@ class _$SignOutEventImpl implements SignOutEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInEvent value) chooseExperience,
     required TResult Function(RegisterEvent value) register,
+    required TResult Function(SendCode value) sendCode,
+    required TResult Function(VerifyCode value) verifyCode,
+    required TResult Function(ResetPassword value) resetpassword,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
@@ -585,6 +1178,9 @@ class _$SignOutEventImpl implements SignOutEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignInEvent value)? chooseExperience,
     TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SendCode value)? sendCode,
+    TResult? Function(VerifyCode value)? verifyCode,
+    TResult? Function(ResetPassword value)? resetpassword,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
@@ -597,6 +1193,9 @@ class _$SignOutEventImpl implements SignOutEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInEvent value)? chooseExperience,
     TResult Function(RegisterEvent value)? register,
+    TResult Function(SendCode value)? sendCode,
+    TResult Function(VerifyCode value)? verifyCode,
+    TResult Function(ResetPassword value)? resetpassword,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
@@ -661,6 +1260,9 @@ class _$GetUserEventImpl implements GetUserEvent {
     required TResult Function(
             String name, String phone, String password, String re_password)
         register,
+    required TResult Function(String data) sendCode,
+    required TResult Function(String code) verifyCode,
+    required TResult Function(String password) resetpassword,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
@@ -675,6 +1277,9 @@ class _$GetUserEventImpl implements GetUserEvent {
     TResult? Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult? Function(String data)? sendCode,
+    TResult? Function(String code)? verifyCode,
+    TResult? Function(String password)? resetpassword,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
@@ -689,6 +1294,9 @@ class _$GetUserEventImpl implements GetUserEvent {
     TResult Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult Function(String data)? sendCode,
+    TResult Function(String code)? verifyCode,
+    TResult Function(String password)? resetpassword,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
@@ -705,6 +1313,9 @@ class _$GetUserEventImpl implements GetUserEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInEvent value) chooseExperience,
     required TResult Function(RegisterEvent value) register,
+    required TResult Function(SendCode value) sendCode,
+    required TResult Function(VerifyCode value) verifyCode,
+    required TResult Function(ResetPassword value) resetpassword,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
@@ -717,6 +1328,9 @@ class _$GetUserEventImpl implements GetUserEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignInEvent value)? chooseExperience,
     TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SendCode value)? sendCode,
+    TResult? Function(VerifyCode value)? verifyCode,
+    TResult? Function(ResetPassword value)? resetpassword,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
@@ -729,6 +1343,9 @@ class _$GetUserEventImpl implements GetUserEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInEvent value)? chooseExperience,
     TResult Function(RegisterEvent value)? register,
+    TResult Function(SendCode value)? sendCode,
+    TResult Function(VerifyCode value)? verifyCode,
+    TResult Function(ResetPassword value)? resetpassword,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
@@ -787,6 +1404,9 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
     required TResult Function(
             String name, String phone, String password, String re_password)
         register,
+    required TResult Function(String data) sendCode,
+    required TResult Function(String code) verifyCode,
+    required TResult Function(String password) resetpassword,
     required TResult Function(BuildContext context) signOut,
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
@@ -801,6 +1421,9 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
     TResult? Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult? Function(String data)? sendCode,
+    TResult? Function(String code)? verifyCode,
+    TResult? Function(String password)? resetpassword,
     TResult? Function(BuildContext context)? signOut,
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
@@ -815,6 +1438,9 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
     TResult Function(
             String name, String phone, String password, String re_password)?
         register,
+    TResult Function(String data)? sendCode,
+    TResult Function(String code)? verifyCode,
+    TResult Function(String password)? resetpassword,
     TResult Function(BuildContext context)? signOut,
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
@@ -831,6 +1457,9 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
   TResult map<TResult extends Object?>({
     required TResult Function(SignInEvent value) chooseExperience,
     required TResult Function(RegisterEvent value) register,
+    required TResult Function(SendCode value) sendCode,
+    required TResult Function(VerifyCode value) verifyCode,
+    required TResult Function(ResetPassword value) resetpassword,
     required TResult Function(SignOutEvent value) signOut,
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
@@ -843,6 +1472,9 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignInEvent value)? chooseExperience,
     TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SendCode value)? sendCode,
+    TResult? Function(VerifyCode value)? verifyCode,
+    TResult? Function(ResetPassword value)? resetpassword,
     TResult? Function(SignOutEvent value)? signOut,
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
@@ -855,6 +1487,9 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignInEvent value)? chooseExperience,
     TResult Function(RegisterEvent value)? register,
+    TResult Function(SendCode value)? sendCode,
+    TResult Function(VerifyCode value)? verifyCode,
+    TResult Function(ResetPassword value)? resetpassword,
     TResult Function(SignOutEvent value)? signOut,
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
@@ -878,7 +1513,11 @@ mixin _$UserState {
   String? get registerFailedMessage => throw _privateConstructorUsedError;
   String? get villeUser => throw _privateConstructorUsedError;
   String? get quartierUser => throw _privateConstructorUsedError;
+  String? get newPassword => throw _privateConstructorUsedError;
+  int? get isCode => throw _privateConstructorUsedError;
+  int? get isCorrectCode => throw _privateConstructorUsedError;
   int? get isVilleQuartier => throw _privateConstructorUsedError;
+  bool? get successReset => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserStateCopyWith<UserState> get copyWith =>
@@ -896,7 +1535,11 @@ abstract class $UserStateCopyWith<$Res> {
       String? registerFailedMessage,
       String? villeUser,
       String? quartierUser,
-      int? isVilleQuartier});
+      String? newPassword,
+      int? isCode,
+      int? isCorrectCode,
+      int? isVilleQuartier,
+      bool? successReset});
 }
 
 /// @nodoc
@@ -917,7 +1560,11 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
     Object? registerFailedMessage = freezed,
     Object? villeUser = freezed,
     Object? quartierUser = freezed,
+    Object? newPassword = freezed,
+    Object? isCode = freezed,
+    Object? isCorrectCode = freezed,
     Object? isVilleQuartier = freezed,
+    Object? successReset = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: freezed == isLoading
@@ -940,10 +1587,26 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
           ? _value.quartierUser
           : quartierUser // ignore: cast_nullable_to_non_nullable
               as String?,
+      newPassword: freezed == newPassword
+          ? _value.newPassword
+          : newPassword // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isCode: freezed == isCode
+          ? _value.isCode
+          : isCode // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isCorrectCode: freezed == isCorrectCode
+          ? _value.isCorrectCode
+          : isCorrectCode // ignore: cast_nullable_to_non_nullable
+              as int?,
       isVilleQuartier: freezed == isVilleQuartier
           ? _value.isVilleQuartier
           : isVilleQuartier // ignore: cast_nullable_to_non_nullable
               as int?,
+      successReset: freezed == successReset
+          ? _value.successReset
+          : successReset // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -962,7 +1625,11 @@ abstract class _$$UserStateImplCopyWith<$Res>
       String? registerFailedMessage,
       String? villeUser,
       String? quartierUser,
-      int? isVilleQuartier});
+      String? newPassword,
+      int? isCode,
+      int? isCorrectCode,
+      int? isVilleQuartier,
+      bool? successReset});
 }
 
 /// @nodoc
@@ -981,7 +1648,11 @@ class __$$UserStateImplCopyWithImpl<$Res>
     Object? registerFailedMessage = freezed,
     Object? villeUser = freezed,
     Object? quartierUser = freezed,
+    Object? newPassword = freezed,
+    Object? isCode = freezed,
+    Object? isCorrectCode = freezed,
     Object? isVilleQuartier = freezed,
+    Object? successReset = freezed,
   }) {
     return _then(_$UserStateImpl(
       isLoading: freezed == isLoading
@@ -1004,10 +1675,26 @@ class __$$UserStateImplCopyWithImpl<$Res>
           ? _value.quartierUser
           : quartierUser // ignore: cast_nullable_to_non_nullable
               as String?,
+      newPassword: freezed == newPassword
+          ? _value.newPassword
+          : newPassword // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isCode: freezed == isCode
+          ? _value.isCode
+          : isCode // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isCorrectCode: freezed == isCorrectCode
+          ? _value.isCorrectCode
+          : isCorrectCode // ignore: cast_nullable_to_non_nullable
+              as int?,
       isVilleQuartier: freezed == isVilleQuartier
           ? _value.isVilleQuartier
           : isVilleQuartier // ignore: cast_nullable_to_non_nullable
               as int?,
+      successReset: freezed == successReset
+          ? _value.successReset
+          : successReset // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1021,7 +1708,11 @@ class _$UserStateImpl implements _UserState {
       this.registerFailedMessage,
       this.villeUser,
       this.quartierUser,
-      this.isVilleQuartier});
+      this.newPassword,
+      this.isCode,
+      this.isCorrectCode,
+      this.isVilleQuartier,
+      this.successReset});
 
   @override
   final int? isLoading;
@@ -1034,11 +1725,19 @@ class _$UserStateImpl implements _UserState {
   @override
   final String? quartierUser;
   @override
+  final String? newPassword;
+  @override
+  final int? isCode;
+  @override
+  final int? isCorrectCode;
+  @override
   final int? isVilleQuartier;
+  @override
+  final bool? successReset;
 
   @override
   String toString() {
-    return 'UserState(isLoading: $isLoading, authenticationFailedMessage: $authenticationFailedMessage, registerFailedMessage: $registerFailedMessage, villeUser: $villeUser, quartierUser: $quartierUser, isVilleQuartier: $isVilleQuartier)';
+    return 'UserState(isLoading: $isLoading, authenticationFailedMessage: $authenticationFailedMessage, registerFailedMessage: $registerFailedMessage, villeUser: $villeUser, quartierUser: $quartierUser, newPassword: $newPassword, isCode: $isCode, isCorrectCode: $isCorrectCode, isVilleQuartier: $isVilleQuartier, successReset: $successReset)';
   }
 
   @override
@@ -1058,8 +1757,15 @@ class _$UserStateImpl implements _UserState {
                 other.villeUser == villeUser) &&
             (identical(other.quartierUser, quartierUser) ||
                 other.quartierUser == quartierUser) &&
+            (identical(other.newPassword, newPassword) ||
+                other.newPassword == newPassword) &&
+            (identical(other.isCode, isCode) || other.isCode == isCode) &&
+            (identical(other.isCorrectCode, isCorrectCode) ||
+                other.isCorrectCode == isCorrectCode) &&
             (identical(other.isVilleQuartier, isVilleQuartier) ||
-                other.isVilleQuartier == isVilleQuartier));
+                other.isVilleQuartier == isVilleQuartier) &&
+            (identical(other.successReset, successReset) ||
+                other.successReset == successReset));
   }
 
   @override
@@ -1070,7 +1776,11 @@ class _$UserStateImpl implements _UserState {
       registerFailedMessage,
       villeUser,
       quartierUser,
-      isVilleQuartier);
+      newPassword,
+      isCode,
+      isCorrectCode,
+      isVilleQuartier,
+      successReset);
 
   @JsonKey(ignore: true)
   @override
@@ -1086,7 +1796,11 @@ abstract class _UserState implements UserState {
       final String? registerFailedMessage,
       final String? villeUser,
       final String? quartierUser,
-      final int? isVilleQuartier}) = _$UserStateImpl;
+      final String? newPassword,
+      final int? isCode,
+      final int? isCorrectCode,
+      final int? isVilleQuartier,
+      final bool? successReset}) = _$UserStateImpl;
 
   @override
   int? get isLoading;
@@ -1099,7 +1813,15 @@ abstract class _UserState implements UserState {
   @override
   String? get quartierUser;
   @override
+  String? get newPassword;
+  @override
+  int? get isCode;
+  @override
+  int? get isCorrectCode;
+  @override
   int? get isVilleQuartier;
+  @override
+  bool? get successReset;
   @override
   @JsonKey(ignore: true)
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>

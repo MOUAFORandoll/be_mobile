@@ -34,8 +34,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     on<SignInEvent>(_Login);
     on<SignOutEvent>(_OnSignOut);
-
     on<RegisterEvent>(_Register);
+    on<SendCode>(_SendCode);
+    on<VerifyCode>(_VerifyCode);
+    on<ResetPassword>(_ResetPassword);
+
     on<GetUserEvent>(_GetUserEvent);
     on<GetVilleQuartier>(_getVilleQuartier);
   }
@@ -200,6 +203,89 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           isLoading: 3,
           authenticationFailedMessage: 'Une erreur est survenue recommencer'));
     }
+  }
+
+  _SendCode(SendCode event, Emitter<UserState> emit) async {
+    var data = {
+      'data': event.data,
+    };
+    print(data);
+    emit(state.copyWith(isLoading: 1, isCode: 0));
+    await userRepo.SendCode(data).then((response) async {
+      if (response.statusCode == 201) {
+        emit(state.copyWith(
+          isLoading: 2,
+          isCode: 1,
+        ));
+      } else {
+        emit(state.copyWith(
+            isLoading: 3,
+            isCode: 2,
+            authenticationFailedMessage: response.data['message']));
+      }
+    }).onError((error, s) {
+      emit(state.copyWith(
+          isCode: 2,
+          isLoading: 3,
+          authenticationFailedMessage: 'System error'));
+    });
+  }
+
+  _VerifyCode(VerifyCode event, Emitter<UserState> emit) async {
+    var data = {
+      'code': event.code,
+    };
+    print(data);
+    emit(state.copyWith(
+      isLoading: 1,
+    ));
+    await userRepo.VerifyCode(data).then((response) async {
+      if (response.statusCode == 201) {
+        emit(state.copyWith(
+          isLoading: 2,
+          isCorrectCode: 1,
+        ));
+      } else {
+        emit(state.copyWith(
+            isLoading: 3,
+            isCorrectCode: 2,
+            authenticationFailedMessage: response.data['message']));
+      }
+    }).onError((error, s) {
+      emit(state.copyWith(
+          isCorrectCode: 3,
+          isLoading: 3,
+          authenticationFailedMessage: 'System error'));
+    });
+  }
+
+  _ResetPassword(ResetPassword event, Emitter<UserState> emit) async {
+    var data = {
+      'password': event.password,
+    };
+    print(data);
+    emit(state.copyWith(
+      isLoading: 1,
+    ));
+    await userRepo.ResetPassword(data).then((response) async {
+      if (response.statusCode == 201) {
+        emit(state.copyWith(
+          isLoading: 2,
+          successReset: true,
+        ));
+      } else {
+        emit(state.copyWith(
+          isLoading: 3,
+          successReset: false,
+        ));
+      }
+    }).onError((error, s) {
+      emit(state.copyWith(
+          isCorrectCode: 3,
+          successReset: false,
+          isLoading: 3,
+          authenticationFailedMessage: 'System error'));
+    });
   }
 
   Stream<UserState> mapEventToState(UserEvent event) async* {}

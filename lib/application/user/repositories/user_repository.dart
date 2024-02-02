@@ -89,6 +89,25 @@ class UserRepo {
     return a;
   }
 
+  Future SendCode(data) async {
+    Response a = await apiClient.postRequest(ApiRoutes.SEND_CODE, body: data);
+
+    return a;
+  }
+
+  Future VerifyCode(data) async {
+    Response a = await apiClient.postRequest(ApiRoutes.VERIFY_CODE, body: data);
+
+    return a;
+  }
+
+  Future ResetPassword(data) async {
+    Response a =
+        await apiClient.postRequest(ApiRoutes.REST_PASSWORD, body: data);
+
+    return a;
+  }
+
   Future SignUp(data) async {
     //print(data);
     Response a0 = await apiClient.postRequest(ApiRoutes.SIGNUP, body: data);

@@ -9,7 +9,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:get_storage/get_storage.dart';
-import 'package:BananaExpress/application/export_bloc.dart'; 
+import 'package:BananaExpress/application/export_bloc.dart';
 
 @RoutePage()
 class OnBoardingPage extends StatelessWidget {
@@ -23,7 +23,7 @@ class OnBoardingPage extends StatelessWidget {
     return BlocBuilder<AppActionCubit, AppActionState>(
         builder: (context, state) {
       return Scaffold(
-          backgroundColor: ColorsApp.tird,
+          backgroundColor: ColorsApp.second,
           body: SingleChildScrollView(
               child: Stack(
             children: [
@@ -86,7 +86,7 @@ class OnBoardingPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(30),
                                   color: state.index == entry.key
                                       ? Colors.white
-                                      : ColorsApp.primary.withOpacity(0.2)),
+                                      : ColorsApp.second.withOpacity(0.2)),
                             ));
                       }).toList(),
                     ),

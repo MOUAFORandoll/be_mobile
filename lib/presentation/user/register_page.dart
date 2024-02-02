@@ -2,6 +2,7 @@
 
 import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/presentation/components/Widget/app_input.dart';
+import 'package:BananaExpress/presentation/user/forgot_password_page.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:BananaExpress/utils/functions/app_loader.dart';
@@ -14,7 +15,10 @@ import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BananaExpress/core.dart';
 
-class RegisterView extends StatelessWidget {
+@RoutePage()
+class RegisterPage extends StatelessWidget {
+  static const routeName = '/register';
+
   var loader = AppLoader.bounceLargeColorLoaderController();
   TextEditingController phone = TextEditingController();
   final formKey = GlobalKey<FormState>();
@@ -31,6 +35,15 @@ class RegisterView extends StatelessWidget {
         },
         child: Scaffold(
           appBar: AppBar(
+            title: Text(
+              'regbtn'.tr(),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            centerTitle: true,
             leading: InkWell(
                 onTap: () => BlocProvider.of<AppActionCubit>(context).toLogin(),
                 child: Container(
@@ -82,8 +95,8 @@ class RegisterView extends StatelessWidget {
                               'regTitle'.tr(),
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 19,
-                                color: ColorsApp.orange,
+                                fontSize: 13,
+                                // color: ColorsApp.orange,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -146,13 +159,13 @@ class RegisterView extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
                                         TextButton(
-                                          onPressed: () {
-                                            // Get.toNamed(AppLinks.FORGOT);
-                                          },
+                                          onPressed: () =>
+                                              AutoRouter.of(context).pushNamed(
+                                                  ForgotPasswordPage.routeName),
                                           child: Text('forgotpass'.tr(),
                                               style: TextStyle(
                                                 fontFamily: 'Lato',
-                                                color: ColorsApp.primary,
+                                                color: ColorsApp.second,
                                               )),
                                         )
                                       ],

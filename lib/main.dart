@@ -26,7 +26,7 @@ Future<void> main() async {
   await EnvManager().init(env: Environment.prod);
 
   co.init();
-
+  
   // NotificationService().initializePlatformNotifications();
 
   runApp(
@@ -138,7 +138,7 @@ class AppContent extends StatelessWidget {
               child: ClampingScrollWrapper.builder(context, router!),
             ));
       },
-      theme: lightTheme(context),
+      theme: lightTheme ,
     );
 
     // return MaterialApp(

@@ -14,11 +14,19 @@ class ApiRoutes {
   static const ADD_PRODUCT_IMAGE = '/produit/image/add';
 
   static const LOGIN = '/auth/user';
+
+  static const SEND_CODE = '/auth/send-code';
+  static const VERIFY_CODE = '/auth/verify-code';
+  static const REST_PASSWORD = '/auth/new-password';
+  
+  
+  
+
   static const Refresh = '/api/token/refresh';
   static const SIGNUP = '/create/user';
   static const SEARCH = '/search';
   static const MODEPAIEMENT = '/modepaiement/read';
-
+  
   static const TRANSACTION_READ = '/transaction/read';
   static const TRANSACTION_RETRAIT = '/transaction/retrait';
   static const TRANSACTION_DEPOT = '/compte/credit';
