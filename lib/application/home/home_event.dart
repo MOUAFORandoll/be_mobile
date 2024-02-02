@@ -17,4 +17,5 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.getCategoryList() = GetCategoryList;
 
   const factory HomeEvent.openLivraisonModal() = OpenLivraisonModal;
+  const factory HomeEvent.openRecupMailModal() = OpenRecupMailModal;
 }

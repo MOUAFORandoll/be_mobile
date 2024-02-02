@@ -176,7 +176,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(7, 3111042122288968254),
       name: 'User',
-      lastPropertyId: const IdUid(9, 4427249840446802544),
+      lastPropertyId: const IdUid(10, 754203462009673773),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -223,6 +223,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(9, 4427249840446802544),
             name: 'typeUser',
             type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 754203462009673773),
+            name: 'recupMailStatus',
+            type: 1,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -505,7 +510,7 @@ ModelDefinition getObjectBoxModel() {
           final profileOffset = fbb.writeString(object.profile);
           final phoneOffset = fbb.writeString(object.phone);
           final dateCreatedOffset = fbb.writeString(object.dateCreated);
-          fbb.startTable(10);
+          fbb.startTable(11);
           fbb.addInt64(0, object.id);
           fbb.addInt64(1, object.userId);
           fbb.addOffset(2, nomOffset);
@@ -515,6 +520,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(6, phoneOffset);
           fbb.addOffset(7, dateCreatedOffset);
           fbb.addInt64(8, object.typeUser);
+          fbb.addBool(9, object.recupMailStatus);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -535,6 +541,8 @@ ModelDefinition getObjectBoxModel() {
               .vTableGet(buffer, rootOffset, 14, '');
           final phoneParam = const fb.StringReader(asciiOptimization: true)
               .vTableGet(buffer, rootOffset, 16, '');
+          final recupMailStatusParam =
+              const fb.BoolReader().vTableGet(buffer, rootOffset, 22, false);
           final dateCreatedParam =
               const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 18, '');
@@ -546,6 +554,7 @@ ModelDefinition getObjectBoxModel() {
               email: emailParam,
               profile: profileParam,
               phone: phoneParam,
+              recupMailStatus: recupMailStatusParam,
               dateCreated: dateCreatedParam)
             ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
 
@@ -701,6 +710,10 @@ class User_ {
   /// see [User.typeUser]
   static final typeUser =
       QueryIntegerProperty<User>(_entities[6].properties[8]);
+
+  /// see [User.recupMailStatus]
+  static final recupMailStatus =
+      QueryBooleanProperty<User>(_entities[6].properties[9]);
 }
 
 /// [YourDataModel] entity fields to define ObjectBox queries.

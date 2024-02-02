@@ -61,9 +61,6 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                             ),
                             height: getHeight(context) * .08,
                             width: getWith(context),
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
                             alignment: Alignment.center,
                             child: state.villeList!.isEmpty
                                 ? Container()
@@ -87,6 +84,10 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                       child: Text(
                                         'yselectville'.tr(),
                                         style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                            color: ColorsApp.grey,
+                                            fontFamily: 'Lato',
                                             overflow: TextOverflow.ellipsis),
                                       ),
                                     ),
@@ -138,9 +139,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                     alignment: Alignment.centerLeft,
                     child: Text('yrecup'.tr())),
                 Container(
-                    margin: EdgeInsets.only(
-                      top: kMarginY,
-                    ),
+                    margin: EdgeInsets.only(),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -156,9 +155,6 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                 ),
                                 height: getHeight(context) * .08,
                                 width: getWith(context) * .65,
-                                margin: EdgeInsets.only(
-                                  top: kMarginY * 1.5,
-                                ),
                                 padding: EdgeInsets.symmetric(
                                   horizontal: 7,
                                 ),
@@ -175,6 +171,10 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                     child: Text(
                                       'yselectrecupp'.tr(),
                                       style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 12,
+                                          color: ColorsApp.grey,
+                                          fontFamily: 'Lato',
                                           overflow: TextOverflow.ellipsis),
                                     ),
                                   ),
@@ -357,7 +357,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                         fontFamily: 'Lato',
                       ),
                       labelStyle: TextStyle(
-                        color: ColorsApp.primary,
+                        color: ColorsApp.grey,
                         fontFamily: 'Lato',
                         // fontWeight: FontWeight.w500,
                         fontSize: 12,

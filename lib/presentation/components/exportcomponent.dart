@@ -23,3 +23,4 @@ export 'package:easy_localization/easy_localization.dart' hide TextDirection;
 export 'package:BananaExpress/presentation/components/Widget/app_lang_button.dart';
 
 export '../../../utils/functions/app_loader.dart';
+export 'package:auto_route/auto_route.dart';

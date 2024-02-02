@@ -1,5 +1,6 @@
 import 'package:BananaExpress/application/connected/connected_bloc.dart';
 import 'package:BananaExpress/application/database/database_cubit.dart';
+import 'package:BananaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
 import 'package:BananaExpress/application/splash/splash_bloc.dart';
 
 import 'package:BananaExpress/application/livraison/repositories/livraisonRepo.dart';
@@ -23,7 +24,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await EnvManager().init(env: Environment.dev_bureau);
+  await EnvManager().init(env: Environment.prod);
 
   co.init();
 
@@ -134,11 +135,15 @@ class AppContent extends StatelessWidget {
                   create: (BuildContext context) =>
                       HomeBloc(database: sl.get<DatabaseCubit>()),
                 ),
+                BlocProvider<PharmacyBloc>(
+                  create: (BuildContext context) =>
+                      PharmacyBloc(pharmacyRepo: sl.get<PharmacyRepo>()),
+                ),
               ],
               child: ClampingScrollWrapper.builder(context, router!),
             ));
       },
-      theme: lightTheme,
+      theme: lightTheme(context),
     );
 
     // return MaterialApp(

@@ -43,6 +43,8 @@ class User {
 
   @Property()
   int typeUser;
+  @Property()
+  bool recupMailStatus;
 
   User({
     required this.userId,
@@ -52,6 +54,7 @@ class User {
     required this.email,
     required this.profile,
     required this.phone,
+    required this.recupMailStatus,
     required this.dateCreated,
   });
   Map<String, dynamic> toMap() {
@@ -64,6 +67,7 @@ class User {
       'profile': profile,
       'phone': phone,
       'dateCreated': dateCreated,
+      'recupMailStatus': recupMailStatus,
     };
   }
 
@@ -76,6 +80,7 @@ class User {
       email: json['email'],
       profile: json['profile'],
       phone: json['phone'],
+      recupMailStatus: json['status_mail_recup'],
       dateCreated: json['date_created'],
     );
   }

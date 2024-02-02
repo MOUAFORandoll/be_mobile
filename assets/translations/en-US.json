@@ -45,23 +45,19 @@
   "labelphone_recup": "Phone Number / email recuperation",
   "logForgot": "Send code",
   "tilterecu": "Please provide your phone number or email address for account recovery",
-
   "yupdate": "Update successful",
   "recupmailtitle": "Enter your recovery email address",
-
   "labelrpassword": "Repeat Password",
   "labelpassword": "Password",
   "forgotpass": "Forgot Password?",
   "logbtn": "Login",
   "regbtn": "Register",
-
   "t1Reini": "Reset Password",
   "t2Reini": "Enter the email address associated with your account, and we will send you an email with instructions to reset your password",
   "mail": "Email",
   "start": "Start",
   "verifyaddre": "Email Address Verification",
   "verifydescrip": "Enter the numeric password recovery code sent to your email address",
-
   "newpasst": "Create a New Password",
   "newpassd": "Your new password must be different from the one used before and contain a minimum of 8 characters",
   "validatornewpass": "Must be composed of at least 8 characters",
@@ -77,7 +73,7 @@
   "ht1": "Express Delivery, Security, and Reliability",
   "ht2": "Express Medicine, Insurance, Security, and Reliability",
   "livraison": "Deliveries",
-  "ordonnance": "Prescription",
+  "pharmacie": "Pharmacy",
   "yservice": "Which delivery service are you interested in",
   "ser1": "Deliver my parcel",
   "ser2": "Have me delivered",
@@ -143,6 +139,5 @@
   "successaveFacture": "The delivery invoice has been saved in your documents",
   "yemtyl": "Hey, Your History Is Empty !",
   "yemty2": "Go back and start with deliveries.",
-
   "succesLivraison": "Your delivery request has been successfully recorded. Follow the request progress in the Delivery menu"
 }

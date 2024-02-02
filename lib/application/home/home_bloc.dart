@@ -6,7 +6,6 @@ import 'package:BananaExpress/entity.dart';
 import 'package:BananaExpress/application/model/exportmodel.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
- 
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -28,11 +27,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       print(
           '---------UserD-------------------------*ataEvent***${state.user!.profile}');
     });
+    on<OpenRecupMailModal>((event, emit) async {
+      print('---------recupMailStatus-------------------------');
+      var user = await database.getUser();
+      emit(state.copyWith(recupMailStatus: user!.recupMailStatus));
+
+      print('---------recupMailStatus-------------------------');
+    });
     on<SetIndexEvent>((event, emit) async {
       print('-----------------SetIndexEvent');
       emit(state.copyWith(index: event.index));
     });
-  
   }
   @override
   void onError(Object error, StackTrace stacktrace) {

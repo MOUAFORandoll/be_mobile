@@ -67,8 +67,6 @@ class DatabaseCubit extends Cubit<DatabaseState> {
 
     final users = userBox.getAll();
     print(users.length);
-    print(
-        '-*--------------------------${users.last.profile}---------users.last');
 
     return users.isNotEmpty ? users.last : null;
   }

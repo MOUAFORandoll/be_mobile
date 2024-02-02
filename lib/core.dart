@@ -3,6 +3,7 @@ import 'package:BananaExpress/application/database/database_cubit.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 
 import 'package:BananaExpress/application/livraison/repositories/livraisonRepo.dart';
+import 'package:BananaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
 import 'package:BananaExpress/application/splash/splash_bloc.dart';
 import 'package:BananaExpress/application/user/repositories/user_repository.dart';
 import 'package:BananaExpress/infrastructure/_commons/network/app_requests.dart';
@@ -33,6 +34,10 @@ Future<void> init() async {
   sl
     ..registerFactory(() => LivraisonBloc(livraisonRepo: sl(), database: sl()))
     ..registerLazySingleton(() => LivraisonRepo(apiClient: sl()));
+
+  sl
+    ..registerFactory(() => PharmacyBloc(pharmacyRepo: sl() ))
+    ..registerLazySingleton(() => PharmacyRepo(apiClient: sl()));
   requestPermission();
   initConnected();
 }
@@ -42,8 +47,11 @@ void initConnected() async {
 }
 
 Future<void> initLoad(context) async {
-  BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
-  BlocProvider.of<UserBloc>(context)..add(GetUserEvent())
+  BlocProvider.of<HomeBloc>(context)
+    ..add(UserDataEvent())
+    ..add(OpenRecupMailModal());
+  BlocProvider.of<UserBloc>(context)
+    ..add(GetUserEvent())
     ..add(GetVilleQuartier());
   BlocProvider.of<LivraisonBloc>(context)
     ..add(StartLogLat())

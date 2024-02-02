@@ -159,7 +159,7 @@
     },
     {
       "id": "7:3111042122288968254",
-      "lastPropertyId": "9:4427249840446802544",
+      "lastPropertyId": "10:754203462009673773",
       "name": "User",
       "properties": [
         {
@@ -207,6 +207,11 @@
           "id": "9:4427249840446802544",
           "name": "typeUser",
           "type": 6
+        },
+        {
+          "id": "10:754203462009673773",
+          "name": "recupMailStatus",
+          "type": 1
         }
       ],
       "relations": []

@@ -2,6 +2,7 @@ import 'package:BananaExpress/presentation/home/home_page.dart';
 import 'package:BananaExpress/presentation/layer/onboardingpage.dart';
 import 'package:BananaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BananaExpress/presentation/livraison/SuccesLivraisonPage.dart';
+import 'package:BananaExpress/presentation/pharmacy/pharmacy_page.dart';
 import 'package:BananaExpress/presentation/user/auth_page.dart';
 import 'package:BananaExpress/presentation/user/forgot_password_page.dart';
 import 'package:BananaExpress/presentation/user/politique_page.dart';
@@ -9,7 +10,7 @@ import 'package:BananaExpress/presentation/user/register_page.dart';
 import 'package:BananaExpress/test.dart';
 import 'package:auto_route/auto_route.dart';
 
-import '../presentation/layer/SplashScreen.dart';
+import '../presentation/layer/splashpage.dart';
 import '../presentation/livraison/MapPagePointRecuperation.dart';
 import '../presentation/livraison/NewLivraisonPage.dart';
 import 'app_router.gr.dart';
@@ -24,7 +25,8 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: OnBoardingRoute.page, path: OnBoardingPage.routeName),
         AutoRoute(page: AuthRoute.page, path: AuthPage.routeName),
         AutoRoute(page: RegisterRoute.page, path: RegisterPage.routeName),
-        AutoRoute(page: ForgotPasswordRoute.page, path: ForgotPasswordPage.routeName),
+        AutoRoute(
+            page: ForgotPasswordRoute.page, path: ForgotPasswordPage.routeName),
         AutoRoute(page: HomeRoute.page, path: HomePage.routeName),
         AutoRoute(
             page: NewLivraisonRoute.page, path: NewLivraisonPage.routeName),
@@ -39,5 +41,6 @@ class AppRouter extends $AppRouter {
             path: SuccesLivraisonPage.routeName),
         AutoRoute(page: MyTestRoute.page, path: MyTestPage.routeName),
         AutoRoute(page: PolitiqueRoute.page, path: PolitiquePage.routeName),
+        AutoRoute(page: PharmacyRoute.page, path: PharmacyPage.routeName),
       ];
 }
