@@ -1,10 +1,13 @@
+import 'package:BananaExpress/entity.dart';
 import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BananaExpress/presentation/components/Widget/k_home_info.dart';
 import 'package:BananaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
+import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
+import 'package:BananaExpress/utils/functions/showToast.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
@@ -12,7 +15,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_version_plus/new_version_plus.dart';
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/presentation/components/Form/search_field.dart';
 import 'package:BananaExpress/presentation/components/Widget/HomeModuleComponent.dart';
 import 'package:BananaExpress/presentation/components/Widget/icon_svg.dart';
 
@@ -145,7 +147,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                       title: 'ht2'.tr(),
                                       titleBtn: 'ordonnance'.tr(),
                                       image: Assets.medical,
-                                      onTap: () => openModalLivraison(context),
+                                      onTap: () => openUpdateMail(context),
                                     ),
                                   ])))
                     ]))
@@ -239,139 +241,237 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   }
 }
 
+// ignore: must_be_immutable
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({required this.user});
   final user;
+  var loader = AppLoader.bounceLargeColorLoaderController();
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      width: getWith(context) / 1.35,
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-              // padding: EdgeInsets.only(bottom: 18.0),
-              margin: EdgeInsets.only(bottom: 8.0),
-              decoration: BoxDecoration(
-                  color: ColorsApp.primary,
-                  border: Border(bottom: BorderSide.none)),
-              child: Container(
-                  padding: EdgeInsets.all(10),
-                  child: Column(children: [
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundColor: Colors.white,
-                      child: InkWell(
-                        onTap: () => context.setLocale(Locale('en', 'US')),
-                        child: CachedNetworkImage(
-                          height: getHeight(context) / 10,
-                          width: getHeight(context) / 10,
-                          fit: BoxFit.cover,
-                          imageUrl: user.profile,
-                          imageBuilder: (context, imageProvider) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  image: imageProvider,
-                                  fit: BoxFit.cover,
+    return BlocConsumer<UserBloc, UserState>(
+      listener: (context, state) {
+        if (state.isUpdateUserImage == 1) {
+          loader.open(context);
+        } else if (state.isUpdateUserImage == 3) {
+          loader.close();
+          showError(state.authenticationFailedMessage!, context);
+        } else if (state.isUpdateUserImage == 2) {
+          showSuccess('Profil mis a jour', context);
+          BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
+
+          loader.close();
+          print('-----44------find noe--**${user.profile}*******');
+        }
+      },
+      builder: (context, state) => Drawer(
+        width: getWith(context) / 1.35,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+                // padding: EdgeInsets.only(bottom: 18.0),
+                margin: EdgeInsets.only(bottom: 8.0),
+                decoration: BoxDecoration(
+                    color: ColorsApp.primary,
+                    border: Border(bottom: BorderSide.none)),
+                child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Column(children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.white,
+                        child: InkWell(
+                          onTap: () => BlocProvider.of<UserBloc>(context)
+                              .add(UpdateUserImage()),
+                          child: CachedNetworkImage(
+                            height: getHeight(context) / 10,
+                            width: getHeight(context) / 10,
+                            fit: BoxFit.cover,
+                            imageUrl: user.profile,
+                            imageBuilder: (context, imageProvider) {
+                              return Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: imageProvider,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
-                          placeholder: (context, url) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                  color: ColorsApp.grey,
-                                  borderRadius: BorderRadius.circular(50)),
-                              child: Center(
-                                  child: CircularProgressIndicator(
-                                      color: ColorsApp.second)),
-                            );
-                          },
-                          errorWidget: (context, url, error) {
-                            return CircleAvatar(
-                                // backgroundColor: ColorsApp.tird,
-                                radius: 150,
-                                backgroundImage:
-                                    AssetImage('assets/images/user.jpg'));
-                          },
+                              );
+                            },
+                            placeholder: (context, url) {
+                              return Container(
+                                decoration: BoxDecoration(
+                                    color: ColorsApp.grey,
+                                    borderRadius: BorderRadius.circular(50)),
+                                child: Center(
+                                    child: CircularProgressIndicator(
+                                        color: ColorsApp.second)),
+                              );
+                            },
+                            errorWidget: (context, url, error) {
+                              return CircleAvatar(
+                                  // backgroundColor: ColorsApp.tird,
+                                  radius: 150,
+                                  backgroundImage:
+                                      AssetImage('assets/images/user.jpg'));
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      // margin: EdgeInsets.only(top: kMarginY),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            ViewFunctions().capitalizeFirstLetter(user.nom),
-                            style: TextStyle(
-                                color: ColorsApp.grey,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          ThemeButtonWidget()
-                        ],
+                      Container(
+                        // margin: EdgeInsets.only(top: kMarginY),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              ViewFunctions().capitalizeFirstLetter(user.nom),
+                              style: TextStyle(
+                                  color: ColorsApp.grey,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            ThemeButtonWidget()
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            user.phone,
-                            style: TextStyle(
-                                color: ColorsApp.grey,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ],
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              user.phone,
+                              style: TextStyle(
+                                  color: ColorsApp.grey,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ]))),
-          ListTile(
-            // leading: Icon(Icons.home),
-            title: AppLangButton(),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home'),
-            onTap: () {
-              // Navigate to the home page or perform an action
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () {
-              // Navigate to the settings page or perform an action
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.policy),
-            title: Text('Politique'),
-            onTap: () {
-              AutoRouter.of(context).replaceAll([PolitiqueRoute()]);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'.tr()),
-            onTap: () {
-              BlocProvider.of<UserBloc>(context)
-                  .add(SignOutEvent(context: context));
-            },
-          ),
-        ],
+                    ]))),
+            ListTile(
+              // leading: Icon(Icons.home),
+              title: AppLangButton(),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                // Navigate to the home page or perform an action
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {
+                // Navigate to the settings page or perform an action
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.policy),
+              title: Text('Politique'),
+              onTap: () {
+                AutoRouter.of(context).replaceAll([PolitiqueRoute()]);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Logout'.tr()),
+              onTap: () {
+                BlocProvider.of<UserBloc>(context)
+                    .add(SignOutEvent(context: context));
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
+openUpdateMail(context) => showDialog(
+    context: context,
+    builder: (context) {
+      TextEditingController mail = TextEditingController();
+      var loader = AppLoader.bounceLargeColorLoaderController();
+      final formKey = GlobalKey<FormState>();
+
+      return BlocConsumer<UserBloc, UserState>(
+          listener: (context, state) {
+            if (state.updating!) {
+              loader.open(context);
+            } else {
+              showSuccess('yupdate'.tr(), context);
+              loader.close();
+            }
+          },
+          builder: (context, state) => AlertDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              title: Container(
+                  child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                      width: getWith(context) * .6,
+                      child: Text('recupmailtitle'.tr())),
+                  InkWell(
+                      child: Icon(Icons.close,
+                          color: ColorsApp.primary, weight: 50),
+                      onTap: () => AutoRouter.of(context).pop())
+                ],
+              )),
+              actions: [
+                InkWell(
+                    child: Container(
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: ColorsApp.primary),
+                      child: Row(mainAxisSize: MainAxisSize.min, children: [
+                        Text(
+                          'yvalid'.tr(),
+                          style: TextStyle(
+                              color: ColorsApp.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 13),
+                        ),
+                        Icon(Icons.check, color: ColorsApp.white, weight: 50)
+                      ]),
+                    ),
+                    onTap: () {
+                      if (mail.text.isNotEmpty) {
+                        context.read<UserBloc>().add(UpdateUserInfo(
+                              data: {'email': mail.text},
+                            ));
+                      } else {
+                        showError('recupmailtitle'.tr(), context);
+                      }
+                    })
+              ],
+              content: Container(
+                  child: SingleChildScrollView(
+                      child: Column(children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: kMarginY * 2,
+                  ),
+                  child: AppInput(
+                    controller: mail,
+                    onChanged: (value) {},
+                    placeholder: 'labelemail'.tr(),
+                    validator: (value) {
+                      return Validators.isValidEmail(value!);
+                    },
+                  ),
+                ),
+              ])))));
+    });
 openModalLivraison(context) => showModalBottomSheet(
       context: context,
       builder: (BuildContext context) => Container(

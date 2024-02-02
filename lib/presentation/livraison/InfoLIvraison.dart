@@ -226,8 +226,65 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                     color: ColorsApp.grey),
                                 child: Icon(Icons.location_on)),
                             onTap: () {
-                              AutoRouter.of(context).pushNamed(
-                                  MapPagePointRecuperation.routeName);
+                              showModalBottomSheet(
+                                  context: context,
+                                  isScrollControlled: true,
+                                  isDismissible: true,
+                                  enableDrag: false,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(30.0),
+                                      topRight: Radius.circular(30.0),
+                                    ),
+                                  ),
+                                  builder: (BuildContext context) => Container(
+                                      height: getHeight(context) * .9,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                        // color: ColorsApp.white,
+                                      ),
+                                      margin:
+                                          EdgeInsets.only(top: kMarginY * 2),
+                                      child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                SizedBox(),
+                                                Container(
+                                                  child: Text(
+                                                    'Selectionner un point de recuperation'
+                                                        .tr(),
+                                                    style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontFamily: 'Lato',
+                                                        color:
+                                                            ColorsApp.primary),
+                                                  ),
+                                                ),
+                                                InkWell(
+                                                    child: Container(
+                                                        margin: EdgeInsets.only(
+                                                            right:
+                                                                kMarginX * 2),
+                                                        child: Icon(Icons.close,
+                                                            size: 25)),
+                                                    onTap: () =>
+                                                        AutoRouter.of(context)
+                                                            .pop())
+                                              ],
+                                            ),
+                                            MapPagePointRecuperation()
+                                          ])));
                             }),
                       ],
                     )),

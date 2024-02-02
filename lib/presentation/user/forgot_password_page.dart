@@ -8,6 +8,7 @@ import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BananaExpress/core.dart';
+import 'package:pinput/pinput.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
 
 @RoutePage()
@@ -20,6 +21,18 @@ class ForgotPasswordPage extends StatelessWidget {
   TextEditingController otpCode = TextEditingController();
   TextEditingController password = TextEditingController();
   final formKey = GlobalKey<FormState>();
+
+  final focusedBorderColor = ColorsApp.primary;
+  final fillColor = ColorsApp.primary;
+  final defaultPinTheme = PinTheme(
+    width: 56,
+    height: 56,
+    textStyle: const TextStyle(fontSize: 22, color: ColorsApp.white),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(8),
+      border: Border.all(color: ColorsApp.second),
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,18 +51,19 @@ class ForgotPasswordPage extends StatelessWidget {
       ),
       body: BlocConsumer<UserBloc, UserState>(
         listener: (context, state) {
-          if (state.isLoading == 1) {
+          if (state.isLoadingForgot == 1) {
             loader.open(context);
-          } else if (state.isLoading == 3) {
+          } else if (state.isLoadingForgot == 3) {
             loader.close();
             showError(state.authenticationFailedMessage!, context);
-          } else if (state.isLoading == 2) {
-            if (state.successReset == true) {
+          } else if (state.isLoadingForgot == 2) {
+            loader.close();
+            if (state.successReset! == true) {
               AutoRouter.of(context).replaceAll([HomeRoute()]);
               showSuccess('Connecte', context);
               initLoad(context);
-              loader.close();
-              print('-----44--------*********');
+
+              print('-----44---${state.successReset}-----*********');
             }
           }
         },
@@ -58,7 +72,7 @@ class ForgotPasswordPage extends StatelessWidget {
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: kMarginX),
               padding: EdgeInsets.only(
-                top: kMarginY,
+                top: kMarginY * 2,
               ),
               child: Form(
                 key: formKey,
@@ -66,7 +80,7 @@ class ForgotPasswordPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      if (state.isCode == 0)
+                      if (state.isCode == 0 || state.isCode == 2)
                         Container(
                           margin: EdgeInsets.only(
                             top: kMarginY,
@@ -115,13 +129,14 @@ class ForgotPasswordPage extends StatelessWidget {
                           margin:
                               EdgeInsets.only(top: kMarginY, bottom: kMarginY),
                           padding: EdgeInsets.symmetric(
-                            vertical: kMarginY * 5,
+                            vertical: kMarginY,
                           ),
                           child: Column(
                             children: [
                               Padding(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: kMarginY * 2,
+                                padding: EdgeInsets.only(
+                                  top: kMarginY * 2,
+                                  bottom: kMarginY,
                                 ),
                                 child: AppInput(
                                   controller: phoneormail,
@@ -132,24 +147,62 @@ class ForgotPasswordPage extends StatelessWidget {
                                   },
                                 ),
                               ),
-                              if (state.isCode == 1 && state.isCorrectCode == 1)
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    vertical: kMarginY * 2,
-                                  ),
-                                  child: AppInput(
-                                    controller: phoneormail,
-                                    onChanged: (value) {},
-                                    placeholder: 'labelphone_recup'.tr(),
-                                    validator: (value) {
-                                      // return Validators.usPhoneValid(value!);
-                                    },
-                                  ),
-                                ),
+                              if (state.isCode == 1 && state.isCorrectCode != 1)
+                                Container(
+                                    margin: EdgeInsets.only(
+                                      top: kMarginY,
+                                    ),
+                                    child: Column(children: [
+                                      // Container(
+                                      //     alignment: Alignment.centerLeft,
+                                      //     margin: EdgeInsets.symmetric(
+                                      //         vertical: kMarginY),
+                                      //     child: Text('code'.tr(),
+                                      //         textAlign: TextAlign.center,
+                                      //         style: TextStyle(
+                                      //             fontFamily: 'Montserrat',
+                                      //             color: ColorsApp.primary,
+                                      //             fontWeight:
+                                      //                 FontWeight.w600))),
+                                      Container(
+                                          child: Pinput(
+                                        length: 4,
+                                        focusedPinTheme:
+                                            defaultPinTheme.copyWith(
+                                          decoration: defaultPinTheme
+                                              .decoration!
+                                              .copyWith(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            border: Border.all(
+                                                color: focusedBorderColor),
+                                          ),
+                                        ),
+                                        controller: otpCode,
+                                        submittedPinTheme:
+                                            defaultPinTheme.copyWith(
+                                          decoration: defaultPinTheme
+                                              .decoration!
+                                              .copyWith(
+                                            color: fillColor,
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            border: Border.all(
+                                                color: focusedBorderColor),
+                                          ),
+                                        ),
+                                        errorPinTheme:
+                                            defaultPinTheme.copyBorderWith(
+                                          border: Border.all(
+                                              color: Colors.redAccent),
+                                        ),
+                                        onCompleted: (pin) async {},
+                                      ))
+                                    ])),
                               if (state.isCorrectCode == 1)
                                 AppInputPassword(
                                   controller: password,
-                                  placeholder: 'labelpassword'.tr(),
+                                  placeholder: 'newPass'.tr(),
                                   obscureText: true,
                                   validator: (value) {
                                     //print(value);
@@ -181,6 +234,10 @@ class ForgotPasswordPage extends StatelessWidget {
                                     size: MainAxisSize.max,
                                     text: 'logForgot'.tr(),
                                     onTap: () async {
+                                      if (phoneormail.text.isEmpty) {
+                                        showError('invmailphone'.tr(), context);
+                                        return;
+                                      }
                                       print({
                                         'data': phoneormail.text,
                                       });
@@ -192,25 +249,43 @@ class ForgotPasswordPage extends StatelessWidget {
                               if (state.isCode == 1 && state.isCorrectCode != 1)
                                 AppButton(
                                     size: MainAxisSize.max,
-                                    text: 'Verifier Code'.tr(),
+                                    text: 'verifCode'.tr(),
                                     onTap: () async {
+                                      if (otpCode.text.isEmpty) {
+                                        showError('invotp'.tr(), context);
+                                        return;
+                                      }
+                                      if (phoneormail.text.isEmpty) {
+                                        showError('invmailphone'.tr(), context);
+                                        return;
+                                      }
                                       print({
                                         'code': otpCode.text,
                                       });
 
                                       context.read<UserBloc>().add(VerifyCode(
-                                            code: phoneormail.text,
+                                            data: phoneormail.text,
+                                            code: otpCode.text,
                                           ));
                                     }),
                               if (state.isCorrectCode == 1)
                                 AppButton(
                                     size: MainAxisSize.max,
-                                    text: 'New Password'.tr(),
+                                    text: 'yvalid'.tr(),
                                     onTap: () async {
+                                      if (phoneormail.text.isEmpty) {
+                                        showError('invmailphone'.tr(), context);
+                                        return;
+                                      }
+                                      if (password.text.isEmpty) {
+                                        showError('invpass'.tr(), context);
+                                        return;
+                                      }
                                       context
                                           .read<UserBloc>()
                                           .add(ResetPassword(
-                                            password: phoneormail.text,
+                                            data: phoneormail.text,
+                                            password: password.text,
                                           ));
                                     }),
                             ],

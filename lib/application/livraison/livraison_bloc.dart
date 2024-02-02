@@ -300,7 +300,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       print('Error getting image: $e');
     }
   }
-
+  
   Future<void> getImageColisGalerie(
       GetImageColisGalerie event, Emitter<LivraisonState> emit) async {
     try {

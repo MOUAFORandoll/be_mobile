@@ -67,7 +67,10 @@ class DatabaseCubit extends Cubit<DatabaseState> {
 
     final users = userBox.getAll();
     print(users.length);
-    return users.isNotEmpty ? users.first : null;
+    print(
+        '-*--------------------------${users.last.profile}---------users.last');
+
+    return users.isNotEmpty ? users.last : null;
   }
 
   List<Commande> getListCommande() {
@@ -155,7 +158,7 @@ class DatabaseCubit extends Cubit<DatabaseState> {
     }
     return true;
   }
-   
+
   Future<void> disconnect() async {
     _store.box<Commande>().removeAll();
     _store.box<Theme>().removeAll();

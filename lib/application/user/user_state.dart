@@ -10,14 +10,20 @@ class UserState with _$UserState {
       String? quartierUser,
       String? newPassword,
       int? isCode,
+      int? isLoadingForgot,
+      int? isUpdateUserImage,
       int? isCorrectCode,
       int? isVilleQuartier,
-      bool? successReset}) = _UserState;
+      bool? successReset,
+      bool? updating}) = _UserState;
 
   factory UserState.initial() => UserState(
       isCode: 0,
+      updating: false,
       isCorrectCode: 0,
+      successReset: false,
       isLoading: 0,
+      isUpdateUserImage: 0,
       villeUser: '',
       quartierUser: '',
       isVilleQuartier: 0);

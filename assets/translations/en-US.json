@@ -22,8 +22,13 @@
   "ctitle3": "Policy",
   "cdescription3": "Speed, Trust, and Reliability are our motto. It's Cameroon that wins",
   "sauter": "Skip",
+  "verifCode": "Verify Code",
+  "newPass": "New Password",
   "resendCode": "Resend code",
   "deconnecter": "Disconnect",
+  "invmailphone": "Provide an email or phone number",
+  "invpass": "Provide a new password",
+  "invotp": "Provide the OTP code",
   "bienvenue": "Welcome",
   "historique": "History",
   "logTilte": "Access your account and get delivered!",
@@ -40,6 +45,9 @@
   "labelphone_recup": "Phone Number / email recuperation",
   "logForgot": "Send code",
   "tilterecu": "Please provide your phone number or email address for account recovery",
+
+  "yupdate": "Update successful",
+  "recupmailtitle": "Enter your recovery email address",
 
   "labelrpassword": "Repeat Password",
   "labelpassword": "Password",

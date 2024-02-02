@@ -14,6 +14,7 @@ import '/entity.dart';
 import '../export_bloc.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -40,7 +41,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<ResetPassword>(_ResetPassword);
 
     on<GetUserEvent>(_GetUserEvent);
+    on<UpdateUserInfo>(_UpdateData);
     on<GetVilleQuartier>(_getVilleQuartier);
+    on<UpdateUserImage>(_updateUserProfile);
   }
 
   Future<void> _getVilleQuartier(
@@ -101,15 +104,63 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   _GetUserEvent(GetUserEvent event, Emitter<UserState> emit) async {
     await userRepo.getUser().then((value) async {
-      print('------------------value----------${value.data}-');
-      if (value.data['data'] != null &&
-          value.data['data'] != [] &&
-          value.data['data'].length != 0) {
+      if (value.data['data'] != null) {
+        print('------------------saveee----------${value.data}-');
         var _UserSave = User.fromJson(value.data['data']);
 
         await database.saveUser(_UserSave);
       }
     }).catchError((error) {});
+  }
+
+  _UpdateData(UpdateUserInfo event, Emitter<UserState> emit) async {
+    var key = await database.getKey();
+    var data = Map.from(
+        event.data); // Create a new modifiable map from the existing data
+    data['keySecret'] = key;
+
+    print(data);
+    
+    emit(state.copyWith(updating: true));
+    await userRepo.updateUser(data).then((response) async {
+      if (response.statusCode == 201) {
+        database.saveKeyKen(response.data);
+
+        await userRepo.getUser().then((value) async {
+          if (value != null) {
+            print('------------------value----------${value.data}-');
+            if (value.data['data'] != null) {
+              emit(state.copyWith(
+                  updating: false,
+                  isLoading: 2,
+                  authenticationFailedMessage: ''));
+              emit(UserState.authenticated());
+
+              var _UserSave = User.fromJson(value.data['data']);
+
+              await database.saveUser(_UserSave);
+            }
+          }
+        }).catchError((error) {
+          emit(state.copyWith(
+              updating: false,
+              isLoading: 3,
+              authenticationFailedMessage:
+                  'Une erreur est survenue recommencer'));
+        });
+      } else {
+        emit(state.copyWith(
+            updating: false,
+            isLoading: 3,
+            authenticationFailedMessage: response.data['message']));
+      }
+    }).onError((error, s) {
+      // print('----${s}-----');
+      // print('------${error}---');
+      emit(state.copyWith(
+          isLoading: 3,
+          authenticationFailedMessage: 'Phone ou mot de passe incorrect'));
+    });
   }
 
   _Login(SignInEvent event, Emitter<UserState> emit) async {
@@ -126,9 +177,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         await userRepo.getUser().then((value) async {
           if (value != null) {
             print('------------------value----------${value.data}-');
-            if (value.data['data'] != null &&
-                value.data['data'] != [] &&
-                value.data['data'].length != 0) {
+            if (value.data['data'] != null) {
               emit(state.copyWith(
                   isLoading: 2, authenticationFailedMessage: ''));
               emit(UserState.authenticated());
@@ -210,23 +259,27 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       'data': event.data,
     };
     print(data);
-    emit(state.copyWith(isLoading: 1, isCode: 0));
+    emit(state.copyWith(
+      isLoadingForgot: 1,
+      isCode: 0,
+      successReset: false,
+    ));
     await userRepo.SendCode(data).then((response) async {
       if (response.statusCode == 201) {
         emit(state.copyWith(
-          isLoading: 2,
+          isLoadingForgot: 2,
           isCode: 1,
         ));
       } else {
         emit(state.copyWith(
-            isLoading: 3,
+            isLoadingForgot: 3,
             isCode: 2,
             authenticationFailedMessage: response.data['message']));
       }
     }).onError((error, s) {
       emit(state.copyWith(
           isCode: 2,
-          isLoading: 3,
+          isLoadingForgot: 3,
           authenticationFailedMessage: 'System error'));
     });
   }
@@ -234,48 +287,68 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   _VerifyCode(VerifyCode event, Emitter<UserState> emit) async {
     var data = {
       'code': event.code,
+      'data': event.data,
     };
     print(data);
     emit(state.copyWith(
-      isLoading: 1,
+      isLoadingForgot: 1,
     ));
     await userRepo.VerifyCode(data).then((response) async {
       if (response.statusCode == 201) {
         emit(state.copyWith(
-          isLoading: 2,
+          isLoadingForgot: 2,
           isCorrectCode: 1,
         ));
       } else {
         emit(state.copyWith(
-            isLoading: 3,
+            isLoadingForgot: 3,
             isCorrectCode: 2,
             authenticationFailedMessage: response.data['message']));
       }
     }).onError((error, s) {
       emit(state.copyWith(
           isCorrectCode: 3,
-          isLoading: 3,
+          isLoadingForgot: 3,
           authenticationFailedMessage: 'System error'));
     });
   }
 
   _ResetPassword(ResetPassword event, Emitter<UserState> emit) async {
     var data = {
+      'data': event.data,
       'password': event.password,
     };
     print(data);
     emit(state.copyWith(
-      isLoading: 1,
+      isLoadingForgot: 1,
     ));
     await userRepo.ResetPassword(data).then((response) async {
       if (response.statusCode == 201) {
-        emit(state.copyWith(
-          isLoading: 2,
-          successReset: true,
-        ));
+        database.saveKeyKen(response.data);
+        await userRepo.getUser().then((value) async {
+          print('------------------value----------${value.data}-');
+          if (value.data['data'] != null &&
+              value.data['data'] != [] &&
+              value.data['data'].length != 0) {
+            emit(state.copyWith(
+              isLoadingForgot: 2,
+              successReset: true,
+            ));
+
+            var _UserSave = User.fromJson(value.data['data']);
+
+            await database.saveUser(_UserSave);
+          }
+        }).catchError((error) {
+          emit(state.copyWith(
+              isCorrectCode: 3,
+              successReset: false,
+              isLoadingForgot: 3,
+              authenticationFailedMessage: 'System error'));
+        });
       } else {
         emit(state.copyWith(
-          isLoading: 3,
+          isLoadingForgot: 3,
           successReset: false,
         ));
       }
@@ -283,9 +356,57 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       emit(state.copyWith(
           isCorrectCode: 3,
           successReset: false,
-          isLoading: 3,
+          isLoadingForgot: 3,
           authenticationFailedMessage: 'System error'));
     });
+  }
+
+  _updateUserProfile(UpdateUserImage event, Emitter<UserState> emit) async {
+    try {
+      emit(state.copyWith(isUpdateUserImage: 0));
+      var key = await database.getKey();
+      print('----------***********-----adding');
+      var image = await ImagePicker().pickImage(
+        source: ImageSource.camera,
+        imageQuality: 100,
+        maxHeight: 500,
+        maxWidth: 500,
+      );
+      if (image != null) {
+        emit(state.copyWith(isUpdateUserImage: 1));
+        FormData formData = FormData.fromMap({'keySecret': key});
+        formData.files.add(MapEntry(
+            'file',
+            await MultipartFile.fromFile(
+              image.path,
+              filename: 'Image.jpg',
+            )));
+        Response response = await userRepo.updateImageUser(formData);
+        print(response.data);
+        if (response.statusCode == 201) {
+          database.saveKeyKen(response.data);
+          await userRepo.getUser().then((value) async {
+            print('------------------value----------${value.data}-');
+            if (value.data['data'] != null) {
+              emit(state.copyWith(isUpdateUserImage: 2));
+
+              var _UserSave = User.fromJson(value.data['data']);
+
+              await database.saveUser(_UserSave);
+            }
+          }).catchError((error) {
+            emit(state.copyWith(
+                isLoading: 3,
+                authenticationFailedMessage:
+                    'Une erreur est survenue recommencer'));
+          });
+        } else {
+          emit(state.copyWith(isUpdateUserImage: 3));
+        }
+      }
+    } catch (e) {
+      print('Error getting image: $e');
+    }
   }
 
   Stream<UserState> mapEventToState(UserEvent event) async* {}

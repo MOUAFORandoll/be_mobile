@@ -75,12 +75,7 @@ class LivraisonRepo {
 
     return a;
   }
-
-  Future verifyCom(data) async {
-    Response a = await apiClient.postRequest(ApiRoutes.VERIFY, body: data);
-
-    return a;
-  }
+   
 
   Future test(indexC) async {
     Response a = await apiClient.getRequest(

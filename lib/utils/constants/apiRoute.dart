@@ -1,29 +1,21 @@
 class ApiRoutes {
   static const LIVRAISONS = '/livraisons';
   static const CATEGORY = '/category';
-  static const UPDATE_USER = '/user/update';
   static const LOCATION_USER = '/user/location';
   static const USER = '/user/get';
   static const LIVREUR = '/livreur/read/ville';
   static const LIVRAISON_POINT = '/point_localisations';
-  static const BUY = '/commande/newX';
-  static const VERIFY = '/commande/verify';
-  static const UPDATE_PRODUCT = '/produit/update';
-
-  static const UPDATE_PRODUCT_IMAGE = '/produit/image/update';
-  static const ADD_PRODUCT_IMAGE = '/produit/image/add';
 
   static const LOGIN = '/auth/user';
-
+  
   static const SEND_CODE = '/auth/send-code';
   static const VERIFY_CODE = '/auth/verify-code';
   static const REST_PASSWORD = '/auth/new-password';
-  
-  
-  
+  static const SIGNUP = '/auth/create-user';
+
+  static const UPDATE_USER = '/auth/user-update';
 
   static const Refresh = '/api/token/refresh';
-  static const SIGNUP = '/create/user';
   static const SEARCH = '/search';
   static const MODEPAIEMENT = '/modepaiement/read';
   

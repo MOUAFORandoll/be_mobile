@@ -15,9 +15,11 @@ class UserEvent with _$UserEvent {
   }) = RegisterEvent;
 
   const factory UserEvent.sendCode({required String data}) = SendCode;
-  const factory UserEvent.verifyCode({required String code}) = VerifyCode;
-  const factory UserEvent.resetpassword({required String password}) =
-      ResetPassword;
+  const factory UserEvent.updateUserInfo({required Map data}) = UpdateUserInfo;
+  const factory UserEvent.verifyCode(
+      {required String data, required String code}) = VerifyCode;
+  const factory UserEvent.resetpassword(
+      {required String data, required String password}) = ResetPassword;
   // Uncomment and customize these events as needed
   const factory UserEvent.signOut({required BuildContext context}) =
       SignOutEvent;
@@ -25,4 +27,5 @@ class UserEvent with _$UserEvent {
   // const factory UserEvent.checkUserIsConnected() = CheckUserIsConnectedEvent;
   const factory UserEvent.getUserEvent() = GetUserEvent;
   const factory UserEvent.getVilleQuartier() = GetVilleQuartier;
+  const factory UserEvent.updateUserImage() = UpdateUserImage;
 }

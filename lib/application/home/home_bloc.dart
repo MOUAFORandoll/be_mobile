@@ -26,7 +26,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(state.copyWith(user: user));
 
       print(
-          '---------UserD-------------------------*ataEvent***${state.user!.nom}');
+          '---------UserD-------------------------*ataEvent***${state.user!.profile}');
     });
     on<SetIndexEvent>((event, emit) async {
       print('-----------------SetIndexEvent');
