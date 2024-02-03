@@ -22,4 +22,13 @@ class PharmacyRepo {
       return null;
     }
   }
+
+  Future findMedicament(search) async {
+    print('-----search---${search}');
+
+    Response a = await apiClient
+        .getRequest(ApiRoutes.MEDICAMENT_SEARCH + '?name=${search}');
+
+    return a;
+  }
 }

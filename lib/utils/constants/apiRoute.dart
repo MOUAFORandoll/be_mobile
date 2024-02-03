@@ -33,4 +33,5 @@ class ApiRoutes {
   static const READ_SHORT_FOR_BOUTIQUE = '/short/for/boutique/read';
   static const HOME = '/home';
   static const VILLE = '/villes';
+  static const MEDICAMENT_SEARCH = '/medicament-search';
 }

@@ -1,4 +1,3 @@
-import 'package:BananaExpress/entity.dart';
 import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BananaExpress/presentation/components/Widget/k_home_info.dart';
@@ -9,7 +8,6 @@ import 'package:BananaExpress/routes/app_router.gr.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
 import 'package:BananaExpress/utils/functions/showToast.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -451,7 +449,10 @@ openUpdateMail(context) => showDialog(
                   InkWell(
                       child: Icon(Icons.close,
                           color: ColorsApp.primary, weight: 50),
-                      onTap: () => AutoRouter.of(context).pop())
+                      onTap: () {
+                        context.read<HomeBloc>().add(NoOpenRecupMailModal());
+                        AutoRouter.of(context).pop();
+                      })
                 ],
               )),
               actions: [

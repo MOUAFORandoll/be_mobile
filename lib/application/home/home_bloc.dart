@@ -28,12 +28,22 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           '---------UserD-------------------------*ataEvent***${state.user!.profile}');
     });
     on<OpenRecupMailModal>((event, emit) async {
-      print('---------recupMailStatus-------------------------');
-      var user = await database.getUser();
-      emit(state.copyWith(recupMailStatus: user!.recupMailStatus));
+      if (state.noOpen == false) {
+        print('---------recupMailStatus-------------------------');
+        var user = await database.getUser();
+        emit(state.copyWith(recupMailStatus: user!.recupMailStatus));
+
+        print('---------recupMailStatus-------------------------');
+      }
+    });
+    on<NoOpenRecupMailModal>((event, emit) async {
+      print('---------NoOpenRecupMailModal-------------------------');
+
+      emit(state.copyWith(noOpen: true));
 
       print('---------recupMailStatus-------------------------');
     });
+
     on<SetIndexEvent>((event, emit) async {
       print('-----------------SetIndexEvent');
       emit(state.copyWith(index: event.index));

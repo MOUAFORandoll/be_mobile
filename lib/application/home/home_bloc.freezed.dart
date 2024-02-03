@@ -27,6 +27,7 @@ mixin _$HomeEvent {
     required TResult Function() getCategoryList,
     required TResult Function() openLivraisonModal,
     required TResult Function() openRecupMailModal,
+    required TResult Function() noOpenRecupMailModal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +40,7 @@ mixin _$HomeEvent {
     TResult? Function()? getCategoryList,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? openRecupMailModal,
+    TResult? Function()? noOpenRecupMailModal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +53,7 @@ mixin _$HomeEvent {
     TResult Function()? getCategoryList,
     TResult Function()? openLivraisonModal,
     TResult Function()? openRecupMailModal,
+    TResult Function()? noOpenRecupMailModal,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +67,7 @@ mixin _$HomeEvent {
     required TResult Function(GetCategoryList value) getCategoryList,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(OpenRecupMailModal value) openRecupMailModal,
+    required TResult Function(NoOpenRecupMailModal value) noOpenRecupMailModal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +80,7 @@ mixin _$HomeEvent {
     TResult? Function(GetCategoryList value)? getCategoryList,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult? Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +93,7 @@ mixin _$HomeEvent {
     TResult Function(GetCategoryList value)? getCategoryList,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -183,6 +189,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     required TResult Function() getCategoryList,
     required TResult Function() openLivraisonModal,
     required TResult Function() openRecupMailModal,
+    required TResult Function() noOpenRecupMailModal,
   }) {
     return error(this.error);
   }
@@ -198,6 +205,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult? Function()? getCategoryList,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? openRecupMailModal,
+    TResult? Function()? noOpenRecupMailModal,
   }) {
     return error?.call(this.error);
   }
@@ -213,6 +221,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult Function()? getCategoryList,
     TResult Function()? openLivraisonModal,
     TResult Function()? openRecupMailModal,
+    TResult Function()? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -232,6 +241,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     required TResult Function(GetCategoryList value) getCategoryList,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(OpenRecupMailModal value) openRecupMailModal,
+    required TResult Function(NoOpenRecupMailModal value) noOpenRecupMailModal,
   }) {
     return error(this);
   }
@@ -247,6 +257,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult? Function(GetCategoryList value)? getCategoryList,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult? Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
   }) {
     return error?.call(this);
   }
@@ -262,6 +273,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult Function(GetCategoryList value)? getCategoryList,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -327,6 +339,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     required TResult Function() getCategoryList,
     required TResult Function() openLivraisonModal,
     required TResult Function() openRecupMailModal,
+    required TResult Function() noOpenRecupMailModal,
   }) {
     return userData();
   }
@@ -342,6 +355,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult? Function()? getCategoryList,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? openRecupMailModal,
+    TResult? Function()? noOpenRecupMailModal,
   }) {
     return userData?.call();
   }
@@ -357,6 +371,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult Function()? getCategoryList,
     TResult Function()? openLivraisonModal,
     TResult Function()? openRecupMailModal,
+    TResult Function()? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (userData != null) {
@@ -376,6 +391,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     required TResult Function(GetCategoryList value) getCategoryList,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(OpenRecupMailModal value) openRecupMailModal,
+    required TResult Function(NoOpenRecupMailModal value) noOpenRecupMailModal,
   }) {
     return userData(this);
   }
@@ -391,6 +407,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult? Function(GetCategoryList value)? getCategoryList,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult? Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
   }) {
     return userData?.call(this);
   }
@@ -406,6 +423,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult Function(GetCategoryList value)? getCategoryList,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (userData != null) {
@@ -493,6 +511,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     required TResult Function() getCategoryList,
     required TResult Function() openLivraisonModal,
     required TResult Function() openRecupMailModal,
+    required TResult Function() noOpenRecupMailModal,
   }) {
     return setIndex(index);
   }
@@ -508,6 +527,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult? Function()? getCategoryList,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? openRecupMailModal,
+    TResult? Function()? noOpenRecupMailModal,
   }) {
     return setIndex?.call(index);
   }
@@ -523,6 +543,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult Function()? getCategoryList,
     TResult Function()? openLivraisonModal,
     TResult Function()? openRecupMailModal,
+    TResult Function()? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (setIndex != null) {
@@ -542,6 +563,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     required TResult Function(GetCategoryList value) getCategoryList,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(OpenRecupMailModal value) openRecupMailModal,
+    required TResult Function(NoOpenRecupMailModal value) noOpenRecupMailModal,
   }) {
     return setIndex(this);
   }
@@ -557,6 +579,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult? Function(GetCategoryList value)? getCategoryList,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult? Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
   }) {
     return setIndex?.call(this);
   }
@@ -572,6 +595,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult Function(GetCategoryList value)? getCategoryList,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (setIndex != null) {
@@ -666,6 +690,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     required TResult Function() getCategoryList,
     required TResult Function() openLivraisonModal,
     required TResult Function() openRecupMailModal,
+    required TResult Function() noOpenRecupMailModal,
   }) {
     return selectCategory(category);
   }
@@ -681,6 +706,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult? Function()? getCategoryList,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? openRecupMailModal,
+    TResult? Function()? noOpenRecupMailModal,
   }) {
     return selectCategory?.call(category);
   }
@@ -696,6 +722,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult Function()? getCategoryList,
     TResult Function()? openLivraisonModal,
     TResult Function()? openRecupMailModal,
+    TResult Function()? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (selectCategory != null) {
@@ -715,6 +742,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     required TResult Function(GetCategoryList value) getCategoryList,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(OpenRecupMailModal value) openRecupMailModal,
+    required TResult Function(NoOpenRecupMailModal value) noOpenRecupMailModal,
   }) {
     return selectCategory(this);
   }
@@ -730,6 +758,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult? Function(GetCategoryList value)? getCategoryList,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult? Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
   }) {
     return selectCategory?.call(this);
   }
@@ -745,6 +774,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult Function(GetCategoryList value)? getCategoryList,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (selectCategory != null) {
@@ -847,6 +877,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     required TResult Function() getCategoryList,
     required TResult Function() openLivraisonModal,
     required TResult Function() openRecupMailModal,
+    required TResult Function() noOpenRecupMailModal,
   }) {
     return updateListCategory(categoryList);
   }
@@ -862,6 +893,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult? Function()? getCategoryList,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? openRecupMailModal,
+    TResult? Function()? noOpenRecupMailModal,
   }) {
     return updateListCategory?.call(categoryList);
   }
@@ -877,6 +909,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult Function()? getCategoryList,
     TResult Function()? openLivraisonModal,
     TResult Function()? openRecupMailModal,
+    TResult Function()? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (updateListCategory != null) {
@@ -896,6 +929,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     required TResult Function(GetCategoryList value) getCategoryList,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(OpenRecupMailModal value) openRecupMailModal,
+    required TResult Function(NoOpenRecupMailModal value) noOpenRecupMailModal,
   }) {
     return updateListCategory(this);
   }
@@ -911,6 +945,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult? Function(GetCategoryList value)? getCategoryList,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult? Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
   }) {
     return updateListCategory?.call(this);
   }
@@ -926,6 +961,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult Function(GetCategoryList value)? getCategoryList,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (updateListCategory != null) {
@@ -993,6 +1029,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     required TResult Function() getCategoryList,
     required TResult Function() openLivraisonModal,
     required TResult Function() openRecupMailModal,
+    required TResult Function() noOpenRecupMailModal,
   }) {
     return getCategoryList();
   }
@@ -1008,6 +1045,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult? Function()? getCategoryList,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? openRecupMailModal,
+    TResult? Function()? noOpenRecupMailModal,
   }) {
     return getCategoryList?.call();
   }
@@ -1023,6 +1061,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult Function()? getCategoryList,
     TResult Function()? openLivraisonModal,
     TResult Function()? openRecupMailModal,
+    TResult Function()? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (getCategoryList != null) {
@@ -1042,6 +1081,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     required TResult Function(GetCategoryList value) getCategoryList,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(OpenRecupMailModal value) openRecupMailModal,
+    required TResult Function(NoOpenRecupMailModal value) noOpenRecupMailModal,
   }) {
     return getCategoryList(this);
   }
@@ -1057,6 +1097,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult? Function(GetCategoryList value)? getCategoryList,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult? Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
   }) {
     return getCategoryList?.call(this);
   }
@@ -1072,6 +1113,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult Function(GetCategoryList value)? getCategoryList,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (getCategoryList != null) {
@@ -1132,6 +1174,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     required TResult Function() getCategoryList,
     required TResult Function() openLivraisonModal,
     required TResult Function() openRecupMailModal,
+    required TResult Function() noOpenRecupMailModal,
   }) {
     return openLivraisonModal();
   }
@@ -1147,6 +1190,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult? Function()? getCategoryList,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? openRecupMailModal,
+    TResult? Function()? noOpenRecupMailModal,
   }) {
     return openLivraisonModal?.call();
   }
@@ -1162,6 +1206,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult Function()? getCategoryList,
     TResult Function()? openLivraisonModal,
     TResult Function()? openRecupMailModal,
+    TResult Function()? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (openLivraisonModal != null) {
@@ -1181,6 +1226,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     required TResult Function(GetCategoryList value) getCategoryList,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(OpenRecupMailModal value) openRecupMailModal,
+    required TResult Function(NoOpenRecupMailModal value) noOpenRecupMailModal,
   }) {
     return openLivraisonModal(this);
   }
@@ -1196,6 +1242,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult? Function(GetCategoryList value)? getCategoryList,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult? Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
   }) {
     return openLivraisonModal?.call(this);
   }
@@ -1211,6 +1258,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult Function(GetCategoryList value)? getCategoryList,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (openLivraisonModal != null) {
@@ -1271,6 +1319,7 @@ class _$OpenRecupMailModalImpl implements OpenRecupMailModal {
     required TResult Function() getCategoryList,
     required TResult Function() openLivraisonModal,
     required TResult Function() openRecupMailModal,
+    required TResult Function() noOpenRecupMailModal,
   }) {
     return openRecupMailModal();
   }
@@ -1286,6 +1335,7 @@ class _$OpenRecupMailModalImpl implements OpenRecupMailModal {
     TResult? Function()? getCategoryList,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? openRecupMailModal,
+    TResult? Function()? noOpenRecupMailModal,
   }) {
     return openRecupMailModal?.call();
   }
@@ -1301,6 +1351,7 @@ class _$OpenRecupMailModalImpl implements OpenRecupMailModal {
     TResult Function()? getCategoryList,
     TResult Function()? openLivraisonModal,
     TResult Function()? openRecupMailModal,
+    TResult Function()? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (openRecupMailModal != null) {
@@ -1320,6 +1371,7 @@ class _$OpenRecupMailModalImpl implements OpenRecupMailModal {
     required TResult Function(GetCategoryList value) getCategoryList,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(OpenRecupMailModal value) openRecupMailModal,
+    required TResult Function(NoOpenRecupMailModal value) noOpenRecupMailModal,
   }) {
     return openRecupMailModal(this);
   }
@@ -1335,6 +1387,7 @@ class _$OpenRecupMailModalImpl implements OpenRecupMailModal {
     TResult? Function(GetCategoryList value)? getCategoryList,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult? Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
   }) {
     return openRecupMailModal?.call(this);
   }
@@ -1350,6 +1403,7 @@ class _$OpenRecupMailModalImpl implements OpenRecupMailModal {
     TResult Function(GetCategoryList value)? getCategoryList,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
     required TResult orElse(),
   }) {
     if (openRecupMailModal != null) {
@@ -1364,10 +1418,157 @@ abstract class OpenRecupMailModal implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$NoOpenRecupMailModalImplCopyWith<$Res> {
+  factory _$$NoOpenRecupMailModalImplCopyWith(_$NoOpenRecupMailModalImpl value,
+          $Res Function(_$NoOpenRecupMailModalImpl) then) =
+      __$$NoOpenRecupMailModalImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoOpenRecupMailModalImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$NoOpenRecupMailModalImpl>
+    implements _$$NoOpenRecupMailModalImplCopyWith<$Res> {
+  __$$NoOpenRecupMailModalImplCopyWithImpl(_$NoOpenRecupMailModalImpl _value,
+      $Res Function(_$NoOpenRecupMailModalImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NoOpenRecupMailModalImpl implements NoOpenRecupMailModal {
+  const _$NoOpenRecupMailModalImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.noOpenRecupMailModal()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NoOpenRecupMailModalImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String error) error,
+    required TResult Function() userData,
+    required TResult Function(dynamic index) setIndex,
+    required TResult Function(CategoryModel category) selectCategory,
+    required TResult Function(List<CategoryModel> categoryList)
+        updateListCategory,
+    required TResult Function() getCategoryList,
+    required TResult Function() openLivraisonModal,
+    required TResult Function() openRecupMailModal,
+    required TResult Function() noOpenRecupMailModal,
+  }) {
+    return noOpenRecupMailModal();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String error)? error,
+    TResult? Function()? userData,
+    TResult? Function(dynamic index)? setIndex,
+    TResult? Function(CategoryModel category)? selectCategory,
+    TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
+    TResult? Function()? getCategoryList,
+    TResult? Function()? openLivraisonModal,
+    TResult? Function()? openRecupMailModal,
+    TResult? Function()? noOpenRecupMailModal,
+  }) {
+    return noOpenRecupMailModal?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String error)? error,
+    TResult Function()? userData,
+    TResult Function(dynamic index)? setIndex,
+    TResult Function(CategoryModel category)? selectCategory,
+    TResult Function(List<CategoryModel> categoryList)? updateListCategory,
+    TResult Function()? getCategoryList,
+    TResult Function()? openLivraisonModal,
+    TResult Function()? openRecupMailModal,
+    TResult Function()? noOpenRecupMailModal,
+    required TResult orElse(),
+  }) {
+    if (noOpenRecupMailModal != null) {
+      return noOpenRecupMailModal();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ErrorEvent value) error,
+    required TResult Function(UserDataEvent value) userData,
+    required TResult Function(SetIndexEvent value) setIndex,
+    required TResult Function(SelectCategory value) selectCategory,
+    required TResult Function(UpdateListCategory value) updateListCategory,
+    required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(OpenRecupMailModal value) openRecupMailModal,
+    required TResult Function(NoOpenRecupMailModal value) noOpenRecupMailModal,
+  }) {
+    return noOpenRecupMailModal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ErrorEvent value)? error,
+    TResult? Function(UserDataEvent value)? userData,
+    TResult? Function(SetIndexEvent value)? setIndex,
+    TResult? Function(SelectCategory value)? selectCategory,
+    TResult? Function(UpdateListCategory value)? updateListCategory,
+    TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult? Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
+  }) {
+    return noOpenRecupMailModal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ErrorEvent value)? error,
+    TResult Function(UserDataEvent value)? userData,
+    TResult Function(SetIndexEvent value)? setIndex,
+    TResult Function(SelectCategory value)? selectCategory,
+    TResult Function(UpdateListCategory value)? updateListCategory,
+    TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(OpenRecupMailModal value)? openRecupMailModal,
+    TResult Function(NoOpenRecupMailModal value)? noOpenRecupMailModal,
+    required TResult orElse(),
+  }) {
+    if (noOpenRecupMailModal != null) {
+      return noOpenRecupMailModal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoOpenRecupMailModal implements HomeEvent {
+  const factory NoOpenRecupMailModal() = _$NoOpenRecupMailModalImpl;
+}
+
+/// @nodoc
 mixin _$HomeState {
   User? get user => throw _privateConstructorUsedError;
   int get index => throw _privateConstructorUsedError;
   bool? get recupMailStatus => throw _privateConstructorUsedError;
+  bool? get noOpen => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -1379,7 +1580,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({User? user, int index, bool? recupMailStatus});
+  $Res call({User? user, int index, bool? recupMailStatus, bool? noOpen});
 }
 
 /// @nodoc
@@ -1398,6 +1599,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? user = freezed,
     Object? index = null,
     Object? recupMailStatus = freezed,
+    Object? noOpen = freezed,
   }) {
     return _then(_value.copyWith(
       user: freezed == user
@@ -1412,6 +1614,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.recupMailStatus
           : recupMailStatus // ignore: cast_nullable_to_non_nullable
               as bool?,
+      noOpen: freezed == noOpen
+          ? _value.noOpen
+          : noOpen // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -1424,7 +1630,7 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       __$$HomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({User? user, int index, bool? recupMailStatus});
+  $Res call({User? user, int index, bool? recupMailStatus, bool? noOpen});
 }
 
 /// @nodoc
@@ -1441,6 +1647,7 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? user = freezed,
     Object? index = null,
     Object? recupMailStatus = freezed,
+    Object? noOpen = freezed,
   }) {
     return _then(_$HomeStateImpl(
       user: freezed == user
@@ -1455,6 +1662,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.recupMailStatus
           : recupMailStatus // ignore: cast_nullable_to_non_nullable
               as bool?,
+      noOpen: freezed == noOpen
+          ? _value.noOpen
+          : noOpen // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1463,7 +1674,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 
 class _$HomeStateImpl implements _HomeState {
   const _$HomeStateImpl(
-      {required this.user, required this.index, required this.recupMailStatus});
+      {required this.user,
+      required this.index,
+      required this.recupMailStatus,
+      required this.noOpen});
 
   @override
   final User? user;
@@ -1471,10 +1685,12 @@ class _$HomeStateImpl implements _HomeState {
   final int index;
   @override
   final bool? recupMailStatus;
+  @override
+  final bool? noOpen;
 
   @override
   String toString() {
-    return 'HomeState(user: $user, index: $index, recupMailStatus: $recupMailStatus)';
+    return 'HomeState(user: $user, index: $index, recupMailStatus: $recupMailStatus, noOpen: $noOpen)';
   }
 
   @override
@@ -1485,11 +1701,13 @@ class _$HomeStateImpl implements _HomeState {
             (identical(other.user, user) || other.user == user) &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.recupMailStatus, recupMailStatus) ||
-                other.recupMailStatus == recupMailStatus));
+                other.recupMailStatus == recupMailStatus) &&
+            (identical(other.noOpen, noOpen) || other.noOpen == noOpen));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user, index, recupMailStatus);
+  int get hashCode =>
+      Object.hash(runtimeType, user, index, recupMailStatus, noOpen);
 
   @JsonKey(ignore: true)
   @override
@@ -1502,7 +1720,8 @@ abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {required final User? user,
       required final int index,
-      required final bool? recupMailStatus}) = _$HomeStateImpl;
+      required final bool? recupMailStatus,
+      required final bool? noOpen}) = _$HomeStateImpl;
 
   @override
   User? get user;
@@ -1510,6 +1729,8 @@ abstract class _HomeState implements HomeState {
   int get index;
   @override
   bool? get recupMailStatus;
+  @override
+  bool? get noOpen;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>

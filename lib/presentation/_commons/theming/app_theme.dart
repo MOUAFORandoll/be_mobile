@@ -1,5 +1,55 @@
 import '../../components/exportcomponent.dart';
 
+
+class TexteStyle {
+  final errorStyle = TextStyle(
+    fontFamily: 'Lato',
+    fontSize: kBasics,
+    color: ColorsApp.second,
+  );
+
+  final primaryTextStyle = TextStyle(
+    fontFamily: 'Lato',
+    color: ColorsApp.primary,
+    fontSize: kBasics,
+  );
+  final primaryBigTextStyle = TextStyle(
+    fontFamily: 'Lato',
+    color: ColorsApp.primary,
+    fontSize: kBasics,
+  );
+  final bprimaryBigTextStyle = TextStyle(
+      fontFamily: 'Lato',
+      color: ColorsApp.primary,
+      fontSize: kBasics,
+      fontWeight: FontWeight.w600);
+  final bprimaryTextStyle = TextStyle(
+      fontFamily: 'Lato',
+      color: ColorsApp.primary,
+      fontSize: kBasics,
+      fontWeight: FontWeight.w600);
+  final secondaryTextStyle = TextStyle(
+    fontFamily: 'Lato',
+    color: ColorsApp.primary,
+    fontSize: kBasics,
+  );
+  final bsecondaryTextStyle = TextStyle(
+      fontFamily: 'Lato',
+      color: ColorsApp.primary,
+      fontSize: kBasics,
+      fontWeight: FontWeight.w600);
+  final largeTextStyle = TextStyle(
+    fontFamily: 'Lato',
+    color: ColorsApp.primary,
+    fontSize: kBasics,
+  );
+  final blargeTextStyle = TextStyle(
+      fontFamily: 'Lato',
+      color: ColorsApp.primary,
+      fontSize: kBasics,
+      fontWeight: FontWeight.w600);
+}
+
 ThemeData darkTheme = ThemeData(
   primaryColor: ColorsApp.white,
   fontFamily: 'Lato',
@@ -20,13 +70,20 @@ ThemeData lightTheme(context) => ThemeData(
         color: ColorsApp.primary,
       ),
       textTheme: TextTheme(
-        bodyMedium: TextStyle(
-          fontFamily: 'Lato', // Assure que Lato est utilisé partout
-          fontSize:
-              kBasics, // Remplacez 16 par votre taille de texte par défaut souhaitée
-          color:
-              Colors.black, // La couleur par défaut du texte, peut être ajustée
-        ),
+        bodyLarge: TexteStyle().largeTextStyle,
+        displayLarge: TexteStyle().largeTextStyle,
+        displayMedium: TexteStyle().secondaryTextStyle,
+        displaySmall: TexteStyle().primaryTextStyle,
+        headlineMedium: TexteStyle().secondaryTextStyle,
+        headlineSmall: TexteStyle().primaryTextStyle,
+        bodyMedium: TexteStyle().largeTextStyle,
+        bodySmall: TexteStyle().primaryTextStyle,
+        labelLarge: TexteStyle().largeTextStyle,
+        labelSmall: TexteStyle().primaryTextStyle,
+        titleLarge: TexteStyle().largeTextStyle,
+        titleMedium: TexteStyle().secondaryTextStyle,
+        titleSmall: TexteStyle().largeTextStyle,
+     
       ),
       useMaterial3: true,
       appBarTheme: AppBarTheme(

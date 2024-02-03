@@ -1,5 +1,4 @@
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../application/export_bloc.dart';
 

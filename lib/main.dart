@@ -24,7 +24,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await EnvManager().init(env: Environment.prod);
+  await EnvManager().init(env: Environment.dev);
 
   co.init();
 
@@ -94,7 +94,7 @@ class AppContent extends StatelessWidget {
       routerConfig: _appRouter.config(),
       debugShowCheckedModeBanner: false,
       title: 'Babana Express',
-      darkTheme: AppThemes().darkTheme,
+      darkTheme: darkTheme,
       themeMode: ThemeMode.light,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

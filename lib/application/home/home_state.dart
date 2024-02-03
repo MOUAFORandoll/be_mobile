@@ -6,8 +6,9 @@ class HomeState with _$HomeState {
     required User? user,
     required int index,
     required bool? recupMailStatus,
+    required bool? noOpen,
   }) = _HomeState;
 
   factory HomeState.initial() =>
-      HomeState(user: null, index: 0, recupMailStatus: true);
+      HomeState(user: null, index: 0, recupMailStatus: true , noOpen :false);
 }
