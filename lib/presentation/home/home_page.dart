@@ -3,7 +3,7 @@ import 'package:BananaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BananaExpress/presentation/components/Widget/k_home_info.dart';
 import 'package:BananaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
-import 'package:BananaExpress/presentation/pharmacy/pharmacy_page.dart';
+import 'package:BananaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
@@ -158,7 +158,9 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                         titleBtn: 'pharmacie'.tr(),
                                         image: Assets.medical,
                                         onTap: () => AutoRouter.of(context)
-                                            .pushNamed(PharmacyPage.routeName),
+                                            .pushNamed(
+                                                NewLivraisonMedicamentPage
+                                                    .routeName),
                                       ),
                                     ])))
                       ]))

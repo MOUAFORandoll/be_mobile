@@ -36,7 +36,7 @@ Future<void> init() async {
     ..registerLazySingleton(() => LivraisonRepo(apiClient: sl()));
 
   sl
-    ..registerFactory(() => PharmacyBloc(pharmacyRepo: sl() ))
+    ..registerFactory(() => PharmacyBloc(pharmacyRepo: sl()))
     ..registerLazySingleton(() => PharmacyRepo(apiClient: sl()));
   requestPermission();
   initConnected();
@@ -57,6 +57,12 @@ Future<void> initLoad(context) async {
     ..add(StartLogLat())
     ..add(GetVilleAndCategoryEvent())
     ..add(ListLivraison());
+  initSetDefaultValue(context);
+}
+
+Future<void> initSetDefaultValue(context) async {
+  BlocProvider.of<LivraisonBloc>(context).add(OnStartEvent());
+  BlocProvider.of<PharmacyBloc>(context).add(OnStartEventP());
 }
 
 Future<void> requestPermission() async {

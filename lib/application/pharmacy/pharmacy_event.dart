@@ -4,8 +4,8 @@ part of 'pharmacy_bloc.dart';
 class PharmacyEvent with _$PharmacyEvent {
   const factory PharmacyEvent.updatePharmacyImage() = UpdatePharmacyImage;
   const factory PharmacyEvent.verifyFormChooseMedicamentEvent() =
-      VerifyFormChooseMedicamentEvent;
-
+      VerifyFormChooseMedicamentEventP;
+ 
   const factory PharmacyEvent.findMedicament({required String search}) =
       FindMedicament;
   const factory PharmacyEvent.chooseMedicament(
@@ -18,4 +18,40 @@ class PharmacyEvent with _$PharmacyEvent {
   const factory PharmacyEvent.deleteMedicament({
     required MedicamentModel medicament,
   }) = DeleteMedicament;
+
+
+
+  const factory PharmacyEvent.backIndexP() = BackIndexEventP;
+
+  const factory PharmacyEvent.selectedVille({
+    required VilleModel ville,
+  }) = SelectedVilleP;
+
+  const factory PharmacyEvent.searchpointevent({
+    required String text,
+  }) = SearchPointEventP;
+  const factory PharmacyEvent.mapSelected({required bool status}) =
+      MapSelectedP;
+  const factory PharmacyEvent.mapValidatePoint({
+    required String libelle,
+    required String quartier,
+  }) = MapValidatePointP;
+  const factory PharmacyEvent.calculFrais() = CalculFraisP;
+
+  const factory PharmacyEvent.mapValidatePointLivraison({
+    required String libelle,
+    required String quartier,
+  }) = MapValidatePointLivraisonP;
+
+  const factory PharmacyEvent.selectPointLivraisonP({
+    required PointLivraisonModel point_livraison,
+  }) = SelectPointLivraisonP;
+  const factory PharmacyEvent.newLivraison() = NewLivraisonPharmacy;
+  const factory PharmacyEvent.getLivraison() = ListLivraisonP;
+  const factory PharmacyEvent.downloadFacture() = DownloadFactureP;
+  const factory PharmacyEvent.noValidate() = NoValidateP;
+  const factory PharmacyEvent.onStartEventP() = OnStartEventP;
+
+
+
 }

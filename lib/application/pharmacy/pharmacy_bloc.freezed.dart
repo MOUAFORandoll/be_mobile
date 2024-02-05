@@ -26,6 +26,21 @@ mixin _$PharmacyEvent {
     required TResult Function(MedicamentModel medicament, int quantite)
         setQuantiteMedicament,
     required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +53,21 @@ mixin _$PharmacyEvent {
     TResult? Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,13 +80,28 @@ mixin _$PharmacyEvent {
     TResult Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
-    required TResult Function(VerifyFormChooseMedicamentEvent value)
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
         verifyFormChooseMedicamentEvent,
     required TResult Function(FindMedicament value) findMedicament,
     required TResult Function(ChooseMedicament value) chooseMedicament,
@@ -64,30 +109,73 @@ mixin _$PharmacyEvent {
     required TResult Function(SetQuantiteMedicament value)
         setQuantiteMedicament,
     required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult? Function(VerifyFormChooseMedicamentEvent value)?
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult? Function(FindMedicament value)? findMedicament,
     TResult? Function(ChooseMedicament value)? chooseMedicament,
     TResult? Function(CloseListMedicament value)? closeListMedicament,
     TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult Function(VerifyFormChooseMedicamentEvent value)?
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult Function(FindMedicament value)? findMedicament,
     TResult Function(ChooseMedicament value)? chooseMedicament,
     TResult Function(CloseListMedicament value)? closeListMedicament,
     TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -158,6 +246,21 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     required TResult Function(MedicamentModel medicament, int quantite)
         setQuantiteMedicament,
     required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
   }) {
     return updatePharmacyImage();
   }
@@ -173,6 +276,21 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     TResult? Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
   }) {
     return updatePharmacyImage?.call();
   }
@@ -188,6 +306,21 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     TResult Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
     required TResult orElse(),
   }) {
     if (updatePharmacyImage != null) {
@@ -200,7 +333,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
-    required TResult Function(VerifyFormChooseMedicamentEvent value)
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
         verifyFormChooseMedicamentEvent,
     required TResult Function(FindMedicament value) findMedicament,
     required TResult Function(ChooseMedicament value) chooseMedicament,
@@ -208,6 +341,21 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     required TResult Function(SetQuantiteMedicament value)
         setQuantiteMedicament,
     required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
   }) {
     return updatePharmacyImage(this);
   }
@@ -216,13 +364,27 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult? Function(VerifyFormChooseMedicamentEvent value)?
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult? Function(FindMedicament value)? findMedicament,
     TResult? Function(ChooseMedicament value)? chooseMedicament,
     TResult? Function(CloseListMedicament value)? closeListMedicament,
     TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
   }) {
     return updatePharmacyImage?.call(this);
   }
@@ -231,13 +393,27 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult Function(VerifyFormChooseMedicamentEvent value)?
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult Function(FindMedicament value)? findMedicament,
     TResult Function(ChooseMedicament value)? chooseMedicament,
     TResult Function(CloseListMedicament value)? closeListMedicament,
     TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
     required TResult orElse(),
   }) {
     if (updatePharmacyImage != null) {
@@ -252,29 +428,29 @@ abstract class UpdatePharmacyImage implements PharmacyEvent {
 }
 
 /// @nodoc
-abstract class _$$VerifyFormChooseMedicamentEventImplCopyWith<$Res> {
-  factory _$$VerifyFormChooseMedicamentEventImplCopyWith(
-          _$VerifyFormChooseMedicamentEventImpl value,
-          $Res Function(_$VerifyFormChooseMedicamentEventImpl) then) =
-      __$$VerifyFormChooseMedicamentEventImplCopyWithImpl<$Res>;
+abstract class _$$VerifyFormChooseMedicamentEventPImplCopyWith<$Res> {
+  factory _$$VerifyFormChooseMedicamentEventPImplCopyWith(
+          _$VerifyFormChooseMedicamentEventPImpl value,
+          $Res Function(_$VerifyFormChooseMedicamentEventPImpl) then) =
+      __$$VerifyFormChooseMedicamentEventPImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$VerifyFormChooseMedicamentEventImplCopyWithImpl<$Res>
+class __$$VerifyFormChooseMedicamentEventPImplCopyWithImpl<$Res>
     extends _$PharmacyEventCopyWithImpl<$Res,
-        _$VerifyFormChooseMedicamentEventImpl>
-    implements _$$VerifyFormChooseMedicamentEventImplCopyWith<$Res> {
-  __$$VerifyFormChooseMedicamentEventImplCopyWithImpl(
-      _$VerifyFormChooseMedicamentEventImpl _value,
-      $Res Function(_$VerifyFormChooseMedicamentEventImpl) _then)
+        _$VerifyFormChooseMedicamentEventPImpl>
+    implements _$$VerifyFormChooseMedicamentEventPImplCopyWith<$Res> {
+  __$$VerifyFormChooseMedicamentEventPImplCopyWithImpl(
+      _$VerifyFormChooseMedicamentEventPImpl _value,
+      $Res Function(_$VerifyFormChooseMedicamentEventPImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$VerifyFormChooseMedicamentEventImpl
-    implements VerifyFormChooseMedicamentEvent {
-  const _$VerifyFormChooseMedicamentEventImpl();
+class _$VerifyFormChooseMedicamentEventPImpl
+    implements VerifyFormChooseMedicamentEventP {
+  const _$VerifyFormChooseMedicamentEventPImpl();
 
   @override
   String toString() {
@@ -285,7 +461,7 @@ class _$VerifyFormChooseMedicamentEventImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$VerifyFormChooseMedicamentEventImpl);
+            other is _$VerifyFormChooseMedicamentEventPImpl);
   }
 
   @override
@@ -302,6 +478,21 @@ class _$VerifyFormChooseMedicamentEventImpl
     required TResult Function(MedicamentModel medicament, int quantite)
         setQuantiteMedicament,
     required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
   }) {
     return verifyFormChooseMedicamentEvent();
   }
@@ -317,6 +508,21 @@ class _$VerifyFormChooseMedicamentEventImpl
     TResult? Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
   }) {
     return verifyFormChooseMedicamentEvent?.call();
   }
@@ -332,6 +538,21 @@ class _$VerifyFormChooseMedicamentEventImpl
     TResult Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
     required TResult orElse(),
   }) {
     if (verifyFormChooseMedicamentEvent != null) {
@@ -344,7 +565,7 @@ class _$VerifyFormChooseMedicamentEventImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
-    required TResult Function(VerifyFormChooseMedicamentEvent value)
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
         verifyFormChooseMedicamentEvent,
     required TResult Function(FindMedicament value) findMedicament,
     required TResult Function(ChooseMedicament value) chooseMedicament,
@@ -352,6 +573,21 @@ class _$VerifyFormChooseMedicamentEventImpl
     required TResult Function(SetQuantiteMedicament value)
         setQuantiteMedicament,
     required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
   }) {
     return verifyFormChooseMedicamentEvent(this);
   }
@@ -360,13 +596,27 @@ class _$VerifyFormChooseMedicamentEventImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult? Function(VerifyFormChooseMedicamentEvent value)?
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult? Function(FindMedicament value)? findMedicament,
     TResult? Function(ChooseMedicament value)? chooseMedicament,
     TResult? Function(CloseListMedicament value)? closeListMedicament,
     TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
   }) {
     return verifyFormChooseMedicamentEvent?.call(this);
   }
@@ -375,13 +625,27 @@ class _$VerifyFormChooseMedicamentEventImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult Function(VerifyFormChooseMedicamentEvent value)?
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult Function(FindMedicament value)? findMedicament,
     TResult Function(ChooseMedicament value)? chooseMedicament,
     TResult Function(CloseListMedicament value)? closeListMedicament,
     TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
     required TResult orElse(),
   }) {
     if (verifyFormChooseMedicamentEvent != null) {
@@ -391,9 +655,9 @@ class _$VerifyFormChooseMedicamentEventImpl
   }
 }
 
-abstract class VerifyFormChooseMedicamentEvent implements PharmacyEvent {
-  const factory VerifyFormChooseMedicamentEvent() =
-      _$VerifyFormChooseMedicamentEventImpl;
+abstract class VerifyFormChooseMedicamentEventP implements PharmacyEvent {
+  const factory VerifyFormChooseMedicamentEventP() =
+      _$VerifyFormChooseMedicamentEventPImpl;
 }
 
 /// @nodoc
@@ -469,6 +733,21 @@ class _$FindMedicamentImpl implements FindMedicament {
     required TResult Function(MedicamentModel medicament, int quantite)
         setQuantiteMedicament,
     required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
   }) {
     return findMedicament(search);
   }
@@ -484,6 +763,21 @@ class _$FindMedicamentImpl implements FindMedicament {
     TResult? Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
   }) {
     return findMedicament?.call(search);
   }
@@ -499,6 +793,21 @@ class _$FindMedicamentImpl implements FindMedicament {
     TResult Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
     required TResult orElse(),
   }) {
     if (findMedicament != null) {
@@ -511,7 +820,7 @@ class _$FindMedicamentImpl implements FindMedicament {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
-    required TResult Function(VerifyFormChooseMedicamentEvent value)
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
         verifyFormChooseMedicamentEvent,
     required TResult Function(FindMedicament value) findMedicament,
     required TResult Function(ChooseMedicament value) chooseMedicament,
@@ -519,6 +828,21 @@ class _$FindMedicamentImpl implements FindMedicament {
     required TResult Function(SetQuantiteMedicament value)
         setQuantiteMedicament,
     required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
   }) {
     return findMedicament(this);
   }
@@ -527,13 +851,27 @@ class _$FindMedicamentImpl implements FindMedicament {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult? Function(VerifyFormChooseMedicamentEvent value)?
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult? Function(FindMedicament value)? findMedicament,
     TResult? Function(ChooseMedicament value)? chooseMedicament,
     TResult? Function(CloseListMedicament value)? closeListMedicament,
     TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
   }) {
     return findMedicament?.call(this);
   }
@@ -542,13 +880,27 @@ class _$FindMedicamentImpl implements FindMedicament {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult Function(VerifyFormChooseMedicamentEvent value)?
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult Function(FindMedicament value)? findMedicament,
     TResult Function(ChooseMedicament value)? chooseMedicament,
     TResult Function(CloseListMedicament value)? closeListMedicament,
     TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
     required TResult orElse(),
   }) {
     if (findMedicament != null) {
@@ -642,6 +994,21 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     required TResult Function(MedicamentModel medicament, int quantite)
         setQuantiteMedicament,
     required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
   }) {
     return chooseMedicament(medicament);
   }
@@ -657,6 +1024,21 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     TResult? Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
   }) {
     return chooseMedicament?.call(medicament);
   }
@@ -672,6 +1054,21 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     TResult Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
     required TResult orElse(),
   }) {
     if (chooseMedicament != null) {
@@ -684,7 +1081,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
-    required TResult Function(VerifyFormChooseMedicamentEvent value)
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
         verifyFormChooseMedicamentEvent,
     required TResult Function(FindMedicament value) findMedicament,
     required TResult Function(ChooseMedicament value) chooseMedicament,
@@ -692,6 +1089,21 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     required TResult Function(SetQuantiteMedicament value)
         setQuantiteMedicament,
     required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
   }) {
     return chooseMedicament(this);
   }
@@ -700,13 +1112,27 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult? Function(VerifyFormChooseMedicamentEvent value)?
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult? Function(FindMedicament value)? findMedicament,
     TResult? Function(ChooseMedicament value)? chooseMedicament,
     TResult? Function(CloseListMedicament value)? closeListMedicament,
     TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
   }) {
     return chooseMedicament?.call(this);
   }
@@ -715,13 +1141,27 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult Function(VerifyFormChooseMedicamentEvent value)?
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult Function(FindMedicament value)? findMedicament,
     TResult Function(ChooseMedicament value)? chooseMedicament,
     TResult Function(CloseListMedicament value)? closeListMedicament,
     TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
     required TResult orElse(),
   }) {
     if (chooseMedicament != null) {
@@ -788,6 +1228,21 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     required TResult Function(MedicamentModel medicament, int quantite)
         setQuantiteMedicament,
     required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
   }) {
     return closeListMedicament();
   }
@@ -803,6 +1258,21 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     TResult? Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
   }) {
     return closeListMedicament?.call();
   }
@@ -818,6 +1288,21 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     TResult Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
     required TResult orElse(),
   }) {
     if (closeListMedicament != null) {
@@ -830,7 +1315,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
-    required TResult Function(VerifyFormChooseMedicamentEvent value)
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
         verifyFormChooseMedicamentEvent,
     required TResult Function(FindMedicament value) findMedicament,
     required TResult Function(ChooseMedicament value) chooseMedicament,
@@ -838,6 +1323,21 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     required TResult Function(SetQuantiteMedicament value)
         setQuantiteMedicament,
     required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
   }) {
     return closeListMedicament(this);
   }
@@ -846,13 +1346,27 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult? Function(VerifyFormChooseMedicamentEvent value)?
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult? Function(FindMedicament value)? findMedicament,
     TResult? Function(ChooseMedicament value)? chooseMedicament,
     TResult? Function(CloseListMedicament value)? closeListMedicament,
     TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
   }) {
     return closeListMedicament?.call(this);
   }
@@ -861,13 +1375,27 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult Function(VerifyFormChooseMedicamentEvent value)?
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult Function(FindMedicament value)? findMedicament,
     TResult Function(ChooseMedicament value)? chooseMedicament,
     TResult Function(CloseListMedicament value)? closeListMedicament,
     TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
     required TResult orElse(),
   }) {
     if (closeListMedicament != null) {
@@ -966,6 +1494,21 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     required TResult Function(MedicamentModel medicament, int quantite)
         setQuantiteMedicament,
     required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
   }) {
     return setQuantiteMedicament(medicament, quantite);
   }
@@ -981,6 +1524,21 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     TResult? Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
   }) {
     return setQuantiteMedicament?.call(medicament, quantite);
   }
@@ -996,6 +1554,21 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     TResult Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
     required TResult orElse(),
   }) {
     if (setQuantiteMedicament != null) {
@@ -1008,7 +1581,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
-    required TResult Function(VerifyFormChooseMedicamentEvent value)
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
         verifyFormChooseMedicamentEvent,
     required TResult Function(FindMedicament value) findMedicament,
     required TResult Function(ChooseMedicament value) chooseMedicament,
@@ -1016,6 +1589,21 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     required TResult Function(SetQuantiteMedicament value)
         setQuantiteMedicament,
     required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
   }) {
     return setQuantiteMedicament(this);
   }
@@ -1024,13 +1612,27 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult? Function(VerifyFormChooseMedicamentEvent value)?
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult? Function(FindMedicament value)? findMedicament,
     TResult? Function(ChooseMedicament value)? chooseMedicament,
     TResult? Function(CloseListMedicament value)? closeListMedicament,
     TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
   }) {
     return setQuantiteMedicament?.call(this);
   }
@@ -1039,13 +1641,27 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult Function(VerifyFormChooseMedicamentEvent value)?
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult Function(FindMedicament value)? findMedicament,
     TResult Function(ChooseMedicament value)? chooseMedicament,
     TResult Function(CloseListMedicament value)? closeListMedicament,
     TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
     required TResult orElse(),
   }) {
     if (setQuantiteMedicament != null) {
@@ -1141,6 +1757,21 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     required TResult Function(MedicamentModel medicament, int quantite)
         setQuantiteMedicament,
     required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
   }) {
     return deleteMedicament(medicament);
   }
@@ -1156,6 +1787,21 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     TResult? Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
   }) {
     return deleteMedicament?.call(medicament);
   }
@@ -1171,6 +1817,21 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     TResult Function(MedicamentModel medicament, int quantite)?
         setQuantiteMedicament,
     TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
     required TResult orElse(),
   }) {
     if (deleteMedicament != null) {
@@ -1183,7 +1844,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
-    required TResult Function(VerifyFormChooseMedicamentEvent value)
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
         verifyFormChooseMedicamentEvent,
     required TResult Function(FindMedicament value) findMedicament,
     required TResult Function(ChooseMedicament value) chooseMedicament,
@@ -1191,6 +1852,21 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     required TResult Function(SetQuantiteMedicament value)
         setQuantiteMedicament,
     required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
   }) {
     return deleteMedicament(this);
   }
@@ -1199,13 +1875,27 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult? Function(VerifyFormChooseMedicamentEvent value)?
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult? Function(FindMedicament value)? findMedicament,
     TResult? Function(ChooseMedicament value)? chooseMedicament,
     TResult? Function(CloseListMedicament value)? closeListMedicament,
     TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
   }) {
     return deleteMedicament?.call(this);
   }
@@ -1214,13 +1904,27 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
-    TResult Function(VerifyFormChooseMedicamentEvent value)?
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
         verifyFormChooseMedicamentEvent,
     TResult Function(FindMedicament value)? findMedicament,
     TResult Function(ChooseMedicament value)? chooseMedicament,
     TResult Function(CloseListMedicament value)? closeListMedicament,
     TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
     TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
     required TResult orElse(),
   }) {
     if (deleteMedicament != null) {
@@ -1241,13 +1945,3207 @@ abstract class DeleteMedicament implements PharmacyEvent {
 }
 
 /// @nodoc
+abstract class _$$BackIndexEventPImplCopyWith<$Res> {
+  factory _$$BackIndexEventPImplCopyWith(_$BackIndexEventPImpl value,
+          $Res Function(_$BackIndexEventPImpl) then) =
+      __$$BackIndexEventPImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$BackIndexEventPImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$BackIndexEventPImpl>
+    implements _$$BackIndexEventPImplCopyWith<$Res> {
+  __$$BackIndexEventPImplCopyWithImpl(
+      _$BackIndexEventPImpl _value, $Res Function(_$BackIndexEventPImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$BackIndexEventPImpl implements BackIndexEventP {
+  const _$BackIndexEventPImpl();
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.backIndexP()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$BackIndexEventPImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return backIndexP();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return backIndexP?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (backIndexP != null) {
+      return backIndexP();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return backIndexP(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return backIndexP?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (backIndexP != null) {
+      return backIndexP(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BackIndexEventP implements PharmacyEvent {
+  const factory BackIndexEventP() = _$BackIndexEventPImpl;
+}
+
+/// @nodoc
+abstract class _$$SelectedVillePImplCopyWith<$Res> {
+  factory _$$SelectedVillePImplCopyWith(_$SelectedVillePImpl value,
+          $Res Function(_$SelectedVillePImpl) then) =
+      __$$SelectedVillePImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({VilleModel ville});
+}
+
+/// @nodoc
+class __$$SelectedVillePImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$SelectedVillePImpl>
+    implements _$$SelectedVillePImplCopyWith<$Res> {
+  __$$SelectedVillePImplCopyWithImpl(
+      _$SelectedVillePImpl _value, $Res Function(_$SelectedVillePImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ville = null,
+  }) {
+    return _then(_$SelectedVillePImpl(
+      ville: null == ville
+          ? _value.ville
+          : ville // ignore: cast_nullable_to_non_nullable
+              as VilleModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectedVillePImpl implements SelectedVilleP {
+  const _$SelectedVillePImpl({required this.ville});
+
+  @override
+  final VilleModel ville;
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.selectedVille(ville: $ville)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectedVillePImpl &&
+            (identical(other.ville, ville) || other.ville == ville));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, ville);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectedVillePImplCopyWith<_$SelectedVillePImpl> get copyWith =>
+      __$$SelectedVillePImplCopyWithImpl<_$SelectedVillePImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return selectedVille(ville);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return selectedVille?.call(ville);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (selectedVille != null) {
+      return selectedVille(ville);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return selectedVille(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return selectedVille?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (selectedVille != null) {
+      return selectedVille(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectedVilleP implements PharmacyEvent {
+  const factory SelectedVilleP({required final VilleModel ville}) =
+      _$SelectedVillePImpl;
+
+  VilleModel get ville;
+  @JsonKey(ignore: true)
+  _$$SelectedVillePImplCopyWith<_$SelectedVillePImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchPointEventPImplCopyWith<$Res> {
+  factory _$$SearchPointEventPImplCopyWith(_$SearchPointEventPImpl value,
+          $Res Function(_$SearchPointEventPImpl) then) =
+      __$$SearchPointEventPImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String text});
+}
+
+/// @nodoc
+class __$$SearchPointEventPImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$SearchPointEventPImpl>
+    implements _$$SearchPointEventPImplCopyWith<$Res> {
+  __$$SearchPointEventPImplCopyWithImpl(_$SearchPointEventPImpl _value,
+      $Res Function(_$SearchPointEventPImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+  }) {
+    return _then(_$SearchPointEventPImpl(
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchPointEventPImpl implements SearchPointEventP {
+  const _$SearchPointEventPImpl({required this.text});
+
+  @override
+  final String text;
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.searchpointevent(text: $text)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchPointEventPImpl &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchPointEventPImplCopyWith<_$SearchPointEventPImpl> get copyWith =>
+      __$$SearchPointEventPImplCopyWithImpl<_$SearchPointEventPImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return searchpointevent(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return searchpointevent?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (searchpointevent != null) {
+      return searchpointevent(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return searchpointevent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return searchpointevent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (searchpointevent != null) {
+      return searchpointevent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchPointEventP implements PharmacyEvent {
+  const factory SearchPointEventP({required final String text}) =
+      _$SearchPointEventPImpl;
+
+  String get text;
+  @JsonKey(ignore: true)
+  _$$SearchPointEventPImplCopyWith<_$SearchPointEventPImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MapSelectedPImplCopyWith<$Res> {
+  factory _$$MapSelectedPImplCopyWith(
+          _$MapSelectedPImpl value, $Res Function(_$MapSelectedPImpl) then) =
+      __$$MapSelectedPImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool status});
+}
+
+/// @nodoc
+class __$$MapSelectedPImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$MapSelectedPImpl>
+    implements _$$MapSelectedPImplCopyWith<$Res> {
+  __$$MapSelectedPImplCopyWithImpl(
+      _$MapSelectedPImpl _value, $Res Function(_$MapSelectedPImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+  }) {
+    return _then(_$MapSelectedPImpl(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MapSelectedPImpl implements MapSelectedP {
+  const _$MapSelectedPImpl({required this.status});
+
+  @override
+  final bool status;
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.mapSelected(status: $status)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MapSelectedPImpl &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, status);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MapSelectedPImplCopyWith<_$MapSelectedPImpl> get copyWith =>
+      __$$MapSelectedPImplCopyWithImpl<_$MapSelectedPImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return mapSelected(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return mapSelected?.call(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (mapSelected != null) {
+      return mapSelected(status);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return mapSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return mapSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (mapSelected != null) {
+      return mapSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MapSelectedP implements PharmacyEvent {
+  const factory MapSelectedP({required final bool status}) = _$MapSelectedPImpl;
+
+  bool get status;
+  @JsonKey(ignore: true)
+  _$$MapSelectedPImplCopyWith<_$MapSelectedPImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MapValidatePointPImplCopyWith<$Res> {
+  factory _$$MapValidatePointPImplCopyWith(_$MapValidatePointPImpl value,
+          $Res Function(_$MapValidatePointPImpl) then) =
+      __$$MapValidatePointPImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String libelle, String quartier});
+}
+
+/// @nodoc
+class __$$MapValidatePointPImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$MapValidatePointPImpl>
+    implements _$$MapValidatePointPImplCopyWith<$Res> {
+  __$$MapValidatePointPImplCopyWithImpl(_$MapValidatePointPImpl _value,
+      $Res Function(_$MapValidatePointPImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? libelle = null,
+    Object? quartier = null,
+  }) {
+    return _then(_$MapValidatePointPImpl(
+      libelle: null == libelle
+          ? _value.libelle
+          : libelle // ignore: cast_nullable_to_non_nullable
+              as String,
+      quartier: null == quartier
+          ? _value.quartier
+          : quartier // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MapValidatePointPImpl implements MapValidatePointP {
+  const _$MapValidatePointPImpl(
+      {required this.libelle, required this.quartier});
+
+  @override
+  final String libelle;
+  @override
+  final String quartier;
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.mapValidatePoint(libelle: $libelle, quartier: $quartier)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MapValidatePointPImpl &&
+            (identical(other.libelle, libelle) || other.libelle == libelle) &&
+            (identical(other.quartier, quartier) ||
+                other.quartier == quartier));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, libelle, quartier);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MapValidatePointPImplCopyWith<_$MapValidatePointPImpl> get copyWith =>
+      __$$MapValidatePointPImplCopyWithImpl<_$MapValidatePointPImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return mapValidatePoint(libelle, quartier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return mapValidatePoint?.call(libelle, quartier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (mapValidatePoint != null) {
+      return mapValidatePoint(libelle, quartier);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return mapValidatePoint(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return mapValidatePoint?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (mapValidatePoint != null) {
+      return mapValidatePoint(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MapValidatePointP implements PharmacyEvent {
+  const factory MapValidatePointP(
+      {required final String libelle,
+      required final String quartier}) = _$MapValidatePointPImpl;
+
+  String get libelle;
+  String get quartier;
+  @JsonKey(ignore: true)
+  _$$MapValidatePointPImplCopyWith<_$MapValidatePointPImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CalculFraisPImplCopyWith<$Res> {
+  factory _$$CalculFraisPImplCopyWith(
+          _$CalculFraisPImpl value, $Res Function(_$CalculFraisPImpl) then) =
+      __$$CalculFraisPImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CalculFraisPImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$CalculFraisPImpl>
+    implements _$$CalculFraisPImplCopyWith<$Res> {
+  __$$CalculFraisPImplCopyWithImpl(
+      _$CalculFraisPImpl _value, $Res Function(_$CalculFraisPImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CalculFraisPImpl implements CalculFraisP {
+  const _$CalculFraisPImpl();
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.calculFrais()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CalculFraisPImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return calculFrais();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return calculFrais?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (calculFrais != null) {
+      return calculFrais();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return calculFrais(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return calculFrais?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (calculFrais != null) {
+      return calculFrais(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CalculFraisP implements PharmacyEvent {
+  const factory CalculFraisP() = _$CalculFraisPImpl;
+}
+
+/// @nodoc
+abstract class _$$MapValidatePointLivraisonPImplCopyWith<$Res> {
+  factory _$$MapValidatePointLivraisonPImplCopyWith(
+          _$MapValidatePointLivraisonPImpl value,
+          $Res Function(_$MapValidatePointLivraisonPImpl) then) =
+      __$$MapValidatePointLivraisonPImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String libelle, String quartier});
+}
+
+/// @nodoc
+class __$$MapValidatePointLivraisonPImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$MapValidatePointLivraisonPImpl>
+    implements _$$MapValidatePointLivraisonPImplCopyWith<$Res> {
+  __$$MapValidatePointLivraisonPImplCopyWithImpl(
+      _$MapValidatePointLivraisonPImpl _value,
+      $Res Function(_$MapValidatePointLivraisonPImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? libelle = null,
+    Object? quartier = null,
+  }) {
+    return _then(_$MapValidatePointLivraisonPImpl(
+      libelle: null == libelle
+          ? _value.libelle
+          : libelle // ignore: cast_nullable_to_non_nullable
+              as String,
+      quartier: null == quartier
+          ? _value.quartier
+          : quartier // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
+  const _$MapValidatePointLivraisonPImpl(
+      {required this.libelle, required this.quartier});
+
+  @override
+  final String libelle;
+  @override
+  final String quartier;
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.mapValidatePointLivraison(libelle: $libelle, quartier: $quartier)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MapValidatePointLivraisonPImpl &&
+            (identical(other.libelle, libelle) || other.libelle == libelle) &&
+            (identical(other.quartier, quartier) ||
+                other.quartier == quartier));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, libelle, quartier);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MapValidatePointLivraisonPImplCopyWith<_$MapValidatePointLivraisonPImpl>
+      get copyWith => __$$MapValidatePointLivraisonPImplCopyWithImpl<
+          _$MapValidatePointLivraisonPImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return mapValidatePointLivraison(libelle, quartier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return mapValidatePointLivraison?.call(libelle, quartier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (mapValidatePointLivraison != null) {
+      return mapValidatePointLivraison(libelle, quartier);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return mapValidatePointLivraison(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return mapValidatePointLivraison?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (mapValidatePointLivraison != null) {
+      return mapValidatePointLivraison(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MapValidatePointLivraisonP implements PharmacyEvent {
+  const factory MapValidatePointLivraisonP(
+      {required final String libelle,
+      required final String quartier}) = _$MapValidatePointLivraisonPImpl;
+
+  String get libelle;
+  String get quartier;
+  @JsonKey(ignore: true)
+  _$$MapValidatePointLivraisonPImplCopyWith<_$MapValidatePointLivraisonPImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectPointLivraisonPImplCopyWith<$Res> {
+  factory _$$SelectPointLivraisonPImplCopyWith(
+          _$SelectPointLivraisonPImpl value,
+          $Res Function(_$SelectPointLivraisonPImpl) then) =
+      __$$SelectPointLivraisonPImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({PointLivraisonModel point_livraison});
+}
+
+/// @nodoc
+class __$$SelectPointLivraisonPImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$SelectPointLivraisonPImpl>
+    implements _$$SelectPointLivraisonPImplCopyWith<$Res> {
+  __$$SelectPointLivraisonPImplCopyWithImpl(_$SelectPointLivraisonPImpl _value,
+      $Res Function(_$SelectPointLivraisonPImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? point_livraison = null,
+  }) {
+    return _then(_$SelectPointLivraisonPImpl(
+      point_livraison: null == point_livraison
+          ? _value.point_livraison
+          : point_livraison // ignore: cast_nullable_to_non_nullable
+              as PointLivraisonModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
+  const _$SelectPointLivraisonPImpl({required this.point_livraison});
+
+  @override
+  final PointLivraisonModel point_livraison;
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.selectPointLivraisonP(point_livraison: $point_livraison)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectPointLivraisonPImpl &&
+            (identical(other.point_livraison, point_livraison) ||
+                other.point_livraison == point_livraison));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, point_livraison);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectPointLivraisonPImplCopyWith<_$SelectPointLivraisonPImpl>
+      get copyWith => __$$SelectPointLivraisonPImplCopyWithImpl<
+          _$SelectPointLivraisonPImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return selectPointLivraisonP(point_livraison);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return selectPointLivraisonP?.call(point_livraison);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (selectPointLivraisonP != null) {
+      return selectPointLivraisonP(point_livraison);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return selectPointLivraisonP(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return selectPointLivraisonP?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (selectPointLivraisonP != null) {
+      return selectPointLivraisonP(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectPointLivraisonP implements PharmacyEvent {
+  const factory SelectPointLivraisonP(
+          {required final PointLivraisonModel point_livraison}) =
+      _$SelectPointLivraisonPImpl;
+
+  PointLivraisonModel get point_livraison;
+  @JsonKey(ignore: true)
+  _$$SelectPointLivraisonPImplCopyWith<_$SelectPointLivraisonPImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NewLivraisonPharmacyImplCopyWith<$Res> {
+  factory _$$NewLivraisonPharmacyImplCopyWith(_$NewLivraisonPharmacyImpl value,
+          $Res Function(_$NewLivraisonPharmacyImpl) then) =
+      __$$NewLivraisonPharmacyImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NewLivraisonPharmacyImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$NewLivraisonPharmacyImpl>
+    implements _$$NewLivraisonPharmacyImplCopyWith<$Res> {
+  __$$NewLivraisonPharmacyImplCopyWithImpl(_$NewLivraisonPharmacyImpl _value,
+      $Res Function(_$NewLivraisonPharmacyImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
+  const _$NewLivraisonPharmacyImpl();
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.newLivraison()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NewLivraisonPharmacyImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return newLivraison();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return newLivraison?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (newLivraison != null) {
+      return newLivraison();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return newLivraison(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return newLivraison?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (newLivraison != null) {
+      return newLivraison(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NewLivraisonPharmacy implements PharmacyEvent {
+  const factory NewLivraisonPharmacy() = _$NewLivraisonPharmacyImpl;
+}
+
+/// @nodoc
+abstract class _$$ListLivraisonPImplCopyWith<$Res> {
+  factory _$$ListLivraisonPImplCopyWith(_$ListLivraisonPImpl value,
+          $Res Function(_$ListLivraisonPImpl) then) =
+      __$$ListLivraisonPImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ListLivraisonPImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$ListLivraisonPImpl>
+    implements _$$ListLivraisonPImplCopyWith<$Res> {
+  __$$ListLivraisonPImplCopyWithImpl(
+      _$ListLivraisonPImpl _value, $Res Function(_$ListLivraisonPImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ListLivraisonPImpl implements ListLivraisonP {
+  const _$ListLivraisonPImpl();
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.getLivraison()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ListLivraisonPImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return getLivraison();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return getLivraison?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (getLivraison != null) {
+      return getLivraison();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return getLivraison(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return getLivraison?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (getLivraison != null) {
+      return getLivraison(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListLivraisonP implements PharmacyEvent {
+  const factory ListLivraisonP() = _$ListLivraisonPImpl;
+}
+
+/// @nodoc
+abstract class _$$DownloadFacturePImplCopyWith<$Res> {
+  factory _$$DownloadFacturePImplCopyWith(_$DownloadFacturePImpl value,
+          $Res Function(_$DownloadFacturePImpl) then) =
+      __$$DownloadFacturePImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DownloadFacturePImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$DownloadFacturePImpl>
+    implements _$$DownloadFacturePImplCopyWith<$Res> {
+  __$$DownloadFacturePImplCopyWithImpl(_$DownloadFacturePImpl _value,
+      $Res Function(_$DownloadFacturePImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DownloadFacturePImpl implements DownloadFactureP {
+  const _$DownloadFacturePImpl();
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.downloadFacture()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DownloadFacturePImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return downloadFacture();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return downloadFacture?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (downloadFacture != null) {
+      return downloadFacture();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return downloadFacture(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return downloadFacture?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (downloadFacture != null) {
+      return downloadFacture(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DownloadFactureP implements PharmacyEvent {
+  const factory DownloadFactureP() = _$DownloadFacturePImpl;
+}
+
+/// @nodoc
+abstract class _$$NoValidatePImplCopyWith<$Res> {
+  factory _$$NoValidatePImplCopyWith(
+          _$NoValidatePImpl value, $Res Function(_$NoValidatePImpl) then) =
+      __$$NoValidatePImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoValidatePImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$NoValidatePImpl>
+    implements _$$NoValidatePImplCopyWith<$Res> {
+  __$$NoValidatePImplCopyWithImpl(
+      _$NoValidatePImpl _value, $Res Function(_$NoValidatePImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NoValidatePImpl implements NoValidateP {
+  const _$NoValidatePImpl();
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.noValidate()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoValidatePImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return noValidate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return noValidate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (noValidate != null) {
+      return noValidate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return noValidate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return noValidate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (noValidate != null) {
+      return noValidate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoValidateP implements PharmacyEvent {
+  const factory NoValidateP() = _$NoValidatePImpl;
+}
+
+/// @nodoc
+abstract class _$$OnStartEventPImplCopyWith<$Res> {
+  factory _$$OnStartEventPImplCopyWith(
+          _$OnStartEventPImpl value, $Res Function(_$OnStartEventPImpl) then) =
+      __$$OnStartEventPImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OnStartEventPImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$OnStartEventPImpl>
+    implements _$$OnStartEventPImplCopyWith<$Res> {
+  __$$OnStartEventPImplCopyWithImpl(
+      _$OnStartEventPImpl _value, $Res Function(_$OnStartEventPImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OnStartEventPImpl implements OnStartEventP {
+  const _$OnStartEventPImpl();
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.onStartEventP()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$OnStartEventPImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+  }) {
+    return onStartEventP();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+  }) {
+    return onStartEventP?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (onStartEventP != null) {
+      return onStartEventP();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+  }) {
+    return onStartEventP(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+  }) {
+    return onStartEventP?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    required TResult orElse(),
+  }) {
+    if (onStartEventP != null) {
+      return onStartEventP(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OnStartEventP implements PharmacyEvent {
+  const factory OnStartEventP() = _$OnStartEventPImpl;
+}
+
+/// @nodoc
 mixin _$PharmacyState {
   int get index => throw _privateConstructorUsedError;
   int? get isLoading => throw _privateConstructorUsedError;
+  GlobalKey<FormState>? get formKeyLivraison =>
+      throw _privateConstructorUsedError;
   TextEditingController? get searchMedicamentController =>
+      throw _privateConstructorUsedError;
+  TextEditingController? get libelle => throw _privateConstructorUsedError;
+  TextEditingController? get descriptionEmplacement =>
+      throw _privateConstructorUsedError;
+  TextEditingController? get contactRecepteur =>
       throw _privateConstructorUsedError;
   List<MedicamentModel>? get listMedicament =>
       throw _privateConstructorUsedError;
+  VilleModel? get selectedVIlle => throw _privateConstructorUsedError;
+  bool get isMapSelectedPointLivraison => throw _privateConstructorUsedError;
+  int? get isDownloadFacture => throw _privateConstructorUsedError;
+  PointLivraisonModel? get selected_livraison_point =>
+      throw _privateConstructorUsedError;
+  int? get isRequest => throw _privateConstructorUsedError;
+  bool? get errorPointLivraison => throw _privateConstructorUsedError;
+  LatLng? get position => throw _privateConstructorUsedError;
+  bool? get errorVille => throw _privateConstructorUsedError;
+  double? get frais => throw _privateConstructorUsedError;
   List<MedicamentModel>? get listMedicamentChoose =>
       throw _privateConstructorUsedError;
 
@@ -1265,8 +5163,21 @@ abstract class $PharmacyStateCopyWith<$Res> {
   $Res call(
       {int index,
       int? isLoading,
+      GlobalKey<FormState>? formKeyLivraison,
       TextEditingController? searchMedicamentController,
+      TextEditingController? libelle,
+      TextEditingController? descriptionEmplacement,
+      TextEditingController? contactRecepteur,
       List<MedicamentModel>? listMedicament,
+      VilleModel? selectedVIlle,
+      bool isMapSelectedPointLivraison,
+      int? isDownloadFacture,
+      PointLivraisonModel? selected_livraison_point,
+      int? isRequest,
+      bool? errorPointLivraison,
+      LatLng? position,
+      bool? errorVille,
+      double? frais,
       List<MedicamentModel>? listMedicamentChoose});
 }
 
@@ -1285,8 +5196,21 @@ class _$PharmacyStateCopyWithImpl<$Res, $Val extends PharmacyState>
   $Res call({
     Object? index = null,
     Object? isLoading = freezed,
+    Object? formKeyLivraison = freezed,
     Object? searchMedicamentController = freezed,
+    Object? libelle = freezed,
+    Object? descriptionEmplacement = freezed,
+    Object? contactRecepteur = freezed,
     Object? listMedicament = freezed,
+    Object? selectedVIlle = freezed,
+    Object? isMapSelectedPointLivraison = null,
+    Object? isDownloadFacture = freezed,
+    Object? selected_livraison_point = freezed,
+    Object? isRequest = freezed,
+    Object? errorPointLivraison = freezed,
+    Object? position = freezed,
+    Object? errorVille = freezed,
+    Object? frais = freezed,
     Object? listMedicamentChoose = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1298,14 +5222,66 @@ class _$PharmacyStateCopyWithImpl<$Res, $Val extends PharmacyState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as int?,
+      formKeyLivraison: freezed == formKeyLivraison
+          ? _value.formKeyLivraison
+          : formKeyLivraison // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>?,
       searchMedicamentController: freezed == searchMedicamentController
           ? _value.searchMedicamentController
           : searchMedicamentController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      libelle: freezed == libelle
+          ? _value.libelle
+          : libelle // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      descriptionEmplacement: freezed == descriptionEmplacement
+          ? _value.descriptionEmplacement
+          : descriptionEmplacement // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      contactRecepteur: freezed == contactRecepteur
+          ? _value.contactRecepteur
+          : contactRecepteur // ignore: cast_nullable_to_non_nullable
               as TextEditingController?,
       listMedicament: freezed == listMedicament
           ? _value.listMedicament
           : listMedicament // ignore: cast_nullable_to_non_nullable
               as List<MedicamentModel>?,
+      selectedVIlle: freezed == selectedVIlle
+          ? _value.selectedVIlle
+          : selectedVIlle // ignore: cast_nullable_to_non_nullable
+              as VilleModel?,
+      isMapSelectedPointLivraison: null == isMapSelectedPointLivraison
+          ? _value.isMapSelectedPointLivraison
+          : isMapSelectedPointLivraison // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDownloadFacture: freezed == isDownloadFacture
+          ? _value.isDownloadFacture
+          : isDownloadFacture // ignore: cast_nullable_to_non_nullable
+              as int?,
+      selected_livraison_point: freezed == selected_livraison_point
+          ? _value.selected_livraison_point
+          : selected_livraison_point // ignore: cast_nullable_to_non_nullable
+              as PointLivraisonModel?,
+      isRequest: freezed == isRequest
+          ? _value.isRequest
+          : isRequest // ignore: cast_nullable_to_non_nullable
+              as int?,
+      errorPointLivraison: freezed == errorPointLivraison
+          ? _value.errorPointLivraison
+          : errorPointLivraison // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      position: freezed == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as LatLng?,
+      errorVille: freezed == errorVille
+          ? _value.errorVille
+          : errorVille // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      frais: freezed == frais
+          ? _value.frais
+          : frais // ignore: cast_nullable_to_non_nullable
+              as double?,
       listMedicamentChoose: freezed == listMedicamentChoose
           ? _value.listMedicamentChoose
           : listMedicamentChoose // ignore: cast_nullable_to_non_nullable
@@ -1325,8 +5301,21 @@ abstract class _$$PharmacyStateImplCopyWith<$Res>
   $Res call(
       {int index,
       int? isLoading,
+      GlobalKey<FormState>? formKeyLivraison,
       TextEditingController? searchMedicamentController,
+      TextEditingController? libelle,
+      TextEditingController? descriptionEmplacement,
+      TextEditingController? contactRecepteur,
       List<MedicamentModel>? listMedicament,
+      VilleModel? selectedVIlle,
+      bool isMapSelectedPointLivraison,
+      int? isDownloadFacture,
+      PointLivraisonModel? selected_livraison_point,
+      int? isRequest,
+      bool? errorPointLivraison,
+      LatLng? position,
+      bool? errorVille,
+      double? frais,
       List<MedicamentModel>? listMedicamentChoose});
 }
 
@@ -1343,8 +5332,21 @@ class __$$PharmacyStateImplCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
     Object? isLoading = freezed,
+    Object? formKeyLivraison = freezed,
     Object? searchMedicamentController = freezed,
+    Object? libelle = freezed,
+    Object? descriptionEmplacement = freezed,
+    Object? contactRecepteur = freezed,
     Object? listMedicament = freezed,
+    Object? selectedVIlle = freezed,
+    Object? isMapSelectedPointLivraison = null,
+    Object? isDownloadFacture = freezed,
+    Object? selected_livraison_point = freezed,
+    Object? isRequest = freezed,
+    Object? errorPointLivraison = freezed,
+    Object? position = freezed,
+    Object? errorVille = freezed,
+    Object? frais = freezed,
     Object? listMedicamentChoose = freezed,
   }) {
     return _then(_$PharmacyStateImpl(
@@ -1356,14 +5358,66 @@ class __$$PharmacyStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as int?,
+      formKeyLivraison: freezed == formKeyLivraison
+          ? _value.formKeyLivraison
+          : formKeyLivraison // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>?,
       searchMedicamentController: freezed == searchMedicamentController
           ? _value.searchMedicamentController
           : searchMedicamentController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      libelle: freezed == libelle
+          ? _value.libelle
+          : libelle // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      descriptionEmplacement: freezed == descriptionEmplacement
+          ? _value.descriptionEmplacement
+          : descriptionEmplacement // ignore: cast_nullable_to_non_nullable
+              as TextEditingController?,
+      contactRecepteur: freezed == contactRecepteur
+          ? _value.contactRecepteur
+          : contactRecepteur // ignore: cast_nullable_to_non_nullable
               as TextEditingController?,
       listMedicament: freezed == listMedicament
           ? _value._listMedicament
           : listMedicament // ignore: cast_nullable_to_non_nullable
               as List<MedicamentModel>?,
+      selectedVIlle: freezed == selectedVIlle
+          ? _value.selectedVIlle
+          : selectedVIlle // ignore: cast_nullable_to_non_nullable
+              as VilleModel?,
+      isMapSelectedPointLivraison: null == isMapSelectedPointLivraison
+          ? _value.isMapSelectedPointLivraison
+          : isMapSelectedPointLivraison // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDownloadFacture: freezed == isDownloadFacture
+          ? _value.isDownloadFacture
+          : isDownloadFacture // ignore: cast_nullable_to_non_nullable
+              as int?,
+      selected_livraison_point: freezed == selected_livraison_point
+          ? _value.selected_livraison_point
+          : selected_livraison_point // ignore: cast_nullable_to_non_nullable
+              as PointLivraisonModel?,
+      isRequest: freezed == isRequest
+          ? _value.isRequest
+          : isRequest // ignore: cast_nullable_to_non_nullable
+              as int?,
+      errorPointLivraison: freezed == errorPointLivraison
+          ? _value.errorPointLivraison
+          : errorPointLivraison // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      position: freezed == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as LatLng?,
+      errorVille: freezed == errorVille
+          ? _value.errorVille
+          : errorVille // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      frais: freezed == frais
+          ? _value.frais
+          : frais // ignore: cast_nullable_to_non_nullable
+              as double?,
       listMedicamentChoose: freezed == listMedicamentChoose
           ? _value._listMedicamentChoose
           : listMedicamentChoose // ignore: cast_nullable_to_non_nullable
@@ -1378,8 +5432,21 @@ class _$PharmacyStateImpl implements _PharmacyState {
   const _$PharmacyStateImpl(
       {required this.index,
       this.isLoading,
+      this.formKeyLivraison,
       this.searchMedicamentController,
+      this.libelle,
+      this.descriptionEmplacement,
+      this.contactRecepteur,
       final List<MedicamentModel>? listMedicament,
+      this.selectedVIlle,
+      required this.isMapSelectedPointLivraison,
+      this.isDownloadFacture,
+      this.selected_livraison_point,
+      this.isRequest,
+      this.errorPointLivraison,
+      this.position,
+      this.errorVille,
+      this.frais,
       final List<MedicamentModel>? listMedicamentChoose})
       : _listMedicament = listMedicament,
         _listMedicamentChoose = listMedicamentChoose;
@@ -1389,7 +5456,15 @@ class _$PharmacyStateImpl implements _PharmacyState {
   @override
   final int? isLoading;
   @override
+  final GlobalKey<FormState>? formKeyLivraison;
+  @override
   final TextEditingController? searchMedicamentController;
+  @override
+  final TextEditingController? libelle;
+  @override
+  final TextEditingController? descriptionEmplacement;
+  @override
+  final TextEditingController? contactRecepteur;
   final List<MedicamentModel>? _listMedicament;
   @override
   List<MedicamentModel>? get listMedicament {
@@ -1400,6 +5475,24 @@ class _$PharmacyStateImpl implements _PharmacyState {
     return EqualUnmodifiableListView(value);
   }
 
+  @override
+  final VilleModel? selectedVIlle;
+  @override
+  final bool isMapSelectedPointLivraison;
+  @override
+  final int? isDownloadFacture;
+  @override
+  final PointLivraisonModel? selected_livraison_point;
+  @override
+  final int? isRequest;
+  @override
+  final bool? errorPointLivraison;
+  @override
+  final LatLng? position;
+  @override
+  final bool? errorVille;
+  @override
+  final double? frais;
   final List<MedicamentModel>? _listMedicamentChoose;
   @override
   List<MedicamentModel>? get listMedicamentChoose {
@@ -1413,7 +5506,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
 
   @override
   String toString() {
-    return 'PharmacyState(index: $index, isLoading: $isLoading, searchMedicamentController: $searchMedicamentController, listMedicament: $listMedicament, listMedicamentChoose: $listMedicamentChoose)';
+    return 'PharmacyState(index: $index, isLoading: $isLoading, formKeyLivraison: $formKeyLivraison, searchMedicamentController: $searchMedicamentController, libelle: $libelle, descriptionEmplacement: $descriptionEmplacement, contactRecepteur: $contactRecepteur, listMedicament: $listMedicament, selectedVIlle: $selectedVIlle, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, isDownloadFacture: $isDownloadFacture, selected_livraison_point: $selected_livraison_point, isRequest: $isRequest, errorPointLivraison: $errorPointLivraison, position: $position, errorVille: $errorVille, frais: $frais, listMedicamentChoose: $listMedicamentChoose)';
   }
 
   @override
@@ -1424,12 +5517,39 @@ class _$PharmacyStateImpl implements _PharmacyState {
             (identical(other.index, index) || other.index == index) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.formKeyLivraison, formKeyLivraison) ||
+                other.formKeyLivraison == formKeyLivraison) &&
             (identical(other.searchMedicamentController,
                     searchMedicamentController) ||
                 other.searchMedicamentController ==
                     searchMedicamentController) &&
+            (identical(other.libelle, libelle) || other.libelle == libelle) &&
+            (identical(other.descriptionEmplacement, descriptionEmplacement) ||
+                other.descriptionEmplacement == descriptionEmplacement) &&
+            (identical(other.contactRecepteur, contactRecepteur) ||
+                other.contactRecepteur == contactRecepteur) &&
             const DeepCollectionEquality()
                 .equals(other._listMedicament, _listMedicament) &&
+            (identical(other.selectedVIlle, selectedVIlle) ||
+                other.selectedVIlle == selectedVIlle) &&
+            (identical(other.isMapSelectedPointLivraison,
+                    isMapSelectedPointLivraison) ||
+                other.isMapSelectedPointLivraison ==
+                    isMapSelectedPointLivraison) &&
+            (identical(other.isDownloadFacture, isDownloadFacture) ||
+                other.isDownloadFacture == isDownloadFacture) &&
+            (identical(
+                    other.selected_livraison_point, selected_livraison_point) ||
+                other.selected_livraison_point == selected_livraison_point) &&
+            (identical(other.isRequest, isRequest) ||
+                other.isRequest == isRequest) &&
+            (identical(other.errorPointLivraison, errorPointLivraison) ||
+                other.errorPointLivraison == errorPointLivraison) &&
+            (identical(other.position, position) ||
+                other.position == position) &&
+            (identical(other.errorVille, errorVille) ||
+                other.errorVille == errorVille) &&
+            (identical(other.frais, frais) || other.frais == frais) &&
             const DeepCollectionEquality()
                 .equals(other._listMedicamentChoose, _listMedicamentChoose));
   }
@@ -1439,8 +5559,21 @@ class _$PharmacyStateImpl implements _PharmacyState {
       runtimeType,
       index,
       isLoading,
+      formKeyLivraison,
       searchMedicamentController,
+      libelle,
+      descriptionEmplacement,
+      contactRecepteur,
       const DeepCollectionEquality().hash(_listMedicament),
+      selectedVIlle,
+      isMapSelectedPointLivraison,
+      isDownloadFacture,
+      selected_livraison_point,
+      isRequest,
+      errorPointLivraison,
+      position,
+      errorVille,
+      frais,
       const DeepCollectionEquality().hash(_listMedicamentChoose));
 
   @JsonKey(ignore: true)
@@ -1454,8 +5587,21 @@ abstract class _PharmacyState implements PharmacyState {
   const factory _PharmacyState(
       {required final int index,
       final int? isLoading,
+      final GlobalKey<FormState>? formKeyLivraison,
       final TextEditingController? searchMedicamentController,
+      final TextEditingController? libelle,
+      final TextEditingController? descriptionEmplacement,
+      final TextEditingController? contactRecepteur,
       final List<MedicamentModel>? listMedicament,
+      final VilleModel? selectedVIlle,
+      required final bool isMapSelectedPointLivraison,
+      final int? isDownloadFacture,
+      final PointLivraisonModel? selected_livraison_point,
+      final int? isRequest,
+      final bool? errorPointLivraison,
+      final LatLng? position,
+      final bool? errorVille,
+      final double? frais,
       final List<MedicamentModel>? listMedicamentChoose}) = _$PharmacyStateImpl;
 
   @override
@@ -1463,9 +5609,35 @@ abstract class _PharmacyState implements PharmacyState {
   @override
   int? get isLoading;
   @override
+  GlobalKey<FormState>? get formKeyLivraison;
+  @override
   TextEditingController? get searchMedicamentController;
   @override
+  TextEditingController? get libelle;
+  @override
+  TextEditingController? get descriptionEmplacement;
+  @override
+  TextEditingController? get contactRecepteur;
+  @override
   List<MedicamentModel>? get listMedicament;
+  @override
+  VilleModel? get selectedVIlle;
+  @override
+  bool get isMapSelectedPointLivraison;
+  @override
+  int? get isDownloadFacture;
+  @override
+  PointLivraisonModel? get selected_livraison_point;
+  @override
+  int? get isRequest;
+  @override
+  bool? get errorPointLivraison;
+  @override
+  LatLng? get position;
+  @override
+  bool? get errorVille;
+  @override
+  double? get frais;
   @override
   List<MedicamentModel>? get listMedicamentChoose;
   @override

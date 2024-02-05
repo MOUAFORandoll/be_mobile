@@ -2,7 +2,8 @@ import 'package:BananaExpress/presentation/home/home_page.dart';
 import 'package:BananaExpress/presentation/layer/onboardingpage.dart';
 import 'package:BananaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BananaExpress/presentation/livraison/SuccesLivraisonPage.dart';
-import 'package:BananaExpress/presentation/pharmacy/pharmacy_page.dart';
+import 'package:BananaExpress/presentation/pharmacy/SuccesLivraisonMedicamentPage.dart';
+import 'package:BananaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
 import 'package:BananaExpress/presentation/user/auth_page.dart';
 import 'package:BananaExpress/presentation/user/forgot_password_page.dart';
 import 'package:BananaExpress/presentation/user/politique_page.dart';
@@ -41,6 +42,10 @@ class AppRouter extends $AppRouter {
             path: SuccesLivraisonPage.routeName),
         AutoRoute(page: MyTestRoute.page, path: MyTestPage.routeName),
         AutoRoute(page: PolitiqueRoute.page, path: PolitiquePage.routeName),
-        AutoRoute(page: PharmacyRoute.page, path: PharmacyPage.routeName),
+        AutoRoute(page: NewLivraisonMedicamentRoute.page, path: NewLivraisonMedicamentPage.routeName),
+
+            AutoRoute(
+            page: SuccesLivraisonMedicamentRoute.page,
+            path: SuccesLivraisonMedicamentPage.routeName),
       ];
 }

@@ -10,17 +10,18 @@ class PharmacyRepo {
 
   PharmacyRepo({required this.apiClient});
   var dababase = sl.get<DatabaseCubit>();
-  Future getUser() async {
-    var getId = await dababase.getId();
-    print('-----user---${getId}');
-    if (getId != null) {
-      Response a = await apiClient.getRequest(ApiRoutes.USER + '?id=${getId}');
-      ;
 
-      return a;
-    } else {
-      return null;
-    }
+  Future newLivraisonMedicament(data) async {
+    Response a = await apiClient.postRequest(ApiRoutes.LIVRAISON_MEDICAMENT, body: data);
+
+    return a;
+  }
+
+  Future calculFraisLivraison(data) async {
+    Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/frais',
+        body: data);
+
+    return a;
   }
 
   Future findMedicament(search) async {

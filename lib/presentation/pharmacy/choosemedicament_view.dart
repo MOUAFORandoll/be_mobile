@@ -39,6 +39,8 @@ class ChooseMedicamentViewState extends State<ChooseMedicamentView> {
                       close: () => context
                           .read<PharmacyBloc>()
                           .add(CloseListMedicament()),
+                      verifyContains: (value) =>
+                          context.read<PharmacyBloc>().verifyContains(value),
                       onTap: (value) => context
                           .read<PharmacyBloc>()
                           .add(ChooseMedicament(medicament: value)),
@@ -47,8 +49,34 @@ class ChooseMedicamentViewState extends State<ChooseMedicamentView> {
                           .add(FindMedicament(search: value)),
                     ),
                     Container(
+                        alignment: Alignment.centerLeft,
                         margin: EdgeInsets.only(top: kMarginY) * 2,
-                        child: Text('Medicament')),
+                        padding: EdgeInsets.only(bottom: kMarginY),
+                        child: Text(
+                          'Medicament Selectionne',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 14),
+                        )),
+                    Container(
+                        alignment: Alignment.centerLeft,
+                        margin: EdgeInsets.only(top: kMarginY) * 2,
+                        padding: EdgeInsets.only(bottom: kMarginY),
+                        decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                                    color: ColorsApp.primary.withOpacity(.5)))),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              child: Text('Nom'),
+                            ),
+                            Container(
+                              child: Text('Quantite'),
+                            ),
+                            Container()
+                          ],
+                        )),
                     Container(
                         width: getWith(context),
                         margin: EdgeInsets.symmetric(vertical: kMarginY),
@@ -89,32 +117,62 @@ class SelectedMedicament extends StatelessWidget {
         border: Border.all(
           color: Color.fromARGB(255, 231, 229, 229),
         ),
-        color: ColorsApp.second,
+        color: ColorsApp.primary,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: getWith(context) * .3,
-            child: Text(
-              medicament.libelle!,
-              style: TextStyle(fontWeight: FontWeight.w600),
+            child: Column(
+              children: [
+                Container(
+                  width: getWith(context) * .3,
+                  child: Text(
+                    medicament.libelle!,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: ColorsApp.white,
+                    ),
+                  ),
+                ),
+                Container(
+                  width: getWith(context) * .3,
+                  child: Text(
+                    '400 g',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: ColorsApp.white,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           InkWell(
               child: Container(
                   padding: EdgeInsets.all(10),
+                  height: 40,
+                  width: 40,
+                  alignment: Alignment.center,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
                       border: Border.all(color: ColorsApp.grey, width: 1),
-                      color: ColorsApp.grey),
+                      color: ColorsApp.second),
                   child: Text(
                     '${medicament.quantite}',
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: ColorsApp.white,
+                    ),
                   )),
               onTap: () => openModalAddColis(context, medicament)),
           InkWell(
-              child: Container(child: Icon(Icons.close)), onTap: (onDelete)),
+              child: Container(
+                  child: Icon(
+                Icons.close,
+                color: ColorsApp.white,
+              )),
+              onTap: (onDelete)),
         ],
       ),
     );
@@ -128,7 +186,7 @@ class SelectedMedicament extends StatelessWidget {
             _quantite.text = medicament.quantite.toString();
             return BlocBuilder<LivraisonBloc, LivraisonState>(
                 builder: (context, state) => Container(
-                    height: getHeight(context) * .9,
+                    height: getHeight(context) * .3,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
@@ -141,6 +199,12 @@ class SelectedMedicament extends StatelessWidget {
                     ).add(EdgeInsets.only(top: kMarginY)),
                     child: Column(
                       children: [
+                        Container(
+                          margin: EdgeInsets.symmetric(
+                            vertical: kMarginY,
+                          ),
+                          child: Text('Combien de plaquettes ?'),
+                        ),
                         Container(
                             padding: EdgeInsets.symmetric(
                                 vertical: kMarginY, horizontal: kMarginX),

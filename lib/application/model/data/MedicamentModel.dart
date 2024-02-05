@@ -19,7 +19,7 @@ class MedicamentModel {
   final String libelle;
   final String description;
   final bool status;
-  int quantite; 
+  int quantite;
 
   factory MedicamentModel.fromJson(Map<String, dynamic> json) =>
       MedicamentModel(
@@ -27,7 +27,7 @@ class MedicamentModel {
         libelle: json['libelle'] == null ? null : json['libelle'],
         description: json['description'] == null ? null : json['description'],
         status: json['status'] == null ? null : json['status'],
-        quantite: 0,
+        quantite: 1,
       );
 
   Map<String, dynamic> toJson() => {

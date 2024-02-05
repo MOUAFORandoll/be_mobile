@@ -27,6 +27,14 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   final DatabaseCubit database;
   LivraisonBloc({required this.livraisonRepo, required this.database})
       : super(LivraisonState.initial()) {
+    on<OnStartEvent>((event, emit) async {
+      var database = sl.get<DatabaseCubit>();
+      var user = database.getUser();
+      if (user != null) {
+        emit(state.copyWith(
+            contactEmetteur: TextEditingController(text: user.phone)));
+      }
+    });
     on<BackIndexEvent>((event, emit) async {
       print('BackIndexEvent');
       emit(state.copyWith(index: 0));

@@ -7,10 +7,12 @@ class SearchInput extends StatelessWidget {
       required this.label,
       required this.data,
       this.onTap,
+      this.verifyContains,
       this.close,
       this.onChanged});
 
   final onTap;
+  final verifyContains;
   final close;
   final ValueChanged<String>? onChanged;
   final TextEditingController controller;
@@ -59,7 +61,8 @@ class SearchInput extends StatelessWidget {
                     right: 15,
                   ),
                   suffixIcon: InkWell(
-                    child: Icon(Icons.close),
+                    child: Icon(
+                        controller.text.isEmpty ? Icons.search : Icons.close),
                     onTap: close,
                   )),
             ),
@@ -91,19 +94,44 @@ class SearchInput extends StatelessWidget {
                               itemBuilder: (_, index) => InkWell(
                                     onTap: () => onTap(data[index]),
                                     child: Container(
+                                      decoration: verifyContains(data[index])
+                                          ? BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              border: Border.all(
+                                                color: Color.fromARGB(
+                                                    255, 231, 229, 229),
+                                              ),
+                                              color: ColorsApp.primary,
+                                            )
+                                          : null,
                                       margin: EdgeInsets.symmetric(
-                                          horizontal: kMarginX,
+                                          horizontal: kMarginX / 2,
                                           vertical: kMarginY / 2.5),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: kMarginX,
+                                          vertical: kMarginY),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
-                                            child: Text(data[index].libelle),
+                                            child: Text(
+                                              data[index].libelle,
+                                              style: TextStyle(
+                                                  color: verifyContains(
+                                                          data[index])
+                                                      ? ColorsApp.white
+                                                      : null),
+                                            ),
                                           ),
                                           Container(
-                                              child:
-                                                  Icon(Icons.medical_services)),
+                                              child: Icon(
+                                                  Icons.medical_services,
+                                                  color: verifyContains(
+                                                          data[index])
+                                                      ? ColorsApp.white
+                                                      : null)),
                                         ],
                                       ),
                                     ),

@@ -1,21 +1,25 @@
+import 'package:BananaExpress/presentation/pharmacy/Infolieuxlivraison_view.dart';
+import 'package:BananaExpress/routes/app_router.gr.dart';
+
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 
 import 'choosemedicament_view.dart';
 
 @RoutePage()
-class PharmacyPage extends StatefulWidget {
+class NewLivraisonMedicamentPage extends StatefulWidget {
   static const String routeName = '/pharmacypage';
 
   @override
-  _PharmacyPageState createState() => _PharmacyPageState();
+  _NewLivraisonMedicamentPageState createState() =>
+      _NewLivraisonMedicamentPageState();
 }
 
-class _PharmacyPageState extends State<PharmacyPage> {
+class _NewLivraisonMedicamentPageState
+    extends State<NewLivraisonMedicamentPage> {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PharmacyBloc, PharmacyState>(
-        listener: (context, state) {},
+    return BlocBuilder<PharmacyBloc, PharmacyState>(
         builder: (context, state) => Scaffold(
             appBar: AppBar(
               title: Text('Pharmacy'),
@@ -31,7 +35,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                     Expanded(
                       child: state.index == 0
                           ? ChooseMedicamentView()
-                          : ChooseMedicamentView(),
+                          : InfoLieuxLIvraisonView(),
                     ),
                     Container(
                         margin: EdgeInsets.symmetric(
@@ -49,8 +53,8 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                   text: 'yback'.tr(),
                                   onTap: () {
                                     context
-                                        .read<LivraisonBloc>()
-                                        .add(BackIndexEvent());
+                                        .read<PharmacyBloc>()
+                                        .add(BackIndexEventP());
                                   }),
                               AppButton(
                                 size: MainAxisSize.max,
@@ -61,10 +65,10 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                 onTap: () {
                                   state.index == 0
                                       ? context.read<PharmacyBloc>().add(
-                                          VerifyFormChooseMedicamentEvent())
+                                          VerifyFormChooseMedicamentEventP())
                                       : context
-                                          .read<LivraisonBloc>()
-                                          .add(CalculFrais());
+                                          .read<PharmacyBloc>()
+                                          .add(CalculFraisP());
                                 },
                               ),
                             ])),

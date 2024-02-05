@@ -86,4 +86,5 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.getLivraison() = ListLivraison;
   const factory LivraisonEvent.downloadFacture() = DownloadFacture;
   const factory LivraisonEvent.noValidate() = NoValidate;
+  const factory LivraisonEvent.onStartEvent() = OnStartEvent;
 }

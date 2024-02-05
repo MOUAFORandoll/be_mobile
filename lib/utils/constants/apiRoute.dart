@@ -34,4 +34,5 @@ class ApiRoutes {
   static const HOME = '/home';
   static const VILLE = '/villes';
   static const MEDICAMENT_SEARCH = '/medicament-search';
+  static const LIVRAISON_MEDICAMENT = '/livraisons/medicament';
 }
