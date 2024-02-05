@@ -207,11 +207,6 @@
           "id": "9:4427249840446802544",
           "name": "typeUser",
           "type": 6
-        },
-        {
-          "id": "10:754203462009673773",
-          "name": "recupMailStatus",
-          "type": 1
         }
       ],
       "relations": []
@@ -244,7 +239,9 @@
   "modelVersionParserMinimum": 5,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    754203462009673773
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

@@ -12,14 +12,22 @@ class PharmacyRepo {
   var dababase = sl.get<DatabaseCubit>();
 
   Future newLivraisonMedicament(data) async {
-    Response a = await apiClient.postRequest(ApiRoutes.LIVRAISON_MEDICAMENT, body: data);
+    Response a =
+        await apiClient.postRequest(ApiRoutes.LIVRAISON_MEDICAMENT, body: data);
 
     return a;
   }
 
   Future calculFraisLivraison(data) async {
-    Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/frais',
-        body: data);
+    Response a = await apiClient
+        .postRequest(ApiRoutes.LIVRAISON_MEDICAMENT + '/frais', body: data);
+
+    return a;
+  }
+
+  Future getHistoryLivraisonsMedicaments(keySecret) async {
+    Response a = await apiClient.getRequest(
+        ApiRoutes.LIVRAISON_MEDICAMENT + '/user?keySecret=${keySecret}');
 
     return a;
   }

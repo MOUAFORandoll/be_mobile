@@ -1,9 +1,4 @@
-import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
-import 'package:BananaExpress/utils/functions/app_loader.dart';
-import 'package:BananaExpress/utils/functions/showToast.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import '../../application/export_bloc.dart';
@@ -52,7 +47,7 @@ class SuccesLivraisonMedicamentPage extends StatelessWidget {
                             margin: EdgeInsets.symmetric(
                               vertical: kMarginY * 2,
                             ),
-                            child: Text('succesLivraison'.tr(),
+                            child: Text('succesLivraisonMedoc'.tr(),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(color: ColorsApp.primary))),
                         Container(

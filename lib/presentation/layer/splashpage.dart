@@ -1,6 +1,4 @@
 import 'package:BananaExpress/application/splash/splash_bloc.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';

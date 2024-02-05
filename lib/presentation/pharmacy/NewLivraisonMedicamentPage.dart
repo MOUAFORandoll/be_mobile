@@ -1,6 +1,5 @@
 import 'package:BananaExpress/presentation/pharmacy/Infolieuxlivraison_view.dart';
-import 'package:BananaExpress/routes/app_router.gr.dart';
-
+ 
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 

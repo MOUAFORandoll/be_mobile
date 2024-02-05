@@ -1,21 +1,16 @@
-import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/presentation/components/Button/themeButton.dart';
-import 'package:BananaExpress/presentation/components/Widget/k_home_info.dart';
-import 'package:BananaExpress/presentation/livraison/LivraisonView.dart';
+import 'package:BananaExpress/presentation/home/first_view.dart';
+import 'package:BananaExpress/presentation/home/second_view.dart';
 import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
-import 'package:BananaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
 import 'package:BananaExpress/routes/app_router.gr.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
 import 'package:BananaExpress/utils/constants/assets.dart';
-import 'package:BananaExpress/utils/functions/showToast.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_version_plus/new_version_plus.dart';
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/presentation/components/Widget/HomeModuleComponent.dart';
-import 'package:BananaExpress/presentation/components/Widget/icon_svg.dart';
 
 var loader = AppLoader.bounceLargeColorLoaderController();
 
@@ -67,104 +62,17 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return BlocConsumer<HomeBloc, HomeState>(
         listener: (context, state) {
-          if (state.recupMailStatus! == false) {
+          if (state.user!.email.isEmpty) {
             return openUpdateMail(context);
           } else {
-            print('-----44------find noe--*is ok*******');
+            print('-----44-- ---find noe--*is ok*******');
           }
         },
         builder: (context, state) => Scaffold(
             backgroundColor: ColorsApp.bg,
             drawer: CustomDrawer(user: state.user),
-            body: SafeArea(
-                child: state.index == 0
-                    ? Container(
-                        child: CustomScrollView(slivers: [
-                        SliverAppBar(
-                          automaticallyImplyLeading: false,
-                          leading: Builder(builder: (context) {
-                            return InkWell(
-                                child: Container(
-                                  width: 10,
-                                  height: 10,
-                                  child: SvgPicture.asset(Assets.menu,
-                                      color: ColorsApp.white, fit: BoxFit.none),
-                                ),
-                                onTap: () => Scaffold.of(context).openDrawer());
-                          }),
-                          title: Text(
-                            'Babana Express',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: ColorsApp.white,
-                                fontFamily: 'Lato',
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          centerTitle: true,
-                          actions: [
-                            InkWell(
-                                child: Container(
-                                    margin:
-                                        EdgeInsets.only(right: kMarginX * 2),
-                                    child: SvgIcon(
-                                      icon: Assets.bell,
-                                      color: ColorsApp.white,
-                                    )),
-                                onTap: () {
-                                  // Get.toNamed(AppLinks.NOTIFICATION);
-                                }),
-                          ],
-                          bottom: PreferredSize(
-                            preferredSize: Size.fromHeight(18.0),
-                            child: Container(
-                              margin: EdgeInsets.symmetric(
-                                horizontal: kMarginX,
-                              ).add(EdgeInsets.only(
-                                bottom: kMarginY * 3,
-                                right: kMarginX,
-                              )),
-                              child: KHomeInfo(user: state.user),
-                            ),
-                          ),
-
-                          expandedHeight: getHeight(context) * .22,
-                          elevation: 10.0,
-                          backgroundColor: ColorsApp
-                              .primary, // Set your desired background color
-                          // shape: RoundedRectangleBorder(
-                          //   borderRadius: BorderRadius.vertical(
-                          //     bottom: Radius.circular(30.0),
-                          //   ),
-                          // ),
-                        ),
-                        SliverToBoxAdapter(
-                            child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: kMarginY, horizontal: kMarginX),
-                                child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      HomeModuleComponent(
-                                        title: 'ht1'.tr(),
-                                        titleBtn: 'livraison'.tr(),
-                                        image: Assets.shop2,
-                                        onTap: () =>
-                                            openModalLivraison(context),
-                                      ),
-                                      HomeModuleComponent(
-                                        title: 'ht2'.tr(),
-                                        titleBtn: 'pharmacie'.tr(),
-                                        image: Assets.medical,
-                                        onTap: () => AutoRouter.of(context)
-                                            .pushNamed(
-                                                NewLivraisonMedicamentPage
-                                                    .routeName),
-                                      ),
-                                    ])))
-                      ]))
-                    : LivraisonView()),
+            body:
+                SafeArea(child: state.index == 0 ? FirstView() : SecondView()),
             bottomNavigationBar: CustomNavigationBar(
               iconSize: 30.0,
               // elevation: 0.0,
@@ -425,16 +333,15 @@ openUpdateMail(context) => showDialog(
     builder: (context) {
       TextEditingController mail = TextEditingController();
       var loader = AppLoader.bounceLargeColorLoaderController();
-      final formKey = GlobalKey<FormState>();
 
       return BlocConsumer<UserBloc, UserState>(
           listener: (context, state) {
             if (state.updating!) {
               loader.open(context);
             } else {
-              showSuccess('yupdate'.tr(), context);
               loader.close();
               AutoRouter.of(context).pop();
+              showSuccess('yupdate'.tr(), context);
             }
           },
           builder: (context, state) => AlertDialog(
@@ -452,7 +359,6 @@ openUpdateMail(context) => showDialog(
                       child: Icon(Icons.close,
                           color: ColorsApp.primary, weight: 50),
                       onTap: () {
-                        context.read<HomeBloc>().add(NoOpenRecupMailModal());
                         AutoRouter.of(context).pop();
                       })
                 ],
@@ -480,6 +386,8 @@ openUpdateMail(context) => showDialog(
                         context.read<UserBloc>().add(UpdateUserInfo(
                               data: {'email': mail.text},
                             ));
+
+                        context.read<HomeBloc>().add(UserDataEvent());
                       } else {
                         showError('recupmailtitle'.tr(), context);
                       }

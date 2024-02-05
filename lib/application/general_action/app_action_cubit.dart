@@ -10,9 +10,9 @@ part 'app_action_cubit.freezed.dart';
 
 class AppActionCubit extends Cubit<AppActionState> {
   final Connectivity _connectivity = Connectivity();
-  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
-
   AppActionCubit() : super(AppActionState.initial()) {
+  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  
     emit(state.copyWith(index: 0));
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {

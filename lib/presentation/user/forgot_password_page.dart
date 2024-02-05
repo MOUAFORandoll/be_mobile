@@ -1,9 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:BananaExpress/presentation/components/Button/app_button.dart';
 import 'package:BananaExpress/utils/Services/validators.dart';
-import 'package:BananaExpress/utils/functions/showToast.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:BananaExpress/application/export_bloc.dart';
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
@@ -143,6 +140,8 @@ class ForgotPasswordPage extends StatelessWidget {
                                   onChanged: (value) {},
                                   placeholder: 'labelphone_recup'.tr(),
                                   validator: (value) {
+                                    return null;
+                                  
                                     // return Validators.usPhoneValid(value!);
                                   },
                                 ),

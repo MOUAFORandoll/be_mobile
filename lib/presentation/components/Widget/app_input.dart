@@ -178,11 +178,12 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                       });
                     },
                     icon: Icon(
-                      isVisible
-                          ? Icons.remove_red_eye
-                          : CupertinoIcons.eye_slash,
-                      /*     */
-                    ),
+                        isVisible
+                            ? Icons.remove_red_eye
+                            : FontAwesomeIcons.eyeSlash,
+                        size: isVisible ? 22 : 19
+                        /*     */
+                        ),
                   )
                 : null),
         validator: widget.validator,

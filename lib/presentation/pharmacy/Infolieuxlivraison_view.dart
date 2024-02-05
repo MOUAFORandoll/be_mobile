@@ -18,7 +18,9 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
             loader.open(context);
           } else if (state.isRequest == 3) {
             loader.close();
+            Navigator.of(context).pop();
             showError('Une erreur est survenue', context);
+            print('-----err[orr--------**000*******');
           } else if (state.isRequest == 2) {
             print('-----44--------**000*******');
 
@@ -33,6 +35,7 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
             print('-----AutoRouter.of(context).pop()--------*********');
           } else if (state.isRequest == 5) {
             loader.close();
+            AutoRouter.of(context).pop();
             AutoRouter.of(context)
                 .replaceAll([SuccesLivraisonMedicamentRoute()]);
             showSuccess(
@@ -367,8 +370,8 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
 
 validateLivraisonMedicaments(context) => showModalBottomSheet(
       context: context,
-      builder: (BuildContext context) => BlocBuilder<LivraisonBloc,
-              LivraisonState>(
+      builder: (BuildContext context) => BlocBuilder<PharmacyBloc,
+              PharmacyState>(
           builder: (context, state) => Container(
               height: getHeight(context) * .4,
               padding: EdgeInsets.symmetric(horizontal: kMarginX),
@@ -391,7 +394,7 @@ validateLivraisonMedicaments(context) => showModalBottomSheet(
                           onTap: () {
                             AutoRouter.of(context).pop();
 
-                            context.read<LivraisonBloc>().add(NoValidate());
+                            context.read<PharmacyBloc>().add(NoValidateP());
                           },
                           child: Icon(Icons.close),
                         )),
@@ -442,5 +445,5 @@ validateLivraisonMedicaments(context) => showModalBottomSheet(
       ),
       backgroundColor: Colors.transparent,
     ).whenComplete(() {
-      BlocProvider.of<LivraisonBloc>(context).add(NoValidate());
+      BlocProvider.of<PharmacyBloc>(context).add(NoValidateP());
     });

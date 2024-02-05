@@ -48,15 +48,16 @@ void initConnected() async {
 
 Future<void> initLoad(context) async {
   BlocProvider.of<HomeBloc>(context)
-    ..add(UserDataEvent())
-    ..add(OpenRecupMailModal());
+    .add(UserDataEvent())
+    ;
   BlocProvider.of<UserBloc>(context)
     ..add(GetUserEvent())
     ..add(GetVilleQuartier());
   BlocProvider.of<LivraisonBloc>(context)
     ..add(StartLogLat())
     ..add(GetVilleAndCategoryEvent())
-    ..add(ListLivraison());
+    ..add(HistoriqueUserLivraison());
+  BlocProvider.of<PharmacyBloc>(context).add(HistoriqueLivraisonMedicament());
   initSetDefaultValue(context);
 }
 
@@ -67,9 +68,8 @@ Future<void> initSetDefaultValue(context) async {
 
 Future<void> requestPermission() async {
   PermissionStatus status = await Permission.storage.request();
-  PermissionStatus status0 = await Permission.manageExternalStorage.request();
   print(status);
-  print(status0);
+
   if (status == PermissionStatus.granted) {
     print('accepte');
   } else {

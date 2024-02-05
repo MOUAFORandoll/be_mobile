@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:BananaExpress/application/database/database_cubit.dart';
+import 'package:BananaExpress/application/model/data/LivraisonMedicamentModel.dart';
 import 'package:BananaExpress/application/model/data/PointLivraisonModel.dart';
 import 'package:BananaExpress/application/model/data/VilleModel.dart';
 import 'package:BananaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
@@ -51,7 +54,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
     // on<MapSelectedP>(_mapSelected);
     // on<StartLogLat>(_setStartLongLat);
     on<NewLivraisonPharmacy>(_newLivraisonMedicament);
-    // on<ListLivraison>(_getLivraisonUser);
+    on<HistoriqueLivraisonMedicament>(_getLivraisonMedicamentUser);
     // on<DownloadFacture>(_downloadFacture);
     on<CalculFraisP>(_calculFraisDeLivraison);
 
@@ -103,7 +106,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       }
     }
   }
-
+  
   Future<void> _closeListMedicament(
       CloseListMedicament event, Emitter<PharmacyState> emit) async {
     emit(state.copyWith(
@@ -118,7 +121,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       orElse: () => MedicamentModel(
           id: -1, libelle: '', status: false, description: '', quantite: 0),
     );
-    print('------${medicamentFind!.id != -1}-----');
+ 
 
     return medicamentFind!.id != -1;
   }
@@ -235,7 +238,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
     await pharmacyRepo.newLivraisonMedicament(data).then((response) {
       print(response.data);
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         if (response.data != null) {
           print(' emit(state.copyWith(isRequest: --------------5))');
           emit(state.copyWith(
@@ -245,19 +248,23 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
           _cleanData(emit);
           print('00 emit(state.copyWith(isRequest: --------------5))');
         }
+      } else {
+        print('--jjj---err[orr--------**000*******');
+        emit(state.copyWith(isRequest: 3));
       }
     }).onError((e, s) {
+      print('-----err[orr--------**000*******');
       emit(state.copyWith(isRequest: 3));
     });
   }
 
+  List<int> _medicaments = [];
   convertMedicament() {
-    List<int> _medicaments = [];
     state.listMedicamentChoose!.forEach((e) {
       _medicaments.add(e.id);
     });
 
-    return _medicaments;
+    return jsonEncode(_medicaments);
   }
 
   Future<FormData> createFormData() async {
@@ -274,7 +281,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       'contactLivraison': state.contactRecepteur?.text,
       'description': state.descriptionEmplacement?.text,
       'ville': state.selectedVIlle?.id,
-      'medicament': convertMedicament(),
+      'medicaments': convertMedicament(),
     };
     print(data);
     FormData formData = FormData.fromMap(data);
@@ -296,7 +303,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
         // isDownloadFacture: 0,
         // isRequest: 0,
         // // urlFacture: '',
-        // isLoadedPLivraison: 0,
+        // isLoadedHistoriqueLivraison: 0,
         // frais: 0,
         // errorQte: false,
         // errorPointRecuperation: false,
@@ -320,6 +327,32 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
         // quartier_recuperation_point: '',
         ));
     print('00 emit(state.copyWith(isRequest: --------------5))');
+  }
+
+  Future<void> _getLivraisonMedicamentUser(
+      HistoriqueLivraisonMedicament event, Emitter<PharmacyState> emit) async {
+   emit(state.copyWith(
+      isLoadedHistoriqueLivraison: 0,
+    ));  var key = await database.getKey();
+    await pharmacyRepo.getHistoryLivraisonsMedicaments(key).then((response) {
+      if (response.data != null) {
+        emit(state.copyWith(
+            isLoadedHistoriqueLivraison: 1,
+            userLivraisonMedicamentList: (response.data['data'] as List)
+                .map((e) => LivraisonMedicamentModel.fromJson(e))
+                .toList()));
+        print('-----------state.LivraisonMedicament.length');
+ 
+      } else {
+        emit(state.copyWith(
+          isLoadedHistoriqueLivraison: 2,
+        ));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(
+        isLoadedHistoriqueLivraison: 2,
+      ));
+    });
   }
 
   @override

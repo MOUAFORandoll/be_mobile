@@ -12,9 +12,6 @@ import '/entity.dart';
 import '../export_bloc.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:image_picker/image_picker.dart';
-
-import 'package:geolocator/geolocator.dart'; 
 part 'user_event.dart';
 part 'user_state.dart';
 part 'user_bloc.freezed.dart';
@@ -122,7 +119,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     await userRepo.updateUser(data).then((response) async {
       if (response.statusCode == 201) {
         database.saveKeyKen(response.data);
-
+        
         await userRepo.getUser().then((value) async {
           if (value != null) {
             print('------------------value----------${value.data}-');
@@ -132,9 +129,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
                   isLoading: 2,
                   authenticationFailedMessage: ''));
               emit(UserState.authenticated());
-
+              
               var _UserSave = User.fromJson(value.data['data']);
-
+              
               await database.saveUser(_UserSave);
             }
           }

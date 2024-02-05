@@ -3,24 +3,7 @@ import 'package:BananaExpress/presentation/components/Widget/searchInput.dart';
 import '../../application/export_bloc.dart';
 import '../components/exportcomponent.dart';
 
-class ChooseMedicamentView extends StatefulWidget {
-  @override
-  ChooseMedicamentViewState createState() {
-    return ChooseMedicamentViewState();
-  }
-}
-
-class ChooseMedicamentViewState extends State<ChooseMedicamentView> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
+class ChooseMedicamentView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PharmacyBloc, PharmacyState>(
@@ -41,9 +24,13 @@ class ChooseMedicamentViewState extends State<ChooseMedicamentView> {
                           .add(CloseListMedicament()),
                       verifyContains: (value) =>
                           context.read<PharmacyBloc>().verifyContains(value),
-                      onTap: (value) => context
-                          .read<PharmacyBloc>()
-                          .add(ChooseMedicament(medicament: value)),
+                      onTap: (value) {
+                        context
+                            .read<PharmacyBloc>()
+                            .add(ChooseMedicament(medicament: value));
+                        
+                        context.read<PharmacyBloc>().add(CloseListMedicament());
+                      },
                       onChanged: (value) => context
                           .read<PharmacyBloc>()
                           .add(FindMedicament(search: value)),
@@ -128,7 +115,7 @@ class SelectedMedicament extends StatelessWidget {
                 Container(
                   width: getWith(context) * .3,
                   child: Text(
-                    medicament.libelle!,
+                    medicament.libelle,
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       color: ColorsApp.white,
@@ -256,6 +243,8 @@ class SelectedMedicament extends StatelessWidget {
                                     alignStart: false,
                                     textInputType: TextInputType.number,
                                     validator: (value) {
+                                      return null;
+
                                       // return Validators.usNumeriqValid(value!);
                                     },
                                   ),

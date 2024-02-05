@@ -12,7 +12,7 @@ class SocketService {
     'autoConnect': true,
   });
 
-  void listLivraison(canal, Function action) {
+  void HistoriqueUserLivraison(canal, Function action) {
     socket.on('livraison', (data) {
       print(data);
       print(

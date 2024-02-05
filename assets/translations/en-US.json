@@ -139,5 +139,6 @@
   "successaveFacture": "The delivery invoice has been saved in your documents",
   "yemtyl": "Hey, Your History Is Empty !",
   "yemty2": "Go back and start with deliveries.",
-  "succesLivraison": "Your delivery request has been successfully recorded. Follow the request progress in the Delivery menu"
+  "succesLivraison": "Your delivery request has been successfully recorded. Follow the request progress in the Delivery menu",
+  "succesLivraisonMedoc": "Your request for drug delivery has been successfully registered. Follow the progress of your request in the Delivery menu"
 }

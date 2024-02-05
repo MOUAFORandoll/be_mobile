@@ -37,7 +37,7 @@ mixin _$PharmacyEvent {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -64,7 +64,7 @@ mixin _$PharmacyEvent {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -91,7 +91,7 @@ mixin _$PharmacyEvent {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -120,7 +120,8 @@ mixin _$PharmacyEvent {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -146,7 +147,8 @@ mixin _$PharmacyEvent {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -172,7 +174,8 @@ mixin _$PharmacyEvent {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -257,7 +260,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -287,7 +290,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -317,7 +320,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -352,7 +355,8 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -381,7 +385,8 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -410,7 +415,8 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -489,7 +495,7 @@ class _$VerifyFormChooseMedicamentEventPImpl
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -519,7 +525,7 @@ class _$VerifyFormChooseMedicamentEventPImpl
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -549,7 +555,7 @@ class _$VerifyFormChooseMedicamentEventPImpl
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -584,7 +590,8 @@ class _$VerifyFormChooseMedicamentEventPImpl
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -613,7 +620,8 @@ class _$VerifyFormChooseMedicamentEventPImpl
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -642,7 +650,8 @@ class _$VerifyFormChooseMedicamentEventPImpl
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -744,7 +753,7 @@ class _$FindMedicamentImpl implements FindMedicament {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -774,7 +783,7 @@ class _$FindMedicamentImpl implements FindMedicament {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -804,7 +813,7 @@ class _$FindMedicamentImpl implements FindMedicament {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -839,7 +848,8 @@ class _$FindMedicamentImpl implements FindMedicament {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -868,7 +878,8 @@ class _$FindMedicamentImpl implements FindMedicament {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -897,7 +908,8 @@ class _$FindMedicamentImpl implements FindMedicament {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -1005,7 +1017,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -1035,7 +1047,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -1065,7 +1077,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -1100,7 +1112,8 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -1129,7 +1142,8 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -1158,7 +1172,8 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -1239,7 +1254,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -1269,7 +1284,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -1299,7 +1314,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -1334,7 +1349,8 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -1363,7 +1379,8 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -1392,7 +1409,8 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -1505,7 +1523,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -1535,7 +1553,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -1565,7 +1583,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -1600,7 +1618,8 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -1629,7 +1648,8 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -1658,7 +1678,8 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -1768,7 +1789,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -1798,7 +1819,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -1828,7 +1849,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -1863,7 +1884,8 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -1892,7 +1914,8 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -1921,7 +1944,8 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -2001,7 +2025,7 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -2031,7 +2055,7 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -2061,7 +2085,7 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -2096,7 +2120,8 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -2125,7 +2150,8 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -2154,7 +2180,8 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -2255,7 +2282,7 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -2285,7 +2312,7 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -2315,7 +2342,7 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -2350,7 +2377,8 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -2379,7 +2407,8 @@ class _$SelectedVillePImpl implements SelectedVilleP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -2408,7 +2437,8 @@ class _$SelectedVillePImpl implements SelectedVilleP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -2515,7 +2545,7 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -2545,7 +2575,7 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -2575,7 +2605,7 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -2610,7 +2640,8 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -2639,7 +2670,8 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -2668,7 +2700,8 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -2774,7 +2807,7 @@ class _$MapSelectedPImpl implements MapSelectedP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -2804,7 +2837,7 @@ class _$MapSelectedPImpl implements MapSelectedP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -2834,7 +2867,7 @@ class _$MapSelectedPImpl implements MapSelectedP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -2869,7 +2902,8 @@ class _$MapSelectedPImpl implements MapSelectedP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -2898,7 +2932,8 @@ class _$MapSelectedPImpl implements MapSelectedP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -2927,7 +2962,8 @@ class _$MapSelectedPImpl implements MapSelectedP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -3043,7 +3079,7 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -3073,7 +3109,7 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -3103,7 +3139,7 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -3138,7 +3174,8 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -3167,7 +3204,8 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -3196,7 +3234,8 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -3278,7 +3317,7 @@ class _$CalculFraisPImpl implements CalculFraisP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -3308,7 +3347,7 @@ class _$CalculFraisPImpl implements CalculFraisP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -3338,7 +3377,7 @@ class _$CalculFraisPImpl implements CalculFraisP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -3373,7 +3412,8 @@ class _$CalculFraisPImpl implements CalculFraisP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -3402,7 +3442,8 @@ class _$CalculFraisPImpl implements CalculFraisP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -3431,7 +3472,8 @@ class _$CalculFraisPImpl implements CalculFraisP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -3544,7 +3586,7 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -3574,7 +3616,7 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -3604,7 +3646,7 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -3639,7 +3681,8 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -3668,7 +3711,8 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -3697,7 +3741,8 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -3808,7 +3853,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -3838,7 +3883,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -3868,7 +3913,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -3903,7 +3948,8 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -3932,7 +3978,8 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -3961,7 +4008,8 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -4043,7 +4091,7 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -4073,7 +4121,7 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -4103,7 +4151,7 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -4138,7 +4186,8 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -4167,7 +4216,8 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -4196,7 +4246,8 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -4214,35 +4265,40 @@ abstract class NewLivraisonPharmacy implements PharmacyEvent {
 }
 
 /// @nodoc
-abstract class _$$ListLivraisonPImplCopyWith<$Res> {
-  factory _$$ListLivraisonPImplCopyWith(_$ListLivraisonPImpl value,
-          $Res Function(_$ListLivraisonPImpl) then) =
-      __$$ListLivraisonPImplCopyWithImpl<$Res>;
+abstract class _$$HistoriqueLivraisonMedicamentImplCopyWith<$Res> {
+  factory _$$HistoriqueLivraisonMedicamentImplCopyWith(
+          _$HistoriqueLivraisonMedicamentImpl value,
+          $Res Function(_$HistoriqueLivraisonMedicamentImpl) then) =
+      __$$HistoriqueLivraisonMedicamentImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ListLivraisonPImplCopyWithImpl<$Res>
-    extends _$PharmacyEventCopyWithImpl<$Res, _$ListLivraisonPImpl>
-    implements _$$ListLivraisonPImplCopyWith<$Res> {
-  __$$ListLivraisonPImplCopyWithImpl(
-      _$ListLivraisonPImpl _value, $Res Function(_$ListLivraisonPImpl) _then)
+class __$$HistoriqueLivraisonMedicamentImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res,
+        _$HistoriqueLivraisonMedicamentImpl>
+    implements _$$HistoriqueLivraisonMedicamentImplCopyWith<$Res> {
+  __$$HistoriqueLivraisonMedicamentImplCopyWithImpl(
+      _$HistoriqueLivraisonMedicamentImpl _value,
+      $Res Function(_$HistoriqueLivraisonMedicamentImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ListLivraisonPImpl implements ListLivraisonP {
-  const _$ListLivraisonPImpl();
+class _$HistoriqueLivraisonMedicamentImpl
+    implements HistoriqueLivraisonMedicament {
+  const _$HistoriqueLivraisonMedicamentImpl();
 
   @override
   String toString() {
-    return 'PharmacyEvent.getLivraison()';
+    return 'PharmacyEvent.getLivraisonMedicament()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ListLivraisonPImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$HistoriqueLivraisonMedicamentImpl);
   }
 
   @override
@@ -4270,12 +4326,12 @@ class _$ListLivraisonPImpl implements ListLivraisonP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
   }) {
-    return getLivraison();
+    return getLivraisonMedicament();
   }
 
   @override
@@ -4300,12 +4356,12 @@ class _$ListLivraisonPImpl implements ListLivraisonP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
   }) {
-    return getLivraison?.call();
+    return getLivraisonMedicament?.call();
   }
 
   @override
@@ -4330,14 +4386,14 @@ class _$ListLivraisonPImpl implements ListLivraisonP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
     required TResult orElse(),
   }) {
-    if (getLivraison != null) {
-      return getLivraison();
+    if (getLivraisonMedicament != null) {
+      return getLivraisonMedicament();
     }
     return orElse();
   }
@@ -4365,12 +4421,13 @@ class _$ListLivraisonPImpl implements ListLivraisonP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
   }) {
-    return getLivraison(this);
+    return getLivraisonMedicament(this);
   }
 
   @override
@@ -4394,12 +4451,13 @@ class _$ListLivraisonPImpl implements ListLivraisonP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
   }) {
-    return getLivraison?.call(this);
+    return getLivraisonMedicament?.call(this);
   }
 
   @override
@@ -4423,21 +4481,23 @@ class _$ListLivraisonPImpl implements ListLivraisonP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
     required TResult orElse(),
   }) {
-    if (getLivraison != null) {
-      return getLivraison(this);
+    if (getLivraisonMedicament != null) {
+      return getLivraisonMedicament(this);
     }
     return orElse();
   }
 }
 
-abstract class ListLivraisonP implements PharmacyEvent {
-  const factory ListLivraisonP() = _$ListLivraisonPImpl;
+abstract class HistoriqueLivraisonMedicament implements PharmacyEvent {
+  const factory HistoriqueLivraisonMedicament() =
+      _$HistoriqueLivraisonMedicamentImpl;
 }
 
 /// @nodoc
@@ -4497,7 +4557,7 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -4527,7 +4587,7 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -4557,7 +4617,7 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -4592,7 +4652,8 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -4621,7 +4682,8 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -4650,7 +4712,8 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -4724,7 +4787,7 @@ class _$NoValidatePImpl implements NoValidateP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -4754,7 +4817,7 @@ class _$NoValidatePImpl implements NoValidateP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -4784,7 +4847,7 @@ class _$NoValidatePImpl implements NoValidateP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -4819,7 +4882,8 @@ class _$NoValidatePImpl implements NoValidateP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -4848,7 +4912,8 @@ class _$NoValidatePImpl implements NoValidateP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -4877,7 +4942,8 @@ class _$NoValidatePImpl implements NoValidateP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -4951,7 +5017,7 @@ class _$OnStartEventPImpl implements OnStartEventP {
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
-    required TResult Function() getLivraison,
+    required TResult Function() getLivraisonMedicament,
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEventP,
@@ -4981,7 +5047,7 @@ class _$OnStartEventPImpl implements OnStartEventP {
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
-    TResult? Function()? getLivraison,
+    TResult? Function()? getLivraisonMedicament,
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEventP,
@@ -5011,7 +5077,7 @@ class _$OnStartEventPImpl implements OnStartEventP {
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
-    TResult Function()? getLivraison,
+    TResult Function()? getLivraisonMedicament,
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEventP,
@@ -5046,7 +5112,8 @@ class _$OnStartEventPImpl implements OnStartEventP {
     required TResult Function(SelectPointLivraisonP value)
         selectPointLivraisonP,
     required TResult Function(NewLivraisonPharmacy value) newLivraison,
-    required TResult Function(ListLivraisonP value) getLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
     required TResult Function(DownloadFactureP value) downloadFacture,
     required TResult Function(NoValidateP value) noValidate,
     required TResult Function(OnStartEventP value) onStartEventP,
@@ -5075,7 +5142,8 @@ class _$OnStartEventPImpl implements OnStartEventP {
         mapValidatePointLivraison,
     TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult? Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult? Function(ListLivraisonP value)? getLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult? Function(DownloadFactureP value)? downloadFacture,
     TResult? Function(NoValidateP value)? noValidate,
     TResult? Function(OnStartEventP value)? onStartEventP,
@@ -5104,7 +5172,8 @@ class _$OnStartEventPImpl implements OnStartEventP {
         mapValidatePointLivraison,
     TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
     TResult Function(NewLivraisonPharmacy value)? newLivraison,
-    TResult Function(ListLivraisonP value)? getLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
     TResult Function(DownloadFactureP value)? downloadFacture,
     TResult Function(NoValidateP value)? noValidate,
     TResult Function(OnStartEventP value)? onStartEventP,
@@ -5144,6 +5213,9 @@ mixin _$PharmacyState {
   int? get isRequest => throw _privateConstructorUsedError;
   bool? get errorPointLivraison => throw _privateConstructorUsedError;
   LatLng? get position => throw _privateConstructorUsedError;
+  int? get isLoadedHistoriqueLivraison => throw _privateConstructorUsedError;
+  List<LivraisonMedicamentModel>? get userLivraisonMedicamentList =>
+      throw _privateConstructorUsedError;
   bool? get errorVille => throw _privateConstructorUsedError;
   double? get frais => throw _privateConstructorUsedError;
   List<MedicamentModel>? get listMedicamentChoose =>
@@ -5176,6 +5248,8 @@ abstract class $PharmacyStateCopyWith<$Res> {
       int? isRequest,
       bool? errorPointLivraison,
       LatLng? position,
+      int? isLoadedHistoriqueLivraison,
+      List<LivraisonMedicamentModel>? userLivraisonMedicamentList,
       bool? errorVille,
       double? frais,
       List<MedicamentModel>? listMedicamentChoose});
@@ -5209,6 +5283,8 @@ class _$PharmacyStateCopyWithImpl<$Res, $Val extends PharmacyState>
     Object? isRequest = freezed,
     Object? errorPointLivraison = freezed,
     Object? position = freezed,
+    Object? isLoadedHistoriqueLivraison = freezed,
+    Object? userLivraisonMedicamentList = freezed,
     Object? errorVille = freezed,
     Object? frais = freezed,
     Object? listMedicamentChoose = freezed,
@@ -5274,6 +5350,14 @@ class _$PharmacyStateCopyWithImpl<$Res, $Val extends PharmacyState>
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as LatLng?,
+      isLoadedHistoriqueLivraison: freezed == isLoadedHistoriqueLivraison
+          ? _value.isLoadedHistoriqueLivraison
+          : isLoadedHistoriqueLivraison // ignore: cast_nullable_to_non_nullable
+              as int?,
+      userLivraisonMedicamentList: freezed == userLivraisonMedicamentList
+          ? _value.userLivraisonMedicamentList
+          : userLivraisonMedicamentList // ignore: cast_nullable_to_non_nullable
+              as List<LivraisonMedicamentModel>?,
       errorVille: freezed == errorVille
           ? _value.errorVille
           : errorVille // ignore: cast_nullable_to_non_nullable
@@ -5314,6 +5398,8 @@ abstract class _$$PharmacyStateImplCopyWith<$Res>
       int? isRequest,
       bool? errorPointLivraison,
       LatLng? position,
+      int? isLoadedHistoriqueLivraison,
+      List<LivraisonMedicamentModel>? userLivraisonMedicamentList,
       bool? errorVille,
       double? frais,
       List<MedicamentModel>? listMedicamentChoose});
@@ -5345,6 +5431,8 @@ class __$$PharmacyStateImplCopyWithImpl<$Res>
     Object? isRequest = freezed,
     Object? errorPointLivraison = freezed,
     Object? position = freezed,
+    Object? isLoadedHistoriqueLivraison = freezed,
+    Object? userLivraisonMedicamentList = freezed,
     Object? errorVille = freezed,
     Object? frais = freezed,
     Object? listMedicamentChoose = freezed,
@@ -5410,6 +5498,14 @@ class __$$PharmacyStateImplCopyWithImpl<$Res>
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as LatLng?,
+      isLoadedHistoriqueLivraison: freezed == isLoadedHistoriqueLivraison
+          ? _value.isLoadedHistoriqueLivraison
+          : isLoadedHistoriqueLivraison // ignore: cast_nullable_to_non_nullable
+              as int?,
+      userLivraisonMedicamentList: freezed == userLivraisonMedicamentList
+          ? _value._userLivraisonMedicamentList
+          : userLivraisonMedicamentList // ignore: cast_nullable_to_non_nullable
+              as List<LivraisonMedicamentModel>?,
       errorVille: freezed == errorVille
           ? _value.errorVille
           : errorVille // ignore: cast_nullable_to_non_nullable
@@ -5445,10 +5541,13 @@ class _$PharmacyStateImpl implements _PharmacyState {
       this.isRequest,
       this.errorPointLivraison,
       this.position,
+      this.isLoadedHistoriqueLivraison,
+      final List<LivraisonMedicamentModel>? userLivraisonMedicamentList,
       this.errorVille,
       this.frais,
       final List<MedicamentModel>? listMedicamentChoose})
       : _listMedicament = listMedicament,
+        _userLivraisonMedicamentList = userLivraisonMedicamentList,
         _listMedicamentChoose = listMedicamentChoose;
 
   @override
@@ -5490,6 +5589,19 @@ class _$PharmacyStateImpl implements _PharmacyState {
   @override
   final LatLng? position;
   @override
+  final int? isLoadedHistoriqueLivraison;
+  final List<LivraisonMedicamentModel>? _userLivraisonMedicamentList;
+  @override
+  List<LivraisonMedicamentModel>? get userLivraisonMedicamentList {
+    final value = _userLivraisonMedicamentList;
+    if (value == null) return null;
+    if (_userLivraisonMedicamentList is EqualUnmodifiableListView)
+      return _userLivraisonMedicamentList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
   final bool? errorVille;
   @override
   final double? frais;
@@ -5506,7 +5618,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
 
   @override
   String toString() {
-    return 'PharmacyState(index: $index, isLoading: $isLoading, formKeyLivraison: $formKeyLivraison, searchMedicamentController: $searchMedicamentController, libelle: $libelle, descriptionEmplacement: $descriptionEmplacement, contactRecepteur: $contactRecepteur, listMedicament: $listMedicament, selectedVIlle: $selectedVIlle, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, isDownloadFacture: $isDownloadFacture, selected_livraison_point: $selected_livraison_point, isRequest: $isRequest, errorPointLivraison: $errorPointLivraison, position: $position, errorVille: $errorVille, frais: $frais, listMedicamentChoose: $listMedicamentChoose)';
+    return 'PharmacyState(index: $index, isLoading: $isLoading, formKeyLivraison: $formKeyLivraison, searchMedicamentController: $searchMedicamentController, libelle: $libelle, descriptionEmplacement: $descriptionEmplacement, contactRecepteur: $contactRecepteur, listMedicament: $listMedicament, selectedVIlle: $selectedVIlle, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, isDownloadFacture: $isDownloadFacture, selected_livraison_point: $selected_livraison_point, isRequest: $isRequest, errorPointLivraison: $errorPointLivraison, position: $position, isLoadedHistoriqueLivraison: $isLoadedHistoriqueLivraison, userLivraisonMedicamentList: $userLivraisonMedicamentList, errorVille: $errorVille, frais: $frais, listMedicamentChoose: $listMedicamentChoose)';
   }
 
   @override
@@ -5519,8 +5631,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
                 other.isLoading == isLoading) &&
             (identical(other.formKeyLivraison, formKeyLivraison) ||
                 other.formKeyLivraison == formKeyLivraison) &&
-            (identical(other.searchMedicamentController,
-                    searchMedicamentController) ||
+            (identical(other.searchMedicamentController, searchMedicamentController) ||
                 other.searchMedicamentController ==
                     searchMedicamentController) &&
             (identical(other.libelle, libelle) || other.libelle == libelle) &&
@@ -5538,8 +5649,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
                     isMapSelectedPointLivraison) &&
             (identical(other.isDownloadFacture, isDownloadFacture) ||
                 other.isDownloadFacture == isDownloadFacture) &&
-            (identical(
-                    other.selected_livraison_point, selected_livraison_point) ||
+            (identical(other.selected_livraison_point, selected_livraison_point) ||
                 other.selected_livraison_point == selected_livraison_point) &&
             (identical(other.isRequest, isRequest) ||
                 other.isRequest == isRequest) &&
@@ -5547,6 +5657,13 @@ class _$PharmacyStateImpl implements _PharmacyState {
                 other.errorPointLivraison == errorPointLivraison) &&
             (identical(other.position, position) ||
                 other.position == position) &&
+            (identical(other.isLoadedHistoriqueLivraison,
+                    isLoadedHistoriqueLivraison) ||
+                other.isLoadedHistoriqueLivraison ==
+                    isLoadedHistoriqueLivraison) &&
+            const DeepCollectionEquality().equals(
+                other._userLivraisonMedicamentList,
+                _userLivraisonMedicamentList) &&
             (identical(other.errorVille, errorVille) ||
                 other.errorVille == errorVille) &&
             (identical(other.frais, frais) || other.frais == frais) &&
@@ -5555,26 +5672,29 @@ class _$PharmacyStateImpl implements _PharmacyState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      index,
-      isLoading,
-      formKeyLivraison,
-      searchMedicamentController,
-      libelle,
-      descriptionEmplacement,
-      contactRecepteur,
-      const DeepCollectionEquality().hash(_listMedicament),
-      selectedVIlle,
-      isMapSelectedPointLivraison,
-      isDownloadFacture,
-      selected_livraison_point,
-      isRequest,
-      errorPointLivraison,
-      position,
-      errorVille,
-      frais,
-      const DeepCollectionEquality().hash(_listMedicamentChoose));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        index,
+        isLoading,
+        formKeyLivraison,
+        searchMedicamentController,
+        libelle,
+        descriptionEmplacement,
+        contactRecepteur,
+        const DeepCollectionEquality().hash(_listMedicament),
+        selectedVIlle,
+        isMapSelectedPointLivraison,
+        isDownloadFacture,
+        selected_livraison_point,
+        isRequest,
+        errorPointLivraison,
+        position,
+        isLoadedHistoriqueLivraison,
+        const DeepCollectionEquality().hash(_userLivraisonMedicamentList),
+        errorVille,
+        frais,
+        const DeepCollectionEquality().hash(_listMedicamentChoose)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -5600,6 +5720,8 @@ abstract class _PharmacyState implements PharmacyState {
       final int? isRequest,
       final bool? errorPointLivraison,
       final LatLng? position,
+      final int? isLoadedHistoriqueLivraison,
+      final List<LivraisonMedicamentModel>? userLivraisonMedicamentList,
       final bool? errorVille,
       final double? frais,
       final List<MedicamentModel>? listMedicamentChoose}) = _$PharmacyStateImpl;
@@ -5634,6 +5756,10 @@ abstract class _PharmacyState implements PharmacyState {
   bool? get errorPointLivraison;
   @override
   LatLng? get position;
+  @override
+  int? get isLoadedHistoriqueLivraison;
+  @override
+  List<LivraisonMedicamentModel>? get userLivraisonMedicamentList;
   @override
   bool? get errorVille;
   @override

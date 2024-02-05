@@ -18,6 +18,8 @@ class PharmacyState with _$PharmacyState {
       int? isRequest,
       bool? errorPointLivraison,
       LatLng? position,
+      int? isLoadedHistoriqueLivraison,
+      List<LivraisonMedicamentModel>? userLivraisonMedicamentList,
       bool? errorVille,
       double? frais,
       List<MedicamentModel>? listMedicamentChoose}) = _PharmacyState;
@@ -25,9 +27,11 @@ class PharmacyState with _$PharmacyState {
   factory PharmacyState.initial() => PharmacyState(
       searchMedicamentController: TextEditingController(),
       index: 0,
+      isLoadedHistoriqueLivraison: 0,
       libelle: TextEditingController(),
       isRequest: 0,
-      errorPointLivraison :false,
+      errorPointLivraison: false,
+      userLivraisonMedicamentList: [],
       frais: 0,
       descriptionEmplacement: TextEditingController(),
       isMapSelectedPointLivraison: false,

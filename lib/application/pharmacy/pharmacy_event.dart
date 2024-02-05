@@ -5,7 +5,7 @@ class PharmacyEvent with _$PharmacyEvent {
   const factory PharmacyEvent.updatePharmacyImage() = UpdatePharmacyImage;
   const factory PharmacyEvent.verifyFormChooseMedicamentEvent() =
       VerifyFormChooseMedicamentEventP;
- 
+
   const factory PharmacyEvent.findMedicament({required String search}) =
       FindMedicament;
   const factory PharmacyEvent.chooseMedicament(
@@ -18,8 +18,6 @@ class PharmacyEvent with _$PharmacyEvent {
   const factory PharmacyEvent.deleteMedicament({
     required MedicamentModel medicament,
   }) = DeleteMedicament;
-
-
 
   const factory PharmacyEvent.backIndexP() = BackIndexEventP;
 
@@ -47,11 +45,9 @@ class PharmacyEvent with _$PharmacyEvent {
     required PointLivraisonModel point_livraison,
   }) = SelectPointLivraisonP;
   const factory PharmacyEvent.newLivraison() = NewLivraisonPharmacy;
-  const factory PharmacyEvent.getLivraison() = ListLivraisonP;
+  const factory PharmacyEvent.getLivraisonMedicament() =
+      HistoriqueLivraisonMedicament;
   const factory PharmacyEvent.downloadFacture() = DownloadFactureP;
   const factory PharmacyEvent.noValidate() = NoValidateP;
   const factory PharmacyEvent.onStartEventP() = OnStartEventP;
-
-
-
 }

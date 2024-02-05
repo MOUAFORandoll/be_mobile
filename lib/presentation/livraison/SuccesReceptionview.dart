@@ -1,5 +1,4 @@
-import 'package:BananaExpress/presentation/components/Button/app_button.dart';
-import 'package:easy_localization/easy_localization.dart';
+ 
 import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 class SuccesReceptionview extends StatelessWidget {

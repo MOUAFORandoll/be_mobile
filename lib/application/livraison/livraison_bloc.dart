@@ -11,9 +11,6 @@ import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -97,7 +94,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<CalculFrais>(_calculFraisDeLivraison);
 
     on<NewLivraison>(_newLivraison);
-    on<ListLivraison>(_getLivraisonUser);
+    on<HistoriqueUserLivraison>(_getLivraisonUser);
     on<DownloadFacture>(_downloadFacture);
   }
 
@@ -754,11 +751,13 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
     return formData;
   }
-
+  
   Future<void> _getLivraisonUser(
-      ListLivraison event, Emitter<LivraisonState> emit) async {
+      HistoriqueUserLivraison event, Emitter<LivraisonState> emit) async {
     var key = await database.getKey();
-    await livraisonRepo.getHistoryLivraisons(key).then((response) {
+   emit(state.copyWith(
+      isLoadedPLivraison: 0,
+    ));   await livraisonRepo.getHistoryLivraisons(key).then((response) {
       if (response.data != null) {
         emit(state.copyWith(
             isLoadedPLivraison: 1,
