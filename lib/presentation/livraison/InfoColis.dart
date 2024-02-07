@@ -10,7 +10,6 @@ import 'package:BananaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BananaExpress/routes/app_router.gr.dart';
 
-
 import 'package:BananaExpress/application/export_bloc.dart';
 
 // ignore: must_be_immutable
@@ -39,6 +38,7 @@ class InfoColis extends StatelessWidget {
           } else if (state.isRequest == 5) {
             loader.close();
             AutoRouter.of(context).replaceAll([SuccesLivraisonRoute()]);
+            context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
             showSuccess('Livraison Validee avec succes', context);
 
             print('-----44--------*********');

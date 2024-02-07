@@ -38,6 +38,7 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
             AutoRouter.of(context).pop();
             AutoRouter.of(context)
                 .replaceAll([SuccesLivraisonMedicamentRoute()]);
+            context.read<PharmacyBloc>().add(HistoriqueLivraisonMedicament());
             showSuccess(
                 'Livraison de medicaments Validee avec succes', context);
 
