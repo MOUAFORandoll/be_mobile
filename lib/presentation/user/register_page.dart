@@ -23,9 +23,8 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
         onPopInvoked: (value) {
-          print(value);
           loader.close();
-          BlocProvider.of<AppActionCubit>(context).toLogin();
+          AutoRouter.of(context).pop();
         },
         child: Scaffold(
           appBar: AppBar(
@@ -39,7 +38,10 @@ class RegisterPage extends StatelessWidget {
             ),
             centerTitle: true,
             leading: InkWell(
-                onTap: () => BlocProvider.of<AppActionCubit>(context).toLogin(),
+                onTap: () {
+                  loader.close();
+                  AutoRouter.of(context).pop();
+                },
                 child: Container(
                   margin: EdgeInsets.zero,
                   // padding: EdgeInsets.all(5),

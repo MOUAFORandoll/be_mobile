@@ -1,6 +1,6 @@
 import 'package:BananaExpress/application/model/exportmodel.dart';
 
-class LivraisonMedicamentModel  {
+class LivraisonMedicamentModel {
   int id;
   String libelle;
   String description;
@@ -14,7 +14,7 @@ class LivraisonMedicamentModel  {
   String initiatedUser;
   String service;
   String date;
-  Livreur livreur;
+  Livreur? livreur;
 
   LivraisonMedicamentModel({
     required this.id,
@@ -30,7 +30,7 @@ class LivraisonMedicamentModel  {
     required this.initiatedUser,
     required this.service,
     required this.date,
-    required this.livreur,
+    this.livreur,
   });
 
   factory LivraisonMedicamentModel.fromJson(Map<String, dynamic> json) {
@@ -52,7 +52,8 @@ class LivraisonMedicamentModel  {
       initiatedUser: json['initiatedUser'],
       service: json['service'],
       date: json['date'],
-      livreur: Livreur.fromJson(json['livreur']),
+      livreur:
+          json['livreur'] == null ? null : Livreur.fromJson(json['livreur']),
     );
   }
 }
