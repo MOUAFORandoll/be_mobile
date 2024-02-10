@@ -1,4 +1,4 @@
-package com.app.BananaExpressmobile
+package com.app.babanaexpress
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,8 +1,8 @@
-// ignore: must_be_immutable import 'package:BananaExpress/presentation/model/data/CategoryModel.dart';
+// ignore: must_be_immutable import 'package:BabanaExpress/presentation/model/data/CategoryModel.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-import 'package:BananaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'icon_svg.dart';
 
 // ignore: must_be_immutable

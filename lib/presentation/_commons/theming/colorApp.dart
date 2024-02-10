@@ -1,4 +1,4 @@
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 abstract class ColorsApp {
   static const Color primary = Color(0xFF272D2F);

@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:BananaExpress/application/model/exportmodel.dart';
-import 'package:BananaExpress/presentation/components/Button/app_button_icon.dart';
+import 'package:BabanaExpress/application/model/exportmodel.dart';
+import 'package:BabanaExpress/presentation/components/Button/app_button_icon.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -18,7 +18,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:path/path.dart' as path;
-import 'package:BananaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
 
 // ignore: must_be_immutable
 class ColisComponentUser extends StatelessWidget {
@@ -172,8 +172,7 @@ class ColisComponentUser extends StatelessWidget {
                         )),
                   ),
                 ),
-                if (colis.statusLivraisonColis == 0)
-                  Text('ylAwait'.tr()),
+                if (colis.statusLivraisonColis == 0) Text('ylAwait'.tr()),
                 if (colis.statusLivraisonColis == 1)
                   Column(
                     children: [
@@ -203,10 +202,8 @@ class ColisComponentUser extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (colis.statusLivraisonColis == 2)
-                  Text('ylEncous'.tr()),
-                if (colis.statusLivraisonColis == 3)
-                  Text('ylFinish'.tr()),
+                if (colis.statusLivraisonColis == 2) Text('ylEncous'.tr()),
+                if (colis.statusLivraisonColis == 3) Text('ylFinish'.tr()),
                 if (colis.statusLivraisonColis == 1)
                   Container(
                       margin: EdgeInsets.symmetric(
@@ -280,8 +277,7 @@ class ColisComponentUser extends StatelessWidget {
       await file.writeAsBytes(pngBytes);
       final fileX = await XFile(file.path);
       await Share.shareXFiles([fileX],
-          text:
-      'yCodeThis'.tr() +        ' ${colis.code_livraison_colis}');
+          text: 'yCodeThis'.tr() + ' ${colis.code_livraison_colis}');
       print('save');
     } catch (e) {
       print('error--------${e}');

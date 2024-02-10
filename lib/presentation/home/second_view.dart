@@ -1,12 +1,13 @@
-import 'package:BananaExpress/presentation/livraison/HistoriqueLivraisonView.dart';
-import 'package:BananaExpress/presentation/pharmacy/HistoriqueLivraisonMedicamentView.dart';
+import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonView.dart';
+import 'package:BabanaExpress/presentation/pharmacy/HistoriqueLivraisonMedicamentView.dart';
 import '../../presentation/components/exportcomponent.dart';
-import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/presentation/components/Widget/icon_svg.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 
-import 'package:BananaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 
 import 'package:flutter_svg/svg.dart';
+
 var loader = AppLoader.bounceLargeColorLoaderController();
 
 class SecondView extends StatelessWidget {

@@ -9,30 +9,30 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i17;
-import 'package:BananaExpress/presentation/home/home_page.dart' as _i3;
-import 'package:BananaExpress/presentation/layer/onboardingpage.dart' as _i10;
-import 'package:BananaExpress/presentation/layer/splashpage.dart' as _i13;
-import 'package:BananaExpress/presentation/livraison/MapPagePointLivraisonColis.dart'
+import 'package:BabanaExpress/presentation/home/home_page.dart' as _i3;
+import 'package:BabanaExpress/presentation/layer/onboardingpage.dart' as _i10;
+import 'package:BabanaExpress/presentation/layer/splashpage.dart' as _i13;
+import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart'
     as _i5;
-import 'package:BananaExpress/presentation/livraison/MapPagePointRecuperation.dart'
+import 'package:BabanaExpress/presentation/livraison/MapPagePointRecuperation.dart'
     as _i6;
-import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart'
+import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart'
     as _i9;
-import 'package:BananaExpress/presentation/livraison/SuccesLivraisonPage.dart'
+import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart'
     as _i15;
-import 'package:BananaExpress/presentation/pharmacy/MapPagePointLivraison.dart'
+import 'package:BabanaExpress/presentation/pharmacy/MapPagePointLivraison.dart'
     as _i4;
-import 'package:BananaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart'
+import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart'
     as _i8;
-import 'package:BananaExpress/presentation/pharmacy/SuccesLivraisonMedicamentPage.dart'
+import 'package:BabanaExpress/presentation/pharmacy/SuccesLivraisonMedicamentPage.dart'
     as _i14;
-import 'package:BananaExpress/presentation/user/auth_page.dart' as _i1;
-import 'package:BananaExpress/presentation/user/forgot_password_page.dart'
+import 'package:BabanaExpress/presentation/user/auth_page.dart' as _i1;
+import 'package:BabanaExpress/presentation/user/forgot_password_page.dart'
     as _i2;
-import 'package:BananaExpress/presentation/user/politique_page.dart' as _i11;
-import 'package:BananaExpress/presentation/user/register_page.dart' as _i12;
-import 'package:BananaExpress/presentation/user/user_info_page.dart' as _i16;
-import 'package:BananaExpress/test.dart' as _i7;
+import 'package:BabanaExpress/presentation/user/politique_page.dart' as _i11;
+import 'package:BabanaExpress/presentation/user/register_page.dart' as _i12;
+import 'package:BabanaExpress/presentation/user/user_info_page.dart' as _i16;
+import 'package:BabanaExpress/test.dart' as _i7;
 
 abstract class $AppRouter extends _i17.RootStackRouter {
   $AppRouter({super.navigatorKey});

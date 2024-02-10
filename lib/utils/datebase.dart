@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:BananaExpress/entity.dart';
-import 'package:BananaExpress/objectbox.g.dart'; 
+import 'package:BabanaExpress/entity.dart';
+import 'package:BabanaExpress/objectbox.g.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 import 'package:path_provider/path_provider.dart';
@@ -144,13 +144,11 @@ class DataBaseController {
 
   // InsertAll operation
   insertAllCommandes() {
-     
     for (var i = 10; i < 100; i++) {
       // final commandeBox =;
       print('-------ii--${i}');
       store.box<Commande>().put(Commande(
           codeCommande: 'codeCommande$i', codeClient: '', date: 'date$i'));
-     
     }
     return true;
   }

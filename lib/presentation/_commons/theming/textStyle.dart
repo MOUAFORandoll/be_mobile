@@ -1,4 +1,4 @@
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 final designSize = 414.0;
 final kMarginBottom = 10;

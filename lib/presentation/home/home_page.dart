@@ -1,16 +1,16 @@
-import 'package:BananaExpress/presentation/components/Button/themeButton.dart';
-import 'package:BananaExpress/presentation/home/first_view.dart';
-import 'package:BananaExpress/presentation/home/second_view.dart';
-import 'package:BananaExpress/presentation/livraison/NewLivraisonPage.dart';
-import 'package:BananaExpress/routes/app_router.gr.dart';
-import 'package:BananaExpress/utils/Services/validators.dart';
-import 'package:BananaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
+import 'package:BabanaExpress/presentation/home/first_view.dart';
+import 'package:BabanaExpress/presentation/home/second_view.dart';
+import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/Services/validators.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_version_plus/new_version_plus.dart';
 import '../../presentation/components/exportcomponent.dart';
-import 'package:BananaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
 
 var loader = AppLoader.bounceLargeColorLoaderController();
 
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   Future<void> _checkForUpdate() async {
     final newVersionPlus = NewVersionPlus(
       iOSId: null,
-      androidId: 'com.app.BananaExpressmobile',
+      androidId: 'com.app.babanaexpress',
     );
     final status = await newVersionPlus.getVersionStatus();
     print('*---------***--------------------**');

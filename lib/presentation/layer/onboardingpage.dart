@@ -1,14 +1,13 @@
+import 'package:BabanaExpress/presentation/components/Widget/app_carroussel_item.dart';
+import 'package:BabanaExpress/core.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 
-import 'package:BananaExpress/presentation/components/Widget/app_carroussel_item.dart';
-import 'package:BananaExpress/core.dart';
-import 'package:BananaExpress/routes/app_router.gr.dart';
-
-import 'package:BananaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:get_storage/get_storage.dart';
-import 'package:BananaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
 
 @RoutePage()
 class OnBoardingPage extends StatelessWidget {

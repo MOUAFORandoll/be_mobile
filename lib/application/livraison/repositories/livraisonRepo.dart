@@ -1,6 +1,6 @@
-import 'package:BananaExpress/infrastructure/_commons/network/app_requests.dart'; 
+import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:dio/dio.dart';
- 
+
 import '../../../utils/constants/apiRoute.dart';
 
 class LivraisonRepo {
@@ -33,21 +33,20 @@ class LivraisonRepo {
 
     return a;
   }
-  
+
   Future getHistoryLivraisons(keySecret) async {
     Response a = await apiClient
         .getRequest(ApiRoutes.LIVRAISONS + '/user?keySecret=${keySecret}');
 
     return a;
   }
-  
+
   Future getInfoLivraisonsForHistory(keySecret) async {
     Response a = await apiClient
         .getRequest(ApiRoutes.LIVRAISONS + '?keySecret=${keySecret}');
 
     return a;
   }
-   
 
   Future getInfoLivraisonsForBabana(id) async {
     Response a = await apiClient
@@ -69,7 +68,6 @@ class LivraisonRepo {
 
     return a;
   }
-   
 
   Future test(indexC) async {
     Response a = await apiClient.getRequest(
@@ -111,7 +109,6 @@ class LivraisonRepo {
 
     return a;
   }
- 
 
   Future readNotifications(idNotification) async {
     Response a = await apiClient.getRequest(

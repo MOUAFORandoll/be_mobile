@@ -1,6 +1,6 @@
-import 'package:BananaExpress/application/model/data/LivraisonMedicamentModel.dart';
+import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class LivraisonMedicamentUserComponent extends StatelessWidget {

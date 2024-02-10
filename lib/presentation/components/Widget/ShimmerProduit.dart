@@ -1,5 +1,5 @@
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
- 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+
 class ShimmerProduit extends StatelessWidget {
   const ShimmerProduit({super.key});
 

@@ -1,10 +1,10 @@
-import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/presentation/components/Widget/imageUpdateComp.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/presentation/components/Widget/imageUpdateComp.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-import 'package:BananaExpress/presentation/components/Button/uploadImage.dart';
-import 'package:BananaExpress/utils/Services/validators.dart';
+import 'package:BabanaExpress/presentation/components/Button/uploadImage.dart';
+import 'package:BabanaExpress/utils/Services/validators.dart';
 
 import '../../../application/model/exportmodel.dart';
 

@@ -1,4 +1,4 @@
-import 'package:BananaExpress/presentation/components/Widget/searchInput.dart';
+import 'package:BabanaExpress/presentation/components/Widget/searchInput.dart';
 
 import '../../application/export_bloc.dart';
 import '../components/exportcomponent.dart';
@@ -28,7 +28,7 @@ class ChooseMedicamentView extends StatelessWidget {
                         context
                             .read<PharmacyBloc>()
                             .add(ChooseMedicament(medicament: value));
-                        
+
                         context.read<PharmacyBloc>().add(CloseListMedicament());
                       },
                       onChanged: (value) => context

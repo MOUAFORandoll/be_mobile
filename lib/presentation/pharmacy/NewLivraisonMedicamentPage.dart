@@ -1,7 +1,7 @@
-import 'package:BananaExpress/presentation/pharmacy/Infolieuxlivraison_view.dart';
- 
+import 'package:BabanaExpress/presentation/pharmacy/Infolieuxlivraison_view.dart';
+
 import '../../presentation/components/exportcomponent.dart';
-import 'package:BananaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
 
 import 'choosemedicament_view.dart';
 

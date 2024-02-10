@@ -1,7 +1,7 @@
-import 'package:BananaExpress/presentation/components/Widget/EmptyLivraisonsComponent.dart';
-import 'package:BananaExpress/presentation/components/Widget/ShimmerLivraison.dart';
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
-import 'package:BananaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/presentation/components/Widget/EmptyLivraisonsComponent.dart';
+import 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
 import '../components/Widget/LivraisonMedicamentUserComponent.dart';
 
 // ignore: must_be_immutable
@@ -28,8 +28,7 @@ class HistoriqueLivraisonMedicamentView extends StatelessWidget {
                                   LivraisonMedicamentUserComponent(
                                     livraison: state
                                         .userLivraisonMedicamentList![index],
-                                  )))
-                    );
+                                  ))));
     });
   }
 }

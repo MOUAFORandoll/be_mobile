@@ -1,16 +1,16 @@
-import 'package:BananaExpress/application/model/exportmodel.dart';
-import 'package:BananaExpress/presentation/components/Button/addColisComponent.dart';
-import 'package:BananaExpress/presentation/components/Button/uploadImage.dart';
-import 'package:BananaExpress/presentation/components/Widget/imageComp.dart';
-import 'package:BananaExpress/presentation/components/Widget/colisComponent.dart';
-import 'package:BananaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
+import 'package:BabanaExpress/application/model/exportmodel.dart';
+import 'package:BabanaExpress/presentation/components/Button/addColisComponent.dart';
+import 'package:BabanaExpress/presentation/components/Button/uploadImage.dart';
+import 'package:BabanaExpress/presentation/components/Widget/imageComp.dart';
+import 'package:BabanaExpress/presentation/components/Widget/colisComponent.dart';
+import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 
-import 'package:BananaExpress/utils/Services/validators.dart';
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/Services/validators.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-import 'package:BananaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 
-import 'package:BananaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
 
 // ignore: must_be_immutable
 class InfoColis extends StatelessWidget {

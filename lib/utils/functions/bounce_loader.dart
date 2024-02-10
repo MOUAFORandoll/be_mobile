@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 /// See *[https://github.com/samarthagarwal/FlutterScreens]*
 class BounceLargeColorLoader extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 MaterialColor getMaterialColor(Color color) => MaterialColor(color.value, {
       50: tintColor(color, 0.9),

@@ -1,5 +1,5 @@
-import 'package:BananaExpress/entity.dart';
-import 'package:BananaExpress/objectbox.g.dart';
+import 'package:BabanaExpress/entity.dart';
+import 'package:BabanaExpress/objectbox.g.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_provider/path_provider.dart';

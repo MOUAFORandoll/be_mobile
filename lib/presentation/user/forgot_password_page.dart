@@ -1,12 +1,12 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:BananaExpress/utils/Services/validators.dart';
-import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/Services/validators.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-import 'package:BananaExpress/core.dart';
+import 'package:BabanaExpress/core.dart';
 import 'package:pinput/pinput.dart';
-import 'package:BananaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 
 @RoutePage()
 class ForgotPasswordPage extends StatelessWidget {
@@ -141,7 +141,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                   placeholder: 'labelphone_recup'.tr(),
                                   validator: (value) {
                                     return null;
-                                  
+
                                     // return Validators.usPhoneValid(value!);
                                   },
                                 ),

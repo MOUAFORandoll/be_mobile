@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:BananaExpress/application/database/database_cubit.dart';
-import 'package:BananaExpress/entity.dart';
+import 'package:BabanaExpress/application/database/database_cubit.dart';
+import 'package:BabanaExpress/entity.dart';
 
-import 'package:BananaExpress/application/model/exportmodel.dart';
+import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

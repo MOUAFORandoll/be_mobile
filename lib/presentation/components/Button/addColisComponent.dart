@@ -1,6 +1,5 @@
-// ignore: must_be_immutable 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
- 
+// ignore: must_be_immutable
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class AddColisComponent extends StatelessWidget {
   final title, onTap, color, icon;

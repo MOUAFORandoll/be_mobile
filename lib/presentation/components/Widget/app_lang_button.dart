@@ -1,5 +1,5 @@
-import 'package:BananaExpress/utils/constants/assets.dart'; 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';  // Assurez-vous d'avoir easy_localization
+import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; // Assurez-vous d'avoir easy_localization
 
 class AppLangButton extends StatelessWidget {
   final List<Map<String, dynamic>> supportedLocales = [

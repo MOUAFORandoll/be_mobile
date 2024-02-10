@@ -1,6 +1,6 @@
-import 'package:BananaExpress/presentation/components/Widget/icon_svg.dart';
+import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class AppSettingComp extends StatelessWidget {

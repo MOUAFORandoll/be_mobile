@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:BananaExpress/main.dart';
+import 'package:BabanaExpress/main.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/subjects.dart';
 
@@ -79,8 +79,8 @@ class NotificationService {
   Future<void> emitNotification(content) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
-      'BananaExpress_general_1', // Channel ID
-      'BananaExpress Negociation', // Channel name
+      'BabanaExpress_general_1', // Channel ID
+      'BabanaExpress Negociation', // Channel name
       channelDescription: 'Information Negociation', // Channel description
       importance: Importance.max,
       priority: Priority.high,
@@ -117,8 +117,8 @@ class NotificationService {
   Future<void> emitServiceClient(content) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
-      'BananaExpress_general_1', // Channel ID
-      'BananaExpress Service client', // Channel name
+      'BabanaExpress_general_1', // Channel ID
+      'BabanaExpress Service client', // Channel name
       channelDescription: 'Information Service client', // Channel description
       importance: Importance.max,
       priority: Priority.high,
@@ -155,8 +155,8 @@ class NotificationService {
   Future<void> emitNotificationGenearal(content) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
-      'BananaExpress_general_1', // Channel ID
-      'BananaExpress general', // Channel name
+      'BabanaExpress_general_1', // Channel ID
+      'BabanaExpress general', // Channel name
       channelDescription: 'Information general', // Channel description
       importance: Importance.max,
       priority: Priority.high,
@@ -192,8 +192,8 @@ class NotificationService {
   Future<void> emitNotifications(NotificationModel content) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
-      'BananaExpress_general_1', // Channel ID
-      'BananaExpress general', // Channel name
+      'BabanaExpress_general_1', // Channel ID
+      'BabanaExpress general', // Channel name
       channelDescription: 'Notifications', // Channel description
       importance: Importance.max,
       priority: Priority.high,

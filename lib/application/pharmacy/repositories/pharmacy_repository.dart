@@ -1,9 +1,9 @@
-import 'package:BananaExpress/core.dart';
-import 'package:BananaExpress/infrastructure/_commons/network/app_requests.dart';
+import 'package:BabanaExpress/core.dart';
+import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:dio/dio.dart';
-import 'package:BananaExpress/utils/constants/apiRoute.dart';
+import 'package:BabanaExpress/utils/constants/apiRoute.dart';
 
-import 'package:BananaExpress/application/database/database_cubit.dart';
+import 'package:BabanaExpress/application/database/database_cubit.dart';
 
 class PharmacyRepo {
   final IAppRequests apiClient;

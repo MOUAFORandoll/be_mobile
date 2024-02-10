@@ -1,6 +1,6 @@
-import 'package:BananaExpress/presentation/components/Button/AppIconButton.dart';
+import 'package:BabanaExpress/presentation/components/Button/AppIconButton.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:share_plus/share_plus.dart';
 

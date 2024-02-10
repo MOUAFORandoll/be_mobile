@@ -1,12 +1,12 @@
 import 'dart:async';
-import 'package:BananaExpress/application/database/database_cubit.dart';
+import 'package:BabanaExpress/application/database/database_cubit.dart';
 
-import 'package:BananaExpress/application/user/repositories/user_repository.dart';
-import 'package:BananaExpress/routes/app_router.gr.dart';
- 
+import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
+
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import '/entity.dart';
 import '../export_bloc.dart';
@@ -26,7 +26,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     //   // final database = await DataBaseController.getInstance();
     //   // emit(GetDataBateState(database: database));
     // });
-
     on<SignInEvent>(_Login);
     on<SignOutEvent>(_OnSignOut);
     on<RegisterEvent>(_Register);
@@ -114,12 +113,12 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     data['keySecret'] = key;
 
     print(data);
-    
+
     emit(state.copyWith(updating: true));
     await userRepo.updateUser(data).then((response) async {
       if (response.statusCode == 201) {
         database.saveKeyKen(response.data);
-        
+
         await userRepo.getUser().then((value) async {
           if (value != null) {
             print('------------------value----------${value.data}-');
@@ -129,9 +128,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
                   isLoading: 2,
                   authenticationFailedMessage: ''));
               emit(UserState.authenticated());
-              
+
               var _UserSave = User.fromJson(value.data['data']);
-              
+
               await database.saveUser(_UserSave);
             }
           }

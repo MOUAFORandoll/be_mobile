@@ -1,12 +1,12 @@
-import 'package:BananaExpress/application/connected/connected_bloc.dart';
-import 'package:BananaExpress/application/database/database_cubit.dart';
-import 'package:BananaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
-import 'package:BananaExpress/application/splash/splash_bloc.dart';
+import 'package:BabanaExpress/application/connected/connected_bloc.dart';
+import 'package:BabanaExpress/application/database/database_cubit.dart';
+import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
+import 'package:BabanaExpress/application/splash/splash_bloc.dart';
 
-import 'package:BananaExpress/application/livraison/repositories/livraisonRepo.dart';
-import 'package:BananaExpress/application/user/repositories/user_repository.dart';
+import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
+import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'infrastructure/_commons/network/env_config.dart';
@@ -14,7 +14,7 @@ import 'presentation/_commons/theming/app_theme.dart';
 import 'routes/app_router.dart';
 import 'core.dart' as co;
 import 'core.dart';
-import 'package:BananaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -24,7 +24,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await EnvManager().init(env: Environment.dev);
+  await EnvManager().init(env: Environment.prod);
 
   co.init();
 

@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:BananaExpress/application/database/database_cubit.dart';
-import 'package:BananaExpress/application/livraison/repositories/livraisonRepo.dart';
-import 'package:BananaExpress/application/model/exportmodel.dart';
-import 'package:BananaExpress/core.dart';
-import 'package:BananaExpress/infrastructure/_commons/network/env_config.dart';
+import 'package:BabanaExpress/application/database/database_cubit.dart';
+import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
+import 'package:BabanaExpress/application/model/exportmodel.dart';
+import 'package:BabanaExpress/core.dart';
+import 'package:BabanaExpress/infrastructure/_commons/network/env_config.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -218,7 +218,6 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     position = await Geolocator.getCurrentPosition();
 
     emit(state.copyWith(
-      
         position: LatLng(position.latitude, position.longitude)));
   }
 
@@ -305,7 +304,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       print('Error getting image: $e');
     }
   }
-  
+
   Future<void> getImageColisGalerie(
       GetImageColisGalerie event, Emitter<LivraisonState> emit) async {
     try {
@@ -751,13 +750,14 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
     return formData;
   }
-  
+
   Future<void> _getLivraisonUser(
       HistoriqueUserLivraison event, Emitter<LivraisonState> emit) async {
     var key = await database.getKey();
-   emit(state.copyWith(
+    emit(state.copyWith(
       isLoadedPLivraison: 0,
-    ));   await livraisonRepo.getHistoryLivraisons(key).then((response) {
+    ));
+    await livraisonRepo.getHistoryLivraisons(key).then((response) {
       if (response.data != null) {
         emit(state.copyWith(
             isLoadedPLivraison: 1,

@@ -1,6 +1,4 @@
- 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
-  
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class UploadImage extends StatelessWidget {
   final title, onTap, color, icon;

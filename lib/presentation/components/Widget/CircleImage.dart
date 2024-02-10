@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class CircleImage extends StatelessWidget {
   CircleImage({required this.imageUrl, this.radius = 25});
@@ -31,9 +31,7 @@ class CircleImage extends StatelessWidget {
           placeholder: (context, url) {
             return Container(
               child: Center(
-                  child: CircularProgressIndicator(
-              color: ColorsApp.second
-              )),
+                  child: CircularProgressIndicator(color: ColorsApp.second)),
             );
           },
           errorWidget: (context, url, error) {

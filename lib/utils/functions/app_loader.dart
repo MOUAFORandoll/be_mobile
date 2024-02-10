@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'bounce_loader.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 /// App loaders
 /// final _loaderDialogController = IndeterminateProgress.bounceLargeColorLoaderController();

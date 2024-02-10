@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
-  package="com.app.BananaExpressmobile">
+  package="com.app.babanaexpress">
   <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" tools:node="remove" />
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -10,13 +10,11 @@ xmlns:tools="http://schemas.android.com/tools"
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  <!-- <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/> -->
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> 
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-  <!-- <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/> -->
   <application
-    android:label="BananaExpress"
+    android:label="BabanaExpress"
     android:usesCleartextTraffic="true"  
     android:exported="true"
     android:grantUriPermissions="true"
@@ -29,7 +27,7 @@ xmlns:tools="http://schemas.android.com/tools"
     <activity
       android:screenOrientation="portrait"
       android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-      android:name="com.app.BananaExpressmobile.MainActivity"
+      android:name="com.app.babanaexpress.MainActivity"
       android:exported="true"
       android:launchMode="singleTop"
       android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -66,9 +64,9 @@ xmlns:tools="http://schemas.android.com/tools"
           android:name="android.intent.category.BROWSABLE" />
         <!-- Accepts URIs that begin with https://YOUR_HOST -->
 <!--
-FOR PROD :   https://BananaExpress.vercel.app 
+FOR PROD :   https://BabanaExpress.vercel.app 
 
-FOR DEV  : http://BananaExpress-shop.000webhostapp.com
+FOR DEV  : http://BabanaExpress-shop.000webhostapp.com
 
   -->
         
@@ -89,7 +87,7 @@ FOR DEV  : http://BananaExpress-shop.000webhostapp.com
     <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
    <!--  <provider
       android:name="androidx.core.content.FileProvider"
-      android:authorities="com.app.BananaExpressmobile.flutter_downloader.provider"
+      android:authorities="com.app.babanaexpress.flutter_downloader.provider"
       android:exported="false"
       android:grantUriPermissions="true">
       <meta-data

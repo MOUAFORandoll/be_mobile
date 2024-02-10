@@ -1,6 +1,6 @@
-import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/utils/Services/validators.dart';
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/utils/Services/validators.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'dart:async';
 
@@ -201,7 +201,6 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                   // bgColor: ColorsApp.primary,
                                   text: 'Valider'.tr(),
                                   onTap: () async {
-                                
                                     context.read<LivraisonBloc>().add(
                                         MapValidatePoint(
                                             libelle: libelleLocalisation.text,

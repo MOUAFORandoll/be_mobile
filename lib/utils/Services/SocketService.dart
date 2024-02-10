@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:BananaExpress/application/model/data/LivraisonModel.dart';
-import 'package:BananaExpress/infrastructure/_commons/network/request_url.dart';
+import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';
+import 'package:BabanaExpress/infrastructure/_commons/network/request_url.dart';
 
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 

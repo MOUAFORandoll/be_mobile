@@ -1,5 +1,5 @@
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
- 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+
 import 'ShimmerProduit.dart';
 
 class ShimmerHome extends StatelessWidget {

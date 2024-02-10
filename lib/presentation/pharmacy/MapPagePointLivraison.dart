@@ -1,6 +1,6 @@
-import 'package:BananaExpress/application/export_bloc.dart';
-import 'package:BananaExpress/utils/Services/validators.dart';
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/utils/Services/validators.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'dart:async';
 
@@ -9,8 +9,7 @@ class MapPagePointLivraison extends StatefulWidget {
   const MapPagePointLivraison({super.key});
   static const routeName = '/livraison/livraison';
   @override
-  State<MapPagePointLivraison> createState() =>
-      _MapPagePointLivraisonState();
+  State<MapPagePointLivraison> createState() => _MapPagePointLivraisonState();
 }
 
 class _MapPagePointLivraisonState extends State<MapPagePointLivraison> {
@@ -201,7 +200,6 @@ class _MapPagePointLivraisonState extends State<MapPagePointLivraison> {
                                   // bgColor: ColorsApp.primary,
                                   text: 'Valider'.tr(),
                                   onTap: () async {
-                                
                                     context.read<LivraisonBloc>().add(
                                         MapValidatePoint(
                                             libelle: libelleLocalisation.text,

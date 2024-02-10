@@ -1,14 +1,14 @@
 import 'dart:convert';
 
-import 'package:BananaExpress/application/database/database_cubit.dart';
-import 'package:BananaExpress/application/model/data/LivraisonMedicamentModel.dart';
-import 'package:BananaExpress/application/model/data/PointLivraisonModel.dart';
-import 'package:BananaExpress/application/model/data/VilleModel.dart';
-import 'package:BananaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
+import 'package:BabanaExpress/application/database/database_cubit.dart';
+import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
+import 'package:BabanaExpress/application/model/data/PointLivraisonModel.dart';
+import 'package:BabanaExpress/application/model/data/VilleModel.dart';
+import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -106,7 +106,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       }
     }
   }
-  
+
   Future<void> _closeListMedicament(
       CloseListMedicament event, Emitter<PharmacyState> emit) async {
     emit(state.copyWith(
@@ -121,7 +121,6 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       orElse: () => MedicamentModel(
           id: -1, libelle: '', status: false, description: '', quantite: 0),
     );
- 
 
     return medicamentFind!.id != -1;
   }
@@ -331,9 +330,10 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
 
   Future<void> _getLivraisonMedicamentUser(
       HistoriqueLivraisonMedicament event, Emitter<PharmacyState> emit) async {
-   emit(state.copyWith(
+    emit(state.copyWith(
       isLoadedHistoriqueLivraison: 0,
-    ));  var key = await database.getKey();
+    ));
+    var key = await database.getKey();
     await pharmacyRepo.getHistoryLivraisonsMedicaments(key).then((response) {
       if (response.data != null) {
         emit(state.copyWith(
@@ -342,7 +342,6 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
                 .map((e) => LivraisonMedicamentModel.fromJson(e))
                 .toList()));
         print('-----------state.LivraisonMedicament.length');
- 
       } else {
         emit(state.copyWith(
           isLoadedHistoriqueLivraison: 2,

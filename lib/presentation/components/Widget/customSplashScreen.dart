@@ -1,4 +1,4 @@
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class NewSplashScreen extends StatelessWidget {
@@ -45,7 +45,8 @@ class NewSplashScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   CircularProgressIndicator(
-                color: ColorsApp.second,    valueColor: new AlwaysStoppedAnimation<Color>(
+                    color: ColorsApp.second,
+                    valueColor: new AlwaysStoppedAnimation<Color>(
                         (this.loaderColor == null)
                             ? Colors.blueAccent
                             : this.loaderColor),

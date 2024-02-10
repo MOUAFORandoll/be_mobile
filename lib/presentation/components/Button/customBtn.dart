@@ -1,5 +1,4 @@
- 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class CustomBtn extends StatelessWidget {
   final title, onTap, color, validator;
@@ -21,7 +20,8 @@ class CustomBtn extends StatelessWidget {
             child: ((validator == null) ? false : validator)
                 ? Center(
                     child: CircularProgressIndicator(
-                      color: ColorsApp.second, ),
+                      color: ColorsApp.second,
+                    ),
                   )
                 : smallText(text: title)));
   }

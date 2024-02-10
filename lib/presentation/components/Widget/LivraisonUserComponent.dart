@@ -1,9 +1,9 @@
-import 'package:BananaExpress/application/model/exportmodel.dart';
-import 'package:BananaExpress/presentation/components/Widget/colisComponentUser.dart';
- 
+import 'package:BabanaExpress/application/model/exportmodel.dart';
+import 'package:BabanaExpress/presentation/components/Widget/colisComponentUser.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class LivraisonUserComponent extends StatelessWidget {

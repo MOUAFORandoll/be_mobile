@@ -1,9 +1,9 @@
-import 'package:BananaExpress/application/splash/splash_bloc.dart';
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/application/splash/splash_bloc.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:BananaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../application/export_bloc.dart';
@@ -53,8 +53,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                                   top: getHeight(context) * .45),
                               child: SvgPicture.asset(
                                 Assets.babana,
-                                    color: ColorsApp.primary,
-
+                                color: ColorsApp.primary,
                               )),
                           Container(
                               margin: EdgeInsets.only(

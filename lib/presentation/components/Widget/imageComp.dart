@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class ImageComp extends StatelessWidget {

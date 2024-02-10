@@ -1,5 +1,4 @@
- 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class AboutUsView extends StatelessWidget {
   const AboutUsView({super.key});

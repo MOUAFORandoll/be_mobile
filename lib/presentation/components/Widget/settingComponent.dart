@@ -1,6 +1,6 @@
 // ignore: must_be_immutable
 
-import 'package:BananaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class SettingComponent extends StatelessWidget {
