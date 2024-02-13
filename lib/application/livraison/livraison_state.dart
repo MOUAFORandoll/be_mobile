@@ -10,6 +10,7 @@ class LivraisonState with _$LivraisonState {
     // double? longitudeRecuperation,
     PointLivraisonModel? selected_recuperation_point,
     String? quartier_recuperation_point,
+    String? paiement_url,
     List<VilleModel>? villeList,
     int? idColis,
     List<Colis>? listColis,
@@ -49,6 +50,7 @@ class LivraisonState with _$LivraisonState {
   factory LivraisonState.initial() => LivraisonState(
         formKeyLivraison: GlobalKey<FormState>(),
         formKeyColis: GlobalKey<FormState>(),
+        paiement_url : '',
         isMapSelectedPointLivraison: false,
         isMapSelectedPointRecuperation: false,
         errorVille: false,

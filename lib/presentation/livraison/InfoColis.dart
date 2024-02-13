@@ -4,6 +4,7 @@ import 'package:BabanaExpress/presentation/components/Button/uploadImage.dart';
 import 'package:BabanaExpress/presentation/components/Widget/imageComp.dart';
 import 'package:BabanaExpress/presentation/components/Widget/colisComponent.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
+import 'package:BabanaExpress/presentation/livraison/paiement_page.dart';
 
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -37,8 +38,11 @@ class InfoColis extends StatelessWidget {
             print('-----AutoRouter.of(context).pop()--------*********');
           } else if (state.isRequest == 5) {
             loader.close();
-            AutoRouter.of(context).replaceAll([SuccesLivraisonRoute()]);
-            context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
+            if (state.paiement_url != null) {
+             AutoRouter.of(context).pushNamed(PaimentPage.routeName);
+            }
+            // AutoRouter.of(context).replaceAll([SuccesLivraisonRoute()]);
+            // context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
             showSuccess('Livraison Validee avec succes', context);
 
             print('-----44--------*********');

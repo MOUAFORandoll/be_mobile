@@ -653,7 +653,12 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     var data = await createFormData();
     print('debut get getLivraisonPointByVille event');
     await livraisonRepo.newLivraison(data).then((response) {
-      print(response.data);
+      
+        emit(state.copyWith(
+             
+              paiement_url: ''));
+              
+              print(response.data);
 
       if (response.statusCode == 200) {
         if (response.data != null) {
@@ -661,7 +666,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
           emit(state.copyWith(
               isRequest: 5,
               isDownloadFacture: 0,
-              urlFacture: response.data['facture']));
+              paiement_url: response.data['paiement_url']));
           _cleanData(emit);
           print('00 emit(state.copyWith(isRequest: --------------5))');
         }

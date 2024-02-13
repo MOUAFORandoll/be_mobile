@@ -2,6 +2,7 @@ import 'package:BabanaExpress/presentation/home/home_page.dart';
 import 'package:BabanaExpress/presentation/layer/onboardingpage.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart';
+import 'package:BabanaExpress/presentation/livraison/paiement_page.dart';
 import 'package:BabanaExpress/presentation/pharmacy/SuccesLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/user/auth_page.dart';
@@ -47,6 +48,8 @@ class AppRouter extends $AppRouter {
             path: NewLivraisonMedicamentPage.routeName),
         AutoRoute(
             page: SuccesLivraisonMedicamentRoute.page,
-            path: SuccesLivraisonMedicamentPage.routeName),
+            path: SuccesLivraisonMedicamentPage.routeName),AutoRoute(
+            page: PaimentRoute.page,
+            path: PaimentPage.routeName),
       ];
 }

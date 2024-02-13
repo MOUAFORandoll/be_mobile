@@ -10233,6 +10233,7 @@ mixin _$LivraisonState {
   PointLivraisonModel? get selected_recuperation_point =>
       throw _privateConstructorUsedError;
   String? get quartier_recuperation_point => throw _privateConstructorUsedError;
+  String? get paiement_url => throw _privateConstructorUsedError;
   List<VilleModel>? get villeList => throw _privateConstructorUsedError;
   int? get idColis => throw _privateConstructorUsedError;
   List<Colis>? get listColis => throw _privateConstructorUsedError;
@@ -10295,6 +10296,7 @@ abstract class $LivraisonStateCopyWith<$Res> {
       int index,
       PointLivraisonModel? selected_recuperation_point,
       String? quartier_recuperation_point,
+      String? paiement_url,
       List<VilleModel>? villeList,
       int? idColis,
       List<Colis>? listColis,
@@ -10350,6 +10352,7 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? index = null,
     Object? selected_recuperation_point = freezed,
     Object? quartier_recuperation_point = freezed,
+    Object? paiement_url = freezed,
     Object? villeList = freezed,
     Object? idColis = freezed,
     Object? listColis = freezed,
@@ -10409,6 +10412,10 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
       quartier_recuperation_point: freezed == quartier_recuperation_point
           ? _value.quartier_recuperation_point
           : quartier_recuperation_point // ignore: cast_nullable_to_non_nullable
+              as String?,
+      paiement_url: freezed == paiement_url
+          ? _value.paiement_url
+          : paiement_url // ignore: cast_nullable_to_non_nullable
               as String?,
       villeList: freezed == villeList
           ? _value.villeList
@@ -10565,6 +10572,7 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       int index,
       PointLivraisonModel? selected_recuperation_point,
       String? quartier_recuperation_point,
+      String? paiement_url,
       List<VilleModel>? villeList,
       int? idColis,
       List<Colis>? listColis,
@@ -10618,6 +10626,7 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? index = null,
     Object? selected_recuperation_point = freezed,
     Object? quartier_recuperation_point = freezed,
+    Object? paiement_url = freezed,
     Object? villeList = freezed,
     Object? idColis = freezed,
     Object? listColis = freezed,
@@ -10677,6 +10686,10 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
       quartier_recuperation_point: freezed == quartier_recuperation_point
           ? _value.quartier_recuperation_point
           : quartier_recuperation_point // ignore: cast_nullable_to_non_nullable
+              as String?,
+      paiement_url: freezed == paiement_url
+          ? _value.paiement_url
+          : paiement_url // ignore: cast_nullable_to_non_nullable
               as String?,
       villeList: freezed == villeList
           ? _value._villeList
@@ -10828,6 +10841,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
       required this.index,
       this.selected_recuperation_point,
       this.quartier_recuperation_point,
+      this.paiement_url,
       final List<VilleModel>? villeList,
       this.idColis,
       final List<Colis>? listColis,
@@ -10883,6 +10897,8 @@ class _$LivraisonStateImpl implements _LivraisonState {
   final PointLivraisonModel? selected_recuperation_point;
   @override
   final String? quartier_recuperation_point;
+  @override
+  final String? paiement_url;
   final List<VilleModel>? _villeList;
   @override
   List<VilleModel>? get villeList {
@@ -11014,7 +11030,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
 
   @override
   String toString() {
-    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedVille: $isLoadedVille, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, position: $position)';
+    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedVille: $isLoadedVille, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, position: $position)';
   }
 
   @override
@@ -11036,6 +11052,8 @@ class _$LivraisonStateImpl implements _LivraisonState {
             (identical(other.quartier_recuperation_point, quartier_recuperation_point) ||
                 other.quartier_recuperation_point ==
                     quartier_recuperation_point) &&
+            (identical(other.paiement_url, paiement_url) ||
+                other.paiement_url == paiement_url) &&
             const DeepCollectionEquality()
                 .equals(other._villeList, _villeList) &&
             (identical(other.idColis, idColis) || other.idColis == idColis) &&
@@ -11072,8 +11090,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
                 other.categoryColis == categoryColis) &&
             const DeepCollectionEquality()
                 .equals(other._list_category_colis, _list_category_colis) &&
-            (identical(other.isMapSelectedPointLivraison, isMapSelectedPointLivraison) ||
-                other.isMapSelectedPointLivraison == isMapSelectedPointLivraison) &&
+            (identical(other.isMapSelectedPointLivraison, isMapSelectedPointLivraison) || other.isMapSelectedPointLivraison == isMapSelectedPointLivraison) &&
             (identical(other.selected_livraison_point, selected_livraison_point) || other.selected_livraison_point == selected_livraison_point) &&
             (identical(other.errorCategory, errorCategory) || other.errorCategory == errorCategory) &&
             (identical(other.errorPointLivraison, errorPointLivraison) || other.errorPointLivraison == errorPointLivraison) &&
@@ -11099,6 +11116,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
         index,
         selected_recuperation_point,
         quartier_recuperation_point,
+        paiement_url,
         const DeepCollectionEquality().hash(_villeList),
         idColis,
         const DeepCollectionEquality().hash(_listColis),
@@ -11151,6 +11169,7 @@ abstract class _LivraisonState implements LivraisonState {
       required final int index,
       final PointLivraisonModel? selected_recuperation_point,
       final String? quartier_recuperation_point,
+      final String? paiement_url,
       final List<VilleModel>? villeList,
       final int? idColis,
       final List<Colis>? listColis,
@@ -11198,6 +11217,8 @@ abstract class _LivraisonState implements LivraisonState {
   PointLivraisonModel? get selected_recuperation_point;
   @override
   String? get quartier_recuperation_point;
+  @override
+  String? get paiement_url;
   @override
   List<VilleModel>? get villeList;
   @override
