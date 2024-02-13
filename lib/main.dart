@@ -27,7 +27,7 @@ Future<void> main() async {
   await EnvManager().init(env: Environment.prod);
 
   co.init();
-
+  
   // NotificationService().initializePlatformNotifications();
 
   runApp(
