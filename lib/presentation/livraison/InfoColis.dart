@@ -9,157 +9,47 @@ import 'package:BabanaExpress/presentation/livraison/paiement_page.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-import 'package:BabanaExpress/routes/app_router.gr.dart';
-
 import 'package:BabanaExpress/application/export_bloc.dart';
 
 // ignore: must_be_immutable
 class InfoColis extends StatelessWidget {
-  var loader = AppLoader.bounceLargeColorLoaderController();
-
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LivraisonBloc, LivraisonState>(
-        listener: (context, state) {
-          if (state.isRequest == 1) {
-            loader.open(context);
-          } else if (state.isRequest == 3) {
-            loader.close();
-            showError('Une erreur est survenue', context);
-          } else if (state.isRequest == 2) {
-            loader.close();
-            Navigator.of(context).pop();
-            validateLivraison(context);
-            print('-----44--------*********');
-          } else if (state.isRequest == 4) {
-            AutoRouter.of(context).pop();
-            loader.open(context);
-
-            print('-----AutoRouter.of(context).pop()--------*********');
-          } else if (state.isRequest == 5) {
-            loader.close();
-            if (state.paiement_url != null) {
-             AutoRouter.of(context).pushNamed(PaimentPage.routeName);
-            }
-            // AutoRouter.of(context).replaceAll([SuccesLivraisonRoute()]);
-            // context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
-            showSuccess('Livraison Validee avec succes', context);
-
-            print('-----44--------*********');
-          }
-        },
+    return BlocBuilder<LivraisonBloc, LivraisonState>(
         builder: (context, state) => SingleChildScrollView(
-                child: Column(children: [
-              SizedBox(
-                  height: state.listColis!.length == 0
-                      ? 0
-                      : getHeight(context) * .65,
-                  child: Stack(children: [
-                    GridView.builder(
-                        shrinkWrap: true,
-                        // physics: NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 10.0,
-                            childAspectRatio: 20,
-                            mainAxisExtent: getHeight(context) / 4.5,
-                            mainAxisSpacing: 20.0),
-                        itemCount: state.listColis!.length,
-                        itemBuilder: (_ctx, index) =>
-                            ColisComponent(colis: state.listColis![index])),
-                  ])),
-              AddColisComponent(
-                color: ColorsApp.second,
-                title: 'Colis',
-                icon: Icons.collections,
-                onTap: () {
-                  // state.cleanImage();
-                  // state.resetPointLivraison();
-                  openModalAddColis(context);
-                },
-              ),
-            ])));
-  }
-
-  validateLivraison(context) => showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) => BlocBuilder<LivraisonBloc,
-                LivraisonState>(
-            builder: (context, state) => Container(
-                height: getHeight(context) * .4,
-                padding: EdgeInsets.symmetric(horizontal: kMarginX),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                  ),
-                  color: ColorsApp.white,
+              child: Column(children: [
+                SizedBox(
+                    height: state.listColis!.length == 0
+                        ? 0
+                        : getHeight(context) * .65,
+                    child: Stack(children: [
+                      GridView.builder(
+                          shrinkWrap: true,
+                          // physics: NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 10.0,
+                                  childAspectRatio: 20,
+                                  mainAxisExtent: getHeight(context) / 4.5,
+                                  mainAxisSpacing: 20.0),
+                          itemCount: state.listColis!.length,
+                          itemBuilder: (_ctx, index) =>
+                              ColisComponent(colis: state.listColis![index])),
+                    ])),
+                AddColisComponent(
+                  color: ColorsApp.second,
+                  title: 'Colis',
+                  icon: Icons.collections,
+                  onTap: () {
+                    // state.cleanImage();
+                    // state.resetPointLivraison();
+                    openModalAddColis(context);
+                  },
                 ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                          alignment: Alignment.topRight,
-                          margin: EdgeInsets.only(top: kMarginY * 2),
-                          // padding: EdgeInsets.symmetric(
-                          //     horizontal: kMarginX / 2),
-                          child: InkWell(
-                            onTap: () {
-                              AutoRouter.of(context).pop();
-
-                              context.read<LivraisonBloc>().add(NoValidate());
-                            },
-                            child: Icon(Icons.close),
-                          )),
-                      Container(
-                          alignment: Alignment.center,
-                          margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
-                          child: Row(
-                            children: [
-                              Text(
-                                'yfrais'.tr(),
-                                style: TextStyle(fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                '${state.frais} FCFA  ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 14),
-                              ),
-                            ],
-                          )),
-                      // Container(
-                      //     margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
-                      //     child: Text(
-                      //       ' a payer par l\'emetteur: '.tr(),
-                      //       style: TextStyle(fontWeight: FontWeight.w500),
-                      //     )),
-                      Container(
-                          margin: EdgeInsets.only(top: kMarginY),
-                          child: Column(
-                            // mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(bottom: 8),
-                                child: AppButton(
-                                    text: 'yvalidate'.tr(),
-                                    // width: getWith(context) / 2.5,
-                                    size: MainAxisSize.max,
-                                    bgColor: ColorsApp.second,
-                                    onTap: () => context
-                                        .read<LivraisonBloc>()
-                                        .add(NewLivraison())),
-                              ),
-                            ],
-                          ))
-                    ]))),
-        isScrollControlled: true,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-        ),
-        backgroundColor: Colors.transparent,
-      ).whenComplete(() {
-        BlocProvider.of<LivraisonBloc>(context).add(NoValidate());
-      });
+              ]),
+            ));
+  }
 
   openModalAddColis(context) => showModalBottomSheet(
         context: context,
@@ -754,3 +644,116 @@ class InfoColis extends StatelessWidget {
         backgroundColor: Colors.transparent,
       );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import '../../presentation/components/exportcomponent.dart';
+// import 'package:BabanaExpress/application/export_bloc.dart';
+
+// import 'package:webview_flutter/webview_flutter.dart';
+// @RoutePage()
+// class PaimentPage extends StatefulWidget {
+//   static const routeName = '/paiement';
+
+//   const PaimentPage({Key? key}) : super(key: key);
+
+//   @override
+//   State<PaimentPage> createState() => _PaimentPageState();
+// }
+
+// class _PaimentPageState extends State<PaimentPage> {
+//   late WebViewController? controller; // Déclarer controller comme nullable
+  
+//   @override
+//   void initState() {
+//     super.initState();
+//     controller = null; // Initialiser controller à null
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocConsumer<LivraisonBloc, LivraisonState>(
+//       listener: (ctx, state) {
+//         if (state.paiement_url != null) {
+//           setState(() {
+//             controller = WebViewController()..loadUrl(state.paiement_url!);
+//           });
+//         }
+//       },
+//       builder: (context, state) {
+//         return Scaffold(
+//           appBar: AppBar(
+//             leading: AppBackButton(),
+//             title: const Text('Paiement de votre livraison'),
+//             centerTitle: true,
+//           ),
+//           body: controller != null // Vérifier si controller n'est pas null
+//               ? WebView(
+//                   initialUrl: '', // Remplacez par l'URL initiale si nécessaire
+//                   onWebViewCreated: (WebViewController webViewController) {
+//                     controller = webViewController;
+//                   },
+//                 )
+//               : Center(
+//                   child: CircularProgressIndicator(), // Afficher un indicateur de chargement si controller est null
+//                 ),
+//         );
+//       },
+//     );
+//   }
+// }

@@ -37,7 +37,7 @@ class LivraisonModel {
       contactEmetteur: json['contactEmetteur'],
       lienDeLivraison: json['lienDeLivraison'],
       quantite: json['quantite'],
-      montant: json['montant'],
+      montant: json['montant'].toString(),
       status: json['status'],
       colis: List<ColisUser>.from(
           json['colis'].map((colis) => ColisUser.fromJson(colis))),

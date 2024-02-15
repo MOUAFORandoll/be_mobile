@@ -44,13 +44,15 @@ class LivraisonState with _$LivraisonState {
     int? isLoadedVCategory,
     String? urlFacture,
     List<LivraisonModel>? userLivraisonList,
+    WebViewController? controller,
     LatLng? position,
   }) = _LivraisonState;
 
   factory LivraisonState.initial() => LivraisonState(
         formKeyLivraison: GlobalKey<FormState>(),
         formKeyColis: GlobalKey<FormState>(),
-        paiement_url : '',
+        paiement_url: '',
+        controller: null,
         isMapSelectedPointLivraison: false,
         isMapSelectedPointRecuperation: false,
         errorVille: false,

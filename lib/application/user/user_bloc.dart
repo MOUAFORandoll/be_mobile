@@ -87,7 +87,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     loader.open(event.context);
     await Future.delayed(Duration(seconds: 5), () {
       database.disconnect();
-      loader.close();
+      
       AutoRouter.of(event.context).replaceAll([AuthRoute()]);
     });
     try {

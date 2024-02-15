@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
@@ -14,7 +13,8 @@ class PaimentPage extends StatefulWidget {
 }
 
 class _PaimentPageState extends State<PaimentPage> {
-  var controller;
+  late WebViewController? controller;
+
   void initState() {
     super.initState();
     setState(() {});
@@ -23,37 +23,43 @@ class _PaimentPageState extends State<PaimentPage> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LivraisonBloc, LivraisonState>(listener: (ctx, state) {
-      if (state.paiement_url != null) {
-        controller = WebViewController()
-          ..setJavaScriptMode(JavaScriptMode.unrestricted)
-          ..setBackgroundColor(const Color(0x00000000))
-          ..setNavigationDelegate(
-            NavigationDelegate(
-              onProgress: (int progress) {
-                // Update loading bar.
-              },
-              onPageStarted: (String url) {},
-              onPageFinished: (String url) {},
-              onWebResourceError: (WebResourceError error) {},
-              onNavigationRequest: (NavigationRequest request) {
-                if (request.url.startsWith('https://www.youtube.com/')) {
-                  return NavigationDecision.prevent;
-                }
-                return NavigationDecision.navigate;
-              },
-            ),
-          )
-          ..loadRequest(Uri.parse(state.paiement_url!));
-      }
+      // if (state.paiement_url != null) {
+      //   controller = WebViewController()
+      //     ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      //     ..setBackgroundColor(const Color(0x00000000))
+      //     ..setNavigationDelegate(
+      //       NavigationDelegate(
+      //         onProgress: (int progress) {
+      //           // Update loading bar.
+      //         },
+      //         onPageStarted: (String url) {},
+      //         onPageFinished: (String url) {},
+      //         onWebResourceError: (WebResourceError error) {},
+      //         onNavigationRequest: (NavigationRequest request) {
+      //           if (request.url.startsWith('https://www.youtube.com/')) {
+      //             return NavigationDecision.prevent;
+      //           }
+      //           return NavigationDecision.navigate;
+      //         },
+      //       ),
+      //     )
+      //     ..loadRequest(Uri.parse(state.paiement_url!));
+      // }
     }, builder: (context, state) {
       return Scaffold(
-          appBar: AppBar(
-            leading: AppBackButton(),
-            title: const Text('Paiement de votre livraison'),
-            centerTitle: true,
-          ),
-          // backgroundColor: ColorsApp.bg,
-          body: WebViewWidget(controller: controller));
+        appBar: AppBar(
+          leading: AppBackButton(),
+          title: const Text('Paiement de votre livraison'),
+          centerTitle: true,
+        ),
+        // backgroundColor: ColorsApp.bg,
+        body: state.controller != null // Vérifier si controller n'est pas null
+            ? WebViewWidget(controller: state.controller!)
+            : Center(
+                child:
+                    CircularProgressIndicator(), // Afficher un indicateur de chargement si controller est null
+              ),
+      );
     });
   }
 }

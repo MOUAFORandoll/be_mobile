@@ -2,30 +2,67 @@ import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/presentation/livraison/paiement_page.dart';
 import 'InfoColis.dart';
 import 'InfoLIvraison.dart';
 
 @RoutePage()
-class NewLivraisonPage extends StatelessWidget {
+class NewLivraisonPage extends StatefulWidget {
   const NewLivraisonPage({super.key});
   static const routeName = '/livraison/new';
 
   @override
+  State<NewLivraisonPage> createState() => _NewLivraisonPageState();
+}
+
+class _NewLivraisonPageState extends State<NewLivraisonPage> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: AppBackButton(),
-          title: Text('yNewLivraison'.tr()),
-          centerTitle: true,
-        ),
-        body: RefreshIndicator(
-            color: ColorsApp.second,
-            onRefresh: () =>
-                Future.delayed(Duration(seconds: 5), () => initLoad(context)),
-            child: BlocBuilder<LivraisonBloc, LivraisonState>(
-                builder: (context, state) => Container(
+    return BlocConsumer<LivraisonBloc, LivraisonState>(
+        listener: (context, state) {
+          var loader = AppLoader.bounceLargeColorLoaderController();
+          if (state.isRequest == 1) {
+            loader.open(context);
+          } else if (state.isRequest == 3) {
+            Navigator.pop(context);
+            loader.close();
+
+            showError('Une erreur est survenue', context);
+          } else if (state.isRequest == 2) {
+            loader.close();
+            AutoRouter.of(context).pop();
+            Navigator.pop(context);
+            validateLivraison(context);
+            print('-----44--------*********');
+          } else if (state.isRequest == 4) {
+            AutoRouter.of(context).pop();
+            loader.open(context);
+          } else if (state.isRequest == 5) {
+            Navigator.pop(context);
+
+            if (state.paiement_url != null) {
+              AutoRouter.of(context).pushNamed(PaimentPage.routeName);
+            }
+            // AutoRouter.of(context).replaceAll([SuccesLivraisonRoute()]);
+            // context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
+            showSuccess('Livraison Validee avec succes', context);
+
+            print('-----44--------*********');
+          }
+        },
+        builder: (context, state) => Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: AppBackButton(),
+              title: Text('yNewLivraison'.tr()),
+              centerTitle: true,
+            ),
+            body: RefreshIndicator(
+                color: ColorsApp.second,
+                onRefresh: () => Future.delayed(
+                    Duration(seconds: 5), () => initLoad(context)),
+                child: Container(
                     height: getHeight(context),
                     margin: EdgeInsets.symmetric(
                         horizontal: kMarginX, vertical: kMarginY),
@@ -75,4 +112,84 @@ class NewLivraisonPage extends StatelessWidget {
                       ],
                     )))));
   }
+
+  validateLivraison(contextA) => showModalBottomSheet(
+        context: contextA,
+        builder: (BuildContext context) => BlocBuilder<LivraisonBloc,
+                LivraisonState>(
+            builder: (context, state) => Container(
+                height: getHeight(context) * .4,
+                padding: EdgeInsets.symmetric(horizontal: kMarginX),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
+                  ),
+                  color: ColorsApp.white,
+                ),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                          alignment: Alignment.topRight,
+                          margin: EdgeInsets.only(top: kMarginY * 2),
+                          // padding: EdgeInsets.symmetric(
+                          //     horizontal: kMarginX / 2),
+                          child: InkWell(
+                            onTap: () {
+                              AutoRouter.of(context).pop();
+
+                              context.read<LivraisonBloc>().add(NoValidate());
+                            },
+                            child: Icon(Icons.close),
+                          )),
+                      Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
+                          child: Row(
+                            children: [
+                              Text(
+                                'yfrais'.tr(),
+                                style: TextStyle(fontWeight: FontWeight.w500),
+                              ),
+                              Text(
+                                '${state.frais} FCFA  ',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 14),
+                              ),
+                            ],
+                          )),
+                      // Container(
+                      //     margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
+                      //     child: Text(
+                      //       ' a payer par l\'emetteur: '.tr(),
+                      //       style: TextStyle(fontWeight: FontWeight.w500),
+                      //     )),
+                      Container(
+                          margin: EdgeInsets.only(top: kMarginY),
+                          child: Column(
+                            // mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(bottom: 8),
+                                child: AppButton(
+                                    text: 'yvalidate'.tr(),
+                                    // width: getWith(context) / 2.5,
+                                    size: MainAxisSize.max,
+                                    bgColor: ColorsApp.second,
+                                    onTap: () => context
+                                        .read<LivraisonBloc>()
+                                        .add(NewLivraison())),
+                              ),
+                            ],
+                          ))
+                    ]))),
+        isScrollControlled: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        ),
+        backgroundColor: Colors.transparent,
+      ).whenComplete(() {
+        BlocProvider.of<LivraisonBloc>(context).add(NoValidate());
+      });
 }

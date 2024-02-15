@@ -11,6 +11,7 @@ part 'app_action_cubit.freezed.dart';
 class AppActionCubit extends Cubit<AppActionState> {
   final Connectivity _connectivity = Connectivity();
   AppActionCubit() : super(AppActionState.initial()) {
+    // ignore: unused_local_variable
     late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
     emit(state.copyWith(index: 0));

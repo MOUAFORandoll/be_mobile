@@ -46,7 +46,7 @@ class LivraisonMedicamentModel {
       ville: json['ville'],
       lienDeLivraison: json['lienDeLivraison'],
       quantite: json['quantite'],
-      montant: json['montant'],
+      montant: json['montant'].toString(),
       status: json['status'],
       medicaments: medicaments,
       initiatedUser: json['initiatedUser'],

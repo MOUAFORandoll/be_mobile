@@ -10276,6 +10276,7 @@ mixin _$LivraisonState {
   String? get urlFacture => throw _privateConstructorUsedError;
   List<LivraisonModel>? get userLivraisonList =>
       throw _privateConstructorUsedError;
+  WebViewController? get controller => throw _privateConstructorUsedError;
   LatLng? get position => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -10330,6 +10331,7 @@ abstract class $LivraisonStateCopyWith<$Res> {
       int? isLoadedVCategory,
       String? urlFacture,
       List<LivraisonModel>? userLivraisonList,
+      WebViewController? controller,
       LatLng? position});
 }
 
@@ -10386,6 +10388,7 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? isLoadedVCategory = freezed,
     Object? urlFacture = freezed,
     Object? userLivraisonList = freezed,
+    Object? controller = freezed,
     Object? position = freezed,
   }) {
     return _then(_value.copyWith(
@@ -10549,6 +10552,10 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.userLivraisonList
           : userLivraisonList // ignore: cast_nullable_to_non_nullable
               as List<LivraisonModel>?,
+      controller: freezed == controller
+          ? _value.controller
+          : controller // ignore: cast_nullable_to_non_nullable
+              as WebViewController?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -10606,6 +10613,7 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       int? isLoadedVCategory,
       String? urlFacture,
       List<LivraisonModel>? userLivraisonList,
+      WebViewController? controller,
       LatLng? position});
 }
 
@@ -10660,6 +10668,7 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? isLoadedVCategory = freezed,
     Object? urlFacture = freezed,
     Object? userLivraisonList = freezed,
+    Object? controller = freezed,
     Object? position = freezed,
   }) {
     return _then(_$LivraisonStateImpl(
@@ -10823,6 +10832,10 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value._userLivraisonList
           : userLivraisonList // ignore: cast_nullable_to_non_nullable
               as List<LivraisonModel>?,
+      controller: freezed == controller
+          ? _value.controller
+          : controller // ignore: cast_nullable_to_non_nullable
+              as WebViewController?,
       position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -10875,6 +10888,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
       this.isLoadedVCategory,
       this.urlFacture,
       final List<LivraisonModel>? userLivraisonList,
+      this.controller,
       this.position})
       : _villeList = villeList,
         _listColis = listColis,
@@ -11026,11 +11040,13 @@ class _$LivraisonStateImpl implements _LivraisonState {
   }
 
   @override
+  final WebViewController? controller;
+  @override
   final LatLng? position;
 
   @override
   String toString() {
-    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedVille: $isLoadedVille, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, position: $position)';
+    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedVille: $isLoadedVille, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, controller: $controller, position: $position)';
   }
 
   @override
@@ -11104,6 +11120,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
             (identical(other.isLoadedVCategory, isLoadedVCategory) || other.isLoadedVCategory == isLoadedVCategory) &&
             (identical(other.urlFacture, urlFacture) || other.urlFacture == urlFacture) &&
             const DeepCollectionEquality().equals(other._userLivraisonList, _userLivraisonList) &&
+            (identical(other.controller, controller) || other.controller == controller) &&
             (identical(other.position, position) || other.position == position));
   }
 
@@ -11150,6 +11167,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
         isLoadedVCategory,
         urlFacture,
         const DeepCollectionEquality().hash(_userLivraisonList),
+        controller,
         position
       ]);
 
@@ -11203,6 +11221,7 @@ abstract class _LivraisonState implements LivraisonState {
       final int? isLoadedVCategory,
       final String? urlFacture,
       final List<LivraisonModel>? userLivraisonList,
+      final WebViewController? controller,
       final LatLng? position}) = _$LivraisonStateImpl;
 
   @override
@@ -11285,6 +11304,8 @@ abstract class _LivraisonState implements LivraisonState {
   String? get urlFacture;
   @override
   List<LivraisonModel>? get userLivraisonList;
+  @override
+  WebViewController? get controller;
   @override
   LatLng? get position;
   @override

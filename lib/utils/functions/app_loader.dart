@@ -4,12 +4,12 @@ import 'bounce_loader.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-/// App loaders
-/// final _loaderDialogController = IndeterminateProgress.bounceLargeColorLoaderController();
-/// _loaderDialogController.open(context);
-/// _loaderDialogController.close();
-//
-///
+// / App loaders
+// / final _loaderDialogController = IndeterminateProgress.bounceLargeColorLoaderController();
+// / _loaderDialogController.open(context);
+// / _loaderDialogController.close();
+
+// /
 class AppLoader {
   static Widget circular(
       {Color? color, double scale = .7, double strokeWidth = 6}) {
@@ -123,7 +123,7 @@ class LoaderDialogController {
   Widget loader;
 
   StreamController<String> _streamController = StreamController<String>();
-
+  
   LoaderDialogController({required this.loader});
 
   /// Show the dialog
@@ -137,6 +137,7 @@ class LoaderDialogController {
     if (_streamController.isClosed) {
       _streamController = StreamController<String>();
     }
+    
     return _streamController..add('close');
   }
 }

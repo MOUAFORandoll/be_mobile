@@ -87,4 +87,6 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.downloadFacture() = DownloadFacture;
   const factory LivraisonEvent.noValidate() = NoValidate;
   const factory LivraisonEvent.onStartEvent() = OnStartEvent;
+  // const factory LivraisonEvent.onAutoComplet({required text}) = OnAutoComplet;
+  // const factory LivraisonEvent.ongetPlace({required text}) = GetPlace;
 }

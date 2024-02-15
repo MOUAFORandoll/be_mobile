@@ -6,7 +6,7 @@ import '../../../utils/constants/apiRoute.dart';
 class LivraisonRepo {
   final IAppRequests apiClient;
   LivraisonRepo({required this.apiClient});
-
+  final key = 'AIzaSyB2lLkho9yRrZ9DgZ4btFOZ6x22-zZTJ38';
   Future newLivraison(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS, body: data);
 
@@ -117,4 +117,74 @@ class LivraisonRepo {
 
     return a;
   }
+
+  /**
+   * 
+  findPlaceAutoComplete() async {
+    try {
+     var connect = Dio.Dio();
+      final response = await connect.get(
+          'https://maps.googleapis.com/maps/api/place/autocomplete/json?key=${key}&input=${placeTexteController.text}');
+
+      if (response.body != null) {
+        print(response.body);
+        
+        final jsonResponse = response.body;
+
+        if (jsonResponse.containsKey('predictions')) {
+          _listTextPLace = [];
+          final predictions = jsonResponse['predictions'];
+
+          for (var prediction in predictions) {
+            if (prediction.containsKey('description')) {
+              _listTextPLace.add(prediction['description']);
+            }
+          }
+        } else {
+          _listTextPLace = [];
+        }
+
+        update();
+      } else {
+        _listTextPLace = [];
+        update();
+      }
+    } catch (e) {}
+  }
+
+  getPlace(text) async {
+    loader.open();
+    var longitude;
+    var latitude;
+    var connect = Dio.Dio();
+    String url = 'https://places.googleapis.com/v1/places:searchText';
+    
+    Map<String, String> headers = {
+      'Content-Type': 'application/json',
+      'X-Goog-Api-Key': key,
+      'X-Goog-FieldMask':
+          'places.displayName,places.formattedAddress,places.location'
+    };
+    Map<String, dynamic> requestBody = {'textQuery': text};
+
+    final response = await connect.post(url,
+        options: Dio.Options(headers: headers), data: requestBody);
+
+    if (response.data != null) {
+      print(response.data);
+      var _loca = Location.fromJson(response.data['places'][0]['location']);
+
+      print(_loca);
+      longitude = _loca.longitude;
+      latitude = _loca.latitude;
+      _placeTexteController.text = text;
+
+      update();
+      loader.close();
+    }
+
+    return {'longitude': longitude, 'latitude': latitude};
+  }
+  
+   */
 }

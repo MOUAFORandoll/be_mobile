@@ -13,6 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 part 'livraison_event.dart';
 part 'livraison_state.dart';
@@ -643,35 +644,65 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       }
     }).onError((e, s) {
       emit(state.copyWith(isRequest: 3));
+    }).catchError((e) {
+      print('---------------${e}');
+      emit(state.copyWith(isRequest: 3));
     });
   }
 
   Future<void> _newLivraison(
       NewLivraison event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isRequest: 0));
     emit(state.copyWith(isRequest: 4));
+    print(' emit(state.copyWith(isRequest: -----000---------5))');
 
     var data = await createFormData();
-    print('debut get getLivraisonPointByVille event');
     await livraisonRepo.newLivraison(data).then((response) {
-      
-        emit(state.copyWith(
-             
-              paiement_url: ''));
-              
-              print(response.data);
+      emit(state.copyWith(paiement_url: ''));
 
       if (response.statusCode == 200) {
+        print(
+            ' emit(state.copyWith(isRequest: -------${response.statusCode}-------5))');
         if (response.data != null) {
-          print(' emit(state.copyWith(isRequest: --------------5))');
           emit(state.copyWith(
               isRequest: 5,
               isDownloadFacture: 0,
               paiement_url: response.data['paiement_url']));
-          _cleanData(emit);
+          emit(state.copyWith(
+              controller: WebViewController()
+                ..setJavaScriptMode(JavaScriptMode.unrestricted)
+                ..setBackgroundColor(const Color(0x00000000))
+                ..setNavigationDelegate(
+                  NavigationDelegate(
+                    onProgress: (int progress) {
+                      // Update loading bar.
+                    },
+                    onPageStarted: (String url) {},
+                    onPageFinished: (String url) {},
+                    onWebResourceError: (WebResourceError error) {},
+                    onNavigationRequest: (NavigationRequest request) {
+                      if (request.url.startsWith('https://www.youtube.com/')) {
+                        return NavigationDecision.prevent;
+                      }
+                      return NavigationDecision.navigate;
+                    },
+                  ),
+                )
+                ..loadRequest(Uri.parse(response.data['paiement_url']))));
+          // _cleanData(emit);
           print('00 emit(state.copyWith(isRequest: --------------5))');
+        } else {
+          emit(state.copyWith(isRequest: 3));
         }
+      } else {
+        emit(state.copyWith(isRequest: 3));
       }
     }).onError((e, s) {
+      print('${e} onError(state.onError(onError: --------------5))');
+
+      emit(state.copyWith(isRequest: 3));
+    }).catchError((e) {
+      print('---------------${e}');
       emit(state.copyWith(isRequest: 3));
     });
   }
@@ -682,7 +713,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       isMapSelectedPointLivraison: false,
       isMapSelectedPointRecuperation: false,
       errorVille: false,
-      isLoadedVille: 0,
+
       isLoadedVCategory: 0,
       errorImage: false,
       isDownloadFacture: 0,
@@ -698,9 +729,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       idColis: 1,
       listColis: [],
       imageColis: [],
-      selectedVIlle: null,
-      list_category_colis: [],
-      list_search_point_localisation: [],
+
       phone: TextEditingController(),
       libelle: TextEditingController(),
       contactEmetteur: TextEditingController(),
@@ -729,6 +758,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       'latitude': state.selected_recuperation_point?.latitude,
       'libelle': state.libelle?.text,
       'service': 1,
+      'montant': state.frais,
       'contactEmetteur': state.contactEmetteur?.text,
       'description': state.description?.text,
       'ville': state.selectedVIlle?.id,
