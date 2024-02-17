@@ -1,6 +1,6 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/presentation/pharmacy/paiement_pharmacy_page.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
@@ -29,18 +29,21 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
             validateLivraisonMedicaments(context);
             print('-----44--------**000*******');
           } else if (state.isRequest == 4) {
-            AutoRouter.of(context).pop();
             loader.open(context);
-
-            print('-----AutoRouter.of(context).pop()--------*********');
           } else if (state.isRequest == 5) {
-            loader.close();
-            AutoRouter.of(context).pop();
-            AutoRouter.of(context)
-                .replaceAll([SuccesLivraisonMedicamentRoute()]);
-            context.read<PharmacyBloc>().add(HistoriqueLivraisonMedicament());
-            showSuccess(
-                'Livraison de medicaments Validee avec succes', context);
+            print('-----000.of(context).pop()--------*********');
+            Navigator.pop(context);
+
+            if (state.paiement_url != null) {
+              AutoRouter.of(context).pushNamed(PaimentPharmacyPage.routeName);
+            }
+            // loader.close();
+            // AutoRouter.of(context).pop();
+            // AutoRouter.of(context)
+            //     .replaceAll([SuccesLivraisonMedicamentRoute()]);
+            // context.read<PharmacyBloc>().add(HistoriqueLivraisonMedicament());
+            // showSuccess(
+            //     'Livraison de medicaments Validee avec succes', context);
 
             print('-----44--------*********');
           }

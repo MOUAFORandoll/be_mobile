@@ -43,9 +43,9 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
             if (state.paiement_url != null) {
               AutoRouter.of(context).pushNamed(PaimentPage.routeName);
             }
-            // AutoRouter.of(context).replaceAll([SuccesLivraisonRoute()]);
+          
             // context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
-            showSuccess('Livraison Validee avec succes', context);
+            //
 
             print('-----44--------*********');
           }

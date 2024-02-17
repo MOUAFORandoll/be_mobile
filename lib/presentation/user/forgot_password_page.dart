@@ -159,7 +159,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                       //     child: Text('code'.tr(),
                                       //         textAlign: TextAlign.center,
                                       //         style: TextStyle(
-                                      //             fontFamily: 'Montserrat',
+                                      //             fontFamily: 'Lato',
                                       //             color: ColorsApp.primary,
                                       //             fontWeight:
                                       //                 FontWeight.w600))),

@@ -8,6 +8,7 @@ import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/infrastructure/_commons/network/env_config.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/Services/SocketService.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -97,6 +98,27 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<NewLivraison>(_newLivraison);
     on<HistoriqueUserLivraison>(_getLivraisonUser);
     on<DownloadFacture>(_downloadFacture);
+    on<ConnectSocketLivraisons>(_connectSocketLivraisons);
+    on<SuccessLivraisonCreate>(_successLivraisonCreate);
+  }
+
+  Future<void> _connectSocketLivraisons(
+      ConnectSocketLivraisons event, Emitter<LivraisonState> emit) async {
+    print('---------**i connect to my socket');
+    var key = await database.getKey();
+
+    var socketService = sl.get<SocketService>();
+
+    socketService.livraisonValidate(recepteur: key!);
+  }
+
+  _successLivraisonCreate(
+      SuccessLivraisonCreate event, Emitter<LivraisonState> emit) async {
+    print('--------000-');
+    emit(state.copyWith(successLivraison: true));
+
+    print('----${state.successLivraison}-----');
+    // emit(state.copyWith(successLivraison: false));
   }
 
   Future<void> _selectPointRecuperation(
@@ -238,7 +260,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
               villeList: (response.data['data'] as List)
                   .map((e) => VilleModel.fromJson(e))
                   .toList()));
-          print('-----------state.villeList.length');
+
           print(state.villeList!.length);
         } else {
           emit(state.copyWith(
@@ -254,7 +276,6 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
               list_category_colis: (response0.data['data'] as List)
                   .map((e) => CategoryModel.fromJson(e))
                   .toList()));
-          print('-----------state.CategoryModel.length');
           print(state.list_category_colis!.length);
         } else {}
       }
@@ -269,18 +290,30 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   Future<void> _getpointLocalisation(
       GetRecupPointEvent event, Emitter<LivraisonState> emit) async {
     try {
+      emit(state.copyWith(
+        isLoadedPLivraison: 0,
+      ));
       print('debut get getLivraisonPointByVille event');
       Response response =
           await livraisonRepo.getLivraisonPointByVille(event.ville);
       if (response.data != null) {
         if (response.data['data'].length != 0) {
           emit(state.copyWith(
+              isLoadedPLivraison: 1,
               list_localisation_point: (response.data['data'] as List)
                   .map((e) => PointLivraisonModel.fromJson(e))
                   .toList()));
-        } else {}
+        } else {
+          emit(state.copyWith(
+            isLoadedPLivraison: 2,
+          ));
+        }
       }
-    } catch (e) {}
+    } catch (e) {
+      emit(state.copyWith(
+        isLoadedPLivraison: 2,
+      ));
+    }
   }
 // Gestion de Colis
 
@@ -503,25 +536,25 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   Future<void> addColis(AddColis event, Emitter<LivraisonState> emit) async {
     bool isOk = true;
     if (state.categoryColis == null) {
-      emit(state.copyWith(errorCategory: true));
+      emit(state.copyWith(errorCategory: true, isColisOK: false));
       isOk = false;
     } else {
-      emit(state.copyWith(errorCategory: false));
+      emit(state.copyWith(errorCategory: false, isColisOK: true));
       isOk = true;
     }
     if (state.selected_livraison_point == null) {
-      emit(state.copyWith(errorPointLivraison: true));
+      emit(state.copyWith(errorPointLivraison: true, isColisOK: false));
       isOk = false;
     } else {
-      emit(state.copyWith(errorPointLivraison: false));
+      emit(state.copyWith(errorPointLivraison: false, isColisOK: true));
       isOk = true;
     }
 
     if (state.imageColis!.isEmpty) {
-      emit(state.copyWith(errorImage: true));
+      emit(state.copyWith(errorImage: true, isColisOK: false));
       isOk = false;
     } else {
-      emit(state.copyWith(errorImage: false));
+      emit(state.copyWith(errorImage: false, isColisOK: true));
       isOk = true;
     }
     if (state.formKeyColis!.currentState!.validate()) {
@@ -660,35 +693,36 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     await livraisonRepo.newLivraison(data).then((response) {
       emit(state.copyWith(paiement_url: ''));
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         print(
             ' emit(state.copyWith(isRequest: -------${response.statusCode}-------5))');
+        print(response.data['paiement_url']);
         if (response.data != null) {
           emit(state.copyWith(
               isRequest: 5,
               isDownloadFacture: 0,
               paiement_url: response.data['paiement_url']));
-          emit(state.copyWith(
-              controller: WebViewController()
-                ..setJavaScriptMode(JavaScriptMode.unrestricted)
-                ..setBackgroundColor(const Color(0x00000000))
-                ..setNavigationDelegate(
-                  NavigationDelegate(
-                    onProgress: (int progress) {
-                      // Update loading bar.
-                    },
-                    onPageStarted: (String url) {},
-                    onPageFinished: (String url) {},
-                    onWebResourceError: (WebResourceError error) {},
-                    onNavigationRequest: (NavigationRequest request) {
-                      if (request.url.startsWith('https://www.youtube.com/')) {
-                        return NavigationDecision.prevent;
-                      }
-                      return NavigationDecision.navigate;
-                    },
-                  ),
-                )
-                ..loadRequest(Uri.parse(response.data['paiement_url']))));
+          // emit(state.copyWith(
+          //     controller: WebViewController()
+          //       ..setJavaScriptMode(JavaScriptMode.unrestricted)
+          //       ..setBackgroundColor(const Color(0x00000000))
+          //       ..setNavigationDelegate(
+          //         NavigationDelegate(
+          //           onProgress: (int progress) {
+          //             // Update loading bar.
+          //           },
+          //           onPageStarted: (String url) {},
+          //           onPageFinished: (String url) {},
+          //           onWebResourceError: (WebResourceError error) {},
+          //           onNavigationRequest: (NavigationRequest request) {
+          //             if (request.url.startsWith('https://www.youtube.com/')) {
+          //               return NavigationDecision.prevent;
+          //             }
+          //             return NavigationDecision.navigate;
+          //           },
+          //         ),
+          //       )
+          //       ..loadRequest(Uri.parse(response.data['paiement_url']))));
           // _cleanData(emit);
           print('00 emit(state.copyWith(isRequest: --------------5))');
         } else {
@@ -789,26 +823,22 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   Future<void> _getLivraisonUser(
       HistoriqueUserLivraison event, Emitter<LivraisonState> emit) async {
     var key = await database.getKey();
-    emit(state.copyWith(
-      isLoadedPLivraison: 0,
-    ));
+
     await livraisonRepo.getHistoryLivraisons(key).then((response) {
       if (response.data != null) {
         emit(state.copyWith(
-            isLoadedPLivraison: 1,
+            isLoadedLivraison: 1,
             userLivraisonList: (response.data['data'] as List)
                 .map((e) => LivraisonModel.fromJson(e))
                 .toList()));
-        print('-----------state.userLivraisonList.length');
-        print(state.villeList!.length);
       } else {
         emit(state.copyWith(
-          isLoadedPLivraison: 2,
+          isLoadedLivraison: 2,
         ));
       }
     }).onError((e, s) {
       emit(state.copyWith(
-        isLoadedPLivraison: 2,
+        isLoadedLivraison: 2,
       ));
     });
   }

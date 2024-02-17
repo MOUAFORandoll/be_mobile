@@ -1,4 +1,3 @@
- 
 import '../exportcomponent.dart';
 
 class AppButtonIcon extends StatelessWidget {
@@ -67,7 +66,7 @@ class AppButtonIcon extends StatelessWidget {
               text,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontFamily: 'Montserrat',
+                fontFamily: 'Lato',
                 color: disabled ? textColor.withOpacity(.5) : textColor,
                 fontWeight: FontWeight.w600,
               ),

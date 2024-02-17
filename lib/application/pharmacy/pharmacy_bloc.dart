@@ -164,13 +164,13 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
 
   Future<void> _mapValidatePointLivraison(
       MapValidatePointLivraisonP event, Emitter<PharmacyState> emit) async {
-    PointLivraisonModel _point = new PointLivraisonModel(
-        id: 0,
-        libelle: event.libelle,
-        quartier: event.quartier,
-        ville: state.selectedVIlle!.libelle,
-        longitude: state.position!.longitude,
-        latitude: state.position!.latitude);
+    // PointLivraisonModel _point = new PointLivraisonModel(
+    //     id: 0,
+    //     libelle: event.libelle,
+    //     quartier: event.quartier,
+    //     ville: state.selectedVIlle!.libelle,
+    //     longitude: state.position!.longitude,
+    //     latitude: state.position!.latitude);
 
     // emit(state.copyWith(
     //   selected_recuperation_point: _point,
@@ -231,6 +231,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
   Future<void> _newLivraisonMedicament(
       NewLivraisonPharmacy event, Emitter<PharmacyState> emit) async {
     emit(state.copyWith(isRequest: 4));
+    emit(state.copyWith(paiement_url: ''));
 
     var data = await createFormData();
 
@@ -241,18 +242,20 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
         if (response.data != null) {
           print(' emit(state.copyWith(isRequest: --------------5))');
           emit(state.copyWith(
-            isRequest: 5,
-            isDownloadFacture: 0, /*     urlFacture: response.data['facture'] */
-          ));
+              isRequest: 5,
+              isDownloadFacture: 0,
+              paiement_url: response.data[
+                  'paiement_url'] /*     urlFacture: response.data['facture'] */
+              ));
           _cleanData(emit);
           print('00 emit(state.copyWith(isRequest: --------------5))');
         }
       } else {
-        print('--jjj---err[orr--------**000*******');
+      
         emit(state.copyWith(isRequest: 3));
       }
     }).onError((e, s) {
-      print('-----err[orr--------**000*******');
+   
       emit(state.copyWith(isRequest: 3));
     });
   }
@@ -277,6 +280,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       'latitude': state.selected_livraison_point?.latitude,
       'libelle': state.libelle?.text,
       'service': 1,
+      'montant': state.frais,
       'contactLivraison': state.contactRecepteur?.text,
       'description': state.descriptionEmplacement?.text,
       'ville': state.selectedVIlle?.id,
@@ -325,7 +329,6 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
         // valeurColis: TextEditingController(),
         // quartier_recuperation_point: '',
         ));
-    print('00 emit(state.copyWith(isRequest: --------------5))');
   }
 
   Future<void> _getLivraisonMedicamentUser(
@@ -341,7 +344,6 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
             userLivraisonMedicamentList: (response.data['data'] as List)
                 .map((e) => LivraisonMedicamentModel.fromJson(e))
                 .toList()));
-        print('-----------state.LivraisonMedicament.length');
       } else {
         emit(state.copyWith(
           isLoadedHistoriqueLivraison: 2,

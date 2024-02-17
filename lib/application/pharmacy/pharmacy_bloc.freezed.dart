@@ -5218,6 +5218,7 @@ mixin _$PharmacyState {
       throw _privateConstructorUsedError;
   bool? get errorVille => throw _privateConstructorUsedError;
   double? get frais => throw _privateConstructorUsedError;
+  String? get paiement_url => throw _privateConstructorUsedError;
   List<MedicamentModel>? get listMedicamentChoose =>
       throw _privateConstructorUsedError;
 
@@ -5252,6 +5253,7 @@ abstract class $PharmacyStateCopyWith<$Res> {
       List<LivraisonMedicamentModel>? userLivraisonMedicamentList,
       bool? errorVille,
       double? frais,
+      String? paiement_url,
       List<MedicamentModel>? listMedicamentChoose});
 }
 
@@ -5287,6 +5289,7 @@ class _$PharmacyStateCopyWithImpl<$Res, $Val extends PharmacyState>
     Object? userLivraisonMedicamentList = freezed,
     Object? errorVille = freezed,
     Object? frais = freezed,
+    Object? paiement_url = freezed,
     Object? listMedicamentChoose = freezed,
   }) {
     return _then(_value.copyWith(
@@ -5366,6 +5369,10 @@ class _$PharmacyStateCopyWithImpl<$Res, $Val extends PharmacyState>
           ? _value.frais
           : frais // ignore: cast_nullable_to_non_nullable
               as double?,
+      paiement_url: freezed == paiement_url
+          ? _value.paiement_url
+          : paiement_url // ignore: cast_nullable_to_non_nullable
+              as String?,
       listMedicamentChoose: freezed == listMedicamentChoose
           ? _value.listMedicamentChoose
           : listMedicamentChoose // ignore: cast_nullable_to_non_nullable
@@ -5402,6 +5409,7 @@ abstract class _$$PharmacyStateImplCopyWith<$Res>
       List<LivraisonMedicamentModel>? userLivraisonMedicamentList,
       bool? errorVille,
       double? frais,
+      String? paiement_url,
       List<MedicamentModel>? listMedicamentChoose});
 }
 
@@ -5435,6 +5443,7 @@ class __$$PharmacyStateImplCopyWithImpl<$Res>
     Object? userLivraisonMedicamentList = freezed,
     Object? errorVille = freezed,
     Object? frais = freezed,
+    Object? paiement_url = freezed,
     Object? listMedicamentChoose = freezed,
   }) {
     return _then(_$PharmacyStateImpl(
@@ -5514,6 +5523,10 @@ class __$$PharmacyStateImplCopyWithImpl<$Res>
           ? _value.frais
           : frais // ignore: cast_nullable_to_non_nullable
               as double?,
+      paiement_url: freezed == paiement_url
+          ? _value.paiement_url
+          : paiement_url // ignore: cast_nullable_to_non_nullable
+              as String?,
       listMedicamentChoose: freezed == listMedicamentChoose
           ? _value._listMedicamentChoose
           : listMedicamentChoose // ignore: cast_nullable_to_non_nullable
@@ -5545,6 +5558,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
       final List<LivraisonMedicamentModel>? userLivraisonMedicamentList,
       this.errorVille,
       this.frais,
+      this.paiement_url,
       final List<MedicamentModel>? listMedicamentChoose})
       : _listMedicament = listMedicament,
         _userLivraisonMedicamentList = userLivraisonMedicamentList,
@@ -5605,6 +5619,8 @@ class _$PharmacyStateImpl implements _PharmacyState {
   final bool? errorVille;
   @override
   final double? frais;
+  @override
+  final String? paiement_url;
   final List<MedicamentModel>? _listMedicamentChoose;
   @override
   List<MedicamentModel>? get listMedicamentChoose {
@@ -5618,7 +5634,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
 
   @override
   String toString() {
-    return 'PharmacyState(index: $index, isLoading: $isLoading, formKeyLivraison: $formKeyLivraison, searchMedicamentController: $searchMedicamentController, libelle: $libelle, descriptionEmplacement: $descriptionEmplacement, contactRecepteur: $contactRecepteur, listMedicament: $listMedicament, selectedVIlle: $selectedVIlle, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, isDownloadFacture: $isDownloadFacture, selected_livraison_point: $selected_livraison_point, isRequest: $isRequest, errorPointLivraison: $errorPointLivraison, position: $position, isLoadedHistoriqueLivraison: $isLoadedHistoriqueLivraison, userLivraisonMedicamentList: $userLivraisonMedicamentList, errorVille: $errorVille, frais: $frais, listMedicamentChoose: $listMedicamentChoose)';
+    return 'PharmacyState(index: $index, isLoading: $isLoading, formKeyLivraison: $formKeyLivraison, searchMedicamentController: $searchMedicamentController, libelle: $libelle, descriptionEmplacement: $descriptionEmplacement, contactRecepteur: $contactRecepteur, listMedicament: $listMedicament, selectedVIlle: $selectedVIlle, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, isDownloadFacture: $isDownloadFacture, selected_livraison_point: $selected_livraison_point, isRequest: $isRequest, errorPointLivraison: $errorPointLivraison, position: $position, isLoadedHistoriqueLivraison: $isLoadedHistoriqueLivraison, userLivraisonMedicamentList: $userLivraisonMedicamentList, errorVille: $errorVille, frais: $frais, paiement_url: $paiement_url, listMedicamentChoose: $listMedicamentChoose)';
   }
 
   @override
@@ -5643,13 +5659,13 @@ class _$PharmacyStateImpl implements _PharmacyState {
                 .equals(other._listMedicament, _listMedicament) &&
             (identical(other.selectedVIlle, selectedVIlle) ||
                 other.selectedVIlle == selectedVIlle) &&
-            (identical(other.isMapSelectedPointLivraison,
-                    isMapSelectedPointLivraison) ||
+            (identical(other.isMapSelectedPointLivraison, isMapSelectedPointLivraison) ||
                 other.isMapSelectedPointLivraison ==
                     isMapSelectedPointLivraison) &&
             (identical(other.isDownloadFacture, isDownloadFacture) ||
                 other.isDownloadFacture == isDownloadFacture) &&
-            (identical(other.selected_livraison_point, selected_livraison_point) ||
+            (identical(
+                    other.selected_livraison_point, selected_livraison_point) ||
                 other.selected_livraison_point == selected_livraison_point) &&
             (identical(other.isRequest, isRequest) ||
                 other.isRequest == isRequest) &&
@@ -5667,6 +5683,8 @@ class _$PharmacyStateImpl implements _PharmacyState {
             (identical(other.errorVille, errorVille) ||
                 other.errorVille == errorVille) &&
             (identical(other.frais, frais) || other.frais == frais) &&
+            (identical(other.paiement_url, paiement_url) ||
+                other.paiement_url == paiement_url) &&
             const DeepCollectionEquality()
                 .equals(other._listMedicamentChoose, _listMedicamentChoose));
   }
@@ -5693,6 +5711,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
         const DeepCollectionEquality().hash(_userLivraisonMedicamentList),
         errorVille,
         frais,
+        paiement_url,
         const DeepCollectionEquality().hash(_listMedicamentChoose)
       ]);
 
@@ -5724,6 +5743,7 @@ abstract class _PharmacyState implements PharmacyState {
       final List<LivraisonMedicamentModel>? userLivraisonMedicamentList,
       final bool? errorVille,
       final double? frais,
+      final String? paiement_url,
       final List<MedicamentModel>? listMedicamentChoose}) = _$PharmacyStateImpl;
 
   @override
@@ -5764,6 +5784,8 @@ abstract class _PharmacyState implements PharmacyState {
   bool? get errorVille;
   @override
   double? get frais;
+  @override
+  String? get paiement_url;
   @override
   List<MedicamentModel>? get listMedicamentChoose;
   @override

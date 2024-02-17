@@ -131,12 +131,22 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                             fontFamily: 'Lato',
                             color: ColorsApp.red),
                       )),
-                Container(
-                    padding: EdgeInsets.only(
-                      top: kMarginY,
-                    ),
-                    alignment: Alignment.centerLeft,
-                    child: Text('yrecup'.tr())),
+                state.isLoadedPLivraison == 0
+                    ? Container(
+                        padding: EdgeInsets.symmetric(
+                          vertical: kMarginY * 1.2,
+                        ),
+                        alignment: Alignment.center,
+                        child:
+                            CircularProgressIndicator(color: ColorsApp.second))
+                    : state.isLoadedPLivraison == 2
+                        ? Text('Error')
+                        : Container(
+                            padding: EdgeInsets.only(
+                              top: kMarginY,
+                            ),
+                            alignment: Alignment.centerLeft,
+                            child: Text('yrecup'.tr())),
                 Container(
                     margin: EdgeInsets.only(),
                     child: Row(

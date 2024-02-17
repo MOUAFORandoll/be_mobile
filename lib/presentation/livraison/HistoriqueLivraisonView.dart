@@ -19,9 +19,9 @@ class HistoriqueLivraisonView extends StatelessWidget {
             Duration(seconds: 5),
             () => BlocProvider.of<LivraisonBloc>(context)
                 .add(HistoriqueUserLivraison())),
-        child: state.isLoadedPLivraison == 0
+        child: state.isLoadedLivraison == 0
             ? ShimmerLivraison()
-            : state.isLoadedPLivraison == 2
+            : state.isLoadedLivraison == 2
                 ? Text('Error')
                 : state.userLivraisonList!.length == 0
                     ? EmptyLivraisonsComponent()

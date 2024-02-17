@@ -7,6 +7,7 @@ import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_reposit
 import 'package:BabanaExpress/application/splash/splash_bloc.dart';
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
+import 'package:BabanaExpress/utils/Services/SocketService.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:connectivity/connectivity.dart';
@@ -40,6 +41,10 @@ Future<void> init() async {
     ..registerLazySingleton(() => PharmacyRepo(apiClient: sl()));
   requestPermission();
   initConnected();
+  sl
+    ..registerFactory(() => SocketService(
+          livraison_bloc: sl(),
+        ));
 }
 
 void initConnected() async {
@@ -52,6 +57,7 @@ Future<void> initLoad(context) async {
     ..add(GetUserEvent())
     ..add(GetVilleQuartier());
   BlocProvider.of<LivraisonBloc>(context)
+    ..add(ConnectSocketLivraisons())
     ..add(StartLogLat())
     ..add(GetVilleAndCategoryEvent())
     ..add(HistoriqueUserLivraison());

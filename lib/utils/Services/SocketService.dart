@@ -1,11 +1,13 @@
 import 'dart:convert';
+import 'package:BabanaExpress/application/livraison/livraison_bloc.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';
 import 'package:BabanaExpress/infrastructure/_commons/network/request_url.dart';
 
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class SocketService {
-  SocketService();
+  LivraisonBloc livraison_bloc;
+  SocketService({required this.livraison_bloc});
   // late IO.Socket socket;
   IO.Socket socket = IO.io(RequestUrl().socketUrl, <String, dynamic>{
     'transports': ['websocket'],
@@ -28,6 +30,21 @@ class SocketService {
     });
     // });
     // print(socket.connected);
+  }
+
+  void livraisonValidate(
+      {required String recepteur }) {
+    socket.on('livraison_validate', (data) {
+      print(data);
+      if (data != null && data != 'null') {
+        var decodedData = jsonDecode(data);
+        if (decodedData['recepteur'].toString() == recepteur.toString()) {
+       
+          print(decodedData);
+          livraison_bloc.add(SuccessLivraisonCreate());
+        }
+      }
+    });
   }
 
   void livraisonFinish(canal, Function action) {

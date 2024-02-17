@@ -1,4 +1,3 @@
-import 'package:BabanaExpress/routes/app_router.gr.dart';
 
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
@@ -6,20 +5,20 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 @RoutePage()
-class PaimentPage extends StatefulWidget {
-  static const routeName = '/paiement';
+class PaimentPharmacyPage extends StatefulWidget {
+  static const routeName = '/paiement/pharmacy';
 
-  const PaimentPage({super.key});
+  const PaimentPharmacyPage({super.key});
   @override
-  State<PaimentPage> createState() => _PaimentPageState();
+  State<PaimentPharmacyPage> createState() => _PaimentPharmacyPageState();
 }
 
-class _PaimentPageState extends State<PaimentPage> {
+class _PaimentPharmacyPageState extends State<PaimentPharmacyPage> {
   WebViewController? controller;
 
   void initState() {
     super.initState();
- 
+
     setState(() {
       controller = WebViewController()
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -41,24 +40,24 @@ class _PaimentPageState extends State<PaimentPage> {
           ),
         )
         ..loadRequest(Uri.parse(
-            BlocProvider.of<LivraisonBloc>(context).state.paiement_url!));
+            BlocProvider.of<PharmacyBloc>(context).state.paiement_url!));
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LivraisonBloc, LivraisonState>(listener: (ctx, state) {
-      print('-------${state.successLivraison}--------livraison_validate--');
-      if (state.successLivraison == true) {
-        showSuccess('Livraison Validee avec succes', context);
-        BlocProvider.of<LivraisonBloc>(context).add(HistoriqueUserLivraison());
-        AutoRouter.of(context).replaceAll([SuccesLivraisonRoute()]);
-      }
+    return BlocConsumer<PharmacyBloc, PharmacyState>(listener: (ctx, state) {
+      // print('-------${state.successPharmacy}--------Pharmacy_validate--');
+      // if (state.successLivraison == true) {
+      //   showSuccess('Pharmacy Validee avec succes', context);
+      //   BlocProvider.of<PharmacyBloc>(context).add(HistoriqueUserPharmacy());
+      //   AutoRouter.of(context).replaceAll([SuccesPharmacyRoute()]);
+      // }
     }, builder: (context, state) {
       return Scaffold(
         appBar: AppBar(
           leading: AppBackButton(),
-          title: const Text('Paiement de votre livraison'),
+          title: const Text('Paiement de votre Facture de  Pharmacy'),
           centerTitle: true,
         ),
         // backgroundColor: ColorsApp.bg,

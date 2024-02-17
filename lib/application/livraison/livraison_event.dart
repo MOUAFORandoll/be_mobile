@@ -7,7 +7,7 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.backIndex() = BackIndexEvent;
 
   const factory LivraisonEvent.getVilleAndCategory() = GetVilleAndCategoryEvent;
-  
+
   const factory LivraisonEvent.selectedVille({
     required VilleModel ville,
   }) = SelectedVille;
@@ -19,7 +19,7 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.selectPointRecuperation({
     required PointLivraisonModel point_recup,
   }) = SelectPointRecuperation;
-  
+
   const factory LivraisonEvent.Start(
       {required LatLng latLng,
       String? quartier_recuperation_point}) = SetLogLat;
@@ -70,6 +70,9 @@ class LivraisonEvent with _$LivraisonEvent {
     required PointLivraisonModel point_livraison,
   }) = SelectPointLivraisonColis;
 
+  const factory LivraisonEvent.successLivraisonCreate() =
+      SuccessLivraisonCreate;
+
   const factory LivraisonEvent.removeImageFromColis({
     required int idColis,
     required int position,
@@ -87,6 +90,9 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.downloadFacture() = DownloadFacture;
   const factory LivraisonEvent.noValidate() = NoValidate;
   const factory LivraisonEvent.onStartEvent() = OnStartEvent;
+ 
+  const factory LivraisonEvent.connectSocketLivraisons() =
+      ConnectSocketLivraisons;
   // const factory LivraisonEvent.onAutoComplet({required text}) = OnAutoComplet;
   // const factory LivraisonEvent.ongetPlace({required text}) = GetPlace;
 }

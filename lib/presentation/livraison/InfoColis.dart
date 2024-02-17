@@ -4,8 +4,6 @@ import 'package:BabanaExpress/presentation/components/Button/uploadImage.dart';
 import 'package:BabanaExpress/presentation/components/Widget/imageComp.dart';
 import 'package:BabanaExpress/presentation/components/Widget/colisComponent.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
-import 'package:BabanaExpress/presentation/livraison/paiement_page.dart';
-
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
@@ -633,7 +631,9 @@ class InfoColis extends StatelessWidget {
                           text: 'lbaddprod'.tr(),
                           onTap: () async {
                             context.read<LivraisonBloc>().add(AddColis());
-                            AutoRouter.of(context).pop();
+                            if (state.isColisOK!) {
+                              AutoRouter.of(context).pop();
+                            }
                           }),
                     ])))),
         shape: RoundedRectangleBorder(

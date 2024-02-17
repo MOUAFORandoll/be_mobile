@@ -22,6 +22,7 @@ class PharmacyState with _$PharmacyState {
       List<LivraisonMedicamentModel>? userLivraisonMedicamentList,
       bool? errorVille,
       double? frais,
+      String?paiement_url,
       List<MedicamentModel>? listMedicamentChoose}) = _PharmacyState;
 
   factory PharmacyState.initial() => PharmacyState(

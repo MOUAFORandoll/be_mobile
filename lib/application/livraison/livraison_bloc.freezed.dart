@@ -44,6 +44,7 @@ mixin _$LivraisonEvent {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -55,6 +56,7 @@ mixin _$LivraisonEvent {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +85,7 @@ mixin _$LivraisonEvent {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -94,6 +97,7 @@ mixin _$LivraisonEvent {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -121,6 +125,7 @@ mixin _$LivraisonEvent {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -132,6 +137,7 @@ mixin _$LivraisonEvent {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -164,6 +170,8 @@ mixin _$LivraisonEvent {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -174,6 +182,8 @@ mixin _$LivraisonEvent {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -201,6 +211,7 @@ mixin _$LivraisonEvent {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -211,6 +222,7 @@ mixin _$LivraisonEvent {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -238,6 +250,7 @@ mixin _$LivraisonEvent {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -248,6 +261,7 @@ mixin _$LivraisonEvent {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -338,6 +352,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -349,6 +364,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return verifyForm();
   }
@@ -380,6 +396,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -391,6 +408,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return verifyForm?.call();
   }
@@ -421,6 +439,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -432,6 +451,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -470,6 +490,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -480,6 +502,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return verifyForm(this);
   }
@@ -510,6 +534,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -520,6 +545,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return verifyForm?.call(this);
   }
@@ -550,6 +576,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -560,6 +587,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -637,6 +665,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -648,6 +677,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return backIndex();
   }
@@ -679,6 +709,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -690,6 +721,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return backIndex?.call();
   }
@@ -720,6 +752,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -731,6 +764,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -769,6 +803,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -779,6 +815,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return backIndex(this);
   }
@@ -809,6 +847,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -819,6 +858,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return backIndex?.call(this);
   }
@@ -849,6 +889,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -859,6 +900,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -939,6 +981,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -950,6 +993,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return getVilleAndCategory();
   }
@@ -981,6 +1025,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -992,6 +1037,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return getVilleAndCategory?.call();
   }
@@ -1022,6 +1068,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -1033,6 +1080,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1071,6 +1119,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -1081,6 +1131,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return getVilleAndCategory(this);
   }
@@ -1111,6 +1163,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -1121,6 +1174,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return getVilleAndCategory?.call(this);
   }
@@ -1151,6 +1205,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -1161,6 +1216,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1264,6 +1320,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -1275,6 +1332,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return selectedVille(ville);
   }
@@ -1306,6 +1364,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -1317,6 +1376,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return selectedVille?.call(ville);
   }
@@ -1347,6 +1407,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -1358,6 +1419,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1396,6 +1458,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -1406,6 +1470,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return selectedVille(this);
   }
@@ -1436,6 +1502,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -1446,6 +1513,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return selectedVille?.call(this);
   }
@@ -1476,6 +1544,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -1486,6 +1555,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1597,6 +1667,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -1608,6 +1679,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return selectedCategory(categoryColis);
   }
@@ -1639,6 +1711,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -1650,6 +1723,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return selectedCategory?.call(categoryColis);
   }
@@ -1680,6 +1754,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -1691,6 +1766,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -1729,6 +1805,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -1739,6 +1817,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return selectedCategory(this);
   }
@@ -1769,6 +1849,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -1779,6 +1860,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return selectedCategory?.call(this);
   }
@@ -1809,6 +1891,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -1819,6 +1902,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -1932,6 +2016,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -1943,6 +2028,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return selectPointRecuperation(point_recup);
   }
@@ -1974,6 +2060,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -1985,6 +2072,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return selectPointRecuperation?.call(point_recup);
   }
@@ -2015,6 +2103,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -2026,6 +2115,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -2064,6 +2154,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -2074,6 +2166,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return selectPointRecuperation(this);
   }
@@ -2104,6 +2198,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -2114,6 +2209,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return selectPointRecuperation?.call(this);
   }
@@ -2144,6 +2240,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -2154,6 +2251,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -2277,6 +2375,7 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -2288,6 +2387,7 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return Start(latLng, quartier_recuperation_point);
   }
@@ -2319,6 +2419,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -2330,6 +2431,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return Start?.call(latLng, quartier_recuperation_point);
   }
@@ -2360,6 +2462,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -2371,6 +2474,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -2409,6 +2513,8 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -2419,6 +2525,8 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return Start(this);
   }
@@ -2449,6 +2557,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -2459,6 +2568,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return Start?.call(this);
   }
@@ -2489,6 +2599,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -2499,6 +2610,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -2584,6 +2696,7 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -2595,6 +2708,7 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return setStartLogLat();
   }
@@ -2626,6 +2740,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -2637,6 +2752,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return setStartLogLat?.call();
   }
@@ -2667,6 +2783,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -2678,6 +2795,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -2716,6 +2834,8 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -2726,6 +2846,8 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return setStartLogLat(this);
   }
@@ -2756,6 +2878,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -2766,6 +2889,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return setStartLogLat?.call(this);
   }
@@ -2796,6 +2920,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -2806,6 +2931,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -2910,6 +3036,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -2921,6 +3048,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return getRecupPoint(ville);
   }
@@ -2952,6 +3080,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -2963,6 +3092,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return getRecupPoint?.call(ville);
   }
@@ -2993,6 +3123,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -3004,6 +3135,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -3042,6 +3174,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -3052,6 +3186,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return getRecupPoint(this);
   }
@@ -3082,6 +3218,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -3092,6 +3229,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return getRecupPoint?.call(this);
   }
@@ -3122,6 +3260,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -3132,6 +3271,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -3242,6 +3382,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -3253,6 +3394,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return searchpointevent(text);
   }
@@ -3284,6 +3426,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -3295,6 +3438,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return searchpointevent?.call(text);
   }
@@ -3325,6 +3469,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -3336,6 +3481,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -3374,6 +3520,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -3384,6 +3532,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return searchpointevent(this);
   }
@@ -3414,6 +3564,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -3424,6 +3575,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return searchpointevent?.call(this);
   }
@@ -3454,6 +3606,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -3464,6 +3617,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -3573,6 +3727,7 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -3584,6 +3739,7 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return mapSelected(status);
   }
@@ -3615,6 +3771,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -3626,6 +3783,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return mapSelected?.call(status);
   }
@@ -3656,6 +3814,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -3667,6 +3826,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -3705,6 +3865,8 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -3715,6 +3877,8 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return mapSelected(this);
   }
@@ -3745,6 +3909,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -3755,6 +3920,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return mapSelected?.call(this);
   }
@@ -3785,6 +3951,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -3795,6 +3962,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -3913,6 +4081,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -3924,6 +4093,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return mapValidatePoint(libelle, quartier);
   }
@@ -3955,6 +4125,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -3966,6 +4137,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return mapValidatePoint?.call(libelle, quartier);
   }
@@ -3996,6 +4168,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -4007,6 +4180,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -4045,6 +4219,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -4055,6 +4231,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return mapValidatePoint(this);
   }
@@ -4085,6 +4263,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -4095,6 +4274,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return mapValidatePoint?.call(this);
   }
@@ -4125,6 +4305,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -4135,6 +4316,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -4259,6 +4441,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -4270,6 +4453,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return mapValidatePointLivraison(libelle, quartier);
   }
@@ -4301,6 +4485,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -4312,6 +4497,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return mapValidatePointLivraison?.call(libelle, quartier);
   }
@@ -4342,6 +4528,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -4353,6 +4540,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -4391,6 +4579,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -4401,6 +4591,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return mapValidatePointLivraison(this);
   }
@@ -4431,6 +4623,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -4441,6 +4634,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return mapValidatePointLivraison?.call(this);
   }
@@ -4471,6 +4665,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -4481,6 +4676,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -4566,6 +4762,7 @@ class _$AddColisImpl implements AddColis {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -4577,6 +4774,7 @@ class _$AddColisImpl implements AddColis {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return addColis();
   }
@@ -4608,6 +4806,7 @@ class _$AddColisImpl implements AddColis {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -4619,6 +4818,7 @@ class _$AddColisImpl implements AddColis {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return addColis?.call();
   }
@@ -4649,6 +4849,7 @@ class _$AddColisImpl implements AddColis {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -4660,6 +4861,7 @@ class _$AddColisImpl implements AddColis {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (addColis != null) {
@@ -4698,6 +4900,8 @@ class _$AddColisImpl implements AddColis {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -4708,6 +4912,8 @@ class _$AddColisImpl implements AddColis {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return addColis(this);
   }
@@ -4738,6 +4944,7 @@ class _$AddColisImpl implements AddColis {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -4748,6 +4955,7 @@ class _$AddColisImpl implements AddColis {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return addColis?.call(this);
   }
@@ -4778,6 +4986,7 @@ class _$AddColisImpl implements AddColis {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -4788,6 +4997,7 @@ class _$AddColisImpl implements AddColis {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (addColis != null) {
@@ -4891,6 +5101,7 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -4902,6 +5113,7 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return updateColis(idColis);
   }
@@ -4933,6 +5145,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -4944,6 +5157,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return updateColis?.call(idColis);
   }
@@ -4974,6 +5188,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -4985,6 +5200,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -5023,6 +5239,8 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -5033,6 +5251,8 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return updateColis(this);
   }
@@ -5063,6 +5283,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -5073,6 +5294,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return updateColis?.call(this);
   }
@@ -5103,6 +5325,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -5113,6 +5336,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -5221,6 +5445,7 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -5232,6 +5457,7 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return deleteColis(idColis);
   }
@@ -5263,6 +5489,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -5274,6 +5501,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return deleteColis?.call(idColis);
   }
@@ -5304,6 +5532,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -5315,6 +5544,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -5353,6 +5583,8 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -5363,6 +5595,8 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return deleteColis(this);
   }
@@ -5393,6 +5627,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -5403,6 +5638,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return deleteColis?.call(this);
   }
@@ -5433,6 +5669,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -5443,6 +5680,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -5527,6 +5765,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -5538,6 +5777,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return getImageColisAppareil();
   }
@@ -5569,6 +5809,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -5580,6 +5821,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return getImageColisAppareil?.call();
   }
@@ -5610,6 +5852,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -5621,6 +5864,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -5659,6 +5903,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -5669,6 +5915,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return getImageColisAppareil(this);
   }
@@ -5699,6 +5947,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -5709,6 +5958,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return getImageColisAppareil?.call(this);
   }
@@ -5739,6 +5989,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -5749,6 +6000,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -5827,6 +6079,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -5838,6 +6091,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return getImageColisGalerie();
   }
@@ -5869,6 +6123,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -5880,6 +6135,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return getImageColisGalerie?.call();
   }
@@ -5910,6 +6166,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -5921,6 +6178,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -5959,6 +6217,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -5969,6 +6229,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return getImageColisGalerie(this);
   }
@@ -5999,6 +6261,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -6009,6 +6272,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return getImageColisGalerie?.call(this);
   }
@@ -6039,6 +6303,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -6049,6 +6314,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -6154,6 +6420,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -6165,6 +6432,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return addImageColisAppareil(idColis);
   }
@@ -6196,6 +6464,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -6207,6 +6476,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return addImageColisAppareil?.call(idColis);
   }
@@ -6237,6 +6507,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -6248,6 +6519,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -6286,6 +6558,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -6296,6 +6570,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return addImageColisAppareil(this);
   }
@@ -6326,6 +6602,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -6336,6 +6613,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return addImageColisAppareil?.call(this);
   }
@@ -6366,6 +6644,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -6376,6 +6655,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -6487,6 +6767,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -6498,6 +6779,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return addImageColisGalerie(idColis);
   }
@@ -6529,6 +6811,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -6540,6 +6823,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return addImageColisGalerie?.call(idColis);
   }
@@ -6570,6 +6854,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -6581,6 +6866,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -6619,6 +6905,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -6629,6 +6917,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return addImageColisGalerie(this);
   }
@@ -6659,6 +6949,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -6669,6 +6960,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return addImageColisGalerie?.call(this);
   }
@@ -6699,6 +6991,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -6709,6 +7002,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -6822,6 +7116,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -6833,6 +7128,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return selectPointLivraisonColis(point_livraison);
   }
@@ -6864,6 +7160,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -6875,6 +7172,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return selectPointLivraisonColis?.call(point_livraison);
   }
@@ -6905,6 +7203,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -6916,6 +7215,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -6954,6 +7254,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -6964,6 +7266,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return selectPointLivraisonColis(this);
   }
@@ -6994,6 +7298,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -7004,6 +7309,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return selectPointLivraisonColis?.call(this);
   }
@@ -7034,6 +7340,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -7044,6 +7351,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -7062,6 +7370,322 @@ abstract class SelectPointLivraisonColis implements LivraisonEvent {
   @JsonKey(ignore: true)
   _$$SelectPointLivraisonColisImplCopyWith<_$SelectPointLivraisonColisImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SuccessLivraisonCreateImplCopyWith<$Res> {
+  factory _$$SuccessLivraisonCreateImplCopyWith(
+          _$SuccessLivraisonCreateImpl value,
+          $Res Function(_$SuccessLivraisonCreateImpl) then) =
+      __$$SuccessLivraisonCreateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SuccessLivraisonCreateImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$SuccessLivraisonCreateImpl>
+    implements _$$SuccessLivraisonCreateImplCopyWith<$Res> {
+  __$$SuccessLivraisonCreateImplCopyWithImpl(
+      _$SuccessLivraisonCreateImpl _value,
+      $Res Function(_$SuccessLivraisonCreateImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
+  const _$SuccessLivraisonCreateImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.successLivraisonCreate()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessLivraisonCreateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
+  }) {
+    return successLivraisonCreate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
+  }) {
+    return successLivraisonCreate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
+    required TResult orElse(),
+  }) {
+    if (successLivraisonCreate != null) {
+      return successLivraisonCreate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(HistoriqueUserLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
+    required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
+  }) {
+    return successLivraisonCreate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
+    TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+  }) {
+    return successLivraisonCreate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
+    TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    required TResult orElse(),
+  }) {
+    if (successLivraisonCreate != null) {
+      return successLivraisonCreate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SuccessLivraisonCreate implements LivraisonEvent {
+  const factory SuccessLivraisonCreate() = _$SuccessLivraisonCreateImpl;
 }
 
 /// @nodoc
@@ -7166,6 +7790,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -7177,6 +7802,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return removeImageFromColis(idColis, position);
   }
@@ -7208,6 +7834,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -7219,6 +7846,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return removeImageFromColis?.call(idColis, position);
   }
@@ -7249,6 +7877,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -7260,6 +7889,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -7298,6 +7928,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -7308,6 +7940,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return removeImageFromColis(this);
   }
@@ -7338,6 +7972,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -7348,6 +7983,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return removeImageFromColis?.call(this);
   }
@@ -7378,6 +8014,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -7388,6 +8025,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -7521,6 +8159,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -7532,6 +8171,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return updateImageInColis(idColis, position, updatedImage);
   }
@@ -7563,6 +8203,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -7574,6 +8215,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return updateImageInColis?.call(idColis, position, updatedImage);
   }
@@ -7604,6 +8246,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -7615,6 +8258,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -7653,6 +8297,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -7663,6 +8309,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return updateImageInColis(this);
   }
@@ -7693,6 +8341,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -7703,6 +8352,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return updateImageInColis?.call(this);
   }
@@ -7733,6 +8383,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -7743,6 +8394,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -7856,6 +8508,7 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -7867,6 +8520,7 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return selectColis(colis);
   }
@@ -7898,6 +8552,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -7909,6 +8564,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return selectColis?.call(colis);
   }
@@ -7939,6 +8595,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -7950,6 +8607,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -7988,6 +8646,8 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -7998,6 +8658,8 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return selectColis(this);
   }
@@ -8028,6 +8690,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -8038,6 +8701,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return selectColis?.call(this);
   }
@@ -8068,6 +8732,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -8078,6 +8743,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -8186,6 +8852,7 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -8197,6 +8864,7 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return manageQte(state);
   }
@@ -8228,6 +8896,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -8239,6 +8908,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return manageQte?.call(state);
   }
@@ -8269,6 +8939,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -8280,6 +8951,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -8318,6 +8990,8 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -8328,6 +9002,8 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return manageQte(this);
   }
@@ -8358,6 +9034,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -8368,6 +9045,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return manageQte?.call(this);
   }
@@ -8398,6 +9076,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -8408,6 +9087,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -8490,6 +9170,7 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -8501,6 +9182,7 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return calculFrais();
   }
@@ -8532,6 +9214,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -8543,6 +9226,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return calculFrais?.call();
   }
@@ -8573,6 +9257,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -8584,6 +9269,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (calculFrais != null) {
@@ -8622,6 +9308,8 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -8632,6 +9320,8 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return calculFrais(this);
   }
@@ -8662,6 +9352,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -8672,6 +9363,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return calculFrais?.call(this);
   }
@@ -8702,6 +9394,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -8712,6 +9405,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (calculFrais != null) {
@@ -8789,6 +9483,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -8800,6 +9495,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return newLivraison();
   }
@@ -8831,6 +9527,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -8842,6 +9539,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return newLivraison?.call();
   }
@@ -8872,6 +9570,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -8883,6 +9582,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (newLivraison != null) {
@@ -8921,6 +9621,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -8931,6 +9633,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return newLivraison(this);
   }
@@ -8961,6 +9665,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -8971,6 +9676,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return newLivraison?.call(this);
   }
@@ -9001,6 +9707,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -9011,6 +9718,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (newLivraison != null) {
@@ -9091,6 +9799,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -9102,6 +9811,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return getLivraison();
   }
@@ -9133,6 +9843,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -9144,6 +9855,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return getLivraison?.call();
   }
@@ -9174,6 +9886,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -9185,6 +9898,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (getLivraison != null) {
@@ -9223,6 +9937,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -9233,6 +9949,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return getLivraison(this);
   }
@@ -9263,6 +9981,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -9273,6 +9992,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return getLivraison?.call(this);
   }
@@ -9303,6 +10023,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -9313,6 +10034,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (getLivraison != null) {
@@ -9390,6 +10112,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -9401,6 +10124,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return downloadFacture();
   }
@@ -9432,6 +10156,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -9443,6 +10168,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return downloadFacture?.call();
   }
@@ -9473,6 +10199,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -9484,6 +10211,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -9522,6 +10250,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -9532,6 +10262,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return downloadFacture(this);
   }
@@ -9562,6 +10294,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -9572,6 +10305,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return downloadFacture?.call(this);
   }
@@ -9602,6 +10336,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -9612,6 +10347,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -9689,6 +10425,7 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -9700,6 +10437,7 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return noValidate();
   }
@@ -9731,6 +10469,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -9742,6 +10481,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return noValidate?.call();
   }
@@ -9772,6 +10512,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -9783,6 +10524,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (noValidate != null) {
@@ -9821,6 +10563,8 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -9831,6 +10575,8 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return noValidate(this);
   }
@@ -9861,6 +10607,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -9871,6 +10618,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return noValidate?.call(this);
   }
@@ -9901,6 +10649,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -9911,6 +10660,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (noValidate != null) {
@@ -9988,6 +10738,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function(int idColis) addImageColisGalerie,
     required TResult Function(PointLivraisonModel point_livraison)
         selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
     required TResult Function(int idColis, int position) removeImageFromColis,
     required TResult Function(int idColis, int position, File updatedImage)
         updateImageInColis,
@@ -9999,6 +10750,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function() downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
   }) {
     return onStartEvent();
   }
@@ -10030,6 +10782,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function(int idColis)? addImageColisGalerie,
     TResult? Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
     TResult? Function(int idColis, int position)? removeImageFromColis,
     TResult? Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -10041,6 +10794,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function()? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
   }) {
     return onStartEvent?.call();
   }
@@ -10071,6 +10825,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function(int idColis)? addImageColisGalerie,
     TResult Function(PointLivraisonModel point_livraison)?
         selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
     TResult Function(int idColis, int position)? removeImageFromColis,
     TResult Function(int idColis, int position, File updatedImage)?
         updateImageInColis,
@@ -10082,6 +10837,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function()? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (onStartEvent != null) {
@@ -10120,6 +10876,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
     required TResult Function(SelectPointLivraisonColis value)
         selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
     required TResult Function(RemoveImageFromColis value) removeImageFromColis,
     required TResult Function(UpdateImageInColis value) updateImageInColis,
     required TResult Function(SelectColis value) selectColis,
@@ -10130,6 +10888,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function(DownloadFacture value) downloadFacture,
     required TResult Function(NoValidate value) noValidate,
     required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
   }) {
     return onStartEvent(this);
   }
@@ -10160,6 +10920,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult? Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult? Function(UpdateImageInColis value)? updateImageInColis,
     TResult? Function(SelectColis value)? selectColis,
@@ -10170,6 +10931,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function(DownloadFacture value)? downloadFacture,
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
   }) {
     return onStartEvent?.call(this);
   }
@@ -10200,6 +10962,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
     TResult Function(SelectPointLivraisonColis value)?
         selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
     TResult Function(RemoveImageFromColis value)? removeImageFromColis,
     TResult Function(UpdateImageInColis value)? updateImageInColis,
     TResult Function(SelectColis value)? selectColis,
@@ -10210,6 +10973,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function(DownloadFacture value)? downloadFacture,
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
     required TResult orElse(),
   }) {
     if (onStartEvent != null) {
@@ -10221,6 +10985,322 @@ class _$OnStartEventImpl implements OnStartEvent {
 
 abstract class OnStartEvent implements LivraisonEvent {
   const factory OnStartEvent() = _$OnStartEventImpl;
+}
+
+/// @nodoc
+abstract class _$$ConnectSocketLivraisonsImplCopyWith<$Res> {
+  factory _$$ConnectSocketLivraisonsImplCopyWith(
+          _$ConnectSocketLivraisonsImpl value,
+          $Res Function(_$ConnectSocketLivraisonsImpl) then) =
+      __$$ConnectSocketLivraisonsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ConnectSocketLivraisonsImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$ConnectSocketLivraisonsImpl>
+    implements _$$ConnectSocketLivraisonsImplCopyWith<$Res> {
+  __$$ConnectSocketLivraisonsImplCopyWithImpl(
+      _$ConnectSocketLivraisonsImpl _value,
+      $Res Function(_$ConnectSocketLivraisonsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ConnectSocketLivraisonsImpl implements ConnectSocketLivraisons {
+  const _$ConnectSocketLivraisonsImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.connectSocketLivraisons()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ConnectSocketLivraisonsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
+  }) {
+    return connectSocketLivraisons();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
+  }) {
+    return connectSocketLivraisons?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
+    required TResult orElse(),
+  }) {
+    if (connectSocketLivraisons != null) {
+      return connectSocketLivraisons();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(HistoriqueUserLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
+    required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
+  }) {
+    return connectSocketLivraisons(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
+    TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+  }) {
+    return connectSocketLivraisons?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
+    TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    required TResult orElse(),
+  }) {
+    if (connectSocketLivraisons != null) {
+      return connectSocketLivraisons(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ConnectSocketLivraisons implements LivraisonEvent {
+  const factory ConnectSocketLivraisons() = _$ConnectSocketLivraisonsImpl;
 }
 
 /// @nodoc
@@ -10271,7 +11351,10 @@ mixin _$LivraisonState {
   int? get isDownloadFacture => throw _privateConstructorUsedError;
   bool? get errorImage => throw _privateConstructorUsedError;
   int? get isLoadedPLivraison => throw _privateConstructorUsedError;
+  int? get isLoadedLivraison => throw _privateConstructorUsedError;
   int? get isLoadedVille => throw _privateConstructorUsedError;
+  bool? get isColisOK => throw _privateConstructorUsedError;
+  bool? get successLivraison => throw _privateConstructorUsedError;
   int? get isLoadedVCategory => throw _privateConstructorUsedError;
   String? get urlFacture => throw _privateConstructorUsedError;
   List<LivraisonModel>? get userLivraisonList =>
@@ -10327,7 +11410,10 @@ abstract class $LivraisonStateCopyWith<$Res> {
       int? isDownloadFacture,
       bool? errorImage,
       int? isLoadedPLivraison,
+      int? isLoadedLivraison,
       int? isLoadedVille,
+      bool? isColisOK,
+      bool? successLivraison,
       int? isLoadedVCategory,
       String? urlFacture,
       List<LivraisonModel>? userLivraisonList,
@@ -10384,7 +11470,10 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? isDownloadFacture = freezed,
     Object? errorImage = freezed,
     Object? isLoadedPLivraison = freezed,
+    Object? isLoadedLivraison = freezed,
     Object? isLoadedVille = freezed,
+    Object? isColisOK = freezed,
+    Object? successLivraison = freezed,
     Object? isLoadedVCategory = freezed,
     Object? urlFacture = freezed,
     Object? userLivraisonList = freezed,
@@ -10536,10 +11625,22 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.isLoadedPLivraison
           : isLoadedPLivraison // ignore: cast_nullable_to_non_nullable
               as int?,
+      isLoadedLivraison: freezed == isLoadedLivraison
+          ? _value.isLoadedLivraison
+          : isLoadedLivraison // ignore: cast_nullable_to_non_nullable
+              as int?,
       isLoadedVille: freezed == isLoadedVille
           ? _value.isLoadedVille
           : isLoadedVille // ignore: cast_nullable_to_non_nullable
               as int?,
+      isColisOK: freezed == isColisOK
+          ? _value.isColisOK
+          : isColisOK // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      successLivraison: freezed == successLivraison
+          ? _value.successLivraison
+          : successLivraison // ignore: cast_nullable_to_non_nullable
+              as bool?,
       isLoadedVCategory: freezed == isLoadedVCategory
           ? _value.isLoadedVCategory
           : isLoadedVCategory // ignore: cast_nullable_to_non_nullable
@@ -10609,7 +11710,10 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       int? isDownloadFacture,
       bool? errorImage,
       int? isLoadedPLivraison,
+      int? isLoadedLivraison,
       int? isLoadedVille,
+      bool? isColisOK,
+      bool? successLivraison,
       int? isLoadedVCategory,
       String? urlFacture,
       List<LivraisonModel>? userLivraisonList,
@@ -10664,7 +11768,10 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? isDownloadFacture = freezed,
     Object? errorImage = freezed,
     Object? isLoadedPLivraison = freezed,
+    Object? isLoadedLivraison = freezed,
     Object? isLoadedVille = freezed,
+    Object? isColisOK = freezed,
+    Object? successLivraison = freezed,
     Object? isLoadedVCategory = freezed,
     Object? urlFacture = freezed,
     Object? userLivraisonList = freezed,
@@ -10816,10 +11923,22 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value.isLoadedPLivraison
           : isLoadedPLivraison // ignore: cast_nullable_to_non_nullable
               as int?,
+      isLoadedLivraison: freezed == isLoadedLivraison
+          ? _value.isLoadedLivraison
+          : isLoadedLivraison // ignore: cast_nullable_to_non_nullable
+              as int?,
       isLoadedVille: freezed == isLoadedVille
           ? _value.isLoadedVille
           : isLoadedVille // ignore: cast_nullable_to_non_nullable
               as int?,
+      isColisOK: freezed == isColisOK
+          ? _value.isColisOK
+          : isColisOK // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      successLivraison: freezed == successLivraison
+          ? _value.successLivraison
+          : successLivraison // ignore: cast_nullable_to_non_nullable
+              as bool?,
       isLoadedVCategory: freezed == isLoadedVCategory
           ? _value.isLoadedVCategory
           : isLoadedVCategory // ignore: cast_nullable_to_non_nullable
@@ -10884,7 +12003,10 @@ class _$LivraisonStateImpl implements _LivraisonState {
       this.isDownloadFacture,
       this.errorImage,
       this.isLoadedPLivraison,
+      this.isLoadedLivraison,
       this.isLoadedVille,
+      this.isColisOK,
+      this.successLivraison,
       this.isLoadedVCategory,
       this.urlFacture,
       final List<LivraisonModel>? userLivraisonList,
@@ -11023,7 +12145,13 @@ class _$LivraisonStateImpl implements _LivraisonState {
   @override
   final int? isLoadedPLivraison;
   @override
+  final int? isLoadedLivraison;
+  @override
   final int? isLoadedVille;
+  @override
+  final bool? isColisOK;
+  @override
+  final bool? successLivraison;
   @override
   final int? isLoadedVCategory;
   @override
@@ -11046,7 +12174,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
 
   @override
   String toString() {
-    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedVille: $isLoadedVille, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, controller: $controller, position: $position)';
+    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedLivraison: $isLoadedLivraison, isLoadedVille: $isLoadedVille, isColisOK: $isColisOK, successLivraison: $successLivraison, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, controller: $controller, position: $position)';
   }
 
   @override
@@ -11116,7 +12244,10 @@ class _$LivraisonStateImpl implements _LivraisonState {
             (identical(other.isDownloadFacture, isDownloadFacture) || other.isDownloadFacture == isDownloadFacture) &&
             (identical(other.errorImage, errorImage) || other.errorImage == errorImage) &&
             (identical(other.isLoadedPLivraison, isLoadedPLivraison) || other.isLoadedPLivraison == isLoadedPLivraison) &&
+            (identical(other.isLoadedLivraison, isLoadedLivraison) || other.isLoadedLivraison == isLoadedLivraison) &&
             (identical(other.isLoadedVille, isLoadedVille) || other.isLoadedVille == isLoadedVille) &&
+            (identical(other.isColisOK, isColisOK) || other.isColisOK == isColisOK) &&
+            (identical(other.successLivraison, successLivraison) || other.successLivraison == successLivraison) &&
             (identical(other.isLoadedVCategory, isLoadedVCategory) || other.isLoadedVCategory == isLoadedVCategory) &&
             (identical(other.urlFacture, urlFacture) || other.urlFacture == urlFacture) &&
             const DeepCollectionEquality().equals(other._userLivraisonList, _userLivraisonList) &&
@@ -11163,7 +12294,10 @@ class _$LivraisonStateImpl implements _LivraisonState {
         isDownloadFacture,
         errorImage,
         isLoadedPLivraison,
+        isLoadedLivraison,
         isLoadedVille,
+        isColisOK,
+        successLivraison,
         isLoadedVCategory,
         urlFacture,
         const DeepCollectionEquality().hash(_userLivraisonList),
@@ -11217,7 +12351,10 @@ abstract class _LivraisonState implements LivraisonState {
       final int? isDownloadFacture,
       final bool? errorImage,
       final int? isLoadedPLivraison,
+      final int? isLoadedLivraison,
       final int? isLoadedVille,
+      final bool? isColisOK,
+      final bool? successLivraison,
       final int? isLoadedVCategory,
       final String? urlFacture,
       final List<LivraisonModel>? userLivraisonList,
@@ -11297,7 +12434,13 @@ abstract class _LivraisonState implements LivraisonState {
   @override
   int? get isLoadedPLivraison;
   @override
+  int? get isLoadedLivraison;
+  @override
   int? get isLoadedVille;
+  @override
+  bool? get isColisOK;
+  @override
+  bool? get successLivraison;
   @override
   int? get isLoadedVCategory;
   @override
