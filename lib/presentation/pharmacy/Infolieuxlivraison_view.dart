@@ -12,42 +12,7 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PharmacyBloc, PharmacyState>(
-        listener: (context, state) async {
-          if (state.isRequest == 1) {
-            loader.open(context);
-          } else if (state.isRequest == 3) {
-            loader.close();
-            Navigator.of(context).pop();
-            showError('Une erreur est survenue', context);
-            print('-----err[orr--------**000*******');
-          } else if (state.isRequest == 2) {
-            print('-----44--------**000*******');
-
-            loader.close();
-            Navigator.of(context).pop();
-            validateLivraisonMedicaments(context);
-            print('-----44--------**000*******');
-          } else if (state.isRequest == 4) {
-            loader.open(context);
-          } else if (state.isRequest == 5) {
-            print('-----000.of(context).pop()--------*********');
-            Navigator.pop(context);
-
-            if (state.paiement_url != null) {
-              AutoRouter.of(context).pushNamed(PaimentPharmacyPage.routeName);
-            }
-            // loader.close();
-            // AutoRouter.of(context).pop();
-            // AutoRouter.of(context)
-            //     .replaceAll([SuccesLivraisonMedicamentRoute()]);
-            // context.read<PharmacyBloc>().add(HistoriqueLivraisonMedicament());
-            // showSuccess(
-            //     'Livraison de medicaments Validee avec succes', context);
-
-            print('-----44--------*********');
-          }
-        },
+    return BlocBuilder<PharmacyBloc, PharmacyState>(
         builder: (context, state) => BlocBuilder<LivraisonBloc, LivraisonState>(
             builder: (context, state_livraison) => Form(
                 key: state.formKeyLivraison,

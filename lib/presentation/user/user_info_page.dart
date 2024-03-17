@@ -44,15 +44,18 @@ class _UserInfoPageState extends State<UserInfoPage> {
       body: BlocConsumer<UserBloc, UserState>(
         listener: (context, state) {
           if (state.isLoading == 1) {
-            loader.open(context);
+            EasyLoading.show(
+                dismissOnTap: true,
+                status: 'En cours',
+                maskType: EasyLoadingMaskType.black);
           } else if (state.isLoading == 3) {
-            loader.close();
+            EasyLoading.dismiss();
             showError(state.authenticationFailedMessage!, context);
           } else if (state.isLoading == 2) {
             AutoRouter.of(context).replaceAll([HomeRoute()]);
             showSuccess('Connecte', context);
             initLoad(context);
-            loader.close();
+            EasyLoading.dismiss();
             print('-----44--------*********');
           }
         },

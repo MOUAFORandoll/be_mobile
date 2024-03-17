@@ -23,7 +23,7 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
         onPopInvoked: (value) {
-          loader.close();
+          EasyLoading.dismiss();
           AutoRouter.of(context).pop();
         },
         child: Scaffold(
@@ -39,7 +39,7 @@ class RegisterPage extends StatelessWidget {
             centerTitle: true,
             leading: InkWell(
                 onTap: () {
-                  loader.close();
+                  EasyLoading.dismiss();
                   AutoRouter.of(context).pop();
                 },
                 child: Container(
@@ -57,12 +57,15 @@ class RegisterPage extends StatelessWidget {
           body: BlocConsumer<UserBloc, UserState>(
             listener: (context, state) {
               if (state.isLoading == 1) {
-                loader.open(context);
+                EasyLoading.show(
+                    dismissOnTap: true,
+                    status: 'En cours',
+                    maskType: EasyLoadingMaskType.black);
               } else if (state.isLoading == 3) {
-                loader.close();
+                EasyLoading.dismiss();
                 showError(state.authenticationFailedMessage!, context);
               } else if (state.isLoading == 2) {
-                loader.close();
+                EasyLoading.dismiss();
                 AutoRouter.of(context).replaceAll([HomeRoute()]);
 
                 showSuccess('Connecte', context);
@@ -173,6 +176,14 @@ class RegisterPage extends StatelessWidget {
                                       text: 'regbtn'.tr(),
                                       onTap: () async {
                                         if (formKey.currentState!.validate()) {
+                                          if (password.text !=
+                                              re_password.text) {
+                                            showError(
+                                                'Les mots de passes sont differents',
+                                                context);
+
+                                            return;
+                                          }
                                           context.read<UserBloc>().add(
                                               RegisterEvent(
                                                   name: name.text,

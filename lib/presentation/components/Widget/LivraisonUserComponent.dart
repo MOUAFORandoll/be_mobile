@@ -1,5 +1,6 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/presentation/components/Widget/colisComponentUser.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -25,20 +26,20 @@ class LivraisonUserComponent extends StatelessWidget {
                 children: [
                   InkWell(
                       child: Container(
-                          height: getHeight(context) * .20,
+                          height: getHeight(context) * .15,
                           margin: EdgeInsets.symmetric(
                               horizontal: kMarginX, vertical: kMarginY),
                           decoration: BoxDecoration(
                               color: ColorsApp.grey,
                               borderRadius: BorderRadius.circular(8)),
                           child: Row(
-                              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
                                     child: CachedNetworkImage(
-                                  height: getHeight(context) * .20,
-                                  width: getWith(context) * .3,
+                                  height: getHeight(context) * .15,
+                                  width: getWith(context) * .35,
                                   fit: BoxFit.cover,
                                   imageUrl: livraison.colis[0].images[0].src,
                                   imageBuilder: (context, imageProvider) {
@@ -65,17 +66,23 @@ class LivraisonUserComponent extends StatelessWidget {
                                     );
                                   },
                                   errorWidget: (context, url, error) {
-                                    return CircleAvatar(
-                                        backgroundColor: ColorsApp.second,
-                                        radius: 50,
-                                        backgroundImage:
-                                            AssetImage('assets/logo/logo.png'));
+                                    return Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(8),
+                                            bottomLeft: Radius.circular(8)),
+                                        image: DecorationImage(
+                                          image: AssetImage(Assets.bg_white),
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    );
                                   },
                                 )),
                                 Container(
                                     margin: EdgeInsets.symmetric(
                                         horizontal: kMarginX,
-                                        vertical: kMarginY),
+                                        vertical: kMarginY / 2),
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -83,16 +90,11 @@ class LivraisonUserComponent extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          child: Text('yLibelle'.tr(),
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                  color: ColorsApp.primary,
-                                                  fontSize: 9)),
-                                        ),
-                                        Container(
+                                          width: getWith(context) * .45,
                                           child: Text(
                                               livraison.libelle.toString(),
-                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 2,
+                                              // overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
                                                   color: ColorsApp.primary,
                                                   fontWeight: FontWeight.w600)),
@@ -113,22 +115,26 @@ class LivraisonUserComponent extends StatelessWidget {
                                                   color: ColorsApp.primary,
                                                   fontWeight: FontWeight.w600)),
                                         ),
-                                        Container(
-                                            child: Text('yDate'.tr(),
-                                                overflow: TextOverflow.ellipsis,
-                                                style: TextStyle(
-                                                    color: ColorsApp.primary,
-                                                    fontSize: 9))),
-                                        Container(
-                                            child: Text(livraison.date,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: TextStyle(
-                                                    color: ColorsApp.primary,
-                                                    fontWeight:
-                                                        FontWeight.w600))),
+                                        // Container(
+                                        //     child: Text('yDate'.tr(),
+                                        //         overflow: TextOverflow.ellipsis,
+                                        //         style: TextStyle(
+                                        //             color: ColorsApp.primary,
+                                        //             fontSize: 9))),
+                                        // Container(
+                                        //     child: Text(livraison.date,
+                                        //         overflow: TextOverflow.ellipsis,
+                                        //         style: TextStyle(
+                                        //             color: ColorsApp.primary,
+                                        //             fontWeight:
+                                        //                 FontWeight.w600))),
                                         Container(
                                           child: Text(
-                                              livraison.status.toString(),
+                                              livraison.status == 0
+                                                  ? 'En attente de validation'
+                                                  : livraison.status == 1
+                                                      ? 'En cours de livraison'
+                                                      : 'Colis livres',
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
                                                 color: ColorsApp.primary,

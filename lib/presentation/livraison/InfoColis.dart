@@ -510,8 +510,8 @@ class InfoColis extends StatelessWidget {
                                                         height:
                                                             getHeight(context) *
                                                                 .4,
-                                                        padding: EdgeInsets
-                                                            .symmetric(
+                                                        padding:
+                                                            EdgeInsets.symmetric(
                                                                 horizontal:
                                                                     kMarginX),
                                                         decoration:
@@ -576,16 +576,18 @@ class InfoColis extends StatelessWidget {
                                                                 // mainAxisSize: MainAxisSize.max,
                                                                 children: [
                                                                   Container(
-                                                                    margin: EdgeInsets.only(
-                                                                        bottom:
-                                                                            8),
-                                                                    child: AppButton(
-                                                                        text: 'yCamera'.tr(),
-                                                                        // width: getWith(context) / 2.5,
-                                                                        size: MainAxisSize.max,
-                                                                        // bgColor: AppColors.primaryGreen,
-                                                                        onTap: () => context.read<LivraisonBloc>().add(GetImageColisAppareil())),
-                                                                  ),
+                                                                      margin: EdgeInsets.only(
+                                                                          bottom:
+                                                                              8),
+                                                                      child: AppButton(
+                                                                          text: 'yCamera'.tr(),
+                                                                          // width: getWith(context) / 2.5,
+                                                                          size: MainAxisSize.max,
+                                                                          // bgColor: AppColors.primaryGreen,
+                                                                          onTap: () {
+                                                                            context.read<LivraisonBloc>().add(GetImageColisAppareil());
+                                                                            AutoRouter.of(context).pop();
+                                                                          })),
                                                                   AppButton(
                                                                       text: 'yGalerie'
                                                                           .tr(),
@@ -593,11 +595,14 @@ class InfoColis extends StatelessWidget {
                                                                       size: MainAxisSize
                                                                           .max,
                                                                       // bgColor: AppColors.redarytext,
-                                                                      onTap: () => context
-                                                                          .read<
-                                                                              LivraisonBloc>()
-                                                                          .add(
-                                                                              GetImageColisGalerie()))
+                                                                      onTap:
+                                                                          () {
+                                                                        context
+                                                                            .read<LivraisonBloc>()
+                                                                            .add(GetImageColisGalerie());
+                                                                        AutoRouter.of(context)
+                                                                            .pop();
+                                                                      })
                                                                 ],
                                                               ))
                                                             ]))),

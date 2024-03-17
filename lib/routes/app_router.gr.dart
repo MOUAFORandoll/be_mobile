@@ -26,7 +26,8 @@ import 'package:BabanaExpress/presentation/pharmacy/MapPagePointLivraison.dart'
     as _i4;
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart'
     as _i8;
-import 'package:BabanaExpress/presentation/pharmacy/paiement_pharmacy_page.dart' as _i12;
+import 'package:BabanaExpress/presentation/pharmacy/paiement_pharmacy_page.dart'
+    as _i12;
 import 'package:BabanaExpress/presentation/pharmacy/SuccesLivraisonMedicamentPage.dart'
     as _i16;
 import 'package:BabanaExpress/presentation/user/auth_page.dart' as _i1;

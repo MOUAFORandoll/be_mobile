@@ -37,6 +37,7 @@
   "invalidPhone": "Invalid Phone Number",
   "invalidCaract": "Minimum 04 characters",
   "invalidCaractP": "Minimum 05 characters",
+  "invalidChiffre":"Invalid",
   "invalidRepasss": "Passwords do not match",
   "labelname": "Name",
   "labelsurname": "Surname",

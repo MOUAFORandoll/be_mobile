@@ -13,13 +13,16 @@ class SuccesLivraisonMedicamentPage extends StatelessWidget {
     return BlocConsumer<PharmacyBloc, PharmacyState>(
         listener: (context, state) {
           if (state.isDownloadFacture == 1) {
-            loader.close();
+            EasyLoading.dismiss();
             showSuccess('successaveFacture'.tr(), context);
           } else if (state.isDownloadFacture == 2) {
-            loader.close();
+            EasyLoading.dismiss();
             showError('errorsaveFature'.tr(), context);
           } else if (state.isDownloadFacture == 3) {
-            loader.open(context);
+            EasyLoading.show(
+                dismissOnTap: true,
+                status: 'En cours',
+                maskType: EasyLoadingMaskType.black);
           }
         },
         builder: (context, state) => Container(

@@ -85,7 +85,9 @@ class FirstView extends StatelessWidget {
                               title: 'ht1'.tr(),
                               titleBtn: 'livraison'.tr(),
                               image: Assets.shop2,
-                              onTap: () => openModalLivraison(context),
+                              onTap: () => AutoRouter.of(context).pushNamed(
+                                  NewLivraisonPage
+                                      .routeName) /* openModalLivraison(context) */,
                             ),
                             HomeModuleComponent(
                               title: 'ht2'.tr(),
@@ -108,9 +110,12 @@ openUpdateMail(context) => showDialog(
       return BlocConsumer<UserBloc, UserState>(
           listener: (context, state) {
             if (state.updating!) {
-              loader.open(context);
+              EasyLoading.show(
+                  dismissOnTap: true,
+                  status: 'En cours',
+                  maskType: EasyLoadingMaskType.black);
             } else {
-              loader.close();
+              EasyLoading.dismiss();
               AutoRouter.of(context).pop();
               showSuccess('yupdate'.tr(), context);
             }

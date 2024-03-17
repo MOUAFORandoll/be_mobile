@@ -9,6 +9,7 @@ import 'package:BabanaExpress/infrastructure/_commons/network/env_config.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/Services/SocketService.dart';
+import 'package:BabanaExpress/utils/functions/datetime_format_utils.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -55,9 +56,11 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         print('VerifyFormLivraisonEvent');
 
         if (state.selectedVIlle != null &&
-            state.selected_recuperation_point != null &&
-            state.contactEmetteur!.text.length != 0 &&
-            state.libelle!.text.length != 0) {
+                state.selected_recuperation_point != null &&
+                state.contactEmetteur!.text.length !=
+                    0 /*  &&
+            state.libelle!.text.length != 0 */
+            ) {
           emit(state.copyWith(
               index: 1, errorVille: false, errorPointRecuperation: false));
         }
@@ -790,7 +793,8 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       'quartier': state.selected_recuperation_point?.quartier,
       'longitude': state.selected_recuperation_point?.longitude,
       'latitude': state.selected_recuperation_point?.latitude,
-      'libelle': state.libelle?.text,
+      'libelle': /* state.libelle?.text */
+          'Livraison du ' + new FormatDateTime().dateToSimpleDateCurrent(),
       'service': 1,
       'montant': state.frais,
       'contactEmetteur': state.contactEmetteur?.text,

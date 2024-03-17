@@ -1,4 +1,5 @@
 import 'package:BabanaExpress/presentation/pharmacy/Infolieuxlivraison_view.dart';
+import 'package:BabanaExpress/presentation/pharmacy/paiement_pharmacy_page.dart';
 
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
@@ -18,7 +19,42 @@ class _NewLivraisonMedicamentPageState
     extends State<NewLivraisonMedicamentPage> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PharmacyBloc, PharmacyState>(
+    return BlocConsumer<PharmacyBloc, PharmacyState>(
+        listener: (context, state) async {
+          if (state.isRequest == 1) {
+            EasyLoading.show(
+                dismissOnTap: true,
+                status: 'En cours',
+                maskType: EasyLoadingMaskType.black);
+          } else if (state.isRequest == 3) {
+            EasyLoading.dismiss();
+
+            showError('Une erreur est survenue', context);
+            print('-----err[orr--------**000*******');
+          } else if (state.isRequest == 2) {
+            print('-----44--------**000*******');
+
+            EasyLoading.dismiss();
+
+            validateLivraisonMedicaments(context);
+            print('-----44--------**000*******');
+          } else if (state.isRequest == 4) {
+            // AutoRouter.of(context).pop();
+            EasyLoading.show(
+                dismissOnTap: true,
+                status: 'En cours',
+                maskType: EasyLoadingMaskType.black);
+          } else if (state.isRequest == 5) {
+            print('-----000.of(context).pop()--------*********');
+            AutoRouter.of(context).pop();
+            EasyLoading.dismiss();
+            if (state.paiement_url != null) {
+              AutoRouter.of(context).pushNamed(PaimentPharmacyPage.routeName);
+            }
+
+            print('-----44--------*********');
+          }
+        },
         builder: (context, state) => Scaffold(
             appBar: AppBar(
               title: Text('Pharmacy'),

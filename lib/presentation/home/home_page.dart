@@ -171,14 +171,17 @@ class CustomDrawer extends StatelessWidget {
     return BlocConsumer<UserBloc, UserState>(
       listener: (context, state) {
         if (state.isUpdateUserImage == 1) {
-          loader.open(context);
+          EasyLoading.show(
+              dismissOnTap: true,
+              status: 'En cours',
+              maskType: EasyLoadingMaskType.black);
         } else if (state.isUpdateUserImage == 3) {
-          loader.close();
+          EasyLoading.dismiss();
           showError(state.authenticationFailedMessage!, context);
         } else if (state.isUpdateUserImage == 2) {
           showSuccess('Profil mis a jour', context);
 
-          loader.close();
+          EasyLoading.dismiss();
           BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
           print('-----44------find noe--446465465*******');
         }
@@ -337,9 +340,12 @@ openUpdateMail(context) => showDialog(
       return BlocConsumer<UserBloc, UserState>(
           listener: (context, state) {
             if (state.updating!) {
-              loader.open(context);
+              EasyLoading.show(
+                  dismissOnTap: true,
+                  status: 'En cours',
+                  maskType: EasyLoadingMaskType.black);
             } else {
-              loader.close();
+              EasyLoading.dismiss();
               AutoRouter.of(context).pop();
               showSuccess('yupdate'.tr(), context);
             }

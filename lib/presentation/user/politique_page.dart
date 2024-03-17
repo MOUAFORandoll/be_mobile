@@ -1,4 +1,4 @@
-import  '../../presentation/components/exportcomponent.dart';
+import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
 import 'package:webview_flutter/webview_flutter.dart';
@@ -14,8 +14,10 @@ class PolitiquePage extends StatefulWidget {
 
 class _PolitiquePageState extends State<PolitiquePage> {
   var controller;
+  int _progress = 0;
   void initState() {
     super.initState();
+
     setState(() {
       controller = WebViewController()
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -23,10 +25,17 @@ class _PolitiquePageState extends State<PolitiquePage> {
         ..setNavigationDelegate(
           NavigationDelegate(
             onProgress: (int progress) {
-              // Update loading bar.
+              print(progress);
+              setState(() {
+                _progress = progress;
+              });
             },
-            onPageStarted: (String url) {},
-            onPageFinished: (String url) {},
+            onPageStarted: (String url) {
+              print('start------${url}');
+            },
+            onPageFinished: (String url) {
+              print('fichinin------${_progress}');
+            },
             onWebResourceError: (WebResourceError error) {},
             onNavigationRequest: (NavigationRequest request) {
               if (request.url.startsWith('https://www.youtube.com/')) {
@@ -37,7 +46,7 @@ class _PolitiquePageState extends State<PolitiquePage> {
           ),
         )
         ..loadRequest(Uri.parse(
-            'https://be-dashboard-orcin.vercel.app/politique-de-confidentialite'));
+            'https://dashboard-babanaexpress.bcom.cm/politique-de-confidentialite'));
     });
   }
 
@@ -51,7 +60,30 @@ class _PolitiquePageState extends State<PolitiquePage> {
             centerTitle: true,
           ),
           // backgroundColor: ColorsApp.bg,
-          body: WebViewWidget(controller: controller));
+          body: controller == null || _progress != 100
+              ? Center(
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircularProgressIndicator(
+                          color: ColorsApp.second,
+                        ),
+                        Container(
+                            margin: EdgeInsets.only(top: kMarginY),
+                            child: Text(
+                              'En cours ...',
+                              style: TextStyle(
+                                  // color: ColorsApp.second,
+                                  ),
+                            ))
+                      ],
+                    ),
+                  ), // Afficher un indicateur de chargement si controller est null
+                )
+              : WebViewWidget(controller: controller));
     });
   }
 }

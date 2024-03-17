@@ -41,10 +41,10 @@ Future<void> init() async {
     ..registerLazySingleton(() => PharmacyRepo(apiClient: sl()));
   requestPermission();
   initConnected();
-  sl
-    ..registerFactory(() => SocketService(
-          livraison_bloc: sl(),
-        ));
+  // sl
+  //   ..registerFactory(() => SocketService(
+  //         livraison_bloc: sl(),
+  //       ));
 }
 
 void initConnected() async {

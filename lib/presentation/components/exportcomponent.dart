@@ -33,3 +33,4 @@ export 'package:image_picker/image_picker.dart';
 export 'package:geolocator/geolocator.dart';
 export 'package:google_maps_flutter/google_maps_flutter.dart';
 export 'package:BabanaExpress/utils/functions/showToast.dart';
+export 'package:flutter_easyloading/flutter_easyloading.dart';

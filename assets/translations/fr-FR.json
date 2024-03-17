@@ -24,7 +24,6 @@
   "sauter": "Sauter",
   "verifCode": "Vérifier le Code",
   "newPass": "Nouveau Mot de passe",
-
   "deconnecter": "Se Déconnecter",
   "bienvenue": "Bienvenue",
   "historique": "Historique",
@@ -51,14 +50,12 @@
   "logForgot": "Envoyer le code",
   "tilterecu": "Merci de fournir votre numéro de téléphone ou votre adresse e-mail pour la récupération du compte",
   "regbtn": "S'Inscrire",
-
   "t1Reini": "Réinitialiser votre mot de passe",
   "t2Reini": "Saisissez l'adresse électronique associée à votre compte et nous vous enverrons un courriel avec les instructions pour réinitialiser votre mot de passe",
   "mail": "Email",
   "start": "Commencer",
   "verifyaddre": "Vérification de l'adresse électronique",
   "verifydescrip": "Saisissez le code numérique de récupération du mot de passe envoyé à votre adresse électronique",
-
   "newpasst": "Créer un nouveau mot de passe ",
   "newpassd": "Votre nouveau mot de passe doit être différent du mot de passe utilisé précédemment et contenir minimum 8 caractères",
   "validatornewpass": "Doit être composé d'au moins 8 caractères",
@@ -98,6 +95,7 @@
   "yprixcolis": "Le Prix de votre colis",
   "yQuantitecolis": "Nombre de pièces du colis",
   "eQuantitecolis": "Veuillez entrer le nombre de pièces du colis",
+  "invalidChiffre": "Invalide",
   "yycontactdest": "Le Numéro du destinataire",
   "yphotoColis": "Une image de votre colis",
   "yphotoColisT": "Sélectionner une image de votre colis",

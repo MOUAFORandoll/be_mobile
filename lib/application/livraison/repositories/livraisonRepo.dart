@@ -180,7 +180,7 @@ class LivraisonRepo {
       _placeTexteController.text = text;
 
       update();
-      loader.close();
+       EasyLoading.dismiss();
     }
 
     return {'longitude': longitude, 'latitude': latitude};

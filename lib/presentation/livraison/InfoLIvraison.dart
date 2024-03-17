@@ -23,22 +23,22 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
             margin: EdgeInsets.symmetric(horizontal: kMarginX),
             child: SingleChildScrollView(
               child: Column(children: [
-                Container(
-                  margin: EdgeInsets.only(
-                    top: kMarginY * 1.5,
-                  ),
-                  child: AppInputNew(
-                    controller: state.libelle!,
-                    icon: Icon(Icons.label),
-                    label: 'yLibelle'.tr(),
-                    onChanged: (value) {
-                      // verifyForm();
-                    },
-                    validator: (value) {
-                      return Validators.isValidUsername(value!);
-                    },
-                  ),
-                ),
+                // Container(
+                //   margin: EdgeInsets.only(
+                //     top: kMarginY * 1.5,
+                //   ),
+                //   child: AppInputNew(
+                //     controller: state.libelle!,
+                //     icon: Icon(Icons.label),
+                //     label: 'yLibelle'.tr(),
+                //     onChanged: (value) {
+                //       // verifyForm();
+                //     },
+                //     validator: (value) {
+                //       return Validators.isValidUsername(value!);
+                //     },
+                //   ),
+                // ),
                 Container(
                     padding: EdgeInsets.only(
                       top: kMarginY,

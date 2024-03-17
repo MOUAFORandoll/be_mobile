@@ -16,6 +16,7 @@ import 'core.dart' as co;
 import 'core.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
@@ -24,11 +25,12 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await EnvManager().init(env: Environment.dev);
-  
+  await EnvManager().init(env: Environment.prod);
+
   co.init();
-  
+
   // NotificationService().initializePlatformNotifications();
+  configLoading();
 
   runApp(
     EasyLocalization(
@@ -37,6 +39,42 @@ Future<void> main() async {
         fallbackLocale: const Locale('fr', 'FR'),
         child: Phoenix(child: AppContent())),
   );
+}
+
+void configLoading() {
+  EasyLoading.instance
+    ..displayDuration = const Duration(milliseconds: 2000)
+    ..indicatorType = EasyLoadingIndicatorType.fadingCircle
+    ..loadingStyle = EasyLoadingStyle.dark
+    ..indicatorSize = 45.0
+    ..radius = 10.0
+    ..progressColor = Colors.yellow
+    ..backgroundColor = Colors.green
+    ..indicatorColor = Colors.yellow
+    ..textColor = Colors.yellow
+    ..maskColor = Colors.blue.withOpacity(0.5)
+    ..userInteractions = true
+    ..dismissOnTap = false
+    ..customAnimation = CustomAnimation();
+}
+
+class CustomAnimation extends EasyLoadingAnimation {
+  CustomAnimation();
+
+  @override
+  Widget buildWidget(
+    Widget child,
+    AnimationController controller,
+    AlignmentGeometry alignment,
+  ) {
+    return Opacity(
+      opacity: controller.value,
+      child: RotationTransition(
+        turns: controller,
+        child: child,
+      ),
+    );
+  }
 }
 
 var supportedLocales = const [
@@ -91,23 +129,16 @@ class AppContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: _appRouter.config(),
-      debugShowCheckedModeBanner: false,
-      title: 'Babana Express',
-      darkTheme: darkTheme,
-      themeMode: ThemeMode.light,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      builder: (_, router) {
-        return ResponsiveBreakpoints.builder(
-            breakpoints: const [
-              Breakpoint(start: 0, end: 450, name: MOBILE),
-              Breakpoint(start: 451, end: 800, name: TABLET),
-              Breakpoint(start: 801, end: 1920, name: DESKTOP),
-              Breakpoint(start: 1921, end: double.infinity, name: 'XL'),
-            ],
-            child: MultiBlocProvider(
+        routerConfig: _appRouter.config(),
+        debugShowCheckedModeBanner: false,
+        title: 'Babana Express',
+        darkTheme: darkTheme,
+        themeMode: ThemeMode.light,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        builder: (_, router) {
+          return MultiBlocProvider(
               providers: [
                 BlocProvider(create: (_) => sl<ConnectedBloc>()),
                 BlocProvider<AppActionCubit>(
@@ -140,38 +171,31 @@ class AppContent extends StatelessWidget {
                       PharmacyBloc(pharmacyRepo: sl.get<PharmacyRepo>()),
                 ),
               ],
-              child: ClampingScrollWrapper.builder(context, router!),
-            ));
-      },
-      theme: lightTheme(context),
-    );
-
-    // return MaterialApp(
-    //   debugShowCheckedModeBanner: false,
-    //   title: 'Babana Express',
-    //   darkTheme: AppThemes().darkTheme,
-    //   themeMode: ThemeMode.light,
-    //   localizationsDelegates: context.localizationDelegates,
-    //   supportedLocales: context.supportedLocales,
-    //   locale: context.locale,
-    //   home: SplashScreenPage(), // Replace with your initial screen widget
-    //   // Alternatively, you can use 'routes' to define named routes.
-    //   routes: {
-    //     '/anotherPage': (context) => AuthPage(), // Example of a named route
-    //     // Define other routes as needed
-    //   },
-    //   builder: (context, widget) {
-    //     return ResponsiveBreakpoints.builder(
-    //       breakpoints: const [
-    //         Breakpoint(start: 0, end: 450, name: MOBILE),
-    //         Breakpoint(start: 451, end: 800, name: TABLET),
-    //         Breakpoint(start: 801, end: 1920, name: DESKTOP),
-    //         Breakpoint(start: 1921, end: double.infinity, name: 'XL'),
-    //       ],
-    //       child: ClampingScrollWrapper.builder(context, widget!),
-    //     );
-    //   },
-    //   theme: lightTheme(context),
-    // );
+              child: MaterialApp.router(
+                routerConfig: _appRouter.config(),
+                debugShowCheckedModeBanner: false,
+                title: 'Bcom',
+                darkTheme: darkTheme,
+                themeMode: ThemeMode.light,
+                localizationsDelegates: context.localizationDelegates,
+                supportedLocales: context.supportedLocales,
+                locale: context.locale,
+                builder: (_, router) {
+                  return EasyLoading.init()(
+                      context,
+                      ResponsiveBreakpoints.builder(
+                        breakpoints: const [
+                          Breakpoint(start: 0, end: 450, name: MOBILE),
+                          Breakpoint(start: 451, end: 800, name: TABLET),
+                          Breakpoint(start: 801, end: 1920, name: DESKTOP),
+                          Breakpoint(
+                              start: 1921, end: double.infinity, name: 'XL'),
+                        ],
+                        child: ClampingScrollWrapper.builder(context, router!),
+                      ));
+                },
+                theme: lightTheme(context),
+              ));
+        });
   }
 }

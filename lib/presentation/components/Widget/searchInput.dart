@@ -70,7 +70,7 @@ class SearchInput extends StatelessWidget {
           controller.text.isEmpty
               ? Container()
               : data.length == 0
-                  ? Text('yemptyrecupliv'.tr())
+                  ? Text('Aucun element trouve'.tr())
                   : Container(
                       width: getWith(context),
                       margin: EdgeInsets.symmetric(vertical: kMarginY),

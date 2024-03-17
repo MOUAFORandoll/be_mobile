@@ -49,12 +49,15 @@ class ForgotPasswordPage extends StatelessWidget {
       body: BlocConsumer<UserBloc, UserState>(
         listener: (context, state) {
           if (state.isLoadingForgot == 1) {
-            loader.open(context);
+            EasyLoading.show(
+                dismissOnTap: true,
+                status: 'En cours',
+                maskType: EasyLoadingMaskType.black);
           } else if (state.isLoadingForgot == 3) {
-            loader.close();
+            EasyLoading.dismiss();
             showError(state.authenticationFailedMessage!, context);
           } else if (state.isLoadingForgot == 2) {
-            loader.close();
+            EasyLoading.dismiss();
             if (state.successReset! == true) {
               AutoRouter.of(context).replaceAll([HomeRoute()]);
               showSuccess('Connecte', context);

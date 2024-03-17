@@ -28,6 +28,18 @@ class FormatDateTime {
         formattedDate.toString().split(' ')[1];
   }
 
+  String dateToSimpleDateCurrent() {
+    DateTime dateTime = DateTime.now();
+
+    DateFormat formatter = DateFormat('dd/MM/yyyy HH:mm');
+    String formattedDate = formatter.format(dateTime);
+    return formattedDate.toString().split(' ')[0] +
+        ' ' +
+        'a' +
+        ' ' +
+        formattedDate.toString().split(' ')[1];
+  }
+
   String formatTime(value) {
     final dateTime = DateTime.parse(value);
     final format = DateFormat('HH:mm');

@@ -1,4 +1,3 @@
-
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
@@ -15,6 +14,7 @@ class PaimentPharmacyPage extends StatefulWidget {
 
 class _PaimentPharmacyPageState extends State<PaimentPharmacyPage> {
   WebViewController? controller;
+  int _progress = 0;
 
   void initState() {
     super.initState();
@@ -27,9 +27,17 @@ class _PaimentPharmacyPageState extends State<PaimentPharmacyPage> {
           NavigationDelegate(
             onProgress: (int progress) {
               // Update loading bar.
+              print(progress);
+              setState(() {
+                _progress = progress;
+              });
             },
-            onPageStarted: (String url) {},
-            onPageFinished: (String url) {},
+            onPageStarted: (String url) {
+              print('start------${url}');
+            },
+            onPageFinished: (String url) {
+              print('fichinin------${_progress}');
+            },
             onWebResourceError: (WebResourceError error) {},
             onNavigationRequest: (NavigationRequest request) {
               if (request.url.startsWith('https://www.youtube.com/')) {
@@ -55,19 +63,36 @@ class _PaimentPharmacyPageState extends State<PaimentPharmacyPage> {
       // }
     }, builder: (context, state) {
       return Scaffold(
-        appBar: AppBar(
-          leading: AppBackButton(),
-          title: const Text('Paiement de votre Facture de  Pharmacy'),
-          centerTitle: true,
-        ),
-        // backgroundColor: ColorsApp.bg,
-        body: controller != null // Vérifier si controller n'est pas null
-            ? WebViewWidget(controller: controller!)
-            : Center(
-                child:
-                    CircularProgressIndicator(), // Afficher un indicateur de chargement si controller est null
-              ),
-      );
+          appBar: AppBar(
+            leading: AppBackButton(),
+            title: const Text('Paiement de votre Facture de  Pharmacy'),
+            centerTitle: true,
+          ),
+          // backgroundColor: ColorsApp.bg,
+          body: controller == null || _progress != 100
+              ? Center(
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircularProgressIndicator(
+                          color: ColorsApp.second,
+                        ),
+                        Container(
+                            margin: EdgeInsets.only(top: kMarginY),
+                            child: Text(
+                              'En cours ...',
+                              style: TextStyle(
+                                  // color: ColorsApp.second,
+                                  ),
+                            ))
+                      ],
+                    ),
+                  ), // Afficher un indicateur de chargement si controller est null
+                )
+              : WebViewWidget(controller: controller!));
     });
   }
 }

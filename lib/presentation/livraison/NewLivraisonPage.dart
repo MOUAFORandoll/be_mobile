@@ -20,30 +20,33 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
   Widget build(BuildContext context) {
     return BlocConsumer<LivraisonBloc, LivraisonState>(
         listener: (context, state) {
-          var loader = AppLoader.bounceLargeColorLoaderController();
-          if (state.isRequest == 1) {
-            loader.open(context);
+         if (state.isRequest == 1) {
+            EasyLoading.show(
+                dismissOnTap: true,
+                status: 'En cours',
+                maskType: EasyLoadingMaskType.black);
           } else if (state.isRequest == 3) {
-            Navigator.pop(context);
-            loader.close();
+            EasyLoading.dismiss();
 
             showError('Une erreur est survenue', context);
           } else if (state.isRequest == 2) {
-            loader.close();
-            AutoRouter.of(context).pop();
-            Navigator.pop(context);
+            EasyLoading.dismiss();
+
             validateLivraison(context);
             print('-----44--------*********');
           } else if (state.isRequest == 4) {
-            AutoRouter.of(context).pop();
-            loader.open(context);
+            // AutoRouter.of(context).pop();
+            EasyLoading.show(
+                dismissOnTap: true,
+                status: 'En cours',
+                maskType: EasyLoadingMaskType.black);
           } else if (state.isRequest == 5) {
-            Navigator.pop(context);
-
+            AutoRouter.of(context).pop();
+            EasyLoading.dismiss();
             if (state.paiement_url != null) {
               AutoRouter.of(context).pushNamed(PaimentPage.routeName);
             }
-          
+
             // context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
             //
 

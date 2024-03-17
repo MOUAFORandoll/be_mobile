@@ -16,10 +16,10 @@ class PaimentPage extends StatefulWidget {
 
 class _PaimentPageState extends State<PaimentPage> {
   WebViewController? controller;
-
+  int _progress = 0;
   void initState() {
     super.initState();
- 
+
     setState(() {
       controller = WebViewController()
         ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -28,9 +28,17 @@ class _PaimentPageState extends State<PaimentPage> {
           NavigationDelegate(
             onProgress: (int progress) {
               // Update loading bar.
+              print(progress);
+              setState(() {
+                _progress = progress;
+              });
             },
-            onPageStarted: (String url) {},
-            onPageFinished: (String url) {},
+            onPageStarted: (String url) {
+              print('start------${url}');
+            },
+            onPageFinished: (String url) {
+              print('fichinin------${_progress}');
+            },
             onWebResourceError: (WebResourceError error) {},
             onNavigationRequest: (NavigationRequest request) {
               if (request.url.startsWith('https://www.youtube.com/')) {
@@ -56,19 +64,37 @@ class _PaimentPageState extends State<PaimentPage> {
       }
     }, builder: (context, state) {
       return Scaffold(
-        appBar: AppBar(
-          leading: AppBackButton(),
-          title: const Text('Paiement de votre livraison'),
-          centerTitle: true,
-        ),
-        // backgroundColor: ColorsApp.bg,
-        body: controller != null // Vérifier si controller n'est pas null
-            ? WebViewWidget(controller: controller!)
-            : Center(
-                child:
-                    CircularProgressIndicator(), // Afficher un indicateur de chargement si controller est null
-              ),
-      );
+          appBar: AppBar(
+            leading: AppBackButton(),
+            title: const Text('Paiement de votre livraison'),
+            centerTitle: true,
+          ),
+          // backgroundColor: ColorsApp.bg,
+          body: controller == null || _progress != 100
+              ? Center(
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircularProgressIndicator(
+                          color: ColorsApp.second,
+                        ),
+                        Container(
+                            margin: EdgeInsets.only(top: kMarginY),
+                            child: Text(
+                              'En cours ...',
+                              style: TextStyle(
+                                  // color: ColorsApp.second,
+                                  ),
+                            ))
+                      ],
+                    ),
+                  ), // Afficher un indicateur de chargement si controller est null
+                )
+              : WebViewWidget(controller: controller!));
     });
   }
 }
+//237654434782
