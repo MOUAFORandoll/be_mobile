@@ -303,6 +303,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         if (response.data['data'].length != 0) {
           emit(state.copyWith(
               isLoadedPLivraison: 1,
+              selected_recuperation_point: null,
               list_localisation_point: (response.data['data'] as List)
                   .map((e) => PointLivraisonModel.fromJson(e))
                   .toList()));

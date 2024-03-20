@@ -42,7 +42,7 @@ class PharmacyEvent with _$PharmacyEvent {
   }) = MapValidatePointLivraisonP;
 
   const factory PharmacyEvent.selectPointLivraisonP({
-    required PointLivraisonModel point_livraison,
+    required PointLivraisonModel? point_livraison,
   }) = SelectPointLivraisonP;
   const factory PharmacyEvent.newLivraison() = NewLivraisonPharmacy;
   const factory PharmacyEvent.getLivraisonMedicament() =

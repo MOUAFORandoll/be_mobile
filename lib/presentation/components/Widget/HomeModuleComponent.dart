@@ -19,7 +19,7 @@ class HomeModuleComponent extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 231, 229, 229),
+        color: ColorsApp.greyNew, // Color.fromARGB(255, 231, 229, 229),
         borderRadius: BorderRadius.circular(10),
       ),
       padding: EdgeInsets.symmetric(horizontal: kMarginX),

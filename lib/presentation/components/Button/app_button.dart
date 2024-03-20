@@ -12,7 +12,7 @@ class AppButton extends StatelessWidget {
   AppButton({
     Key? key,
     required this.text,
-    this.bgColor = ColorsApp.second,
+    this.bgColor = ColorsApp.primary,
     this.textColor = Colors.white,
     this.onTap,
     this.leading,
@@ -49,7 +49,7 @@ class AppButton extends StatelessWidget {
                 height: 20,
                 width: 20,
                 child: CircularProgressIndicator(
-                  color: ColorsApp.second,
+                  color: ColorsApp.primary,
                 ),
               )
             : Text(

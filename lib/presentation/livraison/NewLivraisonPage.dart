@@ -20,7 +20,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
   Widget build(BuildContext context) {
     return BlocConsumer<LivraisonBloc, LivraisonState>(
         listener: (context, state) {
-         if (state.isRequest == 1) {
+          if (state.isRequest == 1) {
             EasyLoading.show(
                 dismissOnTap: true,
                 status: 'En cours',
@@ -97,18 +97,46 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                       }),
                                   AppButton(
                                     size: MainAxisSize.max,
-                                    bgColor: ColorsApp.second,
+                                    bgColor: (state.index == 0)
+                                        ? !(state.selectedVIlle != null &&
+                                                state.selected_recuperation_point !=
+                                                    null &&
+                                                state.contactEmetteur!.text
+                                                        .length !=
+                                                    0 &&
+                                                state.description!.text
+                                                        .length !=
+                                                    0)
+                                            ? ColorsApp.grey
+                                            : ColorsApp.primary
+                                        : (state.listColis!.length == 0)
+                                            ? ColorsApp.grey
+                                            : ColorsApp.primary,
                                     text: state.index == 0
                                         ? 'ynext'.tr()
                                         : 'yeval'.tr(),
                                     onTap: () {
-                                      state.index == 0
-                                          ? context
+                                      if (state.index == 0) {
+                                        if ((state.selectedVIlle != null &&
+                                            state.selected_recuperation_point !=
+                                                null &&
+                                            state.contactEmetteur!.text
+                                                    .length !=
+                                                0 &&
+                                            state.description!.text.length !=
+                                                0)) {
+                                          context
                                               .read<LivraisonBloc>()
-                                              .add(VerifyFormLivraisonEvent())
-                                          : context
+                                              .add(VerifyFormLivraisonEvent());
+                                        }
+                                      }
+                                      if (state.index == 1) {
+                                        if (state.listColis!.length != 0) {
+                                          context
                                               .read<LivraisonBloc>()
                                               .add(CalculFrais());
+                                        }
+                                      }
                                     },
                                   ),
                                 ])),
@@ -179,7 +207,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                     text: 'yvalidate'.tr(),
                                     // width: getWith(context) / 2.5,
                                     size: MainAxisSize.max,
-                                    bgColor: ColorsApp.second,
+                                    bgColor: ColorsApp.primary,
                                     onTap: () => context
                                         .read<LivraisonBloc>()
                                         .add(NewLivraison())),

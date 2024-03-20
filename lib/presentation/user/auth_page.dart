@@ -129,7 +129,7 @@ class _AuthPageState extends State<AuthPage> {
                                       child: Text('forgotpass'.tr(),
                                           style: TextStyle(
                                             fontFamily: 'Lato',
-                                            color: ColorsApp.second,
+                                            color: ColorsApp.primary,
                                           )),
                                     )
                                   ],
@@ -165,11 +165,11 @@ class _AuthPageState extends State<AuthPage> {
                                         Text('regbtn'.tr(),
                                             style: TextStyle(
                                                 fontFamily: 'Lato',
-                                                color: ColorsApp.second,
+                                                color: ColorsApp.primary,
                                                 fontSize: 15)),
                                         Icon(
                                           Icons.keyboard_arrow_right_outlined,
-                                          color: ColorsApp.second,
+                                          color: ColorsApp.primary,
                                         )
                                       ],
                                     ),

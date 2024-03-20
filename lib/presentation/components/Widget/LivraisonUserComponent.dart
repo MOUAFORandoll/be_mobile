@@ -96,14 +96,14 @@ class LivraisonUserComponent extends StatelessWidget {
                                               maxLines: 2,
                                               // overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
-                                                  color: ColorsApp.primary,
+                                                  color: ColorsApp.black,
                                                   fontWeight: FontWeight.w600)),
                                         ),
                                         Container(
                                           child: Text('yPrix'.tr(),
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
-                                                  color: ColorsApp.primary,
+                                                  color: ColorsApp.black,
                                                   fontSize: 9)),
                                         ),
                                         Container(
@@ -112,20 +112,20 @@ class LivraisonUserComponent extends StatelessWidget {
                                                   ' XAF',
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
-                                                  color: ColorsApp.primary,
+                                                  color: ColorsApp.black,
                                                   fontWeight: FontWeight.w600)),
                                         ),
                                         // Container(
                                         //     child: Text('yDate'.tr(),
                                         //         overflow: TextOverflow.ellipsis,
                                         //         style: TextStyle(
-                                        //             color: ColorsApp.primary,
+                                        //             color: ColorsApp.black,
                                         //             fontSize: 9))),
                                         // Container(
                                         //     child: Text(livraison.date,
                                         //         overflow: TextOverflow.ellipsis,
                                         //         style: TextStyle(
-                                        //             color: ColorsApp.primary,
+                                        //             color: ColorsApp.black,
                                         //             fontWeight:
                                         //                 FontWeight.w600))),
                                         Container(
@@ -137,7 +137,7 @@ class LivraisonUserComponent extends StatelessWidget {
                                                       : 'Colis livres',
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
-                                                color: ColorsApp.primary,
+                                                color: ColorsApp.black,
                                               )),
                                         ),
                                       ],

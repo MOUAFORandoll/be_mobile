@@ -21,7 +21,7 @@ showSuccess(
   BuildContext context,
 ) {
   var snackBar = SnackBar(
-    backgroundColor: ColorsApp.second,
+    backgroundColor: ColorsApp.primary,
     content: Row(
       children: [
         Expanded(child: Text(message)),

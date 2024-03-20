@@ -77,11 +77,12 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               iconSize: 30.0,
               // elevation: 0.0,
               scaleFactor: 0.4,
-              selectedColor: Color(0xff0c18fb),
-              strokeColor: Color(0x300c18fb),
+              selectedColor: ColorsApp.primary,
+              strokeColor: ColorsApp.black,
               unSelectedColor: Colors.grey[600],
               backgroundColor:
-                  /*     state.index == 2 ? ColorsApp.primary : */ ColorsApp.bg,
+                  /*     state.index == 2 ? ColorsApp.primary : */ ColorsApp
+                      .white,
               // borderRadius: Radius.circular(15.0),
               // isFloating: true,
               // blurEffect: true,
@@ -282,7 +283,7 @@ class CustomDrawer extends StatelessWidget {
               leading: Icon(Icons.home),
               title: Text(
                 'Home',
-                style: TextStyle(color: ColorsApp.primary, fontSize: kBasics),
+                style: TextStyle(color: ColorsApp.black, fontSize: kBasics),
               ),
               onTap: () {
                 // Navigate to the home page or perform an action
@@ -293,7 +294,7 @@ class CustomDrawer extends StatelessWidget {
               leading: Icon(Icons.settings),
               title: Text(
                 'Settings',
-                style: TextStyle(color: ColorsApp.primary, fontSize: kBasics),
+                style: TextStyle(color: ColorsApp.black, fontSize: kBasics),
               ),
               onTap: () {
                 // Navigate to the settings page or perform an action
@@ -304,7 +305,7 @@ class CustomDrawer extends StatelessWidget {
               leading: Icon(Icons.policy),
               title: Text(
                 'Politique',
-                style: TextStyle(color: ColorsApp.primary, fontSize: kBasics),
+                style: TextStyle(color: ColorsApp.black, fontSize: kBasics),
               ),
               onTap: () {
                 AutoRouter.of(context).replaceAll([PolitiqueRoute()]);

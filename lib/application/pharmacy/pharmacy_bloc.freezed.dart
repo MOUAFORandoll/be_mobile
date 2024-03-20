@@ -34,7 +34,7 @@ mixin _$PharmacyEvent {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -61,7 +61,7 @@ mixin _$PharmacyEvent {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -88,7 +88,7 @@ mixin _$PharmacyEvent {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -257,7 +257,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -287,7 +287,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -317,7 +317,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -492,7 +492,7 @@ class _$VerifyFormChooseMedicamentEventPImpl
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -522,7 +522,7 @@ class _$VerifyFormChooseMedicamentEventPImpl
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -552,7 +552,7 @@ class _$VerifyFormChooseMedicamentEventPImpl
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -750,7 +750,7 @@ class _$FindMedicamentImpl implements FindMedicament {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -780,7 +780,7 @@ class _$FindMedicamentImpl implements FindMedicament {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -810,7 +810,7 @@ class _$FindMedicamentImpl implements FindMedicament {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -1014,7 +1014,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -1044,7 +1044,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -1074,7 +1074,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -1251,7 +1251,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -1281,7 +1281,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -1311,7 +1311,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -1520,7 +1520,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -1550,7 +1550,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -1580,7 +1580,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -1786,7 +1786,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -1816,7 +1816,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -1846,7 +1846,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -2022,7 +2022,7 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -2052,7 +2052,7 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -2082,7 +2082,7 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -2279,7 +2279,7 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -2309,7 +2309,7 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -2339,7 +2339,7 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -2542,7 +2542,7 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -2572,7 +2572,7 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -2602,7 +2602,7 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -2804,7 +2804,7 @@ class _$MapSelectedPImpl implements MapSelectedP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -2834,7 +2834,7 @@ class _$MapSelectedPImpl implements MapSelectedP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -2864,7 +2864,7 @@ class _$MapSelectedPImpl implements MapSelectedP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -3076,7 +3076,7 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -3106,7 +3106,7 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -3136,7 +3136,7 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -3314,7 +3314,7 @@ class _$CalculFraisPImpl implements CalculFraisP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -3344,7 +3344,7 @@ class _$CalculFraisPImpl implements CalculFraisP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -3374,7 +3374,7 @@ class _$CalculFraisPImpl implements CalculFraisP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -3583,7 +3583,7 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -3613,7 +3613,7 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -3643,7 +3643,7 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -3774,7 +3774,7 @@ abstract class _$$SelectPointLivraisonPImplCopyWith<$Res> {
           $Res Function(_$SelectPointLivraisonPImpl) then) =
       __$$SelectPointLivraisonPImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({PointLivraisonModel point_livraison});
+  $Res call({PointLivraisonModel? point_livraison});
 }
 
 /// @nodoc
@@ -3788,13 +3788,13 @@ class __$$SelectPointLivraisonPImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? point_livraison = null,
+    Object? point_livraison = freezed,
   }) {
     return _then(_$SelectPointLivraisonPImpl(
-      point_livraison: null == point_livraison
+      point_livraison: freezed == point_livraison
           ? _value.point_livraison
           : point_livraison // ignore: cast_nullable_to_non_nullable
-              as PointLivraisonModel,
+              as PointLivraisonModel?,
     ));
   }
 }
@@ -3805,7 +3805,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
   const _$SelectPointLivraisonPImpl({required this.point_livraison});
 
   @override
-  final PointLivraisonModel point_livraison;
+  final PointLivraisonModel? point_livraison;
 
   @override
   String toString() {
@@ -3850,7 +3850,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -3880,7 +3880,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -3910,7 +3910,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -4024,10 +4024,10 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
 
 abstract class SelectPointLivraisonP implements PharmacyEvent {
   const factory SelectPointLivraisonP(
-          {required final PointLivraisonModel point_livraison}) =
+          {required final PointLivraisonModel? point_livraison}) =
       _$SelectPointLivraisonPImpl;
 
-  PointLivraisonModel get point_livraison;
+  PointLivraisonModel? get point_livraison;
   @JsonKey(ignore: true)
   _$$SelectPointLivraisonPImplCopyWith<_$SelectPointLivraisonPImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -4088,7 +4088,7 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -4118,7 +4118,7 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -4148,7 +4148,7 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -4323,7 +4323,7 @@ class _$HistoriqueLivraisonMedicamentImpl
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -4353,7 +4353,7 @@ class _$HistoriqueLivraisonMedicamentImpl
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -4383,7 +4383,7 @@ class _$HistoriqueLivraisonMedicamentImpl
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -4554,7 +4554,7 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -4584,7 +4584,7 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -4614,7 +4614,7 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -4784,7 +4784,7 @@ class _$NoValidatePImpl implements NoValidateP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -4814,7 +4814,7 @@ class _$NoValidatePImpl implements NoValidateP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -4844,7 +4844,7 @@ class _$NoValidatePImpl implements NoValidateP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,
@@ -5014,7 +5014,7 @@ class _$OnStartEventPImpl implements OnStartEventP {
     required TResult Function() calculFrais,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraison,
-    required TResult Function(PointLivraisonModel point_livraison)
+    required TResult Function(PointLivraisonModel? point_livraison)
         selectPointLivraisonP,
     required TResult Function() newLivraison,
     required TResult Function() getLivraisonMedicament,
@@ -5044,7 +5044,7 @@ class _$OnStartEventPImpl implements OnStartEventP {
     TResult? Function()? calculFrais,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult? Function(PointLivraisonModel point_livraison)?
+    TResult? Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraisonMedicament,
@@ -5074,7 +5074,7 @@ class _$OnStartEventPImpl implements OnStartEventP {
     TResult Function()? calculFrais,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraison,
-    TResult Function(PointLivraisonModel point_livraison)?
+    TResult Function(PointLivraisonModel? point_livraison)?
         selectPointLivraisonP,
     TResult Function()? newLivraison,
     TResult Function()? getLivraisonMedicament,

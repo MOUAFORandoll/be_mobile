@@ -164,7 +164,7 @@ class RegisterPage extends StatelessWidget {
                                           child: Text('forgotpass'.tr(),
                                               style: TextStyle(
                                                 fontFamily: 'Lato',
-                                                color: ColorsApp.second,
+                                                color: ColorsApp.primary,
                                               )),
                                         )
                                       ],

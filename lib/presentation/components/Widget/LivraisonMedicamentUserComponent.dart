@@ -73,14 +73,14 @@ class LivraisonMedicamentUserComponent extends StatelessWidget {
                                     //   child: Text('yLibelle'.tr(),
                                     //       overflow: TextOverflow.ellipsis,
                                     //       style: TextStyle(
-                                    //           color: ColorsApp.primary,
+                                    //           color: ColorsApp.black,
                                     //           fontSize: 9)),
                                     // ) ,
                                     Container(
                                       child: Text('Une commande de medicaments',
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                              color: ColorsApp.primary,
+                                              color: ColorsApp.black,
                                               fontSize: 12,
                                               fontWeight: FontWeight.w600)),
                                     ),
@@ -88,19 +88,19 @@ class LivraisonMedicamentUserComponent extends StatelessWidget {
                                         child: Text('yDate'.tr(),
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                                color: ColorsApp.primary,
+                                                color: ColorsApp.black,
                                                 fontSize: 9))),
                                     Container(
                                         child: Text(livraison.date,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                                color: ColorsApp.primary,
+                                                color: ColorsApp.black,
                                                 fontWeight: FontWeight.w600))),
                                     Container(
                                       child: Text('yPrix'.tr(),
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                              color: ColorsApp.primary,
+                                              color: ColorsApp.black,
                                               fontSize: 9)),
                                     ),
                                     Container(
@@ -108,14 +108,14 @@ class LivraisonMedicamentUserComponent extends StatelessWidget {
                                           livraison.montant.toString() + ' XAF',
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                              color: ColorsApp.primary,
+                                              color: ColorsApp.black,
                                               fontWeight: FontWeight.w600)),
                                     ),
                                     Container(
                                       child: Text('status'.tr(),
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                              color: ColorsApp.primary,
+                                              color: ColorsApp.black,
                                               fontSize: 9)),
                                     ),
                                     Container(
@@ -127,7 +127,7 @@ class LivraisonMedicamentUserComponent extends StatelessWidget {
                                                   : 'effectuee',
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                              color: ColorsApp.primary,
+                                              color: ColorsApp.black,
                                               fontWeight: FontWeight.w600)),
                                     ),
                                   ],

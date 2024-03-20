@@ -93,7 +93,7 @@ class _NewLivraisonMedicamentPageState
                                   }),
                               AppButton(
                                 size: MainAxisSize.max,
-                                bgColor: ColorsApp.second,
+                                bgColor: ColorsApp.primary,
                                 text: state.index == 0
                                     ? 'ynext'.tr()
                                     : 'yeval'.tr(),
