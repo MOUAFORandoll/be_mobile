@@ -1,6 +1,5 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/presentation/pharmacy/paiement_pharmacy_page.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 

@@ -17,19 +17,21 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SplashEvent {
   String get currentLangue => throw _privateConstructorUsedError;
+  BuildContext get context => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String currentLangue) startLoading,
+    required TResult Function(String currentLangue, BuildContext context)
+        startLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String currentLangue)? startLoading,
+    TResult? Function(String currentLangue, BuildContext context)? startLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String currentLangue)? startLoading,
+    TResult Function(String currentLangue, BuildContext context)? startLoading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +63,7 @@ abstract class $SplashEventCopyWith<$Res> {
           SplashEvent value, $Res Function(SplashEvent) then) =
       _$SplashEventCopyWithImpl<$Res, SplashEvent>;
   @useResult
-  $Res call({String currentLangue});
+  $Res call({String currentLangue, BuildContext context});
 }
 
 /// @nodoc
@@ -78,12 +80,17 @@ class _$SplashEventCopyWithImpl<$Res, $Val extends SplashEvent>
   @override
   $Res call({
     Object? currentLangue = null,
+    Object? context = freezed,
   }) {
     return _then(_value.copyWith(
       currentLangue: null == currentLangue
           ? _value.currentLangue
           : currentLangue // ignore: cast_nullable_to_non_nullable
               as String,
+      context: freezed == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ) as $Val);
   }
 }
@@ -96,7 +103,7 @@ abstract class _$$StartLoadingImplCopyWith<$Res>
       __$$StartLoadingImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String currentLangue});
+  $Res call({String currentLangue, BuildContext context});
 }
 
 /// @nodoc
@@ -111,12 +118,17 @@ class __$$StartLoadingImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentLangue = null,
+    Object? context = freezed,
   }) {
     return _then(_$StartLoadingImpl(
       null == currentLangue
           ? _value.currentLangue
           : currentLangue // ignore: cast_nullable_to_non_nullable
               as String,
+      freezed == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ));
   }
 }
@@ -124,14 +136,16 @@ class __$$StartLoadingImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StartLoadingImpl implements StartLoading {
-  const _$StartLoadingImpl(this.currentLangue);
+  const _$StartLoadingImpl(this.currentLangue, this.context);
 
   @override
   final String currentLangue;
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'SplashEvent.startLoading(currentLangue: $currentLangue)';
+    return 'SplashEvent.startLoading(currentLangue: $currentLangue, context: $context)';
   }
 
   @override
@@ -140,11 +154,13 @@ class _$StartLoadingImpl implements StartLoading {
         (other.runtimeType == runtimeType &&
             other is _$StartLoadingImpl &&
             (identical(other.currentLangue, currentLangue) ||
-                other.currentLangue == currentLangue));
+                other.currentLangue == currentLangue) &&
+            const DeepCollectionEquality().equals(other.context, context));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentLangue);
+  int get hashCode => Object.hash(
+      runtimeType, currentLangue, const DeepCollectionEquality().hash(context));
 
   @JsonKey(ignore: true)
   @override
@@ -155,27 +171,28 @@ class _$StartLoadingImpl implements StartLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String currentLangue) startLoading,
+    required TResult Function(String currentLangue, BuildContext context)
+        startLoading,
   }) {
-    return startLoading(currentLangue);
+    return startLoading(currentLangue, context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String currentLangue)? startLoading,
+    TResult? Function(String currentLangue, BuildContext context)? startLoading,
   }) {
-    return startLoading?.call(currentLangue);
+    return startLoading?.call(currentLangue, context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String currentLangue)? startLoading,
+    TResult Function(String currentLangue, BuildContext context)? startLoading,
     required TResult orElse(),
   }) {
     if (startLoading != null) {
-      return startLoading(currentLangue);
+      return startLoading(currentLangue, context);
     }
     return orElse();
   }
@@ -210,10 +227,14 @@ class _$StartLoadingImpl implements StartLoading {
 }
 
 abstract class StartLoading implements SplashEvent {
-  const factory StartLoading(final String currentLangue) = _$StartLoadingImpl;
+  const factory StartLoading(
+          final String currentLangue, final BuildContext context) =
+      _$StartLoadingImpl;
 
   @override
   String get currentLangue;
+  @override
+  BuildContext get context;
   @override
   @JsonKey(ignore: true)
   _$$StartLoadingImplCopyWith<_$StartLoadingImpl> get copyWith =>

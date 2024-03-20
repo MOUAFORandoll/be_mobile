@@ -9,7 +9,6 @@ class SuccesLivraisonPage extends StatelessWidget {
   static const routeName = '/livraison/success';
   @override
   Widget build(BuildContext context) {
-    var loader = AppLoader.bounceLargeColorLoaderController();
     return BlocConsumer<LivraisonBloc, LivraisonState>(
         listener: (context, state) {
           if (state.isDownloadFacture == 1) {

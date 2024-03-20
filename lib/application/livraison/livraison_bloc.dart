@@ -103,6 +103,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<DownloadFacture>(_downloadFacture);
     on<ConnectSocketLivraisons>(_connectSocketLivraisons);
     on<SuccessLivraisonCreate>(_successLivraisonCreate);
+    on<NewLivraisonDataSocket>(newLivraisonDataSocket);
   }
 
   Future<void> _connectSocketLivraisons(
@@ -889,5 +890,23 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
   Future<void> updateImageInColis(
       UpdateImageInColis event, Emitter<LivraisonState> emit) async {}
+
+  Future<void> newLivraisonDataSocket(
+      NewLivraisonDataSocket event, Emitter<LivraisonState> emit) async {
+    fineListToUpdate(event.data, emit);
+  }
+
+  void fineListToUpdate(LivraisonModel data, Emitter<LivraisonState> emit) {
+    List<LivraisonModel> _userLivraisonList = state.userLivraisonList!;
+    int index =
+        _userLivraisonList.indexWhere((element) => element.id == data.id);
+
+    if (index != -1) {
+      _userLivraisonList[index] = data;
+      emit(state.copyWith(
+        userLivraisonList: _userLivraisonList,
+      ));
+    }
+  }
 }
   // context.read<LivraisonBloc>().add(GetImageColisGalerie()) 

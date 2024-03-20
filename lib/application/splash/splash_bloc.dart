@@ -1,4 +1,7 @@
+import 'package:BabanaExpress/application/livraison/livraison_bloc.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/Services/SocketService.dart';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:get_storage/get_storage.dart';
@@ -24,6 +27,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
     on<StartLoading>((event, emit) async {
       GetStorage box = sl.get<GetStorage>();
       var isConnected = await database.getUser() != null;
+      var key = await database.getKey();
 
       await Future.delayed(Duration(seconds: 5), () {
         PageRouteInfo<dynamic> route;
@@ -33,7 +37,14 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
             : isConnected
                 ? const HomeRoute()
                 : const AuthRoute();
-
+    sl.get<SocketService>().HistoriqueUserLivraison(key, (data) {
+          BlocProvider.of<LivraisonBloc>(event.context)
+              .add(LivraisonEvent.newLivraisonDataSocket(data: data));
+        });
+     sl.get<SocketService>().livraisonFinish(key, (data) {
+          BlocProvider.of<LivraisonBloc>(event.context)
+              .add(LivraisonEvent.ylivraisonFinish(data: data));
+        });
         emit(SplashState.loaded(isConnected, route));
       });
     });

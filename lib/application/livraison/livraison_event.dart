@@ -93,6 +93,9 @@ class LivraisonEvent with _$LivraisonEvent {
  
   const factory LivraisonEvent.connectSocketLivraisons() =
       ConnectSocketLivraisons;
+  const factory LivraisonEvent.newLivraisonDataSocket({data}) = NewLivraisonDataSocket;
+  const factory LivraisonEvent.ylivraisonFinish({data}) = YlivraisonFinish;
+
   // const factory LivraisonEvent.onAutoComplet({required text}) = OnAutoComplet;
   // const factory LivraisonEvent.ongetPlace({required text}) = GetPlace;
 }

@@ -8,8 +8,7 @@ class SuccesLivraisonMedicamentPage extends StatelessWidget {
   const SuccesLivraisonMedicamentPage({super.key});
   static const routeName = '/livraison/medicament/success';
   @override
-  Widget build(BuildContext context) {
-    var loader = AppLoader.bounceLargeColorLoaderController();
+  Widget build(BuildContext context) { 
     return BlocConsumer<PharmacyBloc, PharmacyState>(
         listener: (context, state) {
           if (state.isDownloadFacture == 1) {

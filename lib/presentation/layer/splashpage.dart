@@ -23,9 +23,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   Widget build(BuildContext context) {
     return BlocProvider<SplashBloc>(
       create: (_) => sl<SplashBloc>()
-        ..add(SplashEvent.startLoading(
-          context.locale.toString(),
-        )),
+        ..add(SplashEvent.startLoading(context.locale.toString(), context)),
       child: BlocConsumer<SplashBloc, SplashState>(
         listener: (context, state) {
           if (state is Loaded) {

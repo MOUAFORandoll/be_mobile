@@ -16,7 +16,6 @@ import 'core.dart' as co;
 import 'core.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 

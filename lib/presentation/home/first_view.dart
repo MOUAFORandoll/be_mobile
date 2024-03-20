@@ -105,7 +105,6 @@ openUpdateMail(context) => showDialog(
     context: context,
     builder: (context) {
       TextEditingController mail = TextEditingController();
-      var loader = AppLoader.bounceLargeColorLoaderController();
 
       return BlocConsumer<UserBloc, UserState>(
           listener: (context, state) {

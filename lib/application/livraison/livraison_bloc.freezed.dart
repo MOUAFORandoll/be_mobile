@@ -57,6 +57,8 @@ mixin _$LivraisonEvent {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -98,6 +100,8 @@ mixin _$LivraisonEvent {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -138,6 +142,8 @@ mixin _$LivraisonEvent {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -184,6 +190,9 @@ mixin _$LivraisonEvent {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -223,6 +232,8 @@ mixin _$LivraisonEvent {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -262,6 +273,8 @@ mixin _$LivraisonEvent {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -365,6 +378,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return verifyForm();
   }
@@ -409,6 +424,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return verifyForm?.call();
   }
@@ -452,6 +469,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -504,6 +523,9 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return verifyForm(this);
   }
@@ -546,6 +568,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return verifyForm?.call(this);
   }
@@ -588,6 +612,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -678,6 +704,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return backIndex();
   }
@@ -722,6 +750,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return backIndex?.call();
   }
@@ -765,6 +795,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -817,6 +849,9 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return backIndex(this);
   }
@@ -859,6 +894,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return backIndex?.call(this);
   }
@@ -901,6 +938,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -994,6 +1033,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return getVilleAndCategory();
   }
@@ -1038,6 +1079,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return getVilleAndCategory?.call();
   }
@@ -1081,6 +1124,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1133,6 +1178,9 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return getVilleAndCategory(this);
   }
@@ -1175,6 +1223,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return getVilleAndCategory?.call(this);
   }
@@ -1217,6 +1267,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1333,6 +1385,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return selectedVille(ville);
   }
@@ -1377,6 +1431,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return selectedVille?.call(ville);
   }
@@ -1420,6 +1476,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1472,6 +1530,9 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return selectedVille(this);
   }
@@ -1514,6 +1575,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return selectedVille?.call(this);
   }
@@ -1556,6 +1619,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1680,6 +1745,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return selectedCategory(categoryColis);
   }
@@ -1724,6 +1791,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return selectedCategory?.call(categoryColis);
   }
@@ -1767,6 +1836,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -1819,6 +1890,9 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return selectedCategory(this);
   }
@@ -1861,6 +1935,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return selectedCategory?.call(this);
   }
@@ -1903,6 +1979,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -2029,6 +2107,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return selectPointRecuperation(point_recup);
   }
@@ -2073,6 +2153,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return selectPointRecuperation?.call(point_recup);
   }
@@ -2116,6 +2198,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -2168,6 +2252,9 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return selectPointRecuperation(this);
   }
@@ -2210,6 +2297,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return selectPointRecuperation?.call(this);
   }
@@ -2252,6 +2341,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -2388,6 +2479,8 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return Start(latLng, quartier_recuperation_point);
   }
@@ -2432,6 +2525,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return Start?.call(latLng, quartier_recuperation_point);
   }
@@ -2475,6 +2570,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -2527,6 +2624,9 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return Start(this);
   }
@@ -2569,6 +2669,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return Start?.call(this);
   }
@@ -2611,6 +2713,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -2709,6 +2813,8 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return setStartLogLat();
   }
@@ -2753,6 +2859,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return setStartLogLat?.call();
   }
@@ -2796,6 +2904,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -2848,6 +2958,9 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return setStartLogLat(this);
   }
@@ -2890,6 +3003,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return setStartLogLat?.call(this);
   }
@@ -2932,6 +3047,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -3049,6 +3166,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return getRecupPoint(ville);
   }
@@ -3093,6 +3212,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return getRecupPoint?.call(ville);
   }
@@ -3136,6 +3257,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -3188,6 +3311,9 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return getRecupPoint(this);
   }
@@ -3230,6 +3356,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return getRecupPoint?.call(this);
   }
@@ -3272,6 +3400,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -3395,6 +3525,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return searchpointevent(text);
   }
@@ -3439,6 +3571,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return searchpointevent?.call(text);
   }
@@ -3482,6 +3616,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -3534,6 +3670,9 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return searchpointevent(this);
   }
@@ -3576,6 +3715,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return searchpointevent?.call(this);
   }
@@ -3618,6 +3759,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -3740,6 +3883,8 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return mapSelected(status);
   }
@@ -3784,6 +3929,8 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return mapSelected?.call(status);
   }
@@ -3827,6 +3974,8 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -3879,6 +4028,9 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return mapSelected(this);
   }
@@ -3921,6 +4073,8 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return mapSelected?.call(this);
   }
@@ -3963,6 +4117,8 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -4094,6 +4250,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return mapValidatePoint(libelle, quartier);
   }
@@ -4138,6 +4296,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return mapValidatePoint?.call(libelle, quartier);
   }
@@ -4181,6 +4341,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -4233,6 +4395,9 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return mapValidatePoint(this);
   }
@@ -4275,6 +4440,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return mapValidatePoint?.call(this);
   }
@@ -4317,6 +4484,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -4454,6 +4623,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return mapValidatePointLivraison(libelle, quartier);
   }
@@ -4498,6 +4669,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return mapValidatePointLivraison?.call(libelle, quartier);
   }
@@ -4541,6 +4714,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -4593,6 +4768,9 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return mapValidatePointLivraison(this);
   }
@@ -4635,6 +4813,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return mapValidatePointLivraison?.call(this);
   }
@@ -4677,6 +4857,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -4775,6 +4957,8 @@ class _$AddColisImpl implements AddColis {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return addColis();
   }
@@ -4819,6 +5003,8 @@ class _$AddColisImpl implements AddColis {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return addColis?.call();
   }
@@ -4862,6 +5048,8 @@ class _$AddColisImpl implements AddColis {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (addColis != null) {
@@ -4914,6 +5102,9 @@ class _$AddColisImpl implements AddColis {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return addColis(this);
   }
@@ -4956,6 +5147,8 @@ class _$AddColisImpl implements AddColis {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return addColis?.call(this);
   }
@@ -4998,6 +5191,8 @@ class _$AddColisImpl implements AddColis {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (addColis != null) {
@@ -5114,6 +5309,8 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return updateColis(idColis);
   }
@@ -5158,6 +5355,8 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return updateColis?.call(idColis);
   }
@@ -5201,6 +5400,8 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -5253,6 +5454,9 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return updateColis(this);
   }
@@ -5295,6 +5499,8 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return updateColis?.call(this);
   }
@@ -5337,6 +5543,8 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -5458,6 +5666,8 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return deleteColis(idColis);
   }
@@ -5502,6 +5712,8 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return deleteColis?.call(idColis);
   }
@@ -5545,6 +5757,8 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -5597,6 +5811,9 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return deleteColis(this);
   }
@@ -5639,6 +5856,8 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return deleteColis?.call(this);
   }
@@ -5681,6 +5900,8 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -5778,6 +5999,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return getImageColisAppareil();
   }
@@ -5822,6 +6045,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return getImageColisAppareil?.call();
   }
@@ -5865,6 +6090,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -5917,6 +6144,9 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return getImageColisAppareil(this);
   }
@@ -5959,6 +6189,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return getImageColisAppareil?.call(this);
   }
@@ -6001,6 +6233,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -6092,6 +6326,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return getImageColisGalerie();
   }
@@ -6136,6 +6372,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return getImageColisGalerie?.call();
   }
@@ -6179,6 +6417,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -6231,6 +6471,9 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return getImageColisGalerie(this);
   }
@@ -6273,6 +6516,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return getImageColisGalerie?.call(this);
   }
@@ -6315,6 +6560,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -6433,6 +6680,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return addImageColisAppareil(idColis);
   }
@@ -6477,6 +6726,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return addImageColisAppareil?.call(idColis);
   }
@@ -6520,6 +6771,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -6572,6 +6825,9 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return addImageColisAppareil(this);
   }
@@ -6614,6 +6870,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return addImageColisAppareil?.call(this);
   }
@@ -6656,6 +6914,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -6780,6 +7040,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return addImageColisGalerie(idColis);
   }
@@ -6824,6 +7086,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return addImageColisGalerie?.call(idColis);
   }
@@ -6867,6 +7131,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -6919,6 +7185,9 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return addImageColisGalerie(this);
   }
@@ -6961,6 +7230,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return addImageColisGalerie?.call(this);
   }
@@ -7003,6 +7274,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -7129,6 +7402,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return selectPointLivraisonColis(point_livraison);
   }
@@ -7173,6 +7448,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return selectPointLivraisonColis?.call(point_livraison);
   }
@@ -7216,6 +7493,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -7268,6 +7547,9 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return selectPointLivraisonColis(this);
   }
@@ -7310,6 +7592,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return selectPointLivraisonColis?.call(this);
   }
@@ -7352,6 +7636,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -7452,6 +7738,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return successLivraisonCreate();
   }
@@ -7496,6 +7784,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return successLivraisonCreate?.call();
   }
@@ -7539,6 +7829,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (successLivraisonCreate != null) {
@@ -7591,6 +7883,9 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return successLivraisonCreate(this);
   }
@@ -7633,6 +7928,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return successLivraisonCreate?.call(this);
   }
@@ -7675,6 +7972,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (successLivraisonCreate != null) {
@@ -7803,6 +8102,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return removeImageFromColis(idColis, position);
   }
@@ -7847,6 +8148,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return removeImageFromColis?.call(idColis, position);
   }
@@ -7890,6 +8193,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -7942,6 +8247,9 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return removeImageFromColis(this);
   }
@@ -7984,6 +8292,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return removeImageFromColis?.call(this);
   }
@@ -8026,6 +8336,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -8172,6 +8484,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return updateImageInColis(idColis, position, updatedImage);
   }
@@ -8216,6 +8530,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return updateImageInColis?.call(idColis, position, updatedImage);
   }
@@ -8259,6 +8575,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -8311,6 +8629,9 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return updateImageInColis(this);
   }
@@ -8353,6 +8674,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return updateImageInColis?.call(this);
   }
@@ -8395,6 +8718,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -8521,6 +8846,8 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return selectColis(colis);
   }
@@ -8565,6 +8892,8 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return selectColis?.call(colis);
   }
@@ -8608,6 +8937,8 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -8660,6 +8991,9 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return selectColis(this);
   }
@@ -8702,6 +9036,8 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return selectColis?.call(this);
   }
@@ -8744,6 +9080,8 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -8865,6 +9203,8 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return manageQte(state);
   }
@@ -8909,6 +9249,8 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return manageQte?.call(state);
   }
@@ -8952,6 +9294,8 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -9004,6 +9348,9 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return manageQte(this);
   }
@@ -9046,6 +9393,8 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return manageQte?.call(this);
   }
@@ -9088,6 +9437,8 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -9183,6 +9534,8 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return calculFrais();
   }
@@ -9227,6 +9580,8 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return calculFrais?.call();
   }
@@ -9270,6 +9625,8 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (calculFrais != null) {
@@ -9322,6 +9679,9 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return calculFrais(this);
   }
@@ -9364,6 +9724,8 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return calculFrais?.call(this);
   }
@@ -9406,6 +9768,8 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (calculFrais != null) {
@@ -9496,6 +9860,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return newLivraison();
   }
@@ -9540,6 +9906,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return newLivraison?.call();
   }
@@ -9583,6 +9951,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (newLivraison != null) {
@@ -9635,6 +10005,9 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return newLivraison(this);
   }
@@ -9677,6 +10050,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return newLivraison?.call(this);
   }
@@ -9719,6 +10094,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (newLivraison != null) {
@@ -9812,6 +10189,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return getLivraison();
   }
@@ -9856,6 +10235,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return getLivraison?.call();
   }
@@ -9899,6 +10280,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (getLivraison != null) {
@@ -9951,6 +10334,9 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return getLivraison(this);
   }
@@ -9993,6 +10379,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return getLivraison?.call(this);
   }
@@ -10035,6 +10423,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (getLivraison != null) {
@@ -10125,6 +10515,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return downloadFacture();
   }
@@ -10169,6 +10561,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return downloadFacture?.call();
   }
@@ -10212,6 +10606,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -10264,6 +10660,9 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return downloadFacture(this);
   }
@@ -10306,6 +10705,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return downloadFacture?.call(this);
   }
@@ -10348,6 +10749,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -10438,6 +10841,8 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return noValidate();
   }
@@ -10482,6 +10887,8 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return noValidate?.call();
   }
@@ -10525,6 +10932,8 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (noValidate != null) {
@@ -10577,6 +10986,9 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return noValidate(this);
   }
@@ -10619,6 +11031,8 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return noValidate?.call(this);
   }
@@ -10661,6 +11075,8 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (noValidate != null) {
@@ -10751,6 +11167,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return onStartEvent();
   }
@@ -10795,6 +11213,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return onStartEvent?.call();
   }
@@ -10838,6 +11258,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (onStartEvent != null) {
@@ -10890,6 +11312,9 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return onStartEvent(this);
   }
@@ -10932,6 +11357,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return onStartEvent?.call(this);
   }
@@ -10974,6 +11401,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (onStartEvent != null) {
@@ -11067,6 +11496,8 @@ class _$ConnectSocketLivraisonsImpl implements ConnectSocketLivraisons {
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
   }) {
     return connectSocketLivraisons();
   }
@@ -11111,6 +11542,8 @@ class _$ConnectSocketLivraisonsImpl implements ConnectSocketLivraisons {
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
   }) {
     return connectSocketLivraisons?.call();
   }
@@ -11154,6 +11587,8 @@ class _$ConnectSocketLivraisonsImpl implements ConnectSocketLivraisons {
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (connectSocketLivraisons != null) {
@@ -11206,6 +11641,9 @@ class _$ConnectSocketLivraisonsImpl implements ConnectSocketLivraisons {
     required TResult Function(OnStartEvent value) onStartEvent,
     required TResult Function(ConnectSocketLivraisons value)
         connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
   }) {
     return connectSocketLivraisons(this);
   }
@@ -11248,6 +11686,8 @@ class _$ConnectSocketLivraisonsImpl implements ConnectSocketLivraisons {
     TResult? Function(NoValidate value)? noValidate,
     TResult? Function(OnStartEvent value)? onStartEvent,
     TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
   }) {
     return connectSocketLivraisons?.call(this);
   }
@@ -11290,6 +11730,8 @@ class _$ConnectSocketLivraisonsImpl implements ConnectSocketLivraisons {
     TResult Function(NoValidate value)? noValidate,
     TResult Function(OnStartEvent value)? onStartEvent,
     TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
     required TResult orElse(),
   }) {
     if (connectSocketLivraisons != null) {
@@ -11301,6 +11743,721 @@ class _$ConnectSocketLivraisonsImpl implements ConnectSocketLivraisons {
 
 abstract class ConnectSocketLivraisons implements LivraisonEvent {
   const factory ConnectSocketLivraisons() = _$ConnectSocketLivraisonsImpl;
+}
+
+/// @nodoc
+abstract class _$$NewLivraisonDataSocketImplCopyWith<$Res> {
+  factory _$$NewLivraisonDataSocketImplCopyWith(
+          _$NewLivraisonDataSocketImpl value,
+          $Res Function(_$NewLivraisonDataSocketImpl) then) =
+      __$$NewLivraisonDataSocketImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({dynamic data});
+}
+
+/// @nodoc
+class __$$NewLivraisonDataSocketImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$NewLivraisonDataSocketImpl>
+    implements _$$NewLivraisonDataSocketImplCopyWith<$Res> {
+  __$$NewLivraisonDataSocketImplCopyWithImpl(
+      _$NewLivraisonDataSocketImpl _value,
+      $Res Function(_$NewLivraisonDataSocketImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$NewLivraisonDataSocketImpl(
+      data: freezed == data ? _value.data! : data,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NewLivraisonDataSocketImpl implements NewLivraisonDataSocket {
+  const _$NewLivraisonDataSocketImpl({this.data});
+
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.newLivraisonDataSocket(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NewLivraisonDataSocketImpl &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NewLivraisonDataSocketImplCopyWith<_$NewLivraisonDataSocketImpl>
+      get copyWith => __$$NewLivraisonDataSocketImplCopyWithImpl<
+          _$NewLivraisonDataSocketImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
+  }) {
+    return newLivraisonDataSocket(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
+  }) {
+    return newLivraisonDataSocket?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
+    required TResult orElse(),
+  }) {
+    if (newLivraisonDataSocket != null) {
+      return newLivraisonDataSocket(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(HistoriqueUserLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
+    required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
+  }) {
+    return newLivraisonDataSocket(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
+    TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
+  }) {
+    return newLivraisonDataSocket?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
+    TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
+    required TResult orElse(),
+  }) {
+    if (newLivraisonDataSocket != null) {
+      return newLivraisonDataSocket(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NewLivraisonDataSocket implements LivraisonEvent {
+  const factory NewLivraisonDataSocket({final dynamic data}) =
+      _$NewLivraisonDataSocketImpl;
+
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$NewLivraisonDataSocketImplCopyWith<_$NewLivraisonDataSocketImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$YlivraisonFinishImplCopyWith<$Res> {
+  factory _$$YlivraisonFinishImplCopyWith(_$YlivraisonFinishImpl value,
+          $Res Function(_$YlivraisonFinishImpl) then) =
+      __$$YlivraisonFinishImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({dynamic data});
+}
+
+/// @nodoc
+class __$$YlivraisonFinishImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$YlivraisonFinishImpl>
+    implements _$$YlivraisonFinishImplCopyWith<$Res> {
+  __$$YlivraisonFinishImplCopyWithImpl(_$YlivraisonFinishImpl _value,
+      $Res Function(_$YlivraisonFinishImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$YlivraisonFinishImpl(
+      data: freezed == data ? _value.data! : data,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$YlivraisonFinishImpl implements YlivraisonFinish {
+  const _$YlivraisonFinishImpl({this.data});
+
+  @override
+  final dynamic data;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.ylivraisonFinish(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$YlivraisonFinishImpl &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$YlivraisonFinishImplCopyWith<_$YlivraisonFinishImpl> get copyWith =>
+      __$$YlivraisonFinishImplCopyWithImpl<_$YlivraisonFinishImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEvent,
+    required TResult Function() connectSocketLivraisons,
+    required TResult Function(dynamic data) newLivraisonDataSocket,
+    required TResult Function(dynamic data) ylivraisonFinish,
+  }) {
+    return ylivraisonFinish(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEvent,
+    TResult? Function()? connectSocketLivraisons,
+    TResult? Function(dynamic data)? newLivraisonDataSocket,
+    TResult? Function(dynamic data)? ylivraisonFinish,
+  }) {
+    return ylivraisonFinish?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEvent,
+    TResult Function()? connectSocketLivraisons,
+    TResult Function(dynamic data)? newLivraisonDataSocket,
+    TResult Function(dynamic data)? ylivraisonFinish,
+    required TResult orElse(),
+  }) {
+    if (ylivraisonFinish != null) {
+      return ylivraisonFinish(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(HistoriqueUserLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
+    required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(ConnectSocketLivraisons value)
+        connectSocketLivraisons,
+    required TResult Function(NewLivraisonDataSocket value)
+        newLivraisonDataSocket,
+    required TResult Function(YlivraisonFinish value) ylivraisonFinish,
+  }) {
+    return ylivraisonFinish(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
+    TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult? Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult? Function(YlivraisonFinish value)? ylivraisonFinish,
+  }) {
+    return ylivraisonFinish?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
+    TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(ConnectSocketLivraisons value)? connectSocketLivraisons,
+    TResult Function(NewLivraisonDataSocket value)? newLivraisonDataSocket,
+    TResult Function(YlivraisonFinish value)? ylivraisonFinish,
+    required TResult orElse(),
+  }) {
+    if (ylivraisonFinish != null) {
+      return ylivraisonFinish(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class YlivraisonFinish implements LivraisonEvent {
+  const factory YlivraisonFinish({final dynamic data}) = _$YlivraisonFinishImpl;
+
+  dynamic get data;
+  @JsonKey(ignore: true)
+  _$$YlivraisonFinishImplCopyWith<_$YlivraisonFinishImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
