@@ -10,8 +10,6 @@ import 'package:BabanaExpress/utils/constants/assets.dart';
 
 import 'package:flutter_svg/svg.dart';
 
-var loader = AppLoader.bounceLargeColorLoaderController();
-
 class SecondView extends StatelessWidget {
   ScrollController _scrollController = new ScrollController();
 
@@ -60,49 +58,57 @@ class SecondView extends StatelessWidget {
                     ],
                     pinned: true,
                   ),
-                  SliverToBoxAdapter(
-                      child: Container(
-                    height: getHeight(context),
-                    padding: EdgeInsets.symmetric(
-                        vertical: kMarginY, horizontal: kMarginX),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              alignment: Alignment.center,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  AppButton(
-                                      bgColor: state.indexHistory == 0
-                                          ? ColorsApp.primary
-                                          : ColorsApp.grey,
-                                      text: 'Colis',
-                                      onTap: () => BlocProvider.of<HomeBloc>(
-                                              context)
-                                          .add(SetIndexHistoryEvent(index: 0))),
-                                  AppButton(
-                                      text: 'Medicaments',
-                                      bgColor: state.indexHistory == 1
-                                          ? ColorsApp.primary
-                                          : ColorsApp.grey,
-                                      onTap: () => BlocProvider.of<HomeBloc>(
-                                              context)
-                                          .add(SetIndexHistoryEvent(index: 1)))
-                                ],
-                              )),
-                          Expanded(
-                            child: Container(
-                                margin: EdgeInsets.only(top: kMarginY),
-                                decoration: BoxDecoration(),
-                                child: SingleChildScrollView(
-                                    child: state.indexHistory == 0
-                                        ? HistoriqueLivraisonView()
-                                        : HistoriqueLivraisonMedicamentView())),
-                          ),
-                        ]),
-                  ))
+                  SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                          (_, ctx) => Container(
+                                height: getHeight(context),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: kMarginY, horizontal: kMarginX),
+                                child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                          alignment: Alignment.center,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              AppButton(
+                                                  bgColor:
+                                                      state.indexHistory == 0
+                                                          ? ColorsApp.primary
+                                                          : ColorsApp.grey,
+                                                  text: 'Colis',
+                                                  onTap: () => BlocProvider.of<
+                                                          HomeBloc>(context)
+                                                      .add(SetIndexHistoryEvent(
+                                                          index: 0))),
+                                              AppButton(
+                                                  text: 'Medicaments',
+                                                  bgColor:
+                                                      state.indexHistory == 1
+                                                          ? ColorsApp.primary
+                                                          : ColorsApp.grey,
+                                                  onTap: () => BlocProvider.of<
+                                                          HomeBloc>(context)
+                                                      .add(SetIndexHistoryEvent(
+                                                          index: 1)))
+                                            ],
+                                          )),
+                                      Expanded(
+                                        child: Container(
+                                            margin:
+                                                EdgeInsets.only(top: kMarginY),
+                                            decoration: BoxDecoration(),
+                                            child: SingleChildScrollView(
+                                                child: state.indexHistory == 0
+                                                    ? HistoriqueLivraisonView()
+                                                    : HistoriqueLivraisonMedicamentView())),
+                                      ),
+                                    ]),
+                              ),
+                          childCount: 1))
                 ]))));
   }
 }

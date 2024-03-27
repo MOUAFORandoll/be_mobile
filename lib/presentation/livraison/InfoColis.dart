@@ -119,7 +119,7 @@ class InfoColis extends StatelessWidget {
                                     child: Text('ytypecolis'.tr())),
                                 state.isLoadedVCategory == 0
                                     ? CircularProgressIndicator(
-                                        color: ColorsApp.second)
+                                        color: ColorsApp.primary)
                                     : state.isLoadedVCategory == 2
                                         ? Text('Error')
                                         : Container(
@@ -163,7 +163,7 @@ class InfoColis extends StatelessWidget {
                                               iconSize: 25,
                                               underline: SizedBox(),
                                               style: TextStyle(
-                                                  color: ColorsApp.primary,
+                                                  color: ColorsApp.black,
                                                   fontSize: 12),
                                               onChanged:
                                                   (CategoryModel? newValue) {
@@ -497,7 +497,7 @@ class InfoColis extends StatelessWidget {
                                                   file: state.imageColis![0],
                                                   index: 0))
                                           : UploadImage(
-                                              color: ColorsApp.second,
+                                              color: ColorsApp.primary,
                                               title: 'yphotoColis'.tr(),
                                               icon: Icons.camera_alt),
                                       onTap: () => showModalBottomSheet(

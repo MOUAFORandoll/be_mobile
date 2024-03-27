@@ -72,8 +72,8 @@ class LivraisonUserComponent extends StatelessWidget {
                                             topLeft: Radius.circular(8),
                                             bottomLeft: Radius.circular(8)),
                                         image: DecorationImage(
-                                          image: AssetImage(Assets.bg_white),
-                                          fit: BoxFit.contain,
+                                          image: AssetImage(Assets.login),
+                                          fit: BoxFit.fill,
                                         ),
                                       ),
                                     );
@@ -147,55 +147,98 @@ class LivraisonUserComponent extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder: (context) {
-                            return AlertDialog(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              title: Text('yColis'.tr()),
-                              actions: [
-                                InkWell(
-                                    child: Container(
-                                      padding: EdgeInsets.all(5),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          color: ColorsApp.orange),
-                                      child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
+                            return Dialog(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                                // title: Text('yColis'.tr()),
+                                // actions: [
+                                //   InkWell(
+                                //       child: Container(
+                                //         padding: EdgeInsets.all(5),
+                                //         decoration: BoxDecoration(
+                                //             borderRadius:
+                                //                 BorderRadius.circular(8),
+                                //             color: ColorsApp.orange),
+                                //         child: Row(
+                                //             mainAxisSize: MainAxisSize.min,
+                                //             children: [
+                                //               Text(
+                                //                 'close'.tr(),
+                                //                 style: TextStyle(
+                                //                     color: ColorsApp.white,
+                                //                     fontWeight: FontWeight.w600,
+                                //                     fontSize: 13),
+                                //               ),
+                                //               Icon(Icons.close,
+                                //                   color: ColorsApp.white,
+                                //                   weight: 50)
+                                //             ]),
+                                //       ),
+                                //       onTap: () => AutoRouter.of(context).pop())
+
+                                // ],
+                                child: Container(
+                                    height: getHeight(context) * .5,
+                                    padding: EdgeInsets.all(10),
+                                    margin:
+                                        EdgeInsets.only(bottom: kMarginY * 2),
+                                    child: Column(children: [
+                                      Container(
+                                          child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
                                             Text(
-                                              'close'.tr(),
+                                              'yColis'.tr(),
                                               style: TextStyle(
-                                                  color: ColorsApp.white,
                                                   fontWeight: FontWeight.w600,
                                                   fontSize: 13),
                                             ),
-                                            Icon(Icons.close,
-                                                color: ColorsApp.white,
-                                                weight: 50)
-                                          ]),
-                                    ),
-                                    onTap: () => AutoRouter.of(context).pop())
-                              ],
-                              content: Container(
-                                child: SingleChildScrollView(
-                                    child: Column(children: [
-                                  GridView.builder(
-                                      shrinkWrap: true,
-                                      gridDelegate:
-                                          SliverGridDelegateWithFixedCrossAxisCount(
-                                              crossAxisCount: 2,
-                                              crossAxisSpacing: 15.0,
-                                              childAspectRatio: 5,
-                                              mainAxisExtent: 150,
-                                              mainAxisSpacing: 15.0),
-                                      itemCount: livraison.colis.length,
-                                      itemBuilder: (_ctx, index) =>
-                                          ColisComponentUser(
-                                              colis: livraison.colis[index])),
-                                ])),
-                              ),
-                            );
+                                            InkWell(
+                                                child: Container(
+                                                    padding: EdgeInsets.all(5),
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8),
+                                                        color:
+                                                            ColorsApp.orange),
+                                                    child: Icon(Icons.close,
+                                                        color: ColorsApp.white,
+                                                        weight: 50)),
+                                                onTap: () =>
+                                                    AutoRouter.of(context)
+                                                        .pop())
+                                          ])),
+                                      Expanded(
+                                        child: Container(
+                                          margin: EdgeInsets.only(
+                                              top: kMarginY * 2),
+                                          child: SingleChildScrollView(
+                                              child: Column(children: [
+                                            GridView.builder(
+                                                shrinkWrap: true,
+                                                physics:
+                                                    NeverScrollableScrollPhysics(),
+                                                gridDelegate:
+                                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                                        crossAxisCount: 2,
+                                                        crossAxisSpacing: 15.0,
+                                                        childAspectRatio: 5,
+                                                        mainAxisExtent: 200,
+                                                        mainAxisSpacing: 15.0),
+                                                itemCount:
+                                                    livraison.colis.length,
+                                                itemBuilder: (_ctx, index) =>
+                                                    ColisComponentUser(
+                                                        colis: livraison
+                                                            .colis[index])),
+                                          ])),
+                                        ),
+                                      )
+                                    ])));
                           },
                         );
                       })

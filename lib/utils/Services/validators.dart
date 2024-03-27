@@ -67,7 +67,7 @@ class Validators {
 
   static String? required(String field, String? value) {
     if (value == null) return null;
-    return value.isEmpty ? ' $field Obligatoire' : null;
+    return value.isEmpty ? 'invalidChiffre'.tr() : null;
   }
 
   static String? isValidDate(String? inputDate) {

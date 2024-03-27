@@ -14,13 +14,12 @@ export 'package:BabanaExpress/presentation/_commons/theming/colorApp.dart';
 export 'package:BabanaExpress/presentation/_commons/theming/textStyle.dart';
 export 'package:BabanaExpress/utils/functions/viewFunctions.dart';
 export 'package:flutter/material.dart';
-export 'package:shimmer/shimmer.dart'; 
+export 'package:shimmer/shimmer.dart';
 export 'package:BabanaExpress/presentation/components/Widget/app_input.dart';
 export 'package:BabanaExpress/presentation/components/Widget/app_input_new.dart';
 export 'package:easy_localization/easy_localization.dart' hide TextDirection;
 export 'package:BabanaExpress/presentation/components/Widget/app_lang_button.dart';
 
-export '../../../utils/functions/app_loader.dart';
 export 'package:auto_route/auto_route.dart';
 
 export 'package:font_awesome_flutter/font_awesome_flutter.dart';

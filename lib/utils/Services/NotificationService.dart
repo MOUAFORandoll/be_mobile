@@ -1,10 +1,36 @@
 import 'dart:async';
 
+import 'package:BabanaExpress/application/database/database_cubit.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/application/livraison/livraison_bloc.dart';
+import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';
+import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/main.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/subjects.dart';
 
 import '../../application/model/socket/NotificationModel.dart';
+
+class Payload {
+  late final BuildContext? context;
+  late final String? titre;
+
+  Payload({this.context, this.titre});
+
+  Map<String, dynamic> toJson() => {
+        'context': context,
+        'titre': titre,
+      };
+  Payload.fromJson(Map<String, dynamic> json) {
+    context = json['context'];
+    titre = json['titre'];
+  }
+  @override
+  String toString() {
+    return toJson().toString();
+  }
+}
 
 class ReceivedNotification {
   ReceivedNotification({
@@ -32,15 +58,7 @@ class NotificationService {
     final StreamController<ReceivedNotification>
         didReceiveLocalNotificationStream =
         StreamController<ReceivedNotification>.broadcast();
-    // final IOSInitializationSettings initializationSettingsIOS =
-    //     IOSInitializationSettings(
-    //         requestSoundPermission: true,
-    //         requestBadgePermission: true,
-    //         requestAlertPermission: true,
-    //         onDidReceiveLocalNotification:
-    //             (int? id, String? title, String? body, String? payload) async {
-    //           print('............');
-    //         });
+
     DarwinInitializationSettings initializationSettingsIOS =
         DarwinInitializationSettings(
             requestSoundPermission: true,
@@ -71,28 +89,122 @@ class NotificationService {
 
       print('p----------------------ayload');
       if (payload != null) {
-        // Gérer l'action selon la valeur du payload
+        var context = Payload.fromJson(payload as Map<String, dynamic>);
+        BlocProvider.of<LivraisonBloc>(context.context!)
+            .add(LivraisonEvent.getLivraison());
       }
     });
   }
 
-  Future<void> emitNotification(content) async {
+  Future<void> livraisonNotification(
+      {required content, required context}) async {
+    var livraison = LivraisonModel.fromJson(content);
+    DatabaseCubit database = sl.get<DatabaseCubit>();
+    var user = await database.getUser();
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
       'BabanaExpress_general_1', // Channel ID
-      'BabanaExpress Negociation', // Channel name
-      channelDescription: 'Information Negociation', // Channel description
+      'BabanaExpress livraison', // Channel name
+      channelDescription: 'Information de livraison', // Channel description
+      importance: Importance.max,
+      priority: Priority.high,
+      // autoCancel: false,
+      setAsGroupSummary: true,
+      styleInformation: BigTextStyleInformation(
+        '<Notification Content>',
+        htmlFormatBigText: true,
+        contentTitle: 'Livraison',
+        summaryText: 'Livraison',
+      ),
+      icon: 'launcher_icon',
+      largeIcon: DrawableResourceAndroidBitmap(
+          'launcher_icon'), // Replace with the name of your custom large icon file
+    );
+    const DarwinNotificationDetails iOSPlatformChannelSpecifics =
+        DarwinNotificationDetails(threadIdentifier: 'thread_id');
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iOSPlatformChannelSpecifics,
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+      1,
+      'Livraison',
+      livraison.livreur!.id == user!.id
+          ? 'Vous avez une livraison a effectuer'
+          : 'Votre livraison est ' +
+              (livraison.status == 0
+                  ? 'En attente'
+                  : livraison.status == 1
+                      ? 'En cours'
+                      : 'Effectuee'),
+      platformChannelSpecifics,
+      payload: Payload(
+        context: context,
+        titre: 'Livraison',
+      ).toString(),
+    );
+  }
+
+  Future<void> livraisonValidateNotification(
+      {required content, required context}) async {
+    var livraison = LivraisonModel.fromJson(content);
+
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
+      'BabanaExpress_general_2', // Channel ID
+      'BabanaExpress livraison', // Channel name
+      channelDescription: 'Information de livraison', // Channel description
+      importance: Importance.max,
+      priority: Priority.high,
+      // autoCancel: false,
+     setAsGroupSummary: true,
+      styleInformation: BigTextStyleInformation(
+        '<Notification Content>',
+        htmlFormatBigText: true,
+        contentTitle: 'Livraison',
+        summaryText: 'Livraison',
+      ),
+      icon: 'launcher_icon',
+      largeIcon: DrawableResourceAndroidBitmap(
+          'launcher_icon'), // Replace with the name of your custom large icon file
+    );
+    const DarwinNotificationDetails iOSPlatformChannelSpecifics =
+        DarwinNotificationDetails(threadIdentifier: 'thread_id');
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iOSPlatformChannelSpecifics,
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+      2,
+      'Livraison Enregistrée',
+      'Votre requette de livraison du ' +
+          livraison.date +
+          ' a été enregistrée et est en cours de traitement', // Notification body
+      platformChannelSpecifics,
+      payload: 'Livraison',
+    );
+  }
+
+  Future<void> livraisonFinishNotification(
+      {required content, required context}) async {
+    var livraison = LivraisonModel.fromJson(content);
+
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
+      'BabanaExpress_general_2', // Channel ID
+      'BabanaExpress livraison', // Channel name
+      channelDescription: 'Information de livraison', // Channel description
       importance: Importance.max,
       priority: Priority.high,
       // autoCancel: false,
       // setAsGroupSummary: true,
       styleInformation: BigTextStyleInformation(
-        '<Notification Content>', // Replace with your custom notification content
+        '<Notification Content>',
         htmlFormatBigText: true,
-        contentTitle:
-            'Negociation', // Replace with your custom notification title
-        summaryText:
-            'Negociation', // Replace with your custom notification summary
+        contentTitle: 'Livraison',
+        summaryText: 'Livraison',
       ),
       icon: 'launcher_icon',
       largeIcon: DrawableResourceAndroidBitmap(
@@ -106,123 +218,13 @@ class NotificationService {
     );
 
     await flutterLocalNotificationsPlugin.show(
-      1, // Notification ID (should be unique for each notification)
-      'Negociation', // Notification title
-      content, // Notification body
+      2,
+      'Livraison Terminée',
+      'Votre de livraison du ' +
+          livraison.date +
+          ' a été effectuée avec succes', // Notification body
       platformChannelSpecifics,
-      payload: 'Negociation',
-    );
-  }
-
-  Future<void> emitServiceClient(content) async {
-    const AndroidNotificationDetails androidPlatformChannelSpecifics =
-        AndroidNotificationDetails(
-      'BabanaExpress_general_1', // Channel ID
-      'BabanaExpress Service client', // Channel name
-      channelDescription: 'Information Service client', // Channel description
-      importance: Importance.max,
-      priority: Priority.high,
-      // autoCancel: false,
-      // setAsGroupSummary: true,
-      styleInformation: BigTextStyleInformation(
-        '<Notification Content>', // Replace with your custom notification content
-        htmlFormatBigText: true,
-        contentTitle:
-            'Service client', // Replace with your custom notification title
-        summaryText:
-            'Service client', // Replace with your custom notification summary
-      ),
-      icon: 'launcher_icon',
-      largeIcon: DrawableResourceAndroidBitmap(
-          'launcher_icon'), // Replace with the name of your custom large icon file
-    );
-    const DarwinNotificationDetails iOSPlatformChannelSpecifics =
-        DarwinNotificationDetails(threadIdentifier: 'thread_id');
-    const NotificationDetails platformChannelSpecifics = NotificationDetails(
-      android: androidPlatformChannelSpecifics,
-      iOS: iOSPlatformChannelSpecifics,
-    );
-
-    await flutterLocalNotificationsPlugin.show(
-      1, // Notification ID (should be unique for each notification)
-      'Service_Client', // Notification title
-      content, // Notification body
-      platformChannelSpecifics,
-      payload: 'Service_Client',
-    );
-  }
-
-  Future<void> emitNotificationGenearal(content) async {
-    const AndroidNotificationDetails androidPlatformChannelSpecifics =
-        AndroidNotificationDetails(
-      'BabanaExpress_general_1', // Channel ID
-      'BabanaExpress general', // Channel name
-      channelDescription: 'Information general', // Channel description
-      importance: Importance.max,
-      priority: Priority.high,
-      autoCancel: false,
-      // setAsGroupSummary: true,
-      styleInformation: BigTextStyleInformation(
-        '<Notification Content>', // Replace with your custom notification content
-        htmlFormatBigText: true,
-        contentTitle: 'General', // Replace with your custom notification title
-        summaryText:
-            'Information General', // Replace with your custom notification summary
-      ),
-      icon: 'launcher_icon',
-      largeIcon: DrawableResourceAndroidBitmap(
-          'launcher_icon'), // Replace with the name of your custom large icon file
-    );
-    const DarwinNotificationDetails iOSPlatformChannelSpecifics =
-        DarwinNotificationDetails(threadIdentifier: 'thread_id');
-    const NotificationDetails platformChannelSpecifics = NotificationDetails(
-      android: androidPlatformChannelSpecifics,
-      iOS: iOSPlatformChannelSpecifics,
-    );
-
-    await flutterLocalNotificationsPlugin.show(
-      1, // Notification ID (should be unique for each notification)
-      'General', // Notification title
-      content, // Notification body
-      platformChannelSpecifics,
-      payload: 'action1',
-    );
-  }
-
-  Future<void> emitNotifications(NotificationModel content) async {
-    const AndroidNotificationDetails androidPlatformChannelSpecifics =
-        AndroidNotificationDetails(
-      'BabanaExpress_general_1', // Channel ID
-      'BabanaExpress general', // Channel name
-      channelDescription: 'Notifications', // Channel description
-      importance: Importance.max,
-      priority: Priority.high,
-      autoCancel: false,
-      // setAsGroupSummary: true,
-      styleInformation: BigTextStyleInformation(
-        '<Notification Content>', // Replace with your custom notification content
-        htmlFormatBigText: true,
-        // Replace with your custom notification title
-        summaryText:
-            'Notifications', // Replace with your custom notification summary
-      ),
-      icon: 'launcher_icon',
-      largeIcon: DrawableResourceAndroidBitmap(
-          'launcher_icon'), // Replace with the name of your custom large icon file
-    );
-    const DarwinNotificationDetails iOSPlatformChannelSpecifics =
-        DarwinNotificationDetails(threadIdentifier: 'thread_id');
-    const NotificationDetails platformChannelSpecifics = NotificationDetails(
-      android: androidPlatformChannelSpecifics,
-      iOS: iOSPlatformChannelSpecifics,
-    );
-
-    await flutterLocalNotificationsPlugin.show(
-      1, // Notification ID (should be unique for each notification)
-      content.title, // Notification title
-      content.description, // Notification body
-      platformChannelSpecifics,
-      payload: 'action1',
+      payload: 'Livraison',
     );
   }
 }

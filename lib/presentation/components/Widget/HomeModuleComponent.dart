@@ -22,7 +22,8 @@ class HomeModuleComponent extends StatelessWidget {
         color: ColorsApp.greyNew, // Color.fromARGB(255, 231, 229, 229),
         borderRadius: BorderRadius.circular(10),
       ),
-      padding: EdgeInsets.symmetric(horizontal: kMarginX),
+      padding:
+          EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY * 1.5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

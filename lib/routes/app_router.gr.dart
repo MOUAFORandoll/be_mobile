@@ -30,7 +30,7 @@ import 'package:BabanaExpress/presentation/pharmacy/paiement_pharmacy_page.dart'
     as _i12;
 import 'package:BabanaExpress/presentation/pharmacy/SuccesLivraisonMedicamentPage.dart'
     as _i16;
-import 'package:BabanaExpress/presentation/user/auth_page.dart' as _i1;
+import 'package:BabanaExpress/presentation/user/auth_page%20copy.dart' as _i1;
 import 'package:BabanaExpress/presentation/user/forgot_password_page.dart'
     as _i2;
 import 'package:BabanaExpress/presentation/user/politique_page.dart' as _i13;

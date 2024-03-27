@@ -7,8 +7,6 @@ import 'MapPagePointLivraison.dart';
 
 // ignore: must_be_immutable
 class InfoLieuxLIvraisonView extends StatelessWidget {
-  var loader = AppLoader.bounceLargeColorLoaderController();
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PharmacyBloc, PharmacyState>(

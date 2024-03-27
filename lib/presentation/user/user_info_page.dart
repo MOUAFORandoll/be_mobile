@@ -17,8 +17,6 @@ class UserInfoPage extends StatefulWidget {
 }
 
 class _UserInfoPageState extends State<UserInfoPage> {
-  var loader = AppLoader.bounceLargeColorLoaderController();
-
   TextEditingController phone = TextEditingController();
 
   TextEditingController password = TextEditingController();

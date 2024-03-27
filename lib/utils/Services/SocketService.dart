@@ -6,25 +6,21 @@ import 'package:BabanaExpress/infrastructure/_commons/network/request_url.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class SocketService {
-  LivraisonBloc livraison_bloc;
-  SocketService({required this.livraison_bloc});
+  SocketService();
   // late IO.Socket socket;
   IO.Socket socket = IO.io(RequestUrl().socketUrl, <String, dynamic>{
     'transports': ['websocket'],
     'autoConnect': true,
   });
 
-  void HistoriqueUserLivraison(canal, Function action) {
+  void HistoriqueUserLivraison(
+      {required String recepteur, required Function action}) {
     socket.on('livraison', (data) {
       print(data);
-      print(
-          '-----00-livraison----**********${canal}**********************-------');
+
       if (data != null && data != 'null') {
-        print(jsonDecode(data));
-        if (jsonDecode(data)['recepteur'].toString() == canal.toString()) {
-          print('-----------------');
-          print(jsonDecode(data));
-          action(LivraisonModel.fromJson(jsonDecode(data)['data']));
+        if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
+          action(jsonDecode(data)['data']);
         }
       }
     });
@@ -33,26 +29,24 @@ class SocketService {
   }
 
   void livraisonValidate(
-      {required String recepteur }) {
+      {required String recepteur, required Function action}) {
     socket.on('livraison_validate', (data) {
       print(data);
       if (data != null && data != 'null') {
         var decodedData = jsonDecode(data);
         if (decodedData['recepteur'].toString() == recepteur.toString()) {
-       
-          print(decodedData);
-          livraison_bloc.add(SuccessLivraisonCreate());
+          action(jsonDecode(data)['data']);
         }
       }
     });
   }
 
-  void livraisonFinish(canal, Function action) {
+  void livraisonFinish({required String recepteur, required Function action}) {
     socket.on('livraison_finish', (data) {
       print(data);
       if (data != null && data != 'null') {
         print(jsonDecode(data));
-        if (jsonDecode(data)['recepteur'].toString() == canal.toString()) {
+        if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
           print('-----------------');
           print(jsonDecode(data));
           action(jsonDecode(data)['data']);

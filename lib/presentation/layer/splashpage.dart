@@ -33,36 +33,37 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             // final HomeBloc h = BlocProvider.of<HomeBloc>(context);
             // h.add(UserDataEvent());
             print('**----');
-            AutoRouter.of(context).replace(state.route);
+             AutoRouter.of(context).replace(state.route);
           }
         },
         builder: (context, state) {
           return Scaffold(
-              backgroundColor: ColorsApp.white,
-              body: SingleChildScrollView(
-                child: Container(
-                    alignment: Alignment.center,
-                    child: new Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                              margin: EdgeInsets.only(
-                                  top: getHeight(context) * .45),
-                              child: SvgPicture.asset(
-                                Assets.babana,
-                                color: ColorsApp.primary,
-                              )),
-                          Container(
-                              margin: EdgeInsets.only(
-                                  top: getHeight(context) * .25),
-                              child: Container(
-                                  height: 30,
-                                  width: 30,
-                                  child: CircularProgressIndicator(
-                                    color: ColorsApp.primary,
-                                  )))
-                        ])),
+              backgroundColor: ColorsApp.primary,
+              body: Container(
+                alignment: Alignment.center,
+                child:
+                    //new Column(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     crossAxisAlignment: CrossAxisAlignment.center,
+                    //     children: <Widget>[
+                    Container(
+                        // margin: EdgeInsets.only(
+                        alignment: Alignment.center,
+                        //     top: getHeight(context) * .45),
+                        child: SvgPicture.asset(
+                          Assets.babana,
+                          color: ColorsApp.white,
+                        )),
+                // Container(
+                //     margin: EdgeInsets.only(
+                //         top: getHeight(context) * .25),
+                //     child: Container(
+                //         height: 30,
+                //         width: 30,
+                //         child: CircularProgressIndicator(
+                //           color: ColorsApp.primary,
+                //         )))
+                // ])
               ));
         },
       ),

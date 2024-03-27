@@ -84,7 +84,7 @@ class OnBoardingPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(30),
                                   color: state.index == entry.key
                                       ? Colors.white
-                                      : ColorsApp.second.withOpacity(0.2)),
+                                      : ColorsApp.black.withOpacity(0.2)),
                             ));
                       }).toList(),
                     ),
@@ -95,6 +95,8 @@ class OnBoardingPage extends StatelessWidget {
                   right: 0,
                   child: AppButton(
                     text: state.index == 0 ? 'Suivant' : 'Continuer',
+                    textColor: ColorsApp.primary,
+                    bgColor: Colors.white,
                     onTap: () {
                       if (state.index == 1) {
                         // final AppActionCubit action =
@@ -119,3 +121,5 @@ class OnBoardingPage extends StatelessWidget {
     });
   }
 }
+
+// 658392349

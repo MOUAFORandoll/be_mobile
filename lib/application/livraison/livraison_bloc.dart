@@ -101,28 +101,6 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<NewLivraison>(_newLivraison);
     on<HistoriqueUserLivraison>(_getLivraisonUser);
     on<DownloadFacture>(_downloadFacture);
-    on<ConnectSocketLivraisons>(_connectSocketLivraisons);
-    on<SuccessLivraisonCreate>(_successLivraisonCreate);
-    on<NewLivraisonDataSocket>(newLivraisonDataSocket);
-  }
-
-  Future<void> _connectSocketLivraisons(
-      ConnectSocketLivraisons event, Emitter<LivraisonState> emit) async {
-    print('---------**i connect to my socket');
-    var key = await database.getKey();
-
-    var socketService = sl.get<SocketService>();
-
-    socketService.livraisonValidate(recepteur: key!);
-  }
-
-  _successLivraisonCreate(
-      SuccessLivraisonCreate event, Emitter<LivraisonState> emit) async {
-    print('--------000-');
-    emit(state.copyWith(successLivraison: true));
-
-    print('----${state.successLivraison}-----');
-    // emit(state.copyWith(successLivraison: false));
   }
 
   Future<void> _selectPointRecuperation(
@@ -891,17 +869,14 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   Future<void> updateImageInColis(
       UpdateImageInColis event, Emitter<LivraisonState> emit) async {}
 
-  Future<void> newLivraisonDataSocket(
-      NewLivraisonDataSocket event, Emitter<LivraisonState> emit) async {
-    fineListToUpdate(event.data, emit);
-  }
-
   void fineListToUpdate(LivraisonModel data, Emitter<LivraisonState> emit) {
     List<LivraisonModel> _userLivraisonList = state.userLivraisonList!;
     int index =
         _userLivraisonList.indexWhere((element) => element.id == data.id);
+    print('------${index}--------${data.id}------*');
 
     if (index != -1) {
+      print('------${index}--------${data.id}------*');
       _userLivraisonList[index] = data;
       emit(state.copyWith(
         userLivraisonList: _userLivraisonList,

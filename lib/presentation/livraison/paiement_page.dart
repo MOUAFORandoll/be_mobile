@@ -29,9 +29,11 @@ class _PaimentPageState extends State<PaimentPage> {
             onProgress: (int progress) {
               // Update loading bar.
               print(progress);
-              setState(() {
-                _progress = progress;
-              });
+              if (mounted) {
+                setState(() {
+                  _progress = progress;
+                });
+              }
             },
             onPageStarted: (String url) {
               print('start------${url}');
@@ -79,7 +81,7 @@ class _PaimentPageState extends State<PaimentPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         CircularProgressIndicator(
-                          color: ColorsApp.second,
+                          color: ColorsApp.primary,
                         ),
                         Container(
                             margin: EdgeInsets.only(top: kMarginY),

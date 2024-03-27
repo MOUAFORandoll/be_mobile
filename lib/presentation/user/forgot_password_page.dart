@@ -12,7 +12,6 @@ import 'package:BabanaExpress/routes/app_router.gr.dart';
 class ForgotPasswordPage extends StatelessWidget {
   static const routeName = '/forgot';
 
-  var loader = AppLoader.bounceLargeColorLoaderController();
   TextEditingController phoneormail = TextEditingController();
 
   TextEditingController otpCode = TextEditingController();

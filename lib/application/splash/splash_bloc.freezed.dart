@@ -80,14 +80,14 @@ class _$SplashEventCopyWithImpl<$Res, $Val extends SplashEvent>
   @override
   $Res call({
     Object? currentLangue = null,
-    Object? context = freezed,
+    Object? context = null,
   }) {
     return _then(_value.copyWith(
       currentLangue: null == currentLangue
           ? _value.currentLangue
           : currentLangue // ignore: cast_nullable_to_non_nullable
               as String,
-      context: freezed == context
+      context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
               as BuildContext,
@@ -118,14 +118,14 @@ class __$$StartLoadingImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentLangue = null,
-    Object? context = freezed,
+    Object? context = null,
   }) {
     return _then(_$StartLoadingImpl(
       null == currentLangue
           ? _value.currentLangue
           : currentLangue // ignore: cast_nullable_to_non_nullable
               as String,
-      freezed == context
+      null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
               as BuildContext,
@@ -155,12 +155,11 @@ class _$StartLoadingImpl implements StartLoading {
             other is _$StartLoadingImpl &&
             (identical(other.currentLangue, currentLangue) ||
                 other.currentLangue == currentLangue) &&
-            const DeepCollectionEquality().equals(other.context, context));
+            (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, currentLangue, const DeepCollectionEquality().hash(context));
+  int get hashCode => Object.hash(runtimeType, currentLangue, context);
 
   @JsonKey(ignore: true)
   @override

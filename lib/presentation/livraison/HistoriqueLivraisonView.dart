@@ -25,18 +25,17 @@ class HistoriqueLivraisonView extends StatelessWidget {
                 ? Text('Error')
                 : state.userLivraisonList!.length == 0
                     ? EmptyLivraisonsComponent()
-                    : Container(
-                        child: SingleChildScrollView(
-                            child: ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: state.userLivraisonList!.length,
-                                // controller: state,
-                                itemBuilder: (_, index) =>
-                                    LivraisonUserComponent(
-                                      livraison:
-                                          state.userLivraisonList![index],
-                                    )))),
+                    : Expanded(
+                        // height: getHeight(context) * .5,
+                        child: ListView.builder(
+                            physics: ScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: state.userLivraisonList!.length,
+                            // controller: state,
+                            itemBuilder: (_, index) => LivraisonUserComponent(
+                                  livraison: state.userLivraisonList![index],
+                                )),
+                      ),
       );
     });
   }

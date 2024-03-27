@@ -83,16 +83,16 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   }
 
   _OnSignOut(SignOutEvent event, Emitter<UserState> emit) async {
-    var loader = AppLoader.bounceLargeColorLoaderController();
-    loader.open(event.context);
+    EasyLoading.show(
+        dismissOnTap: true,
+        status: 'En cours',
+        maskType: EasyLoadingMaskType.black);
     await Future.delayed(Duration(seconds: 5), () {
+      EasyLoading.dismiss();
       database.disconnect();
-      
+
       AutoRouter.of(event.context).replaceAll([AuthRoute()]);
     });
-    try {
-      // database.saveKeyKen( );
-    } catch (e) {}
   }
 
   _GetUserEvent(GetUserEvent event, Emitter<UserState> emit) async {

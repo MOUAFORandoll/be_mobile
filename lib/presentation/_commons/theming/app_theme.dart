@@ -87,7 +87,7 @@ ThemeData lightTheme(context) => ThemeData(
       appBarTheme: AppBarTheme(
         titleTextStyle: TextStyle(
             fontFamily: 'Lato',
-            fontSize: kBasics + 2,
+            fontSize: kBasics,
             color: ColorsApp.black,
             fontWeight: FontWeight.w700),
       ),

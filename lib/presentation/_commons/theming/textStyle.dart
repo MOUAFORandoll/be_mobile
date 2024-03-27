@@ -16,7 +16,7 @@ final kPaddingY = 10;
 
 final kTitle = 14.0;
 final kDescription = 9.0;
-final kBasics = 10.0;
+final kBasics = 13.0;
 final kMin = 7.0;
 final kLgText = kTitle;
 

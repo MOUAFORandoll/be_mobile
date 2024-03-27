@@ -24,7 +24,7 @@ Future<void> init() async {
   sl.registerLazySingleton<INetworkInfo>(() => NetworkInfo(connectivity: sl()));
   sl.registerLazySingleton<GetStorage>(() => box);
   sl.registerLazySingleton<DatabaseCubit>(() => db);
-  sl..registerFactory(() => SplashBloc(database: sl()));
+  sl.registerFactory(() => SplashBloc(database: sl()));
 
   sl
     ..registerFactory(() => UserBloc(userRepo: sl(), database: sl()))
@@ -56,7 +56,6 @@ Future<void> initLoad(context) async {
     ..add(GetUserEvent())
     ..add(GetVilleQuartier());
   BlocProvider.of<LivraisonBloc>(context)
-    ..add(ConnectSocketLivraisons())
     ..add(StartLogLat())
     ..add(GetVilleAndCategoryEvent())
     ..add(HistoriqueUserLivraison());

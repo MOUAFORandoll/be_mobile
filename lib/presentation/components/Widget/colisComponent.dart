@@ -414,7 +414,7 @@ class ColisComponent extends StatelessWidget {
                   );
                 }),
             Positioned(
-              left: getWith(context) / 2.7,
+              left: getWith(context) / 2.5,
               top: 0,
               child: InkWell(
                 child: Container(

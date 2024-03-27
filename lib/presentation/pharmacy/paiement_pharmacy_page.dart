@@ -78,7 +78,7 @@ class _PaimentPharmacyPageState extends State<PaimentPharmacyPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         CircularProgressIndicator(
-                          color: ColorsApp.second,
+                          color: ColorsApp.primary,
                         ),
                         Container(
                             margin: EdgeInsets.only(top: kMarginY),

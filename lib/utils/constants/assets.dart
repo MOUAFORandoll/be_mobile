@@ -2,6 +2,7 @@ class Assets {
   Assets._();
   static const logo = 'assets/logo/logo.png';
   static const shop1 = 'assets/images/shop1.png';
+  static const login = 'assets/login.png';
   static const splashScreen = 'assets/images/SplashScreen.png';
   static const shop2 = 'assets/images/shop2.png';
   static const splash = 'assets/images/splash.png';

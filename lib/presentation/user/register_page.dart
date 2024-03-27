@@ -13,7 +13,6 @@ import 'package:BabanaExpress/core.dart';
 class RegisterPage extends StatelessWidget {
   static const routeName = '/register';
 
-  var loader = AppLoader.bounceLargeColorLoaderController();
   TextEditingController phone = TextEditingController();
   final formKey = GlobalKey<FormState>();
   TextEditingController password = TextEditingController();
