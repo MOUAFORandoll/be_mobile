@@ -1,5 +1,6 @@
 import 'package:BabanaExpress/presentation/home/home_page.dart';
 import 'package:BabanaExpress/presentation/layer/onboardingpage.dart';
+import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/livraison/paiement_page.dart';
@@ -54,5 +55,7 @@ class AppRouter extends $AppRouter {
         AutoRoute(
             page: PaimentPharmacyRoute.page,
             path: PaimentPharmacyPage.routeName),
+        AutoRoute(
+            page: LivraisonDataRoute.page, path: LivraisonDataPage.routeName),
       ];
 }

@@ -1,10 +1,12 @@
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
+import 'package:BabanaExpress/presentation/components/Widget/HomeModuleComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
 import 'package:BabanaExpress/presentation/home/first_view.dart';
 import 'package:BabanaExpress/presentation/home/second_view.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart';
+import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/Pharmacy_view.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
@@ -186,11 +188,37 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 //   ),
                 // ),
               ),
+              SliverToBoxAdapter(
+                child: state.index == 0
+                    ? Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: kMarginY, horizontal: kMarginX),
+                        child: HomeModuleComponent(
+                          title: 'ht1'.tr(),
+                          titleBtn: 'livraison'.tr(),
+                          image: Assets.shop2,
+                          onTap: () => AutoRouter.of(context).pushNamed(
+                              NewLivraisonPage
+                                  .routeName) /* openModalLivraison(context) */,
+                        ))
+                    : state.index == 1
+                        ?Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: kMarginY, horizontal: kMarginX),
+                        child: HomeModuleComponent(
+                            title: 'ht2'.tr(),
+                            titleBtn: 'pharmacie'.tr(),
+                            image: Assets.medical,
+                            onTap: () => AutoRouter.of(context).pushNamed(
+                                NewLivraisonMedicamentPage.routeName),
+                          ))
+                        : null,
+              ),
               SliverList(
                   delegate: SliverChildBuilderDelegate(
                       (_, ctx) => state.index == 0
                           ? LivraisonView()
-                          : state.index == 0
+                          : state.index == 1
                               ? PharmacyView()
                               : PharmacyView(),
                       childCount: 1))

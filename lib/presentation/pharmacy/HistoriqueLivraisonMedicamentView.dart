@@ -16,19 +16,16 @@ class HistoriqueLivraisonMedicamentView extends StatelessWidget {
               ? Text('Error')
               : state.userLivraisonMedicamentList!.length == 0
                   ? EmptyLivraisonsComponent()
-                  : Container(
-                      child: SingleChildScrollView(
-                          child: ListView.builder(
-                              physics: NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
-                              itemCount:
-                                  state.userLivraisonMedicamentList!.length,
-                              // controller: state,
-                              itemBuilder: (_, index) =>
-                                  LivraisonMedicamentUserComponent(
-                                    livraison: state
-                                        .userLivraisonMedicamentList![index],
-                                  ))));
+                  : ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: state.userLivraisonMedicamentList!.length,
+                      // controller: state,
+                      itemBuilder: (_, index) =>
+                          LivraisonMedicamentUserComponent(
+                            livraison:
+                                state.userLivraisonMedicamentList![index],
+                          ));
     });
   }
 }

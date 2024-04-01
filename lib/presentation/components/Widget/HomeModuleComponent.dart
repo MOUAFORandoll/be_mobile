@@ -17,7 +17,7 @@ class HomeModuleComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
+      margin: EdgeInsets.symmetric(vertical: kMarginY),
       decoration: BoxDecoration(
         color: ColorsApp.greyNew, // Color.fromARGB(255, 231, 229, 229),
         borderRadius: BorderRadius.circular(10),

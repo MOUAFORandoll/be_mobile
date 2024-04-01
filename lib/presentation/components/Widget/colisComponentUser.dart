@@ -239,7 +239,6 @@ class ColisComponentUser extends StatelessWidget {
           globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
       var image = await boundary.toImage(pixelRatio: 3.0);
 
-      //Drawing White Background because Qr Code is Black
       final whitePaint = Paint()..color = Colors.white;
       final recorder = PictureRecorder();
       final canvas = Canvas(

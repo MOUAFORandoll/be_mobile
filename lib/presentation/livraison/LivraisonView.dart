@@ -14,17 +14,9 @@ class LivraisonView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: getHeight(context),
-        padding: EdgeInsets.symmetric(vertical: kMarginY, horizontal: kMarginX),
+        padding: EdgeInsets.symmetric(horizontal: kMarginX),
         child: Column(children: [
-          HomeModuleComponent(
-            title: 'ht1'.tr(),
-            titleBtn: 'livraison'.tr(),
-            image: Assets.shop2,
-            onTap: () => AutoRouter.of(context).pushNamed(
-                NewLivraisonPage.routeName) /* openModalLivraison(context) */,
-          ),
-          HistoriqueLivraisonView(),
+          SingleChildScrollView(child: HistoriqueLivraisonView()),
         ]));
   }
 }

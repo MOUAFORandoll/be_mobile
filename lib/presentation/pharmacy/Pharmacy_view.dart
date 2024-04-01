@@ -17,16 +17,8 @@ class PharmacyView extends StatelessWidget {
         builder: (context, state) => Container(
             padding:
                 EdgeInsets.symmetric(vertical: kMarginY, horizontal: kMarginX),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              HomeModuleComponent(
-                title: 'ht2'.tr(),
-                titleBtn: 'pharmacie'.tr(),
-                image: Assets.medical,
-                onTap: () => AutoRouter.of(context)
-                    .pushNamed(NewLivraisonMedicamentPage.routeName),
-              ),
-              HistoriqueLivraisonMedicamentView()
-            ])));
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [HistoriqueLivraisonMedicamentView()])));
   }
 }

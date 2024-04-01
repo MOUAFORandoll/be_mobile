@@ -1,5 +1,7 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/presentation/components/Widget/colisComponentUser.dart';
+import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -22,227 +24,227 @@ class LivraisonUserComponent extends StatelessWidget {
         ? Container()
         : livraison.colis[0].images.length == 0
             ? Container()
-            : Stack(
-                children: [
-                  InkWell(
-                      child: Container(
-                          height: getHeight(context) * .15,
-                          margin: EdgeInsets.symmetric(
-                              horizontal: kMarginX, vertical: kMarginY),
+            : InkWell(
+                child: Container(
+                    height: getHeight(context) * .20,
+                    padding: EdgeInsets.symmetric(vertical: kMarginY),
+                    margin: EdgeInsets.symmetric(
+                        /*   horizontal: kMarginX, */ vertical: kMarginY),
+                    decoration: BoxDecoration(
+                        color: ColorsApp.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: kMarginX,
+                          ).add(EdgeInsets.only(bottom: kMarginY / 2)),
+                          margin: EdgeInsets.only(bottom: kMarginY * 1.3),
                           decoration: BoxDecoration(
-                              color: ColorsApp.grey,
-                              borderRadius: BorderRadius.circular(8)),
+                              border: Border(
+                                  bottom: BorderSide(
+                                      color: ColorsApp.greyNew, width: .5))),
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                    child: CachedNetworkImage(
-                                  height: getHeight(context) * .15,
-                                  width: getWith(context) * .35,
-                                  fit: BoxFit.cover,
-                                  imageUrl: livraison.colis[0].images[0].src,
-                                  imageBuilder: (context, imageProvider) {
-                                    return Container(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(livraison.date),
+                              Row(
+                                children: [
+                                  Container(
+                                      height: 10,
+                                      width: 10,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(8),
-                                            bottomLeft: Radius.circular(8)),
-                                        image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover,
-                                            colorFilter: ColorFilter.mode(
-                                                Colors.transparent,
-                                                BlendMode.colorBurn)),
-                                      ),
-                                    );
-                                  },
-                                  placeholder: (context, url) {
-                                    return Container(
-                                      child: Center(
-                                          child: CircularProgressIndicator(
-                                        color: ColorsApp.second,
-                                      )),
-                                    );
-                                  },
-                                  errorWidget: (context, url, error) {
-                                    return Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(8),
-                                            bottomLeft: Radius.circular(8)),
-                                        image: DecorationImage(
-                                          image: AssetImage(Assets.login),
+                                          color: ColorsApp.primary,
+                                          borderRadius:
+                                              BorderRadius.circular(30))),
+                                  Container(
+                                    margin: EdgeInsets.only(left: kMarginY),
+                                    child: Text(
+                                        livraison.status == 0
+                                            ? 'En attente de validation'
+                                            : livraison.status == 1
+                                                ? 'En cours de livraison'
+                                                : 'Colis livres',
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: ColorsApp.black,
+                                        )),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                  child: CachedNetworkImage(
+                                    height: getHeight(context) * .09,
+                                    width: getWith(context) * .35,
+                                    fit: BoxFit.cover,
+                                    imageUrl: livraison.colis[0].images[0].src,
+                                    imageBuilder: (context, imageProvider) {
+                                      return Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          image: DecorationImage(
+                                              image: imageProvider,
+                                              fit: BoxFit.cover,
+                                              colorFilter: ColorFilter.mode(
+                                                  Colors.transparent,
+                                                  BlendMode.colorBurn)),
+                                        ),
+                                      );
+                                    },
+                                    placeholder: (context, url) {
+                                      return Container(
+                                        child: Center(
+                                            child: CircularProgressIndicator(
+                                          color: ColorsApp.second,
+                                        )),
+                                      );
+                                    },
+                                    errorWidget: (context, url, error) {
+                                      return CircleAvatar(
+                                        radius: 30,
+                                        child: Image.asset(
+                                          Assets.login,
                                           fit: BoxFit.fill,
                                         ),
-                                      ),
-                                    );
-                                  },
-                                )),
-                                Container(
-                                    margin: EdgeInsets.symmetric(
-                                        horizontal: kMarginX,
-                                        vertical: kMarginY / 2),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width: getWith(context) * .45,
-                                          child: Text(
-                                              livraison.libelle.toString(),
-                                              maxLines: 2,
-                                              // overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                  color: ColorsApp.black,
-                                                  fontWeight: FontWeight.w600)),
-                                        ),
-                                        Container(
-                                          child: Text('yPrix'.tr(),
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                  color: ColorsApp.black,
-                                                  fontSize: 9)),
-                                        ),
-                                        Container(
-                                          child: Text(
-                                              livraison.montant.toString() +
-                                                  ' XAF',
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                  color: ColorsApp.black,
-                                                  fontWeight: FontWeight.w600)),
-                                        ),
-                                        // Container(
-                                        //     child: Text('yDate'.tr(),
-                                        //         overflow: TextOverflow.ellipsis,
-                                        //         style: TextStyle(
-                                        //             color: ColorsApp.black,
-                                        //             fontSize: 9))),
-                                        // Container(
-                                        //     child: Text(livraison.date,
-                                        //         overflow: TextOverflow.ellipsis,
-                                        //         style: TextStyle(
-                                        //             color: ColorsApp.black,
-                                        //             fontWeight:
-                                        //                 FontWeight.w600))),
-                                        Container(
-                                          child: Text(
-                                              livraison.status == 0
-                                                  ? 'En attente de validation'
-                                                  : livraison.status == 1
-                                                      ? 'En cours de livraison'
-                                                      : 'Colis livres',
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                color: ColorsApp.black,
-                                              )),
-                                        ),
-                                      ],
-                                    )),
-                              ]) /* ) */),
-                      onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return Dialog(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                // title: Text('yColis'.tr()),
-                                // actions: [
-                                //   InkWell(
-                                //       child: Container(
-                                //         padding: EdgeInsets.all(5),
-                                //         decoration: BoxDecoration(
-                                //             borderRadius:
-                                //                 BorderRadius.circular(8),
-                                //             color: ColorsApp.orange),
-                                //         child: Row(
-                                //             mainAxisSize: MainAxisSize.min,
-                                //             children: [
-                                //               Text(
-                                //                 'close'.tr(),
-                                //                 style: TextStyle(
-                                //                     color: ColorsApp.white,
-                                //                     fontWeight: FontWeight.w600,
-                                //                     fontSize: 13),
-                                //               ),
-                                //               Icon(Icons.close,
-                                //                   color: ColorsApp.white,
-                                //                   weight: 50)
-                                //             ]),
-                                //       ),
-                                //       onTap: () => AutoRouter.of(context).pop())
-
-                                // ],
-                                child: Container(
-                                    height: getHeight(context) * .5,
-                                    padding: EdgeInsets.all(10),
-                                    margin:
-                                        EdgeInsets.only(bottom: kMarginY * 2),
-                                    child: Column(children: [
+                                      );
+                                    },
+                                  )),
+                              Container(
+                                  margin: EdgeInsets.symmetric(
+                                      horizontal: kMarginX,
+                                      vertical: kMarginY / 2),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
                                       Container(
-                                          child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                            Text(
-                                              'yColis'.tr(),
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 13),
-                                            ),
-                                            InkWell(
-                                                child: Container(
-                                                    padding: EdgeInsets.all(5),
-                                                    decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8),
-                                                        color:
-                                                            ColorsApp.orange),
-                                                    child: Icon(Icons.close,
-                                                        color: ColorsApp.white,
-                                                        weight: 50)),
-                                                onTap: () =>
-                                                    AutoRouter.of(context)
-                                                        .pop())
-                                          ])),
-                                      Expanded(
-                                        child: Container(
-                                          margin: EdgeInsets.only(
-                                              top: kMarginY * 2),
-                                          child: SingleChildScrollView(
-                                              child: Column(children: [
-                                            GridView.builder(
-                                                shrinkWrap: true,
-                                                physics:
-                                                    NeverScrollableScrollPhysics(),
-                                                gridDelegate:
-                                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                                        crossAxisCount: 2,
-                                                        crossAxisSpacing: 15.0,
-                                                        childAspectRatio: 5,
-                                                        mainAxisExtent: 200,
-                                                        mainAxisSpacing: 15.0),
-                                                itemCount:
-                                                    livraison.colis.length,
-                                                itemBuilder: (_ctx, index) =>
-                                                    ColisComponentUser(
-                                                        colis: livraison
-                                                            .colis[index])),
-                                          ])),
-                                        ),
-                                      )
-                                    ])));
-                          },
-                        );
-                      })
-                ],
-              );
+                                        width: getWith(context) * .34,
+                                        child: Text(
+                                            livraison.libelle.toString(),
+                                            maxLines: 2,
+                                            // overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                color: ColorsApp.primary,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w700)),
+                                      ),
+                                      // Container(
+                                      //   child: Text('yPrix'.tr(),
+                                      //       overflow: TextOverflow.ellipsis,
+                                      //       style: TextStyle(
+                                      //           color: ColorsApp.black,
+                                      //           fontSize: 9)),
+                                      // ),
+                                      Container(
+                                        child: Text(
+                                            livraison.montant.toString() +
+                                                ' XAF',
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                color: ColorsApp.black,
+                                                fontWeight: FontWeight.w600)),
+                                      ),
+                                      // Container(
+                                      //     child: Text('yDate'.tr(),
+                                      //         overflow: TextOverflow.ellipsis,
+                                      //         style: TextStyle(
+                                      //             color: ColorsApp.black,
+                                      //             fontSize: 9))),
+                                      // Container(
+                                      //     child: Text(livraison.date,
+                                      //         overflow: TextOverflow.ellipsis,
+                                      //         style: TextStyle(
+                                      //             color: ColorsApp.black,
+                                      //             fontWeight:
+                                      //                 FontWeight.w600))),
+                                      // Container(
+                                      //   child: Text(
+                                      //       livraison.status == 0
+                                      //           ? 'En attente de validation'
+                                      //           : livraison.status == 1
+                                      //               ? 'En cours de livraison'
+                                      //               : 'Colis livres',
+                                      //       overflow:
+                                      //           TextOverflow.ellipsis,
+                                      //       style: TextStyle(
+                                      //         fontSize: 14,
+                                      //         color: ColorsApp.black,
+                                      //       )),
+                                      // ),
+                                    ],
+                                  )),
+                            ]),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: kMarginX,
+                          ).add(EdgeInsets.only(top: kMarginY / 2)),
+                          margin: EdgeInsets.only(top: kMarginY * 1.3),
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  top: BorderSide(
+                                      color: ColorsApp.greyNew, width: .5))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              if (livraison.livreur != null)
+                                Row(
+                                  children: [
+                                    Container(
+                                        child: Icon(
+                                      Icons.account_circle_sharp,
+                                      color: ColorsApp.primary,
+                                    )),
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                        left: kMarginX / 2,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Text(livraison.livreur!.nom),
+                                          Text(' ' + livraison.livreur!.prenom),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: kMarginX * 1.5, vertical: 1),
+                                decoration: BoxDecoration(
+                                    color: ColorsApp.primary,
+                                    borderRadius: BorderRadius.circular(50)),
+                                child: Text(
+                                  'Douala',
+                                  style: TextStyle(color: ColorsApp.white),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ) /* ) */),
+                onTap: () => AutoRouter.of(context)
+                    .push(LivraisonDataRoute(livraison: livraison)));
   }
 }
