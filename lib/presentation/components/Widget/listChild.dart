@@ -1,0 +1,39 @@
+// ignore: must_be_immutable
+
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+
+// ignore: must_be_immutable
+class ListWidget extends StatelessWidget {
+  var title, subtitle, icon, onTap;
+
+  ListWidget({this.icon, this.title, this.onTap, this.subtitle});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(0),
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            width: 1,
+          ),
+        ),
+      ),
+      child: ListTile(
+        onTap: onTap,
+        leading: CircleAvatar(
+          backgroundColor: ColorsApp.tird,
+          radius: 25,
+          child: Icon(icon, size: 15, color: Colors.white),
+        ),
+        title: Text(
+          title,
+          style: TextStyle(fontSize: 15),
+        ),
+        subtitle: Container(
+            child: Text(subtitle, style: TextStyle(fontFamily: 'orkney')),
+            margin: EdgeInsets.only(top: 3, bottom: 3)),
+      ),
+    );
+  }
+}

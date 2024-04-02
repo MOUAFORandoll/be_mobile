@@ -1,0 +1,247 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:4969518057203688213",
+      "lastPropertyId": "4:1395444994505962781",
+      "name": "Commande",
+      "properties": [
+        {
+          "id": "1:5127329087435583877",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3733723678809820577",
+          "name": "codeCommande",
+          "type": 9
+        },
+        {
+          "id": "3:3733861273943814581",
+          "name": "codeClient",
+          "type": 9
+        },
+        {
+          "id": "4:1395444994505962781",
+          "name": "date",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:8984566840537087468",
+      "lastPropertyId": "5:3050349477534242606",
+      "name": "KeyUser",
+      "properties": [
+        {
+          "id": "1:6348612253164974944",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3624252355606891287",
+          "name": "keySecret",
+          "type": 9
+        },
+        {
+          "id": "3:8832846444064727260",
+          "name": "token",
+          "type": 9
+        },
+        {
+          "id": "4:34511884449713588",
+          "name": "refreshToken",
+          "type": 9
+        },
+        {
+          "id": "5:3050349477534242606",
+          "name": "userId",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:528970694863214740",
+      "lastPropertyId": "2:7392225789609482597",
+      "name": "Lang",
+      "properties": [
+        {
+          "id": "1:5758480994236200392",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7392225789609482597",
+          "name": "name",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:5589971371954137280",
+      "lastPropertyId": "5:421267395549205444",
+      "name": "Localisation",
+      "properties": [
+        {
+          "id": "1:576028652935433197",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7973789328410402377",
+          "name": "ville",
+          "type": 9
+        },
+        {
+          "id": "3:3296741169851625451",
+          "name": "longitude",
+          "type": 9
+        },
+        {
+          "id": "4:994297135078503455",
+          "name": "latitude",
+          "type": 9
+        },
+        {
+          "id": "5:421267395549205444",
+          "name": "ip",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "5:1113314405807969848",
+      "lastPropertyId": "2:1939509048529786318",
+      "name": "Second",
+      "properties": [
+        {
+          "id": "1:4893917620272064576",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1939509048529786318",
+          "name": "name",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "6:8515091795137785474",
+      "lastPropertyId": "2:5624160313008426624",
+      "name": "Theme",
+      "properties": [
+        {
+          "id": "1:898959819284985380",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5624160313008426624",
+          "name": "value",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "7:3111042122288968254",
+      "lastPropertyId": "10:754203462009673773",
+      "name": "User",
+      "properties": [
+        {
+          "id": "1:1003019444414536860",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:9030123287430456540",
+          "name": "userId",
+          "type": 6
+        },
+        {
+          "id": "3:7194923917911908307",
+          "name": "nom",
+          "type": 9
+        },
+        {
+          "id": "4:1981058460113358940",
+          "name": "prenom",
+          "type": 9
+        },
+        {
+          "id": "5:7104273356431650241",
+          "name": "email",
+          "type": 9
+        },
+        {
+          "id": "6:7884356085899434437",
+          "name": "profile",
+          "type": 9
+        },
+        {
+          "id": "7:6408305374337865876",
+          "name": "phone",
+          "type": 9
+        },
+        {
+          "id": "8:1202883639022673218",
+          "name": "dateCreated",
+          "type": 9
+        },
+        {
+          "id": "9:4427249840446802544",
+          "name": "typeUser",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "8:6314683099039113893",
+      "lastPropertyId": "2:4387494669297644908",
+      "name": "YourDataModel",
+      "properties": [
+        {
+          "id": "1:550131433720045414",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4387494669297644908",
+          "name": "name",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "8:6314683099039113893",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    754203462009673773
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "255400953271",
+    "project_id": "velvety-setup-413020",
+    "storage_bucket": "velvety-setup-413020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255400953271:android:df5f7e600f6dbb52201432",
+        "android_client_info": {
+          "package_name": "com.app.babanaexpress"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU817wUYrQ8MdhLXuKfC6cM1fadXxD8b0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
