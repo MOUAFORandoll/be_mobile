@@ -33,7 +33,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             // final HomeBloc h = BlocProvider.of<HomeBloc>(context);
             // h.add(UserDataEvent());
             print('**----');
-             AutoRouter.of(context).replace(state.route);
+            AutoRouter.of(context).replace(state.route);
           }
         },
         builder: (context, state) {
@@ -41,29 +41,25 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
               backgroundColor: ColorsApp.primary,
               body: Container(
                 alignment: Alignment.center,
-                child:
-                    //new Column(
-                    //     mainAxisAlignment: MainAxisAlignment.center,
-                    //     crossAxisAlignment: CrossAxisAlignment.center,
-                    //     children: <Widget>[
-                    Container(
-                        // margin: EdgeInsets.only(
-                        alignment: Alignment.center,
-                        //     top: getHeight(context) * .45),
-                        child: SvgPicture.asset(
-                          Assets.babana,
-                          color: ColorsApp.white,
-                        )),
-                // Container(
-                //     margin: EdgeInsets.only(
-                //         top: getHeight(context) * .25),
-                //     child: Container(
-                //         height: 30,
-                //         width: 30,
-                //         child: CircularProgressIndicator(
-                //           color: ColorsApp.primary,
-                //         )))
-                // ])
+                child: Container(
+                    alignment: Alignment.center,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          SvgPicture.asset(
+                            Assets.babana,
+                            color: ColorsApp.white,
+                            height: 60,
+                            width: 60,
+                          ),
+                          Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Text('Babana Express',
+                                  style: TextStyle(
+                                      color: ColorsApp.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: kBasics * 2)))
+                        ])),
               ));
         },
       ),

@@ -12,7 +12,7 @@ class ApiRoutes {
   static const VERIFY_CODE = '/auth/verify-code';
   static const REST_PASSWORD = '/auth/new-password';
   static const SIGNUP = '/auth/create-user';
-
+  
   static const UPDATE_USER = '/auth/user-update';
 
   static const Refresh = '/api/token/refresh';
