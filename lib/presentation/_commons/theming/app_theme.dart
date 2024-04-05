@@ -96,7 +96,7 @@ ThemeData lightTheme(context) => ThemeData(
       colorScheme: ColorScheme.fromSwatch(
         primarySwatch: Colors.grey,
         brightness: Brightness.light,
-      ).copyWith(background: ColorsApp.white).copyWith(
+      ).copyWith(background: ColorsApp.bg).copyWith(
             secondary: ColorsApp.black,
           ),
     );

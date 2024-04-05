@@ -14,7 +14,21 @@ class InfoColis extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LivraisonBloc, LivraisonState>(
-        builder: (context, state) => SingleChildScrollView(
+        builder: (context, state) => Container(
+              // width: getWith(context) * .8,
+              decoration: BoxDecoration(
+                  color: ColorsApp.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(8)),
+              margin: EdgeInsets.symmetric(horizontal: kMarginX),
+              padding: EdgeInsets.all(kMarginX * 1.5),
               child: Column(children: [
                 SizedBox(
                     height: state.listColis!.length == 0

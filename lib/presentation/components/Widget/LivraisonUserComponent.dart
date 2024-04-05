@@ -149,13 +149,16 @@ class LivraisonUserComponent extends StatelessWidget {
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w700)),
                                       ),
-                                      // Container(
-                                      //   child: Text('yPrix'.tr(),
-                                      //       overflow: TextOverflow.ellipsis,
-                                      //       style: TextStyle(
-                                      //           color: ColorsApp.black,
-                                      //           fontSize: 9)),
-                                      // ),
+                                      Container(
+                                        child: Text(
+                                            livraison.colis.length.toString() +
+                                                ' ' +
+                                                'colis'.tr(),
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                color: ColorsApp.greyNew,
+                                                fontWeight: FontWeight.w600)),
+                                      ),
                                       Container(
                                         child: Text(
                                             livraison.montant.toString() +

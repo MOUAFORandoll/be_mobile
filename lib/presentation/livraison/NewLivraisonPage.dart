@@ -54,6 +54,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
           }
         },
         builder: (context, state) => Scaffold(
+            backgroundColor: ColorsApp.bg,
             appBar: AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
@@ -71,6 +72,57 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                         horizontal: kMarginX, vertical: kMarginY),
                     child: Column(
                       children: [
+                        Container(
+                          alignment: Alignment.center,
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: kMarginX,
+                                        vertical: kMarginY),
+                                    decoration: BoxDecoration(
+                                        color: state.index == 0
+                                            ? ColorsApp.primary
+                                            : ColorsApp.white,
+                                        borderRadius:
+                                            BorderRadius.circular(50)),
+                                    height: 30,
+                                    width: 30,
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      '1',
+                                      style: TextStyle(
+                                        color: state.index == 0
+                                            ? ColorsApp.white
+                                            : ColorsApp.primary,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )),
+                                Container(
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: kMarginX,
+                                        vertical: kMarginY),
+                                    decoration: BoxDecoration(
+                                        color: state.index == 0
+                                            ? ColorsApp.white
+                                            : ColorsApp.primary,
+                                        borderRadius:
+                                            BorderRadius.circular(50)),
+                                    height: 30,
+                                    width: 30,
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      '2',
+                                      style: TextStyle(
+                                        color: state.index == 1
+                                            ? ColorsApp.white
+                                            : ColorsApp.primary,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ))
+                              ]),
+                        ),
                         Expanded(
                           child:
                               state.index == 0 ? InfoLIvraison() : InfoColis(),
@@ -78,24 +130,9 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                         Container(
                             margin: EdgeInsets.symmetric(
                               vertical: kMarginY * 1.5,
-                              horizontal: kMarginX / 2,
                             ),
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  AppButton(
-                                      size: MainAxisSize.max,
-                                      bgColor: state.index == 0
-                                          ? ColorsApp.grey
-                                          : ColorsApp.primary,
-                                      text: 'yback'.tr(),
-                                      onTap: () {
-                                        context
-                                            .read<LivraisonBloc>()
-                                            .add(BackIndexEvent());
-                                      }),
-                                  AppButton(
+                            child: state.index == 0
+                                ? AppButton(
                                     size: MainAxisSize.max,
                                     bgColor: (state.index == 0)
                                         ? !(state.selectedVIlle != null &&
@@ -112,9 +149,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                         : (state.listColis!.length == 0)
                                             ? ColorsApp.grey
                                             : ColorsApp.primary,
-                                    text: state.index == 0
-                                        ? 'ynext'.tr()
-                                        : 'yeval'.tr(),
+                                    text: 'ynext'.tr(),
                                     onTap: () {
                                       if (state.index == 0) {
                                         if ((state.selectedVIlle != null &&
@@ -130,16 +165,53 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                               .add(VerifyFormLivraisonEvent());
                                         }
                                       }
-                                      if (state.index == 1) {
-                                        if (state.listColis!.length != 0) {
-                                          context
-                                              .read<LivraisonBloc>()
-                                              .add(CalculFrais());
-                                        }
-                                      }
                                     },
-                                  ),
-                                ])),
+                                  )
+                                : Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                        AppButton(
+                                            size: MainAxisSize.max,
+                                            bgColor: state.index == 0
+                                                ? ColorsApp.grey
+                                                : ColorsApp.primary,
+                                            text: 'yback'.tr(),
+                                            onTap: () {
+                                              context
+                                                  .read<LivraisonBloc>()
+                                                  .add(BackIndexEvent());
+                                            }),
+                                        AppButton(
+                                          size: MainAxisSize.max,
+                                          bgColor: (state.index == 0)
+                                              ? !(state.selectedVIlle != null &&
+                                                      state.selected_recuperation_point !=
+                                                          null &&
+                                                      state.contactEmetteur!
+                                                              .text.length !=
+                                                          0 &&
+                                                      state.description!.text
+                                                              .length !=
+                                                          0)
+                                                  ? ColorsApp.grey
+                                                  : ColorsApp.primary
+                                              : (state.listColis!.length == 0)
+                                                  ? ColorsApp.grey
+                                                  : ColorsApp.primary,
+                                          text: 'yeval'.tr(),
+                                          onTap: () {
+                                            if (state.index == 1) {
+                                              if (state.listColis!.length !=
+                                                  0) {
+                                                context
+                                                    .read<LivraisonBloc>()
+                                                    .add(CalculFrais());
+                                              }
+                                            }
+                                          },
+                                        ),
+                                      ])),
                       ],
                     )))));
   }
