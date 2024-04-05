@@ -61,6 +61,7 @@ class _NewLivraisonMedicamentPageState
               leading: AppBackButton(),
               centerTitle: true,
             ),
+            backgroundColor: ColorsApp.bg,
             body: Container(
                 height: getHeight(context),
                 margin: EdgeInsets.symmetric(

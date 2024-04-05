@@ -20,6 +20,12 @@ class LivraisonEvent with _$LivraisonEvent {
     required PointLivraisonModel point_recup,
   }) = SelectPointRecuperation;
 
+  const factory LivraisonEvent.clearPointRecuperation() =
+      ClearPointRecuperation;
+
+  const factory LivraisonEvent.clearPoinLivraison() =
+      ClearPointLivraison;
+
   const factory LivraisonEvent.Start(
       {required LatLng latLng,
       String? quartier_recuperation_point}) = SetLogLat;

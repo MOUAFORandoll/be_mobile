@@ -75,6 +75,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     });
     on<SetLogLat>(_setLongLat);
     on<SelectPointRecuperation>(_selectPointRecuperation);
+    on<ClearPointRecuperation>(clearPointRecuperation);
     on<MapValidatePoint>(_mapValidatePoint);
     on<MapValidatePointLivraison>(_mapValidatePointLivraison);
     on<MapSelected>(_mapSelected);
@@ -95,12 +96,29 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<SelectedCategory>(_selectCategory);
     on<SelectColis>(_selectColis);
     on<SelectPointLivraisonColis>(_selectPointLivraison);
+    on<ClearPointLivraison>(clearPointLivraison);
+
     on<ManageQte>(_mamageQte);
     on<CalculFrais>(_calculFraisDeLivraison);
 
     on<NewLivraison>(_newLivraison);
     on<HistoriqueUserLivraison>(_getLivraisonUser);
     on<DownloadFacture>(_downloadFacture);
+  }
+
+  Future<void> clearPointLivraison(
+      ClearPointLivraison event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(
+      selected_livraison_point: null,
+      isMapSelectedPointLivraison: false,
+    ));
+  }
+  Future<void> clearPointRecuperation(
+      ClearPointRecuperation event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(
+      selected_recuperation_point: null,
+      isMapSelectedPointRecuperation: false,
+    ));
   }
 
   Future<void> _selectPointRecuperation(

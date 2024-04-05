@@ -25,6 +25,8 @@ mixin _$LivraisonEvent {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -66,6 +68,8 @@ mixin _$LivraisonEvent {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -106,6 +110,8 @@ mixin _$LivraisonEvent {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -148,6 +154,9 @@ mixin _$LivraisonEvent {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -189,6 +198,8 @@ mixin _$LivraisonEvent {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -227,6 +238,8 @@ mixin _$LivraisonEvent {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -326,6 +339,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -370,6 +385,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -413,6 +430,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -461,6 +480,9 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -505,6 +527,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -546,6 +570,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -632,6 +658,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -676,6 +704,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -719,6 +749,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -767,6 +799,9 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -811,6 +846,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -852,6 +889,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -941,6 +980,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -985,6 +1026,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -1028,6 +1071,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -1076,6 +1121,9 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -1120,6 +1168,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -1161,6 +1211,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -1273,6 +1325,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -1317,6 +1371,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -1360,6 +1416,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -1408,6 +1466,9 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -1452,6 +1513,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -1493,6 +1556,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -1613,6 +1678,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -1657,6 +1724,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -1700,6 +1769,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -1748,6 +1819,9 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -1792,6 +1866,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -1833,6 +1909,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -1955,6 +2033,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -1999,6 +2079,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -2042,6 +2124,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -2090,6 +2174,9 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -2134,6 +2221,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -2175,6 +2264,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -2221,6 +2312,648 @@ abstract class SelectPointRecuperation implements LivraisonEvent {
   @JsonKey(ignore: true)
   _$$SelectPointRecuperationImplCopyWith<_$SelectPointRecuperationImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClearPointRecuperationImplCopyWith<$Res> {
+  factory _$$ClearPointRecuperationImplCopyWith(
+          _$ClearPointRecuperationImpl value,
+          $Res Function(_$ClearPointRecuperationImpl) then) =
+      __$$ClearPointRecuperationImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearPointRecuperationImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$ClearPointRecuperationImpl>
+    implements _$$ClearPointRecuperationImplCopyWith<$Res> {
+  __$$ClearPointRecuperationImplCopyWithImpl(
+      _$ClearPointRecuperationImpl _value,
+      $Res Function(_$ClearPointRecuperationImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
+  const _$ClearPointRecuperationImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.clearPointRecuperation()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClearPointRecuperationImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEvent,
+  }) {
+    return clearPointRecuperation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEvent,
+  }) {
+    return clearPointRecuperation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEvent,
+    required TResult orElse(),
+  }) {
+    if (clearPointRecuperation != null) {
+      return clearPointRecuperation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(HistoriqueUserLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
+    required TResult Function(OnStartEvent value) onStartEvent,
+  }) {
+    return clearPointRecuperation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
+    TResult? Function(OnStartEvent value)? onStartEvent,
+  }) {
+    return clearPointRecuperation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
+    TResult Function(OnStartEvent value)? onStartEvent,
+    required TResult orElse(),
+  }) {
+    if (clearPointRecuperation != null) {
+      return clearPointRecuperation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearPointRecuperation implements LivraisonEvent {
+  const factory ClearPointRecuperation() = _$ClearPointRecuperationImpl;
+}
+
+/// @nodoc
+abstract class _$$ClearPointLivraisonImplCopyWith<$Res> {
+  factory _$$ClearPointLivraisonImplCopyWith(_$ClearPointLivraisonImpl value,
+          $Res Function(_$ClearPointLivraisonImpl) then) =
+      __$$ClearPointLivraisonImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearPointLivraisonImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$ClearPointLivraisonImpl>
+    implements _$$ClearPointLivraisonImplCopyWith<$Res> {
+  __$$ClearPointLivraisonImplCopyWithImpl(_$ClearPointLivraisonImpl _value,
+      $Res Function(_$ClearPointLivraisonImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ClearPointLivraisonImpl implements ClearPointLivraison {
+  const _$ClearPointLivraisonImpl();
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.clearPoinLivraison()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClearPointLivraisonImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEvent,
+  }) {
+    return clearPoinLivraison();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEvent,
+  }) {
+    return clearPoinLivraison?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEvent,
+    required TResult orElse(),
+  }) {
+    if (clearPoinLivraison != null) {
+      return clearPoinLivraison();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(HistoriqueUserLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
+    required TResult Function(OnStartEvent value) onStartEvent,
+  }) {
+    return clearPoinLivraison(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
+    TResult? Function(OnStartEvent value)? onStartEvent,
+  }) {
+    return clearPoinLivraison?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
+    TResult Function(OnStartEvent value)? onStartEvent,
+    required TResult orElse(),
+  }) {
+    if (clearPoinLivraison != null) {
+      return clearPoinLivraison(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearPointLivraison implements LivraisonEvent {
+  const factory ClearPointLivraison() = _$ClearPointLivraisonImpl;
 }
 
 /// @nodoc
@@ -2307,6 +3040,8 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -2351,6 +3086,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -2394,6 +3131,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -2442,6 +3181,9 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -2486,6 +3228,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -2527,6 +3271,8 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -2621,6 +3367,8 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -2665,6 +3413,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -2708,6 +3458,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -2756,6 +3508,9 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -2800,6 +3555,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -2841,6 +3598,8 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -2954,6 +3713,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -2998,6 +3759,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -3041,6 +3804,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -3089,6 +3854,9 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -3133,6 +3901,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -3174,6 +3944,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -3293,6 +4065,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -3337,6 +4111,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -3380,6 +4156,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -3428,6 +4206,9 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -3472,6 +4253,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -3513,6 +4296,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -3631,6 +4416,8 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -3675,6 +4462,8 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -3718,6 +4507,8 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -3766,6 +4557,9 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -3810,6 +4604,8 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -3851,6 +4647,8 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -3978,6 +4776,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -4022,6 +4822,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -4065,6 +4867,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -4113,6 +4917,9 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -4157,6 +4964,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -4198,6 +5007,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -4331,6 +5142,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -4375,6 +5188,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -4418,6 +5233,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -4466,6 +5283,9 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -4510,6 +5330,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -4551,6 +5373,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -4645,6 +5469,8 @@ class _$AddColisImpl implements AddColis {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -4689,6 +5515,8 @@ class _$AddColisImpl implements AddColis {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -4732,6 +5560,8 @@ class _$AddColisImpl implements AddColis {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -4780,6 +5610,9 @@ class _$AddColisImpl implements AddColis {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -4824,6 +5657,8 @@ class _$AddColisImpl implements AddColis {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -4865,6 +5700,8 @@ class _$AddColisImpl implements AddColis {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -4977,6 +5814,8 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -5021,6 +5860,8 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -5064,6 +5905,8 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -5112,6 +5955,9 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -5156,6 +6002,8 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -5197,6 +6045,8 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -5314,6 +6164,8 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -5358,6 +6210,8 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -5401,6 +6255,8 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -5449,6 +6305,9 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -5493,6 +6352,8 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -5534,6 +6395,8 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -5627,6 +6490,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -5671,6 +6536,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -5714,6 +6581,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -5762,6 +6631,9 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -5806,6 +6678,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -5847,6 +6721,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -5934,6 +6810,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -5978,6 +6856,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -6021,6 +6901,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -6069,6 +6951,9 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -6113,6 +6998,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -6154,6 +7041,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -6268,6 +7157,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -6312,6 +7203,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -6355,6 +7248,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -6403,6 +7298,9 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -6447,6 +7345,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -6488,6 +7388,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -6608,6 +7510,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -6652,6 +7556,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -6695,6 +7601,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -6743,6 +7651,9 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -6787,6 +7698,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -6828,6 +7741,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -6950,6 +7865,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -6994,6 +7911,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -7037,6 +7956,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -7085,6 +8006,9 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -7129,6 +8053,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -7170,6 +8096,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -7266,6 +8194,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -7310,6 +8240,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -7353,6 +8285,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -7401,6 +8335,9 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -7445,6 +8382,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -7486,6 +8425,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -7610,6 +8551,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -7654,6 +8597,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -7697,6 +8642,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -7745,6 +8692,9 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -7789,6 +8739,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -7830,6 +8782,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -7972,6 +8926,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -8016,6 +8972,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -8059,6 +9017,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -8107,6 +9067,9 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -8151,6 +9114,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -8192,6 +9157,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -8314,6 +9281,8 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -8358,6 +9327,8 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -8401,6 +9372,8 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -8449,6 +9422,9 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -8493,6 +9469,8 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -8534,6 +9512,8 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -8651,6 +9631,8 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -8695,6 +9677,8 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -8738,6 +9722,8 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -8786,6 +9772,9 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -8830,6 +9819,8 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -8871,6 +9862,8 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -8962,6 +9955,8 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -9006,6 +10001,8 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -9049,6 +10046,8 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -9097,6 +10096,9 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -9141,6 +10143,8 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -9182,6 +10186,8 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -9268,6 +10274,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -9312,6 +10320,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -9355,6 +10365,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -9403,6 +10415,9 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -9447,6 +10462,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -9488,6 +10505,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -9577,6 +10596,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -9621,6 +10642,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -9664,6 +10687,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -9712,6 +10737,9 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -9756,6 +10784,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -9797,6 +10827,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -9883,6 +10915,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -9927,6 +10961,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -9970,6 +11006,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -10018,6 +11056,9 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -10062,6 +11103,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -10103,6 +11146,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -10189,6 +11234,8 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -10233,6 +11280,8 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -10276,6 +11325,8 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -10324,6 +11375,9 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -10368,6 +11422,8 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -10409,6 +11465,8 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,
@@ -10495,6 +11553,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function(CategoryModel categoryColis) selectedCategory,
     required TResult Function(PointLivraisonModel point_recup)
         selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
     required TResult Function(
             LatLng latLng, String? quartier_recuperation_point)
         Start,
@@ -10539,6 +11599,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function(VilleModel ville)? selectedVille,
     TResult? Function(CategoryModel categoryColis)? selectedCategory,
     TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
     TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
         Start,
     TResult? Function()? setStartLogLat,
@@ -10582,6 +11644,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function(VilleModel ville)? selectedVille,
     TResult Function(CategoryModel categoryColis)? selectedCategory,
     TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
     TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
     TResult Function()? setStartLogLat,
     TResult Function(int ville)? getRecupPoint,
@@ -10630,6 +11694,9 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function(SelectedCategory value) selectedCategory,
     required TResult Function(SelectPointRecuperation value)
         selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
     required TResult Function(SetLogLat value) Start,
     required TResult Function(StartLogLat value) setStartLogLat,
     required TResult Function(GetRecupPointEvent value) getRecupPoint,
@@ -10674,6 +11741,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function(SelectedVille value)? selectedVille,
     TResult? Function(SelectedCategory value)? selectedCategory,
     TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult? Function(SetLogLat value)? Start,
     TResult? Function(StartLogLat value)? setStartLogLat,
     TResult? Function(GetRecupPointEvent value)? getRecupPoint,
@@ -10715,6 +11784,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function(SelectedVille value)? selectedVille,
     TResult Function(SelectedCategory value)? selectedCategory,
     TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
     TResult Function(SetLogLat value)? Start,
     TResult Function(StartLogLat value)? setStartLogLat,
     TResult Function(GetRecupPointEvent value)? getRecupPoint,

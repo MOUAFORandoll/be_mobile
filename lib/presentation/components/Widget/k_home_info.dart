@@ -15,7 +15,7 @@ class KHomeInfo extends StatelessWidget {
         BlocBuilder<UserBloc, UserState>(
             builder: (context, state) => state.isVilleQuartier == 0
                 ? Shimmer.fromColors(
-                    baseColor: ColorsApp.grey,
+                    baseColor: ColorsApp.greyNew,
                     highlightColor: ColorsApp.primary,
                     child: Container(
                       child: Row(children: [
@@ -82,7 +82,7 @@ class KHomeInfo extends StatelessWidget {
                         child: Row(
                           children: [
                             Container(
-                                child: Text('Error',
+                                child: Text('Retry',
                                     style: TextStyle(
                                       fontWeight: FontWeight.w800,
                                       color: ColorsApp.red,

@@ -202,16 +202,16 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                   .routeName) /* openModalLivraison(context) */,
                         ))
                     : state.index == 1
-                        ?Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: kMarginY, horizontal: kMarginX),
-                        child: HomeModuleComponent(
-                            title: 'ht2'.tr(),
-                            titleBtn: 'pharmacie'.tr(),
-                            image: Assets.medical,
-                            onTap: () => AutoRouter.of(context).pushNamed(
-                                NewLivraisonMedicamentPage.routeName),
-                          ))
+                        ? Container(
+                            padding: EdgeInsets.symmetric(
+                                vertical: kMarginY, horizontal: kMarginX),
+                            child: HomeModuleComponent(
+                              title: 'ht2'.tr(),
+                              titleBtn: 'pharmacie'.tr(),
+                              image: Assets.medical,
+                              onTap: () => AutoRouter.of(context).pushNamed(
+                                  NewLivraisonMedicamentPage.routeName),
+                            ))
                         : null,
               ),
               SliverList(

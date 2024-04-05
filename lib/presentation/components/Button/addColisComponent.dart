@@ -12,44 +12,66 @@ class AddColisComponent extends StatelessWidget {
     return InkWell(
         onTap: onTap,
         child: Container(
-            width: getWith(context) / 2.35,
-            alignment: Alignment.center,
-            margin: EdgeInsets.all(10),
-            decoration: new BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: ColorsApp.grey)),
-            child: Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: kMarginY),
-                  height: getHeight(context) * .10,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(Assets.login), fit: BoxFit.contain),
-                  ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: ColorsApp.primary.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 5,
+                  offset: Offset(0, 2), // changes position of shadow
                 ),
-                /*      Center(
-                  child: Icon(icon, color: color),
-                ), */
-                Container(
-                    decoration: new BoxDecoration(
-                      borderRadius:
-                          BorderRadius.vertical(bottom: Radius.circular(10)),
-                      border: Border(top: BorderSide(color: ColorsApp.grey)),
-                      color: ColorsApp.primary,
-                    ),
-                    width: getWith(context),
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    child: Text(
-                      title,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: ColorsApp.white,
-                          fontWeight: FontWeight.w700),
-                    )),
               ],
-            )));
+            ),
+            child: Stack(children: [
+              InkWell(
+                  child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            // margin: EdgeInsets.only(right: 5),
+                            width: getWith(context) / 2.2,
+                            height: getHeight(context) / 6.8,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10)),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(Assets.login),
+                                      fit: BoxFit.contain),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                              decoration: new BoxDecoration(
+                                borderRadius: BorderRadius.vertical(
+                                    bottom: Radius.circular(10)),
+                                border: Border(
+                                    top: BorderSide(color: ColorsApp.grey)),
+                                color: ColorsApp.primary,
+                              ),
+                              width: getWith(context),
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(vertical: 20),
+                              margin: EdgeInsets.only(top: kMarginY),
+                              child: Text(
+                                title,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: ColorsApp.white,
+                                    fontWeight: FontWeight.w700),
+                              )),
+                        ],
+                      )))
+            ])));
   }
 }

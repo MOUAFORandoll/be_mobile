@@ -1,8 +1,12 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/presentation/components/Widget/ShimmerBox.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 
 import 'dart:async';
+
+import 'package:cached_network_image/cached_network_image.dart';
 
 @RoutePage()
 class MapPagePointRecuperation extends StatefulWidget {
@@ -20,6 +24,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
   TextEditingController libelleLocalisation = TextEditingController();
   TextEditingController quartier = TextEditingController();
 
+  var loadPlaceInfo = true;
   var latitude = 0.0;
   var longitude = 0.0;
   var _kLake;
@@ -38,7 +43,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
         markerId: MarkerId('1'),
         draggable: true,
         infoWindow: InfoWindow(
-          title: 'Ici',
+          title: 'Vous etes ici',
         ),
         onTap: () {},
         position: LatLng(latitude, longitude));
@@ -86,7 +91,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
             markerId: MarkerId('1'),
             draggable: true,
             infoWindow: InfoWindow(
-              title: 'Ici',
+              title: 'Vous etes ici',
             ),
             onTap: () {},
             position: LatLng(value.latitude, value.longitude));
@@ -221,7 +226,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
   Widget build(BuildContext context) {
     return BlocBuilder<LivraisonBloc, LivraisonState>(
       builder: (context, state) => Container(
-        height: getHeight(context) * .865,
+        height: getHeight(context) * .863,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: ColorsApp.white,
@@ -269,7 +274,9 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                               BitmapDescriptor.hueCyan),
                           markerId: MarkerId('1'),
                           draggable: true,
-                          infoWindow: InfoWindow(title: 'Ici'),
+                          infoWindow: InfoWindow(
+                            title: 'Vous etes ici',
+                          ),
                           onTap: () {},
                           position: LatLng(state.position!.latitude,
                               state.position!.longitude),
@@ -297,7 +304,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             markerId: MarkerId('1'),
                             draggable: true,
                             infoWindow: InfoWindow(
-                              title: 'Ici',
+                              title: 'Vous etes ici',
                             ),
                             onTap: () {},
                             position: LatLng(value.latitude, value.longitude));
@@ -515,13 +522,115 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
               bottom: 10,
               left: 10,
               right: 10,
-              child: AppButton(
-                size: MainAxisSize.max,
-                bgColor: ColorsApp.primary,
-                text: 'yvalid'.tr(),
-                onTap: () async {
-                  validatePoint();
-                },
+              child: Column(
+                children: [
+                  Container(
+                    // height: getHeight(context) * .15,
+                    padding: EdgeInsets.symmetric(vertical: kMarginY * 1.2),
+                    margin: EdgeInsets.symmetric(
+                        horizontal: kMarginX, vertical: kMarginY / 2),
+                    decoration: BoxDecoration(
+                        color: ColorsApp.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: ColorsApp.primary.withOpacity(0.1),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(8)),
+                    child: !loadPlaceInfo
+                        ? Container(
+                            height: getHeight(context) / 10,
+                            child: Center(
+                                child: CircularProgressIndicator(
+                              color: ColorsApp.primary,
+                            )))
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                                Container(
+                                    margin: EdgeInsets.symmetric(
+                                      horizontal: kMarginX,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                    child: CachedNetworkImage(
+                                      height: getHeight(context) / 10,
+                                      width: getHeight(context) / 10,
+                                      fit: BoxFit.cover,
+                                      imageUrl:
+                                          "livraison.colis[0].images[0].src",
+                                      imageBuilder: (context, imageProvider) {
+                                        return Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(50),
+                                            image: DecorationImage(
+                                                image: imageProvider,
+                                                fit: BoxFit.cover,
+                                                colorFilter: ColorFilter.mode(
+                                                    Colors.transparent,
+                                                    BlendMode.colorBurn)),
+                                          ),
+                                        );
+                                      },
+                                      placeholder: (context, url) {
+                                        return ShimmerBox();
+                                      },
+                                      errorWidget: (context, url, error) {
+                                        return CircleAvatar(
+                                          radius: 30,
+                                          child: Image.asset(
+                                            Assets.login,
+                                            fit: BoxFit.fill,
+                                          ),
+                                        );
+                                      },
+                                    )),
+                                Container(
+                                    child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: getWith(context) * .53,
+                                      child: Text(
+                                          "Titre du lieux ou titre d'un lieuc proche",
+                                          maxLines: 2,
+                                          // overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: ColorsApp.primary,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w700)),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.symmetric(
+                                          vertical: kMarginY),
+                                      width: getWith(context) * .53,
+                                      child: Text('Ville de douala',
+                                          maxLines: 2,
+                                          // overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w700)),
+                                    ),
+                                  ],
+                                )),
+                              ]),
+                  ),
+                  AppButton(
+                    size: MainAxisSize.max,
+                    bgColor: ColorsApp.primary,
+                    text: 'yvalid'.tr(),
+                    onTap: () async {
+                      validatePoint();
+                    },
+                  ),
+                ],
               ),
             ),
           ],

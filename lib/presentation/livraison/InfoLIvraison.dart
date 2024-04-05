@@ -24,8 +24,14 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
               color: ColorsApp.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.1),
-                  spreadRadius: 2,
+                  color: ColorsApp.primary.withOpacity(0.1),
+                  spreadRadius: 5,
+                  blurRadius: 5,
+                  offset: Offset(0, 2),
+                ),
+                BoxShadow(
+                  color: ColorsApp.greyNew.withOpacity(0.1),
+                  spreadRadius: 5,
                   blurRadius: 5,
                   offset: Offset(0, 2),
                 ),
@@ -70,7 +76,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                 width: 1),
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          height: getHeight(context) * .08,
+                          height: getHeight(context) * .06,
                           width: getWith(context),
                           alignment: Alignment.center,
                           child: state.villeList!.isEmpty
@@ -142,6 +148,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                           fontFamily: 'Lato',
                           color: ColorsApp.red),
                     )),
+
               state.isLoadedPLivraison == 0
                   ? Container(
                       padding: EdgeInsets.symmetric(
@@ -152,161 +159,244 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                           CircularProgressIndicator(color: ColorsApp.primary))
                   : state.isLoadedPLivraison == 2
                       ? Text('Error')
-                      : Container(
-                          padding: EdgeInsets.only(
-                            top: kMarginY,
-                          ),
-                          alignment: Alignment.centerLeft,
-                          child: Text('yrecup'.tr())),
-              // if (state.isLoadedPLivraison == 1 &&
-              //     state.list_localisation_point != null&&
-              //     state.list_localisation_point!.length !=0)
-              Container(
-                  margin: EdgeInsets.only(),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      (!state.isMapSelectedPointRecuperation)
-                          ? Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: (state.errorPointRecuperation!)
-                                        ? ColorsApp.red
-                                        : ColorsApp.grey,
-                                    width: 1),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              height: getHeight(context) * .08,
-                              width: getWith(context) * .65,
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 7,
-                              ),
-                              alignment: Alignment.center,
-                              child: DropdownButton<PointLivraisonModel>(
-                                isExpanded: true,
-                                value: state.selected_recuperation_point,
-                                hint: Container(
-                                  width: getWith(context) * .65,
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 7,
-                                  ),
-                                  child: Text(
-                                    'yselectrecupp'.tr(),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 12,
-                                        color: ColorsApp.grey,
-                                        fontFamily: 'Lato',
-                                        overflow: TextOverflow.ellipsis),
-                                  ),
-                                ),
-                                icon: Container(
-                                  // padding: EdgeInsets.only(top: 4),
-                                  child: Icon(
-                                    Icons.keyboard_arrow_down_outlined,
-                                  ),
-                                ),
-                                iconSize: 25,
-                                underline: SizedBox(),
-                                style: TextStyle(
-                                    color: ColorsApp.black, fontSize: 12),
-                                onChanged: (PointLivraisonModel? newValue) {
-                                  context.read<LivraisonBloc>().add(
-                                      SelectPointRecuperation(
-                                          point_recup: newValue!));
-                                },
-                                items: state.list_localisation_point!
-                                    .map((PointLivraisonModel value) {
-                                  return DropdownMenuItem(
-                                    value: value,
-                                    child: Center(
-                                      child: Text(
-                                        value.libelle,
-                                      ),
+                      : state.isLoadedPLivraison == null
+                          ? Container()
+                          : Column(
+                              children: [
+                                Container(
+                                    padding: EdgeInsets.only(
+                                      top: kMarginY,
                                     ),
-                                  );
-                                }).toList(),
-                              ),
-                            )
-                          : Container(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: kMarginY, horizontal: kMarginX),
-                              height: getHeight(context) * .06,
-                              alignment: Alignment.center,
-                              width: getWith(context) * .65,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  color: ColorsApp.grey),
-                              child: Text(
-                                  state.selected_recuperation_point!.libelle)),
-                      InkWell(
-                          child: Container(
-                              padding: EdgeInsets.all(10),
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(90),
-                                  color: ColorsApp.grey),
-                              child: Icon(Icons.location_on)),
-                          onTap: () {
-                            showModalBottomSheet(
-                                context: context,
-                                isScrollControlled: true,
-                                isDismissible: true,
-                                enableDrag: false,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(30.0),
-                                    topRight: Radius.circular(30.0),
-                                  ),
-                                ),
-                                builder: (BuildContext context) => Container(
-                                    height: getHeight(context) * .9,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
-                                      ),
-                                      // color: ColorsApp.white,
-                                    ),
-                                    margin: EdgeInsets.only(top: kMarginY * 2),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              SizedBox(),
-                                              Container(
-                                                child: Text(
-                                                  'Selectionner un point de recuperation'
-                                                      .tr(),
-                                                  style: TextStyle(
-                                                      fontSize: 12,
-                                                      fontFamily: 'Lato',
-                                                      color: ColorsApp.primary),
+                                    alignment: Alignment.centerLeft,
+                                    child: Text('yrecup'.tr())),
+                                Container(
+                                    margin: EdgeInsets.only(),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        (!state.isMapSelectedPointRecuperation)
+                                            ? Container(
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: (state
+                                                              .errorPointRecuperation!)
+                                                          ? ColorsApp.red
+                                                          : ColorsApp.greyNew,
+                                                      width: 1),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
                                                 ),
-                                              ),
-                                              InkWell(
-                                                  child: Container(
-                                                      margin: EdgeInsets.only(
-                                                          right: kMarginX * 2),
-                                                      child: Icon(Icons.close,
-                                                          size: 25)),
-                                                  onTap: () =>
-                                                      AutoRouter.of(context)
-                                                          .pop())
-                                            ],
-                                          ),
-                                          MapPagePointRecuperation()
-                                        ])));
-                          }),
-                    ],
-                  )),
+                                                height:
+                                                    getHeight(context) * .06,
+                                                width: getWith(context) * .65,
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: 7,
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: DropdownButton<
+                                                    PointLivraisonModel>(
+                                                  isExpanded: true,
+                                                  value: state
+                                                      .selected_recuperation_point,
+                                                  hint: Container(
+                                                    width:
+                                                        getWith(context) * .65,
+                                                    alignment: Alignment.center,
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                      horizontal: 7,
+                                                    ),
+                                                    child: Text(
+                                                      'yselectrecupp'.tr(),
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 12,
+                                                          color: ColorsApp.grey,
+                                                          fontFamily: 'Lato',
+                                                          overflow: TextOverflow
+                                                              .ellipsis),
+                                                    ),
+                                                  ),
+                                                  icon: Container(
+                                                    // padding: EdgeInsets.only(top: 4),
+                                                    child: Icon(
+                                                      Icons
+                                                          .keyboard_arrow_down_outlined,
+                                                    ),
+                                                  ),
+                                                  iconSize: 25,
+                                                  underline: SizedBox(),
+                                                  style: TextStyle(
+                                                      color: ColorsApp.black,
+                                                      fontSize: 12),
+                                                  onChanged:
+                                                      (PointLivraisonModel?
+                                                          newValue) {
+                                                    context
+                                                        .read<LivraisonBloc>()
+                                                        .add(
+                                                            SelectPointRecuperation(
+                                                                point_recup:
+                                                                    newValue!));
+                                                  },
+                                                  items: state
+                                                      .list_localisation_point!
+                                                      .map((PointLivraisonModel
+                                                          value) {
+                                                    return DropdownMenuItem(
+                                                      value: value,
+                                                      child: Center(
+                                                        child: Text(
+                                                          value.libelle,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }).toList(),
+                                                ),
+                                              )
+                                            : Container(
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: kMarginY,
+                                                    horizontal: kMarginX),
+                                                height:
+                                                    getHeight(context) * .06,
+                                                alignment: Alignment.center,
+                                                width: getWith(context) * .65,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5),
+                                                    color: ColorsApp.greyNew),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    InkWell(
+                                                      onTap: () => context
+                                                          .read<LivraisonBloc>()
+                                                          .add(
+                                                              ClearPointRecuperation()),
+                                                      child: Container(
+                                                        child: Icon(
+                                                          Icons
+                                                              .keyboard_arrow_down_outlined,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      margin:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal:
+                                                                  kMarginX),
+                                                      child: Text(state
+                                                          .selected_recuperation_point!
+                                                          .libelle),
+                                                    ),
+                                                    Container()
+                                                  ],
+                                                )),
+                                        InkWell(
+                                            child: Container(
+                                                height:
+                                                    getHeight(context) * .06,
+                                                width: getHeight(context) * .06,
+
+                                                // padding: EdgeInsets.all(20),
+                                                alignment: Alignment.center,
+                                                decoration: BoxDecoration(
+                                                    color: ColorsApp.primary,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8)),
+                                                child: Icon(
+                                                  Icons.location_on,
+                                                  color: ColorsApp.white,
+                                                )),
+                                            onTap: () {
+                                              showModalBottomSheet(
+                                                  context: context,
+                                                  isScrollControlled: true,
+                                                  isDismissible: true,
+                                                  enableDrag: false,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(30.0),
+                                                      topRight:
+                                                          Radius.circular(30.0),
+                                                    ),
+                                                  ),
+                                                  builder: (BuildContext
+                                                          context) =>
+                                                      Container(
+                                                          height: getHeight(
+                                                                  context) *
+                                                              .9,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .only(
+                                                              topLeft: Radius
+                                                                  .circular(10),
+                                                              topRight: Radius
+                                                                  .circular(10),
+                                                            ),
+                                                            // color: ColorsApp.white,
+                                                          ),
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  top:
+                                                                      kMarginY *
+                                                                          2),
+                                                          child: Column(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Container(
+                                                                  margin: EdgeInsets
+                                                                      .only(
+                                                                          bottom:
+                                                                              kMarginY),
+                                                                  child: Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(),
+                                                                      Container(
+                                                                        child:
+                                                                            Text(
+                                                                          'Selectionner un point de recuperation'
+                                                                              .tr(),
+                                                                          style: TextStyle(
+                                                                              fontFamily: 'Lato',
+                                                                              color: ColorsApp.primary),
+                                                                        ),
+                                                                      ),
+                                                                      InkWell(
+                                                                          child: Container(
+                                                                              margin: EdgeInsets.only(right: kMarginX * 2),
+                                                                              child: Icon(Icons.close, size: 25)),
+                                                                          onTap: () => AutoRouter.of(context).pop())
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                MapPagePointRecuperation()
+                                                              ])));
+                                            }),
+                                      ],
+                                    )),
+                              ],
+                            ),
               if (state.errorPointRecuperation!)
                 Container(
                     padding: EdgeInsets.only(

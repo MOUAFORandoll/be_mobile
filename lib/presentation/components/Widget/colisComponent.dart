@@ -25,7 +25,7 @@ class ColisComponent extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
+              color: ColorsApp.primary.withOpacity(0.5),
               spreadRadius: 2,
               blurRadius: 5,
               offset: Offset(0, 2), // changes position of shadow
@@ -76,7 +76,7 @@ class ColisComponent extends StatelessWidget {
                   print('*------------------${colis.id}---------');
                   context.read<LivraisonBloc>().add(SelectColis(colis: colis));
 
-                  showModalBottomSheet(
+                  /*    showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) => BlocBuilder<
                             LivraisonBloc, LivraisonState>(
@@ -412,10 +412,11 @@ class ColisComponent extends StatelessWidget {
                     ), // Customize the shape of the bottom sheet
                     backgroundColor: Colors.transparent,
                   );
+               */
                 }),
             Positioned(
-              left: getWith(context) / 2.5,
-              top: 0,
+              left: getWith(context) / 3,
+              // top: 10,
               child: InkWell(
                 child: Container(
                   decoration: BoxDecoration(

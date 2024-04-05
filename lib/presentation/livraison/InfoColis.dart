@@ -20,8 +20,14 @@ class InfoColis extends StatelessWidget {
                   color: ColorsApp.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
-                      spreadRadius: 2,
+                      color: ColorsApp.primary.withOpacity(0.1),
+                      spreadRadius: 5,
+                      blurRadius: 5,
+                      offset: Offset(0, 2),
+                    ),
+                    BoxShadow(
+                      color: ColorsApp.greyNew.withOpacity(0.1),
+                      spreadRadius: 5,
                       blurRadius: 5,
                       offset: Offset(0, 2),
                     ),
@@ -30,35 +36,31 @@ class InfoColis extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: kMarginX),
               padding: EdgeInsets.all(kMarginX * 1.5),
               child: Column(children: [
-                SizedBox(
-                    height: state.listColis!.length == 0
-                        ? 0
-                        : getHeight(context) * .65,
-                    child: Stack(children: [
-                      GridView.builder(
-                          shrinkWrap: true,
-                          // physics: NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 10.0,
-                                  childAspectRatio: 20,
-                                  mainAxisExtent: getHeight(context) / 4.5,
-                                  mainAxisSpacing: 20.0),
-                          itemCount: state.listColis!.length,
-                          itemBuilder: (_ctx, index) =>
-                              ColisComponent(colis: state.listColis![index])),
-                    ])),
-                AddColisComponent(
-                  color: ColorsApp.second,
-                  title: 'Colis',
-                  icon: Icons.collections,
-                  onTap: () {
-                    // state.cleanImage();
-                    // state.resetPointLivraison();
-                    openModalAddColis(context);
-                  },
-                ),
+                Stack(children: [
+                  GridView.builder(
+                      shrinkWrap: true,
+                      // physics: NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10.0,
+                          childAspectRatio: 20,
+                          mainAxisExtent: getHeight(context) / 4.5,
+                          mainAxisSpacing: 20.0),
+                      itemCount: state.listColis!.length + 1,
+                      itemBuilder: (_ctx, index) =>
+                          index != state.listColis!.length
+                              ? ColisComponent(colis: state.listColis![index])
+                              : AddColisComponent(
+                                  color: ColorsApp.second,
+                                  title: 'Mon colis',
+                                  icon: Icons.collections,
+                                  onTap: () {
+                                    // state.cleanImage();
+                                    // state.resetPointLivraison();
+                                    openModalAddColis(context);
+                                  },
+                                )),
+                ]),
               ]),
             ));
   }
@@ -146,7 +148,7 @@ class InfoColis extends StatelessWidget {
                                               borderRadius:
                                                   BorderRadius.circular(8),
                                             ),
-                                            height: getHeight(context) * .08,
+                                            height: getHeight(context) * .06,
                                             width: getWith(context),
                                             margin: EdgeInsets.only(
                                               top: kMarginY * 1.5,
@@ -269,7 +271,7 @@ class InfoColis extends StatelessWidget {
                                               borderRadius:
                                                   BorderRadius.circular(8),
                                             ),
-                                            height: getHeight(context) * .08,
+                                            height: getHeight(context) * .06,
                                             width: getWith(context) * .65,
                                             padding: EdgeInsets.symmetric(
                                               horizontal: 7,
@@ -303,7 +305,7 @@ class InfoColis extends StatelessWidget {
                                               iconSize: 25,
                                               underline: SizedBox(),
                                               style: TextStyle(
-                                                  color: ColorsApp.primary,
+                                                  color: ColorsApp.black,
                                                   fontSize: 12),
                                               onChanged: (PointLivraisonModel?
                                                   newValue) {
@@ -333,23 +335,53 @@ class InfoColis extends StatelessWidget {
                                                 horizontal: kMarginX),
                                             height: getHeight(context) * .06,
                                             alignment: Alignment.center,
-                                            width: getWith(context) * .65,
+                                            width: getWith(context) * .70,
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(5),
-                                                color: ColorsApp.grey),
-                                            child: Text(state
-                                                .selected_livraison_point!
-                                                .libelle)),
+                                                color: ColorsApp.greyNew),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () => context
+                                                      .read<LivraisonBloc>()
+                                                      .add(
+                                                          ClearPointLivraison()),
+                                                  child: Container(
+                                                    child: Icon(
+                                                      Icons
+                                                          .keyboard_arrow_down_outlined,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  margin: EdgeInsets.symmetric(
+                                                      horizontal: kMarginX),
+                                                  child: Text(state
+                                                      .selected_livraison_point!
+                                                      .libelle),
+                                                ),
+                                                Container()
+                                              ],
+                                            )),
                                     InkWell(
                                         child: Container(
-                                            padding: EdgeInsets.all(10),
+                                            height: getHeight(context) * .06,
+                                            width: getHeight(context) * .06,
+
+                                            // padding: EdgeInsets.all(20),
                                             alignment: Alignment.center,
                                             decoration: BoxDecoration(
+                                                color: ColorsApp.primary,
                                                 borderRadius:
-                                                    BorderRadius.circular(90),
-                                                color: ColorsApp.grey),
-                                            child: Icon(Icons.location_on)),
+                                                    BorderRadius.circular(8)),
+                                            child: Icon(
+                                              Icons.location_on,
+                                              color: ColorsApp.white,
+                                            )),
                                         onTap: () {
                                           AutoRouter.of(context).pushNamed(
                                               MapPagePointLivraisonColis
@@ -417,16 +449,16 @@ class InfoColis extends StatelessWidget {
                                             padding: EdgeInsets.symmetric(
                                                 vertical: kMarginY,
                                                 horizontal: kMarginX),
-                                            height: getHeight(context) * .08,
+                                            height: getHeight(context) * .06,
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(5),
                                                 border: Border.all(
                                                     color: (state.errorQte!)
                                                         ? ColorsApp.red
-                                                        : ColorsApp.grey,
+                                                        : ColorsApp.greyNew,
                                                     width: 1),
-                                                color: ColorsApp.grey),
+                                                color: ColorsApp.greyNew),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -443,11 +475,11 @@ class InfoColis extends StatelessWidget {
                                                               state: false));
                                                     }),
                                                 Container(
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12),
-                                                      color: ColorsApp.grey),
+                                                  // decoration: BoxDecoration(
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             12),
+                                                  //     color: ColorsApp.greyNew),
                                                   width: getWith(context) / 5.5,
                                                   // height: 35,
                                                   // alignment: Alignment.center,
