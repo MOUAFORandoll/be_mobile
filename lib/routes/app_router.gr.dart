@@ -16,7 +16,7 @@ import 'package:BabanaExpress/presentation/layer/splashpage.dart' as _i16;
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart'
     as _i4;
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart'
-    as _i6;
+    as _i5;
 import 'package:BabanaExpress/presentation/livraison/MapPagePointRecuperation.dart'
     as _i7;
 import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart'
@@ -25,8 +25,8 @@ import 'package:BabanaExpress/presentation/livraison/paiement_page.dart'
     as _i12;
 import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart'
     as _i18;
-import 'package:BabanaExpress/presentation/pharmacy/MapPagePointLivraison.dart'
-    as _i5;
+import 'package:BabanaExpress/presentation/pharmacy/MapPagePointLivraisonMedoc.dart'
+    as _i6;
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart'
     as _i9;
 import 'package:BabanaExpress/presentation/pharmacy/paiement_pharmacy_page.dart'
@@ -71,16 +71,16 @@ abstract class $AppRouter extends _i20.RootStackRouter {
         child: _i4.LivraisonDataPage(livraison: args.livraison),
       );
     },
-    MapRoutePointLivraison.name: (routeData) {
-      return _i20.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i5.MapPagePointLivraison(),
-      );
-    },
     MapRoutePointLivraisonColis.name: (routeData) {
       return _i20.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i6.MapPagePointLivraisonColis(),
+        child: _i5.MapPagePointLivraisonColis(),
+      );
+    },
+    MapRoutePointLivraisonMedocs.name: (routeData) {
+      return _i20.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i6.MapPagePointLivraisonMedocs(),
       );
     },
     MapRoutePointRecuperation.name: (routeData) {
@@ -236,21 +236,7 @@ class LivraisonDataRouteArgs {
 }
 
 /// generated route for
-/// [_i5.MapPagePointLivraison]
-class MapRoutePointLivraison extends _i20.PageRouteInfo<void> {
-  const MapRoutePointLivraison({List<_i20.PageRouteInfo>? children})
-      : super(
-          MapRoutePointLivraison.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'MapRoutePointLivraison';
-
-  static const _i20.PageInfo<void> page = _i20.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i6.MapPagePointLivraisonColis]
+/// [_i5.MapPagePointLivraisonColis]
 class MapRoutePointLivraisonColis extends _i20.PageRouteInfo<void> {
   const MapRoutePointLivraisonColis({List<_i20.PageRouteInfo>? children})
       : super(
@@ -259,6 +245,20 @@ class MapRoutePointLivraisonColis extends _i20.PageRouteInfo<void> {
         );
 
   static const String name = 'MapRoutePointLivraisonColis';
+
+  static const _i20.PageInfo<void> page = _i20.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i6.MapPagePointLivraisonMedocs]
+class MapRoutePointLivraisonMedocs extends _i20.PageRouteInfo<void> {
+  const MapRoutePointLivraisonMedocs({List<_i20.PageRouteInfo>? children})
+      : super(
+          MapRoutePointLivraisonMedocs.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MapRoutePointLivraisonMedocs';
 
   static const _i20.PageInfo<void> page = _i20.PageInfo<void>(name);
 }

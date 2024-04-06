@@ -6,6 +6,7 @@ class SearchInput extends StatelessWidget {
       {required this.controller,
       required this.label,
       required this.data,
+      required this.loading,
       this.onTap,
       this.verifyContains,
       this.close,
@@ -14,6 +15,7 @@ class SearchInput extends StatelessWidget {
   final onTap;
   final verifyContains;
   final close;
+  final loading;
   final ValueChanged<String>? onChanged;
   final TextEditingController controller;
   final String label;
@@ -69,16 +71,10 @@ class SearchInput extends StatelessWidget {
           ),
           controller.text.isEmpty
               ? Container()
-              : data.length == 0
-                  ? Text('Aucun element trouve'.tr())
-                  : Container(
-                      width: getWith(context),
-                      margin: EdgeInsets.symmetric(vertical: kMarginY),
-                      height: data.length > 6
-                          ? getHeight(context) * .3
-                          : data.length > 3
-                              ? getHeight(context) * .2
-                              : getHeight(context) * .15,
+              : loading == 0
+                  ? Container(
+                      height: getHeight(context) * .15,
+                      width: getWith(context) * .88,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
@@ -86,56 +82,104 @@ class SearchInput extends StatelessWidget {
                         ),
                         color: ColorsApp.white,
                       ),
-                      child: SingleChildScrollView(
-                          child: ListView.builder(
-                              physics: NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
-                              itemCount: data.length,
-                              itemBuilder: (_, index) => InkWell(
-                                    onTap: () => onTap(data[index]),
-                                    child: Container(
-                                      decoration: verifyContains(data[index])
-                                          ? BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                              border: Border.all(
-                                                color: Color.fromARGB(
-                                                    255, 231, 229, 229),
+                      child: Center(
+                          child: CircularProgressIndicator(
+                        color: ColorsApp.primary,
+                      )))
+                  : loading == 2
+                      ? Container(
+                          height: getHeight(context) * .15,
+                          width: getWith(context) * .88,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            border: Border.all(
+                              color: Color.fromARGB(255, 231, 229, 229),
+                            ),
+                            color: ColorsApp.white,
+                          ),
+                          child: Text('Error'.tr(),
+                              style: TextStyle(color: ColorsApp.red)))
+                      : data.length == 0
+                          ? Container(
+                              height: getHeight(context) * .15,
+                              width: getWith(context) * .88,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all(
+                                  color: Color.fromARGB(255, 231, 229, 229),
+                                ),
+                                color: ColorsApp.white,
+                              ),
+                              child: Text('Aucun element trouve'.tr()))
+                          : Container(
+                              margin: EdgeInsets.symmetric(vertical: kMarginY),
+                              width: getWith(context) * .88,
+                              height: data.length > 6
+                                  ? getHeight(context) * .3
+                                  : data.length > 3
+                                      ? getHeight(context) * .2
+                                      : getHeight(context) * .15,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all(
+                                  color: Color.fromARGB(255, 231, 229, 229),
+                                ),
+                                color: ColorsApp.white,
+                              ),
+                              child: SingleChildScrollView(
+                                  child: ListView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      itemCount: data.length,
+                                      itemBuilder: (_, index) => InkWell(
+                                            onTap: () => onTap(data[index]),
+                                            child: Container(
+                                              decoration: verifyContains(
+                                                      data[index])
+                                                  ? BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                      border: Border.all(
+                                                        color: Color.fromARGB(
+                                                            255, 231, 229, 229),
+                                                      ),
+                                                      color: ColorsApp.primary,
+                                                    )
+                                                  : null,
+                                              margin: EdgeInsets.symmetric(
+                                                  horizontal: kMarginX / 2,
+                                                  vertical: kMarginY / 2.5),
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: kMarginX,
+                                                  vertical: kMarginY),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Container(
+                                                    child: Text(
+                                                      data[index].libelle,
+                                                      style: TextStyle(
+                                                          color: verifyContains(
+                                                                  data[index])
+                                                              ? ColorsApp.white
+                                                              : null),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                      child: Icon(
+                                                          Icons
+                                                              .medical_services,
+                                                          color: verifyContains(
+                                                                  data[index])
+                                                              ? ColorsApp.white
+                                                              : null)),
+                                                ],
                                               ),
-                                              color: ColorsApp.primary,
-                                            )
-                                          : null,
-                                      margin: EdgeInsets.symmetric(
-                                          horizontal: kMarginX / 2,
-                                          vertical: kMarginY / 2.5),
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: kMarginX,
-                                          vertical: kMarginY),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Container(
-                                            child: Text(
-                                              data[index].libelle,
-                                              style: TextStyle(
-                                                  color: verifyContains(
-                                                          data[index])
-                                                      ? ColorsApp.white
-                                                      : null),
                                             ),
-                                          ),
-                                          Container(
-                                              child: Icon(
-                                                  Icons.medical_services,
-                                                  color: verifyContains(
-                                                          data[index])
-                                                      ? ColorsApp.white
-                                                      : null)),
-                                        ],
-                                      ),
-                                    ),
-                                  ))))
+                                          ))))
         ],
       ),
     );

@@ -1,11 +1,11 @@
 // ignore: must_be_immutable
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
+ 
 
 class AddColisComponent extends StatelessWidget {
-  final title, onTap, color, icon;
+  final title, onTap;
 
-  AddColisComponent({this.icon, this.title, this.color, this.onTap});
+  AddColisComponent({this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -16,28 +16,29 @@ class AddColisComponent extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
               boxShadow: [
-                BoxShadow(
-                  color: ColorsApp.primary.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: Offset(0, 2), // changes position of shadow
-                ),
+                // BoxShadow(
+                //   color: ColorsApp.primary.withOpacity(0.5),
+                //   spreadRadius: 2,
+                //   blurRadius: 5,
+                //   offset: Offset(0, 2), // changes position of shadow
+                // ),
               ],
             ),
             child: Stack(children: [
               InkWell(
                   child: Container(
                       decoration: BoxDecoration(
+                        border: Border.all(color: ColorsApp.grey),
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
                       ),
                       child: Column(
                         children: [
                           Container(
-                            // margin: EdgeInsets.only(right: 5),
-                            width: getWith(context) / 2.2,
-                            height: getHeight(context) / 6.8,
-                            child: ClipRRect(
+                              // margin: EdgeInsets.only(right: 5),
+                              width: getWith(context) / 2.2,
+                              height: getHeight(context) / 6.79,
+                              child: /*  ClipRRect(
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(10),
                                   topRight: Radius.circular(10)),
@@ -48,8 +49,12 @@ class AddColisComponent extends StatelessWidget {
                                       fit: BoxFit.contain),
                                 ),
                               ),
-                            ),
-                          ),
+                            ), */
+                                  Icon(
+                                Icons.add,
+                                color: ColorsApp.primary,
+                                size: 80,
+                              )),
                           Container(
                               decoration: new BoxDecoration(
                                 borderRadius: BorderRadius.vertical(
@@ -61,7 +66,7 @@ class AddColisComponent extends StatelessWidget {
                               width: getWith(context),
                               alignment: Alignment.center,
                               padding: EdgeInsets.symmetric(vertical: 20),
-                              margin: EdgeInsets.only(top: kMarginY),
+                              margin: EdgeInsets.only(top: kMarginY * .8),
                               child: Text(
                                 title,
                                 overflow: TextOverflow.ellipsis,

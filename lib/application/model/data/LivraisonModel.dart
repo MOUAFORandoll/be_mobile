@@ -11,6 +11,7 @@ class LivraisonModel {
   final String initiatedUser;
   final String service;
   final String date;
+  final String ville;
   final Livreur? livreur;
 
   LivraisonModel({
@@ -26,6 +27,7 @@ class LivraisonModel {
     required this.initiatedUser,
     required this.service,
     required this.date,
+    required this.ville,
     required this.livreur,
   });
 
@@ -33,6 +35,7 @@ class LivraisonModel {
     return LivraisonModel(
       id: json['id'],
       libelle: json['libelle'],
+      ville: json['ville'],
       description: json['description'],
       contactEmetteur: json['contactEmetteur'],
       lienDeLivraison: json['lienDeLivraison'],

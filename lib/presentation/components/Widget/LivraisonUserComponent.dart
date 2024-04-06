@@ -1,8 +1,7 @@
-import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/presentation/components/Widget/colisComponentUser.dart';
-import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart';
+import 'package:BabanaExpress/application/model/exportmodel.dart'; 
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/functions/datetime_format_utils.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -55,7 +54,8 @@ class LivraisonUserComponent extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(livraison.date),
+                              Text(FormatDateTime()
+                                  .dateToStringNew(livraison.date)),
                               Row(
                                 children: [
                                   Container(
@@ -89,12 +89,13 @@ class LivraisonUserComponent extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
+                                  margin: EdgeInsets.only(left: 10),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(50),
                                   ),
                                   child: CachedNetworkImage(
                                     height: getHeight(context) * .09,
-                                    width: getWith(context) * .35,
+                                    width: getWith(context) * .25,
                                     fit: BoxFit.cover,
                                     imageUrl: livraison.colis[0].images[0].src,
                                     imageBuilder: (context, imageProvider) {
@@ -113,18 +114,36 @@ class LivraisonUserComponent extends StatelessWidget {
                                     },
                                     placeholder: (context, url) {
                                       return Container(
-                                        child: Center(
-                                            child: CircularProgressIndicator(
-                                          color: ColorsApp.second,
-                                        )),
+                                        child: Shimmer.fromColors(
+                                            baseColor: ColorsApp.greyNew,
+                                            highlightColor: ColorsApp.primary
+                                                .withOpacity(.1),
+                                            child: Container(
+                                              /*   height: getHeight(context) * .09,
+                                              width: getWith(context) * .25,
+                                             */
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                color: ColorsApp.greyNew,
+                                              ),
+                                            )),
                                       );
                                     },
                                     errorWidget: (context, url, error) {
-                                      return CircleAvatar(
-                                        radius: 30,
-                                        child: Image.asset(
-                                          Assets.login,
-                                          fit: BoxFit.fill,
+                                      return Container(
+                                        // height: getHeight(context) / 10,
+                                        // width: getHeight(context) / 10,
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              Assets.login,
+                                            ),
+                                          ),
                                         ),
                                       );
                                     },
@@ -210,27 +229,29 @@ class LivraisonUserComponent extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              if (livraison.livreur != null)
-                                Row(
-                                  children: [
-                                    Container(
-                                        child: Icon(
-                                      Icons.account_circle_sharp,
-                                      color: ColorsApp.primary,
-                                    )),
-                                    Container(
-                                      margin: EdgeInsets.only(
-                                        left: kMarginX / 2,
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          Text(livraison.livreur!.nom),
-                                          Text(' ' + livraison.livreur!.prenom),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                              (livraison.livreur != null)
+                                  ? Row(
+                                      children: [
+                                        Container(
+                                            child: Icon(
+                                          Icons.account_circle_sharp,
+                                          color: ColorsApp.primary,
+                                        )),
+                                        Container(
+                                          margin: EdgeInsets.only(
+                                            left: kMarginX / 2,
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              Text(livraison.livreur!.nom),
+                                              Text(' ' +
+                                                  livraison.livreur!.prenom),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  : Container(),
                               Container(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: kMarginX * 1.5, vertical: 1),
@@ -238,7 +259,7 @@ class LivraisonUserComponent extends StatelessWidget {
                                     color: ColorsApp.primary,
                                     borderRadius: BorderRadius.circular(50)),
                                 child: Text(
-                                  'Douala',
+                                  livraison.ville,
                                   style: TextStyle(color: ColorsApp.white),
                                 ),
                               )

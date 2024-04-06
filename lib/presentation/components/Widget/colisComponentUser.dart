@@ -1,8 +1,7 @@
 import 'dart:io';
 
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/presentation/components/Button/app_button_icon.dart';
-
+import 'package:BabanaExpress/presentation/components/Button/app_button_icon.dart'; 
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -40,10 +39,10 @@ class ColisComponentUser extends StatelessWidget {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 2,
-                blurRadius: 5,
-                offset: Offset(0, 2), // changes position of shadow
+                color: ColorsApp.primary.withOpacity(0.5),
+                spreadRadius: 1,
+                blurRadius: 2,
+                offset: Offset(-1, 0),
               ),
             ],
           ),
@@ -80,22 +79,36 @@ class ColisComponentUser extends StatelessWidget {
                         },
                         placeholder: (context, url) {
                           return Container(
-                            child: Center(
-                                child: CircularProgressIndicator(
-                              color: ColorsApp.second,
-                            )),
+                            child: Shimmer.fromColors(
+                                baseColor: ColorsApp.greyNew,
+                                highlightColor:
+                                    ColorsApp.primary.withOpacity(.1),
+                                child: Container(
+                                  // height: getHeight(context) / 10,
+                                  // width: getHeight(context) / 10,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: ColorsApp.greyNew,
+                                  ),
+                                )),
                           );
                         },
                         errorWidget: (context, url, error) {
-                          return CircleAvatar(
-                              backgroundColor: ColorsApp.second,
-                              radius: 50,
-                              backgroundImage:
-                                  AssetImage('assets/logo/logo.png'));
+                          return Container(
+                              // height: getHeight(context) / 10,
+                              // width: getHeight(context) / 10,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/login.png'))));
                         },
                       )),
                       Container(
-                        margin: EdgeInsets.only(left: 5),
+                        padding: EdgeInsets.only(left: 5),
+                        decoration: BoxDecoration(
+                            border: Border(
+                                top: BorderSide(
+                                    color: ColorsApp.greyNew, width: .5))),
                         alignment: Alignment.centerLeft,
                         width: getWith(context) / 2,
                         child: Text(
@@ -156,18 +169,31 @@ class ColisComponentUser extends StatelessWidget {
                           },
                           placeholder: (context, url) {
                             return Container(
-                              child: Center(
-                                  child: CircularProgressIndicator(
-                                color: ColorsApp.second,
-                              )),
+                              child: Shimmer.fromColors(
+                                  baseColor: ColorsApp.greyNew,
+                                  highlightColor:
+                                      ColorsApp.primary.withOpacity(.1),
+                                  child: Container(
+                                    // height: getHeight(context) / 10,
+                                    // width: getHeight(context) / 10,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: ColorsApp.greyNew,
+                                    ),
+                                  )),
                             );
                           },
                           errorWidget: (context, url, error) {
-                            return CircleAvatar(
-                                backgroundColor: ColorsApp.second,
-                                radius: 50,
-                                backgroundImage:
-                                    AssetImage('assets/logo/logo.png'));
+                            return Container(
+                                // height: getHeight(context) / 10,
+                                // width: getHeight(context) / 10,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    image: DecorationImage(
+                                        image:
+                                            AssetImage('assets/login.png'))));
                           },
                         )),
                   ),

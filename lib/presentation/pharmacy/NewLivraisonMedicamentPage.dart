@@ -78,36 +78,47 @@ class _NewLivraisonMedicamentPageState
                           vertical: kMarginY * 1.5,
                           horizontal: kMarginX / 2,
                         ),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              AppButton(
-                                  size: MainAxisSize.max,
-                                  bgColor: state.index == 0
-                                      ? ColorsApp.grey
-                                      : ColorsApp.primary,
-                                  text: 'yback'.tr(),
-                                  onTap: () {
-                                    context
-                                        .read<PharmacyBloc>()
-                                        .add(BackIndexEventP());
-                                  }),
-                              AppButton(
+                        child: state.index == 0
+                            ? AppButton(
                                 size: MainAxisSize.max,
-                                bgColor: ColorsApp.primary,
-                                text: state.index == 0
-                                    ? 'ynext'.tr()
-                                    : 'yeval'.tr(),
+                                bgColor: state.listMedicamentChoose!.isNotEmpty
+                                    ? ColorsApp.primary
+                                    : ColorsApp.grey,
+                                text: 'ynext'.tr(),
                                 onTap: () {
-                                  state.index == 0
-                                      ? context.read<PharmacyBloc>().add(
-                                          VerifyFormChooseMedicamentEventP())
-                                      : context
-                                          .read<PharmacyBloc>()
-                                          .add(CalculFraisP());
-                                },
-                              ),
-                            ])),
+                                  context
+                                      .read<PharmacyBloc>()
+                                      .add(VerifyFormChooseMedicamentEventP());
+                                })
+                            : Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                    AppButton(
+                                        size: MainAxisSize.max,
+                                        bgColor: state.index == 0
+                                            ? ColorsApp.grey
+                                            : ColorsApp.primary,
+                                        text: 'yback'.tr(),
+                                        onTap: () {
+                                          context
+                                              .read<PharmacyBloc>()
+                                              .add(BackIndexEventP());
+                                        }),
+                                    AppButton(
+                                      size: MainAxisSize.max,
+                                      bgColor:
+                                          state.listMedicamentChoose!.isNotEmpty
+                                              ? ColorsApp.primary
+                                              : ColorsApp.grey,
+                                      text: 'yeval'.tr(),
+                                      onTap: () {
+                                        context
+                                            .read<PharmacyBloc>()
+                                            .add(CalculFraisP());
+                                      },
+                                    ),
+                                  ])),
                   ],
                 ))));
   }

@@ -7,6 +7,7 @@ import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
+ 
 
 @RoutePage()
 class MapPagePointRecuperation extends StatefulWidget {
@@ -47,6 +48,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
         ),
         onTap: () {},
         position: LatLng(latitude, longitude));
+    context.read<LivraisonBloc>().add(GetMapPlaceInfo());
   }
 
   GoogleMapController? mapController;
@@ -72,38 +74,42 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
         .read<LivraisonBloc>()
         .add(SetLogLat(latLng: LatLng(value.latitude, value.longitude)));
 
+    print('-------000------');
+
+    print('-----1----------------');
+    // libelleLocalisation.text = state.mapPlaceInfo!.ville;
+    quartier.text = state.mapPlaceInfo!.quartier;
+
     setState(() {
-      print('-------000------');
+      quartier.text = state.mapPlaceInfo!.quartier;
+      _kLake = CameraPosition(
+        bearing: 0,
+        target: LatLng(value.latitude, value.longitude),
+        tilt: 50,
+        zoom: 18.5,
+      );
 
-      print('-----1----------------');
+      _position = Marker(
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+          markerId: MarkerId('1'),
+          draggable: true,
+          infoWindow: InfoWindow(
+            title: 'Vous etes ici',
+          ),
+          onTap: () {},
+          position: LatLng(value.latitude, value.longitude));
+      mapController!.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+      context.read<LivraisonBloc>().add(GetMapPlaceInfo());
+      print('Camera animation executed');
 
-      setState(() {
-        _kLake = CameraPosition(
-          bearing: 0,
-          target: LatLng(value.latitude, value.longitude),
-          tilt: 50,
-          zoom: 18.5,
-        );
+      // libelleLocalisation.text = state.mapPlaceInfo!.ville;
+      quartier.text = state.mapPlaceInfo!.quartier;
 
-        _position = Marker(
-            icon:
-                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-            markerId: MarkerId('1'),
-            draggable: true,
-            infoWindow: InfoWindow(
-              title: 'Vous etes ici',
-            ),
-            onTap: () {},
-            position: LatLng(value.latitude, value.longitude));
-        mapController!.animateCamera(CameraUpdate.newCameraPosition(_kLake));
-
-        print('Camera animation executed');
-
-        print('-------------');
-        print('Updated _kLake: $_kLake');
-        print('Updated _position: $_position');
-      });
+      print('-------------');
+      print('Updated _kLake: $_kLake');
+      print('Updated _position: $_position');
     });
+
     close();
   }
 
@@ -180,6 +186,16 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             ),
                             width: getWith(context) * .8,
                             child: Text(
+                              'Ville de : ${state.mapPlaceInfo!.ville}',
+                              style: TextStyle(overflow: TextOverflow.ellipsis),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(
+                              top: kMarginY * 1.5,
+                            ),
+                            width: getWith(context) * .8,
+                            child: Text(
                               'Longitude : ${state.position!.longitude}',
                               style: TextStyle(overflow: TextOverflow.ellipsis),
                             ),
@@ -224,14 +240,48 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
       Completer<GoogleMapController>();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LivraisonBloc, LivraisonState>(
-      builder: (context, state) => Container(
-        height: getHeight(context) * .863,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: ColorsApp.white,
-        ),
-        child: Stack(
+    return BlocConsumer<LivraisonBloc, LivraisonState>(
+      listener: (context, state) {
+        if (state.isLoadingPlaceSearchInfo == 0) {
+          EasyLoading.show(
+              dismissOnTap: true,
+              status: 'En cours',
+              maskType: EasyLoadingMaskType.black);
+        } else if (state.isLoadingPlaceSearchInfo == 1) {
+          FocusScope.of(context).unfocus();
+          EasyLoading.dismiss();
+          // showSuccess('Trouve', context);
+          selectPoint(state, state.findedPlaceInfo!);
+        } else if (state.isLoadingPlaceSearchInfo == 2) {
+          showError('Error', context);
+
+          EasyLoading.dismiss();
+          print('-----44--------*********');
+        }
+        if (state.loadingMapPlaceInfo == 1) {
+          libelleLocalisation.text = '';
+          quartier.text = state.mapPlaceInfo!.quartier;
+        }
+      },
+      builder: (context, state) => Scaffold(
+        appBar: AppBar(
+            title: Text(
+              'Selectionner un point de recuperation'.tr(),
+            ),
+            centerTitle: true,
+            leading: IconButton(
+              icon: Icon(
+                Icons.keyboard_arrow_left_outlined,
+                color: ColorsApp.primary,
+              ),
+              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+              onPressed: () {
+                AutoRouter.of(context).pop();
+              },
+            ),
+            backgroundColor: ColorsApp.white,
+            elevation: 0),
+        body: Stack(
           children: [
             Container(
                 height: getHeight(context) * .95,
@@ -285,7 +335,10 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             CameraUpdate.newCameraPosition(_kLake));
 
                         print('Camera animation executed');
-
+                        setState(() {
+                          libelleLocalisation.text = state.mapPlaceInfo!.ville;
+                          quartier.text = state.mapPlaceInfo!.quartier;
+                        });
                         print('-------------');
                         print('Updated _kLake: $_kLake');
                         print('Updated _position: $_position');
@@ -296,6 +349,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                       context
                           .read<LivraisonBloc>()
                           .add(SetLogLat(latLng: value));
+                      context.read<LivraisonBloc>().add(GetMapPlaceInfo());
 
                       setState(() {
                         _position = Marker(
@@ -329,16 +383,17 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                               ),
                               color: ColorsApp.white,
                             ),
-                            height: getHeight(context) / 15,
+                            // height: getHeight(context) / 15,
                             width: getWith(context) * .88,
                             child: TextField(
                               controller: searchPointRecuperationController,
                               onChanged: (String value) {
+                                print('---------**-**-${value}');
                                 if (value.isNotEmpty) {
                                   opening();
                                   context
                                       .read<LivraisonBloc>()
-                                      .add(SearchPointEvent(text: value));
+                                      .add(OnAutoComplet(text: value));
                                 }
                               },
                               decoration: InputDecoration(
@@ -371,149 +426,108 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                         ],
                       ),
                     ),
-                    if (isOpen)
-                      Container(
-                        height: state.list_search_point_localisation!.length < 5
-                            ? getHeight(context) * .15
-                            : getHeight(context) * .3,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          border: Border.all(
-                            color: Color.fromARGB(255, 231, 229, 229),
-                          ),
-                          color: ColorsApp.white,
-                        ),
-                        child: state.list_search_point_localisation!.length == 0
-                            ? Text('yemptyrecupliv'.tr())
-                            : SingleChildScrollView(
-                                child: Container(
-                                  width: getWith(context) * .95,
-                                  child: searchPointRecuperationController
-                                          .text.isEmpty
-                                      ? ListView.builder(
-                                          physics:
-                                              NeverScrollableScrollPhysics(),
-                                          shrinkWrap: true,
-                                          itemCount: state
-                                              .list_localisation_point!.length,
-                                          itemBuilder: (_, index) => InkWell(
-                                                onTap: () {
-                                                  selectPoint(
-                                                      state,
-                                                      state.list_localisation_point![
-                                                          index]);
-                                                  // state.setLibelleAndQuartier(
-                                                  //     state.list_localisation_point![
-                                                  //         index]);
-                                                  FocusScope.of(context)
-                                                      .unfocus();
-                                                },
-                                                child: Container(
-                                                  margin: EdgeInsets.all(8),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Row(
-                                                        children: [
-                                                          Container(
-                                                            child: Text(state
-                                                                .list_localisation_point![
-                                                                    index]
-                                                                .libelle),
-                                                          ),
-                                                          Container(
-                                                            margin:
-                                                                EdgeInsets.only(
-                                                                    left: 10),
-                                                            child: Text(state
-                                                                .list_localisation_point![
-                                                                    index]
-                                                                .quartier),
-                                                          ),
-                                                          Container(
-                                                            margin:
-                                                                EdgeInsets.only(
-                                                                    left: 10),
-                                                            child: Text(state
-                                                                .list_localisation_point![
-                                                                    index]
-                                                                .ville),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Container(
-                                                          child: Icon(Icons
-                                                              .location_on)),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ))
-                                      : ListView.builder(
-                                          physics:
-                                              NeverScrollableScrollPhysics(),
-                                          shrinkWrap: true,
-                                          itemCount: state
-                                              .list_search_point_localisation!
-                                              .length,
-                                          itemBuilder: (_, index) => InkWell(
-                                                onTap: () {
-                                                  selectPoint(
-                                                      state,
-                                                      state.list_search_point_localisation![
-                                                          index]);
-                                                  // state.setLibelleAndQuartier(
-                                                  //     state.list_search_point_localisation![
-                                                  //         index]);
-                                                  FocusScope.of(context)
-                                                      .unfocus();
-                                                },
-                                                child: Container(
-                                                  margin: EdgeInsets.all(8),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Row(
-                                                        children: [
-                                                          Container(
-                                                            child: Text(state
-                                                                .list_search_point_localisation![
-                                                                    index]
-                                                                .libelle),
-                                                          ),
-                                                          Container(
-                                                            margin:
-                                                                EdgeInsets.only(
-                                                                    left: 10),
-                                                            child: Text(state
-                                                                .list_search_point_localisation![
-                                                                    index]
-                                                                .quartier),
-                                                          ),
-                                                          Container(
-                                                            margin:
-                                                                EdgeInsets.only(
-                                                                    left: 10),
-                                                            child: Text(state
-                                                                .list_search_point_localisation![
-                                                                    index]
-                                                                .ville),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Container(
-                                                          child: Icon(Icons
-                                                              .location_on)),
-                                                    ],
-                                                  ),
-                                                ),
-                                              )),
+                    Container(
+                      height: 5,
+                    ),
+                    if (state.isLoadingPlaceSearch != null && isOpen)
+                      (state.isLoadingPlaceSearch! == 0)
+                          ? Container(
+                              height: getHeight(context) * .15,
+                              width: getWith(context) * .88,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all(
+                                  color: Color.fromARGB(255, 231, 229, 229),
                                 ),
+                                color: ColorsApp.white,
                               ),
-                      ),
+                              child: Center(
+                                  child: CircularProgressIndicator(
+                                color: ColorsApp.primary,
+                              )))
+                          : (state.isLoadingPlaceSearch! == 2)
+                              ? Container()
+                              : Container(
+                                  height: state.list_search_place!.length < 5
+                                      ? getHeight(context) * .15
+                                      : getHeight(context) * .3,
+                                  width: getWith(context) * .88,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    border: Border.all(
+                                      color: Color.fromARGB(255, 231, 229, 229),
+                                    ),
+                                    color: ColorsApp.white,
+                                  ),
+                                  child: state.list_search_place!.length == 0
+                                      ? Container(
+                                          height: getHeight(context) / 10,
+                                          child: Center(
+                                              child:
+                                                  Text('yemptyrecupliv'.tr())))
+                                      : SingleChildScrollView(
+                                          child: Container(
+                                            width: getWith(context) * .88,
+                                            child: ListView.builder(
+                                                physics:
+                                                    NeverScrollableScrollPhysics(),
+                                                shrinkWrap: true,
+                                                itemCount: state
+                                                    .list_search_place!.length,
+                                                itemBuilder:
+                                                    (_, index) => InkWell(
+                                                          onTap: () {
+                                                            context
+                                                                    .read<
+                                                                        LivraisonBloc>()
+                                                                    .add(GetPlaceData(
+                                                                        place: state
+                                                                            .list_search_place![index]))
+                                                                /*    .then((e) {
+                                                      selectPoint(
+                                                          state,
+                                                          state.list_search_place![
+                                                              index]);
+                                                    }) */
+                                                                ;
+                                                          },
+                                                          child: Container(
+                                                            margin:
+                                                                EdgeInsets.all(
+                                                                    8),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Row(
+                                                                  children: [
+                                                                    Container(
+                                                                      width: getWith(
+                                                                              context) *
+                                                                          .65,
+                                                                      child:
+                                                                          Text(
+                                                                        state
+                                                                            .list_search_place![index]
+                                                                            .libelle,
+                                                                        overflow:
+                                                                            TextOverflow.ellipsis,
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Container(
+                                                                    child: Icon(
+                                                                        Icons
+                                                                            .location_on)),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        )),
+                                          ),
+                                        ),
+                                ),
                   ],
                 ),
               ),
@@ -540,87 +554,128 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                           ),
                         ],
                         borderRadius: BorderRadius.circular(8)),
-                    child: !loadPlaceInfo
+                    child: state.loadingMapPlaceInfo == 0
                         ? Container(
                             height: getHeight(context) / 10,
                             child: Center(
                                 child: CircularProgressIndicator(
                               color: ColorsApp.primary,
                             )))
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                                Container(
-                                    margin: EdgeInsets.symmetric(
-                                      horizontal: kMarginX,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
-                                    child: CachedNetworkImage(
-                                      height: getHeight(context) / 10,
-                                      width: getHeight(context) / 10,
-                                      fit: BoxFit.cover,
-                                      imageUrl:
-                                          "livraison.colis[0].images[0].src",
-                                      imageBuilder: (context, imageProvider) {
-                                        return Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(50),
-                                            image: DecorationImage(
-                                                image: imageProvider,
-                                                fit: BoxFit.cover,
-                                                colorFilter: ColorFilter.mode(
-                                                    Colors.transparent,
-                                                    BlendMode.colorBurn)),
+                        : state.loadingMapPlaceInfo == 2
+                            ? InkWell(
+                                onTap: () => context
+                                    .read<LivraisonBloc>()
+                                    .add(GetMapPlaceInfo()),
+                                child: Container(
+                                    height: getHeight(context) / 10,
+                                    child: Center(
+                                        child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.warning,
+                                          color: ColorsApp.red,
+                                          size: 25,
+                                        ),
+                                        Text(
+                                          'Appuyer pour Reessayer',
+                                          style: TextStyle(
+                                            color: ColorsApp.red,
                                           ),
-                                        );
-                                      },
-                                      placeholder: (context, url) {
-                                        return ShimmerBox();
-                                      },
-                                      errorWidget: (context, url, error) {
-                                        return CircleAvatar(
-                                          radius: 30,
-                                          child: Image.asset(
-                                            Assets.login,
-                                            fit: BoxFit.fill,
-                                          ),
-                                        );
-                                      },
+                                        )
+                                      ],
+                                    ))),
+                              )
+                            : Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                    Container(
+                                        margin: EdgeInsets.symmetric(
+                                          horizontal: kMarginX,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                        ),
+                                        child: CachedNetworkImage(
+                                          height: getHeight(context) / 10,
+                                          width: getHeight(context) / 10,
+                                          fit: BoxFit.cover,
+                                          imageUrl:
+                                              "livraison.colis[0].images[0].src",
+                                          imageBuilder:
+                                              (context, imageProvider) {
+                                            return Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                image: DecorationImage(
+                                                    image: imageProvider,
+                                                    fit: BoxFit.cover,
+                                                    colorFilter:
+                                                        ColorFilter.mode(
+                                                            Colors.transparent,
+                                                            BlendMode
+                                                                .colorBurn)),
+                                              ),
+                                            );
+                                          },
+                                          placeholder: (context, url) {
+                                            return ShimmerBox();
+                                          },
+                                          errorWidget: (context, url, error) {
+                                            return Container(
+                                              // height: getHeight(context) / 10,
+                                              // width: getHeight(context) / 10,
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                    Assets.login,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        )),
+                                    Container(
+                                        child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          width: getWith(context) * .53,
+                                          child: Text(
+                                              state.mapPlaceInfo!.quartier,
+                                              maxLines: 2,
+                                              // overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                  color: ColorsApp.primary,
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w700)),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.symmetric(
+                                              vertical: kMarginY),
+                                          width: getWith(context) * .53,
+                                          child: Text(state.mapPlaceInfo!.ville,
+                                              maxLines: 2,
+                                              // overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w700)),
+                                        ),
+                                      ],
                                     )),
-                                Container(
-                                    child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: getWith(context) * .53,
-                                      child: Text(
-                                          "Titre du lieux ou titre d'un lieuc proche",
-                                          maxLines: 2,
-                                          // overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              color: ColorsApp.primary,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w700)),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.symmetric(
-                                          vertical: kMarginY),
-                                      width: getWith(context) * .53,
-                                      child: Text('Ville de douala',
-                                          maxLines: 2,
-                                          // overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w700)),
-                                    ),
-                                  ],
-                                )),
-                              ]),
+                                  ]),
                   ),
                   AppButton(
                     size: MainAxisSize.max,

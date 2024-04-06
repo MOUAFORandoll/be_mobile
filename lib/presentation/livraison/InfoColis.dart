@@ -1,6 +1,7 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/presentation/components/Button/addColisComponent.dart';
 import 'package:BabanaExpress/presentation/components/Button/uploadImage.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_input_second.dart';
 import 'package:BabanaExpress/presentation/components/Widget/imageComp.dart';
 import 'package:BabanaExpress/presentation/components/Widget/colisComponent.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
@@ -51,9 +52,7 @@ class InfoColis extends StatelessWidget {
                           index != state.listColis!.length
                               ? ColisComponent(colis: state.listColis![index])
                               : AddColisComponent(
-                                  color: ColorsApp.second,
                                   title: 'Mon colis',
-                                  icon: Icons.collections,
                                   onTap: () {
                                     // state.cleanImage();
                                     // state.resetPointLivraison();
@@ -272,7 +271,7 @@ class InfoColis extends StatelessWidget {
                                                   BorderRadius.circular(8),
                                             ),
                                             height: getHeight(context) * .06,
-                                            width: getWith(context) * .65,
+                                            width: getWith(context) * .75,
                                             padding: EdgeInsets.symmetric(
                                               horizontal: 7,
                                             ),
@@ -335,7 +334,7 @@ class InfoColis extends StatelessWidget {
                                                 horizontal: kMarginX),
                                             height: getHeight(context) * .06,
                                             alignment: Alignment.center,
-                                            width: getWith(context) * .70,
+                                            width: getWith(context) * .75,
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(5),
@@ -486,12 +485,9 @@ class InfoColis extends StatelessWidget {
                                                   margin: EdgeInsets.only(
                                                     bottom: kMarginY,
                                                   ),
-                                                  child: AppInputNew(
+                                                  child: AppInputSecond(
                                                     controller:
                                                         state.quantiteColis!,
-                                                    label: '',
-                                                    // border: true,
-                                                    alignStart: false,
                                                     textInputType:
                                                         TextInputType.number,
                                                     validator: (value) {

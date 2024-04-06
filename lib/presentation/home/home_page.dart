@@ -2,8 +2,6 @@ import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BabanaExpress/presentation/components/Widget/HomeModuleComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
-import 'package:BabanaExpress/presentation/home/first_view.dart';
-import 'package:BabanaExpress/presentation/home/second_view.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
@@ -342,6 +340,10 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               onTap: (index) {
                 print(index);
                 context.read<HomeBloc>().add(SetIndexEvent(index: index));
+                if (index == 0 && (index == state.index)) {
+                  BlocProvider.of<LivraisonBloc>(context)
+                      .add(HistoriqueUserLivraison());
+                }
               },
             )));
   }
@@ -387,7 +389,7 @@ class CustomDrawer extends StatelessWidget {
                     child: Column(children: [
                       CircleAvatar(
                         radius: 30,
-                        backgroundColor: Colors.white,
+                        backgroundColor: ColorsApp.bg,
                         child: InkWell(
                           onTap: () => BlocProvider.of<UserBloc>(context)
                               .add(UpdateUserImage()),
@@ -435,7 +437,7 @@ class CustomDrawer extends StatelessWidget {
                             Text(
                               ViewFunctions().capitalizeFirstLetter(user.nom),
                               style: TextStyle(
-                                  color: ColorsApp.grey,
+                                  color: ColorsApp.greyNew,
                                   fontSize: 15,
                                   fontWeight: FontWeight.w600),
                             ),
@@ -450,7 +452,7 @@ class CustomDrawer extends StatelessWidget {
                             Text(
                               user.phone,
                               style: TextStyle(
-                                  color: ColorsApp.grey,
+                                  color: ColorsApp.greyNew,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400),
                             ),

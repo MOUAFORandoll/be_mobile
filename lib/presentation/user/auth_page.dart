@@ -6,8 +6,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
-import 'package:BabanaExpress/utils/functions/app_loader.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart'; 
 
 @RoutePage()
 class AuthPage extends StatefulWidget {

@@ -1,10 +1,6 @@
-import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/components/Widget/imageUpdateComp.dart';
-
+import 'package:BabanaExpress/application/export_bloc.dart'; 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-
-import 'package:BabanaExpress/presentation/components/Button/uploadImage.dart';
-import 'package:BabanaExpress/utils/Services/validators.dart';
+ 
 
 import '../../../application/model/exportmodel.dart';
 
@@ -25,7 +21,7 @@ class ColisComponent extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: ColorsApp.primary.withOpacity(0.5),
+              color: ColorsApp.primary.withOpacity(0.2),
               spreadRadius: 2,
               blurRadius: 5,
               offset: Offset(0, 2), // changes position of shadow

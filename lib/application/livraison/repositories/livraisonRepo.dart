@@ -13,6 +13,27 @@ class LivraisonRepo {
     return a;
   }
 
+  Future getMapPlaceInfo(long, lat) async {
+    Response a =
+        await apiClient.getRequest('/location/user?long=${long}&lat=${lat}');
+
+    return a;
+  }
+
+  Future autoCompleteMapPlace(search) async {
+    Response a = await apiClient
+        .getRequest('/point_localisations/autocomplete?search=${search}');
+
+    return a;
+  }
+
+  Future searchMapPlaceInfo(name, type) async {
+    Response a = await apiClient.getRequest(
+        '/point_localisations/findposition?name=${name}&type=${type}');
+
+    return a;
+  }
+
   Future calculFraisLivraison(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/frais',
         body: data);

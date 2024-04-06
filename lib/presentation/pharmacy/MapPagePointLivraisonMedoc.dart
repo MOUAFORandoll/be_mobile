@@ -1,5 +1,5 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/components/Widget/ShimmerBox.dart'; 
+import 'package:BabanaExpress/presentation/components/Widget/ShimmerBox.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
@@ -9,15 +9,15 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 
 @RoutePage()
-class MapPagePointLivraisonColis extends StatefulWidget {
-  static const routeName = '/livraison/point_livraison';
+class MapPagePointLivraisonMedocs extends StatefulWidget {
+  static const routeName = '/livraison/point_livraison_pharmacie';
   @override
-  State<MapPagePointLivraisonColis> createState() =>
-      _MapPagePointLivraisonColisState();
+  State<MapPagePointLivraisonMedocs> createState() =>
+      _MapPagePointLivraisonMedocsState();
 }
 
-class _MapPagePointLivraisonColisState
-    extends State<MapPagePointLivraisonColis> {
+class _MapPagePointLivraisonMedocsState
+    extends State<MapPagePointLivraisonMedocs> {
   late Marker _position;
   TextEditingController searchPointLivraisonController =
       TextEditingController();
@@ -221,8 +221,8 @@ class _MapPagePointLivraisonColisState
                                   // bgColor: ColorsApp.primary,
                                   text: 'Valider'.tr(),
                                   onTap: () async {
-                                    context.read<LivraisonBloc>().add(
-                                        MapValidatePointLivraison(
+                                    context.read<PharmacyBloc>().add(
+                                        MapValidatePointLivraisonPharmacie(
                                             libelle: libelleLocalisation.text,
                                             quartier: quartier.text));
 

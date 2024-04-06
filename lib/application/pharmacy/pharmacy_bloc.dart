@@ -35,9 +35,14 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       emit(state.copyWith(index: 0));
     });
     on<VerifyFormChooseMedicamentEventP>((event, emit) async {
-      emit(state.copyWith(
-        index: 1,
-      ));
+      if (state.listMedicamentChoose!.isNotEmpty &&
+          state.listMedicamentChoose!.length != 0) {
+        print('-----tff');
+        emit(state.copyWith(
+          index: 1,
+          isRequest: null,
+        ));
+      }
     });
     on<FindMedicament>(_findMedicament);
     on<ChooseMedicament>(_chooseMedicament);
@@ -59,24 +64,40 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
     on<CalculFraisP>(_calculFraisDeLivraison);
 
     on<SelectPointLivraisonP>(_selectPointLivraison);
+    on<ClearPointLivraisonMedoc>(clearPointLivraisonMedoc);
+    on<MapValidatePointLivraisonPharmacie>(_mapValidatePointPharmacie);
+  }
+
+  Future<void> clearPointLivraisonMedoc(
+      ClearPointLivraisonMedoc event, Emitter<PharmacyState> emit) async {
+    emit(state.copyWith(
+      selected_livraison_point: null,
+      isMapSelectedPointLivraison: false,
+    ));
   }
 
   Future<void> _findMedicament(
       FindMedicament event, Emitter<PharmacyState> emit) async {
     try {
+      emit(state.copyWith(isLoadedMedicament: 0));
       print('debut get findMedicament event');
       Response response = await pharmacyRepo.findMedicament(event.search);
       if (response.data != null) {
         if (response.data['data'].length != 0) {
           emit(state.copyWith(
+              isLoadedMedicament: 1,
               listMedicament: (response.data['data'] as List)
                   .map((e) => MedicamentModel.fromJson(e))
                   .toList()));
         } else {
           emit(state.copyWith(listMedicament: []));
         }
+      } else {
+        emit(state.copyWith(isLoadedMedicament: 2));
       }
-    } catch (e) {}
+    } catch (e) {
+      emit(state.copyWith(isLoadedMedicament: 2));
+    }
   }
 
   Future<void> _chooseMedicament(
@@ -173,7 +194,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
     //     latitude: state.position!.latitude);
 
     // emit(state.copyWith(
-    //   selected_recuperation_point: _point,
+    //   selected_livraison_point: _point,
     //   errorVille: false,
     //   errorPointRecuperation: false,
     //   isMapSelectedPointRecuperation: true,
@@ -191,6 +212,24 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       NoValidateP event, Emitter<PharmacyState> emit) async {
     final newState = state.copyWith(isRequest: 0);
     emit(newState);
+  }
+
+  Future<void> _mapValidatePointPharmacie(
+      MapValidatePointLivraisonPharmacie event,
+      Emitter<PharmacyState> emit) async {
+    PointLivraisonModel _point = new PointLivraisonModel(
+        id: 0,
+        libelle: event.libelle,
+        quartier: event.quartier,
+        ville: state.selectedVIlle!.libelle,
+        longitude: state.position!.longitude,
+        latitude: state.position!.latitude);
+
+    emit(state.copyWith(
+      selected_livraison_point: _point,
+      errorVille: false,
+      isMapSelectedPointLivraison: true,
+    ));
   }
 
   Future<void> _selectPointLivraison(
@@ -247,15 +286,15 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
               paiement_url: response.data[
                   'paiement_url'] /*     urlFacture: response.data['facture'] */
               ));
+          add(HistoriqueLivraisonMedicament());
+
           _cleanData(emit);
           print('00 emit(state.copyWith(isRequest: --------------5))');
         }
       } else {
-      
         emit(state.copyWith(isRequest: 3));
       }
     }).onError((e, s) {
-   
       emit(state.copyWith(isRequest: 3));
     });
   }

@@ -182,7 +182,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                                       color: (state
                                                               .errorPointRecuperation!)
                                                           ? ColorsApp.red
-                                                          : ColorsApp.greyNew,
+                                                          : ColorsApp.grey,
                                                       width: 1),
                                                   borderRadius:
                                                       BorderRadius.circular(8),
@@ -316,7 +316,10 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                                   color: ColorsApp.white,
                                                 )),
                                             onTap: () {
-                                              showModalBottomSheet(
+                                              AutoRouter.of(context).pushNamed(
+                                                  MapPagePointRecuperation
+                                                      .routeName);
+                                              /*    showModalBottomSheet(
                                                   context: context,
                                                   isScrollControlled: true,
                                                   isDismissible: true,
@@ -392,6 +395,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                                                 ),
                                                                 MapPagePointRecuperation()
                                                               ])));
+                                           */
                                             }),
                                       ],
                                     )),

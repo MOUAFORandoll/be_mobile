@@ -18,6 +18,7 @@ class ChooseMedicamentView extends StatelessWidget {
                     SearchInput(
                       controller: state.searchMedicamentController!,
                       label: 'Nom du medicament',
+                      loading: state.isLoadedMedicament!,
                       data: state.listMedicament!,
                       close: () => context
                           .read<PharmacyBloc>()
@@ -35,54 +36,67 @@ class ChooseMedicamentView extends StatelessWidget {
                           .read<PharmacyBloc>()
                           .add(FindMedicament(search: value)),
                     ),
-                    Container(
-                        alignment: Alignment.centerLeft,
-                        margin: EdgeInsets.only(top: kMarginY) * 2,
-                        padding: EdgeInsets.only(bottom: kMarginY),
-                        child: Text(
-                          'Medicament Selectionne',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 14),
-                        )),
-                    Container(
-                        alignment: Alignment.centerLeft,
-                        margin: EdgeInsets.only(top: kMarginY) * 2,
-                        padding: EdgeInsets.only(bottom: kMarginY),
-                        decoration: BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(
-                                    color: ColorsApp.primary.withOpacity(.5)))),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              child: Text('Nom'),
-                            ),
-                            Container(
-                              child: Text('Quantite'),
-                            ),
-                            Container()
-                          ],
-                        )),
-                    Container(
-                        width: getWith(context),
-                        margin: EdgeInsets.symmetric(vertical: kMarginY),
-                        child: SingleChildScrollView(
-                            child: ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: state.listMedicamentChoose!.length,
-                                itemBuilder: (_, index) => InkWell(
-                                      child: SelectedMedicament(
-                                          onDelete: () => context
-                                              .read<PharmacyBloc>()
-                                              .add(DeleteMedicament(
-                                                  medicament: state
-                                                          .listMedicamentChoose![
-                                                      index])),
-                                          medicament: state
-                                              .listMedicamentChoose![index]),
-                                    ))))
+                    if (state.listMedicamentChoose!.length == 0)
+                      Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.only(top: kMarginY) * 6,
+                          child: Text(
+                            'Veuillez Choisir vos medicaments'.tr(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 20),
+                          )),
+                    if (state.listMedicamentChoose!.length != 0)
+                      Container(
+                          alignment: Alignment.centerLeft,
+                          margin: EdgeInsets.only(top: kMarginY) * 2,
+                          padding: EdgeInsets.only(bottom: kMarginY),
+                          child: Text(
+                            'Medicament Selectionnees'.tr(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 14),
+                          )),
+                    if (state.listMedicamentChoose!.length != 0)
+                      Container(
+                          alignment: Alignment.centerLeft,
+                          margin: EdgeInsets.only(top: kMarginY) * 2,
+                          padding: EdgeInsets.only(bottom: kMarginY),
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(
+                                      color:
+                                          ColorsApp.primary.withOpacity(.5)))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text('Nom'),
+                              ),
+                              Container(
+                                child: Text('Quantite'),
+                              ),
+                              Container()
+                            ],
+                          )),
+                    if (state.listMedicamentChoose!.length != 0)
+                      Container(
+                          width: getWith(context),
+                          margin: EdgeInsets.symmetric(vertical: kMarginY),
+                          child: SingleChildScrollView(
+                              child: ListView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  itemCount: state.listMedicamentChoose!.length,
+                                  itemBuilder: (_, index) => InkWell(
+                                        child: SelectedMedicament(
+                                            onDelete: () => context
+                                                .read<PharmacyBloc>()
+                                                .add(DeleteMedicament(
+                                                    medicament: state
+                                                            .listMedicamentChoose![
+                                                        index])),
+                                            medicament: state
+                                                .listMedicamentChoose![index]),
+                                      ))))
                   ],
                 ),
               ),
@@ -90,6 +104,7 @@ class ChooseMedicamentView extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class SelectedMedicament extends StatelessWidget {
   SelectedMedicament({required this.medicament, required this.onDelete});
   MedicamentModel medicament;

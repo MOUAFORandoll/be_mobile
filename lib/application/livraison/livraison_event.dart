@@ -23,8 +23,7 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.clearPointRecuperation() =
       ClearPointRecuperation;
 
-  const factory LivraisonEvent.clearPoinLivraison() =
-      ClearPointLivraison;
+  const factory LivraisonEvent.clearPoinLivraison() = ClearPointLivraison;
 
   const factory LivraisonEvent.Start(
       {required LatLng latLng,
@@ -96,7 +95,9 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.downloadFacture() = DownloadFacture;
   const factory LivraisonEvent.noValidate() = NoValidate;
   const factory LivraisonEvent.onStartEvent() = OnStartEvent;
-
-  // const factory LivraisonEvent.onAutoComplet({required text}) = OnAutoComplet;
-  // const factory LivraisonEvent.ongetPlace({required text}) = GetPlace;
+  const factory LivraisonEvent.getMapPlaceInfo() = GetMapPlaceInfo;
+  const factory LivraisonEvent.onAutoComplet({required String text}) =
+      OnAutoComplet;
+  const factory LivraisonEvent.ongetPlaceData(
+      {required PlaceModel place }) = GetPlaceData;
 }

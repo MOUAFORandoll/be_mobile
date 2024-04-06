@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/utils/functions/formatData.dart';
 import 'package:intl/intl.dart';
 
 class FormatDateTime {
@@ -26,6 +27,19 @@ class FormatDateTime {
         'a' +
         ' ' +
         formattedDate.toString().split(' ')[1];
+  }
+
+  String dateToStringNew(value) {
+    DateFormat inputFormat = DateFormat('yyyy-MM-dd HH:mm');
+    DateTime dateTime = inputFormat.parse(value);
+    DateFormat outputFormat = DateFormat('E dd MMM yyyy HH:mm', 'fr_FR');
+
+    // DateFormat outputFormat = DateFormat('E dd MMMM yy HH:mm', 'fr_FR');
+    String outputDateString = outputFormat.format(dateTime);
+    String dateFinal = outputDateString.replaceAll(RegExp(r'\.'), '');
+
+    
+    return FormatData().capitalizeFirstLetter(dateFinal);
   }
 
   String dateToSimpleDateCurrent() {

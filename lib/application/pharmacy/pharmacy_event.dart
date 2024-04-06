@@ -50,4 +50,12 @@ class PharmacyEvent with _$PharmacyEvent {
   const factory PharmacyEvent.downloadFacture() = DownloadFactureP;
   const factory PharmacyEvent.noValidate() = NoValidateP;
   const factory PharmacyEvent.onStartEventP() = OnStartEventP;
+
+  const factory PharmacyEvent.clearPoinLivraisonMedoc() =
+      ClearPointLivraisonMedoc;
+
+  const factory PharmacyEvent.mapValidatePointLivraisonPharmacie({
+    required String libelle,
+    required String quartier,
+  }) = MapValidatePointLivraisonPharmacie;
 }

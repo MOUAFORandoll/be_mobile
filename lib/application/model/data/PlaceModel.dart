@@ -1,36 +1,20 @@
 class PlaceModel {
   PlaceModel({
-    required this.id,
-    required this.dateCreate,
-    required this.status,
-    required this.voyage,
-    required this.numeroPlace,
-    required this.libellePlace,
+    required this.type,
+    required this.libelle,
   });
-  late final int id;
-  late final String dateCreate;
-  late final bool status;
-  late final String voyage;
-  late final int numeroPlace;
-  late final String libellePlace;
+  late final int type;
+  late final String libelle;
 
   PlaceModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    dateCreate = json['dateCreate'];
-    status = json['status'];
-    voyage = json['voyage'];
-    numeroPlace = json['numeroPlace'];
-    libellePlace = json['libellePlace'];
+    type = json['type'];
+    libelle = json['libelle'];
   }
 
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
-    _data['id'] = id;
-    _data['dateCreate'] = dateCreate;
-    _data['status'] = status;
-    _data['voyage'] = voyage;
-    _data['numeroPlace'] = numeroPlace;
-    _data['libellePlace'] = libellePlace;
+    _data['type'] = type;
+    _data['libelle'] = libelle;
     return _data;
   }
 }

@@ -14,7 +14,7 @@ class _ThemeButtonWidgetState extends State<ThemeButtonWidget> {
         Theme.of(context).brightness == Brightness.dark
             ? FontAwesomeIcons.sun
             : FontAwesomeIcons.moon,
-        color: ColorsApp.grey,
+        color: ColorsApp.greyNew,
       ),
       onTap: () {
         // ViewFunctions().changeTheme(context);
