@@ -1,4 +1,3 @@
-
 import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
@@ -26,7 +25,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await EnvManager().init(env: Environment.dev);
+  await EnvManager().init(env: Environment.prod);
 
   co.init();
 
