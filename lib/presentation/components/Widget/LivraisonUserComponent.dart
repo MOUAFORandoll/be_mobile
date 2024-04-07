@@ -1,4 +1,4 @@
-import 'package:BabanaExpress/application/model/exportmodel.dart'; 
+import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:BabanaExpress/utils/functions/datetime_format_utils.dart';
@@ -91,7 +91,7 @@ class LivraisonUserComponent extends StatelessWidget {
                               Container(
                                   margin: EdgeInsets.only(left: 10),
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                   child: CachedNetworkImage(
                                     height: getHeight(context) * .09,
@@ -102,7 +102,7 @@ class LivraisonUserComponent extends StatelessWidget {
                                       return Container(
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(50),
+                                              BorderRadius.circular(8),
                                           image: DecorationImage(
                                               image: imageProvider,
                                               fit: BoxFit.cover,

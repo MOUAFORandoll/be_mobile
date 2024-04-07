@@ -1,16 +1,18 @@
-import 'package:BabanaExpress/presentation/home/home_page.dart';
+import 'package:BabanaExpress/presentation/compte/PaiementDepotPage.dart';
+import 'package:BabanaExpress/presentation/compte/WalletView.dart';
+import 'package:BabanaExpress/presentation/home/HomePage.dart';
 import 'package:BabanaExpress/presentation/layer/onboardingpage.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart';
-import 'package:BabanaExpress/presentation/livraison/paiement_page.dart';
+import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/SuccesLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
-import 'package:BabanaExpress/presentation/pharmacy/paiement_pharmacy_page.dart';
-import 'package:BabanaExpress/presentation/user/auth_page.dart';
-import 'package:BabanaExpress/presentation/user/forgot_password_page.dart';
-import 'package:BabanaExpress/presentation/user/politique_page.dart';
-import 'package:BabanaExpress/presentation/user/register_page.dart';
+import 'package:BabanaExpress/presentation/pharmacy/PaiementPharmacyPage.dart';
+import 'package:BabanaExpress/presentation/user/AuthPage.dart';
+import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
+import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
+import 'package:BabanaExpress/presentation/user/RegisterPage.dart';
 import 'package:BabanaExpress/test.dart';
 import 'package:auto_route/auto_route.dart';
 
@@ -57,5 +59,8 @@ class AppRouter extends $AppRouter {
             path: PaimentPharmacyPage.routeName),
         AutoRoute(
             page: LivraisonDataRoute.page, path: LivraisonDataPage.routeName),
+        AutoRoute(page: WalletRoute.page, path: WalletPage.routeName),
+        AutoRoute(
+            page: PaimentDepotRoute.page, path: PaimentDepotPage.routeName),
       ];
 }

@@ -1,3 +1,5 @@
+
+import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
@@ -149,6 +151,12 @@ class AppContent extends StatelessWidget {
                 BlocProvider<LivraisonBloc>(
                   create: (BuildContext context) => LivraisonBloc(
                     livraisonRepo: sl.get<LivraisonRepo>(),
+                    database: sl.get<DatabaseCubit>(),
+                  ),
+                ),
+                BlocProvider<CompteBloc>(
+                  create: (BuildContext context) => CompteBloc(
+                    compteRepo: sl.get<CompteRepo>(),
                     database: sl.get<DatabaseCubit>(),
                   ),
                 ),

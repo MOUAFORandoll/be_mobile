@@ -176,7 +176,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(7, 3111042122288968254),
       name: 'User',
-      lastPropertyId: const IdUid(10, 754203462009673773),
+      lastPropertyId: const IdUid(11, 5181578774780277422),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -223,6 +223,11 @@ final _entities = <ModelEntity>[
             id: const IdUid(9, 4427249840446802544),
             name: 'typeUser',
             type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 5181578774780277422),
+            name: 'solde',
+            type: 8,
             flags: 0)
       ],
       relations: <ModelRelation>[],
@@ -505,7 +510,7 @@ ModelDefinition getObjectBoxModel() {
           final profileOffset = fbb.writeString(object.profile);
           final phoneOffset = fbb.writeString(object.phone);
           final dateCreatedOffset = fbb.writeString(object.dateCreated);
-          fbb.startTable(11);
+          fbb.startTable(12);
           fbb.addInt64(0, object.id);
           fbb.addInt64(1, object.userId);
           fbb.addOffset(2, nomOffset);
@@ -515,6 +520,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(6, phoneOffset);
           fbb.addOffset(7, dateCreatedOffset);
           fbb.addInt64(8, object.typeUser);
+          fbb.addFloat64(10, object.solde);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -523,6 +529,8 @@ ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
           final userIdParam =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          final soldeParam =
+              const fb.Float64Reader().vTableGet(buffer, rootOffset, 24, 0);
           final nomParam = const fb.StringReader(asciiOptimization: true)
               .vTableGet(buffer, rootOffset, 8, '');
           final prenomParam = const fb.StringReader(asciiOptimization: true)
@@ -540,6 +548,7 @@ ModelDefinition getObjectBoxModel() {
                   .vTableGet(buffer, rootOffset, 18, '');
           final object = User(
               userId: userIdParam,
+              solde: soldeParam,
               nom: nomParam,
               prenom: prenomParam,
               typeUser: typeUserParam,
@@ -701,6 +710,9 @@ class User_ {
   /// see [User.typeUser]
   static final typeUser =
       QueryIntegerProperty<User>(_entities[6].properties[8]);
+
+  /// see [User.solde]
+  static final solde = QueryDoubleProperty<User>(_entities[6].properties[9]);
 }
 
 /// [YourDataModel] entity fields to define ObjectBox queries.

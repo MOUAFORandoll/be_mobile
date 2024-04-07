@@ -606,7 +606,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                           width: getHeight(context) / 10,
                                           fit: BoxFit.cover,
                                           imageUrl:
-                                              "livraison.colis[0].images[0].src",
+                                              'livraison.colis[0].images[0].src',
                                           imageBuilder:
                                               (context, imageProvider) {
                                             return Container(

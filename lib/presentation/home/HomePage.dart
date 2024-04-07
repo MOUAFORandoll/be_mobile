@@ -2,10 +2,11 @@ import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BabanaExpress/presentation/components/Widget/HomeModuleComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
+import 'package:BabanaExpress/presentation/compte/WalletView.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
-import 'package:BabanaExpress/presentation/pharmacy/Pharmacy_view.dart';
+import 'package:BabanaExpress/presentation/pharmacy/PharmacyView.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
@@ -111,38 +112,42 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 ],
                 flexibleSpace: Stack(
                   children: [
-                    Container(
-                      alignment: Alignment.center,
-                      height: getHeight(context) * .06,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(500),
-                          color: ColorsApp.white),
-                      padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.only(
-                        top: getHeight(context) * .10,
-                      ).add(EdgeInsets.symmetric(
-                        horizontal: getWith(context) * .35,
-                      )),
+                    InkWell(
+                      onTap: () => AutoRouter.of(context)
+                          .pushNamed(WalletPage.routeName),
                       child: Container(
-                        child: Column(
-                          children: [
-                            Text(
-                              'Solde du compte',
-                              style: TextStyle(
-                                color: ColorsApp.black,
-                                fontFamily: 'Lato',
-                                fontSize: 10,
-                              ),
-                            ),
-                            Text(
-                              '1500 FCFA',
-                              style: TextStyle(
+                        alignment: Alignment.center,
+                        height: getHeight(context) * .06,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(500),
+                            color: ColorsApp.white),
+                        padding: EdgeInsets.all(10),
+                        margin: EdgeInsets.only(
+                          top: getHeight(context) * .10,
+                        ).add(EdgeInsets.symmetric(
+                          horizontal: getWith(context) * .35,
+                        )),
+                        child: Container(
+                          child: Column(
+                            children: [
+                              Text(
+                                'Solde du compte',
+                                style: TextStyle(
                                   color: ColorsApp.black,
                                   fontFamily: 'Lato',
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ],
+                                  fontSize: 10,
+                                ),
+                              ),
+                              Text(
+                                '${state.user!.solde} FCFA',
+                                style: TextStyle(
+                                    color: ColorsApp.black,
+                                    fontFamily: 'Lato',
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

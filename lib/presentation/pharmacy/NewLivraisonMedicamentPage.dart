@@ -1,10 +1,10 @@
-import 'package:BabanaExpress/presentation/pharmacy/Infolieuxlivraison_view.dart';
-import 'package:BabanaExpress/presentation/pharmacy/paiement_pharmacy_page.dart';
+import 'package:BabanaExpress/presentation/pharmacy/InfolieuxlivraisonView.dart';
+import 'package:BabanaExpress/presentation/pharmacy/PaiementPharmacyPage.dart';
 
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
-import 'choosemedicament_view.dart';
+import 'ChooseMedicamentView.dart';
 
 @RoutePage()
 class NewLivraisonMedicamentPage extends StatefulWidget {

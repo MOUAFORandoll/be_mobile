@@ -22,7 +22,8 @@ class User {
   int id = 0;
   @Property()
   int userId = 0;
-
+  @Property()
+  double solde = 0;
   @Property()
   String nom;
 
@@ -46,6 +47,7 @@ class User {
 
   User({
     required this.userId,
+    required this.solde,
     required this.nom,
     required this.prenom,
     required this.typeUser,
@@ -56,6 +58,7 @@ class User {
   });
   Map<String, dynamic> toMap() {
     return {
+      'solde': solde,
       'userId': userId,
       'nom': nom,
       'prenom': prenom,
@@ -70,6 +73,7 @@ class User {
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       userId: json['id'],
+      solde: json['solde'],
       typeUser: json['typeUser'],
       nom: json['nom'],
       prenom: json['prenom'],

@@ -1,14 +1,4 @@
-// To parse this JSON data, do
-//
-//     final transactinoModel = transactinoModelFromJson(jsonString);
-
-import 'dart:convert';
-
-TransactionModel transactinoModelFromJson(String str) =>
-    TransactionModel.fromJson(json.decode(str));
-
-String transactinoModelToJson(TransactionModel data) =>
-    json.encode(data.toJson());
+ 
 
 class TransactionModel {
   TransactionModel({

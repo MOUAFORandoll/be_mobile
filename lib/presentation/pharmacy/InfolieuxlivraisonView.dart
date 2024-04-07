@@ -14,7 +14,25 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
             builder: (context, state_livraison) => Form(
                 key: state_livraison.formKeyLivraison,
                 child: Container(
+                    decoration: BoxDecoration(
+                        color: ColorsApp.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: ColorsApp.primary.withOpacity(0.1),
+                            spreadRadius: 5,
+                            blurRadius: 5,
+                            offset: Offset(0, 2),
+                          ),
+                          BoxShadow(
+                            color: ColorsApp.greyNew.withOpacity(0.1),
+                            spreadRadius: 5,
+                            blurRadius: 5,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(8)),
                     margin: EdgeInsets.symmetric(horizontal: kMarginX),
+                    padding: EdgeInsets.all(kMarginX * 1.5),
                     child: SingleChildScrollView(
                         child: Column(children: [
                       Column(children: [
@@ -119,12 +137,6 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                     fontFamily: 'Lato',
                                     color: ColorsApp.red),
                               )),
-                        Container(
-                            padding: EdgeInsets.only(
-                              top: kMarginY,
-                            ),
-                            alignment: Alignment.centerLeft,
-                            child: Text('yselectpointliv'.tr())),
                         state_livraison.isLoadedPLivraison == 0
                             ? Container(
                                 padding: EdgeInsets.symmetric(
@@ -144,7 +156,8 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                                 top: kMarginY,
                                               ),
                                               alignment: Alignment.centerLeft,
-                                              child: Text('yrecup'.tr())),
+                                              child:
+                                                  Text('yselectpointliv'.tr())),
                                           Container(
                                               margin: EdgeInsets.only(),
                                               child: Row(
@@ -152,7 +165,7 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  (!state 
+                                                  (!state
                                                           .isMapSelectedPointLivraison)
                                                       ? Container(
                                                           decoration:
@@ -345,7 +358,6 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                               )),
                                         ],
                                       ),
-                        
                         if (state_livraison.errorPointLivraison!)
                           Container(
                               padding: EdgeInsets.only(

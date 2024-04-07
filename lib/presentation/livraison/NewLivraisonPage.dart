@@ -1,8 +1,8 @@
-import 'package:BabanaExpress/core.dart';
+
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/livraison/paiement_page.dart';
+import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'InfoColis.dart';
 import 'InfoLIvraison.dart';
 
@@ -62,11 +62,12 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
               title: Text('yNewLivraison'.tr()),
               centerTitle: true,
             ),
-            body: RefreshIndicator(
+            body: /*  RefreshIndicator(
                 color: ColorsApp.second,
                 onRefresh: () => Future.delayed(
                     Duration(seconds: 5), () => initLoad(context)),
-                child: Container(
+                child: */
+                Container(
                     height: getHeight(context),
                     margin: EdgeInsets.symmetric(
                         horizontal: kMarginX, vertical: kMarginY),
@@ -213,7 +214,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                         ),
                                       ])),
                       ],
-                    )))));
+                    ))));
   }
 
   validateLivraison(contextA) => showModalBottomSheet(

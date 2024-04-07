@@ -1,3 +1,5 @@
+import 'package:BabanaExpress/application/compte/compte_bloc.dart';
+import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
@@ -34,6 +36,9 @@ Future<void> init() async {
   sl
     ..registerFactory(() => LivraisonBloc(livraisonRepo: sl(), database: sl()))
     ..registerLazySingleton(() => LivraisonRepo(apiClient: sl()));
+  sl
+    ..registerFactory(() => CompteBloc(compteRepo: sl(), database: sl()))
+    ..registerLazySingleton(() => CompteRepo(apiClient: sl()));
 
   sl
     ..registerFactory(() => PharmacyBloc(pharmacyRepo: sl()))
@@ -60,6 +65,8 @@ Future<void> initLoad(context) async {
     ..add(GetVilleAndCategoryEvent())
     ..add(HistoriqueUserLivraison());
   BlocProvider.of<PharmacyBloc>(context).add(HistoriqueLivraisonMedicament());
+  BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
+
   initSetDefaultValue(context);
 }
 
