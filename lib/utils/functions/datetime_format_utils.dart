@@ -28,7 +28,7 @@ class FormatDateTime {
         ' ' +
         formattedDate.toString().split(' ')[1];
   }
-
+  
   String dateToStringNew(value) {
     DateFormat inputFormat = DateFormat('yyyy-MM-dd HH:mm');
     DateTime dateTime = inputFormat.parse(value);
@@ -38,7 +38,6 @@ class FormatDateTime {
     String outputDateString = outputFormat.format(dateTime);
     String dateFinal = outputDateString.replaceAll(RegExp(r'\.'), '');
 
-    
     return FormatData().capitalizeFirstLetter(dateFinal);
   }
 

@@ -16,16 +16,16 @@ class AppCarrousselItem extends StatelessWidget {
         color: ColorsApp.primary,
       ),
       padding: EdgeInsets.only(
-        top: getHeight(context) * .20,
-      ),
+          // top: getHeight(context) * .20,
+          ),
       child: Column(
         children: [
           Container(
-            height: getHeight(context) * .50,
+            height: getHeight(context) * .75,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(image),
-                fit: BoxFit.contain,
+                fit: index == 2 ? BoxFit.cover : BoxFit.contain,
               ),
             ),
           ),

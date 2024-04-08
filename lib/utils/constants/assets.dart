@@ -11,7 +11,7 @@ class Assets {
   static const en = 'assets/images/en.jpg';
   static const onb1 = 'assets/images/ob1.png';
   static const onb2 = 'assets/images/ob2.png';
-  static const onb3 = 'assets/images/ob1.png';
+  static const onb3 = 'assets/images/ob3.png';
   static const user = 'assets/svg_icones/user.svg';
   static const logImg = 'assets/svg_icones/logImg.png';
   static const call = 'assets/svg_icones/callreceive.svg';

@@ -37,6 +37,13 @@ class OnBoardingPage extends StatelessWidget {
                       title: 'ctitle2'.tr(),
                       description: 'cdescription2'.tr(),
                       image: Assets.onb2,
+                      index: state.index),
+                  AppCarrousselItem(
+                      title: 'Livraison rapide'.tr(),
+                      description:
+                          'Faites vous livrer rapidement peux importe ou vous vous trouvez dans le cameroun'
+                              .tr(),
+                      image: Assets.onb3,
                       index: state.index)
                 ],
                 options: CarouselOptions(
@@ -66,7 +73,7 @@ class OnBoardingPage extends StatelessWidget {
                   child: Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: ['0', '1'].asMap().entries.map((entry) {
+                      children: ['0', '1', '2'].asMap().entries.map((entry) {
                         return GestureDetector(
                             onTap: () {
                               controller.animateToPage(
@@ -94,11 +101,11 @@ class OnBoardingPage extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: AppButton(
-                    text: state.index == 0 ? 'Suivant' : 'Continuer',
+                    text: state.index == 2 ? 'Continuer' : 'Suivant',
                     textColor: ColorsApp.primary,
                     bgColor: Colors.white,
                     onTap: () {
-                      if (state.index == 1) {
+                      if (state.index == 2) {
                         // final AppActionCubit action =
                         //     BlocProvider.of<AppActionCubit>(context);
                         // action.toLogin();
