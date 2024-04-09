@@ -852,7 +852,9 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   Future<void> _getLivraisonUser(
       HistoriqueUserLivraison event, Emitter<LivraisonState> emit) async {
     var key = await database.getKey();
-
+    emit(state.copyWith(
+      isLoadedLivraison: 0,
+    ));
     await livraisonRepo.getHistoryLivraisons(key).then((response) {
       if (response.data != null) {
         emit(state.copyWith(

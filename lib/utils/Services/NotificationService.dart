@@ -1,14 +1,13 @@
 import 'dart:async';
 
 import 'package:BabanaExpress/application/database/database_cubit.dart';
-import 'package:BabanaExpress/application/export_bloc.dart'; 
+import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/main.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/subjects.dart';
- 
 
 class Payload {
   late final BuildContext? context;
@@ -156,7 +155,7 @@ class NotificationService {
       importance: Importance.max,
       priority: Priority.high,
       // autoCancel: false,
-     setAsGroupSummary: true,
+      setAsGroupSummary: true,
       styleInformation: BigTextStyleInformation(
         '<Notification Content>',
         htmlFormatBigText: true,
@@ -221,6 +220,44 @@ class NotificationService {
       'Votre de livraison du ' +
           livraison.date +
           ' a été effectuée avec succes', // Notification body
+      platformChannelSpecifics,
+      payload: 'Livraison',
+    );
+  }
+
+  Future<void> depotFinishNotification(
+      {required content, required context}) async {
+    
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
+      'BabanaExpress_credit', // Channel ID
+      'BabanaExpress Depot', // Channel name
+      channelDescription: 'Information de depot compte', // Channel description
+      importance: Importance.max,
+      priority: Priority.high,
+      // autoCancel: false,
+      // setAsGroupSummary: true,
+      styleInformation: BigTextStyleInformation(
+        '<Notification Content>',
+        htmlFormatBigText: true,
+        contentTitle: 'Depot',
+        summaryText: 'Depot',
+      ),
+      icon: 'launcher_icon',
+      largeIcon: DrawableResourceAndroidBitmap(
+          'launcher_icon'), // Replace with the name of your custom large icon file
+    );
+    const DarwinNotificationDetails iOSPlatformChannelSpecifics =
+        DarwinNotificationDetails(threadIdentifier: 'thread_id');
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iOSPlatformChannelSpecifics,
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+      2,
+      'Depot Babana Express',
+      'Votre depot a été effectuée avec succes', // Notification body
       platformChannelSpecifics,
       payload: 'Livraison',
     );

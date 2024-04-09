@@ -1,4 +1,4 @@
-import 'dart:convert'; 
+import 'dart:convert';
 import 'package:BabanaExpress/infrastructure/_commons/network/request_url.dart';
 
 import 'package:socket_io_client/socket_io_client.dart' as IO;
@@ -48,6 +48,23 @@ class SocketService {
           print('-----------------');
           print(jsonDecode(data));
           action(jsonDecode(data)['data']);
+        }
+      }
+    });
+    // });
+    // print(socket.connected);
+  }
+
+  void transactionCredit(
+      {required String recepteur, required Function action}) {
+    socket.on('transaction', (data) {
+      print(data);
+      if (data != null && data != 'null') {
+        print(jsonDecode(data));
+        if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
+          print('-----------------');
+          print(jsonDecode(data));
+        
         }
       }
     });
