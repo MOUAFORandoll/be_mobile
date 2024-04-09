@@ -45,9 +45,6 @@ class _WalletPageState extends State<WalletPage> {
 
                 showError('Une erreur est survenue', context);
                 print('-----44--------*********');
-              } else {
-                EasyLoading.dismiss();
-                showError('Une erreur est survenue', context);
               }
             },
             builder: (context, state) => Scaffold(

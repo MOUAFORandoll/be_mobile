@@ -1,4 +1,5 @@
 import 'package:BabanaExpress/presentation/components/Widget/EmptyLivraisonsComponent.dart';
+import 'package:BabanaExpress/presentation/components/Widget/ErrorReloadComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
@@ -13,7 +14,10 @@ class HistoriqueLivraisonMedicamentView extends StatelessWidget {
       return state.isLoadedHistoriqueLivraison == 0
           ? ShimmerLivraison()
           : state.isLoadedHistoriqueLivraison == 2
-              ? Text('Error')
+              ?  ErrorReloadComponent(
+                  onTap: () => BlocProvider.of<PharmacyBloc>(context)
+                      .add(HistoriqueLivraisonMedicament()),
+                )
               : state.userLivraisonMedicamentList!.length == 0
                   ? EmptyLivraisonsComponent()
                   : ListView.builder(

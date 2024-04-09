@@ -73,7 +73,7 @@ class User {
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       userId: json['id'],
-      solde: json['solde'],
+      solde: double.parse(json['solde'].toString()),
       typeUser: json['typeUser'],
       nom: json['nom'],
       prenom: json['prenom'],

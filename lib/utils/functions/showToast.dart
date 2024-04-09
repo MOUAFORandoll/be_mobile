@@ -24,8 +24,12 @@ showSuccess(
     backgroundColor: ColorsApp.primary,
     content: Row(
       children: [
-        Expanded(child: Text(message)),
-        const Icon(Icons.done),
+        Expanded(
+            child: Text(
+          message,
+          style: TextStyle(color: ColorsApp.white),
+        )),
+        const Icon(Icons.done, color: ColorsApp.white),
       ],
     ),
   );
