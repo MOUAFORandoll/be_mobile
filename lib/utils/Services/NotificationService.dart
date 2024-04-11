@@ -227,12 +227,12 @@ class NotificationService {
 
   Future<void> depotFinishNotification(
       {required content, required context}) async {
-    
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
       'BabanaExpress_credit', // Channel ID
       'BabanaExpress Depot', // Channel name
-      channelDescription: 'Information de depot compte', // Channel description
+      channelDescription:
+          'Information de Recharge compte', // Channel description
       importance: Importance.max,
       priority: Priority.high,
       // autoCancel: false,
@@ -240,8 +240,8 @@ class NotificationService {
       styleInformation: BigTextStyleInformation(
         '<Notification Content>',
         htmlFormatBigText: true,
-        contentTitle: 'Depot',
-        summaryText: 'Depot',
+        contentTitle: 'Recharge',
+        summaryText: 'Recharge',
       ),
       icon: 'launcher_icon',
       largeIcon: DrawableResourceAndroidBitmap(
@@ -256,8 +256,8 @@ class NotificationService {
 
     await flutterLocalNotificationsPlugin.show(
       2,
-      'Depot Babana Express',
-      'Votre depot a été effectuée avec succes', // Notification body
+      'Recharge Babana Express',
+      'Votre recharge de ${content} a été effectuée avec succes', // Notification body
       platformChannelSpecifics,
       payload: 'Livraison',
     );

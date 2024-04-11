@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/application/compte/compte_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/SocketService.dart';
@@ -62,6 +63,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
           SocketService().transactionCredit(
               recepteur: key,
               action: (data) {
+                // event.context.watch<CompteBloc>().add(HistoriqueTransaction());
                 NotificationService().depotFinishNotification(
                     content: data, context: event.context);
               });

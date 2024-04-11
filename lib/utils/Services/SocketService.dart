@@ -62,9 +62,8 @@ class SocketService {
       if (data != null && data != 'null') {
         print(jsonDecode(data));
         if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
-          print('-----------------');
-          print(jsonDecode(data));
-        
+          print('------------iciiiiiCest moi-----');
+           action(jsonDecode(data)['data']['montant']);
         }
       }
     });
