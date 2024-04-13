@@ -61,6 +61,8 @@ mixin _$LivraisonEvent {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,6 +108,7 @@ mixin _$LivraisonEvent {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -150,6 +153,7 @@ mixin _$LivraisonEvent {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -200,6 +204,7 @@ mixin _$LivraisonEvent {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -243,6 +248,7 @@ mixin _$LivraisonEvent {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -286,6 +292,7 @@ mixin _$LivraisonEvent {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -393,6 +400,8 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return verifyForm();
   }
@@ -441,6 +450,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return verifyForm?.call();
   }
@@ -488,6 +498,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -544,6 +555,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return verifyForm(this);
   }
@@ -590,6 +602,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return verifyForm?.call(this);
   }
@@ -636,6 +649,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (verifyForm != null) {
@@ -730,6 +744,8 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return backIndex();
   }
@@ -778,6 +794,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return backIndex?.call();
   }
@@ -825,6 +842,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -881,6 +899,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return backIndex(this);
   }
@@ -927,6 +946,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return backIndex?.call(this);
   }
@@ -973,6 +993,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (backIndex != null) {
@@ -1070,6 +1091,8 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return getVilleAndCategory();
   }
@@ -1118,6 +1141,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return getVilleAndCategory?.call();
   }
@@ -1165,6 +1189,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1221,6 +1246,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return getVilleAndCategory(this);
   }
@@ -1267,6 +1293,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return getVilleAndCategory?.call(this);
   }
@@ -1313,6 +1340,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1433,6 +1461,8 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return selectedVille(ville);
   }
@@ -1481,6 +1511,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return selectedVille?.call(ville);
   }
@@ -1528,6 +1559,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1584,6 +1616,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return selectedVille(this);
   }
@@ -1630,6 +1663,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return selectedVille?.call(this);
   }
@@ -1676,6 +1710,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1804,6 +1839,8 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return selectedCategory(categoryColis);
   }
@@ -1852,6 +1889,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return selectedCategory?.call(categoryColis);
   }
@@ -1899,6 +1937,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -1955,6 +1994,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return selectedCategory(this);
   }
@@ -2001,6 +2041,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return selectedCategory?.call(this);
   }
@@ -2047,6 +2088,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -2177,6 +2219,8 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return selectPointRecuperation(point_recup);
   }
@@ -2225,6 +2269,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return selectPointRecuperation?.call(point_recup);
   }
@@ -2272,6 +2317,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -2328,6 +2374,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return selectPointRecuperation(this);
   }
@@ -2374,6 +2421,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return selectPointRecuperation?.call(this);
   }
@@ -2420,6 +2468,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -2524,6 +2573,8 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return clearPointRecuperation();
   }
@@ -2572,6 +2623,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return clearPointRecuperation?.call();
   }
@@ -2619,6 +2671,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (clearPointRecuperation != null) {
@@ -2675,6 +2728,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return clearPointRecuperation(this);
   }
@@ -2721,6 +2775,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return clearPointRecuperation?.call(this);
   }
@@ -2767,6 +2822,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (clearPointRecuperation != null) {
@@ -2862,6 +2918,8 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return clearPoinLivraison();
   }
@@ -2910,6 +2968,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return clearPoinLivraison?.call();
   }
@@ -2957,6 +3016,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (clearPoinLivraison != null) {
@@ -3013,6 +3073,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return clearPoinLivraison(this);
   }
@@ -3059,6 +3120,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return clearPoinLivraison?.call(this);
   }
@@ -3105,6 +3167,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (clearPoinLivraison != null) {
@@ -3238,6 +3301,8 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return Start(latLng, quartier_recuperation_point);
   }
@@ -3286,6 +3351,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return Start?.call(latLng, quartier_recuperation_point);
   }
@@ -3333,6 +3399,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -3389,6 +3456,7 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return Start(this);
   }
@@ -3435,6 +3503,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return Start?.call(this);
   }
@@ -3481,6 +3550,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -3583,6 +3653,8 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return setStartLogLat();
   }
@@ -3631,6 +3703,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return setStartLogLat?.call();
   }
@@ -3678,6 +3751,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -3734,6 +3808,7 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return setStartLogLat(this);
   }
@@ -3780,6 +3855,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return setStartLogLat?.call(this);
   }
@@ -3826,6 +3902,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -3947,6 +4024,8 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return getRecupPoint(ville);
   }
@@ -3995,6 +4074,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return getRecupPoint?.call(ville);
   }
@@ -4042,6 +4122,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -4098,6 +4179,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return getRecupPoint(this);
   }
@@ -4144,6 +4226,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return getRecupPoint?.call(this);
   }
@@ -4190,6 +4273,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -4317,6 +4401,8 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return searchpointevent(text);
   }
@@ -4365,6 +4451,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return searchpointevent?.call(text);
   }
@@ -4412,6 +4499,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -4468,6 +4556,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return searchpointevent(this);
   }
@@ -4514,6 +4603,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return searchpointevent?.call(this);
   }
@@ -4560,6 +4650,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -4686,6 +4777,8 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return mapSelected(status);
   }
@@ -4734,6 +4827,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return mapSelected?.call(status);
   }
@@ -4781,6 +4875,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -4837,6 +4932,7 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return mapSelected(this);
   }
@@ -4883,6 +4979,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return mapSelected?.call(this);
   }
@@ -4929,6 +5026,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -5064,6 +5162,8 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return mapValidatePoint(libelle, quartier);
   }
@@ -5112,6 +5212,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return mapValidatePoint?.call(libelle, quartier);
   }
@@ -5159,6 +5260,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -5215,6 +5317,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return mapValidatePoint(this);
   }
@@ -5261,6 +5364,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return mapValidatePoint?.call(this);
   }
@@ -5307,6 +5411,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -5448,6 +5553,8 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return mapValidatePointLivraison(libelle, quartier);
   }
@@ -5496,6 +5603,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return mapValidatePointLivraison?.call(libelle, quartier);
   }
@@ -5543,6 +5651,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -5599,6 +5708,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return mapValidatePointLivraison(this);
   }
@@ -5645,6 +5755,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return mapValidatePointLivraison?.call(this);
   }
@@ -5691,6 +5802,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -5793,6 +5905,8 @@ class _$AddColisImpl implements AddColis {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return addColis();
   }
@@ -5841,6 +5955,7 @@ class _$AddColisImpl implements AddColis {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return addColis?.call();
   }
@@ -5888,6 +6003,7 @@ class _$AddColisImpl implements AddColis {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (addColis != null) {
@@ -5944,6 +6060,7 @@ class _$AddColisImpl implements AddColis {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return addColis(this);
   }
@@ -5990,6 +6107,7 @@ class _$AddColisImpl implements AddColis {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return addColis?.call(this);
   }
@@ -6036,6 +6154,7 @@ class _$AddColisImpl implements AddColis {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (addColis != null) {
@@ -6156,6 +6275,8 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return updateColis(idColis);
   }
@@ -6204,6 +6325,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return updateColis?.call(idColis);
   }
@@ -6251,6 +6373,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -6307,6 +6430,7 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return updateColis(this);
   }
@@ -6353,6 +6477,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return updateColis?.call(this);
   }
@@ -6399,6 +6524,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -6524,6 +6650,8 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return deleteColis(idColis);
   }
@@ -6572,6 +6700,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return deleteColis?.call(idColis);
   }
@@ -6619,6 +6748,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -6675,6 +6805,7 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return deleteColis(this);
   }
@@ -6721,6 +6852,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return deleteColis?.call(this);
   }
@@ -6767,6 +6899,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -6868,6 +7001,8 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return getImageColisAppareil();
   }
@@ -6916,6 +7051,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return getImageColisAppareil?.call();
   }
@@ -6963,6 +7099,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -7019,6 +7156,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return getImageColisAppareil(this);
   }
@@ -7065,6 +7203,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return getImageColisAppareil?.call(this);
   }
@@ -7111,6 +7250,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -7206,6 +7346,8 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return getImageColisGalerie();
   }
@@ -7254,6 +7396,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return getImageColisGalerie?.call();
   }
@@ -7301,6 +7444,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -7357,6 +7501,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return getImageColisGalerie(this);
   }
@@ -7403,6 +7548,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return getImageColisGalerie?.call(this);
   }
@@ -7449,6 +7595,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -7571,6 +7718,8 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return addImageColisAppareil(idColis);
   }
@@ -7619,6 +7768,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return addImageColisAppareil?.call(idColis);
   }
@@ -7666,6 +7816,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -7722,6 +7873,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return addImageColisAppareil(this);
   }
@@ -7768,6 +7920,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return addImageColisAppareil?.call(this);
   }
@@ -7814,6 +7967,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -7942,6 +8096,8 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return addImageColisGalerie(idColis);
   }
@@ -7990,6 +8146,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return addImageColisGalerie?.call(idColis);
   }
@@ -8037,6 +8194,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -8093,6 +8251,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return addImageColisGalerie(this);
   }
@@ -8139,6 +8298,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return addImageColisGalerie?.call(this);
   }
@@ -8185,6 +8345,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -8315,6 +8476,8 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return selectPointLivraisonColis(point_livraison);
   }
@@ -8363,6 +8526,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return selectPointLivraisonColis?.call(point_livraison);
   }
@@ -8410,6 +8574,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -8466,6 +8631,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return selectPointLivraisonColis(this);
   }
@@ -8512,6 +8678,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return selectPointLivraisonColis?.call(this);
   }
@@ -8558,6 +8725,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -8662,6 +8830,8 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return successLivraisonCreate();
   }
@@ -8710,6 +8880,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return successLivraisonCreate?.call();
   }
@@ -8757,6 +8928,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (successLivraisonCreate != null) {
@@ -8813,6 +8985,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return successLivraisonCreate(this);
   }
@@ -8859,6 +9032,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return successLivraisonCreate?.call(this);
   }
@@ -8905,6 +9079,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (successLivraisonCreate != null) {
@@ -9037,6 +9212,8 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return removeImageFromColis(idColis, position);
   }
@@ -9085,6 +9262,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return removeImageFromColis?.call(idColis, position);
   }
@@ -9132,6 +9310,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -9188,6 +9367,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return removeImageFromColis(this);
   }
@@ -9234,6 +9414,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return removeImageFromColis?.call(this);
   }
@@ -9280,6 +9461,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -9430,6 +9612,8 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return updateImageInColis(idColis, position, updatedImage);
   }
@@ -9478,6 +9662,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return updateImageInColis?.call(idColis, position, updatedImage);
   }
@@ -9525,6 +9710,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -9581,6 +9767,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return updateImageInColis(this);
   }
@@ -9627,6 +9814,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return updateImageInColis?.call(this);
   }
@@ -9673,6 +9861,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -9803,6 +9992,8 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return selectColis(colis);
   }
@@ -9851,6 +10042,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return selectColis?.call(colis);
   }
@@ -9898,6 +10090,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -9954,6 +10147,7 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return selectColis(this);
   }
@@ -10000,6 +10194,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return selectColis?.call(this);
   }
@@ -10046,6 +10241,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -10171,6 +10367,8 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return manageQte(state);
   }
@@ -10219,6 +10417,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return manageQte?.call(state);
   }
@@ -10266,6 +10465,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -10322,6 +10522,7 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return manageQte(this);
   }
@@ -10368,6 +10569,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return manageQte?.call(this);
   }
@@ -10414,6 +10616,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -10513,6 +10716,8 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return calculFrais();
   }
@@ -10561,6 +10766,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return calculFrais?.call();
   }
@@ -10608,6 +10814,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (calculFrais != null) {
@@ -10664,6 +10871,7 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return calculFrais(this);
   }
@@ -10710,6 +10918,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return calculFrais?.call(this);
   }
@@ -10756,6 +10965,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (calculFrais != null) {
@@ -10850,6 +11060,8 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return newLivraison();
   }
@@ -10898,6 +11110,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return newLivraison?.call();
   }
@@ -10945,6 +11158,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (newLivraison != null) {
@@ -11001,6 +11215,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return newLivraison(this);
   }
@@ -11047,6 +11262,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return newLivraison?.call(this);
   }
@@ -11093,6 +11309,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (newLivraison != null) {
@@ -11190,6 +11407,8 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return getLivraison();
   }
@@ -11238,6 +11457,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return getLivraison?.call();
   }
@@ -11285,6 +11505,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getLivraison != null) {
@@ -11341,6 +11562,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return getLivraison(this);
   }
@@ -11387,6 +11609,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return getLivraison?.call(this);
   }
@@ -11433,6 +11656,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getLivraison != null) {
@@ -11527,6 +11751,8 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return downloadFacture();
   }
@@ -11575,6 +11801,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return downloadFacture?.call();
   }
@@ -11622,6 +11849,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -11678,6 +11906,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return downloadFacture(this);
   }
@@ -11724,6 +11953,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return downloadFacture?.call(this);
   }
@@ -11770,6 +12000,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -11864,6 +12095,8 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return noValidate();
   }
@@ -11912,6 +12145,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return noValidate?.call();
   }
@@ -11959,6 +12193,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (noValidate != null) {
@@ -12015,6 +12250,7 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return noValidate(this);
   }
@@ -12061,6 +12297,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return noValidate?.call(this);
   }
@@ -12107,6 +12344,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (noValidate != null) {
@@ -12201,6 +12439,8 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return onStartEvent();
   }
@@ -12249,6 +12489,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return onStartEvent?.call();
   }
@@ -12296,6 +12537,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (onStartEvent != null) {
@@ -12352,6 +12594,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return onStartEvent(this);
   }
@@ -12398,6 +12641,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return onStartEvent?.call(this);
   }
@@ -12444,6 +12688,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (onStartEvent != null) {
@@ -12538,6 +12783,8 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return getMapPlaceInfo();
   }
@@ -12586,6 +12833,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return getMapPlaceInfo?.call();
   }
@@ -12633,6 +12881,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getMapPlaceInfo != null) {
@@ -12689,6 +12938,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return getMapPlaceInfo(this);
   }
@@ -12735,6 +12985,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return getMapPlaceInfo?.call(this);
   }
@@ -12781,6 +13032,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getMapPlaceInfo != null) {
@@ -12901,6 +13153,8 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return onAutoComplet(text);
   }
@@ -12949,6 +13203,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return onAutoComplet?.call(text);
   }
@@ -12996,6 +13251,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (onAutoComplet != null) {
@@ -13052,6 +13308,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return onAutoComplet(this);
   }
@@ -13098,6 +13355,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return onAutoComplet?.call(this);
   }
@@ -13144,6 +13402,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (onAutoComplet != null) {
@@ -13270,6 +13529,8 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     required TResult Function() getMapPlaceInfo,
     required TResult Function(String text) onAutoComplet,
     required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return ongetPlaceData(place);
   }
@@ -13318,6 +13579,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     TResult? Function()? getMapPlaceInfo,
     TResult? Function(String text)? onAutoComplet,
     TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return ongetPlaceData?.call(place);
   }
@@ -13365,6 +13627,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     TResult Function()? getMapPlaceInfo,
     TResult Function(String text)? onAutoComplet,
     TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (ongetPlaceData != null) {
@@ -13421,6 +13684,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
     required TResult Function(OnAutoComplet value) onAutoComplet,
     required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
   }) {
     return ongetPlaceData(this);
   }
@@ -13467,6 +13731,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult? Function(OnAutoComplet value)? onAutoComplet,
     TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
   }) {
     return ongetPlaceData?.call(this);
   }
@@ -13513,6 +13778,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
     TResult Function(OnAutoComplet value)? onAutoComplet,
     TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (ongetPlaceData != null) {
@@ -13529,6 +13795,385 @@ abstract class GetPlaceData implements LivraisonEvent {
   PlaceModel get place;
   @JsonKey(ignore: true)
   _$$GetPlaceDataImplCopyWith<_$GetPlaceDataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectModePaiementImplCopyWith<$Res> {
+  factory _$$SelectModePaiementImplCopyWith(_$SelectModePaiementImpl value,
+          $Res Function(_$SelectModePaiementImpl) then) =
+      __$$SelectModePaiementImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ModePaiementModel modePaiement});
+}
+
+/// @nodoc
+class __$$SelectModePaiementImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$SelectModePaiementImpl>
+    implements _$$SelectModePaiementImplCopyWith<$Res> {
+  __$$SelectModePaiementImplCopyWithImpl(_$SelectModePaiementImpl _value,
+      $Res Function(_$SelectModePaiementImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? modePaiement = null,
+  }) {
+    return _then(_$SelectModePaiementImpl(
+      modePaiement: null == modePaiement
+          ? _value.modePaiement
+          : modePaiement // ignore: cast_nullable_to_non_nullable
+              as ModePaiementModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectModePaiementImpl implements SelectModePaiement {
+  const _$SelectModePaiementImpl({required this.modePaiement});
+
+  @override
+  final ModePaiementModel modePaiement;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.selectModePaiement(modePaiement: $modePaiement)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectModePaiementImpl &&
+            (identical(other.modePaiement, modePaiement) ||
+                other.modePaiement == modePaiement));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, modePaiement);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectModePaiementImplCopyWith<_$SelectModePaiementImpl> get copyWith =>
+      __$$SelectModePaiementImplCopyWithImpl<_$SelectModePaiementImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyForm,
+    required TResult Function() backIndex,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColis,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFrais,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraison,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEvent,
+    required TResult Function() getMapPlaceInfo,
+    required TResult Function(String text) onAutoComplet,
+    required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
+  }) {
+    return selectModePaiement(modePaiement);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyForm,
+    TResult? Function()? backIndex,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColis,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFrais,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraison,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEvent,
+    TResult? Function()? getMapPlaceInfo,
+    TResult? Function(String text)? onAutoComplet,
+    TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
+  }) {
+    return selectModePaiement?.call(modePaiement);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyForm,
+    TResult Function()? backIndex,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColis,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFrais,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraison,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEvent,
+    TResult Function()? getMapPlaceInfo,
+    TResult Function(String text)? onAutoComplet,
+    TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
+    required TResult orElse(),
+  }) {
+    if (selectModePaiement != null) {
+      return selectModePaiement(modePaiement);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonEvent value) verifyForm,
+    required TResult Function(BackIndexEvent value) backIndex,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColis value) addColis,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFrais value) calculFrais,
+    required TResult Function(NewLivraison value) newLivraison,
+    required TResult Function(HistoriqueUserLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
+    required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
+    required TResult Function(OnAutoComplet value) onAutoComplet,
+    required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
+  }) {
+    return selectModePaiement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult? Function(BackIndexEvent value)? backIndex,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColis value)? addColis,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFrais value)? calculFrais,
+    TResult? Function(NewLivraison value)? newLivraison,
+    TResult? Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
+    TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
+    TResult? Function(OnAutoComplet value)? onAutoComplet,
+    TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
+  }) {
+    return selectModePaiement?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonEvent value)? verifyForm,
+    TResult Function(BackIndexEvent value)? backIndex,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColis value)? addColis,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFrais value)? calculFrais,
+    TResult Function(NewLivraison value)? newLivraison,
+    TResult Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
+    TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
+    TResult Function(OnAutoComplet value)? onAutoComplet,
+    TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
+    required TResult orElse(),
+  }) {
+    if (selectModePaiement != null) {
+      return selectModePaiement(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectModePaiement implements LivraisonEvent {
+  const factory SelectModePaiement(
+          {required final ModePaiementModel modePaiement}) =
+      _$SelectModePaiementImpl;
+
+  ModePaiementModel get modePaiement;
+  @JsonKey(ignore: true)
+  _$$SelectModePaiementImplCopyWith<_$SelectModePaiementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -13596,6 +14241,8 @@ mixin _$LivraisonState {
   int? get isLoadingPlaceSearchInfo => throw _privateConstructorUsedError;
   List<PlaceModel>? get list_search_place => throw _privateConstructorUsedError;
   LatLng? get findedPlaceInfo => throw _privateConstructorUsedError;
+  ModePaiementModel? get selectedModePaiement =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LivraisonStateCopyWith<LivraisonState> get copyWith =>
@@ -13659,7 +14306,8 @@ abstract class $LivraisonStateCopyWith<$Res> {
       int? isLoadingPlaceSearch,
       int? isLoadingPlaceSearchInfo,
       List<PlaceModel>? list_search_place,
-      LatLng? findedPlaceInfo});
+      LatLng? findedPlaceInfo,
+      ModePaiementModel? selectedModePaiement});
 }
 
 /// @nodoc
@@ -13726,6 +14374,7 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? isLoadingPlaceSearchInfo = freezed,
     Object? list_search_place = freezed,
     Object? findedPlaceInfo = freezed,
+    Object? selectedModePaiement = freezed,
   }) {
     return _then(_value.copyWith(
       errorVille: freezed == errorVille
@@ -13932,6 +14581,10 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.findedPlaceInfo
           : findedPlaceInfo // ignore: cast_nullable_to_non_nullable
               as LatLng?,
+      selectedModePaiement: freezed == selectedModePaiement
+          ? _value.selectedModePaiement
+          : selectedModePaiement // ignore: cast_nullable_to_non_nullable
+              as ModePaiementModel?,
     ) as $Val);
   }
 }
@@ -13995,7 +14648,8 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       int? isLoadingPlaceSearch,
       int? isLoadingPlaceSearchInfo,
       List<PlaceModel>? list_search_place,
-      LatLng? findedPlaceInfo});
+      LatLng? findedPlaceInfo,
+      ModePaiementModel? selectedModePaiement});
 }
 
 /// @nodoc
@@ -14060,6 +14714,7 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? isLoadingPlaceSearchInfo = freezed,
     Object? list_search_place = freezed,
     Object? findedPlaceInfo = freezed,
+    Object? selectedModePaiement = freezed,
   }) {
     return _then(_$LivraisonStateImpl(
       errorVille: freezed == errorVille
@@ -14266,6 +14921,10 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value.findedPlaceInfo
           : findedPlaceInfo // ignore: cast_nullable_to_non_nullable
               as LatLng?,
+      selectedModePaiement: freezed == selectedModePaiement
+          ? _value.selectedModePaiement
+          : selectedModePaiement // ignore: cast_nullable_to_non_nullable
+              as ModePaiementModel?,
     ));
   }
 }
@@ -14324,7 +14983,8 @@ class _$LivraisonStateImpl implements _LivraisonState {
       this.isLoadingPlaceSearch,
       this.isLoadingPlaceSearchInfo,
       final List<PlaceModel>? list_search_place,
-      this.findedPlaceInfo})
+      this.findedPlaceInfo,
+      this.selectedModePaiement})
       : _villeList = villeList,
         _listColis = listColis,
         _imageColis = imageColis,
@@ -14506,10 +15166,12 @@ class _$LivraisonStateImpl implements _LivraisonState {
 
   @override
   final LatLng? findedPlaceInfo;
+  @override
+  final ModePaiementModel? selectedModePaiement;
 
   @override
   String toString() {
-    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedLivraison: $isLoadedLivraison, isLoadedVille: $isLoadedVille, isColisOK: $isColisOK, successLivraison: $successLivraison, loadingMapPlaceInfo: $loadingMapPlaceInfo, mapPlaceInfo: $mapPlaceInfo, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, controller: $controller, position: $position, isLoadingPlaceSearch: $isLoadingPlaceSearch, isLoadingPlaceSearchInfo: $isLoadingPlaceSearchInfo, list_search_place: $list_search_place, findedPlaceInfo: $findedPlaceInfo)';
+    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedLivraison: $isLoadedLivraison, isLoadedVille: $isLoadedVille, isColisOK: $isColisOK, successLivraison: $successLivraison, loadingMapPlaceInfo: $loadingMapPlaceInfo, mapPlaceInfo: $mapPlaceInfo, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, controller: $controller, position: $position, isLoadingPlaceSearch: $isLoadingPlaceSearch, isLoadingPlaceSearchInfo: $isLoadingPlaceSearchInfo, list_search_place: $list_search_place, findedPlaceInfo: $findedPlaceInfo, selectedModePaiement: $selectedModePaiement)';
   }
 
   @override
@@ -14593,7 +15255,8 @@ class _$LivraisonStateImpl implements _LivraisonState {
             (identical(other.isLoadingPlaceSearch, isLoadingPlaceSearch) || other.isLoadingPlaceSearch == isLoadingPlaceSearch) &&
             (identical(other.isLoadingPlaceSearchInfo, isLoadingPlaceSearchInfo) || other.isLoadingPlaceSearchInfo == isLoadingPlaceSearchInfo) &&
             const DeepCollectionEquality().equals(other._list_search_place, _list_search_place) &&
-            (identical(other.findedPlaceInfo, findedPlaceInfo) || other.findedPlaceInfo == findedPlaceInfo));
+            (identical(other.findedPlaceInfo, findedPlaceInfo) || other.findedPlaceInfo == findedPlaceInfo) &&
+            (identical(other.selectedModePaiement, selectedModePaiement) || other.selectedModePaiement == selectedModePaiement));
   }
 
   @override
@@ -14649,7 +15312,8 @@ class _$LivraisonStateImpl implements _LivraisonState {
         isLoadingPlaceSearch,
         isLoadingPlaceSearchInfo,
         const DeepCollectionEquality().hash(_list_search_place),
-        findedPlaceInfo
+        findedPlaceInfo,
+        selectedModePaiement
       ]);
 
   @JsonKey(ignore: true)
@@ -14712,7 +15376,8 @@ abstract class _LivraisonState implements LivraisonState {
       final int? isLoadingPlaceSearch,
       final int? isLoadingPlaceSearchInfo,
       final List<PlaceModel>? list_search_place,
-      final LatLng? findedPlaceInfo}) = _$LivraisonStateImpl;
+      final LatLng? findedPlaceInfo,
+      final ModePaiementModel? selectedModePaiement}) = _$LivraisonStateImpl;
 
   @override
   bool? get errorVille;
@@ -14816,6 +15481,8 @@ abstract class _LivraisonState implements LivraisonState {
   List<PlaceModel>? get list_search_place;
   @override
   LatLng? get findedPlaceInfo;
+  @override
+  ModePaiementModel? get selectedModePaiement;
   @override
   @JsonKey(ignore: true)
   _$$LivraisonStateImplCopyWith<_$LivraisonStateImpl> get copyWith =>

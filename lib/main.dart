@@ -8,6 +8,7 @@ import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.d
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/Services/NotificationService.dart';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'infrastructure/_commons/network/env_config.dart';
@@ -29,7 +30,7 @@ Future<void> main() async {
 
   co.init();
 
-  // NotificationService().initializePlatformNotifications();
+  await NotificationService().initializePlatformNotifications();
   configLoading();
 
   runApp(
@@ -124,8 +125,8 @@ var supportedLocales = const [
 
 class AppContent extends StatelessWidget {
   AppContent({super.key});
-  final _appRouter = AppRouter();
-
+  final _appRouter =    sl.get<AppRouter>();
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(

@@ -44,6 +44,8 @@ mixin _$PharmacyEvent {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +76,7 @@ mixin _$PharmacyEvent {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -104,6 +107,7 @@ mixin _$PharmacyEvent {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,6 +142,8 @@ mixin _$PharmacyEvent {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -168,6 +174,7 @@ mixin _$PharmacyEvent {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -198,6 +205,7 @@ mixin _$PharmacyEvent {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -286,6 +294,8 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return updatePharmacyImage();
   }
@@ -319,6 +329,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return updatePharmacyImage?.call();
   }
@@ -352,6 +363,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (updatePharmacyImage != null) {
@@ -392,6 +404,8 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return updatePharmacyImage(this);
   }
@@ -425,6 +439,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return updatePharmacyImage?.call(this);
   }
@@ -458,6 +473,7 @@ class _$UpdatePharmacyImageImpl implements UpdatePharmacyImage {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (updatePharmacyImage != null) {
@@ -540,6 +556,8 @@ class _$VerifyFormChooseMedicamentEventPImpl
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return verifyFormChooseMedicamentEvent();
   }
@@ -573,6 +591,7 @@ class _$VerifyFormChooseMedicamentEventPImpl
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return verifyFormChooseMedicamentEvent?.call();
   }
@@ -606,6 +625,7 @@ class _$VerifyFormChooseMedicamentEventPImpl
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (verifyFormChooseMedicamentEvent != null) {
@@ -646,6 +666,8 @@ class _$VerifyFormChooseMedicamentEventPImpl
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return verifyFormChooseMedicamentEvent(this);
   }
@@ -679,6 +701,7 @@ class _$VerifyFormChooseMedicamentEventPImpl
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return verifyFormChooseMedicamentEvent?.call(this);
   }
@@ -712,6 +735,7 @@ class _$VerifyFormChooseMedicamentEventPImpl
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (verifyFormChooseMedicamentEvent != null) {
@@ -817,6 +841,8 @@ class _$FindMedicamentImpl implements FindMedicament {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return findMedicament(search);
   }
@@ -850,6 +876,7 @@ class _$FindMedicamentImpl implements FindMedicament {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return findMedicament?.call(search);
   }
@@ -883,6 +910,7 @@ class _$FindMedicamentImpl implements FindMedicament {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (findMedicament != null) {
@@ -923,6 +951,8 @@ class _$FindMedicamentImpl implements FindMedicament {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return findMedicament(this);
   }
@@ -956,6 +986,7 @@ class _$FindMedicamentImpl implements FindMedicament {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return findMedicament?.call(this);
   }
@@ -989,6 +1020,7 @@ class _$FindMedicamentImpl implements FindMedicament {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (findMedicament != null) {
@@ -1100,6 +1132,8 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return chooseMedicament(medicament);
   }
@@ -1133,6 +1167,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return chooseMedicament?.call(medicament);
   }
@@ -1166,6 +1201,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (chooseMedicament != null) {
@@ -1206,6 +1242,8 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return chooseMedicament(this);
   }
@@ -1239,6 +1277,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return chooseMedicament?.call(this);
   }
@@ -1272,6 +1311,7 @@ class _$ChooseMedicamentImpl implements ChooseMedicament {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (chooseMedicament != null) {
@@ -1356,6 +1396,8 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return closeListMedicament();
   }
@@ -1389,6 +1431,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return closeListMedicament?.call();
   }
@@ -1422,6 +1465,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (closeListMedicament != null) {
@@ -1462,6 +1506,8 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return closeListMedicament(this);
   }
@@ -1495,6 +1541,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return closeListMedicament?.call(this);
   }
@@ -1528,6 +1575,7 @@ class _$CloseListMedicamentImpl implements CloseListMedicament {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (closeListMedicament != null) {
@@ -1644,6 +1692,8 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return setQuantiteMedicament(medicament, quantite);
   }
@@ -1677,6 +1727,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return setQuantiteMedicament?.call(medicament, quantite);
   }
@@ -1710,6 +1761,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (setQuantiteMedicament != null) {
@@ -1750,6 +1802,8 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return setQuantiteMedicament(this);
   }
@@ -1783,6 +1837,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return setQuantiteMedicament?.call(this);
   }
@@ -1816,6 +1871,7 @@ class _$SetQuantiteMedicamentImpl implements SetQuantiteMedicament {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (setQuantiteMedicament != null) {
@@ -1929,6 +1985,8 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return deleteMedicament(medicament);
   }
@@ -1962,6 +2020,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return deleteMedicament?.call(medicament);
   }
@@ -1995,6 +2054,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (deleteMedicament != null) {
@@ -2035,6 +2095,8 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return deleteMedicament(this);
   }
@@ -2068,6 +2130,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return deleteMedicament?.call(this);
   }
@@ -2101,6 +2164,7 @@ class _$DeleteMedicamentImpl implements DeleteMedicament {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (deleteMedicament != null) {
@@ -2184,6 +2248,8 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return backIndexP();
   }
@@ -2217,6 +2283,7 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return backIndexP?.call();
   }
@@ -2250,6 +2317,7 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (backIndexP != null) {
@@ -2290,6 +2358,8 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return backIndexP(this);
   }
@@ -2323,6 +2393,7 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return backIndexP?.call(this);
   }
@@ -2356,6 +2427,7 @@ class _$BackIndexEventPImpl implements BackIndexEventP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (backIndexP != null) {
@@ -2460,6 +2532,8 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return selectedVille(ville);
   }
@@ -2493,6 +2567,7 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return selectedVille?.call(ville);
   }
@@ -2526,6 +2601,7 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -2566,6 +2642,8 @@ class _$SelectedVillePImpl implements SelectedVilleP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return selectedVille(this);
   }
@@ -2599,6 +2677,7 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return selectedVille?.call(this);
   }
@@ -2632,6 +2711,7 @@ class _$SelectedVillePImpl implements SelectedVilleP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -2742,6 +2822,8 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return searchpointevent(text);
   }
@@ -2775,6 +2857,7 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return searchpointevent?.call(text);
   }
@@ -2808,6 +2891,7 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -2848,6 +2932,8 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return searchpointevent(this);
   }
@@ -2881,6 +2967,7 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return searchpointevent?.call(this);
   }
@@ -2914,6 +3001,7 @@ class _$SearchPointEventPImpl implements SearchPointEventP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -3023,6 +3111,8 @@ class _$MapSelectedPImpl implements MapSelectedP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return mapSelected(status);
   }
@@ -3056,6 +3146,7 @@ class _$MapSelectedPImpl implements MapSelectedP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return mapSelected?.call(status);
   }
@@ -3089,6 +3180,7 @@ class _$MapSelectedPImpl implements MapSelectedP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -3129,6 +3221,8 @@ class _$MapSelectedPImpl implements MapSelectedP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return mapSelected(this);
   }
@@ -3162,6 +3256,7 @@ class _$MapSelectedPImpl implements MapSelectedP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return mapSelected?.call(this);
   }
@@ -3195,6 +3290,7 @@ class _$MapSelectedPImpl implements MapSelectedP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -3314,6 +3410,8 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return mapValidatePoint(libelle, quartier);
   }
@@ -3347,6 +3445,7 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return mapValidatePoint?.call(libelle, quartier);
   }
@@ -3380,6 +3479,7 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -3420,6 +3520,8 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return mapValidatePoint(this);
   }
@@ -3453,6 +3555,7 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return mapValidatePoint?.call(this);
   }
@@ -3486,6 +3589,7 @@ class _$MapValidatePointPImpl implements MapValidatePointP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -3571,6 +3675,8 @@ class _$CalculFraisPImpl implements CalculFraisP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return calculFrais();
   }
@@ -3604,6 +3710,7 @@ class _$CalculFraisPImpl implements CalculFraisP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return calculFrais?.call();
   }
@@ -3637,6 +3744,7 @@ class _$CalculFraisPImpl implements CalculFraisP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (calculFrais != null) {
@@ -3677,6 +3785,8 @@ class _$CalculFraisPImpl implements CalculFraisP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return calculFrais(this);
   }
@@ -3710,6 +3820,7 @@ class _$CalculFraisPImpl implements CalculFraisP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return calculFrais?.call(this);
   }
@@ -3743,6 +3854,7 @@ class _$CalculFraisPImpl implements CalculFraisP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (calculFrais != null) {
@@ -3859,6 +3971,8 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return mapValidatePointLivraison(libelle, quartier);
   }
@@ -3892,6 +4006,7 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return mapValidatePointLivraison?.call(libelle, quartier);
   }
@@ -3925,6 +4040,7 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -3965,6 +4081,8 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return mapValidatePointLivraison(this);
   }
@@ -3998,6 +4116,7 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return mapValidatePointLivraison?.call(this);
   }
@@ -4031,6 +4150,7 @@ class _$MapValidatePointLivraisonPImpl implements MapValidatePointLivraisonP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -4145,6 +4265,8 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return selectPointLivraisonP(point_livraison);
   }
@@ -4178,6 +4300,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return selectPointLivraisonP?.call(point_livraison);
   }
@@ -4211,6 +4334,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonP != null) {
@@ -4251,6 +4375,8 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return selectPointLivraisonP(this);
   }
@@ -4284,6 +4410,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return selectPointLivraisonP?.call(this);
   }
@@ -4317,6 +4444,7 @@ class _$SelectPointLivraisonPImpl implements SelectPointLivraisonP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonP != null) {
@@ -4402,6 +4530,8 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return newLivraison();
   }
@@ -4435,6 +4565,7 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return newLivraison?.call();
   }
@@ -4468,6 +4599,7 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (newLivraison != null) {
@@ -4508,6 +4640,8 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return newLivraison(this);
   }
@@ -4541,6 +4675,7 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return newLivraison?.call(this);
   }
@@ -4574,6 +4709,7 @@ class _$NewLivraisonPharmacyImpl implements NewLivraisonPharmacy {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (newLivraison != null) {
@@ -4656,6 +4792,8 @@ class _$HistoriqueLivraisonMedicamentImpl
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return getLivraisonMedicament();
   }
@@ -4689,6 +4827,7 @@ class _$HistoriqueLivraisonMedicamentImpl
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return getLivraisonMedicament?.call();
   }
@@ -4722,6 +4861,7 @@ class _$HistoriqueLivraisonMedicamentImpl
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getLivraisonMedicament != null) {
@@ -4762,6 +4902,8 @@ class _$HistoriqueLivraisonMedicamentImpl
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return getLivraisonMedicament(this);
   }
@@ -4795,6 +4937,7 @@ class _$HistoriqueLivraisonMedicamentImpl
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return getLivraisonMedicament?.call(this);
   }
@@ -4828,6 +4971,7 @@ class _$HistoriqueLivraisonMedicamentImpl
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (getLivraisonMedicament != null) {
@@ -4906,6 +5050,8 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return downloadFacture();
   }
@@ -4939,6 +5085,7 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return downloadFacture?.call();
   }
@@ -4972,6 +5119,7 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -5012,6 +5160,8 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return downloadFacture(this);
   }
@@ -5045,6 +5195,7 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return downloadFacture?.call(this);
   }
@@ -5078,6 +5229,7 @@ class _$DownloadFacturePImpl implements DownloadFactureP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -5155,6 +5307,8 @@ class _$NoValidatePImpl implements NoValidateP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return noValidate();
   }
@@ -5188,6 +5342,7 @@ class _$NoValidatePImpl implements NoValidateP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return noValidate?.call();
   }
@@ -5221,6 +5376,7 @@ class _$NoValidatePImpl implements NoValidateP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (noValidate != null) {
@@ -5261,6 +5417,8 @@ class _$NoValidatePImpl implements NoValidateP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return noValidate(this);
   }
@@ -5294,6 +5452,7 @@ class _$NoValidatePImpl implements NoValidateP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return noValidate?.call(this);
   }
@@ -5327,6 +5486,7 @@ class _$NoValidatePImpl implements NoValidateP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (noValidate != null) {
@@ -5404,6 +5564,8 @@ class _$OnStartEventPImpl implements OnStartEventP {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return onStartEventP();
   }
@@ -5437,6 +5599,7 @@ class _$OnStartEventPImpl implements OnStartEventP {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return onStartEventP?.call();
   }
@@ -5470,6 +5633,7 @@ class _$OnStartEventPImpl implements OnStartEventP {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (onStartEventP != null) {
@@ -5510,6 +5674,8 @@ class _$OnStartEventPImpl implements OnStartEventP {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return onStartEventP(this);
   }
@@ -5543,6 +5709,7 @@ class _$OnStartEventPImpl implements OnStartEventP {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return onStartEventP?.call(this);
   }
@@ -5576,6 +5743,7 @@ class _$OnStartEventPImpl implements OnStartEventP {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (onStartEventP != null) {
@@ -5656,6 +5824,8 @@ class _$ClearPointLivraisonMedocImpl implements ClearPointLivraisonMedoc {
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return clearPoinLivraisonMedoc();
   }
@@ -5689,6 +5859,7 @@ class _$ClearPointLivraisonMedocImpl implements ClearPointLivraisonMedoc {
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return clearPoinLivraisonMedoc?.call();
   }
@@ -5722,6 +5893,7 @@ class _$ClearPointLivraisonMedocImpl implements ClearPointLivraisonMedoc {
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (clearPoinLivraisonMedoc != null) {
@@ -5762,6 +5934,8 @@ class _$ClearPointLivraisonMedocImpl implements ClearPointLivraisonMedoc {
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return clearPoinLivraisonMedoc(this);
   }
@@ -5795,6 +5969,7 @@ class _$ClearPointLivraisonMedocImpl implements ClearPointLivraisonMedoc {
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return clearPoinLivraisonMedoc?.call(this);
   }
@@ -5828,6 +6003,7 @@ class _$ClearPointLivraisonMedocImpl implements ClearPointLivraisonMedoc {
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (clearPoinLivraisonMedoc != null) {
@@ -5947,6 +6123,8 @@ class _$MapValidatePointLivraisonPharmacieImpl
     required TResult Function() clearPoinLivraisonMedoc,
     required TResult Function(String libelle, String quartier)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
   }) {
     return mapValidatePointLivraisonPharmacie(libelle, quartier);
   }
@@ -5980,6 +6158,7 @@ class _$MapValidatePointLivraisonPharmacieImpl
     TResult? Function()? clearPoinLivraisonMedoc,
     TResult? Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
     return mapValidatePointLivraisonPharmacie?.call(libelle, quartier);
   }
@@ -6013,6 +6192,7 @@ class _$MapValidatePointLivraisonPharmacieImpl
     TResult Function()? clearPoinLivraisonMedoc,
     TResult Function(String libelle, String quartier)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraisonPharmacie != null) {
@@ -6053,6 +6233,8 @@ class _$MapValidatePointLivraisonPharmacieImpl
         clearPoinLivraisonMedoc,
     required TResult Function(MapValidatePointLivraisonPharmacie value)
         mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
   }) {
     return mapValidatePointLivraisonPharmacie(this);
   }
@@ -6086,6 +6268,7 @@ class _$MapValidatePointLivraisonPharmacieImpl
     TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult? Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
   }) {
     return mapValidatePointLivraisonPharmacie?.call(this);
   }
@@ -6119,6 +6302,7 @@ class _$MapValidatePointLivraisonPharmacieImpl
     TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
     TResult Function(MapValidatePointLivraisonPharmacie value)?
         mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraisonPharmacie != null) {
@@ -6138,6 +6322,300 @@ abstract class MapValidatePointLivraisonPharmacie implements PharmacyEvent {
   @JsonKey(ignore: true)
   _$$MapValidatePointLivraisonPharmacieImplCopyWith<
           _$MapValidatePointLivraisonPharmacieImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectModePaiementPharmacieImplCopyWith<$Res> {
+  factory _$$SelectModePaiementPharmacieImplCopyWith(
+          _$SelectModePaiementPharmacieImpl value,
+          $Res Function(_$SelectModePaiementPharmacieImpl) then) =
+      __$$SelectModePaiementPharmacieImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ModePaiementModel modePaiement});
+}
+
+/// @nodoc
+class __$$SelectModePaiementPharmacieImplCopyWithImpl<$Res>
+    extends _$PharmacyEventCopyWithImpl<$Res, _$SelectModePaiementPharmacieImpl>
+    implements _$$SelectModePaiementPharmacieImplCopyWith<$Res> {
+  __$$SelectModePaiementPharmacieImplCopyWithImpl(
+      _$SelectModePaiementPharmacieImpl _value,
+      $Res Function(_$SelectModePaiementPharmacieImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? modePaiement = null,
+  }) {
+    return _then(_$SelectModePaiementPharmacieImpl(
+      modePaiement: null == modePaiement
+          ? _value.modePaiement
+          : modePaiement // ignore: cast_nullable_to_non_nullable
+              as ModePaiementModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectModePaiementPharmacieImpl implements SelectModePaiementPharmacie {
+  const _$SelectModePaiementPharmacieImpl({required this.modePaiement});
+
+  @override
+  final ModePaiementModel modePaiement;
+
+  @override
+  String toString() {
+    return 'PharmacyEvent.selectModePaiement(modePaiement: $modePaiement)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectModePaiementPharmacieImpl &&
+            (identical(other.modePaiement, modePaiement) ||
+                other.modePaiement == modePaiement));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, modePaiement);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectModePaiementPharmacieImplCopyWith<_$SelectModePaiementPharmacieImpl>
+      get copyWith => __$$SelectModePaiementPharmacieImplCopyWithImpl<
+          _$SelectModePaiementPharmacieImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() updatePharmacyImage,
+    required TResult Function() verifyFormChooseMedicamentEvent,
+    required TResult Function(String search) findMedicament,
+    required TResult Function(MedicamentModel medicament) chooseMedicament,
+    required TResult Function() closeListMedicament,
+    required TResult Function(MedicamentModel medicament, int quantite)
+        setQuantiteMedicament,
+    required TResult Function(MedicamentModel medicament) deleteMedicament,
+    required TResult Function() backIndexP,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function() calculFrais,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function(PointLivraisonModel? point_livraison)
+        selectPointLivraisonP,
+    required TResult Function() newLivraison,
+    required TResult Function() getLivraisonMedicament,
+    required TResult Function() downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEventP,
+    required TResult Function() clearPoinLivraisonMedoc,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraisonPharmacie,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
+  }) {
+    return selectModePaiement(modePaiement);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? updatePharmacyImage,
+    TResult? Function()? verifyFormChooseMedicamentEvent,
+    TResult? Function(String search)? findMedicament,
+    TResult? Function(MedicamentModel medicament)? chooseMedicament,
+    TResult? Function()? closeListMedicament,
+    TResult? Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult? Function(MedicamentModel medicament)? deleteMedicament,
+    TResult? Function()? backIndexP,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function()? calculFrais,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function(PointLivraisonModel? point_livraison)?
+        selectPointLivraisonP,
+    TResult? Function()? newLivraison,
+    TResult? Function()? getLivraisonMedicament,
+    TResult? Function()? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEventP,
+    TResult? Function()? clearPoinLivraisonMedoc,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraisonPharmacie,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
+  }) {
+    return selectModePaiement?.call(modePaiement);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? updatePharmacyImage,
+    TResult Function()? verifyFormChooseMedicamentEvent,
+    TResult Function(String search)? findMedicament,
+    TResult Function(MedicamentModel medicament)? chooseMedicament,
+    TResult Function()? closeListMedicament,
+    TResult Function(MedicamentModel medicament, int quantite)?
+        setQuantiteMedicament,
+    TResult Function(MedicamentModel medicament)? deleteMedicament,
+    TResult Function()? backIndexP,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function()? calculFrais,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function(PointLivraisonModel? point_livraison)?
+        selectPointLivraisonP,
+    TResult Function()? newLivraison,
+    TResult Function()? getLivraisonMedicament,
+    TResult Function()? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEventP,
+    TResult Function()? clearPoinLivraisonMedoc,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraisonPharmacie,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
+    required TResult orElse(),
+  }) {
+    if (selectModePaiement != null) {
+      return selectModePaiement(modePaiement);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UpdatePharmacyImage value) updatePharmacyImage,
+    required TResult Function(VerifyFormChooseMedicamentEventP value)
+        verifyFormChooseMedicamentEvent,
+    required TResult Function(FindMedicament value) findMedicament,
+    required TResult Function(ChooseMedicament value) chooseMedicament,
+    required TResult Function(CloseListMedicament value) closeListMedicament,
+    required TResult Function(SetQuantiteMedicament value)
+        setQuantiteMedicament,
+    required TResult Function(DeleteMedicament value) deleteMedicament,
+    required TResult Function(BackIndexEventP value) backIndexP,
+    required TResult Function(SelectedVilleP value) selectedVille,
+    required TResult Function(SearchPointEventP value) searchpointevent,
+    required TResult Function(MapSelectedP value) mapSelected,
+    required TResult Function(MapValidatePointP value) mapValidatePoint,
+    required TResult Function(CalculFraisP value) calculFrais,
+    required TResult Function(MapValidatePointLivraisonP value)
+        mapValidatePointLivraison,
+    required TResult Function(SelectPointLivraisonP value)
+        selectPointLivraisonP,
+    required TResult Function(NewLivraisonPharmacy value) newLivraison,
+    required TResult Function(HistoriqueLivraisonMedicament value)
+        getLivraisonMedicament,
+    required TResult Function(DownloadFactureP value) downloadFacture,
+    required TResult Function(NoValidateP value) noValidate,
+    required TResult Function(OnStartEventP value) onStartEventP,
+    required TResult Function(ClearPointLivraisonMedoc value)
+        clearPoinLivraisonMedoc,
+    required TResult Function(MapValidatePointLivraisonPharmacie value)
+        mapValidatePointLivraisonPharmacie,
+    required TResult Function(SelectModePaiementPharmacie value)
+        selectModePaiement,
+  }) {
+    return selectModePaiement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult? Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult? Function(FindMedicament value)? findMedicament,
+    TResult? Function(ChooseMedicament value)? chooseMedicament,
+    TResult? Function(CloseListMedicament value)? closeListMedicament,
+    TResult? Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult? Function(DeleteMedicament value)? deleteMedicament,
+    TResult? Function(BackIndexEventP value)? backIndexP,
+    TResult? Function(SelectedVilleP value)? selectedVille,
+    TResult? Function(SearchPointEventP value)? searchpointevent,
+    TResult? Function(MapSelectedP value)? mapSelected,
+    TResult? Function(MapValidatePointP value)? mapValidatePoint,
+    TResult? Function(CalculFraisP value)? calculFrais,
+    TResult? Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult? Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult? Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult? Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
+    TResult? Function(DownloadFactureP value)? downloadFacture,
+    TResult? Function(NoValidateP value)? noValidate,
+    TResult? Function(OnStartEventP value)? onStartEventP,
+    TResult? Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
+    TResult? Function(MapValidatePointLivraisonPharmacie value)?
+        mapValidatePointLivraisonPharmacie,
+    TResult? Function(SelectModePaiementPharmacie value)? selectModePaiement,
+  }) {
+    return selectModePaiement?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UpdatePharmacyImage value)? updatePharmacyImage,
+    TResult Function(VerifyFormChooseMedicamentEventP value)?
+        verifyFormChooseMedicamentEvent,
+    TResult Function(FindMedicament value)? findMedicament,
+    TResult Function(ChooseMedicament value)? chooseMedicament,
+    TResult Function(CloseListMedicament value)? closeListMedicament,
+    TResult Function(SetQuantiteMedicament value)? setQuantiteMedicament,
+    TResult Function(DeleteMedicament value)? deleteMedicament,
+    TResult Function(BackIndexEventP value)? backIndexP,
+    TResult Function(SelectedVilleP value)? selectedVille,
+    TResult Function(SearchPointEventP value)? searchpointevent,
+    TResult Function(MapSelectedP value)? mapSelected,
+    TResult Function(MapValidatePointP value)? mapValidatePoint,
+    TResult Function(CalculFraisP value)? calculFrais,
+    TResult Function(MapValidatePointLivraisonP value)?
+        mapValidatePointLivraison,
+    TResult Function(SelectPointLivraisonP value)? selectPointLivraisonP,
+    TResult Function(NewLivraisonPharmacy value)? newLivraison,
+    TResult Function(HistoriqueLivraisonMedicament value)?
+        getLivraisonMedicament,
+    TResult Function(DownloadFactureP value)? downloadFacture,
+    TResult Function(NoValidateP value)? noValidate,
+    TResult Function(OnStartEventP value)? onStartEventP,
+    TResult Function(ClearPointLivraisonMedoc value)? clearPoinLivraisonMedoc,
+    TResult Function(MapValidatePointLivraisonPharmacie value)?
+        mapValidatePointLivraisonPharmacie,
+    TResult Function(SelectModePaiementPharmacie value)? selectModePaiement,
+    required TResult orElse(),
+  }) {
+    if (selectModePaiement != null) {
+      return selectModePaiement(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectModePaiementPharmacie implements PharmacyEvent {
+  const factory SelectModePaiementPharmacie(
+          {required final ModePaiementModel modePaiement}) =
+      _$SelectModePaiementPharmacieImpl;
+
+  ModePaiementModel get modePaiement;
+  @JsonKey(ignore: true)
+  _$$SelectModePaiementPharmacieImplCopyWith<_$SelectModePaiementPharmacieImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -6171,6 +6649,8 @@ mixin _$PharmacyState {
   bool? get errorVille => throw _privateConstructorUsedError;
   double? get frais => throw _privateConstructorUsedError;
   String? get paiement_url => throw _privateConstructorUsedError;
+  ModePaiementModel? get selectedModePaiement =>
+      throw _privateConstructorUsedError;
   List<MedicamentModel>? get listMedicamentChoose =>
       throw _privateConstructorUsedError;
 
@@ -6207,6 +6687,7 @@ abstract class $PharmacyStateCopyWith<$Res> {
       bool? errorVille,
       double? frais,
       String? paiement_url,
+      ModePaiementModel? selectedModePaiement,
       List<MedicamentModel>? listMedicamentChoose});
 }
 
@@ -6244,6 +6725,7 @@ class _$PharmacyStateCopyWithImpl<$Res, $Val extends PharmacyState>
     Object? errorVille = freezed,
     Object? frais = freezed,
     Object? paiement_url = freezed,
+    Object? selectedModePaiement = freezed,
     Object? listMedicamentChoose = freezed,
   }) {
     return _then(_value.copyWith(
@@ -6331,6 +6813,10 @@ class _$PharmacyStateCopyWithImpl<$Res, $Val extends PharmacyState>
           ? _value.paiement_url
           : paiement_url // ignore: cast_nullable_to_non_nullable
               as String?,
+      selectedModePaiement: freezed == selectedModePaiement
+          ? _value.selectedModePaiement
+          : selectedModePaiement // ignore: cast_nullable_to_non_nullable
+              as ModePaiementModel?,
       listMedicamentChoose: freezed == listMedicamentChoose
           ? _value.listMedicamentChoose
           : listMedicamentChoose // ignore: cast_nullable_to_non_nullable
@@ -6369,6 +6855,7 @@ abstract class _$$PharmacyStateImplCopyWith<$Res>
       bool? errorVille,
       double? frais,
       String? paiement_url,
+      ModePaiementModel? selectedModePaiement,
       List<MedicamentModel>? listMedicamentChoose});
 }
 
@@ -6404,6 +6891,7 @@ class __$$PharmacyStateImplCopyWithImpl<$Res>
     Object? errorVille = freezed,
     Object? frais = freezed,
     Object? paiement_url = freezed,
+    Object? selectedModePaiement = freezed,
     Object? listMedicamentChoose = freezed,
   }) {
     return _then(_$PharmacyStateImpl(
@@ -6491,6 +6979,10 @@ class __$$PharmacyStateImplCopyWithImpl<$Res>
           ? _value.paiement_url
           : paiement_url // ignore: cast_nullable_to_non_nullable
               as String?,
+      selectedModePaiement: freezed == selectedModePaiement
+          ? _value.selectedModePaiement
+          : selectedModePaiement // ignore: cast_nullable_to_non_nullable
+              as ModePaiementModel?,
       listMedicamentChoose: freezed == listMedicamentChoose
           ? _value._listMedicamentChoose
           : listMedicamentChoose // ignore: cast_nullable_to_non_nullable
@@ -6524,6 +7016,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
       this.errorVille,
       this.frais,
       this.paiement_url,
+      this.selectedModePaiement,
       final List<MedicamentModel>? listMedicamentChoose})
       : _listMedicament = listMedicament,
         _userLivraisonMedicamentList = userLivraisonMedicamentList,
@@ -6588,6 +7081,8 @@ class _$PharmacyStateImpl implements _PharmacyState {
   final double? frais;
   @override
   final String? paiement_url;
+  @override
+  final ModePaiementModel? selectedModePaiement;
   final List<MedicamentModel>? _listMedicamentChoose;
   @override
   List<MedicamentModel>? get listMedicamentChoose {
@@ -6601,7 +7096,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
 
   @override
   String toString() {
-    return 'PharmacyState(index: $index, isLoading: $isLoading, formKeyLivraison: $formKeyLivraison, searchMedicamentController: $searchMedicamentController, libelle: $libelle, descriptionEmplacement: $descriptionEmplacement, contactRecepteur: $contactRecepteur, listMedicament: $listMedicament, selectedVIlle: $selectedVIlle, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, isDownloadFacture: $isDownloadFacture, selected_livraison_point: $selected_livraison_point, isRequest: $isRequest, errorPointLivraison: $errorPointLivraison, position: $position, isLoadedHistoriqueLivraison: $isLoadedHistoriqueLivraison, isLoadedMedicament: $isLoadedMedicament, userLivraisonMedicamentList: $userLivraisonMedicamentList, errorVille: $errorVille, frais: $frais, paiement_url: $paiement_url, listMedicamentChoose: $listMedicamentChoose)';
+    return 'PharmacyState(index: $index, isLoading: $isLoading, formKeyLivraison: $formKeyLivraison, searchMedicamentController: $searchMedicamentController, libelle: $libelle, descriptionEmplacement: $descriptionEmplacement, contactRecepteur: $contactRecepteur, listMedicament: $listMedicament, selectedVIlle: $selectedVIlle, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, isDownloadFacture: $isDownloadFacture, selected_livraison_point: $selected_livraison_point, isRequest: $isRequest, errorPointLivraison: $errorPointLivraison, position: $position, isLoadedHistoriqueLivraison: $isLoadedHistoriqueLivraison, isLoadedMedicament: $isLoadedMedicament, userLivraisonMedicamentList: $userLivraisonMedicamentList, errorVille: $errorVille, frais: $frais, paiement_url: $paiement_url, selectedModePaiement: $selectedModePaiement, listMedicamentChoose: $listMedicamentChoose)';
   }
 
   @override
@@ -6631,7 +7126,8 @@ class _$PharmacyStateImpl implements _PharmacyState {
                     isMapSelectedPointLivraison) &&
             (identical(other.isDownloadFacture, isDownloadFacture) ||
                 other.isDownloadFacture == isDownloadFacture) &&
-            (identical(other.selected_livraison_point, selected_livraison_point) ||
+            (identical(
+                    other.selected_livraison_point, selected_livraison_point) ||
                 other.selected_livraison_point == selected_livraison_point) &&
             (identical(other.isRequest, isRequest) ||
                 other.isRequest == isRequest) &&
@@ -6639,8 +7135,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
                 other.errorPointLivraison == errorPointLivraison) &&
             (identical(other.position, position) ||
                 other.position == position) &&
-            (identical(other.isLoadedHistoriqueLivraison,
-                    isLoadedHistoriqueLivraison) ||
+            (identical(other.isLoadedHistoriqueLivraison, isLoadedHistoriqueLivraison) ||
                 other.isLoadedHistoriqueLivraison ==
                     isLoadedHistoriqueLivraison) &&
             (identical(other.isLoadedMedicament, isLoadedMedicament) ||
@@ -6653,6 +7148,8 @@ class _$PharmacyStateImpl implements _PharmacyState {
             (identical(other.frais, frais) || other.frais == frais) &&
             (identical(other.paiement_url, paiement_url) ||
                 other.paiement_url == paiement_url) &&
+            (identical(other.selectedModePaiement, selectedModePaiement) ||
+                other.selectedModePaiement == selectedModePaiement) &&
             const DeepCollectionEquality()
                 .equals(other._listMedicamentChoose, _listMedicamentChoose));
   }
@@ -6681,6 +7178,7 @@ class _$PharmacyStateImpl implements _PharmacyState {
         errorVille,
         frais,
         paiement_url,
+        selectedModePaiement,
         const DeepCollectionEquality().hash(_listMedicamentChoose)
       ]);
 
@@ -6714,6 +7212,7 @@ abstract class _PharmacyState implements PharmacyState {
       final bool? errorVille,
       final double? frais,
       final String? paiement_url,
+      final ModePaiementModel? selectedModePaiement,
       final List<MedicamentModel>? listMedicamentChoose}) = _$PharmacyStateImpl;
 
   @override
@@ -6758,6 +7257,8 @@ abstract class _PharmacyState implements PharmacyState {
   double? get frais;
   @override
   String? get paiement_url;
+  @override
+  ModePaiementModel? get selectedModePaiement;
   @override
   List<MedicamentModel>? get listMedicamentChoose;
   @override

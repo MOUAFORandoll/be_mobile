@@ -98,6 +98,8 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.getMapPlaceInfo() = GetMapPlaceInfo;
   const factory LivraisonEvent.onAutoComplet({required String text}) =
       OnAutoComplet;
-  const factory LivraisonEvent.ongetPlaceData(
-      {required PlaceModel place }) = GetPlaceData;
+  const factory LivraisonEvent.ongetPlaceData({required PlaceModel place}) =
+      GetPlaceData;
+  const factory LivraisonEvent.selectModePaiement({required ModePaiementModel modePaiement}) =
+      SelectModePaiement;
 }

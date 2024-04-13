@@ -37,36 +37,36 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
                 ? const HomeRoute()
                 : const AuthRoute();
         if (key != null) {
-          SocketService().HistoriqueUserLivraison(
-              recepteur: key,
-              action: (data) {
-                print('------------------ev ');
-                print('------------------ev ${data}');
-                print('------------------ev ');
-                NotificationService().livraisonNotification(
-                    content: data, context: event.context);
-                // BlocProvider.of<LivraisonBloc>(event.context)
-                //     .add(HistoriqueUserLivraison());
-              });
-          SocketService().livraisonValidate(
-              recepteur: key,
-              action: (data) {
-                NotificationService().livraisonValidateNotification(
-                    content: data, context: event.context);
-              });
-          SocketService().livraisonFinish(
-              recepteur: key,
-              action: (data) {
-                NotificationService().livraisonFinishNotification(
-                    content: data, context: event.context);
-              });
-          SocketService().transactionCredit(
-              recepteur: key,
-              action: (data) {
-                // event.context.watch<CompteBloc>().add(HistoriqueTransaction());
-                NotificationService().depotFinishNotification(
-                    content: data, context: event.context);
-              });
+          // SocketService().HistoriqueUserLivraison(
+          //     recepteur: key,
+          //     action: (data) {
+          //       print('------------------ev ');
+          //       print('------------------ev ${data}');
+          //       print('------------------ev ');
+          //       NotificationService().livraisonNotification(
+          //           content: data, context: event.context);
+          //       // BlocProvider.of<LivraisonBloc>(event.context)
+          //       //     .add(HistoriqueUserLivraison());
+          //     });
+          // SocketService().livraisonValidate(
+          //     recepteur: key,
+          //     action: (data) {
+          //       NotificationService().livraisonValidateNotification(
+          //           content: data, context: event.context);
+          //     });
+          // SocketService().livraisonFinish(
+          //     recepteur: key,
+          //     action: (data) {
+          //       NotificationService().livraisonFinishNotification(
+          //           content: data, context: event.context);
+          //     });
+          // SocketService().transactionCredit(
+              // recepteur: key,
+              // action: (data) {
+              //   // event.context.watch<CompteBloc>().add(HistoriqueTransaction());
+              //   NotificationService().depotFinishNotification(
+              //       content: data, context: event.context);
+              // });
         }
         emit(SplashState.loaded(isConnected, route));
       });

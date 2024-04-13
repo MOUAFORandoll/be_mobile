@@ -9,6 +9,10 @@ import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_reposit
 import 'package:BabanaExpress/application/splash/splash_bloc.dart';
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
+import 'package:BabanaExpress/routes/app_router.dart';
+import 'package:BabanaExpress/utils/Services/NotificationService.dart';
+import 'package:BabanaExpress/utils/Services/SocketService.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:connectivity/connectivity.dart';
@@ -44,6 +48,8 @@ Future<void> init() async {
     ..registerFactory(() => PharmacyBloc(pharmacyRepo: sl()))
     ..registerLazySingleton(() => PharmacyRepo(apiClient: sl()));
   requestPermission();
+
+  sl.registerSingleton<AppRouter>(AppRouter());
   initConnected();
   // sl
   //   ..registerFactory(() => SocketService(
@@ -59,6 +65,7 @@ Future<void> initLoad(context) async {
   BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
   BlocProvider.of<UserBloc>(context)
     ..add(GetUserEvent())
+    ..add(GetModePaiement())
     ..add(GetVilleQuartier());
   BlocProvider.of<LivraisonBloc>(context)
     ..add(StartLogLat())
@@ -68,6 +75,42 @@ Future<void> initLoad(context) async {
   BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
 
   initSetDefaultValue(context);
+  initSocket(context);
+}
+
+Future<void> initSocket(context) async {
+  var database = sl.get<DatabaseCubit>();
+  var key = await database.getKey();
+  SocketService().HistoriqueUserLivraison(
+      recepteur: key!,
+      action: (data) {
+        print('------------------ev ');
+        print('------------------ev ${data}');
+        print('------------------ev ');
+        NotificationService()
+            .livraisonNotification(content: data, context: context);
+        // BlocProvider.of<LivraisonBloc>( context)
+        //     .add(HistoriqueUserLivraison());
+      });
+  SocketService().livraisonValidate(
+      recepteur: key,
+      action: (data) {
+        NotificationService()
+            .livraisonValidateNotification(content: data, context: context);
+      });
+  SocketService().livraisonFinish(
+      recepteur: key,
+      action: (data) {
+        NotificationService()
+            .livraisonFinishNotification(content: data, context: context);
+      });
+  SocketService().transactionCredit(
+      recepteur: key,
+      action: (data) {
+        // BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
+        NotificationService()
+            .depotFinishNotification(content: data, context: context);
+      });
 }
 
 Future<void> initSetDefaultValue(context) async {

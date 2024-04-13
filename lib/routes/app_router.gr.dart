@@ -20,7 +20,7 @@ import 'package:BabanaExpress/presentation/layer/onboardingpage.dart' as _i11;
 import 'package:BabanaExpress/presentation/layer/splashpage.dart' as _i17;
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart'
     as _i4;
-import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis%20copy.dart'
+import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart'
     as _i5;
 import 'package:BabanaExpress/presentation/livraison/MapPagePointRecuperation.dart'
     as _i7;

@@ -108,6 +108,12 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<GetMapPlaceInfo>(getMapPlaceInfo);
     on<OnAutoComplet>(onAutoComplet);
     on<GetPlaceData>(ongetPlaceData);
+    on<SelectModePaiement>(selectModePaiement);
+  }
+
+  Future<void> selectModePaiement(
+      SelectModePaiement event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(selectedModePaiement: event.modePaiement));
   }
 
   Future<void> ongetPlaceData(
@@ -712,6 +718,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
         emit(state.copyWith(
             isRequest: 2, frais: double.parse(response.data['frais'])));
+        emit(state.copyWith(isRequest: null));
       } else {
         emit(state.copyWith(isRequest: 3));
         // fn.snackBar('Calcul des frais', response.body['message'], false);
@@ -739,10 +746,17 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
             ' emit(state.copyWith(isRequest: -------${response.statusCode}-------5))');
         print(response.data['paiement_url']);
         if (response.data != null) {
-          emit(state.copyWith(
-              isRequest: 5,
-              isDownloadFacture: 0,
-              paiement_url: response.data['paiement_url']));
+          if (state.selectedModePaiement!.id == 1) {
+            emit(state.copyWith(
+                isRequest: 5,
+                isDownloadFacture: 0,
+                paiement_url: response.data['paiement_url']));
+          }
+          if (state.selectedModePaiement!.id == 2) {
+            emit(state.copyWith(
+                isRequest: 5, isDownloadFacture: 0, paiement_url: 'next'));
+          }
+
           add(HistoriqueUserLivraison());
           print('00 emit(state.copyWith(isRequest: --------------5))');
         } else {
@@ -822,6 +836,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       'libelle': new FormatData().capitalizeFirstLetter(_libelle),
       'service': 1,
       'montant': state.frais,
+      'modePaiement': state.selectedModePaiement!.id,
       'contactEmetteur': state.contactEmetteur?.text,
       'description': state.description?.text,
       'ville': state.selectedVIlle?.id,

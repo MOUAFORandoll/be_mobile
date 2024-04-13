@@ -30,6 +30,7 @@ mixin _$UserEvent {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,6 +47,7 @@ mixin _$UserEvent {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +64,7 @@ mixin _$UserEvent {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,6 +80,7 @@ mixin _$UserEvent {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -91,6 +95,7 @@ mixin _$UserEvent {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -105,6 +110,7 @@ mixin _$UserEvent {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -212,6 +218,7 @@ class _$SignInEventImpl implements SignInEvent {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) {
     return chooseExperience(phone, password);
   }
@@ -231,6 +238,7 @@ class _$SignInEventImpl implements SignInEvent {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) {
     return chooseExperience?.call(phone, password);
   }
@@ -250,6 +258,7 @@ class _$SignInEventImpl implements SignInEvent {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) {
     if (chooseExperience != null) {
@@ -271,6 +280,7 @@ class _$SignInEventImpl implements SignInEvent {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) {
     return chooseExperience(this);
   }
@@ -288,6 +298,7 @@ class _$SignInEventImpl implements SignInEvent {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) {
     return chooseExperience?.call(this);
   }
@@ -305,6 +316,7 @@ class _$SignInEventImpl implements SignInEvent {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) {
     if (chooseExperience != null) {
@@ -433,6 +445,7 @@ class _$RegisterEventImpl implements RegisterEvent {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) {
     return register(name, phone, password, re_password);
   }
@@ -452,6 +465,7 @@ class _$RegisterEventImpl implements RegisterEvent {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) {
     return register?.call(name, phone, password, re_password);
   }
@@ -471,6 +485,7 @@ class _$RegisterEventImpl implements RegisterEvent {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) {
     if (register != null) {
@@ -492,6 +507,7 @@ class _$RegisterEventImpl implements RegisterEvent {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) {
     return register(this);
   }
@@ -509,6 +525,7 @@ class _$RegisterEventImpl implements RegisterEvent {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) {
     return register?.call(this);
   }
@@ -526,6 +543,7 @@ class _$RegisterEventImpl implements RegisterEvent {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) {
     if (register != null) {
@@ -627,6 +645,7 @@ class _$SendCodeImpl implements SendCode {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) {
     return sendCode(data);
   }
@@ -646,6 +665,7 @@ class _$SendCodeImpl implements SendCode {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) {
     return sendCode?.call(data);
   }
@@ -665,6 +685,7 @@ class _$SendCodeImpl implements SendCode {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) {
     if (sendCode != null) {
@@ -686,6 +707,7 @@ class _$SendCodeImpl implements SendCode {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) {
     return sendCode(this);
   }
@@ -703,6 +725,7 @@ class _$SendCodeImpl implements SendCode {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) {
     return sendCode?.call(this);
   }
@@ -720,6 +743,7 @@ class _$SendCodeImpl implements SendCode {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) {
     if (sendCode != null) {
@@ -822,6 +846,7 @@ class _$UpdateUserInfoImpl implements UpdateUserInfo {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) {
     return updateUserInfo(data);
   }
@@ -841,6 +866,7 @@ class _$UpdateUserInfoImpl implements UpdateUserInfo {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) {
     return updateUserInfo?.call(data);
   }
@@ -860,6 +886,7 @@ class _$UpdateUserInfoImpl implements UpdateUserInfo {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) {
     if (updateUserInfo != null) {
@@ -881,6 +908,7 @@ class _$UpdateUserInfoImpl implements UpdateUserInfo {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) {
     return updateUserInfo(this);
   }
@@ -898,6 +926,7 @@ class _$UpdateUserInfoImpl implements UpdateUserInfo {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) {
     return updateUserInfo?.call(this);
   }
@@ -915,6 +944,7 @@ class _$UpdateUserInfoImpl implements UpdateUserInfo {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) {
     if (updateUserInfo != null) {
@@ -1018,6 +1048,7 @@ class _$VerifyCodeImpl implements VerifyCode {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) {
     return verifyCode(data, code);
   }
@@ -1037,6 +1068,7 @@ class _$VerifyCodeImpl implements VerifyCode {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) {
     return verifyCode?.call(data, code);
   }
@@ -1056,6 +1088,7 @@ class _$VerifyCodeImpl implements VerifyCode {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) {
     if (verifyCode != null) {
@@ -1077,6 +1110,7 @@ class _$VerifyCodeImpl implements VerifyCode {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) {
     return verifyCode(this);
   }
@@ -1094,6 +1128,7 @@ class _$VerifyCodeImpl implements VerifyCode {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) {
     return verifyCode?.call(this);
   }
@@ -1111,6 +1146,7 @@ class _$VerifyCodeImpl implements VerifyCode {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) {
     if (verifyCode != null) {
@@ -1217,6 +1253,7 @@ class _$ResetPasswordImpl implements ResetPassword {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) {
     return resetpassword(data, password);
   }
@@ -1236,6 +1273,7 @@ class _$ResetPasswordImpl implements ResetPassword {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) {
     return resetpassword?.call(data, password);
   }
@@ -1255,6 +1293,7 @@ class _$ResetPasswordImpl implements ResetPassword {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) {
     if (resetpassword != null) {
@@ -1276,6 +1315,7 @@ class _$ResetPasswordImpl implements ResetPassword {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) {
     return resetpassword(this);
   }
@@ -1293,6 +1333,7 @@ class _$ResetPasswordImpl implements ResetPassword {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) {
     return resetpassword?.call(this);
   }
@@ -1310,6 +1351,7 @@ class _$ResetPasswordImpl implements ResetPassword {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) {
     if (resetpassword != null) {
@@ -1407,6 +1449,7 @@ class _$SignOutEventImpl implements SignOutEvent {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) {
     return signOut(context);
   }
@@ -1426,6 +1469,7 @@ class _$SignOutEventImpl implements SignOutEvent {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) {
     return signOut?.call(context);
   }
@@ -1445,6 +1489,7 @@ class _$SignOutEventImpl implements SignOutEvent {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -1466,6 +1511,7 @@ class _$SignOutEventImpl implements SignOutEvent {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) {
     return signOut(this);
   }
@@ -1483,6 +1529,7 @@ class _$SignOutEventImpl implements SignOutEvent {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) {
     return signOut?.call(this);
   }
@@ -1500,6 +1547,7 @@ class _$SignOutEventImpl implements SignOutEvent {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) {
     if (signOut != null) {
@@ -1569,6 +1617,7 @@ class _$GetUserEventImpl implements GetUserEvent {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) {
     return getUserEvent();
   }
@@ -1588,6 +1637,7 @@ class _$GetUserEventImpl implements GetUserEvent {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) {
     return getUserEvent?.call();
   }
@@ -1607,6 +1657,7 @@ class _$GetUserEventImpl implements GetUserEvent {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) {
     if (getUserEvent != null) {
@@ -1628,6 +1679,7 @@ class _$GetUserEventImpl implements GetUserEvent {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) {
     return getUserEvent(this);
   }
@@ -1645,6 +1697,7 @@ class _$GetUserEventImpl implements GetUserEvent {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) {
     return getUserEvent?.call(this);
   }
@@ -1662,6 +1715,7 @@ class _$GetUserEventImpl implements GetUserEvent {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) {
     if (getUserEvent != null) {
@@ -1725,6 +1779,7 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) {
     return getVilleQuartier();
   }
@@ -1744,6 +1799,7 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) {
     return getVilleQuartier?.call();
   }
@@ -1763,6 +1819,7 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) {
     if (getVilleQuartier != null) {
@@ -1784,6 +1841,7 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) {
     return getVilleQuartier(this);
   }
@@ -1801,6 +1859,7 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) {
     return getVilleQuartier?.call(this);
   }
@@ -1818,6 +1877,7 @@ class _$GetVilleQuartierImpl implements GetVilleQuartier {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) {
     if (getVilleQuartier != null) {
@@ -1881,6 +1941,7 @@ class _$UpdateUserImageImpl implements UpdateUserImage {
     required TResult Function() getUserEvent,
     required TResult Function() getVilleQuartier,
     required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
   }) {
     return updateUserImage();
   }
@@ -1900,6 +1961,7 @@ class _$UpdateUserImageImpl implements UpdateUserImage {
     TResult? Function()? getUserEvent,
     TResult? Function()? getVilleQuartier,
     TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
   }) {
     return updateUserImage?.call();
   }
@@ -1919,6 +1981,7 @@ class _$UpdateUserImageImpl implements UpdateUserImage {
     TResult Function()? getUserEvent,
     TResult Function()? getVilleQuartier,
     TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
     required TResult orElse(),
   }) {
     if (updateUserImage != null) {
@@ -1940,6 +2003,7 @@ class _$UpdateUserImageImpl implements UpdateUserImage {
     required TResult Function(GetUserEvent value) getUserEvent,
     required TResult Function(GetVilleQuartier value) getVilleQuartier,
     required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
   }) {
     return updateUserImage(this);
   }
@@ -1957,6 +2021,7 @@ class _$UpdateUserImageImpl implements UpdateUserImage {
     TResult? Function(GetUserEvent value)? getUserEvent,
     TResult? Function(GetVilleQuartier value)? getVilleQuartier,
     TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
   }) {
     return updateUserImage?.call(this);
   }
@@ -1974,6 +2039,7 @@ class _$UpdateUserImageImpl implements UpdateUserImage {
     TResult Function(GetUserEvent value)? getUserEvent,
     TResult Function(GetVilleQuartier value)? getVilleQuartier,
     TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
     required TResult orElse(),
   }) {
     if (updateUserImage != null) {
@@ -1985,6 +2051,168 @@ class _$UpdateUserImageImpl implements UpdateUserImage {
 
 abstract class UpdateUserImage implements UserEvent {
   const factory UpdateUserImage() = _$UpdateUserImageImpl;
+}
+
+/// @nodoc
+abstract class _$$GetModePaiementImplCopyWith<$Res> {
+  factory _$$GetModePaiementImplCopyWith(_$GetModePaiementImpl value,
+          $Res Function(_$GetModePaiementImpl) then) =
+      __$$GetModePaiementImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetModePaiementImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$GetModePaiementImpl>
+    implements _$$GetModePaiementImplCopyWith<$Res> {
+  __$$GetModePaiementImplCopyWithImpl(
+      _$GetModePaiementImpl _value, $Res Function(_$GetModePaiementImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetModePaiementImpl implements GetModePaiement {
+  const _$GetModePaiementImpl();
+
+  @override
+  String toString() {
+    return 'UserEvent.getModePaiement()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetModePaiementImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String phone, String password) chooseExperience,
+    required TResult Function(
+            String name, String phone, String password, String re_password)
+        register,
+    required TResult Function(String data) sendCode,
+    required TResult Function(Map<dynamic, dynamic> data) updateUserInfo,
+    required TResult Function(String data, String code) verifyCode,
+    required TResult Function(String data, String password) resetpassword,
+    required TResult Function(BuildContext context) signOut,
+    required TResult Function() getUserEvent,
+    required TResult Function() getVilleQuartier,
+    required TResult Function() updateUserImage,
+    required TResult Function() getModePaiement,
+  }) {
+    return getModePaiement();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String phone, String password)? chooseExperience,
+    TResult? Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult? Function(String data)? sendCode,
+    TResult? Function(Map<dynamic, dynamic> data)? updateUserInfo,
+    TResult? Function(String data, String code)? verifyCode,
+    TResult? Function(String data, String password)? resetpassword,
+    TResult? Function(BuildContext context)? signOut,
+    TResult? Function()? getUserEvent,
+    TResult? Function()? getVilleQuartier,
+    TResult? Function()? updateUserImage,
+    TResult? Function()? getModePaiement,
+  }) {
+    return getModePaiement?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String phone, String password)? chooseExperience,
+    TResult Function(
+            String name, String phone, String password, String re_password)?
+        register,
+    TResult Function(String data)? sendCode,
+    TResult Function(Map<dynamic, dynamic> data)? updateUserInfo,
+    TResult Function(String data, String code)? verifyCode,
+    TResult Function(String data, String password)? resetpassword,
+    TResult Function(BuildContext context)? signOut,
+    TResult Function()? getUserEvent,
+    TResult Function()? getVilleQuartier,
+    TResult Function()? updateUserImage,
+    TResult Function()? getModePaiement,
+    required TResult orElse(),
+  }) {
+    if (getModePaiement != null) {
+      return getModePaiement();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignInEvent value) chooseExperience,
+    required TResult Function(RegisterEvent value) register,
+    required TResult Function(SendCode value) sendCode,
+    required TResult Function(UpdateUserInfo value) updateUserInfo,
+    required TResult Function(VerifyCode value) verifyCode,
+    required TResult Function(ResetPassword value) resetpassword,
+    required TResult Function(SignOutEvent value) signOut,
+    required TResult Function(GetUserEvent value) getUserEvent,
+    required TResult Function(GetVilleQuartier value) getVilleQuartier,
+    required TResult Function(UpdateUserImage value) updateUserImage,
+    required TResult Function(GetModePaiement value) getModePaiement,
+  }) {
+    return getModePaiement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignInEvent value)? chooseExperience,
+    TResult? Function(RegisterEvent value)? register,
+    TResult? Function(SendCode value)? sendCode,
+    TResult? Function(UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(VerifyCode value)? verifyCode,
+    TResult? Function(ResetPassword value)? resetpassword,
+    TResult? Function(SignOutEvent value)? signOut,
+    TResult? Function(GetUserEvent value)? getUserEvent,
+    TResult? Function(GetVilleQuartier value)? getVilleQuartier,
+    TResult? Function(UpdateUserImage value)? updateUserImage,
+    TResult? Function(GetModePaiement value)? getModePaiement,
+  }) {
+    return getModePaiement?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignInEvent value)? chooseExperience,
+    TResult Function(RegisterEvent value)? register,
+    TResult Function(SendCode value)? sendCode,
+    TResult Function(UpdateUserInfo value)? updateUserInfo,
+    TResult Function(VerifyCode value)? verifyCode,
+    TResult Function(ResetPassword value)? resetpassword,
+    TResult Function(SignOutEvent value)? signOut,
+    TResult Function(GetUserEvent value)? getUserEvent,
+    TResult Function(GetVilleQuartier value)? getVilleQuartier,
+    TResult Function(UpdateUserImage value)? updateUserImage,
+    TResult Function(GetModePaiement value)? getModePaiement,
+    required TResult orElse(),
+  }) {
+    if (getModePaiement != null) {
+      return getModePaiement(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetModePaiement implements UserEvent {
+  const factory GetModePaiement() = _$GetModePaiementImpl;
 }
 
 /// @nodoc
@@ -2000,7 +2228,10 @@ mixin _$UserState {
   int? get isUpdateUserImage => throw _privateConstructorUsedError;
   int? get isCorrectCode => throw _privateConstructorUsedError;
   int? get isVilleQuartier => throw _privateConstructorUsedError;
+  int? get loadModePaiement => throw _privateConstructorUsedError;
   bool? get successReset => throw _privateConstructorUsedError;
+  List<ModePaiementModel>? get listModePaiement =>
+      throw _privateConstructorUsedError;
   bool? get updating => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -2025,7 +2256,9 @@ abstract class $UserStateCopyWith<$Res> {
       int? isUpdateUserImage,
       int? isCorrectCode,
       int? isVilleQuartier,
+      int? loadModePaiement,
       bool? successReset,
+      List<ModePaiementModel>? listModePaiement,
       bool? updating});
 }
 
@@ -2053,7 +2286,9 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
     Object? isUpdateUserImage = freezed,
     Object? isCorrectCode = freezed,
     Object? isVilleQuartier = freezed,
+    Object? loadModePaiement = freezed,
     Object? successReset = freezed,
+    Object? listModePaiement = freezed,
     Object? updating = freezed,
   }) {
     return _then(_value.copyWith(
@@ -2101,10 +2336,18 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
           ? _value.isVilleQuartier
           : isVilleQuartier // ignore: cast_nullable_to_non_nullable
               as int?,
+      loadModePaiement: freezed == loadModePaiement
+          ? _value.loadModePaiement
+          : loadModePaiement // ignore: cast_nullable_to_non_nullable
+              as int?,
       successReset: freezed == successReset
           ? _value.successReset
           : successReset // ignore: cast_nullable_to_non_nullable
               as bool?,
+      listModePaiement: freezed == listModePaiement
+          ? _value.listModePaiement
+          : listModePaiement // ignore: cast_nullable_to_non_nullable
+              as List<ModePaiementModel>?,
       updating: freezed == updating
           ? _value.updating
           : updating // ignore: cast_nullable_to_non_nullable
@@ -2133,7 +2376,9 @@ abstract class _$$UserStateImplCopyWith<$Res>
       int? isUpdateUserImage,
       int? isCorrectCode,
       int? isVilleQuartier,
+      int? loadModePaiement,
       bool? successReset,
+      List<ModePaiementModel>? listModePaiement,
       bool? updating});
 }
 
@@ -2159,7 +2404,9 @@ class __$$UserStateImplCopyWithImpl<$Res>
     Object? isUpdateUserImage = freezed,
     Object? isCorrectCode = freezed,
     Object? isVilleQuartier = freezed,
+    Object? loadModePaiement = freezed,
     Object? successReset = freezed,
+    Object? listModePaiement = freezed,
     Object? updating = freezed,
   }) {
     return _then(_$UserStateImpl(
@@ -2207,10 +2454,18 @@ class __$$UserStateImplCopyWithImpl<$Res>
           ? _value.isVilleQuartier
           : isVilleQuartier // ignore: cast_nullable_to_non_nullable
               as int?,
+      loadModePaiement: freezed == loadModePaiement
+          ? _value.loadModePaiement
+          : loadModePaiement // ignore: cast_nullable_to_non_nullable
+              as int?,
       successReset: freezed == successReset
           ? _value.successReset
           : successReset // ignore: cast_nullable_to_non_nullable
               as bool?,
+      listModePaiement: freezed == listModePaiement
+          ? _value._listModePaiement
+          : listModePaiement // ignore: cast_nullable_to_non_nullable
+              as List<ModePaiementModel>?,
       updating: freezed == updating
           ? _value.updating
           : updating // ignore: cast_nullable_to_non_nullable
@@ -2234,8 +2489,11 @@ class _$UserStateImpl implements _UserState {
       this.isUpdateUserImage,
       this.isCorrectCode,
       this.isVilleQuartier,
+      this.loadModePaiement,
       this.successReset,
-      this.updating});
+      final List<ModePaiementModel>? listModePaiement,
+      this.updating})
+      : _listModePaiement = listModePaiement;
 
   @override
   final int? isLoading;
@@ -2260,13 +2518,26 @@ class _$UserStateImpl implements _UserState {
   @override
   final int? isVilleQuartier;
   @override
+  final int? loadModePaiement;
+  @override
   final bool? successReset;
+  final List<ModePaiementModel>? _listModePaiement;
+  @override
+  List<ModePaiementModel>? get listModePaiement {
+    final value = _listModePaiement;
+    if (value == null) return null;
+    if (_listModePaiement is EqualUnmodifiableListView)
+      return _listModePaiement;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final bool? updating;
 
   @override
   String toString() {
-    return 'UserState(isLoading: $isLoading, authenticationFailedMessage: $authenticationFailedMessage, registerFailedMessage: $registerFailedMessage, villeUser: $villeUser, quartierUser: $quartierUser, newPassword: $newPassword, isCode: $isCode, isLoadingForgot: $isLoadingForgot, isUpdateUserImage: $isUpdateUserImage, isCorrectCode: $isCorrectCode, isVilleQuartier: $isVilleQuartier, successReset: $successReset, updating: $updating)';
+    return 'UserState(isLoading: $isLoading, authenticationFailedMessage: $authenticationFailedMessage, registerFailedMessage: $registerFailedMessage, villeUser: $villeUser, quartierUser: $quartierUser, newPassword: $newPassword, isCode: $isCode, isLoadingForgot: $isLoadingForgot, isUpdateUserImage: $isUpdateUserImage, isCorrectCode: $isCorrectCode, isVilleQuartier: $isVilleQuartier, loadModePaiement: $loadModePaiement, successReset: $successReset, listModePaiement: $listModePaiement, updating: $updating)';
   }
 
   @override
@@ -2297,8 +2568,12 @@ class _$UserStateImpl implements _UserState {
                 other.isCorrectCode == isCorrectCode) &&
             (identical(other.isVilleQuartier, isVilleQuartier) ||
                 other.isVilleQuartier == isVilleQuartier) &&
+            (identical(other.loadModePaiement, loadModePaiement) ||
+                other.loadModePaiement == loadModePaiement) &&
             (identical(other.successReset, successReset) ||
                 other.successReset == successReset) &&
+            const DeepCollectionEquality()
+                .equals(other._listModePaiement, _listModePaiement) &&
             (identical(other.updating, updating) ||
                 other.updating == updating));
   }
@@ -2317,7 +2592,9 @@ class _$UserStateImpl implements _UserState {
       isUpdateUserImage,
       isCorrectCode,
       isVilleQuartier,
+      loadModePaiement,
       successReset,
+      const DeepCollectionEquality().hash(_listModePaiement),
       updating);
 
   @JsonKey(ignore: true)
@@ -2340,7 +2617,9 @@ abstract class _UserState implements UserState {
       final int? isUpdateUserImage,
       final int? isCorrectCode,
       final int? isVilleQuartier,
+      final int? loadModePaiement,
       final bool? successReset,
+      final List<ModePaiementModel>? listModePaiement,
       final bool? updating}) = _$UserStateImpl;
 
   @override
@@ -2366,7 +2645,11 @@ abstract class _UserState implements UserState {
   @override
   int? get isVilleQuartier;
   @override
+  int? get loadModePaiement;
+  @override
   bool? get successReset;
+  @override
+  List<ModePaiementModel>? get listModePaiement;
   @override
   bool? get updating;
   @override

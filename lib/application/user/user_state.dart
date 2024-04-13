@@ -14,18 +14,22 @@ class UserState with _$UserState {
       int? isUpdateUserImage,
       int? isCorrectCode,
       int? isVilleQuartier,
+      int? loadModePaiement,
       bool? successReset,
+      List<ModePaiementModel>? listModePaiement,
       bool? updating}) = _UserState;
 
   factory UserState.initial() => UserState(
       isCode: 0,
       updating: false,
-      isCorrectCode: 0,
+      isCorrectCode: 0, 
+      loadModePaiement: 0,
       successReset: false,
       isLoading: 0,
       isUpdateUserImage: 0,
       villeUser: '',
       quartierUser: '',
+      listModePaiement: [],
       isVilleQuartier: 0);
 
   factory UserState.authenticationFailed({

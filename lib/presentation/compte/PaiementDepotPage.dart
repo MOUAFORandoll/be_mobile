@@ -67,7 +67,7 @@ class _PaimentDepotPageState extends State<PaimentDepotPage> {
       return Scaffold(
           appBar: AppBar(
             leading: AppBackButton(),
-            title: const Text('REcharge de votre compte'),
+            title: const Text('Recharge de votre compte'),
             centerTitle: true,
           ),
           // backgroundColor: ColorsApp.bg,

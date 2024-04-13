@@ -176,7 +176,7 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(7, 3111042122288968254),
       name: 'User',
-      lastPropertyId: const IdUid(11, 5181578774780277422),
+      lastPropertyId: const IdUid(12, 3169514915697841993),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
@@ -227,6 +227,11 @@ final _entities = <ModelEntity>[
         ModelProperty(
             id: const IdUid(11, 5181578774780277422),
             name: 'solde',
+            type: 8,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(12, 3169514915697841993),
+            name: 'soldeBonus',
             type: 8,
             flags: 0)
       ],
@@ -510,7 +515,7 @@ ModelDefinition getObjectBoxModel() {
           final profileOffset = fbb.writeString(object.profile);
           final phoneOffset = fbb.writeString(object.phone);
           final dateCreatedOffset = fbb.writeString(object.dateCreated);
-          fbb.startTable(12);
+          fbb.startTable(13);
           fbb.addInt64(0, object.id);
           fbb.addInt64(1, object.userId);
           fbb.addOffset(2, nomOffset);
@@ -521,6 +526,7 @@ ModelDefinition getObjectBoxModel() {
           fbb.addOffset(7, dateCreatedOffset);
           fbb.addInt64(8, object.typeUser);
           fbb.addFloat64(10, object.solde);
+          fbb.addFloat64(11, object.soldeBonus);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -546,6 +552,8 @@ ModelDefinition getObjectBoxModel() {
           final dateCreatedParam =
               const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 18, '');
+          final soldeBonusParam =
+              const fb.Float64Reader().vTableGet(buffer, rootOffset, 26, 0);
           final object = User(
               userId: userIdParam,
               solde: soldeParam,
@@ -555,7 +563,8 @@ ModelDefinition getObjectBoxModel() {
               email: emailParam,
               profile: profileParam,
               phone: phoneParam,
-              dateCreated: dateCreatedParam)
+              dateCreated: dateCreatedParam,
+              soldeBonus: soldeBonusParam)
             ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
 
           return object;
@@ -713,6 +722,10 @@ class User_ {
 
   /// see [User.solde]
   static final solde = QueryDoubleProperty<User>(_entities[6].properties[9]);
+
+  /// see [User.soldeBonus]
+  static final soldeBonus =
+      QueryDoubleProperty<User>(_entities[6].properties[10]);
 }
 
 /// [YourDataModel] entity fields to define ObjectBox queries.

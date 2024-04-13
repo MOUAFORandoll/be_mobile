@@ -28,4 +28,5 @@ class UserEvent with _$UserEvent {
   const factory UserEvent.getUserEvent() = GetUserEvent;
   const factory UserEvent.getVilleQuartier() = GetVilleQuartier;
   const factory UserEvent.updateUserImage() = UpdateUserImage;
+  const factory UserEvent.getModePaiement() = GetModePaiement;
 }

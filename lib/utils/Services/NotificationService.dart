@@ -6,6 +6,8 @@ import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/main.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/compte/WalletView.dart';
+import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/subjects.dart';
 
@@ -48,7 +50,6 @@ class NotificationService {
 
   final _localNotifications = FlutterLocalNotificationsPlugin();
   final BehaviorSubject<String> behaviorSubject = BehaviorSubject();
-
   Future<void> initializePlatformNotifications() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings('launcher_icon');
@@ -58,20 +59,21 @@ class NotificationService {
 
     DarwinInitializationSettings initializationSettingsIOS =
         DarwinInitializationSettings(
-            requestSoundPermission: true,
-            requestBadgePermission: true,
-            requestAlertPermission: true,
-            onDidReceiveLocalNotification:
-                (int id, String? title, String? body, String? payload) async {
-              didReceiveLocalNotificationStream.add(
-                ReceivedNotification(
-                  id: id,
-                  title: title,
-                  body: body,
-                  payload: payload,
-                ),
-              );
-            });
+      requestSoundPermission: true,
+      requestBadgePermission: true,
+      requestAlertPermission: true,
+      onDidReceiveLocalNotification:
+          (int id, String? title, String? body, String? payload) async {
+        didReceiveLocalNotificationStream.add(
+          ReceivedNotification(
+            id: id,
+            title: title,
+            body: body,
+            payload: payload,
+          ),
+        );
+      },
+    );
 
     final InitializationSettings initializationSettings =
         InitializationSettings(
@@ -80,15 +82,17 @@ class NotificationService {
     );
 
     await _localNotifications.initialize(initializationSettings,
-        onDidReceiveNotificationResponse:
-            (NotificationResponse notificationResponse) async {
-      final String? payload = notificationResponse.payload;
-
-      print('p----------------------ayload');
+        onDidReceiveNotificationResponse: (NotificationResponse response) {
+      final String? payload = response.payload;
       if (payload != null) {
-        var context = Payload.fromJson(payload as Map<String, dynamic>);
-        BlocProvider.of<LivraisonBloc>(context.context!)
-            .add(LivraisonEvent.getLivraison());
+        print('--------${payload}----------actionnn');
+        if (payload == 'Depot') {
+          sl.get<AppRouter>().pushNamed(WalletPage.routeName);
+        } else {
+          // final context = Payload.fromJson(payload as Map<String, dynamic>);
+          // BlocProvider.of<LivraisonBloc>(context.context!)
+          //     .add(LivraisonEvent.getLivraison());
+        }
       }
     });
   }
@@ -127,14 +131,12 @@ class NotificationService {
     await flutterLocalNotificationsPlugin.show(
       1,
       'Livraison',
-      livraison.livreur!.id == user!.id
-          ? 'Vous avez une livraison a effectuer'
-          : 'Votre livraison est ' +
-              (livraison.status == 0
-                  ? 'En attente'
-                  : livraison.status == 1
-                      ? 'En cours'
-                      : 'Effectuee'),
+      'Votre livraison est ' +
+          (livraison.status == 0
+              ? 'En attente'
+              : livraison.status == 1
+                  ? 'En cours'
+                  : 'Effectuee'),
       platformChannelSpecifics,
       payload: Payload(
         context: context,
@@ -257,9 +259,9 @@ class NotificationService {
     await flutterLocalNotificationsPlugin.show(
       2,
       'Recharge Babana Express',
-      'Votre recharge de ${content} a été effectuée avec succes', // Notification body
+      'Votre recharge de ${content} XAF a été effectuée avec succes', // Notification body
       platformChannelSpecifics,
-      payload: 'Livraison',
+      payload: 'Depot',
     );
   }
 }

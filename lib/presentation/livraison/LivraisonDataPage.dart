@@ -3,6 +3,7 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/components/Widget/colisComponentUser.dart';
+import 'package:BabanaExpress/presentation/components/Widget/custom_alert.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 @RoutePage()
@@ -19,6 +20,21 @@ class LivraisonDataPage extends StatelessWidget {
           elevation: 0,
           leading: AppBackButton(),
           title: Text('yColis'.tr()),
+          actions: [
+            InkWell(
+                child: Container(
+                    margin: EdgeInsets.only(right: kMarginX),
+                    child: Icon(Icons.print)),
+                onTap: () {
+                  CustomArlert().comfirm(
+                      context: context,
+                      content: 'Voulez-vous imprimer le recu de livraison'.tr(),
+                      onpressed: (() {
+                        // BlocProvider.of<PharmacyBloc>(context)
+                        //     .add(HistoriqueLivraisonMedicament());
+                      }));
+                })
+          ],
           centerTitle: true,
         ),
         body: RefreshIndicator(

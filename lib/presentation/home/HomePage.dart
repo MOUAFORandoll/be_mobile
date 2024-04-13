@@ -106,9 +106,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                             icon: Assets.bell,
                             color: ColorsApp.white,
                           )),
-                      onTap: () {
-                        // Get.toNamed(AppLinks.NOTIFICATION);
-                      }),
+                      onTap: () {}),
                 ],
                 flexibleSpace: Stack(
                   children: [
@@ -125,10 +123,10 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                         margin: EdgeInsets.only(
                           top: getHeight(context) * .10,
                         ).add(EdgeInsets.symmetric(
-                          horizontal: getWith(context) * .35,
+                          horizontal: getWith(context) * .20,
                         )),
-                        child: Container(
-                          child: Column(
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
                                 'Solde du compte',
@@ -138,22 +136,39 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                   fontSize: 10,
                                 ),
                               ),
-                              Text(
-                                '${state.user!.solde} FCFA',
-                                style: TextStyle(
-                                    color: ColorsApp.black,
-                                    fontFamily: 'Lato',
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w800),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      '${state.user!.solde} FCFA + ',
+                                      style: TextStyle(
+                                          color: ColorsApp.black,
+                                          fontFamily: 'Lato',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w800),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: getWith(context) * .20,
+                                    child: Text(
+                                      '${state.user!.soldeBonus} de bonus',
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          color: ColorsApp.primary,
+                                          fontFamily: 'Lato',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w800),
+                                    ),
+                                  )
+                                ],
                               ),
-                            ],
-                          ),
-                        ),
+                            ]),
                       ),
                     ),
                     Positioned(
                         top: getHeight(context) * .09,
-                        left: getWith(context) * .6,
+                        left: getWith(context) * .75,
                         child: Container(
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
@@ -313,7 +328,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                         height: getHeight(context) / 1.7,
                         width: getWith(context) / 4.2,
                         child: SvgPicture.asset(
-                          Assets.grid1,
+                          Assets.story_boutique,
                           width: 80,
                           height: 80,
                           // ignore: deprecated_member_use

@@ -11,7 +11,7 @@ class TransactionModel {
     required this.typeTransactionId,
     required this.dateCreated,
   });
-
+  
   int id;
   String nom;
   String prenom;

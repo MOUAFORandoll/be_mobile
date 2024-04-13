@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
+import 'package:BabanaExpress/application/model/data/ModePaiementModel.dart';
 import 'package:BabanaExpress/application/model/data/PointLivraisonModel.dart';
 import 'package:BabanaExpress/application/model/data/VilleModel.dart';
 import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
@@ -66,6 +67,13 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
     on<SelectPointLivraisonP>(_selectPointLivraison);
     on<ClearPointLivraisonMedoc>(clearPointLivraisonMedoc);
     on<MapValidatePointLivraisonPharmacie>(_mapValidatePointPharmacie);
+
+    on<SelectModePaiementPharmacie>(selectModePaiement);
+  }
+
+  Future<void> selectModePaiement(
+      SelectModePaiementPharmacie event, Emitter<PharmacyState> emit) async {
+    emit(state.copyWith(selectedModePaiement: event.modePaiement));
   }
 
   Future<void> clearPointLivraisonMedoc(
@@ -280,12 +288,16 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       if (response.statusCode == 201) {
         if (response.data != null) {
           print(' emit(state.copyWith(isRequest: --------------5))');
-          emit(state.copyWith(
-              isRequest: 5,
-              isDownloadFacture: 0,
-              paiement_url: response.data[
-                  'paiement_url'] /*     urlFacture: response.data['facture'] */
-              ));
+          if (state.selectedModePaiement!.id == 1) {
+            emit(state.copyWith(
+                isRequest: 5,
+                isDownloadFacture: 0,
+                paiement_url: response.data['paiement_url']));
+          }
+          if (state.selectedModePaiement!.id == 2) {
+            emit(state.copyWith(
+                isRequest: 5, isDownloadFacture: 0, paiement_url: 'next'));
+          }
           add(HistoriqueLivraisonMedicament());
 
           _cleanData(emit);
@@ -319,6 +331,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       'latitude': state.selected_livraison_point?.latitude,
       'libelle': state.libelle?.text,
       'service': 1,
+      'modePaiement': state.selectedModePaiement!.id,
       'montant': state.frais,
       'contactLivraison': state.contactRecepteur?.text,
       'description': state.descriptionEmplacement?.text,

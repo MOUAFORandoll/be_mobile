@@ -55,12 +55,14 @@ class LivraisonState with _$LivraisonState {
     int? isLoadingPlaceSearchInfo,
     List<PlaceModel>? list_search_place,
     LatLng? findedPlaceInfo,
+    ModePaiementModel? selectedModePaiement,
   }) = _LivraisonState;
 
   factory LivraisonState.initial() => LivraisonState(
         formKeyLivraison: GlobalKey<FormState>(),
         formKeyColis: GlobalKey<FormState>(),
         loadingMapPlaceInfo: 0,
+        selectedModePaiement: null,
         list_search_place: [],
         paiement_url: '',
         findedPlaceInfo: null,

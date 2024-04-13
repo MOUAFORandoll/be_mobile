@@ -1,8 +1,9 @@
-
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
+import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart';
+import 'package:BabanaExpress/utils/functions/formatData.dart';
 import 'InfoColis.dart';
 import 'InfoLIvraison.dart';
 
@@ -16,6 +17,8 @@ class NewLivraisonPage extends StatefulWidget {
 }
 
 class _NewLivraisonPageState extends State<NewLivraisonPage> {
+  var _format = new FormatData();
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LivraisonBloc, LivraisonState>(
@@ -44,7 +47,13 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
             AutoRouter.of(context).pop();
             EasyLoading.dismiss();
             if (state.paiement_url != null) {
-              AutoRouter.of(context).pushNamed(PaimentPage.routeName);
+              if (state.paiement_url == 'next') {
+                BlocProvider.of<UserBloc>(context)..add(GetUserEvent());
+                BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
+                AutoRouter.of(context).pushNamed(SuccesLivraisonPage.routeName);
+              } else {
+                AutoRouter.of(context).pushNamed(PaimentPage.routeName);
+              }
             }
 
             // context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
@@ -263,12 +272,67 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                               ),
                             ],
                           )),
-                      // Container(
-                      //     margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
-                      //     child: Text(
-                      //       ' a payer par l\'emetteur: '.tr(),
-                      //       style: TextStyle(fontWeight: FontWeight.w500),
-                      //     )),
+                      BlocBuilder<UserBloc, UserState>(
+                          builder: (contextU, stateU) => Expanded(
+                                  child: SingleChildScrollView(
+                                      child: ListView.builder(
+                                physics: NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: stateU.listModePaiement!.length,
+                                itemBuilder: (_ctx, index) {
+                                  return InkWell(
+                                      onTap: () {
+                                        context.read<LivraisonBloc>().add(
+                                            SelectModePaiement(
+                                                modePaiement: stateU
+                                                    .listModePaiement![index]));
+                                      },
+                                      child: Container(
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                              border: Border.all()),
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 15, vertical: 5),
+                                          margin: EdgeInsets.symmetric(
+                                              vertical: kMarginY / 2,
+                                              horizontal: kMarginX),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Expanded(
+                                                  child: Container(
+                                                      child: Text(
+                                                _format.capitalizeFirstLetter(
+                                                    stateU
+                                                        .listModePaiement![
+                                                            index]
+                                                        .libelle),
+                                                style: TextStyle(),
+                                              ))),
+                                              Checkbox(
+                                                  shape: CircleBorder(),
+                                                  activeColor:
+                                                      ColorsApp.primary,
+                                                  checkColor: ColorsApp.white,
+                                                  value: stateU
+                                                              .listModePaiement![
+                                                          index] ==
+                                                      state
+                                                          .selectedModePaiement,
+                                                  onChanged: (val) {
+                                                    context
+                                                        .read<LivraisonBloc>()
+                                                        .add(SelectModePaiement(
+                                                            modePaiement: stateU
+                                                                    .listModePaiement![
+                                                                index]));
+                                                  })
+                                            ],
+                                          )));
+                                },
+                              )))),
                       Container(
                           margin: EdgeInsets.only(top: kMarginY),
                           child: Column(

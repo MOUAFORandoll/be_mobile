@@ -24,10 +24,12 @@ class PharmacyState with _$PharmacyState {
       bool? errorVille,
       double? frais,
       String? paiement_url,
+      ModePaiementModel? selectedModePaiement,
       List<MedicamentModel>? listMedicamentChoose}) = _PharmacyState;
 
   factory PharmacyState.initial() => PharmacyState(
       searchMedicamentController: TextEditingController(),
+      selectedModePaiement: null,
       index: 0,
       isLoadedMedicament: 0,
       isLoadedHistoriqueLivraison: 0,

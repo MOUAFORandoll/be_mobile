@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/presentation/components/Button/app_button_icon.dart'; 
+import 'package:BabanaExpress/presentation/components/Button/app_button_icon.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -132,7 +132,7 @@ class ColisComponentUser extends StatelessWidget {
       context: context,
       builder: (BuildContext context) => Container(
           decoration: BoxDecoration(
-              color: ColorsApp.grey,
+              color: ColorsApp.white,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(15), topRight: Radius.circular(15))),
           padding: EdgeInsets.symmetric(horizontal: getWith(context) * .07),
@@ -215,7 +215,7 @@ class ColisComponentUser extends StatelessWidget {
                     ],
                   ),
                 Container(
-                  height: 0,
+                  height: 150.0,
                   child: RepaintBoundary(
                     key: globalKey,
                     child: QrImageView(
@@ -235,10 +235,10 @@ class ColisComponentUser extends StatelessWidget {
                       margin: EdgeInsets.symmetric(
                         vertical: kMarginY * 1.5,
                       ),
-                      decoration: BoxDecoration(color: ColorsApp.grey),
                       child: AppButtonIcon(
                           icon: Icons.switch_access_shortcut_add_outlined,
-                          bgColor: ColorsApp.second,
+                          bgColor: ColorsApp.primary,
+                          textColor: ColorsApp.white,
                           text: 'yShareCodeRecup'.tr(),
                           onTap: () async => _captureAndSavePng())),
               ]))));

@@ -24,6 +24,9 @@ class User {
   int userId = 0;
   @Property()
   double solde = 0;
+
+  @Property()
+  double soldeBonus = 0;
   @Property()
   String nom;
 
@@ -55,6 +58,7 @@ class User {
     required this.profile,
     required this.phone,
     required this.dateCreated,
+    required this.soldeBonus,
   });
   Map<String, dynamic> toMap() {
     return {
@@ -67,6 +71,7 @@ class User {
       'profile': profile,
       'phone': phone,
       'dateCreated': dateCreated,
+      'soldeBonus': soldeBonus,
     };
   }
 
@@ -81,6 +86,7 @@ class User {
       profile: json['profile'],
       phone: json['phone'],
       dateCreated: json['date_created'],
+      soldeBonus: double.parse(json['solde_bonus'].toString()),
     );
   }
 }

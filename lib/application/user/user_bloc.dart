@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
+import 'package:BabanaExpress/application/model/data/ModePaiementModel.dart';
 
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
@@ -37,6 +38,28 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<UpdateUserInfo>(_UpdateData);
     on<GetVilleQuartier>(_getVilleQuartier);
     on<UpdateUserImage>(_updateUserProfile);
+    on<GetModePaiement>(getModePaiement); 
+  }
+   
+  
+  Future<void> getModePaiement(
+      GetModePaiement event, Emitter<UserState> emit) async {
+    emit(state.copyWith(loadModePaiement: 0));
+    
+    await userRepo.getModePaiement().then((response) {
+      print(response.data);
+      if (response.data != null) {
+        emit(state.copyWith(
+            listModePaiement: (response.data['data'] as List)
+                .map((e) => ModePaiementModel.fromJson(e))
+                .toList(),
+            loadModePaiement: 1));
+      } else {
+        emit(state.copyWith(loadModePaiement: 2));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(loadModePaiement: 2));
+    });
   }
 
   Future<void> _getVilleQuartier(

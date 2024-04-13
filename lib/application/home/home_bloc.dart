@@ -21,7 +21,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       var user = await database.getUser();
 
       emit(state.copyWith(user: user));
-
+      
+      print(
+          '---------UserD-------------------------*ataEvent***${state.user!.solde}');
       print(
           '---------UserD-------------------------*ataEvent***${state.user!.profile}');
     });

@@ -58,4 +58,7 @@ class PharmacyEvent with _$PharmacyEvent {
     required String libelle,
     required String quartier,
   }) = MapValidatePointLivraisonPharmacie;
+
+  const factory PharmacyEvent.selectModePaiement(
+      {required ModePaiementModel modePaiement}) = SelectModePaiementPharmacie;
 }

@@ -15,12 +15,17 @@ class UserRepo {
     print('-----user---${getId}');
     if (getId != null) {
       Response a = await apiClient.getRequest(ApiRoutes.USER + '?id=${getId}');
-      ;
 
       return a;
     } else {
       return null;
     }
+  }
+
+  Future getModePaiement() async {
+    Response a = await apiClient.getRequest('/modepaiement/read');
+
+    return a;
   }
 
   Future getVilleQuartier(long, lat) async {

@@ -2,7 +2,8 @@
 
 import 'package:BabanaExpress/presentation/_commons/theming/colorApp.dart';
 import 'package:BabanaExpress/presentation/components/Text/SimpleText.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/functions/datetime_format_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../../../application/model/exportmodel.dart';
@@ -17,10 +18,21 @@ class TransactionComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.symmetric(vertical: kMarginY / 2),
+        padding: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
+        margin: EdgeInsets.symmetric(
+          horizontal: kMarginX * 2,
+        ).add(EdgeInsets.only(bottom: kMarginY)),
         decoration: BoxDecoration(
-            color: ColorsApp.grey, borderRadius: BorderRadius.circular(8)),
+            color: ColorsApp.white,
+            boxShadow: [
+              BoxShadow(
+                color: ColorsApp.primary.withOpacity(0.1),
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: Offset(0, 2),
+              ),
+            ],
+            borderRadius: BorderRadius.circular(8)),
         child: Row(children: [
           Container(
             child: Column(
@@ -36,10 +48,12 @@ class TransactionComponent extends StatelessWidget {
                 )),
                 Container(
                     child: Text(
-                  'Fait le : ' + transaction.dateCreated.toString(),
+                  'Fait le   ' +
+                      FormatDateTime()
+                          .dateToStringNew(transaction.dateCreated.toString()),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: kDescription,
+                    fontSize: kTitle * .8,
                     fontFamily: 'Lato',
                   ),
                 )),

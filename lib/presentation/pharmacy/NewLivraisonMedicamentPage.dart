@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/InfolieuxlivraisonView.dart';
 import 'package:BabanaExpress/presentation/pharmacy/PaiementPharmacyPage.dart';
 
@@ -49,7 +50,11 @@ class _NewLivraisonMedicamentPageState
             AutoRouter.of(context).pop();
             EasyLoading.dismiss();
             if (state.paiement_url != null) {
-              AutoRouter.of(context).pushNamed(PaimentPharmacyPage.routeName);
+             if (state.paiement_url == 'next') {
+                AutoRouter.of(context).pushNamed(SuccesLivraisonPage.routeName);
+              } else {
+                 AutoRouter.of(context).pushNamed(PaimentPharmacyPage.routeName);
+              }
             }
 
             print('-----44--------*********');
