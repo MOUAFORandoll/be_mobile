@@ -26,7 +26,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await EnvManager().init(env: Environment.dev);
+  await EnvManager().init(env: Environment.prod);
 
   co.init();
 
@@ -125,8 +125,8 @@ var supportedLocales = const [
 
 class AppContent extends StatelessWidget {
   AppContent({super.key});
-  final _appRouter =    sl.get<AppRouter>();
-  
+  final _appRouter = sl.get<AppRouter>();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
