@@ -92,7 +92,7 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.calculFrais() = CalculFrais;
   const factory LivraisonEvent.newLivraison() = NewLivraison;
   const factory LivraisonEvent.getLivraison() = HistoriqueUserLivraison;
-  const factory LivraisonEvent.downloadFacture() = DownloadFacture;
+  const factory LivraisonEvent.downloadFacture({required int id}) = DownloadFacture;
   const factory LivraisonEvent.noValidate() = NoValidate;
   const factory LivraisonEvent.onStartEvent() = OnStartEvent;
   const factory LivraisonEvent.getMapPlaceInfo() = GetMapPlaceInfo;

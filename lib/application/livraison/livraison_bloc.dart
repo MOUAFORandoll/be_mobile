@@ -890,42 +890,37 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   }
 
   _downloadFacture(DownloadFacture event, Emitter<LivraisonState> emit) async {
-    try {
-      await requestPermission();
-      DateTime now = DateTime.now(); // ProgressDialog progress;
-      // emit(state.copyWith(
-      //   isDownloadFacture: 3,
-      // ));
-      final directory = await getExternalStorageDirectory();
-      var downloadPath = directory!.path.split('Android')[0] + 'Documents';
-      print(downloadPath);
-      final file = File(
-          '${downloadPath}/facture_${now.hour}_${now.minute}_${now.second}.pdf');
-
-      print('${EnvManager().getBaseUrl()}' + state.urlFacture!);
-      await Dio().download(
-        '${EnvManager().getBaseUrl()}' + state.urlFacture!,
-        file.path,
-        onReceiveProgress: (rec, total) {
-          print(rec);
-          print(total);
-          if (rec == total) {
-            print('okkk');
-            emit(state.copyWith(
-              isDownloadFacture: 1,
-            ));
-          }
-        },
-      );
-      emit(state.copyWith(
-        isDownloadFacture: 1,
-      ));
-    } catch (e) {
-      print(e);
+    await requestPermission();
+    DateTime now = DateTime.now(); // ProgressDialog progress;
+    emit(state.copyWith(
+      isDownloadFacture: 0,
+    ));
+    await livraisonRepo.downloadRapportLivraison(event.id).then((response) {
+      if (response != null) {
+        String path = '${response}';
+        emit(state.copyWith(
+          launchUrl: path,
+          isDownloadFacture: 1,
+        ));
+        emit(state.copyWith(
+          isDownloadFacture: null,
+        ));
+      } else {
+        emit(state.copyWith(
+          isDownloadFacture: 2,
+        ));
+        emit(state.copyWith(
+          isDownloadFacture: null,
+        ));
+      }
+    }).onError((e, s) {
       emit(state.copyWith(
         isDownloadFacture: 2,
       ));
-    }
+      emit(state.copyWith(
+        isDownloadFacture: null,
+      ));
+    });
   }
 
   Future<void> updateImageInColis(

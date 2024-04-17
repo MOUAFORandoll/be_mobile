@@ -1,5 +1,9 @@
+import 'package:BabanaExpress/infrastructure/_commons/exceptions.dart';
 import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
+import 'package:BabanaExpress/infrastructure/_commons/network/request_url.dart';
+import 'package:BabanaExpress/infrastructure/_commons/throw_error.dart';
 import 'package:dio/dio.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../../../utils/constants/apiRoute.dart';
 
@@ -18,6 +22,25 @@ class LivraisonRepo {
         await apiClient.getRequest('/location/user?long=${long}&lat=${lat}');
 
     return a;
+  }
+
+  Future downloadRapportLivraison(id) async {
+    Response response =
+        await apiClient.getRequest('/imprimer/facture-livraison/${id}');
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      String ret = response.data['url'];
+      String path = (await getTemporaryDirectory()).path;
+      print(
+        ret.split('/')[ret.split('/').length - 1],
+      );
+      var name = ret.split('/')[ret.split('/').length - 1];
+      print('$path/$name');
+      await apiClient.download(ret, path: '$path/$name');
+      print('$path/$name');
+      return '$path/$name';
+    } else {
+      throw ServerException(errorThrow(response));
+    }
   }
 
   Future autoCompleteMapPlace(search) async {

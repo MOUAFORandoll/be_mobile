@@ -11,18 +11,18 @@ class SuccesLivraisonPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<LivraisonBloc, LivraisonState>(
         listener: (context, state) {
-          if (state.isDownloadFacture == 1) {
-            EasyLoading.dismiss();
-            showSuccess('successaveFacture'.tr(), context);
-          } else if (state.isDownloadFacture == 2) {
-            EasyLoading.dismiss();
-            showError('errorsaveFature'.tr(), context);
-          } else if (state.isDownloadFacture == 3) {
-            EasyLoading.show(
-                dismissOnTap: true,
-                status: 'En cours',
-                maskType: EasyLoadingMaskType.black);
-          }
+          // if (state.isDownloadFacture == 1) {
+          //   EasyLoading.dismiss();
+          //   showSuccess('successaveFacture'.tr(), context);
+          // } else if (state.isDownloadFacture == 2) {
+          //   EasyLoading.dismiss();
+          //   showError('errorsaveFature'.tr(), context);
+          // } else if (state.isDownloadFacture == 3) {
+          //   EasyLoading.show(
+          //       dismissOnTap: true,
+          //       status: 'En cours',
+          //       maskType: EasyLoadingMaskType.black);
+          // }
         },
         builder: (context, state) => Container(
             child: Scaffold(
@@ -52,21 +52,21 @@ class SuccesLivraisonPage extends StatelessWidget {
                             child: Text('succesLivraison'.tr(),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(color: ColorsApp.primary))),
-                        Container(
-                          margin: EdgeInsets.symmetric(
-                            vertical: kMarginY * 2,
-                          ),
-                          child: AppButton(
-                            size: MainAxisSize.max,
-                            // border: Border.all(color: ColorsApp.primary),
-                            text: 'ydFacture'.tr(),
-                            onTap: () async {
-                              context
-                                  .read<LivraisonBloc>()
-                                  .add(DownloadFacture());
-                            },
-                          ),
-                        ),
+                        // Container(
+                        //   margin: EdgeInsets.symmetric(
+                        //     vertical: kMarginY * 2,
+                        //   ),
+                        //   child: AppButton(
+                        //     size: MainAxisSize.max,
+                        //     // border: Border.all(color: ColorsApp.primary),
+                        //     text: 'ydFacture'.tr(),
+                        //     onTap: () async {
+                        //       context
+                        //           .read<LivraisonBloc>()
+                        //           .add(DownloadFacture());
+                        //     },
+                        //   ),
+                        // ),
                         Container(
                           margin: EdgeInsets.symmetric(
                             vertical: kMarginY * 4,

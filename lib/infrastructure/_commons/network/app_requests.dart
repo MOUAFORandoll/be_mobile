@@ -33,6 +33,11 @@ abstract class IAppRequests {
     String request, {
     Map<String, dynamic>? headers,
   });
+  Future<Response> download(
+    String request, {
+    required String path,
+    Map<String, dynamic>? headers,
+  });
 }
 
 class AppRequests implements IAppRequests {
@@ -101,6 +106,17 @@ class AppRequests implements IAppRequests {
     final options = Options(headers: headers);
     return AppHttpService.getInstance().delete(
       request,
+      options: options,
+    );
+  }
+
+  @override
+  Future<Response> download(String request,
+      {required String path, Map<String, dynamic>? headers}) async {
+    final options = Options(headers: headers);
+     return AppHttpService.getInstance().download(
+      request,
+      path,
       options: options,
     );
   }

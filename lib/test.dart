@@ -43,7 +43,7 @@ class _MyTestPageState extends State<MyTestPage> {
                     // border: Border.all(color: ColorsApp.primary),
                     text: 'Telecharger facture',
                     onTap: () async {
-                      context.read<LivraisonBloc>().add(DownloadFacture());
+                      // context.read<LivraisonBloc>().add(DownloadFacture());
                     },
                   ),
                 ),

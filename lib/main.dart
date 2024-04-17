@@ -26,8 +26,8 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await EnvManager().init(env: Environment.prod);
-
+  await EnvManager().init(env: Environment.dev);
+  
   co.init();
 
   await NotificationService().initializePlatformNotifications();

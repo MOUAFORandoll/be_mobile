@@ -55,7 +55,7 @@ mixin _$LivraisonEvent {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -102,7 +102,7 @@ mixin _$LivraisonEvent {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -147,7 +147,7 @@ mixin _$LivraisonEvent {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -394,7 +394,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -444,7 +444,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -492,7 +492,7 @@ class _$VerifyFormLivraisonEventImpl implements VerifyFormLivraisonEvent {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -738,7 +738,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -788,7 +788,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -836,7 +836,7 @@ class _$BackIndexEventImpl implements BackIndexEvent {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -1085,7 +1085,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -1135,7 +1135,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -1183,7 +1183,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -1455,7 +1455,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -1505,7 +1505,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -1553,7 +1553,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -1833,7 +1833,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -1883,7 +1883,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -1931,7 +1931,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -2213,7 +2213,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -2263,7 +2263,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -2311,7 +2311,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -2567,7 +2567,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -2617,7 +2617,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -2665,7 +2665,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -2912,7 +2912,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -2962,7 +2962,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -3010,7 +3010,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -3295,7 +3295,7 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -3345,7 +3345,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -3393,7 +3393,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -3647,7 +3647,7 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -3697,7 +3697,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -3745,7 +3745,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -4018,7 +4018,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -4068,7 +4068,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -4116,7 +4116,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -4395,7 +4395,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -4445,7 +4445,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -4493,7 +4493,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -4771,7 +4771,7 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -4821,7 +4821,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -4869,7 +4869,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -5156,7 +5156,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -5206,7 +5206,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -5254,7 +5254,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -5547,7 +5547,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -5597,7 +5597,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -5645,7 +5645,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -5899,7 +5899,7 @@ class _$AddColisImpl implements AddColis {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -5949,7 +5949,7 @@ class _$AddColisImpl implements AddColis {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -5997,7 +5997,7 @@ class _$AddColisImpl implements AddColis {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -6269,7 +6269,7 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -6319,7 +6319,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -6367,7 +6367,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -6644,7 +6644,7 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -6694,7 +6694,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -6742,7 +6742,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -6995,7 +6995,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -7045,7 +7045,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -7093,7 +7093,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -7340,7 +7340,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -7390,7 +7390,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -7438,7 +7438,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -7712,7 +7712,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -7762,7 +7762,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -7810,7 +7810,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -8090,7 +8090,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -8140,7 +8140,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -8188,7 +8188,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -8470,7 +8470,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -8520,7 +8520,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -8568,7 +8568,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -8824,7 +8824,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -8874,7 +8874,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -8922,7 +8922,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -9206,7 +9206,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -9256,7 +9256,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -9304,7 +9304,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -9606,7 +9606,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -9656,7 +9656,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -9704,7 +9704,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -9986,7 +9986,7 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -10036,7 +10036,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -10084,7 +10084,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -10361,7 +10361,7 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -10411,7 +10411,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -10459,7 +10459,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -10710,7 +10710,7 @@ class _$CalculFraisImpl implements CalculFrais {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -10760,7 +10760,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -10808,7 +10808,7 @@ class _$CalculFraisImpl implements CalculFrais {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -11054,7 +11054,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -11104,7 +11104,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -11152,7 +11152,7 @@ class _$NewLivraisonImpl implements NewLivraison {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -11401,7 +11401,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -11451,7 +11451,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -11499,7 +11499,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -11675,6 +11675,8 @@ abstract class _$$DownloadFactureImplCopyWith<$Res> {
   factory _$$DownloadFactureImplCopyWith(_$DownloadFactureImpl value,
           $Res Function(_$DownloadFactureImpl) then) =
       __$$DownloadFactureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
 }
 
 /// @nodoc
@@ -11684,26 +11686,51 @@ class __$$DownloadFactureImplCopyWithImpl<$Res>
   __$$DownloadFactureImplCopyWithImpl(
       _$DownloadFactureImpl _value, $Res Function(_$DownloadFactureImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DownloadFactureImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$DownloadFactureImpl implements DownloadFacture {
-  const _$DownloadFactureImpl();
+  const _$DownloadFactureImpl({required this.id});
+
+  @override
+  final int id;
 
   @override
   String toString() {
-    return 'LivraisonEvent.downloadFacture()';
+    return 'LivraisonEvent.downloadFacture(id: $id)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DownloadFactureImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$DownloadFactureImpl &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DownloadFactureImplCopyWith<_$DownloadFactureImpl> get copyWith =>
+      __$$DownloadFactureImplCopyWithImpl<_$DownloadFactureImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -11745,7 +11772,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -11754,7 +11781,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function(ModePaiementModel modePaiement)
         selectModePaiement,
   }) {
-    return downloadFacture();
+    return downloadFacture(id);
   }
 
   @override
@@ -11795,7 +11822,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -11803,7 +11830,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function(PlaceModel place)? ongetPlaceData,
     TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
   }) {
-    return downloadFacture?.call();
+    return downloadFacture?.call(id);
   }
 
   @override
@@ -11843,7 +11870,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -11853,7 +11880,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
-      return downloadFacture();
+      return downloadFacture(id);
     }
     return orElse();
   }
@@ -12011,7 +12038,13 @@ class _$DownloadFactureImpl implements DownloadFacture {
 }
 
 abstract class DownloadFacture implements LivraisonEvent {
-  const factory DownloadFacture() = _$DownloadFactureImpl;
+  const factory DownloadFacture({required final int id}) =
+      _$DownloadFactureImpl;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$$DownloadFactureImplCopyWith<_$DownloadFactureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -12089,7 +12122,7 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -12139,7 +12172,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -12187,7 +12220,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -12433,7 +12466,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -12483,7 +12516,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -12531,7 +12564,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -12777,7 +12810,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -12827,7 +12860,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -12875,7 +12908,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -13147,7 +13180,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -13197,7 +13230,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -13245,7 +13278,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -13523,7 +13556,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -13573,7 +13606,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -13621,7 +13654,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -13901,7 +13934,7 @@ class _$SelectModePaiementImpl implements SelectModePaiement {
     required TResult Function() calculFrais,
     required TResult Function() newLivraison,
     required TResult Function() getLivraison,
-    required TResult Function() downloadFacture,
+    required TResult Function(int id) downloadFacture,
     required TResult Function() noValidate,
     required TResult Function() onStartEvent,
     required TResult Function() getMapPlaceInfo,
@@ -13951,7 +13984,7 @@ class _$SelectModePaiementImpl implements SelectModePaiement {
     TResult? Function()? calculFrais,
     TResult? Function()? newLivraison,
     TResult? Function()? getLivraison,
-    TResult? Function()? downloadFacture,
+    TResult? Function(int id)? downloadFacture,
     TResult? Function()? noValidate,
     TResult? Function()? onStartEvent,
     TResult? Function()? getMapPlaceInfo,
@@ -13999,7 +14032,7 @@ class _$SelectModePaiementImpl implements SelectModePaiement {
     TResult Function()? calculFrais,
     TResult Function()? newLivraison,
     TResult Function()? getLivraison,
-    TResult Function()? downloadFacture,
+    TResult Function(int id)? downloadFacture,
     TResult Function()? noValidate,
     TResult Function()? onStartEvent,
     TResult Function()? getMapPlaceInfo,
@@ -14229,6 +14262,7 @@ mixin _$LivraisonState {
   int? get isLoadedVille => throw _privateConstructorUsedError;
   bool? get isColisOK => throw _privateConstructorUsedError;
   bool? get successLivraison => throw _privateConstructorUsedError;
+  String? get launchUrl => throw _privateConstructorUsedError;
   int? get loadingMapPlaceInfo => throw _privateConstructorUsedError;
   MapPlaceInfoModel? get mapPlaceInfo => throw _privateConstructorUsedError;
   int? get isLoadedVCategory => throw _privateConstructorUsedError;
@@ -14296,6 +14330,7 @@ abstract class $LivraisonStateCopyWith<$Res> {
       int? isLoadedVille,
       bool? isColisOK,
       bool? successLivraison,
+      String? launchUrl,
       int? loadingMapPlaceInfo,
       MapPlaceInfoModel? mapPlaceInfo,
       int? isLoadedVCategory,
@@ -14363,6 +14398,7 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? isLoadedVille = freezed,
     Object? isColisOK = freezed,
     Object? successLivraison = freezed,
+    Object? launchUrl = freezed,
     Object? loadingMapPlaceInfo = freezed,
     Object? mapPlaceInfo = freezed,
     Object? isLoadedVCategory = freezed,
@@ -14537,6 +14573,10 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.successLivraison
           : successLivraison // ignore: cast_nullable_to_non_nullable
               as bool?,
+      launchUrl: freezed == launchUrl
+          ? _value.launchUrl
+          : launchUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       loadingMapPlaceInfo: freezed == loadingMapPlaceInfo
           ? _value.loadingMapPlaceInfo
           : loadingMapPlaceInfo // ignore: cast_nullable_to_non_nullable
@@ -14638,6 +14678,7 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       int? isLoadedVille,
       bool? isColisOK,
       bool? successLivraison,
+      String? launchUrl,
       int? loadingMapPlaceInfo,
       MapPlaceInfoModel? mapPlaceInfo,
       int? isLoadedVCategory,
@@ -14703,6 +14744,7 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? isLoadedVille = freezed,
     Object? isColisOK = freezed,
     Object? successLivraison = freezed,
+    Object? launchUrl = freezed,
     Object? loadingMapPlaceInfo = freezed,
     Object? mapPlaceInfo = freezed,
     Object? isLoadedVCategory = freezed,
@@ -14877,6 +14919,10 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value.successLivraison
           : successLivraison // ignore: cast_nullable_to_non_nullable
               as bool?,
+      launchUrl: freezed == launchUrl
+          ? _value.launchUrl
+          : launchUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       loadingMapPlaceInfo: freezed == loadingMapPlaceInfo
           ? _value.loadingMapPlaceInfo
           : loadingMapPlaceInfo // ignore: cast_nullable_to_non_nullable
@@ -14973,6 +15019,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
       this.isLoadedVille,
       this.isColisOK,
       this.successLivraison,
+      this.launchUrl,
       this.loadingMapPlaceInfo,
       this.mapPlaceInfo,
       this.isLoadedVCategory,
@@ -15127,6 +15174,8 @@ class _$LivraisonStateImpl implements _LivraisonState {
   @override
   final bool? successLivraison;
   @override
+  final String? launchUrl;
+  @override
   final int? loadingMapPlaceInfo;
   @override
   final MapPlaceInfoModel? mapPlaceInfo;
@@ -15171,7 +15220,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
 
   @override
   String toString() {
-    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedLivraison: $isLoadedLivraison, isLoadedVille: $isLoadedVille, isColisOK: $isColisOK, successLivraison: $successLivraison, loadingMapPlaceInfo: $loadingMapPlaceInfo, mapPlaceInfo: $mapPlaceInfo, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, controller: $controller, position: $position, isLoadingPlaceSearch: $isLoadingPlaceSearch, isLoadingPlaceSearchInfo: $isLoadingPlaceSearchInfo, list_search_place: $list_search_place, findedPlaceInfo: $findedPlaceInfo, selectedModePaiement: $selectedModePaiement)';
+    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, index: $index, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedLivraison: $isLoadedLivraison, isLoadedVille: $isLoadedVille, isColisOK: $isColisOK, successLivraison: $successLivraison, launchUrl: $launchUrl, loadingMapPlaceInfo: $loadingMapPlaceInfo, mapPlaceInfo: $mapPlaceInfo, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, controller: $controller, position: $position, isLoadingPlaceSearch: $isLoadingPlaceSearch, isLoadingPlaceSearchInfo: $isLoadingPlaceSearchInfo, list_search_place: $list_search_place, findedPlaceInfo: $findedPlaceInfo, selectedModePaiement: $selectedModePaiement)';
   }
 
   @override
@@ -15245,6 +15294,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
             (identical(other.isLoadedVille, isLoadedVille) || other.isLoadedVille == isLoadedVille) &&
             (identical(other.isColisOK, isColisOK) || other.isColisOK == isColisOK) &&
             (identical(other.successLivraison, successLivraison) || other.successLivraison == successLivraison) &&
+            (identical(other.launchUrl, launchUrl) || other.launchUrl == launchUrl) &&
             (identical(other.loadingMapPlaceInfo, loadingMapPlaceInfo) || other.loadingMapPlaceInfo == loadingMapPlaceInfo) &&
             (identical(other.mapPlaceInfo, mapPlaceInfo) || other.mapPlaceInfo == mapPlaceInfo) &&
             (identical(other.isLoadedVCategory, isLoadedVCategory) || other.isLoadedVCategory == isLoadedVCategory) &&
@@ -15302,6 +15352,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
         isLoadedVille,
         isColisOK,
         successLivraison,
+        launchUrl,
         loadingMapPlaceInfo,
         mapPlaceInfo,
         isLoadedVCategory,
@@ -15366,6 +15417,7 @@ abstract class _LivraisonState implements LivraisonState {
       final int? isLoadedVille,
       final bool? isColisOK,
       final bool? successLivraison,
+      final String? launchUrl,
       final int? loadingMapPlaceInfo,
       final MapPlaceInfoModel? mapPlaceInfo,
       final int? isLoadedVCategory,
@@ -15459,6 +15511,8 @@ abstract class _LivraisonState implements LivraisonState {
   bool? get isColisOK;
   @override
   bool? get successLivraison;
+  @override
+  String? get launchUrl;
   @override
   int? get loadingMapPlaceInfo;
   @override
