@@ -1,4 +1,4 @@
-import 'package:BabanaExpress/presentation/components/Widget/searchInput.dart';
+import 'package:BabanaExpress/presentation/components/Widget/searchInputMedicamentComponent.dart';
 
 import '../../application/export_bloc.dart';
 import '../components/exportcomponent.dart';
@@ -15,7 +15,7 @@ class ChooseMedicamentView extends StatelessWidget {
               child: Container(
                 child: Column(
                   children: [
-                    SearchInput(
+                    SearchInputMedicamentComponent(
                       controller: state.searchMedicamentController!,
                       label: 'Nom du medicament',
                       loading: state.isLoadedMedicament!,
@@ -159,12 +159,12 @@ class SelectedMedicament extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40),
                       border: Border.all(color: ColorsApp.grey, width: 1),
-                      color: ColorsApp.second),
+                      color: ColorsApp.white),
                   child: Text(
                     '${medicament.quantite}',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: ColorsApp.white,
+                      // color: ColorsApp.white,
                     ),
                   )),
               onTap: () => openModalAddColis(context, medicament)),
@@ -174,7 +174,7 @@ class SelectedMedicament extends StatelessWidget {
                 Icons.close,
                 color: ColorsApp.white,
               )),
-              onTap: (onDelete)),
+              onTap: onDelete),
         ],
       ),
     );

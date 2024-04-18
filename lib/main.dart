@@ -27,9 +27,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await EnvManager().init(env: Environment.dev);
-  
-  co.init();
 
+  co.init();
+  
   await NotificationService().initializePlatformNotifications();
   configLoading();
 

@@ -266,12 +266,15 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
 
         emit(state.copyWith(
             isRequest: 2, frais: double.parse(response.data['frais'])));
+        emit(state.copyWith(isRequest: null));
       } else {
         emit(state.copyWith(isRequest: 3));
+        emit(state.copyWith(isRequest: null));
         // fn.snackBar('Calcul des frais', response.body['message'], false);
       }
     }).onError((e, s) {
       emit(state.copyWith(isRequest: 3));
+      emit(state.copyWith(isRequest: null));
     });
   }
 

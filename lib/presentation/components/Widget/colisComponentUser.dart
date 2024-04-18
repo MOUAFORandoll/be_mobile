@@ -105,17 +105,19 @@ class ColisComponentUser extends StatelessWidget {
                         },
                       )),
                       Container(
-                        padding: EdgeInsets.only(left: 5),
+                        padding: EdgeInsets.only(top: 3),
                         decoration: BoxDecoration(
                             border: Border(
                                 top: BorderSide(
                                     color: ColorsApp.greyNew, width: .5))),
-                        alignment: Alignment.centerLeft,
+                        alignment: Alignment.center,
                         width: getWith(context) / 2,
                         child: Text(
                           colis.nom,
                           textAlign: TextAlign.start,
-                          style: TextStyle(overflow: TextOverflow.ellipsis),
+                          style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              fontWeight: FontWeight.w700),
                         ),
                       ),
                     ],
@@ -278,7 +280,8 @@ class ColisComponentUser extends StatelessWidget {
                                       vertical: kMarginY / 2),
                                   width: getWith(context) * .4,
                                   child: Text(
-                                    'yPresent'.tr(),
+                                    'Partagez ce code au destinataire du colis'
+                                        .tr(),
                                     textAlign: TextAlign.center,
                                   )),
                               InkWell(
@@ -306,7 +309,7 @@ class ColisComponentUser extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Container(),
+                                        SizedBox(),
                                         Container(
                                           child: Text(
                                             colis.code_livraison_colis,

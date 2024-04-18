@@ -282,17 +282,17 @@ class _WalletPageState extends State<WalletPage>
                         makeDepot();
                       },
                     ),
-                    Bubble(
-                      title: 'Retrait Compte',
-                      iconColor: Colors.white,
-                      bubbleColor: Colors.red,
-                      icon: Icons.people,
-                      titleStyle: TextStyle(fontSize: 16, color: Colors.white),
-                      onPress: () {
-                        _animationController!.reverse();
-                        makeRetrait();
-                      },
-                    ),
+                    // Bubble(
+                    //   title: 'Retrait Compte',
+                    //   iconColor: Colors.white,
+                    //   bubbleColor: Colors.red,
+                    //   icon: Icons.people,
+                    //   titleStyle: TextStyle(fontSize: 16, color: Colors.white),
+                    //   onPress: () {
+                    //     _animationController!.reverse();
+                    //     makeRetrait();
+                    //   },
+                    // ),
                     // Bubble(
                     //   title: 'Close',
                     //   iconColor: Colors.white,
@@ -329,31 +329,72 @@ class _WalletPageState extends State<WalletPage>
               padding: EdgeInsets.symmetric(
                 horizontal: kMarginX,
               ).add(EdgeInsets.only(top: kMarginY)),
-              child: SingleChildScrollView(
-                  child: Column(
-                // mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Column(
                 children: [
-                  AppInput(
-                    icon: Icon(Icons.phone),
-                    controller: state.phone,
-                    textInputType: TextInputType.number,
-                    placeholder: 'phone',
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: kMarginX, vertical: kMarginY),
+                    child: Column(
+                      children: [
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Add money'.tr(),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
+                              ),
+                              InkWell(
+                                  child: Icon(Icons.close),
+                                  onTap: () => AutoRouter.of(context).pop()),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          child: Text(
+                            'Rechargez votre compte et acceder a plein de bonus y compris de multiples reductions sur vos livraisons'
+                                .tr(),
+                            style: TextStyle(
+                                color: ColorsApp.primary,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 12),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  AppInput(
-                    controller: state.montantTransaction,
-                    textInputType: TextInputType.number,
-                    placeholder: 'Montant',
-                  ),
-                  AppButton(
-                      size: MainAxisSize.max,
-                      bgColor: ColorsApp.primary,
-                      text: 'Valider',
-                      onTap: () async {
-                        context.read<CompteBloc>().add(CreditCompte());
-                      })
+                  Expanded(
+                      child: SingleChildScrollView(
+                          child: Column(
+                    // mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppInput(
+                        icon: Icon(Icons.phone),
+                        controller: state.phone,
+                        textInputType: TextInputType.number,
+                        placeholder: 'labelphone'.tr(),
+                      ),
+                      AppInput(
+                        controller: state.montantTransaction,
+                        textInputType: TextInputType.number,
+                        placeholder: 'Montant De la recharge (XAF)'.tr(),
+                      ),
+                      AppButton(
+                          size: MainAxisSize.max,
+                          bgColor: state.montantTransaction.text.isNotEmpty &&
+                                  state.phone.text.isNotEmpty
+                              ? ColorsApp.primary
+                              : ColorsApp.greyNew,
+                          text: 'Valider',
+                          onTap: () async {
+                            context.read<CompteBloc>().add(CreditCompte());
+                          })
+                    ],
+                  ))),
                 ],
-              )),
+              ),
             ),
           ));
 
@@ -372,67 +413,72 @@ class _WalletPageState extends State<WalletPage>
             padding: EdgeInsets.symmetric(
               horizontal: kMarginX,
             ).add(EdgeInsets.only(top: kMarginY)),
-            child: SingleChildScrollView(
+            child: Column(children: [
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: kMarginX, vertical: kMarginY),
                 child: Column(
-              // mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: kMarginX / 2),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.symmetric(vertical: kMarginX / 2),
-                        child: Row(
-                          children: [
-                            Text(
-                              'Effectuer votre recharge'.tr() + ' ',
-                              style: TextStyle(fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
+                  children: [
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Retirer votre argent'.tr(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18),
+                          ),
+                          InkWell(
+                              child: Icon(Icons.close),
+                              onTap: () => AutoRouter.of(context).pop()),
+                        ],
                       ),
-                      Container(
-                          alignment: Alignment.topRight,
-                          margin: EdgeInsets.symmetric(vertical: kMarginX / 2),
-
-                          // padding:
-                          //     EdgeInsets.symmetric(horizontal: kMarginX / 2),
-                          child: InkWell(
-                            onTap: () => AutoRouter.of(context).pop(),
-                            child: Icon(
-                              Icons.close,
-                              // color: ColorsApp.white,
-                            ),
-                          )),
-                    ],
-                  ),
+                    ),
+                    Container(
+                      child: Text(
+                        'Rechargez votre compte et acceder a plein de bonus y compris de multiples reductions sur vos livraisons'
+                            .tr(),
+                        style: TextStyle(
+                            color: ColorsApp.primary,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12),
+                      ),
+                    ),
+                  ],
                 ),
-                AppInput(
-                  icon: Icon(Icons.phone),
-                  controller: state.phone,
-                  textInputType: TextInputType.number,
-                  placeholder: 'phone',
-                ),
-                AppInput(
-                  controller: state.montantTransaction,
-                  textInputType: TextInputType.number,
-                  placeholder: 'Montant',
-                ),
-                AppInput(
-                  icon: Icon(Icons.lock),
-                  controller: state.password,
-                  placeholder: 'password',
-                ),
-                AppButton(
-                    size: MainAxisSize.max,
-                    bgColor: ColorsApp.red,
-                    text: 'Retirer',
-                    onTap: () async {
-                      context.read<CompteBloc>().add(RetraitCompte());
-                    })
-              ],
-            )),
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                    child: Column(
+                  // mainAxisSize: MainAxisSize.min,
+                  children: [
+                    AppInput(
+                      icon: Icon(Icons.phone),
+                      controller: state.phone,
+                      textInputType: TextInputType.number,
+                      placeholder: 'labelphone'.tr(),
+                    ),
+                    AppInput(
+                      controller: state.montantTransaction,
+                      textInputType: TextInputType.number,
+                      placeholder: 'Montant Du retrait (XAF)',
+                    ),
+                    AppInput(
+                      icon: Icon(Icons.lock),
+                      controller: state.password,
+                      placeholder: 'labelpassword'.tr(),
+                    ),
+                    AppButton(
+                        size: MainAxisSize.max,
+                        bgColor: ColorsApp.red,
+                        text: 'Retirer',
+                        onTap: () async {
+                          context.read<CompteBloc>().add(RetraitCompte());
+                        })
+                  ],
+                )),
+              ),
+            ]),
           ),
         ),
       );

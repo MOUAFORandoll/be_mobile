@@ -709,7 +709,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       'category': 'categorySelect.id',
     };
     emit(state.copyWith(isRequest: 1));
-
+    
     await livraisonRepo.calculFraisLivraison(data).then((response) {
       print(response.data);
 
@@ -725,9 +725,11 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       }
     }).onError((e, s) {
       emit(state.copyWith(isRequest: 3));
+      emit(state.copyWith(isRequest: null));
     }).catchError((e) {
       print('---------------${e}');
       emit(state.copyWith(isRequest: 3));
+      emit(state.copyWith(isRequest: null));
     });
   }
 
