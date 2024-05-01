@@ -1,7 +1,5 @@
 import 'dart:async';
-
-import 'package:BabanaExpress/application/database/database_cubit.dart';
-import 'package:BabanaExpress/application/export_bloc.dart';
+ 
 import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/main.dart';
@@ -100,8 +98,6 @@ class NotificationService {
   Future<void> livraisonNotification(
       {required content, required context}) async {
     var livraison = LivraisonModel.fromJson(content);
-    DatabaseCubit database = sl.get<DatabaseCubit>();
-    var user = await database.getUser();
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
       'BabanaExpress_general_1', // Channel ID

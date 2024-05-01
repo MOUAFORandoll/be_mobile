@@ -61,8 +61,7 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                     child: state_livraison.villeList!.isEmpty
                                         ? Container()
                                         : DropdownButton<VilleModel>(
-                                            value:
-                                                state_livraison.selectedVIlle,
+                                            value: state.selectedVIlle,
                                             icon: Container(
                                               // padding: EdgeInsets.only(top: 4),
                                               child: Icon(

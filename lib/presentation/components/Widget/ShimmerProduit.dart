@@ -34,7 +34,7 @@ class ShimmerProduit extends StatelessWidget {
                                 color: ColorsApp.grey,
                                 borderRadius: BorderRadius.circular(8)),
                           ),
-                          Container(child: Text('Colis'))
+                          Container(child: Text(''))
                         ]))
               ]))),
     );

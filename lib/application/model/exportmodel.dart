@@ -11,3 +11,4 @@ export 'package:BabanaExpress/application/model/data/TransactionModel.dart';
 export 'package:BabanaExpress/application/model/data/UserModel.dart';
 export 'package:BabanaExpress/application/model/data/VilleModel.dart'; 
 export 'package:easy_localization/easy_localization.dart';
+export 'package:BabanaExpress/application/model/data/ProduitModel.dart';

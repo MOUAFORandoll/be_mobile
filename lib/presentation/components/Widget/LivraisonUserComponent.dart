@@ -10,7 +10,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 // ignore: must_be_immutable
 class LivraisonUserComponent extends StatelessWidget {
   LivraisonModel livraison;
-
+  
   LivraisonUserComponent({required this.livraison});
   GlobalKey globalKey = new GlobalKey();
   @override

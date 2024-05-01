@@ -256,6 +256,8 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
       'valeurColis': 'valeurColis.text',
       'category': 'categorySelect.id',
     };
+    emit(state.copyWith(isRequest: null));
+
     emit(state.copyWith(isRequest: 1));
 
     await pharmacyRepo.calculFraisLivraison(data).then((response) {
@@ -314,8 +316,8 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
     });
   }
 
-  List<int> _medicaments = [];
   convertMedicament() {
+    List<int> _medicaments = [];
     state.listMedicamentChoose!.forEach((e) {
       _medicaments.add(e.id);
     });

@@ -74,7 +74,8 @@ class IconButtonF1 extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: kMarginX),
         padding: EdgeInsets.all(padding),
         decoration: BoxDecoration(
-            border: Border.all(color: ColorsApp.tird /*  ColorsApp.orange */),
+            border:
+                Border.all(color: ColorsApp.primary /*  ColorsApp.orange */),
             borderRadius: BorderRadius.circular(5),
             color: backgroundColor),
         child: Icon(icon, color: color, size: inconSize),

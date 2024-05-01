@@ -6,6 +6,14 @@ import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
+import 'package:BabanaExpress/presentation/market/HistoriqueLivraisonMarketPage.dart';
+import 'package:BabanaExpress/presentation/market/InfolieuxlivraisonMarketPage.dart';
+import 'package:BabanaExpress/presentation/market/LivraisonMarketDataPage.dart';
+import 'package:BabanaExpress/presentation/market/MapPagePointLivraisonMarket.dart';
+import 'package:BabanaExpress/presentation/market/PaiementMarketPage.dart';
+import 'package:BabanaExpress/presentation/market/ProduitPage.dart';
+import 'package:BabanaExpress/presentation/market/ShoppingPage.dart';
+import 'package:BabanaExpress/presentation/market/SuccesLivraisonMarketPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/SuccesLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/PaiementPharmacyPage.dart';
@@ -62,5 +70,24 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: WalletRoute.page, path: WalletPage.routeName),
         AutoRoute(
             page: PaimentDepotRoute.page, path: PaimentDepotPage.routeName),
+        AutoRoute(page: ProduitRoute.page, path: ProduitPage.routeName),
+        AutoRoute(page: ShoppingRoute.page, path: ShoppingPage.routeName),
+        AutoRoute(
+            page: InfoLieuxLivraisonMarketRoute.page,
+            path: InfoLieuxLivraisonMarketPage.routeName),
+        AutoRoute(
+            page: MapRoutePointLivraisonMarket.page,
+            path: MapPagePointLivraisonMarket.routeName),
+        AutoRoute(
+            page: PaiementMarketRoute.page, path: PaiementMarketPage.routeName),
+        AutoRoute(
+            page: SuccesLivraisonMarketRoute.page,
+            path: SuccesLivraisonMarketPage.routeName),
+        AutoRoute(
+            page: HistoriqueLivraisonMarketRoute.page,
+            path: HistoriqueLivraisonMarketPage.routeName),
+        AutoRoute(
+            page: LivraisonMarketDataRoute.page,
+            path: LivraisonMarketDataPage.routeName),
       ];
 }

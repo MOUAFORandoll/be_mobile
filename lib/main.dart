@@ -1,6 +1,7 @@
 import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
+import 'package:BabanaExpress/application/market/repositories/marketRepo.dart';
 import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
 import 'package:BabanaExpress/application/splash/splash_bloc.dart';
 
@@ -29,7 +30,7 @@ Future<void> main() async {
   await EnvManager().init(env: Environment.dev);
 
   co.init();
-  
+
   await NotificationService().initializePlatformNotifications();
   configLoading();
 
@@ -163,6 +164,11 @@ class AppContent extends StatelessWidget {
                 BlocProvider<UserBloc>(
                   create: (BuildContext context) => UserBloc(
                       userRepo: sl.get<UserRepo>(),
+                      database: sl.get<DatabaseCubit>()),
+                ),
+                BlocProvider<MarketBloc>(
+                  create: (BuildContext context) => MarketBloc(
+                      marketRepo: sl.get<MarketRepo>(),
                       database: sl.get<DatabaseCubit>()),
                 ),
                 BlocProvider<SplashBloc>(

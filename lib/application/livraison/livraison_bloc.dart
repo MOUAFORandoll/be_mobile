@@ -7,7 +7,6 @@ import 'package:BabanaExpress/application/model/data/MapPlaceInfoModel.dart';
 import 'package:BabanaExpress/application/model/data/PlaceModel.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/infrastructure/_commons/network/env_config.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/functions/formatData.dart';
@@ -15,7 +14,6 @@ import 'package:BabanaExpress/utils/functions/formatData.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:dio/dio.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 part 'livraison_event.dart';
@@ -708,8 +706,9 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       'valeurColis': 'valeurColis.text',
       'category': 'categorySelect.id',
     };
+    emit(state.copyWith(isRequest: null));
     emit(state.copyWith(isRequest: 1));
-    
+
     await livraisonRepo.calculFraisLivraison(data).then((response) {
       print(response.data);
 
@@ -893,7 +892,6 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
   _downloadFacture(DownloadFacture event, Emitter<LivraisonState> emit) async {
     await requestPermission();
-    DateTime now = DateTime.now(); // ProgressDialog progress;
     emit(state.copyWith(
       isDownloadFacture: 0,
     ));

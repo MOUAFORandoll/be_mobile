@@ -1,13 +1,7 @@
-import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/components/Button/customBtn.dart';
+import 'package:BabanaExpress/application/export_bloc.dart'; 
 import 'package:BabanaExpress/presentation/components/Widget/TransactionComponent.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'package:get_storage/get_storage.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:flutter_spinkit/flutter_spinkit.dart'; 
 import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:BabanaExpress/presentation/compte/PaiementDepotPage.dart';
 
@@ -17,7 +11,7 @@ class WalletPage extends StatefulWidget {
     Key? key,
   }) : super(key: key);
   static const routeName = '/wallet/new';
-
+  
   @override
   State<WalletPage> createState() => _WalletPageState();
 }
@@ -26,7 +20,7 @@ class _WalletPageState extends State<WalletPage>
     with SingleTickerProviderStateMixin {
   Animation<double>? _animation;
   AnimationController? _animationController;
-
+  
   @override
   void initState() {
     _animationController = AnimationController(

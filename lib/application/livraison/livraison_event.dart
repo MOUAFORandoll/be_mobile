@@ -3,7 +3,7 @@ part of 'livraison_bloc.dart';
 @freezed
 class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.verifyForm() = VerifyFormLivraisonEvent;
-
+  
   const factory LivraisonEvent.backIndex() = BackIndexEvent;
 
   const factory LivraisonEvent.getVilleAndCategory() = GetVilleAndCategoryEvent;
@@ -11,11 +11,11 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.selectedVille({
     required VilleModel ville,
   }) = SelectedVille;
-
+  
   const factory LivraisonEvent.selectedCategory({
     required CategoryModel categoryColis,
   }) = SelectedCategory;
-
+  
   const factory LivraisonEvent.selectPointRecuperation({
     required PointLivraisonModel point_recup,
   }) = SelectPointRecuperation;

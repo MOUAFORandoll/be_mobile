@@ -1,13 +1,10 @@
 import 'dart:io';
 
-import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/presentation/components/Button/app_button_icon.dart';
-import 'package:BabanaExpress/routes/app_router.dart';
+import 'package:BabanaExpress/application/model/exportmodel.dart'; 
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-
-import 'package:qr_flutter/qr_flutter.dart';
+ 
 
 import 'dart:typed_data';
 import 'dart:async';

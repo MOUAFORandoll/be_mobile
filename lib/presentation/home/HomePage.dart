@@ -1,10 +1,12 @@
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BabanaExpress/presentation/components/Widget/HomeModuleComponent.dart';
+import 'package:BabanaExpress/presentation/components/Widget/btn_text_icon.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
 import 'package:BabanaExpress/presentation/compte/WalletView.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart';
+import 'package:BabanaExpress/presentation/market/MarketView.dart';
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/PharmacyView.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
@@ -185,17 +187,57 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 pinned: true,
 
                 bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(1.0),
-                  child: Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: kMarginX,
-                    ).add(EdgeInsets.only(
-                      bottom: kMarginY * 3,
-                      right: kMarginX,
-                    )),
-                    child: KHomeInfo(user: state.user),
+                  preferredSize: state.index == 2
+                      ? Size.fromHeight(30.0)
+                      : Size.fromHeight(1.0),
+                  child: Column(
+                    children: [
+                      Container(
+                          margin: EdgeInsets.symmetric(
+                            horizontal: kMarginX,
+                          ).add(EdgeInsets.only(
+                            bottom: state.index == 2 ? 0 : kMarginY * 3,
+                            right: kMarginX,
+                          )),
+                          // padding: EdgeInsets.only(
+                          //   top: state.index == 2 ? kMarginY : kMarginY * 3,
+                          // ),
+                          child: KHomeInfo(user: state.user)),
+                      if (state.index == 2)
+                        Container(
+                            margin: EdgeInsets.only(
+                              top: kMarginY * 2,
+                            ),
+                            decoration: BoxDecoration(
+                              color: ColorsApp.white,
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: kMarginX),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  BtnTextIcon(
+                                      title: 'Historique'.tr(),
+                                      icon: Icons.list,
+                                      onTap: () => AutoRouter.of(context).push(
+                                          HistoriqueLivraisonMarketRoute())),
+                                  BtnTextIcon(
+                                      title: 'Shopping Cart'.tr(),
+                                      icon: Icons.shopping_cart_outlined,
+                                      onTap: () => AutoRouter.of(context)
+                                          .push(ShoppingRoute())),
+                                  BtnTextIcon(
+                                      title: 'Actualiser'.tr(),
+                                      icon: Icons.refresh,
+                                      onTap: () =>
+                                          BlocProvider.of<MarketBloc>(context)
+                                              .add(GetProduits())),
+                                ])),
+                    ],
                   ),
                 ),
+
                 collapsedHeight: getHeight(context) * .22,
                 elevation: 10.0,
                 backgroundColor:
@@ -238,7 +280,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                           ? LivraisonView()
                           : state.index == 1
                               ? PharmacyView()
-                              : PharmacyView(),
+                              : MarketView(),
                       childCount: 1))
             ])),
             bottomNavigationBar: CustomNavigationBar(

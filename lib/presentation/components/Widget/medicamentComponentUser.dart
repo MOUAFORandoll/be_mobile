@@ -47,7 +47,7 @@ class MedicamentComponentUser extends StatelessWidget {
                           child: CachedNetworkImage(
                         height: getHeight(context) * .15,
                         fit: BoxFit.cover,
-                        imageUrl: "medicament.images[0].src",
+                        imageUrl: 'medicament.images[0].src',
                         imageBuilder: (context, imageProvider) {
                           return Container(
                             decoration: BoxDecoration(

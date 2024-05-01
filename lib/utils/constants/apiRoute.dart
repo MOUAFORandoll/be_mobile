@@ -1,4 +1,5 @@
 class ApiRoutes {
+  static const PRODUITS = '/produits';
   static const LIVRAISONS = '/livraisons';
   static const CATEGORY = '/category';
   static const LOCATION_USER = '/user/location';
@@ -29,8 +30,7 @@ class ApiRoutes {
   static const LIST_USER_BY = '/user/find';
   static const USER_IMAGE_UPDATE = '/user/image/new';
   static const LIST_NOTIFICATIONS = '/notifications';
-  static const READ_NOTIFICATIONS = '/notifications/read';
-  static const READ_SHORT_FOR_BOUTIQUE = '/short/for/boutique/read';
+  static const READ_NOTIFICATIONS = '/notifications/read'; 
   static const HOME = '/home';
   static const VILLE = '/villes';
   static const MEDICAMENT_SEARCH = '/medicament-search';

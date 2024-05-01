@@ -266,34 +266,29 @@ class LivraisonMedicamentUserComponent extends StatelessWidget {
                         ),
                       ),
                       Expanded(
-                          child: SingleChildScrollView(
-                              child: Column(
-                                  // mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                horizontal: kMarginX,
-                              ),
-                              child: SingleChildScrollView(
-                                  child: Column(children: [
-                                GridView.builder(
-                                    shrinkWrap: true,
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 2,
-                                            crossAxisSpacing: 20.0,
-                                            childAspectRatio: 15,
-                                            mainAxisExtent: 180,
-                                            mainAxisSpacing: 25.0),
-                                    itemCount: livraison.medicaments.length,
-                                    itemBuilder: (_ctx, index) =>
-                                        MedicamentComponentUser(
-                                            medicament:
-                                                livraison.medicaments[index])),
-                              ])),
+                        child: SingleChildScrollView(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: kMarginX,
                             ),
-                          ])))
+                            child: GridView.builder(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        crossAxisSpacing: 20.0,
+                                        childAspectRatio: 15,
+                                        mainAxisExtent: 180,
+                                        mainAxisSpacing: 25.0),
+                                itemCount: livraison.medicaments.length,
+                                itemBuilder: (_ctx, index) =>
+                                    MedicamentComponentUser(
+                                        medicament:
+                                            livraison.medicaments[index])),
+                          ),
+                        ),
+                      ),
                     ]))));
   }
 }

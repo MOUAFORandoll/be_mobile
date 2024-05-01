@@ -1,18 +1,18 @@
-import 'package:BabanaExpress/application/compte/compte_bloc.dart';
+ 
 import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
+import 'package:BabanaExpress/application/market/repositories/marketRepo.dart';
 import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
 import 'package:BabanaExpress/application/splash/splash_bloc.dart';
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:BabanaExpress/utils/Services/NotificationService.dart';
-import 'package:BabanaExpress/utils/Services/SocketService.dart';
-import 'package:auto_route/auto_route.dart';
+import 'package:BabanaExpress/utils/Services/SocketService.dart'; 
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:connectivity/connectivity.dart';
@@ -47,6 +47,9 @@ Future<void> init() async {
   sl
     ..registerFactory(() => PharmacyBloc(pharmacyRepo: sl()))
     ..registerLazySingleton(() => PharmacyRepo(apiClient: sl()));
+  sl
+    ..registerFactory(() => MarketBloc(marketRepo: sl(), database: sl()))
+    ..registerLazySingleton(() => MarketRepo(apiClient: sl()));
   requestPermission();
 
   sl.registerSingleton<AppRouter>(AppRouter());
@@ -73,6 +76,9 @@ Future<void> initLoad(context) async {
     ..add(HistoriqueUserLivraison());
   BlocProvider.of<PharmacyBloc>(context).add(HistoriqueLivraisonMedicament());
   BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
+  BlocProvider.of<MarketBloc>(context)
+    ..add(MarketEvent.getProduits())
+    ..add(MarketEvent.getLivraisonProduit());
 
   initSetDefaultValue(context);
   initSocket(context);
@@ -116,6 +122,7 @@ Future<void> initSocket(context) async {
 Future<void> initSetDefaultValue(context) async {
   BlocProvider.of<LivraisonBloc>(context).add(OnStartEvent());
   BlocProvider.of<PharmacyBloc>(context).add(OnStartEventP());
+  BlocProvider.of<MarketBloc>(context).add(OnStartEventMarket());
 }
 
 Future<void> requestPermission() async {
