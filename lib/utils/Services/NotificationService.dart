@@ -5,7 +5,7 @@ import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';
 import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/main.dart';
+import 'package:BabanaExpress/main_prod.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/presentation/compte/WalletView.dart';
 import 'package:BabanaExpress/routes/app_router.dart';
