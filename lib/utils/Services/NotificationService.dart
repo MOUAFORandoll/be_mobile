@@ -306,7 +306,7 @@ class NotificationService {
       android: androidPlatformChannelSpecifics,
       iOS: iOSPlatformChannelSpecifics,
     );
-
+    
     await flutterLocalNotificationsPlugin.show(
       2,
       'Livraison Terminée',
