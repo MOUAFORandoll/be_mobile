@@ -65,6 +65,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
               //   NotificationService().depotFinishNotification(
               //       content: data, context: event.context);
               // });
+              
         }
         emit(SplashState.loaded(isConnected, route));
       });

@@ -51,8 +51,36 @@ class SocketService {
         }
       }
     });
-    // });
-    // print(socket.connected);
+  }
+
+  void livraisonProduit({required String recepteur, required Function action}) {
+    socket.on('livraison_produit', (data) {
+      print(data);
+      if (data != null && data != 'null') {
+        print(jsonDecode(data));
+        if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
+          print('-----------------');
+          print(jsonDecode(data));
+          action(jsonDecode(data)['data']);
+        }
+      }
+    });
+  }
+
+  void livraisonMedicament(
+      {required String recepteur, required Function action}) {
+    socket.on('livraison_medicament', (data) {
+      print(data);
+      
+      if (data != null && data != 'null') {
+        print(jsonDecode(data));
+        if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
+          print('-----------------');
+          print(jsonDecode(data));
+          action(jsonDecode(data)['data']);
+        }
+      }
+    });
   }
 
   void transactionCredit(
@@ -63,7 +91,7 @@ class SocketService {
         print(jsonDecode(data));
         if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
           print('------------iciiiiiCest moi-----');
-           action(jsonDecode(data)['data']['montant']);
+          action(jsonDecode(data)['data']['montant']);
         }
       }
     });

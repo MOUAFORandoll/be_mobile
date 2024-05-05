@@ -1,5 +1,8 @@
 import 'dart:async';
- 
+
+import 'package:BabanaExpress/application/market/market_bloc.dart';
+import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
+import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/main.dart';
@@ -141,6 +144,98 @@ class NotificationService {
     );
   }
 
+  Future<void> livraisonMedicamensNotification(
+      {required content, required context}) async {
+    var livraison = LivraisonMedicamentModel.fromJson(content);
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
+      'BabanaExpress_general_1', // Channel ID
+      'BabanaExpress livraison', // Channel name
+      channelDescription: 'Information de livraison', // Channel description
+      importance: Importance.max,
+      priority: Priority.high,
+      // autoCancel: false,
+      setAsGroupSummary: true,
+      styleInformation: BigTextStyleInformation(
+        '<Notification Content>',
+        htmlFormatBigText: true,
+        contentTitle: 'Livraison',
+        summaryText: 'Livraison',
+      ),
+      icon: 'launcher_icon',
+      largeIcon: DrawableResourceAndroidBitmap(
+          'launcher_icon'), // Replace with the name of your custom large icon file
+    );
+    const DarwinNotificationDetails iOSPlatformChannelSpecifics =
+        DarwinNotificationDetails(threadIdentifier: 'thread_id');
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iOSPlatformChannelSpecifics,
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+      1,
+      'Livraison de medicaments',
+      'Votre livraison de medicaments est ' +
+          (livraison.status == 0
+              ? 'En attente'
+              : livraison.status == 1
+                  ? 'En cours'
+                  : 'Effectuee'),
+      platformChannelSpecifics,
+      payload: Payload(
+        context: context,
+        titre: 'Livraison',
+      ).toString(),
+    );
+  }
+
+  Future<void> livraisonProduitsNotification(
+      {required content, required context}) async {
+    var livraison = LivraisonMarketModel.fromJson(content);
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
+      'BabanaExpress_general_1', // Channel ID
+      'BabanaExpress livraison', // Channel name
+      channelDescription: 'Information de livraison', // Channel description
+      importance: Importance.max,
+      priority: Priority.high,
+      // autoCancel: false,
+      setAsGroupSummary: true,
+      styleInformation: BigTextStyleInformation(
+        '<Notification Content>',
+        htmlFormatBigText: true,
+        contentTitle: 'Livraison',
+        summaryText: 'Livraison',
+      ),
+      icon: 'launcher_icon',
+      largeIcon: DrawableResourceAndroidBitmap(
+          'launcher_icon'), // Replace with the name of your custom large icon file
+    );
+    const DarwinNotificationDetails iOSPlatformChannelSpecifics =
+        DarwinNotificationDetails(threadIdentifier: 'thread_id');
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iOSPlatformChannelSpecifics,
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+      1,
+      'Livraison de produits',
+      'Votre livraison de produits est ' +
+          (livraison.status == 0
+              ? 'En attente'
+              : livraison.status == 1
+                  ? 'En cours'
+                  : 'Effectuee'),
+      platformChannelSpecifics,
+      payload: Payload(
+        context: context,
+        titre: 'Livraison',
+      ).toString(),
+    );
+  }
+
   Future<void> livraisonValidateNotification(
       {required content, required context}) async {
     var livraison = LivraisonModel.fromJson(content);
@@ -184,7 +279,7 @@ class NotificationService {
 
   Future<void> livraisonFinishNotification(
       {required content, required context}) async {
-    var livraison = LivraisonModel.fromJson(content);
+    // var livraison = LivraisonModel.fromJson(content);
 
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
@@ -215,9 +310,7 @@ class NotificationService {
     await flutterLocalNotificationsPlugin.show(
       2,
       'Livraison Terminée',
-      'Votre de livraison du ' +
-          livraison.date +
-          ' a été effectuée avec succes', // Notification body
+      'Votre livraison a été effectuée avec succes✅', // Notification body
       platformChannelSpecifics,
       payload: 'Livraison',
     );

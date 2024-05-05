@@ -1,4 +1,3 @@
- 
 import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
@@ -12,7 +11,7 @@ import 'package:BabanaExpress/application/user/repositories/user_repository.dart
 import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:BabanaExpress/utils/Services/NotificationService.dart';
-import 'package:BabanaExpress/utils/Services/SocketService.dart'; 
+import 'package:BabanaExpress/utils/Services/SocketService.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:connectivity/connectivity.dart';
@@ -103,6 +102,18 @@ Future<void> initSocket(context) async {
       action: (data) {
         NotificationService()
             .livraisonValidateNotification(content: data, context: context);
+      });
+  SocketService().livraisonMedicament(
+      recepteur: key,
+      action: (data) {
+        NotificationService()
+            .livraisonMedicamensNotification(content: data, context: context);
+      });
+  SocketService().livraisonProduit(
+      recepteur: key,
+      action: (data) {
+        NotificationService()
+            .livraisonProduitsNotification(content: data, context: context);
       });
   SocketService().livraisonFinish(
       recepteur: key,
