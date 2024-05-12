@@ -7,8 +7,8 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
 // ignore: must_be_immutable
-class HistoriqueLivraisonView extends StatelessWidget {
-  HistoriqueLivraisonView({super.key});
+class HistoriqueLivraisonMin extends StatelessWidget {
+  HistoriqueLivraisonMin({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,9 @@ class HistoriqueLivraisonView extends StatelessWidget {
                     : ListView.builder(
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: state.userLivraisonList!.length,
+                        itemCount: state.userLivraisonList!.length > 3
+                            ? 3
+                            : state.userLivraisonList!.length,
                         // controller: state,
                         itemBuilder: (_, index) => LivraisonUserComponent(
                               livraison: state.userLivraisonList![index],

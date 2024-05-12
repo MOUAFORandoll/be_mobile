@@ -1,7 +1,8 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/data/PanierModel.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';  
-import 'package:cached_network_image/cached_network_image.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 // ignore: must_be_immutable
 class ShoppingproduitComponent extends StatelessWidget {
   PanierModel cartM;
@@ -101,8 +102,8 @@ class ShoppingproduitComponent extends StatelessWidget {
                                                 backgroundColor:
                                                     ColorsApp.primary,
                                                 radius: 50,
-                                                backgroundImage: AssetImage(
-                                                    'assets/logo/logoNew.png'));
+                                                backgroundImage:
+                                                    AssetImage('Assets.logo'));
                                           },
                                         )),
                                       ],

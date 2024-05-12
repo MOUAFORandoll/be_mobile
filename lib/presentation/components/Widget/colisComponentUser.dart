@@ -1,10 +1,9 @@
 import 'dart:io';
 
-import 'package:BabanaExpress/application/model/exportmodel.dart'; 
+import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
- 
 
 import 'dart:typed_data';
 import 'dart:async';
@@ -217,7 +216,16 @@ class ColisComponentUser extends StatelessWidget {
                           },
                         ),
                       ),
-                      if (colis.statusLivraisonColis == 0) Text('ylAwait'.tr()),
+                      if (colis.statusLivraisonColis == 0)
+                        Container(
+                            alignment: Alignment.center,
+                            margin:
+                                EdgeInsets.symmetric(vertical: kMarginY / 2),
+                            width: getWith(context) * .4,
+                            child: Text(
+                              'ylAwait'.tr(),
+                              textAlign: TextAlign.center,
+                            )),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -355,7 +363,8 @@ class ColisComponentUser extends StatelessWidget {
                       //           onTap: () async => _captureAndSavePng())),
                     ]),
               ),
-              if (colis.statusLivraisonColis != 3)
+              if (colis.statusLivraisonColis != 3 &&
+                  colis.statusLivraisonColis != 0)
                 Container(
                     margin: EdgeInsets.symmetric(vertical: kMarginY),
                     child: Text('Veuillez ne pas divulguer ces codes'.tr(),

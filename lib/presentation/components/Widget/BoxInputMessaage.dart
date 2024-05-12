@@ -1,4 +1,4 @@
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import '../exportcomponent.dart';
 
 // ignore: must_be_immutable
 class BoxInputMessaage extends StatelessWidget {
@@ -12,7 +12,6 @@ class BoxInputMessaage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(color: ColorsApp.grey),
       child: Row(
@@ -25,7 +24,7 @@ class BoxInputMessaage extends StatelessWidget {
               padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: ColorsApp.tird,
+                color: ColorsApp.primary,
               ),
               child: Icon(Icons.add, color: Colors.white, size: 22.0),
             ),
@@ -53,7 +52,7 @@ class BoxInputMessaage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     fontSize: 12,
                   ),
-                  counterText: '',
+                  counterText: "",
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.blue,
@@ -77,7 +76,7 @@ class BoxInputMessaage extends StatelessWidget {
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: ColorsApp.tird,
+                      color: ColorsApp.primary,
                     ),
                     child: Container(
                         width: 22,
@@ -90,7 +89,7 @@ class BoxInputMessaage extends StatelessWidget {
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: ColorsApp.tird,
+                    color: ColorsApp.primary,
                   ),
                   child: Container(
                     width: 22,

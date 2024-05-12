@@ -6,15 +6,15 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import '../components/Widget/LivraisonMedicamentUserComponent.dart';
 
 // ignore: must_be_immutable
-class HistoriqueLivraisonMedicamentView extends StatelessWidget {
-  HistoriqueLivraisonMedicamentView({super.key});
+class HistoriqueLivraisonMedicamentMin extends StatelessWidget {
+  HistoriqueLivraisonMedicamentMin({super.key});
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PharmacyBloc, PharmacyState>(builder: (context, state) {
       return state.isLoadedHistoriqueLivraison == 0
           ? ShimmerLivraison()
           : state.isLoadedHistoriqueLivraison == 2
-              ?  ErrorReloadComponent(
+              ? ErrorReloadComponent(
                   onTap: () => BlocProvider.of<PharmacyBloc>(context)
                       .add(HistoriqueLivraisonMedicament()),
                 )
@@ -23,7 +23,9 @@ class HistoriqueLivraisonMedicamentView extends StatelessWidget {
                   : ListView.builder(
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: state.userLivraisonMedicamentList!.length,
+                      itemCount: state.userLivraisonMedicamentList!.length > 3
+                          ? 3
+                          : state.userLivraisonMedicamentList!.length,
                       // controller: state,
                       itemBuilder: (_, index) =>
                           LivraisonMedicamentUserComponent(

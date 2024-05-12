@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/application/callcenter/repositories/callcenterRepo.dart';
 import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
@@ -49,6 +50,10 @@ Future<void> init() async {
   sl
     ..registerFactory(() => MarketBloc(marketRepo: sl(), database: sl()))
     ..registerLazySingleton(() => MarketRepo(apiClient: sl()));
+  sl
+    ..registerFactory(
+        () => CallcenterBloc(callcenterRepo: sl(), database: sl()))
+    ..registerLazySingleton(() => CallcenterRepo(apiClient: sl()));
   requestPermission();
 
   sl.registerSingleton<AppRouter>(AppRouter());
@@ -78,7 +83,7 @@ Future<void> initLoad(context) async {
   BlocProvider.of<MarketBloc>(context)
     ..add(MarketEvent.getProduits())
     ..add(MarketEvent.getLivraisonProduit());
-
+  BlocProvider.of<CallcenterBloc>(context).add(CallcenterEvent.getMessage());
   initSetDefaultValue(context);
   initSocket(context);
 }

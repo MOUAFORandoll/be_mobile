@@ -13,7 +13,7 @@ class LivraisonDataPage extends StatelessWidget {
   LivraisonModel livraison;
   LivraisonDataPage({required this.livraison});
   static const routeName = '/livraison/data';
-
+  
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LivraisonBloc, LivraisonState>(

@@ -29,19 +29,19 @@ class OnBoardingPage extends StatelessWidget {
                 carouselController: controller,
                 items: [
                   AppCarrousselItem(
-                    title: 'ctitle1'.tr(),
+                    title: 'Livraison de vos colis'.tr(),
                     description: 'cdescription1'.tr(),
                     image: Assets.onb1,
                   ),
                   AppCarrousselItem(
-                      title: 'ctitle2'.tr(),
+                      title: 'Livraison de vos medicaments'.tr(),
                       description: 'cdescription2'.tr(),
                       image: Assets.onb2,
                       index: state.index),
                   AppCarrousselItem(
-                      title: 'Livraison rapide'.tr(),
+                      title: 'Market Place'.tr(),
                       description:
-                          'Faites vous livrer rapidement peux importe ou vous vous trouvez dans le cameroun'
+                          'Commandez vos produits sur notre market place et faites vous livrer rapidement peux importe ou vous vous trouvez dans le cameroun'
                               .tr(),
                       image: Assets.onb3,
                       index: state.index)
@@ -53,7 +53,9 @@ class OnBoardingPage extends StatelessWidget {
                     enableInfiniteScroll: false,
                     reverse: false,
                     onPageChanged: (index, reason) {
+                      print(state.index);
                       context.read<AppActionCubit>().setIndex(index);
+                      print(state.index);
                     },
                     disableCenter: true,
                     height: getHeight(context),
@@ -70,6 +72,38 @@ class OnBoardingPage extends StatelessWidget {
                   bottom: getHeight(context) / 10,
                   left: 0,
                   right: 0,
+                  child: AppButton(
+                    text: state.index == 2 ? 'Continuer' : 'Suivant',
+                    textColor: ColorsApp.primary,
+                    bgColor: Colors.white,
+                    onTap: () {
+                      if (state.index == 2) {
+                        final AppActionCubit action =
+                            BlocProvider.of<AppActionCubit>(context);
+                        action.toLogin();
+
+                        AutoRouter.of(context).replaceAll([AuthRoute()]);
+                        GetStorage box = sl.get<GetStorage>();
+                        box.write('first', 1);
+                      } else {
+                        print(state.index);
+
+                        context
+                            .read<AppActionCubit>()
+                            .setIndex(state.index + 1);
+                        print(state.index);
+
+                        controller.nextPage(
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.linear,
+                        );
+                      }
+                    },
+                  )),
+              Positioned(
+                  bottom: getHeight(context) / 20,
+                  left: 0,
+                  right: 0,
                   child: Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -79,12 +113,14 @@ class OnBoardingPage extends StatelessWidget {
                               controller.animateToPage(
                                 entry.key,
                                 duration: Duration(seconds: 10),
-                                curve: Curves.linearToEaseOut,
+                                curve: Curves.bounceInOut,
                               );
                             },
                             child: Container(
-                              width: 15.0,
-                              height: 15.0,
+                              width: state.index == entry.key
+                                  ? getWith(context) / 10
+                                  : getHeight(context) / 80,
+                              height: getHeight(context) / 80,
                               margin: EdgeInsets.symmetric(
                                   vertical: 10.0, horizontal: 4.0),
                               decoration: BoxDecoration(
@@ -95,33 +131,6 @@ class OnBoardingPage extends StatelessWidget {
                             ));
                       }).toList(),
                     ),
-                  )),
-              Positioned(
-                  bottom: getHeight(context) / 40,
-                  left: 0,
-                  right: 0,
-                  child: AppButton(
-                    text: state.index == 2 ? 'Continuer' : 'Suivant',
-                    textColor: ColorsApp.primary,
-                    bgColor: Colors.white,
-                    onTap: () {
-                      if (state.index == 2) {
-                        // final AppActionCubit action =
-                        //     BlocProvider.of<AppActionCubit>(context);
-                        // action.toLogin();
-
-                        AutoRouter.of(context).replaceAll([AuthRoute()]);
-                        GetStorage box = sl.get<GetStorage>();
-                        box.write('first', 1);
-                      } else {
-                        // context.read<AppActionCubit>().setIndex(1);
-
-                        controller.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.linear,
-                        );
-                      }
-                    },
                   )),
             ],
           )));

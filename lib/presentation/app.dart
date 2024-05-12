@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/application/callcenter/repositories/callcenterRepo.dart';
 import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
@@ -67,6 +68,11 @@ class AppContent extends StatelessWidget {
                       marketRepo: sl.get<MarketRepo>(),
                       database: sl.get<DatabaseCubit>()),
                 ),
+                BlocProvider<CallcenterBloc>(
+                  create: (BuildContext context) => CallcenterBloc(
+                      callcenterRepo: sl.get<CallcenterRepo>(),
+                      database: sl.get<DatabaseCubit>()),
+                ),
                 BlocProvider<SplashBloc>(
                   create: (BuildContext context) =>
                       SplashBloc(database: sl.get<DatabaseCubit>()),
@@ -76,6 +82,9 @@ class AppContent extends StatelessWidget {
                       HomeBloc(database: sl.get<DatabaseCubit>()),
                 ),
                 BlocProvider<PharmacyBloc>(
+                  create: (BuildContext context) =>
+                      PharmacyBloc(pharmacyRepo: sl.get<PharmacyRepo>()),
+                ),  BlocProvider<PharmacyBloc>(
                   create: (BuildContext context) =>
                       PharmacyBloc(pharmacyRepo: sl.get<PharmacyRepo>()),
                 ),

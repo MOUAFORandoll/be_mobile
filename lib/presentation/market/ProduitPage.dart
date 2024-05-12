@@ -1,11 +1,11 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/presentation/components/Button/ShareButton.dart'; 
+import 'package:BabanaExpress/presentation/components/Button/ShareButton.dart';
 import 'package:BabanaExpress/presentation/components/Text/bigtitleText.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart'; 
+import 'package:carousel_slider/carousel_slider.dart';
 
 @RoutePage()
 class ProduitPage extends StatefulWidget {
@@ -157,8 +157,8 @@ class _ProduitPageState extends State<ProduitPage>
                                       return CircleAvatar(
                                           backgroundColor: ColorsApp.primary,
                                           radius: 50,
-                                          backgroundImage: AssetImage(
-                                              'assets/logo/logoNew.png'));
+                                          backgroundImage:
+                                              AssetImage('Assets.logo'));
                                     },
                                   ),
                                   onTap: () async {
@@ -689,7 +689,7 @@ class ImageScreen extends StatelessWidget {
                 return CircleAvatar(
                     backgroundColor: ColorsApp.primary,
                     radius: 50,
-                    backgroundImage: AssetImage('assets/logo/logoNew.png'));
+                    backgroundImage: AssetImage('Assets.logo'));
               },
             ),
           ),

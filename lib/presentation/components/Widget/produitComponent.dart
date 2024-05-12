@@ -2,6 +2,7 @@
 import 'package:BabanaExpress/presentation/_commons/theming/app_theme.dart';
 import 'package:BabanaExpress/presentation/components/Widget/ShimmerProduitBox.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
@@ -78,7 +79,7 @@ class ProduitComponent extends StatelessWidget {
                         width: getWith(context) * 1.1,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                          image: AssetImage('assets/logo/logoNew.png'),
+                          image: AssetImage(Assets.logo),
                         )));
                   },
                 ),

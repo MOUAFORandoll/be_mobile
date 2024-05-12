@@ -1,0 +1,52 @@
+import 'package:BabanaExpress/presentation/components/Widget/EmptyLivraisonsComponent.dart';
+import 'package:BabanaExpress/presentation/components/Widget/ErrorReloadComponent.dart';
+import 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
+import '../components/Widget/LivraisonMedicamentUserComponent.dart';
+
+@RoutePage()
+class HistoriqueLivraisonMedicamentPage extends StatelessWidget {
+  HistoriqueLivraisonMedicamentPage();
+  static const routeName = '/livraison-medicament/list';
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<PharmacyBloc, PharmacyState>(builder: (context, state) {
+      return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            leading: AppBackButton(),
+            title: Text('Vos livraisons de medicament'.tr()),
+            centerTitle: true,
+          ),
+          body: Container(
+              margin: EdgeInsets.only(top: kMarginY * 2)
+                  .add(EdgeInsets.symmetric(horizontal: kMarginX * 2)),
+              child: SingleChildScrollView(
+                  child: state.isLoadedHistoriqueLivraison == 0
+                      ? ShimmerLivraison()
+                      : state.isLoadedHistoriqueLivraison == 2
+                          ? ErrorReloadComponent(
+                              onTap: () =>
+                                  BlocProvider.of<PharmacyBloc>(context)
+                                      .add(HistoriqueLivraisonMedicament()),
+                            )
+                          : state.userLivraisonMedicamentList!.length == 0
+                              ? EmptyLivraisonsComponent()
+                              : ListView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  itemCount:
+                                      state.userLivraisonMedicamentList!.length,
+                                  // controller: state,
+                                  itemBuilder: (_, index) =>
+                                      LivraisonMedicamentUserComponent(
+                                        livraison:
+                                            state.userLivraisonMedicamentList![
+                                                index],
+                                      )))));
+    });
+  }
+}

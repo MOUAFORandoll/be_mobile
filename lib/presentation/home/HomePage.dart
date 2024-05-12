@@ -22,7 +22,7 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 @RoutePage()
 class HomePage extends StatefulWidget {
   static const routeName = '/home';
-
+  
   const HomePage({super.key});
   @override
   State<HomePage> createState() => _HomePageState();
@@ -61,6 +61,12 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
+  }
+
+  double turns = 0.0;
+
+  void _changeRotation() {
+    setState(() => turns += 1.0 / 8.0);
   }
 
   @override
@@ -103,6 +109,19 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 actions: [
                   InkWell(
                       child: Container(
+                          decoration: BoxDecoration(
+                              color: ColorsApp.white,
+                              borderRadius: BorderRadius.circular(30)),
+                          padding: EdgeInsets.all(5),
+                          margin: EdgeInsets.only(right: kMarginX),
+                          child: SvgIcon(
+                            icon: Assets.bell,
+                            color: ColorsApp.primary,
+                          )),
+                      onTap: () => AutoRouter.of(context)
+                          .push(CallCenterRoute())),
+                  InkWell(
+                      child: Container(
                           margin: EdgeInsets.only(right: kMarginX * 2),
                           child: SvgIcon(
                             icon: Assets.bell,
@@ -125,7 +144,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                         margin: EdgeInsets.only(
                           top: getHeight(context) * .10,
                         ).add(EdgeInsets.symmetric(
-                          horizontal: getWith(context) * .20,
+                          horizontal: getWith(context) * .30,
                         )),
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -143,7 +162,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                 children: [
                                   Container(
                                     child: Text(
-                                      '${state.user!.solde} FCFA + ',
+                                      '${state.user!.solde} FCFA  ',
                                       style: TextStyle(
                                           color: ColorsApp.black,
                                           fontFamily: 'Lato',
@@ -151,18 +170,18 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                           fontWeight: FontWeight.w800),
                                     ),
                                   ),
-                                  Container(
-                                    width: getWith(context) * .20,
-                                    child: Text(
-                                      '${state.user!.soldeBonus} de bonus',
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                          color: ColorsApp.primary,
-                                          fontFamily: 'Lato',
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w800),
-                                    ),
-                                  )
+                                  // Container(
+                                  //   width: getWith(context) * .20,
+                                  //   child: Text(
+                                  //     '${state.user!.soldeBonus} de bonus',
+                                  //     overflow: TextOverflow.ellipsis,
+                                  //     style: TextStyle(
+                                  //         color: ColorsApp.primary,
+                                  //         fontFamily: 'Lato',
+                                  //         fontSize: 15,
+                                  //         fontWeight: FontWeight.w800),
+                                  //   ),
+                                  // )
                                 ],
                               ),
                             ]),
@@ -170,7 +189,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                     ),
                     Positioned(
                         top: getHeight(context) * .09,
-                        left: getWith(context) * .75,
+                        left: getWith(context) * .65,
                         child: Container(
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
@@ -283,6 +302,27 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                               : MarketView(),
                       childCount: 1))
             ])),
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.white,
+              foregroundColor: ColorsApp.primary,
+              child: AnimatedRotation(
+                turns: turns,
+                duration: const Duration(seconds: 1),
+                child: Icon(
+                  Icons.refresh,
+                  color: ColorsApp.primary,
+                ),
+              ),
+              onPressed: () =>
+                  _changeRotation /*  state.index == 0
+                  ? BlocProvider.of<LivraisonBloc>(context)
+                      .add(HistoriqueUserLivraison())
+                  : state.index == 1
+                      ? BlocProvider.of<PharmacyBloc>(context)
+                          .add(HistoriqueLivraisonMedicament())
+                      : BlocProvider.of<MarketBloc>(context).add(GetProduits()) */
+              ,
+            ),
             bottomNavigationBar: CustomNavigationBar(
               iconSize: 30.0,
               // elevation: 0.0,
