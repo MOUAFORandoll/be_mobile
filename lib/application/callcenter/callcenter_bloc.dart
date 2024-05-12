@@ -20,7 +20,7 @@ class CallcenterBloc extends Bloc<CallcenterEvent, CallcenterState> {
     on<GetMessage>(getMessage);
     on<NewMessage>(newMessage);
   }
-  
+
   Future<void> newMessage(
       NewMessage event, Emitter<CallcenterState> emit) async {
     var key = await database.getKey();
@@ -33,8 +33,10 @@ class CallcenterBloc extends Bloc<CallcenterEvent, CallcenterState> {
     await callcenterRepo.newMessage(data).then((response) {
       print(response.data);
       if (response.data != null) {
-        if (response.data['status'] == 'ok') {
-          emit(state.copyWith(isLoadSend: 1));
+        if (response.data['message'] != null) {
+          var saveM = state.messages;
+          saveM!.add(MessageModel.fromJson(response.data['message']));
+          emit(state.copyWith(isLoadSend: 1, messages: saveM));
         } else {
           emit(state.copyWith(isLoadSend: 2));
         }
