@@ -6,9 +6,9 @@ import 'package:path_provider/path_provider.dart';
 
 import '../../../utils/constants/apiRoute.dart';
 
-class CallcenterRepo {
+class CallCenterRepo {
   final IAppRequests apiClient;
-  CallcenterRepo({required this.apiClient});
+  CallCenterRepo({required this.apiClient});
   final key = 'AIzaSyB2lLkho9yRrZ9DgZ4btFOZ6x22-zZTJ38';
   Future newMessage(data) async {
     Response a =

@@ -1,11 +1,14 @@
 import 'dart:async';
 
+import 'package:BabanaExpress/application/callcenter/callcenter_bloc.dart';
 import 'package:BabanaExpress/application/market/market_bloc.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';
+import 'package:BabanaExpress/application/model/data/MessageModel.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/main_prod.dart';
+import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/presentation/compte/WalletView.dart';
 import 'package:BabanaExpress/routes/app_router.dart';
@@ -89,11 +92,15 @@ class NotificationService {
         print('--------${payload}----------actionnn');
         if (payload == 'Depot') {
           sl.get<AppRouter>().pushNamed(WalletPage.routeName);
-        } else {
-          // final context = Payload.fromJson(payload as Map<String, dynamic>);
-          // BlocProvider.of<LivraisonBloc>(context.context!)
-          //     .add(LivraisonEvent.getLivraison());
         }
+        if (payload == 'Call Center') {
+          sl.get<AppRouter>().pushNamed(CallCenterPage.routeName);
+        }
+        // else {
+        // final context = Payload.fromJson(payload as Map<String, dynamic>);
+        // BlocProvider.of<LivraisonBloc>(context.context!)
+        //     .add(LivraisonEvent.getLivraison());
+        // }
       }
     });
   }
@@ -306,7 +313,7 @@ class NotificationService {
       android: androidPlatformChannelSpecifics,
       iOS: iOSPlatformChannelSpecifics,
     );
-    
+
     await flutterLocalNotificationsPlugin.show(
       2,
       'Livraison Terminée',
@@ -351,6 +358,43 @@ class NotificationService {
       'Votre recharge de ${content} XAF a été effectuée avec succes', // Notification body
       platformChannelSpecifics,
       payload: 'Depot',
+    );
+  }
+  
+  Future<void> callCenterNotification(
+      {required MessageModel content, required context}) async {
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
+      'BabanaExpress Call Center', // Channel ID
+      'BabanaExpress Call Center', // Channel name
+      channelDescription: 'Call Center', // Channel description
+      importance: Importance.max,
+      priority: Priority.high,
+      // autoCancel: false,
+      // setAsGroupSummary: true,
+      styleInformation: BigTextStyleInformation(
+        '<Notification Content>',
+        htmlFormatBigText: true,
+        contentTitle: 'Call Center',
+        summaryText: 'Call Center',
+      ),
+      icon: 'launcher_icon',
+      largeIcon: DrawableResourceAndroidBitmap(
+          'launcher_icon'), // Replace with the name of your custom large icon file
+    );
+    const DarwinNotificationDetails iOSPlatformChannelSpecifics =
+        DarwinNotificationDetails(threadIdentifier: 'thread_id');
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iOSPlatformChannelSpecifics,
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+      2,
+      'Call Center',
+      content.message, // Notification body
+      platformChannelSpecifics,
+      payload: 'Call Center',
     );
   }
 }

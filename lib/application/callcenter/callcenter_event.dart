@@ -1,8 +1,8 @@
 part of 'callcenter_bloc.dart';
 
 @freezed
-class CallcenterEvent with _$CallcenterEvent {
-  const factory CallcenterEvent.started() = _Started;
-  const factory CallcenterEvent.getMessage() = GetMessage;
-  const factory CallcenterEvent.newMessage() = NewMessage;
+class CallCenterEvent with _$CallCenterEvent {
+  const factory CallCenterEvent.started() = _Started;
+  const factory CallCenterEvent.getMessage() = GetMessage;
+  const factory CallCenterEvent.newMessage() = NewMessage;
 }

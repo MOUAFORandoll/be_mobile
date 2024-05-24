@@ -71,7 +71,7 @@ class SocketService {
       {required String recepteur, required Function action}) {
     socket.on('livraison_medicament', (data) {
       print(data);
-      
+
       if (data != null && data != 'null') {
         print(jsonDecode(data));
         if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
@@ -92,6 +92,19 @@ class SocketService {
         if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
           print('------------iciiiiiCest moi-----');
           action(jsonDecode(data)['data']['montant']);
+        }
+      }
+    });
+    // });
+    // print(socket.connected);
+  }
+  
+  void callCenter({required String recepteur, required Function action}) {
+    socket.on('service_client', (data) {
+      print(data);
+      if (data != null && data != 'null') {
+        if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
+          action(jsonDecode(data)['data']);
         }
       }
     });

@@ -68,9 +68,9 @@ class AppContent extends StatelessWidget {
                       marketRepo: sl.get<MarketRepo>(),
                       database: sl.get<DatabaseCubit>()),
                 ),
-                BlocProvider<CallcenterBloc>(
-                  create: (BuildContext context) => CallcenterBloc(
-                      callcenterRepo: sl.get<CallcenterRepo>(),
+                BlocProvider<CallCenterBloc>(
+                  create: (BuildContext context) => CallCenterBloc(
+                      callcenterRepo: sl.get<CallCenterRepo>(),
                       database: sl.get<DatabaseCubit>()),
                 ),
                 BlocProvider<SplashBloc>(
@@ -84,7 +84,8 @@ class AppContent extends StatelessWidget {
                 BlocProvider<PharmacyBloc>(
                   create: (BuildContext context) =>
                       PharmacyBloc(pharmacyRepo: sl.get<PharmacyRepo>()),
-                ),  BlocProvider<PharmacyBloc>(
+                ),
+                BlocProvider<PharmacyBloc>(
                   create: (BuildContext context) =>
                       PharmacyBloc(pharmacyRepo: sl.get<PharmacyRepo>()),
                 ),

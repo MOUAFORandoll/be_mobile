@@ -13,7 +13,7 @@ class LivraisonModel {
   final String date;
   final String ville;
   final Livreur? livreur;
-
+  
   LivraisonModel({
     required this.id,
     required this.libelle,

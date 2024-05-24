@@ -14,7 +14,7 @@ class BtnNextComponent extends StatelessWidget {
           margin: EdgeInsets.only(
             top: kMarginY,
           ),
-          padding: EdgeInsets.all(6).add(EdgeInsets.symmetric(horizontal: 5)),
+          // padding: EdgeInsets.all(6).add(EdgeInsets.symmetric(horizontal: 5)),
           child: Row(
             children: [
               Container(

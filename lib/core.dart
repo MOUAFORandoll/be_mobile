@@ -6,10 +6,12 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
 import 'package:BabanaExpress/application/market/repositories/marketRepo.dart';
+import 'package:BabanaExpress/application/model/data/MessageModel.dart';
 import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
 import 'package:BabanaExpress/application/splash/splash_bloc.dart';
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
+import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:BabanaExpress/utils/Services/NotificationService.dart';
 import 'package:BabanaExpress/utils/Services/SocketService.dart';
@@ -43,7 +45,7 @@ Future<void> init() async {
   sl
     ..registerFactory(() => CompteBloc(compteRepo: sl(), database: sl()))
     ..registerLazySingleton(() => CompteRepo(apiClient: sl()));
-
+  
   sl
     ..registerFactory(() => PharmacyBloc(pharmacyRepo: sl()))
     ..registerLazySingleton(() => PharmacyRepo(apiClient: sl()));
@@ -52,10 +54,10 @@ Future<void> init() async {
     ..registerLazySingleton(() => MarketRepo(apiClient: sl()));
   sl
     ..registerFactory(
-        () => CallcenterBloc(callcenterRepo: sl(), database: sl()))
-    ..registerLazySingleton(() => CallcenterRepo(apiClient: sl()));
+        () => CallCenterBloc(callcenterRepo: sl(), database: sl()))
+    ..registerLazySingleton(() => CallCenterRepo(apiClient: sl()));
   requestPermission();
-
+  
   sl.registerSingleton<AppRouter>(AppRouter());
   initConnected();
   // sl
@@ -83,7 +85,7 @@ Future<void> initLoad(context) async {
   BlocProvider.of<MarketBloc>(context)
     ..add(MarketEvent.getProduits())
     ..add(MarketEvent.getLivraisonProduit());
-  BlocProvider.of<CallcenterBloc>(context).add(CallcenterEvent.getMessage());
+  BlocProvider.of<CallCenterBloc>(context).add(CallCenterEvent.getMessage());
   initSetDefaultValue(context);
   initSocket(context);
 }
@@ -132,6 +134,18 @@ Future<void> initSocket(context) async {
         // BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
         NotificationService()
             .depotFinishNotification(content: data, context: context);
+      });
+  SocketService().callCenter(
+      recepteur: key,
+      action: (data) {
+        // BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
+
+        print(sl.get<AppRouter>().currentUrl);
+        print(CallCenterPage.routeName);
+        context.get<CallCenterBloc>().add(GetMessage());
+        
+        NotificationService().callCenterNotification(
+            content: MessageModel.fromJson(data), context: context);
       });
 }
 

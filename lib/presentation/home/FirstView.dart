@@ -1,34 +1,163 @@
- 
+import 'package:BabanaExpress/presentation/components/Widget/home_option.dart';
 import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart';
-import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart'; 
-import 'package:BabanaExpress/utils/constants/assets.dart'; 
+import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/components/Widget/HomeModuleComponent.dart'; 
+import 'package:BabanaExpress/presentation/components/Widget/HomeModuleComponent.dart';
 
 class FirstView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) => Container(
-            padding:
-                EdgeInsets.symmetric(vertical: kMarginY, horizontal: kMarginX),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              HomeModuleComponent(
-                title: 'ht1'.tr(),
-                titleBtn: 'livraison'.tr(),
-                image: Assets.shop2,
-                onTap: () => AutoRouter.of(context).pushNamed(NewLivraisonPage
-                    .routeName) /* openModalLivraison(context) */,
+        builder: (context, state) => SingleChildScrollView(
+              child: Container(
+                margin: EdgeInsets.only(
+                  top: kMarginY,
+                ).add(EdgeInsets.symmetric(horizontal: kMarginY)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text(
+                        'Services',
+                        style: TextStyle(
+                            color: ColorsApp.white,
+                            fontFamily: 'Lato',
+                            fontSize: kTitle * 1.5,
+                            fontWeight: FontWeight.w800),
+                      ),
+                    ),
+                    Container(
+                        height: getHeight(context) * .5,
+                        child: GridView.count(
+                            crossAxisCount: 2, // Two items per row
+                            mainAxisSpacing: 20.0, // Spacing between rows
+                            crossAxisSpacing: 28.0, // Spacing between columns
+                            childAspectRatio: 1,
+                            children: [
+                              HomeOptionWidget(
+                                title: 'Livraison de colis'.tr(),
+                                icon: Icons.meeting_room,
+                                onTap: () {
+                                  // BlocProvider.of<PrestataireRdvBloc>(context)
+                                  //     .add(FetchRdv());
+                                  AutoRouter.of(context)
+                                      .push(HistoriqueLivraisonRoute());
+                                },
+                              ),
+                              HomeOptionWidget(
+                                  title: 'Livraison de medicaments'.tr(),
+                                  onTap: () {
+                                    // BlocProvider.of<PrestataireRdvBloc>(context)
+                                    //     .add(FetchRdv());
+                                    AutoRouter.of(context).push(
+                                        HistoriqueLivraisonMedicamentRoute());
+                                  },
+                                  icon: Icons.notification_add),
+                              HomeOptionWidget(
+                                title: 'Finances'.tr(),
+                                arg: '',
+                                onTap: () {
+                                  AutoRouter.of(context).push(WalletRoute());
+                                },
+                              ),
+                              HomeOptionWidget(
+                                title: 'Market Place',
+                                onTap: () {
+                                  AutoRouter.of(context).push(MarketRoute());
+                                },
+                              ),
+                            ])),
+                    Container(
+                      child: Text(
+                        'Vos livraisons Courante',
+                        style: TextStyle(
+                            // color: ColorsApp.white,
+                            fontFamily: 'Lato',
+                            fontSize: kTitle * 1.5,
+                            fontWeight: FontWeight.w800),
+                      ),
+                    ),
+                    Container(
+                        width: getWith(context),
+                        height: getHeight(context) * .1,
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            // physics: const NeverScrollableScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 10,
+                            itemBuilder: (context, index) => Container(
+                                height: getHeight(context) * .08,
+                                width: getWith(context) * .7,
+                                padding:
+                                    EdgeInsets.symmetric(vertical: kMarginY),
+                                margin: EdgeInsets.symmetric(
+                                  vertical: kMarginY,
+                                ).add(EdgeInsets.only(right: kMarginX)),
+                                decoration: BoxDecoration(
+                                    color: ColorsApp.white.withOpacity(0.9),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color:
+                                            ColorsApp.primary.withOpacity(0.1),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 2),
+                                      ),
+                                    ],
+                                    borderRadius: BorderRadius.circular(8)),
+                                alignment: Alignment.center,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                        child: Container(
+                                          height: getHeight(context) * .2,
+                                          width: getWith(context) * .15,
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                Assets.login,
+                                              ),
+                                            ),
+                                          ),
+                                        )),
+                                    Container(
+                                        child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Livraison de medicaments',
+                                          style: TextStyle(
+                                              // color: ColorsApp.white,
+                                              fontFamily: 'Lato',
+                                              fontWeight: FontWeight.w800),
+                                        ),
+                                        Text(
+                                          'Paracetamol',
+                                          style: TextStyle(
+                                            // color: ColorsApp.white,
+                                            fontSize: 11,
+                                            fontFamily: 'Lato',
+                                          ),
+                                        ),
+                                      ],
+                                    )),
+                                  ],
+                                ))))
+                  ],
+                ),
               ),
-              HomeModuleComponent(
-                title: 'ht2'.tr(),
-                titleBtn: 'pharmacie'.tr(),
-                image: Assets.medical,
-                onTap: () => AutoRouter.of(context)
-                    .pushNamed(NewLivraisonMedicamentPage.routeName),
-              ),
-            ])));
+            ));
   }
 }

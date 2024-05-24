@@ -1,37 +1,46 @@
 class MessageModel {
+  int id;
+  bool isEmetteur;
+  String message;
+  String dateSend;
+  String heureSend;
+  String? dateRead; // Optional since it can be null
+  String? heureRead; // Optional since it can be null
+
   MessageModel({
     required this.id,
-    required this.is_emetteur,
+    required this.isEmetteur,
     required this.message,
+    required this.dateSend,
+    required this.heureSend,
+    this.dateRead,
+    this.heureRead,
   });
-  late final int id;
-  late final bool is_emetteur;
-  late final String message;
-  late final String dateSend;
-  late final String heureSend;
-  late final String dateRead;
-  late final String heureRead;
 
-  MessageModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    is_emetteur = json['is_emetteur'];
-    message = json['message'];
-    dateSend = json['dateSend'];
-    heureSend = json['heureSend'];
-    dateRead = json['dateRead'];
-    heureRead = json['heureRead'];
+  // Convert a JSON map to an instance of MessageModel
+  factory MessageModel.fromJson(Map<String, dynamic> json) {
+    return MessageModel(
+      id: json['id'],
+      isEmetteur: json['is_emetteur'],
+      message: json['message'],
+      dateSend: json['dateSend'],
+      heureSend: json['heureSend'],
+      dateRead: json['dateRead'],
+      heureRead: json['heureRead'],
+    );
   }
 
+  // Convert an instance of MessageModel to a JSON map
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['id'] = id;
-    _data['is_emetteur'] = is_emetteur;
-    _data['message'] = message;
-    _data['dateSend'] = dateSend;
-    _data['heureSend'] = heureSend;
-    _data['dateRead'] = dateRead;
-    _data['heureRead'] = heureRead;
-
-    return _data;
+    return {
+      'id': id,
+      'is_emetteur': isEmetteur,
+      'message': message,
+      'dateSend': dateSend,
+      'heureSend': heureSend,
+      'dateRead':
+          dateRead, // No need to check for null because Dart's JSON encoder handles it
+      'heureRead': heureRead,
+    };
   }
 }

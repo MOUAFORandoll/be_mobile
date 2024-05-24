@@ -10,7 +10,7 @@ class WalletPage extends StatefulWidget {
   WalletPage({
     Key? key,
   }) : super(key: key);
-  static const routeName = '/wallet/new';
+  static const routeName = '/wallet/page';
   
   @override
   State<WalletPage> createState() => _WalletPageState();

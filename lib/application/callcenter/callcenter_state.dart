@@ -1,19 +1,22 @@
 part of 'callcenter_bloc.dart';
 
 @freezed
-class CallcenterState with _$CallcenterState {
-  const factory CallcenterState({
+class CallCenterState with _$CallCenterState {
+  const factory CallCenterState({
     TextEditingController? messageText,
     int? isLoadMessageCallCenter,
     int? isLoadSend,
+    
+   ScrollController? callcenterSrollController,
     int? message_target,
     List<MessageModel>? messages,
-  }) = _CallcenterState;
-  factory CallcenterState.initial() => CallcenterState(
+  }) = _CallCenterState;
+  factory CallCenterState.initial() => CallCenterState(
         messages: [],
         isLoadMessageCallCenter: 0,
         isLoadSend: null,
         message_target: null,
+    callcenterSrollController :  new ScrollController(),
         messageText: TextEditingController(),
       );
 }

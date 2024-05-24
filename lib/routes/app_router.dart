@@ -12,6 +12,7 @@ import 'package:BabanaExpress/presentation/market/HistoriqueLivraisonMarketPage.
 import 'package:BabanaExpress/presentation/market/InfolieuxlivraisonMarketPage.dart';
 import 'package:BabanaExpress/presentation/market/LivraisonMarketDataPage.dart';
 import 'package:BabanaExpress/presentation/market/MapPagePointLivraisonMarket.dart';
+import 'package:BabanaExpress/presentation/market/MarketView.dart';
 import 'package:BabanaExpress/presentation/market/PaiementMarketPage.dart';
 import 'package:BabanaExpress/presentation/market/ProduitPage.dart';
 import 'package:BabanaExpress/presentation/market/ShoppingPage.dart';
@@ -99,5 +100,6 @@ class AppRouter extends $AppRouter {
             page: HistoriqueLivraisonMedicamentRoute.page,
             path: HistoriqueLivraisonMedicamentPage.routeName),
         AutoRoute(page: CallCenterRoute.page, path: CallCenterPage.routeName),
+        AutoRoute(page: MarketRoute.page, path: MarketPage.routeName),
       ];
 }

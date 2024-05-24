@@ -1,9 +1,11 @@
+import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BabanaExpress/presentation/components/Widget/HomeModuleComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/btn_text_icon.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
 import 'package:BabanaExpress/presentation/compte/WalletView.dart';
+import 'package:BabanaExpress/presentation/home/FirstView.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/market/MarketView.dart';
@@ -14,6 +16,7 @@ import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
+import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_version_plus/new_version_plus.dart';
 import '../../presentation/components/exportcomponent.dart';
@@ -22,18 +25,27 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 @RoutePage()
 class HomePage extends StatefulWidget {
   static const routeName = '/home';
-  
+
   const HomePage({super.key});
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  Animation<double>? _animation;
+  AnimationController? _animationController;
+
   void initState() {
     super.initState();
     _checkForUpdate();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 260),
+    );
 
-    WidgetsBinding.instance.addObserver(this);
+    final curvedAnimation =
+        CurvedAnimation(curve: Curves.easeInOut, parent: _animationController!);
+    _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
   }
 
   Future<void> _checkForUpdate() async {
@@ -59,395 +71,346 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    // WidgetsBinding.instance.removeObserver(this);
+    _animationController!.dispose();
     super.dispose();
-  }
-
-  double turns = 0.0;
-
-  void _changeRotation() {
-    setState(() => turns += 1.0 / 8.0);
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeBloc, HomeState>(
-        listener: (context, state) {
-          if (state.user!.email.isEmpty) {
-            return openUpdateMail(context);
-          } else {
-            print('-----44-- ---find noe--*is ok*******');
-          }
-        },
-        builder: (context, state) => Scaffold(
-            backgroundColor: ColorsApp.bg,
-            drawer: CustomDrawer(user: state.user),
-            body: Container(
-                child: CustomScrollView(slivers: [
-              SliverAppBar(
-                automaticallyImplyLeading: false,
-                leading: Builder(builder: (context) {
-                  return InkWell(
-                      child: Container(
-                        width: 10,
-                        height: 10,
-                        child: SvgPicture.asset(Assets.menu,
-                            color: ColorsApp.white, fit: BoxFit.none),
-                      ),
-                      onTap: () => Scaffold.of(context).openDrawer());
-                }),
-                title: Text(
-                  'Babana Express',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: ColorsApp.white,
-                      fontFamily: 'Lato',
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600),
-                ),
-                centerTitle: true,
-                actions: [
-                  InkWell(
-                      child: Container(
-                          decoration: BoxDecoration(
-                              color: ColorsApp.white,
-                              borderRadius: BorderRadius.circular(30)),
-                          padding: EdgeInsets.all(5),
-                          margin: EdgeInsets.only(right: kMarginX),
-                          child: SvgIcon(
-                            icon: Assets.bell,
-                            color: ColorsApp.primary,
-                          )),
-                      onTap: () => AutoRouter.of(context)
-                          .push(CallCenterRoute())),
-                  InkWell(
-                      child: Container(
-                          margin: EdgeInsets.only(right: kMarginX * 2),
-                          child: SvgIcon(
-                            icon: Assets.bell,
-                            color: ColorsApp.white,
-                          )),
-                      onTap: () {}),
-                ],
-                flexibleSpace: Stack(
-                  children: [
-                    InkWell(
-                      onTap: () => AutoRouter.of(context)
-                          .pushNamed(WalletPage.routeName),
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: getHeight(context) * .06,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(500),
-                            color: ColorsApp.white),
-                        padding: EdgeInsets.all(10),
-                        margin: EdgeInsets.only(
-                          top: getHeight(context) * .10,
-                        ).add(EdgeInsets.symmetric(
-                          horizontal: getWith(context) * .30,
-                        )),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Solde du compte',
-                                style: TextStyle(
-                                  color: ColorsApp.black,
-                                  fontFamily: 'Lato',
-                                  fontSize: 10,
+    return BlocConsumer<MarketBloc, MarketState>(
+        listener: (context, state) {},
+        builder: (context, state) => BlocConsumer<LivraisonBloc,
+                LivraisonState>(
+            listener: (context, state) {},
+            builder: (context, state) => BlocConsumer<PharmacyBloc,
+                    PharmacyState>(
+                listener: (context, state) {},
+                builder: (context, state) => BlocConsumer<HomeBloc, HomeState>(
+                    listener: (context, state) {
+                      if (state.user!.email.isEmpty) {
+                        return openUpdateMail(context);
+                      } else {
+                        print('-----44-- ---find noe--*is ok*******');
+                      }
+                    },
+                    builder: (context, state) => Scaffold(
+                        backgroundColor: ColorsApp.bg,
+                        drawer: CustomDrawer(user: state.user),
+                        body: Container(
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(Assets.bg_home))),
+                            child: CustomScrollView(slivers: [
+                              SliverAppBar(
+                                automaticallyImplyLeading: false,
+                                leading: Builder(builder: (context) {
+                                  return InkWell(
+                                      child: Container(
+                                        width: 10,
+                                        height: 10,
+                                        child: SvgPicture.asset(Assets.menu,
+                                            color: ColorsApp.white,
+                                            fit: BoxFit.none),
+                                      ),
+                                      onTap: () =>
+                                          Scaffold.of(context).openDrawer());
+                                }),
+                                title: Text(
+                                  'Babana Express',
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      color: ColorsApp.white,
+                                      fontFamily: 'Lato',
+                                      fontSize: kTitle,
+                                      fontWeight: FontWeight.w600),
                                 ),
+                                centerTitle: true,
+                                actions: [
+                                  InkWell(
+                                      child: Container(
+                                          decoration: BoxDecoration(
+                                              color: ColorsApp.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(30)),
+                                          padding: EdgeInsets.all(5),
+                                          margin:
+                                              EdgeInsets.only(right: kMarginX),
+                                          child: SvgIcon(
+                                            icon: Assets.bell,
+                                            color: ColorsApp.primary,
+                                          )),
+                                      onTap: () {
+                                        AutoRouter.of(context)
+                                            .push(CallCenterRoute());
+                                      }),
+                                  InkWell(
+                                      child: Container(
+                                          margin: EdgeInsets.only(
+                                              right: kMarginX * 2),
+                                          child: SvgIcon(
+                                            icon: Assets.bell,
+                                            color: ColorsApp.white,
+                                          )),
+                                      onTap: () {}),
+                                ],
+                                flexibleSpace: Container(
+                                  margin: EdgeInsets.only(
+                                    top: getHeight(context) * .13,
+                                  ).add(EdgeInsets.symmetric(
+                                      horizontal: kMarginY)),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Solde du compte',
+                                              style: TextStyle(
+                                                color: ColorsApp.white,
+                                                fontFamily: 'Lato',
+                                              ),
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                      color: ColorsApp.white
+                                                          .withOpacity(.5)),
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 5.5,
+                                                      vertical: 3),
+                                                  margin: EdgeInsets.only(
+                                                      right: kMarginY),
+                                                  child: Text(
+                                                    'FCFA',
+                                                    style: TextStyle(
+                                                        color: ColorsApp.white,
+                                                        fontFamily: 'Lato',
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  child: Text(
+                                                    '${state.user!.solde}',
+                                                    style: TextStyle(
+                                                        color: ColorsApp.white,
+                                                        fontFamily: 'Lato',
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w800),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ]),
+                                      KHomeInfo(),
+                                    ],
+                                  ),
+                                ),
+
+                                pinned: true,
+
+                                collapsedHeight: getHeight(context) * .153,
+                                elevation: 10.0,
+                                backgroundColor: Colors
+                                    .transparent, // Set your desired background color
+                                // shape: RoundedRectangleBorder(
+                                //   borderRadius: BorderRadius.vertical(
+                                //     bottom: Radius.circular(30.0),
+                                //   ),
+                                // ),
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    child: Text(
-                                      '${state.user!.solde} FCFA  ',
-                                      style: TextStyle(
-                                          color: ColorsApp.black,
-                                          fontFamily: 'Lato',
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w800),
+                              SliverList(
+                                  delegate: SliverChildBuilderDelegate(
+                                      (_, ctx) => state.index == 0
+                                          ? FirstView()
+                                          : state.index == 1
+                                              ? CallCenterPage()
+                                              : CallCenterPage(),
+                                      childCount: 1))
+                            ])),
+                        floatingActionButton: FloatingActionBubble(
+                          items: <Bubble>[
+                            // Floating action menu item
+                            Bubble(
+                              title: 'livraison'.tr(),
+                              iconColor: Colors.white,
+                              bubbleColor: ColorsApp.primary,
+                              icon: Icons.collections,
+                              titleStyle:
+                                  TextStyle(fontSize: 16, color: Colors.white),
+                              onPress: () {
+                                _animationController!.reverse();
+                                AutoRouter.of(context)
+                                    .pushNamed(NewLivraisonPage.routeName);
+                              },
+                            ),
+                            Bubble(
+                              title: 'pharmacie'.tr(),
+                              iconColor: Colors.white,
+                              bubbleColor: ColorsApp.black,
+                              icon: Icons.medical_information,
+                              titleStyle:
+                                  TextStyle(fontSize: 16, color: Colors.white),
+                              onPress: () {
+                                _animationController!.reverse();
+                                AutoRouter.of(context).pushNamed(
+                                    NewLivraisonMedicamentPage.routeName);
+                              },
+                            ),
+                          ],
+                          animation: _animation!,
+                          onPress: () => _animationController!.isCompleted
+                              ? _animationController!.reverse()
+                              : _animationController!.forward(),
+                          iconColor: ColorsApp.primary,
+                          iconData: Icons.add,
+                          backGroundColor: Colors.white,
+                        ),
+                        resizeToAvoidBottomInset: true,
+                        bottomNavigationBar: CustomNavigationBar(
+                          iconSize: 30.0,
+
+                          selectedColor: ColorsApp.primary,
+                          strokeColor: ColorsApp.black,
+                          unSelectedColor: Colors.grey[600],
+                          backgroundColor:
+                              /*     state.index == 2 ? ColorsApp.primary : */ ColorsApp
+                                  .white,
+                          borderRadius: Radius.circular(20.0),
+                          isFloating: true,
+                          // blurEffect: true,
+                          items: [
+                            CustomNavigationBarItem(
+                                icon: Container(
+                                  height: getHeight(context) / 1.7,
+                                  width: getWith(context) / 4.2,
+                                  child: SvgPicture.asset(
+                                    Assets.home,
+                                    width: 90,
+                                    height: 90,
+                                    // ignore: deprecated_member_use
+                                    color: state.index == 0
+                                        ? ColorsApp.primary
+                                        : ColorsApp.grey,
+                                  ),
+                                ),
+                                title: Container(
+                                    padding: EdgeInsets.only(bottom: 3),
+                                    decoration: BoxDecoration(
+                                        border: Border(
+                                            bottom: state.index == 0
+                                                ? BorderSide(
+                                                    color: ColorsApp.primary,
+                                                    width: 2)
+                                                : BorderSide.none,
+                                            top: BorderSide.none)),
+                                    child: Text('home'.tr(),
+                                        style: TextStyle(
+                                          fontSize: kMin,
+                                          fontWeight: FontWeight.w600,
+                                          color: state.index == 0
+                                              ? ColorsApp.primary
+                                              : ColorsApp.grey,
+                                        )))), // CustomNavigationBarItem(
+
+                            if (state.user != null)
+                              if (state.user!.typeUser == 2 ||
+                                  state.user!.typeUser == 1)
+                                CustomNavigationBarItem(
+                                  icon: Container(
+                                    height: getHeight(context) / 1.7,
+                                    width: getWith(context) / 4.2,
+                                    child: SvgPicture.asset(
+                                      Assets.grid1,
+                                      width: 80,
+                                      height: 80,
+                                      // ignore: deprecated_member_use
+                                      color: state.index == 1
+                                          ? ColorsApp.primary
+                                          : ColorsApp.grey,
                                     ),
                                   ),
-                                  // Container(
-                                  //   width: getWith(context) * .20,
-                                  //   child: Text(
-                                  //     '${state.user!.soldeBonus} de bonus',
-                                  //     overflow: TextOverflow.ellipsis,
-                                  //     style: TextStyle(
-                                  //         color: ColorsApp.primary,
-                                  //         fontFamily: 'Lato',
-                                  //         fontSize: 15,
-                                  //         fontWeight: FontWeight.w800),
-                                  //   ),
-                                  // )
-                                ],
-                              ),
-                            ]),
-                      ),
-                    ),
-                    Positioned(
-                        top: getHeight(context) * .09,
-                        left: getWith(context) * .65,
-                        child: Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(500),
-                              color: ColorsApp.white),
-                          padding: EdgeInsets.all(5),
-                          child: Icon(
-                            Icons.attach_money_sharp,
-                            size: 20,
-                          ),
-                        ))
-                  ],
-                ),
-                pinned: true,
-
-                bottom: PreferredSize(
-                  preferredSize: state.index == 2
-                      ? Size.fromHeight(30.0)
-                      : Size.fromHeight(1.0),
-                  child: Column(
-                    children: [
-                      Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: kMarginX,
-                          ).add(EdgeInsets.only(
-                            bottom: state.index == 2 ? 0 : kMarginY * 3,
-                            right: kMarginX,
-                          )),
-                          // padding: EdgeInsets.only(
-                          //   top: state.index == 2 ? kMarginY : kMarginY * 3,
-                          // ),
-                          child: KHomeInfo(user: state.user)),
-                      if (state.index == 2)
-                        Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 2,
-                            ),
-                            decoration: BoxDecoration(
-                              color: ColorsApp.white,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: kMarginX),
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  BtnTextIcon(
-                                      title: 'Historique'.tr(),
-                                      icon: Icons.list,
-                                      onTap: () => AutoRouter.of(context).push(
-                                          HistoriqueLivraisonMarketRoute())),
-                                  BtnTextIcon(
-                                      title: 'Shopping Cart'.tr(),
-                                      icon: Icons.shopping_cart_outlined,
-                                      onTap: () => AutoRouter.of(context)
-                                          .push(ShoppingRoute())),
-                                  BtnTextIcon(
-                                      title: 'Actualiser'.tr(),
-                                      icon: Icons.refresh,
-                                      onTap: () =>
-                                          BlocProvider.of<MarketBloc>(context)
-                                              .add(GetProduits())),
-                                ])),
-                    ],
-                  ),
-                ),
-
-                collapsedHeight: getHeight(context) * .22,
-                elevation: 10.0,
-                backgroundColor:
-                    ColorsApp.primary, // Set your desired background color
-                // shape: RoundedRectangleBorder(
-                //   borderRadius: BorderRadius.vertical(
-                //     bottom: Radius.circular(30.0),
-                //   ),
-                // ),
-              ),
-              SliverToBoxAdapter(
-                child: state.index == 0
-                    ? Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: kMarginY, horizontal: kMarginX),
-                        child: HomeModuleComponent(
-                          title: 'ht1'.tr(),
-                          titleBtn: 'livraison'.tr(),
-                          image: Assets.shop2,
-                          onTap: () => AutoRouter.of(context).pushNamed(
-                              NewLivraisonPage
-                                  .routeName) /* openModalLivraison(context) */,
-                        ))
-                    : state.index == 1
-                        ? Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: kMarginY, horizontal: kMarginX),
-                            child: HomeModuleComponent(
-                              title: 'ht2'.tr(),
-                              titleBtn: 'pharmacie'.tr(),
-                              image: Assets.medical,
-                              onTap: () => AutoRouter.of(context).pushNamed(
-                                  NewLivraisonMedicamentPage.routeName),
-                            ))
-                        : null,
-              ),
-              SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                      (_, ctx) => state.index == 0
-                          ? LivraisonView()
-                          : state.index == 1
-                              ? PharmacyView()
-                              : MarketView(),
-                      childCount: 1))
-            ])),
-            floatingActionButton: FloatingActionButton(
-              backgroundColor: Colors.white,
-              foregroundColor: ColorsApp.primary,
-              child: AnimatedRotation(
-                turns: turns,
-                duration: const Duration(seconds: 1),
-                child: Icon(
-                  Icons.refresh,
-                  color: ColorsApp.primary,
-                ),
-              ),
-              onPressed: () =>
-                  _changeRotation /*  state.index == 0
-                  ? BlocProvider.of<LivraisonBloc>(context)
-                      .add(HistoriqueUserLivraison())
-                  : state.index == 1
-                      ? BlocProvider.of<PharmacyBloc>(context)
-                          .add(HistoriqueLivraisonMedicament())
-                      : BlocProvider.of<MarketBloc>(context).add(GetProduits()) */
-              ,
-            ),
-            bottomNavigationBar: CustomNavigationBar(
-              iconSize: 30.0,
-              // elevation: 0.0,
-              scaleFactor: 0.4,
-              selectedColor: ColorsApp.primary,
-              strokeColor: ColorsApp.black,
-              unSelectedColor: Colors.grey[600],
-              backgroundColor:
-                  /*     state.index == 2 ? ColorsApp.primary : */ ColorsApp
-                      .white,
-              // borderRadius: Radius.circular(15.0),
-              // isFloating: true,
-              // blurEffect: true,
-              items: [
-                CustomNavigationBarItem(
-                    icon: Container(
-                      height: getHeight(context) / 1.7,
-                      width: getWith(context) / 4.2,
-                      child: SvgPicture.asset(
-                        Assets.home,
-                        width: 90,
-                        height: 90,
-                        // ignore: deprecated_member_use
-                        color: state.index == 0
-                            ? ColorsApp.primary
-                            : ColorsApp.grey,
-                      ),
-                    ),
-                    title: Container(
-                        padding: EdgeInsets.only(bottom: 3),
-                        decoration: BoxDecoration(
-                            border: Border(
-                                bottom: state.index == 0
-                                    ? BorderSide(
-                                        color: ColorsApp.primary, width: 2)
-                                    : BorderSide.none,
-                                top: BorderSide.none)),
-                        child: Text('livraison'.tr(),
-                            style: TextStyle(
-                              fontSize: kMin,
-                              fontWeight: FontWeight.w600,
-                              color: state.index == 0
-                                  ? ColorsApp.primary
-                                  : ColorsApp.grey,
-                            )))), // CustomNavigationBarItem(
-
-                if (state.user != null)
-                  if (state.user!.typeUser == 2 || state.user!.typeUser == 1)
-                    CustomNavigationBarItem(
-                      icon: Container(
-                        height: getHeight(context) / 1.7,
-                        width: getWith(context) / 4.2,
-                        child: SvgPicture.asset(
-                          Assets.grid1,
-                          width: 80,
-                          height: 80,
-                          // ignore: deprecated_member_use
-                          color: state.index == 1
-                              ? ColorsApp.primary
-                              : ColorsApp.grey,
-                        ),
-                      ),
-                      title: Container(
-                          padding: EdgeInsets.only(bottom: 3),
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: state.index == 1
-                                      ? BorderSide(
-                                          color: ColorsApp.primary, width: 2)
-                                      : BorderSide.none,
-                                  top: BorderSide.none)),
-                          child: Text('Pharmacie'.tr(),
-                              style: TextStyle(
-                                fontSize: kMin,
-                                fontWeight: FontWeight.w600,
-                                color: state.index == 1
-                                    ? ColorsApp.primary
-                                    : ColorsApp.grey,
-                              ))),
-                    ),
-                if (state.user != null)
-                  if (state.user!.typeUser == 2 || state.user!.typeUser == 1)
-                    CustomNavigationBarItem(
-                      icon: Container(
-                        height: getHeight(context) / 1.7,
-                        width: getWith(context) / 4.2,
-                        child: SvgPicture.asset(
-                          Assets.story_boutique,
-                          width: 80,
-                          height: 80,
-                          // ignore: deprecated_member_use
-                          color: state.index == 2
-                              ? ColorsApp.primary
-                              : ColorsApp.grey,
-                        ),
-                      ),
-                      title: Container(
-                          padding: EdgeInsets.only(bottom: 3),
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: state.index == 2
-                                      ? BorderSide(
-                                          color: ColorsApp.primary, width: 2)
-                                      : BorderSide.none,
-                                  top: BorderSide.none)),
-                          child: Text('Marche Express'.tr(),
-                              style: TextStyle(
-                                fontSize: kMin,
-                                fontWeight: FontWeight.w600,
-                                color: state.index == 2
-                                    ? ColorsApp.primary
-                                    : ColorsApp.grey,
-                              ))),
-                    ),
-              ],
-              currentIndex: state.index,
-              onTap: (index) {
-                print(index);
-                context.read<HomeBloc>().add(SetIndexEvent(index: index));
-                if (index == 0 && (index == state.index)) {
-                  BlocProvider.of<LivraisonBloc>(context)
-                      .add(HistoriqueUserLivraison());
-                }
-              },
-            )));
+                                  title: Container(
+                                      padding: EdgeInsets.only(bottom: 3),
+                                      decoration: BoxDecoration(
+                                          border: Border(
+                                              bottom: state.index == 1
+                                                  ? BorderSide(
+                                                      color: ColorsApp.primary,
+                                                      width: 2)
+                                                  : BorderSide.none,
+                                              top: BorderSide.none)),
+                                      child: Text('Call Center'.tr(),
+                                          style: TextStyle(
+                                            fontSize: kMin,
+                                            fontWeight: FontWeight.w600,
+                                            color: state.index == 1
+                                                ? ColorsApp.primary
+                                                : ColorsApp.grey,
+                                          ))),
+                                ),
+                            if (state.user != null)
+                              if (state.user!.typeUser == 2 ||
+                                  state.user!.typeUser == 1)
+                                CustomNavigationBarItem(
+                                  icon: Container(
+                                    height: getHeight(context) / 1.7,
+                                    width: getWith(context) / 4.2,
+                                    child: SvgPicture.asset(
+                                      Assets.story_boutique,
+                                      width: 80,
+                                      height: 80,
+                                      // ignore: deprecated_member_use
+                                      color: state.index == 2
+                                          ? ColorsApp.primary
+                                          : ColorsApp.grey,
+                                    ),
+                                  ),
+                                  title: Container(
+                                      padding: EdgeInsets.only(bottom: 3),
+                                      decoration: BoxDecoration(
+                                          border: Border(
+                                              bottom: state.index == 2
+                                                  ? BorderSide(
+                                                      color: ColorsApp.primary,
+                                                      width: 2)
+                                                  : BorderSide.none,
+                                              top: BorderSide.none)),
+                                      child: Text('setting'.tr(),
+                                          style: TextStyle(
+                                            fontSize: kMin,
+                                            fontWeight: FontWeight.w600,
+                                            color: state.index == 2
+                                                ? ColorsApp.primary
+                                                : ColorsApp.grey,
+                                          ))),
+                                ),
+                          ],
+                          currentIndex: state.index,
+                          onTap: (index) {
+                            print(index);
+                            context
+                                .read<HomeBloc>()
+                                .add(SetIndexEvent(index: index));
+                            if (index == 0 && (index == state.index)) {
+                              BlocProvider.of<LivraisonBloc>(context)
+                                  .add(HistoriqueUserLivraison());
+                            }
+                          },
+                        ))))));
   }
 }
 

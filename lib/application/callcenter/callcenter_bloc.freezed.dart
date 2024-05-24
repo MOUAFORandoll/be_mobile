@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CallcenterEvent {
+mixin _$CallCenterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
@@ -63,16 +63,16 @@ mixin _$CallcenterEvent {
 }
 
 /// @nodoc
-abstract class $CallcenterEventCopyWith<$Res> {
-  factory $CallcenterEventCopyWith(
-          CallcenterEvent value, $Res Function(CallcenterEvent) then) =
-      _$CallcenterEventCopyWithImpl<$Res, CallcenterEvent>;
+abstract class $CallCenterEventCopyWith<$Res> {
+  factory $CallCenterEventCopyWith(
+          CallCenterEvent value, $Res Function(CallCenterEvent) then) =
+      _$CallCenterEventCopyWithImpl<$Res, CallCenterEvent>;
 }
 
 /// @nodoc
-class _$CallcenterEventCopyWithImpl<$Res, $Val extends CallcenterEvent>
-    implements $CallcenterEventCopyWith<$Res> {
-  _$CallcenterEventCopyWithImpl(this._value, this._then);
+class _$CallCenterEventCopyWithImpl<$Res, $Val extends CallCenterEvent>
+    implements $CallCenterEventCopyWith<$Res> {
+  _$CallCenterEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,7 +89,7 @@ abstract class _$$StartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$StartedImplCopyWithImpl<$Res>
-    extends _$CallcenterEventCopyWithImpl<$Res, _$StartedImpl>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
@@ -103,7 +103,7 @@ class _$StartedImpl implements _Started {
 
   @override
   String toString() {
-    return 'CallcenterEvent.started()';
+    return 'CallCenterEvent.started()';
   }
 
   @override
@@ -184,7 +184,7 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements CallcenterEvent {
+abstract class _Started implements CallCenterEvent {
   const factory _Started() = _$StartedImpl;
 }
 
@@ -197,7 +197,7 @@ abstract class _$$GetMessageImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$GetMessageImplCopyWithImpl<$Res>
-    extends _$CallcenterEventCopyWithImpl<$Res, _$GetMessageImpl>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$GetMessageImpl>
     implements _$$GetMessageImplCopyWith<$Res> {
   __$$GetMessageImplCopyWithImpl(
       _$GetMessageImpl _value, $Res Function(_$GetMessageImpl) _then)
@@ -211,7 +211,7 @@ class _$GetMessageImpl implements GetMessage {
 
   @override
   String toString() {
-    return 'CallcenterEvent.getMessage()';
+    return 'CallCenterEvent.getMessage()';
   }
 
   @override
@@ -292,7 +292,7 @@ class _$GetMessageImpl implements GetMessage {
   }
 }
 
-abstract class GetMessage implements CallcenterEvent {
+abstract class GetMessage implements CallCenterEvent {
   const factory GetMessage() = _$GetMessageImpl;
 }
 
@@ -305,7 +305,7 @@ abstract class _$$NewMessageImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$NewMessageImplCopyWithImpl<$Res>
-    extends _$CallcenterEventCopyWithImpl<$Res, _$NewMessageImpl>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$NewMessageImpl>
     implements _$$NewMessageImplCopyWith<$Res> {
   __$$NewMessageImplCopyWithImpl(
       _$NewMessageImpl _value, $Res Function(_$NewMessageImpl) _then)
@@ -319,7 +319,7 @@ class _$NewMessageImpl implements NewMessage {
 
   @override
   String toString() {
-    return 'CallcenterEvent.newMessage()';
+    return 'CallCenterEvent.newMessage()';
   }
 
   @override
@@ -400,41 +400,44 @@ class _$NewMessageImpl implements NewMessage {
   }
 }
 
-abstract class NewMessage implements CallcenterEvent {
+abstract class NewMessage implements CallCenterEvent {
   const factory NewMessage() = _$NewMessageImpl;
 }
 
 /// @nodoc
-mixin _$CallcenterState {
+mixin _$CallCenterState {
   TextEditingController? get messageText => throw _privateConstructorUsedError;
   int? get isLoadMessageCallCenter => throw _privateConstructorUsedError;
   int? get isLoadSend => throw _privateConstructorUsedError;
+  ScrollController? get callcenterSrollController =>
+      throw _privateConstructorUsedError;
   int? get message_target => throw _privateConstructorUsedError;
   List<MessageModel>? get messages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CallcenterStateCopyWith<CallcenterState> get copyWith =>
+  $CallCenterStateCopyWith<CallCenterState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CallcenterStateCopyWith<$Res> {
-  factory $CallcenterStateCopyWith(
-          CallcenterState value, $Res Function(CallcenterState) then) =
-      _$CallcenterStateCopyWithImpl<$Res, CallcenterState>;
+abstract class $CallCenterStateCopyWith<$Res> {
+  factory $CallCenterStateCopyWith(
+          CallCenterState value, $Res Function(CallCenterState) then) =
+      _$CallCenterStateCopyWithImpl<$Res, CallCenterState>;
   @useResult
   $Res call(
       {TextEditingController? messageText,
       int? isLoadMessageCallCenter,
       int? isLoadSend,
+      ScrollController? callcenterSrollController,
       int? message_target,
       List<MessageModel>? messages});
 }
 
 /// @nodoc
-class _$CallcenterStateCopyWithImpl<$Res, $Val extends CallcenterState>
-    implements $CallcenterStateCopyWith<$Res> {
-  _$CallcenterStateCopyWithImpl(this._value, this._then);
+class _$CallCenterStateCopyWithImpl<$Res, $Val extends CallCenterState>
+    implements $CallCenterStateCopyWith<$Res> {
+  _$CallCenterStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -447,6 +450,7 @@ class _$CallcenterStateCopyWithImpl<$Res, $Val extends CallcenterState>
     Object? messageText = freezed,
     Object? isLoadMessageCallCenter = freezed,
     Object? isLoadSend = freezed,
+    Object? callcenterSrollController = freezed,
     Object? message_target = freezed,
     Object? messages = freezed,
   }) {
@@ -463,6 +467,10 @@ class _$CallcenterStateCopyWithImpl<$Res, $Val extends CallcenterState>
           ? _value.isLoadSend
           : isLoadSend // ignore: cast_nullable_to_non_nullable
               as int?,
+      callcenterSrollController: freezed == callcenterSrollController
+          ? _value.callcenterSrollController
+          : callcenterSrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController?,
       message_target: freezed == message_target
           ? _value.message_target
           : message_target // ignore: cast_nullable_to_non_nullable
@@ -476,27 +484,28 @@ class _$CallcenterStateCopyWithImpl<$Res, $Val extends CallcenterState>
 }
 
 /// @nodoc
-abstract class _$$CallcenterStateImplCopyWith<$Res>
-    implements $CallcenterStateCopyWith<$Res> {
-  factory _$$CallcenterStateImplCopyWith(_$CallcenterStateImpl value,
-          $Res Function(_$CallcenterStateImpl) then) =
-      __$$CallcenterStateImplCopyWithImpl<$Res>;
+abstract class _$$CallCenterStateImplCopyWith<$Res>
+    implements $CallCenterStateCopyWith<$Res> {
+  factory _$$CallCenterStateImplCopyWith(_$CallCenterStateImpl value,
+          $Res Function(_$CallCenterStateImpl) then) =
+      __$$CallCenterStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {TextEditingController? messageText,
       int? isLoadMessageCallCenter,
       int? isLoadSend,
+      ScrollController? callcenterSrollController,
       int? message_target,
       List<MessageModel>? messages});
 }
 
 /// @nodoc
-class __$$CallcenterStateImplCopyWithImpl<$Res>
-    extends _$CallcenterStateCopyWithImpl<$Res, _$CallcenterStateImpl>
-    implements _$$CallcenterStateImplCopyWith<$Res> {
-  __$$CallcenterStateImplCopyWithImpl(
-      _$CallcenterStateImpl _value, $Res Function(_$CallcenterStateImpl) _then)
+class __$$CallCenterStateImplCopyWithImpl<$Res>
+    extends _$CallCenterStateCopyWithImpl<$Res, _$CallCenterStateImpl>
+    implements _$$CallCenterStateImplCopyWith<$Res> {
+  __$$CallCenterStateImplCopyWithImpl(
+      _$CallCenterStateImpl _value, $Res Function(_$CallCenterStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -505,10 +514,11 @@ class __$$CallcenterStateImplCopyWithImpl<$Res>
     Object? messageText = freezed,
     Object? isLoadMessageCallCenter = freezed,
     Object? isLoadSend = freezed,
+    Object? callcenterSrollController = freezed,
     Object? message_target = freezed,
     Object? messages = freezed,
   }) {
-    return _then(_$CallcenterStateImpl(
+    return _then(_$CallCenterStateImpl(
       messageText: freezed == messageText
           ? _value.messageText
           : messageText // ignore: cast_nullable_to_non_nullable
@@ -521,6 +531,10 @@ class __$$CallcenterStateImplCopyWithImpl<$Res>
           ? _value.isLoadSend
           : isLoadSend // ignore: cast_nullable_to_non_nullable
               as int?,
+      callcenterSrollController: freezed == callcenterSrollController
+          ? _value.callcenterSrollController
+          : callcenterSrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController?,
       message_target: freezed == message_target
           ? _value.message_target
           : message_target // ignore: cast_nullable_to_non_nullable
@@ -535,11 +549,12 @@ class __$$CallcenterStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CallcenterStateImpl implements _CallcenterState {
-  const _$CallcenterStateImpl(
+class _$CallCenterStateImpl implements _CallCenterState {
+  const _$CallCenterStateImpl(
       {this.messageText,
       this.isLoadMessageCallCenter,
       this.isLoadSend,
+      this.callcenterSrollController,
       this.message_target,
       final List<MessageModel>? messages})
       : _messages = messages;
@@ -550,6 +565,8 @@ class _$CallcenterStateImpl implements _CallcenterState {
   final int? isLoadMessageCallCenter;
   @override
   final int? isLoadSend;
+  @override
+  final ScrollController? callcenterSrollController;
   @override
   final int? message_target;
   final List<MessageModel>? _messages;
@@ -564,14 +581,14 @@ class _$CallcenterStateImpl implements _CallcenterState {
 
   @override
   String toString() {
-    return 'CallcenterState(messageText: $messageText, isLoadMessageCallCenter: $isLoadMessageCallCenter, isLoadSend: $isLoadSend, message_target: $message_target, messages: $messages)';
+    return 'CallCenterState(messageText: $messageText, isLoadMessageCallCenter: $isLoadMessageCallCenter, isLoadSend: $isLoadSend, callcenterSrollController: $callcenterSrollController, message_target: $message_target, messages: $messages)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CallcenterStateImpl &&
+            other is _$CallCenterStateImpl &&
             (identical(other.messageText, messageText) ||
                 other.messageText == messageText) &&
             (identical(
@@ -579,6 +596,9 @@ class _$CallcenterStateImpl implements _CallcenterState {
                 other.isLoadMessageCallCenter == isLoadMessageCallCenter) &&
             (identical(other.isLoadSend, isLoadSend) ||
                 other.isLoadSend == isLoadSend) &&
+            (identical(other.callcenterSrollController,
+                    callcenterSrollController) ||
+                other.callcenterSrollController == callcenterSrollController) &&
             (identical(other.message_target, message_target) ||
                 other.message_target == message_target) &&
             const DeepCollectionEquality().equals(other._messages, _messages));
@@ -590,24 +610,26 @@ class _$CallcenterStateImpl implements _CallcenterState {
       messageText,
       isLoadMessageCallCenter,
       isLoadSend,
+      callcenterSrollController,
       message_target,
       const DeepCollectionEquality().hash(_messages));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CallcenterStateImplCopyWith<_$CallcenterStateImpl> get copyWith =>
-      __$$CallcenterStateImplCopyWithImpl<_$CallcenterStateImpl>(
+  _$$CallCenterStateImplCopyWith<_$CallCenterStateImpl> get copyWith =>
+      __$$CallCenterStateImplCopyWithImpl<_$CallCenterStateImpl>(
           this, _$identity);
 }
 
-abstract class _CallcenterState implements CallcenterState {
-  const factory _CallcenterState(
+abstract class _CallCenterState implements CallCenterState {
+  const factory _CallCenterState(
       {final TextEditingController? messageText,
       final int? isLoadMessageCallCenter,
       final int? isLoadSend,
+      final ScrollController? callcenterSrollController,
       final int? message_target,
-      final List<MessageModel>? messages}) = _$CallcenterStateImpl;
+      final List<MessageModel>? messages}) = _$CallCenterStateImpl;
 
   @override
   TextEditingController? get messageText;
@@ -616,11 +638,13 @@ abstract class _CallcenterState implements CallcenterState {
   @override
   int? get isLoadSend;
   @override
+  ScrollController? get callcenterSrollController;
+  @override
   int? get message_target;
   @override
   List<MessageModel>? get messages;
   @override
   @JsonKey(ignore: true)
-  _$$CallcenterStateImplCopyWith<_$CallcenterStateImpl> get copyWith =>
+  _$$CallCenterStateImplCopyWith<_$CallCenterStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

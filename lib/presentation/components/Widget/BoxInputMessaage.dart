@@ -13,27 +13,27 @@ class BoxInputMessaage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(color: ColorsApp.grey),
+      // decoration: BoxDecoration(color: ColorsApp.grey),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          InkWell(
-            onTap: onTap,
-            child: Container(
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: ColorsApp.primary,
-              ),
-              child: Icon(Icons.add, color: Colors.white, size: 22.0),
-            ),
-          ),
-          Flexible(
-            flex: 10,
+          // InkWell(
+          //   onTap: onTap,
+          //   child: Container(
+          //     padding: EdgeInsets.all(8),
+          //     decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.circular(8),
+          //       color: ColorsApp.primary,
+          //     ),
+          //     child: Icon(Icons.add, color: Colors.white, size: 22.0),
+          //   ),
+          // ),
+          Expanded(
+            // flex: 10,
             child: Container(
               constraints: BoxConstraints(
-                  maxHeight: getHeight(context) / 3, minHeight: 18),
+                  maxHeight: getHeight(context) / 5, minHeight: 18),
               margin: EdgeInsets.symmetric(horizontal: 2),
               child: TextField(
                 controller: controller,
@@ -95,7 +95,7 @@ class BoxInputMessaage extends StatelessWidget {
                     width: 22,
                     height: 22,
                     child: CircularProgressIndicator(
-                      color: ColorsApp.second,
+                      color: ColorsApp.white,
                     ),
                   ),
                 ),
