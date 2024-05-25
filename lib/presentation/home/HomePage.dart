@@ -95,322 +95,195 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       }
                     },
                     builder: (context, state) => Scaffold(
-                        backgroundColor: ColorsApp.bg,
-                        drawer: CustomDrawer(user: state.user),
-                        body: Container(
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(Assets.bg_home))),
-                            child: CustomScrollView(slivers: [
-                              SliverAppBar(
-                                automaticallyImplyLeading: false,
-                                leading: Builder(builder: (context) {
-                                  return InkWell(
-                                      child: Container(
-                                        width: 10,
-                                        height: 10,
-                                        child: SvgPicture.asset(Assets.menu,
-                                            color: ColorsApp.white,
-                                            fit: BoxFit.none),
-                                      ),
-                                      onTap: () =>
-                                          Scaffold.of(context).openDrawer());
-                                }),
-                                title: Text(
-                                  'Babana Express',
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      color: ColorsApp.white,
-                                      fontFamily: 'Lato',
-                                      fontSize: kTitle,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                centerTitle: true,
-                                actions: [
-                                  InkWell(
-                                      child: Container(
-                                          decoration: BoxDecoration(
+                          backgroundColor: ColorsApp.bg,
+                          drawer: CustomDrawer(user: state.user),
+                          body: Container(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(Assets.bg_home))),
+                              child: CustomScrollView(slivers: [
+                                SliverAppBar(
+                                  automaticallyImplyLeading: false,
+                                  leading: Builder(builder: (context) {
+                                    return InkWell(
+                                        child: Container(
+                                          width: 10,
+                                          height: 10,
+                                          child: SvgPicture.asset(Assets.menu,
                                               color: ColorsApp.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(30)),
-                                          padding: EdgeInsets.all(5),
-                                          margin:
-                                              EdgeInsets.only(right: kMarginX),
-                                          child: SvgIcon(
-                                            icon: Assets.bell,
-                                            color: ColorsApp.primary,
-                                          )),
-                                      onTap: () {
-                                        AutoRouter.of(context)
-                                            .push(CallCenterRoute());
-                                      }),
-                                  InkWell(
-                                      child: Container(
-                                          margin: EdgeInsets.only(
-                                              right: kMarginX * 2),
-                                          child: SvgIcon(
-                                            icon: Assets.bell,
-                                            color: ColorsApp.white,
-                                          )),
-                                      onTap: () {}),
-                                ],
-                                flexibleSpace: Container(
-                                  margin: EdgeInsets.only(
-                                    top: getHeight(context) * .13,
-                                  ).add(EdgeInsets.symmetric(
-                                      horizontal: kMarginY)),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Solde du compte',
-                                              style: TextStyle(
+                                              fit: BoxFit.none),
+                                        ),
+                                        onTap: () =>
+                                            Scaffold.of(context).openDrawer());
+                                  }),
+                                  title: Text(
+                                    'Babana Express',
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        color: ColorsApp.white,
+                                        fontFamily: 'Lato',
+                                        fontSize: kTitle,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  centerTitle: true,
+                                  actions: [
+                                    InkWell(
+                                        child: Container(
+                                            decoration: BoxDecoration(
                                                 color: ColorsApp.white,
-                                                fontFamily: 'Lato',
+                                                borderRadius:
+                                                    BorderRadius.circular(30)),
+                                            padding: EdgeInsets.all(8),
+                                            margin: EdgeInsets.only(
+                                                right: kMarginX),
+                                            child: SvgIcon(
+                                              icon: Assets.refresh,
+                                              color: ColorsApp.primary,
+                                            )),
+                                        onTap: () {
+                                          AutoRouter.of(context)
+                                              .push(CallCenterRoute());
+                                        }),
+                                    // InkWell(
+                                    //     child: Container(
+                                    //         margin: EdgeInsets.only(
+                                    //             right: kMarginX * 2),
+                                    //         child: SvgIcon(
+                                    //           icon: Assets.bell,
+                                    //           color: ColorsApp.white,
+                                    //         )),
+                                    //     onTap: () {}),
+                                  ],
+                                  flexibleSpace: Container(
+                                    margin: EdgeInsets.only(
+                                      top: getHeight(context) * .13,
+                                    ).add(EdgeInsets.symmetric(
+                                        horizontal: kMarginY)),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Solde du compte',
+                                                style: TextStyle(
+                                                  color: ColorsApp.white,
+                                                  fontFamily: 'Lato',
+                                                ),
                                               ),
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5),
-                                                      color: ColorsApp.white
-                                                          .withOpacity(.5)),
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 5.5,
-                                                      vertical: 3),
-                                                  margin: EdgeInsets.only(
-                                                      right: kMarginY),
-                                                  child: Text(
-                                                    'FCFA',
-                                                    style: TextStyle(
-                                                        color: ColorsApp.white,
-                                                        fontFamily: 'Lato',
-                                                        fontSize: 18,
-                                                        fontWeight:
-                                                            FontWeight.w600),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                        color: ColorsApp.white
+                                                            .withOpacity(.5)),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 5.5,
+                                                            vertical: 3),
+                                                    margin: EdgeInsets.only(
+                                                        right: kMarginY),
+                                                    child: Text(
+                                                      'FCFA',
+                                                      style: TextStyle(
+                                                          color:
+                                                              ColorsApp.white,
+                                                          fontFamily: 'Lato',
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w600),
+                                                    ),
                                                   ),
-                                                ),
-                                                Container(
-                                                  child: Text(
-                                                    '${state.user!.solde}',
-                                                    style: TextStyle(
-                                                        color: ColorsApp.white,
-                                                        fontFamily: 'Lato',
-                                                        fontSize: 18,
-                                                        fontWeight:
-                                                            FontWeight.w800),
+                                                  Container(
+                                                    child: Text(
+                                                      '${state.user!.solde}',
+                                                      style: TextStyle(
+                                                          color:
+                                                              ColorsApp.white,
+                                                          fontFamily: 'Lato',
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w800),
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          ]),
-                                      KHomeInfo(),
-                                    ],
+                                                ],
+                                              ),
+                                            ]),
+                                        KHomeInfo(),
+                                      ],
+                                    ),
                                   ),
+
+                                  pinned: true,
+
+                                  collapsedHeight: getHeight(context) * .153,
+                                  elevation: 10.0,
+                                  backgroundColor: Colors
+                                      .transparent, // Set your desired background color
+                                  // shape: RoundedRectangleBorder(
+                                  //   borderRadius: BorderRadius.vertical(
+                                  //     bottom: Radius.circular(30.0),
+                                  //   ),
+                                  // ),
                                 ),
-
-                                pinned: true,
-
-                                collapsedHeight: getHeight(context) * .153,
-                                elevation: 10.0,
-                                backgroundColor: Colors
-                                    .transparent, // Set your desired background color
-                                // shape: RoundedRectangleBorder(
-                                //   borderRadius: BorderRadius.vertical(
-                                //     bottom: Radius.circular(30.0),
-                                //   ),
-                                // ),
+                                SliverList(
+                                    delegate: SliverChildBuilderDelegate(
+                                        (_, ctx) => state.index == 0
+                                            ? FirstView()
+                                            : state.index == 1
+                                                ? CallCenterPage()
+                                                : CallCenterPage(),
+                                        childCount: 1))
+                              ])),
+                          floatingActionButton: FloatingActionBubble(
+                            items: <Bubble>[
+                              // Floating action menu item
+                              Bubble(
+                                title: 'livraison'.tr(),
+                                iconColor: Colors.white,
+                                bubbleColor: ColorsApp.primary,
+                                icon: Icons.collections,
+                                titleStyle: TextStyle(
+                                    fontSize: 16, color: Colors.white),
+                                onPress: () {
+                                  _animationController!.reverse();
+                                  AutoRouter.of(context)
+                                      .pushNamed(NewLivraisonPage.routeName);
+                                },
                               ),
-                              SliverList(
-                                  delegate: SliverChildBuilderDelegate(
-                                      (_, ctx) => state.index == 0
-                                          ? FirstView()
-                                          : state.index == 1
-                                              ? CallCenterPage()
-                                              : CallCenterPage(),
-                                      childCount: 1))
-                            ])),
-                        floatingActionButton: FloatingActionBubble(
-                          items: <Bubble>[
-                            // Floating action menu item
-                            Bubble(
-                              title: 'livraison'.tr(),
-                              iconColor: Colors.white,
-                              bubbleColor: ColorsApp.primary,
-                              icon: Icons.collections,
-                              titleStyle:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                              onPress: () {
-                                _animationController!.reverse();
-                                AutoRouter.of(context)
-                                    .pushNamed(NewLivraisonPage.routeName);
-                              },
-                            ),
-                            Bubble(
-                              title: 'pharmacie'.tr(),
-                              iconColor: Colors.white,
-                              bubbleColor: ColorsApp.black,
-                              icon: Icons.medical_information,
-                              titleStyle:
-                                  TextStyle(fontSize: 16, color: Colors.white),
-                              onPress: () {
-                                _animationController!.reverse();
-                                AutoRouter.of(context).pushNamed(
-                                    NewLivraisonMedicamentPage.routeName);
-                              },
-                            ),
-                          ],
-                          animation: _animation!,
-                          onPress: () => _animationController!.isCompleted
-                              ? _animationController!.reverse()
-                              : _animationController!.forward(),
-                          iconColor: ColorsApp.primary,
-                          iconData: Icons.add,
-                          backGroundColor: Colors.white,
-                        ),
-                        resizeToAvoidBottomInset: true,
-                        bottomNavigationBar: CustomNavigationBar(
-                          iconSize: 30.0,
-
-                          selectedColor: ColorsApp.primary,
-                          strokeColor: ColorsApp.black,
-                          unSelectedColor: Colors.grey[600],
-                          backgroundColor:
-                              /*     state.index == 2 ? ColorsApp.primary : */ ColorsApp
-                                  .white,
-                          borderRadius: Radius.circular(20.0),
-                          isFloating: true,
-                          // blurEffect: true,
-                          items: [
-                            CustomNavigationBarItem(
-                                icon: Container(
-                                  height: getHeight(context) / 1.7,
-                                  width: getWith(context) / 4.2,
-                                  child: SvgPicture.asset(
-                                    Assets.home,
-                                    width: 90,
-                                    height: 90,
-                                    // ignore: deprecated_member_use
-                                    color: state.index == 0
-                                        ? ColorsApp.primary
-                                        : ColorsApp.grey,
-                                  ),
-                                ),
-                                title: Container(
-                                    padding: EdgeInsets.only(bottom: 3),
-                                    decoration: BoxDecoration(
-                                        border: Border(
-                                            bottom: state.index == 0
-                                                ? BorderSide(
-                                                    color: ColorsApp.primary,
-                                                    width: 2)
-                                                : BorderSide.none,
-                                            top: BorderSide.none)),
-                                    child: Text('home'.tr(),
-                                        style: TextStyle(
-                                          fontSize: kMin,
-                                          fontWeight: FontWeight.w600,
-                                          color: state.index == 0
-                                              ? ColorsApp.primary
-                                              : ColorsApp.grey,
-                                        )))), // CustomNavigationBarItem(
-
-                            if (state.user != null)
-                              if (state.user!.typeUser == 2 ||
-                                  state.user!.typeUser == 1)
-                                CustomNavigationBarItem(
-                                  icon: Container(
-                                    height: getHeight(context) / 1.7,
-                                    width: getWith(context) / 4.2,
-                                    child: SvgPicture.asset(
-                                      Assets.grid1,
-                                      width: 80,
-                                      height: 80,
-                                      // ignore: deprecated_member_use
-                                      color: state.index == 1
-                                          ? ColorsApp.primary
-                                          : ColorsApp.grey,
-                                    ),
-                                  ),
-                                  title: Container(
-                                      padding: EdgeInsets.only(bottom: 3),
-                                      decoration: BoxDecoration(
-                                          border: Border(
-                                              bottom: state.index == 1
-                                                  ? BorderSide(
-                                                      color: ColorsApp.primary,
-                                                      width: 2)
-                                                  : BorderSide.none,
-                                              top: BorderSide.none)),
-                                      child: Text('Call Center'.tr(),
-                                          style: TextStyle(
-                                            fontSize: kMin,
-                                            fontWeight: FontWeight.w600,
-                                            color: state.index == 1
-                                                ? ColorsApp.primary
-                                                : ColorsApp.grey,
-                                          ))),
-                                ),
-                            if (state.user != null)
-                              if (state.user!.typeUser == 2 ||
-                                  state.user!.typeUser == 1)
-                                CustomNavigationBarItem(
-                                  icon: Container(
-                                    height: getHeight(context) / 1.7,
-                                    width: getWith(context) / 4.2,
-                                    child: SvgPicture.asset(
-                                      Assets.story_boutique,
-                                      width: 80,
-                                      height: 80,
-                                      // ignore: deprecated_member_use
-                                      color: state.index == 2
-                                          ? ColorsApp.primary
-                                          : ColorsApp.grey,
-                                    ),
-                                  ),
-                                  title: Container(
-                                      padding: EdgeInsets.only(bottom: 3),
-                                      decoration: BoxDecoration(
-                                          border: Border(
-                                              bottom: state.index == 2
-                                                  ? BorderSide(
-                                                      color: ColorsApp.primary,
-                                                      width: 2)
-                                                  : BorderSide.none,
-                                              top: BorderSide.none)),
-                                      child: Text('setting'.tr(),
-                                          style: TextStyle(
-                                            fontSize: kMin,
-                                            fontWeight: FontWeight.w600,
-                                            color: state.index == 2
-                                                ? ColorsApp.primary
-                                                : ColorsApp.grey,
-                                          ))),
-                                ),
-                          ],
-                          currentIndex: state.index,
-                          onTap: (index) {
-                            print(index);
-                            context
-                                .read<HomeBloc>()
-                                .add(SetIndexEvent(index: index));
-                            if (index == 0 && (index == state.index)) {
-                              BlocProvider.of<LivraisonBloc>(context)
-                                  .add(HistoriqueUserLivraison());
-                            }
-                          },
-                        ))))));
+                              Bubble(
+                                title: 'pharmacie'.tr(),
+                                iconColor: Colors.white,
+                                bubbleColor: ColorsApp.black,
+                                icon: Icons.medical_information,
+                                titleStyle: TextStyle(
+                                    fontSize: 16, color: Colors.white),
+                                onPress: () {
+                                  _animationController!.reverse();
+                                  AutoRouter.of(context).pushNamed(
+                                      NewLivraisonMedicamentPage.routeName);
+                                },
+                              ),
+                            ],
+                            animation: _animation!,
+                            onPress: () => _animationController!.isCompleted
+                                ? _animationController!.reverse()
+                                : _animationController!.forward(),
+                            iconColor: ColorsApp.primary,
+                            iconData: Icons.add,
+                            backGroundColor: Colors.white,
+                          ),
+                          resizeToAvoidBottomInset: true,
+                        )))));
   }
 }
 
@@ -477,11 +350,11 @@ class CustomDrawer extends StatelessWidget {
                             placeholder: (context, url) {
                               return Container(
                                 decoration: BoxDecoration(
-                                    color: ColorsApp.grey,
+                                    color: ColorsApp.white.withOpacity(.5),
                                     borderRadius: BorderRadius.circular(50)),
                                 child: Center(
                                     child: CircularProgressIndicator(
-                                        color: ColorsApp.second)),
+                                        color: ColorsApp.primary)),
                               );
                             },
                             errorWidget: (context, url, error) {

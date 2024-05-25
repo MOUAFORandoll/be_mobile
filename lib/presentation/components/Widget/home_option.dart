@@ -1,14 +1,16 @@
+import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeOptionWidget extends StatelessWidget {
   HomeOptionWidget({
     required this.title,
     this.onTap,
     this.arg = '',
-    this.icon,
+    required this.icon,
   });
   final title, arg, onTap, icon;
 
@@ -53,11 +55,20 @@ class HomeOptionWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                         image: DecorationImage(
                           image: AssetImage(
-                            Assets.login,
+                            icon,
                           ),
                         ),
                       ),
                     )),
+                // Container(
+                //     decoration: BoxDecoration(
+                //       borderRadius: BorderRadius.circular(8),
+                //     ),
+                //     child: SvgPicture.asset(
+                //       icon,
+                //       height: getHeight(context) * .09,
+                //       width: getWith(context) * .25,
+                //     )),
                 Container(
                     margin: EdgeInsets.only(top: kMarginY * 1.5),
                     child: Text(

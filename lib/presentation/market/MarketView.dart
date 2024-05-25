@@ -68,12 +68,12 @@ class _MarketPageState extends State<MarketPage>
                         AutoRouter.of(context).pop();
                       },
                     )),
-
+                    pinned: true,
                     bottom: PreferredSize(
-                      preferredSize: Size.fromHeight(215),
+                      preferredSize: Size.fromHeight(50),
                       child: Container(
                           margin: EdgeInsets.only(
-                            top: kMarginY * 2,
+                            top: kMarginY,
                           ),
                           decoration: BoxDecoration(
                             color: ColorsApp.white,

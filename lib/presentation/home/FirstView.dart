@@ -34,13 +34,13 @@ class FirstView extends StatelessWidget {
                         height: getHeight(context) * .5,
                         child: GridView.count(
                             crossAxisCount: 2, // Two items per row
-                            mainAxisSpacing: 20.0, // Spacing between rows
+                            mainAxisSpacing: 28.0, // Spacing between rows
                             crossAxisSpacing: 28.0, // Spacing between columns
                             childAspectRatio: 1,
                             children: [
                               HomeOptionWidget(
                                 title: 'Livraison de colis'.tr(),
-                                icon: Icons.meeting_room,
+                                icon: Assets.colis,
                                 onTap: () {
                                   // BlocProvider.of<PrestataireRdvBloc>(context)
                                   //     .add(FetchRdv());
@@ -49,22 +49,25 @@ class FirstView extends StatelessWidget {
                                 },
                               ),
                               HomeOptionWidget(
-                                  title: 'Livraison de medicaments'.tr(),
-                                  onTap: () {
-                                    // BlocProvider.of<PrestataireRdvBloc>(context)
-                                    //     .add(FetchRdv());
-                                    AutoRouter.of(context).push(
-                                        HistoriqueLivraisonMedicamentRoute());
-                                  },
-                                  icon: Icons.notification_add),
+                                title: 'Livraison de medicaments'.tr(),
+                                onTap: () {
+                                  // BlocProvider.of<PrestataireRdvBloc>(context)
+                                  //     .add(FetchRdv());
+                                  AutoRouter.of(context).push(
+                                      HistoriqueLivraisonMedicamentRoute());
+                                },
+                                icon: Assets.p3,
+                              ),
                               HomeOptionWidget(
                                 title: 'Finances'.tr(),
+                                icon: Assets.wallet,
                                 arg: '',
                                 onTap: () {
                                   AutoRouter.of(context).push(WalletRoute());
                                 },
                               ),
                               HomeOptionWidget(
+                                icon: Assets.market_place,
                                 title: 'Market Place',
                                 onTap: () {
                                   AutoRouter.of(context).push(MarketRoute());
@@ -73,12 +76,12 @@ class FirstView extends StatelessWidget {
                             ])),
                     Container(
                       child: Text(
-                        'Vos livraisons Courante',
+                        'Vos livraisons en cours',
                         style: TextStyle(
                             // color: ColorsApp.white,
                             fontFamily: 'Lato',
-                            fontSize: kTitle * 1.5,
-                            fontWeight: FontWeight.w800),
+                            fontSize: kTitle * 1.3,
+                            fontWeight: FontWeight.w700),
                       ),
                     ),
                     Container(
@@ -91,7 +94,7 @@ class FirstView extends StatelessWidget {
                             itemCount: 10,
                             itemBuilder: (context, index) => Container(
                                 height: getHeight(context) * .08,
-                                width: getWith(context) * .7,
+                                width: getWith(context) * .8,
                                 padding:
                                     EdgeInsets.symmetric(vertical: kMarginY),
                                 margin: EdgeInsets.symmetric(
@@ -135,6 +138,8 @@ class FirstView extends StatelessWidget {
                                         child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           'Livraison de medicaments',

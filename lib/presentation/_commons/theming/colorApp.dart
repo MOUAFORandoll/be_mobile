@@ -3,7 +3,8 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 abstract class ColorsApp {
   // static const Color primary = Color(0xFF346BEC);
   static const Color primary = Color(0xFF00bec5);
-  
+  // static const Color primary = Color(0xFF0984FF);
+
   static const Color black = Color(0xFF101923);
   static const Color second = Color(0xFF0BBC5C);
   static const Color tird = Color(0xFFFFC107);
