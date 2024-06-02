@@ -1,4 +1,4 @@
- 
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/InfolieuxlivraisonView.dart';
 import 'package:BabanaExpress/presentation/pharmacy/PaiementPharmacyPage.dart';
@@ -65,10 +65,8 @@ class _NewLivraisonMedicamentPageState
           }
         },
         builder: (context, state) => Scaffold(
-            appBar: AppBar(
-              title: Text('Pharmacy'),
-              leading: AppBackButton(),
-              centerTitle: true,
+            appBar: AppBarCustom(
+              title: 'Pharmacy'.tr(),
             ),
             backgroundColor: ColorsApp.bg,
             body: Container(
@@ -131,7 +129,7 @@ class _NewLivraisonMedicamentPageState
                   ],
                 ))));
   }
-  
+
   validateLivraisonMedicaments(context) => showModalBottomSheet(
         context: context,
         builder: (BuildContext context) => BlocBuilder<PharmacyBloc,

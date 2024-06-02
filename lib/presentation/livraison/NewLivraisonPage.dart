@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
@@ -64,12 +65,8 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
         },
         builder: (context, state) => Scaffold(
             backgroundColor: ColorsApp.bg,
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: AppBackButton(),
-              title: Text('yNewLivraison'.tr()),
-              centerTitle: true,
+            appBar: AppBarCustom(
+              title: 'yNewLivraison'.tr(),
             ),
             body: /*  RefreshIndicator(
                 color: ColorsApp.second,

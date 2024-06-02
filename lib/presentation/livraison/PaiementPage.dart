@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 
 import '../../presentation/components/exportcomponent.dart';
@@ -66,11 +67,11 @@ class _PaimentPageState extends State<PaimentPage> {
       }
     }, builder: (context, state) {
       return Scaffold(
-          appBar: AppBar(
-            leading: AppBackButton(),
-            title: const Text('Paiement de votre livraison'),
-            centerTitle: true,
+         
+          appBar: AppBarCustom(
+            title: 'Paiement de votre livraison'.tr(),
           ),
+    
           // backgroundColor: ColorsApp.bg,
           body: controller == null || _progress != 100
               ? Center(

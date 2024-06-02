@@ -1,6 +1,6 @@
 class MessageModel {
   int id;
-  bool isEmetteur;
+  bool isCallCenter;
   String message;
   String dateSend;
   String heureSend;
@@ -9,7 +9,7 @@ class MessageModel {
 
   MessageModel({
     required this.id,
-    required this.isEmetteur,
+    required this.isCallCenter,
     required this.message,
     required this.dateSend,
     required this.heureSend,
@@ -21,7 +21,7 @@ class MessageModel {
   factory MessageModel.fromJson(Map<String, dynamic> json) {
     return MessageModel(
       id: json['id'],
-      isEmetteur: json['is_emetteur'],
+      isCallCenter: json['is_call_center'],
       message: json['message'],
       dateSend: json['dateSend'],
       heureSend: json['heureSend'],
@@ -34,7 +34,7 @@ class MessageModel {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'is_emetteur': isEmetteur,
+      'is_call_center': isCallCenter,
       'message': message,
       'dateSend': dateSend,
       'heureSend': heureSend,

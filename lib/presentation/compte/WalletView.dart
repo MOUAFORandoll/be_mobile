@@ -1,7 +1,8 @@
-import 'package:BabanaExpress/application/export_bloc.dart'; 
+import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/Widget/TransactionComponent.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
-import 'package:flutter_spinkit/flutter_spinkit.dart'; 
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:BabanaExpress/presentation/compte/PaiementDepotPage.dart';
 
@@ -11,7 +12,7 @@ class WalletPage extends StatefulWidget {
     Key? key,
   }) : super(key: key);
   static const routeName = '/wallet/page';
-  
+
   @override
   State<WalletPage> createState() => _WalletPageState();
 }
@@ -20,7 +21,7 @@ class _WalletPageState extends State<WalletPage>
     with SingleTickerProviderStateMixin {
   Animation<double>? _animation;
   AnimationController? _animationController;
-  
+
   @override
   void initState() {
     _animationController = AnimationController(
@@ -61,34 +62,15 @@ class _WalletPageState extends State<WalletPage>
             },
             builder: (context, state) => Scaffold(
                 backgroundColor: ColorsApp.bg,
+                appBar: AppBarCustom(
+                  title: 'Mon Portefeuille',
+                ),
                 body: CustomScrollView(
                   controller: _scrollController,
                   slivers: [
                     SliverAppBar(
                       backgroundColor: ColorsApp.bg,
                       automaticallyImplyLeading: false,
-                      centerTitle: true,
-                      title: Text(
-                        'Mon Portefeuille',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                      leading: Container(
-                          child: InkWell(
-                        child: Container(
-                          margin: EdgeInsets.zero,
-                          // padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-
-                              // borderRadius: BorderRadius.circular(20),
-                              ),
-                          child: Icon(Icons.arrow_back_ios_new,
-                              color: ColorsApp.black, size: 25.0),
-                        ),
-                        onTap: () {
-                          AutoRouter.of(context).pop();
-                        },
-                      )),
 
                       bottom: PreferredSize(
                           preferredSize: Size.fromHeight(215),

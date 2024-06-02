@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class AboutUsView extends StatelessWidget {
@@ -10,6 +11,9 @@ class AboutUsView extends StatelessWidget {
       //   title: Text("AboutUs"),
       //   centerTitle: true,
       // ),
+      appBar: AppBarCustom(
+        title: 'AboutUs'.tr(),
+      ),
       body: Center(child: smallText(text: 'AboutUs')),
     );
   }

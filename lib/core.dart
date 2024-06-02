@@ -45,7 +45,7 @@ Future<void> init() async {
   sl
     ..registerFactory(() => CompteBloc(compteRepo: sl(), database: sl()))
     ..registerLazySingleton(() => CompteRepo(apiClient: sl()));
-  
+
   sl
     ..registerFactory(() => PharmacyBloc(pharmacyRepo: sl()))
     ..registerLazySingleton(() => PharmacyRepo(apiClient: sl()));
@@ -57,7 +57,7 @@ Future<void> init() async {
         () => CallCenterBloc(callcenterRepo: sl(), database: sl()))
     ..registerLazySingleton(() => CallCenterRepo(apiClient: sl()));
   requestPermission();
-  
+
   sl.registerSingleton<AppRouter>(AppRouter());
   initConnected();
   // sl
@@ -142,8 +142,8 @@ Future<void> initSocket(context) async {
 
         print(sl.get<AppRouter>().currentUrl);
         print(CallCenterPage.routeName);
-        context.get<CallCenterBloc>().add(GetMessage());
-        
+        // context.get<CallCenterBloc>().add(GetMessage());
+
         NotificationService().callCenterNotification(
             content: MessageModel.fromJson(data), context: context);
       });

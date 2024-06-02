@@ -1,4 +1,5 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 // ignore: must_be_immutable
@@ -47,17 +48,17 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                       fontSize: 12),
                   labelText: label,
                   labelStyle: TextStyle(
-                      color: Colors.blue,
+                      color: ColorsApp.primary,
                       fontWeight: FontWeight.w600,
                       fontSize: 12),
                   counterText: '',
                   focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
-                        color: Colors.blue,
+                        color: ColorsApp.primary,
                       )),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   contentPadding: EdgeInsets.only(
                     left: 15,
@@ -249,15 +250,13 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                                                         errorWidget: (context,
                                                             url, error) {
                                                           return Container(
-                                                              // height: getHeight(context) / 10,
-                                                              // width: getHeight(context) / 10,
-
                                                               decoration: BoxDecoration(
                                                                   image: DecorationImage(
                                                                       fit: BoxFit
-                                                                          .cover,
+                                                                          .contain,
                                                                       image: AssetImage(
-                                                                          'assets/login.png'))));
+                                                                          Assets
+                                                                              .medicament))));
                                                         },
                                                       )),
                                                   Container(

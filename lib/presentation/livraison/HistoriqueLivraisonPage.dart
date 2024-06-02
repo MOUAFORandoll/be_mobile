@@ -2,6 +2,7 @@ import 'package:BabanaExpress/presentation/components/Widget/EmptyLivraisonsComp
 import 'package:BabanaExpress/presentation/components/Widget/ErrorReloadComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/LivraisonUserComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
@@ -16,12 +17,8 @@ class HistoriqueLivraisonPage extends StatelessWidget {
     return BlocConsumer<LivraisonBloc, LivraisonState>(
         listener: (context, state) async {},
         builder: (context, state) => Scaffold(
-              appBar: AppBar(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                leading: AppBackButton(),
-                title: Text('Vos livraisons'.tr()),
-                centerTitle: true,
+              appBar: AppBarCustom(
+                title: 'Vos livraisons'.tr(),
               ),
               body: Container(
                 margin: EdgeInsets.only(top: kMarginY * 2)

@@ -48,10 +48,12 @@ class Assets {
   static const bg_white = 'assets/images/bg_white.jpeg';
   static const medical = 'assets/images/medical.png';
   static const babana = 'assets/svg_icones/babana.svg';
+  static const call_center = 'assets/svg_icones/call_center.svg';
 
   static const p3 = 'assets/images/p3.png';
   static const market_place = 'assets/images/market_place.png';
   static const p2 = 'assets/images/p2.png';
   static const colis = 'assets/images/colis.png';
   static const wallet = 'assets/images/wallet.png';
+  static const medicament = 'assets/images/medicament.png';
 }

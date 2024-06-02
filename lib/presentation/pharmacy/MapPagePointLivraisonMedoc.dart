@@ -1,5 +1,6 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/Widget/ShimmerBox.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
@@ -263,23 +264,10 @@ class _MapPagePointLivraisonMedocsState
         }
       },
       builder: (context, state) => Scaffold(
-        appBar: AppBar(
-            title: Text(
-              'ylivraison'.tr(),
-            ),
-            centerTitle: true,
-            leading: IconButton(
-              icon: Icon(
-                Icons.keyboard_arrow_left_outlined,
-                color: ColorsApp.primary,
-              ),
-              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-              onPressed: () {
-                AutoRouter.of(context).pop();
-              },
-            ),
-            backgroundColor: ColorsApp.white,
-            elevation: 0),
+        
+        appBar: AppBarCustom(
+          title: 'ylivraison'.tr(),
+        ),
         body: Stack(
           children: [
             Container(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:BabanaExpress/application/callcenter/repositories/callcenterRepo.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/model/data/MessageModel.dart';
@@ -40,18 +42,20 @@ class CallCenterBloc extends Bloc<CallCenterEvent, CallCenterState> {
           List<MessageModel> saveM = List.from(state.messages as Iterable)
             ..add(MessageModel.fromJson(response.data['message']));
           emit(state.copyWith(isLoadSend: 1, messages: saveM));
-          final position =
-              state.callcenterSrollController!.position.maxScrollExtent;
-          state.callcenterSrollController!.animateTo(
-            position + 30,
-            duration: Duration(seconds: 1),
-            curve: Curves.easeOut,
-          );
-          emit(
-            state.copyWith(
-              callcenterSrollController: state.callcenterSrollController,
-            ),
-          );
+          // final position =
+          //     state.callcenterSrollController!.position.maxScrollExtent;
+          // state.callcenterSrollController!.animateTo(
+          //   position + 30,
+          //   duration: Duration(seconds: 1),
+          //   curve: Curves.easeOut,
+          // );
+          // print(state.callcenterSrollController!.position);
+          // print(state.callcenterSrollController!.position.maxScrollExtent);
+          // emit(
+          //   state.copyWith(
+          //     callcenterSrollController: state.callcenterSrollController,
+          //   ),
+          // );
           emit(state.copyWith(isLoadSend: 1, messages: saveM));
         } else {
           emit(state.copyWith(
@@ -79,25 +83,29 @@ class CallCenterBloc extends Bloc<CallCenterEvent, CallCenterState> {
     await callcenterRepo.getMessage(key).then((response) {
       print(response.data);
       if (response.data != null) {
-        emit(state.copyWith(
-            isLoadMessageCallCenter: 1,
-            messages: (response.data['data'] as List)
-                .map((e) => MessageModel.fromJson(e))
-                .toList()));
-        final position =
-            state.callcenterSrollController!.position.maxScrollExtent;
-        state.callcenterSrollController!.animateTo(
-          position + 30,
-          duration: Duration(seconds: 1),
-          curve: Curves.easeOut,
-        );
-        emit(
-          state.copyWith(
-            callcenterSrollController: state.callcenterSrollController,
-          ),
-        );
-      } else {
-        emit(state.copyWith(isLoadMessageCallCenter: 2));
+        if (response.data['data'] != null) {
+          emit(state.copyWith(
+              isLoadMessageCallCenter: 1,
+              messages: (response.data['data'] as List)
+                  .map((e) => MessageModel.fromJson(e))
+                  .toList()));
+          // final position =
+          //     state.callcenterSrollController!.position.maxScrollExtent;
+          // state.callcenterSrollController!.animateTo(
+          //   position + 30,
+          //   duration: Duration(seconds: 1),
+          //   curve: Curves.easeOut,
+          // );
+
+          // emit(
+          //   state.copyWith(
+          //     callcenterSrollController: state.callcenterSrollController,
+          //   ),
+          // ); margin: EdgeInsets.only(top: kMarginY * 2)
+          // .add(EdgeInsets.symmetric(horizontal: kMarginX * 2)),
+        } else {
+          emit(state.copyWith(isLoadMessageCallCenter: 2));
+        }
       }
     }).onError((e, s) {
       emit(state.copyWith(isLoadMessageCallCenter: 2));

@@ -1,3 +1,5 @@
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
+
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
@@ -63,10 +65,8 @@ class _PaimentPharmacyPageState extends State<PaimentPharmacyPage> {
       // }
     }, builder: (context, state) {
       return Scaffold(
-          appBar: AppBar(
-            leading: AppBackButton(),
-            title: const Text('Paiement de votre Facture de  Pharmacy'),
-            centerTitle: true,
+          appBar: AppBarCustom(
+            title: 'Paiement de votre Facture de  Pharmacy'.tr(),
           ),
           // backgroundColor: ColorsApp.bg,
           body: controller == null || _progress != 100

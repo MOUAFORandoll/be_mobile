@@ -1,6 +1,7 @@
 import 'package:BabanaExpress/presentation/components/Widget/EmptyLivraisonsComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/ErrorReloadComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import '../components/Widget/LivraisonMedicamentUserComponent.dart';
@@ -14,12 +15,8 @@ class HistoriqueLivraisonMedicamentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PharmacyBloc, PharmacyState>(builder: (context, state) {
       return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            leading: AppBackButton(),
-            title: Text('Vos livraisons de medicament'.tr()),
-            centerTitle: true,
+          appBar: AppBarCustom(
+            title: 'Vos livraisons de medicament'.tr(),
           ),
           body: Container(
               margin: EdgeInsets.only(top: kMarginY * 2)

@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                             margin: EdgeInsets.only(
                                                 right: kMarginX),
                                             child: SvgIcon(
-                                              icon: Assets.refresh,
+                                              icon: Assets.call_center,
                                               color: ColorsApp.primary,
                                             )),
                                         onTap: () {

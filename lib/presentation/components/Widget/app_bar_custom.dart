@@ -1,41 +1,45 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart'; // Make sure to import this if using AutoRouter
 
-// ignore: must_be_immutable
-class AppBarCustom extends StatelessWidget {
-  String title;
-  String titleBtn;
-  var onTap;
-  AppBarCustom(
-      {required this.title, required this.titleBtn, required this.onTap});
+class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+
+  AppBarCustom({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            color: ColorsApp.grey, borderRadius: BorderRadius.circular(9)),
-        padding:
-            EdgeInsets.only(left: getWith(context) / 10, top: 2, bottom: 2),
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Container(
-              width: getWith(context) * 0.6,
-              child: Text(
-                title,
-                style: TextStyle(
-                    overflow: TextOverflow.ellipsis,
-                    fontWeight: FontWeight.w600,
-                    color: ColorsApp.primary,
-                    fontSize: 11),
-              )),
-          Container(
-              width: getWith(context) * 0.25,
-
-              // margin: EdgeInsets.only(bottom: kMarginY),
-              child: AppButton(
-                  size: MainAxisSize.max,
-                  bgColor: ColorsApp.tird,
-                  text: titleBtn,
-                  onTap: onTap))
-        ]));
+    return AppBar(
+      backgroundColor: ColorsApp.white,
+      elevation: 0,
+      leading: InkWell(
+        onTap: () => AutoRouter.of(context).pop(),
+        child: Container(
+          alignment: Alignment.centerRight,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Icon(Icons.arrow_back_ios_new,
+                  color: ColorsApp.black, size: 20.0),
+              Text(
+                'Back',
+                style: TextStyle(fontSize: 12),
+              ),
+            ],
+          ),
+        ),
+      ),
+      title: Text(
+        title,
+      ),
+      centerTitle: true,
+      actions: [],
+    );
   }
 }
