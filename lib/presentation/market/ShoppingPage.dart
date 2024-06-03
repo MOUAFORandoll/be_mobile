@@ -1,8 +1,9 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/Widget/EmptyShopComponent.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/presentation/components/Widget/shoppingproduitComponent.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart'; 
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 
 import '../components/Text/bigtitleText.dart';
 
@@ -15,21 +16,16 @@ class ShoppingPage extends StatefulWidget {
   State<ShoppingPage> createState() => _ShoppingPageState();
 }
 
-class _ShoppingPageState extends State<ShoppingPage> { 
-
+class _ShoppingPageState extends State<ShoppingPage> {
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return BlocBuilder<MarketBloc, MarketState>(
         builder: (contextM, state) => Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: AppBackButton(),
-              title: BigtitleText(text: 'My Shopping Bag', bolder: true),
-              centerTitle: true,
+            appBar: AppBarCustom(
+              title: 'My Shopping Bag',
             ),
             body: state.paniers!.length == 0
-                ? EmptyShopComponent(type: 1)
+                ? EmptyShopComponent()
                 : Column(
                     children: [
                       Expanded(

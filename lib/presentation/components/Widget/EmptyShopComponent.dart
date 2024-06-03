@@ -5,8 +5,8 @@ import 'package:BabanaExpress/utils/constants/assets.dart';
 
 // ignore: must_be_immutable
 class EmptyShopComponent extends StatelessWidget {
-  var type;
-  EmptyShopComponent({this.type = 0});
+   
+  EmptyShopComponent( );
 
   Widget build(BuildContext context) {
     return Container(
@@ -54,8 +54,8 @@ class EmptyShopComponent extends StatelessWidget {
                   bgColor: ColorsApp.primary,
                   text: 'Go Back',
                   onTap: () {
-                    context.read<HomeBloc>().add(SetIndexEvent(index: 2));
-                    AutoRouter.of(context).replaceAll([HomeRoute()]);
+                  
+                    AutoRouter.of(context).pop();
                   },
                 ))
           ],
