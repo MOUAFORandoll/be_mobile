@@ -90,6 +90,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     listener: (context, state) {
                       if (state.user!.email.isEmpty) {
                         return openUpdateMail(context);
+                      } else if (state.user!.phone.isEmpty) {
+                        return openUpdateCompletePhoneProfile(context);
                       } else {
                         print('-----44-- ---find noe--*is ok*******');
                       }
@@ -536,6 +538,93 @@ openUpdateMail(context) => showDialog(
                     placeholder: 'labelemail'.tr(),
                     validator: (value) {
                       return Validators.isValidEmail(value!);
+                    },
+                  ),
+                ),
+              ])))));
+    });
+
+openUpdateCompletePhoneProfile(context) => showDialog(
+    context: context,
+    builder: (context) {
+      TextEditingController phone = TextEditingController();
+
+      return BlocConsumer<UserBloc, UserState>(
+          listener: (context, state) {
+            if (state.updating!) {
+              EasyLoading.show(
+                  dismissOnTap: true,
+                  status: 'En cours',
+                  maskType: EasyLoadingMaskType.black);
+            } else {
+              EasyLoading.dismiss();
+              AutoRouter.of(context).pop();
+              showSuccess('yupdate'.tr(), context);
+            }
+          },
+          builder: (context, state) => AlertDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              title: Container(
+                  child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                      width: getWith(context) * .6,
+                      child: Text('recupmailtitle'.tr())),
+                  InkWell(
+                      child: Icon(Icons.close,
+                          color: ColorsApp.primary, weight: 50),
+                      onTap: () {
+                        AutoRouter.of(context).pop();
+                      })
+                ],
+              )),
+              actions: [
+                InkWell(
+                    child: Container(
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: ColorsApp.primary),
+                      child: Row(mainAxisSize: MainAxisSize.min, children: [
+                        Text(
+                          'yvalid'.tr(),
+                          style: TextStyle(
+                              color: ColorsApp.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 13),
+                        ),
+                        Icon(Icons.check, color: ColorsApp.white, weight: 50)
+                      ]),
+                    ),
+                    onTap: () {
+                      if (phone.text.isNotEmpty) {
+                        context.read<UserBloc>().add(UpdateUserInfo(
+                              data: {'phone': phone.text},
+                            ));
+
+                        context.read<HomeBloc>().add(UserDataEvent());
+                      } else {
+                        showError('Error'.tr(), context);
+                      }
+                    })
+              ],
+              content: Container(
+                  child: SingleChildScrollView(
+                      child: Column(children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: kMarginY * 2,
+                  ),
+                  child: AppInput(
+                    controller: phone,
+                    onChanged: (value) {},
+                    textInputType: TextInputType.phone,
+                    placeholder: 'labelphone'.tr(),
+                    validator: (value) {
+                      return Validators.usPhoneValid(value!);
                     },
                   ),
                 ),

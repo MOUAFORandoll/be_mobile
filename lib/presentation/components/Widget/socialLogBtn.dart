@@ -1,8 +1,11 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 
 class SocialLogBtn extends StatelessWidget {
-  SocialLogBtn({this.icon, this.onTap, this.title});
-  final icon, onTap, title;
+  SocialLogBtn({this.validate, this.icon, this.onTap, this.title});
+  var validate, icon, onTap, title;
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +13,11 @@ class SocialLogBtn extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        constraints: BoxConstraints(maxWidth: getWith(context) * .3),
         padding: EdgeInsets.all(7),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
             border: Border.all(
-              color: Colors.blue,
+              color: ColorsApp.primary,
             )),
         child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -27,11 +29,18 @@ class SocialLogBtn extends StatelessWidget {
               SizedBox(
                 width: 10,
               ),
-              Icon(
-                icon,
-                color: Colors.blue,
-                size: 18,
-              )
+              (validate)
+                  ? Icon(
+                      icon,
+                      color: ColorsApp.primary,
+                      size: 18,
+                    )
+                  : Container(
+                      height: 18,
+                      width: 18,
+                      child: CircularProgressIndicator(
+                        color: ColorsApp.primary,
+                      ))
             ]),
       ),
     );

@@ -6,6 +6,7 @@ class MessageModel {
   String heureSend;
   String? dateRead; // Optional since it can be null
   String? heureRead; // Optional since it can be null
+  MessageModel? messageTarget; // Optional since it can be null
 
   MessageModel({
     required this.id,
@@ -15,6 +16,7 @@ class MessageModel {
     required this.heureSend,
     this.dateRead,
     this.heureRead,
+    this.messageTarget,
   });
 
   // Convert a JSON map to an instance of MessageModel
@@ -27,6 +29,7 @@ class MessageModel {
       heureSend: json['heureSend'],
       dateRead: json['dateRead'],
       heureRead: json['heureRead'],
+      messageTarget:json['messageTarget'] !=null ? MessageModel.fromJson(json['messageTarget']): null,
     );
   }
 

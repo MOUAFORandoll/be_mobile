@@ -3,8 +3,8 @@ import '../exportcomponent.dart';
 // ignore: must_be_immutable
 class BoxInputMessaage extends StatelessWidget {
   BoxInputMessaage(
-      {this.controller, this.hint, this.sending = false, this.onTap});
-  var onTap, inconSize, sending;
+      {this.controller, this.hint, this.sending = false, this.onTap, this.onTapFile});
+  var onTap, inconSize, sending, onTapFile;
 
   final controller;
   String? hint = '';
@@ -18,17 +18,18 @@ class BoxInputMessaage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // InkWell(
-          //   onTap: onTap,
-          //   child: Container(
-          //     padding: EdgeInsets.all(8),
-          //     decoration: BoxDecoration(
-          //       borderRadius: BorderRadius.circular(8),
-          //       color: ColorsApp.primary,
-          //     ),
-          //     child: Icon(Icons.add, color: Colors.white, size: 22.0),
-          //   ),
-          // ),
+          InkWell(
+            onTap: onTapFile,
+            child: Container(
+              // padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                // color: ColorsApp.primary,
+              ),
+              child:
+                  Icon(Icons.attach_file, color: ColorsApp.primary, size: 35.0),
+            ),
+          ),
           Expanded(
             // flex: 10,
             child: Container(

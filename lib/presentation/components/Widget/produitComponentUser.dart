@@ -118,7 +118,7 @@ class ProduitComponentUser extends StatelessWidget {
       ),
     );
   }
-
+  
   onOpenColis(context) => showModalBottomSheet(
       context: context,
       builder: (BuildContext context) => Container(

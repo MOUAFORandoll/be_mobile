@@ -6,7 +6,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart'; 
+import 'package:BabanaExpress/utils/constants/assets.dart';
 
 @RoutePage()
 class AuthPage extends StatefulWidget {
@@ -23,7 +23,6 @@ class _AuthPageState extends State<AuthPage> {
   TextEditingController password = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -166,8 +165,6 @@ class _AuthPageState extends State<AuthPage> {
                                         },
                                       ),
                                       Container(
-                                        margin:
-                                            EdgeInsets.only(bottom: kMarginY),
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,
@@ -214,13 +211,33 @@ class _AuthPageState extends State<AuthPage> {
                                                   ));
                                             }
                                           }),
+                                      SocialLogBtn(
+                                        icon: FontAwesomeIcons.google,
+                                        onTap: () {
+                                          context
+                                              .read<UserBloc>()
+                                              .add(SignInSocialEvent());
+                                        },
+                                        title: 'Google',
+                                      ),
+                                      // SocialLogBtn(
+                                      //   icon:
+                                      //       FontAwesomeIcons.facebookF,
+                                      //   onTap: () {
+                                      //     context
+                                      //         .read<UserBloc>()
+                                      //         .add(SignInSocialEvent());
+                                      //   },
+                                      //   title: 'Facebook',
+                                      // ),
+
                                       InkWell(
                                           onTap: () => AutoRouter.of(context)
                                               .pushNamed(
                                                   RegisterPage.routeName),
                                           child: Container(
                                             margin: EdgeInsets.only(
-                                                top: kMarginX * 3),
+                                                top: kMarginX * 2),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,

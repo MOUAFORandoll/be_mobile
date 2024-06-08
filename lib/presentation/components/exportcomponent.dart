@@ -1,5 +1,6 @@
 export 'package:BabanaExpress/presentation/components/Text/smallText.dart';
 export 'package:BabanaExpress/presentation/components/Button/IconButtonF.dart';
+export 'package:BabanaExpress/presentation/components/Button/socialLogBtn.dart';
 export 'package:BabanaExpress/presentation/components/Button/btnCatList.dart';
 export 'package:BabanaExpress/presentation/components/Button/btnCatListPV.dart';
 export 'package:BabanaExpress/presentation/components/Button/button.dart';

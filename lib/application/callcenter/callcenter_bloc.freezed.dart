@@ -21,6 +21,8 @@ mixin _$CallCenterEvent {
     required TResult Function() started,
     required TResult Function() getMessage,
     required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) fileMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$CallCenterEvent {
     TResult? Function()? started,
     TResult? Function()? getMessage,
     TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? fileMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$CallCenterEvent {
     TResult Function()? started,
     TResult Function()? getMessage,
     TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? fileMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +49,8 @@ mixin _$CallCenterEvent {
     required TResult Function(_Started value) started,
     required TResult Function(GetMessage value) getMessage,
     required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FileMessage value) fileMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +58,8 @@ mixin _$CallCenterEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(GetMessage value)? getMessage,
     TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FileMessage value)? fileMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +67,8 @@ mixin _$CallCenterEvent {
     TResult Function(_Started value)? started,
     TResult Function(GetMessage value)? getMessage,
     TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FileMessage value)? fileMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +133,8 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function() getMessage,
     required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) fileMessage,
   }) {
     return started();
   }
@@ -131,6 +145,8 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function()? getMessage,
     TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? fileMessage,
   }) {
     return started?.call();
   }
@@ -141,6 +157,8 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function()? getMessage,
     TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? fileMessage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -155,6 +173,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(GetMessage value) getMessage,
     required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FileMessage value) fileMessage,
   }) {
     return started(this);
   }
@@ -165,6 +185,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(GetMessage value)? getMessage,
     TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FileMessage value)? fileMessage,
   }) {
     return started?.call(this);
   }
@@ -175,6 +197,8 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(GetMessage value)? getMessage,
     TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FileMessage value)? fileMessage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -229,6 +253,8 @@ class _$GetMessageImpl implements GetMessage {
     required TResult Function() started,
     required TResult Function() getMessage,
     required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) fileMessage,
   }) {
     return getMessage();
   }
@@ -239,6 +265,8 @@ class _$GetMessageImpl implements GetMessage {
     TResult? Function()? started,
     TResult? Function()? getMessage,
     TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? fileMessage,
   }) {
     return getMessage?.call();
   }
@@ -249,6 +277,8 @@ class _$GetMessageImpl implements GetMessage {
     TResult Function()? started,
     TResult Function()? getMessage,
     TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? fileMessage,
     required TResult orElse(),
   }) {
     if (getMessage != null) {
@@ -263,6 +293,8 @@ class _$GetMessageImpl implements GetMessage {
     required TResult Function(_Started value) started,
     required TResult Function(GetMessage value) getMessage,
     required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FileMessage value) fileMessage,
   }) {
     return getMessage(this);
   }
@@ -273,6 +305,8 @@ class _$GetMessageImpl implements GetMessage {
     TResult? Function(_Started value)? started,
     TResult? Function(GetMessage value)? getMessage,
     TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FileMessage value)? fileMessage,
   }) {
     return getMessage?.call(this);
   }
@@ -283,6 +317,8 @@ class _$GetMessageImpl implements GetMessage {
     TResult Function(_Started value)? started,
     TResult Function(GetMessage value)? getMessage,
     TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FileMessage value)? fileMessage,
     required TResult orElse(),
   }) {
     if (getMessage != null) {
@@ -337,6 +373,8 @@ class _$NewMessageImpl implements NewMessage {
     required TResult Function() started,
     required TResult Function() getMessage,
     required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) fileMessage,
   }) {
     return newMessage();
   }
@@ -347,6 +385,8 @@ class _$NewMessageImpl implements NewMessage {
     TResult? Function()? started,
     TResult? Function()? getMessage,
     TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? fileMessage,
   }) {
     return newMessage?.call();
   }
@@ -357,6 +397,8 @@ class _$NewMessageImpl implements NewMessage {
     TResult Function()? started,
     TResult Function()? getMessage,
     TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? fileMessage,
     required TResult orElse(),
   }) {
     if (newMessage != null) {
@@ -371,6 +413,8 @@ class _$NewMessageImpl implements NewMessage {
     required TResult Function(_Started value) started,
     required TResult Function(GetMessage value) getMessage,
     required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FileMessage value) fileMessage,
   }) {
     return newMessage(this);
   }
@@ -381,6 +425,8 @@ class _$NewMessageImpl implements NewMessage {
     TResult? Function(_Started value)? started,
     TResult? Function(GetMessage value)? getMessage,
     TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FileMessage value)? fileMessage,
   }) {
     return newMessage?.call(this);
   }
@@ -391,6 +437,8 @@ class _$NewMessageImpl implements NewMessage {
     TResult Function(_Started value)? started,
     TResult Function(GetMessage value)? getMessage,
     TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FileMessage value)? fileMessage,
     required TResult orElse(),
   }) {
     if (newMessage != null) {
@@ -405,13 +453,318 @@ abstract class NewMessage implements CallCenterEvent {
 }
 
 /// @nodoc
+abstract class _$$TargetMessageImplCopyWith<$Res> {
+  factory _$$TargetMessageImplCopyWith(
+          _$TargetMessageImpl value, $Res Function(_$TargetMessageImpl) then) =
+      __$$TargetMessageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MessageModel? message_target});
+}
+
+/// @nodoc
+class __$$TargetMessageImplCopyWithImpl<$Res>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$TargetMessageImpl>
+    implements _$$TargetMessageImplCopyWith<$Res> {
+  __$$TargetMessageImplCopyWithImpl(
+      _$TargetMessageImpl _value, $Res Function(_$TargetMessageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message_target = freezed,
+  }) {
+    return _then(_$TargetMessageImpl(
+      message_target: freezed == message_target
+          ? _value.message_target
+          : message_target // ignore: cast_nullable_to_non_nullable
+              as MessageModel?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TargetMessageImpl implements TargetMessage {
+  const _$TargetMessageImpl({this.message_target});
+
+  @override
+  final MessageModel? message_target;
+
+  @override
+  String toString() {
+    return 'CallCenterEvent.targetMessage(message_target: $message_target)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TargetMessageImpl &&
+            (identical(other.message_target, message_target) ||
+                other.message_target == message_target));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message_target);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TargetMessageImplCopyWith<_$TargetMessageImpl> get copyWith =>
+      __$$TargetMessageImplCopyWithImpl<_$TargetMessageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMessage,
+    required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) fileMessage,
+  }) {
+    return targetMessage(message_target);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getMessage,
+    TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? fileMessage,
+  }) {
+    return targetMessage?.call(message_target);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMessage,
+    TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? fileMessage,
+    required TResult orElse(),
+  }) {
+    if (targetMessage != null) {
+      return targetMessage(message_target);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetMessage value) getMessage,
+    required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FileMessage value) fileMessage,
+  }) {
+    return targetMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetMessage value)? getMessage,
+    TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FileMessage value)? fileMessage,
+  }) {
+    return targetMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetMessage value)? getMessage,
+    TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FileMessage value)? fileMessage,
+    required TResult orElse(),
+  }) {
+    if (targetMessage != null) {
+      return targetMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TargetMessage implements CallCenterEvent {
+  const factory TargetMessage({final MessageModel? message_target}) =
+      _$TargetMessageImpl;
+
+  MessageModel? get message_target;
+  @JsonKey(ignore: true)
+  _$$TargetMessageImplCopyWith<_$TargetMessageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FileMessageImplCopyWith<$Res> {
+  factory _$$FileMessageImplCopyWith(
+          _$FileMessageImpl value, $Res Function(_$FileMessageImpl) then) =
+      __$$FileMessageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int? type});
+}
+
+/// @nodoc
+class __$$FileMessageImplCopyWithImpl<$Res>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$FileMessageImpl>
+    implements _$$FileMessageImplCopyWith<$Res> {
+  __$$FileMessageImplCopyWithImpl(
+      _$FileMessageImpl _value, $Res Function(_$FileMessageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = freezed,
+  }) {
+    return _then(_$FileMessageImpl(
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FileMessageImpl implements FileMessage {
+  const _$FileMessageImpl({this.type});
+
+  @override
+  final int? type;
+
+  @override
+  String toString() {
+    return 'CallCenterEvent.fileMessage(type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FileMessageImpl &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, type);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FileMessageImplCopyWith<_$FileMessageImpl> get copyWith =>
+      __$$FileMessageImplCopyWithImpl<_$FileMessageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMessage,
+    required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) fileMessage,
+  }) {
+    return fileMessage(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getMessage,
+    TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? fileMessage,
+  }) {
+    return fileMessage?.call(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMessage,
+    TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? fileMessage,
+    required TResult orElse(),
+  }) {
+    if (fileMessage != null) {
+      return fileMessage(type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetMessage value) getMessage,
+    required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FileMessage value) fileMessage,
+  }) {
+    return fileMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetMessage value)? getMessage,
+    TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FileMessage value)? fileMessage,
+  }) {
+    return fileMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetMessage value)? getMessage,
+    TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FileMessage value)? fileMessage,
+    required TResult orElse(),
+  }) {
+    if (fileMessage != null) {
+      return fileMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FileMessage implements CallCenterEvent {
+  const factory FileMessage({final int? type}) = _$FileMessageImpl;
+
+  int? get type;
+  @JsonKey(ignore: true)
+  _$$FileMessageImplCopyWith<_$FileMessageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CallCenterState {
   TextEditingController? get messageText => throw _privateConstructorUsedError;
   int? get isLoadMessageCallCenter => throw _privateConstructorUsedError;
   int? get isLoadSend => throw _privateConstructorUsedError;
   ScrollController? get callcenterSrollController =>
       throw _privateConstructorUsedError;
-  int? get message_target => throw _privateConstructorUsedError;
+  MessageModel? get message_target => throw _privateConstructorUsedError;
+  XFile? get fileMessage => throw _privateConstructorUsedError;
   List<MessageModel>? get messages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -430,7 +783,8 @@ abstract class $CallCenterStateCopyWith<$Res> {
       int? isLoadMessageCallCenter,
       int? isLoadSend,
       ScrollController? callcenterSrollController,
-      int? message_target,
+      MessageModel? message_target,
+      XFile? fileMessage,
       List<MessageModel>? messages});
 }
 
@@ -452,6 +806,7 @@ class _$CallCenterStateCopyWithImpl<$Res, $Val extends CallCenterState>
     Object? isLoadSend = freezed,
     Object? callcenterSrollController = freezed,
     Object? message_target = freezed,
+    Object? fileMessage = freezed,
     Object? messages = freezed,
   }) {
     return _then(_value.copyWith(
@@ -474,7 +829,11 @@ class _$CallCenterStateCopyWithImpl<$Res, $Val extends CallCenterState>
       message_target: freezed == message_target
           ? _value.message_target
           : message_target // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as MessageModel?,
+      fileMessage: freezed == fileMessage
+          ? _value.fileMessage
+          : fileMessage // ignore: cast_nullable_to_non_nullable
+              as XFile?,
       messages: freezed == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
@@ -496,7 +855,8 @@ abstract class _$$CallCenterStateImplCopyWith<$Res>
       int? isLoadMessageCallCenter,
       int? isLoadSend,
       ScrollController? callcenterSrollController,
-      int? message_target,
+      MessageModel? message_target,
+      XFile? fileMessage,
       List<MessageModel>? messages});
 }
 
@@ -516,6 +876,7 @@ class __$$CallCenterStateImplCopyWithImpl<$Res>
     Object? isLoadSend = freezed,
     Object? callcenterSrollController = freezed,
     Object? message_target = freezed,
+    Object? fileMessage = freezed,
     Object? messages = freezed,
   }) {
     return _then(_$CallCenterStateImpl(
@@ -538,7 +899,11 @@ class __$$CallCenterStateImplCopyWithImpl<$Res>
       message_target: freezed == message_target
           ? _value.message_target
           : message_target // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as MessageModel?,
+      fileMessage: freezed == fileMessage
+          ? _value.fileMessage
+          : fileMessage // ignore: cast_nullable_to_non_nullable
+              as XFile?,
       messages: freezed == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
@@ -556,6 +921,7 @@ class _$CallCenterStateImpl implements _CallCenterState {
       this.isLoadSend,
       this.callcenterSrollController,
       this.message_target,
+      this.fileMessage,
       final List<MessageModel>? messages})
       : _messages = messages;
 
@@ -568,7 +934,9 @@ class _$CallCenterStateImpl implements _CallCenterState {
   @override
   final ScrollController? callcenterSrollController;
   @override
-  final int? message_target;
+  final MessageModel? message_target;
+  @override
+  final XFile? fileMessage;
   final List<MessageModel>? _messages;
   @override
   List<MessageModel>? get messages {
@@ -581,7 +949,7 @@ class _$CallCenterStateImpl implements _CallCenterState {
 
   @override
   String toString() {
-    return 'CallCenterState(messageText: $messageText, isLoadMessageCallCenter: $isLoadMessageCallCenter, isLoadSend: $isLoadSend, callcenterSrollController: $callcenterSrollController, message_target: $message_target, messages: $messages)';
+    return 'CallCenterState(messageText: $messageText, isLoadMessageCallCenter: $isLoadMessageCallCenter, isLoadSend: $isLoadSend, callcenterSrollController: $callcenterSrollController, message_target: $message_target, fileMessage: $fileMessage, messages: $messages)';
   }
 
   @override
@@ -601,6 +969,8 @@ class _$CallCenterStateImpl implements _CallCenterState {
                 other.callcenterSrollController == callcenterSrollController) &&
             (identical(other.message_target, message_target) ||
                 other.message_target == message_target) &&
+            (identical(other.fileMessage, fileMessage) ||
+                other.fileMessage == fileMessage) &&
             const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
@@ -612,6 +982,7 @@ class _$CallCenterStateImpl implements _CallCenterState {
       isLoadSend,
       callcenterSrollController,
       message_target,
+      fileMessage,
       const DeepCollectionEquality().hash(_messages));
 
   @JsonKey(ignore: true)
@@ -628,7 +999,8 @@ abstract class _CallCenterState implements CallCenterState {
       final int? isLoadMessageCallCenter,
       final int? isLoadSend,
       final ScrollController? callcenterSrollController,
-      final int? message_target,
+      final MessageModel? message_target,
+      final XFile? fileMessage,
       final List<MessageModel>? messages}) = _$CallCenterStateImpl;
 
   @override
@@ -640,7 +1012,9 @@ abstract class _CallCenterState implements CallCenterState {
   @override
   ScrollController? get callcenterSrollController;
   @override
-  int? get message_target;
+  MessageModel? get message_target;
+  @override
+  XFile? get fileMessage;
   @override
   List<MessageModel>? get messages;
   @override

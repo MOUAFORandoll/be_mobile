@@ -9,6 +9,8 @@ class ApiRoutes {
   static const LIVRAISON_POINT = '/point_localisations';
 
   static const LOGIN = '/auth/user';
+  static const LOGINSOCIAL = '/auth/user/social';
+
   
   static const SEND_CODE = '/auth/send-code';
   static const VERIFY_CODE = '/auth/verify-code';

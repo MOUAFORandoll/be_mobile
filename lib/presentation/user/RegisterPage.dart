@@ -192,6 +192,15 @@ class RegisterPage extends StatelessWidget {
                                                       re_password.text));
                                         }
                                       }),
+                                  SocialLogBtn(
+                                    icon: FontAwesomeIcons.google,
+                                    onTap: () {
+                                      context
+                                          .read<UserBloc>()
+                                          .add(RegisterSocialEvent());
+                                    },
+                                    title: 'Google',
+                                  ),
                                 ],
                               )),
                         ]),

@@ -7,6 +7,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:file_picker/file_picker.dart';
 part 'callcenter_event.dart';
 part 'callcenter_state.dart';
 part 'callcenter_bloc.freezed.dart';
@@ -21,6 +22,54 @@ class CallCenterBloc extends Bloc<CallCenterEvent, CallCenterState> {
     });
     on<GetMessage>(getMessage);
     on<NewMessage>(newMessage);
+    on<TargetMessage>(targetMessage);
+    on<FileMessage>(fileMessage);
+  }
+
+  fileMessage(FileMessage event, Emitter<CallCenterState> emit) async {
+    var data = null;
+    switch (event.type) {
+      case 0:
+        data = await ImagePicker().pickImage(
+          source: ImageSource.gallery,
+          imageQuality: 100,
+          maxHeight: 500,
+          maxWidth: 500,
+        );
+
+        break;
+      case 1:
+        data = await ImagePicker().pickImage(
+          source: ImageSource.camera,
+          imageQuality: 100,
+          maxHeight: 500,
+          maxWidth: 500,
+        );
+
+        break;
+      case 2:
+        data = await FilePicker.platform.pickFiles(
+          type: FileType.custom,
+          allowedExtensions: ['jpg', 'pdf', 'doc'],
+        );
+
+        break;
+      case 3:
+        data = await ImagePicker().pickImage(
+          source: ImageSource.camera,
+          imageQuality: 100,
+          maxHeight: 500,
+          maxWidth: 500,
+        );
+
+        break;
+    }
+    emit(state.copyWith(fileMessage: data));
+  }
+
+  Future<void> targetMessage(
+      TargetMessage event, Emitter<CallCenterState> emit) async {
+    emit(state.copyWith(message_target: event.message_target));
   }
 
   Future<void> newMessage(
@@ -29,7 +78,7 @@ class CallCenterBloc extends Bloc<CallCenterEvent, CallCenterState> {
     var data = {
       'keySecret': key,
       'message': state.messageText!.text,
-      'message_target': state.message_target
+      'message_target': state.message_target!.id
     };
     var _pendindMessage = state.messageText!.text;
     emit(state.copyWith(messageText: TextEditingController()));
@@ -41,7 +90,8 @@ class CallCenterBloc extends Bloc<CallCenterEvent, CallCenterState> {
         if (response.data['message'] != null) {
           List<MessageModel> saveM = List.from(state.messages as Iterable)
             ..add(MessageModel.fromJson(response.data['message']));
-          emit(state.copyWith(isLoadSend: 1, messages: saveM));
+          emit(state.copyWith(
+              isLoadSend: 1, messages: saveM, message_target: null));
           // final position =
           //     state.callcenterSrollController!.position.maxScrollExtent;
           // state.callcenterSrollController!.animateTo(
@@ -86,6 +136,7 @@ class CallCenterBloc extends Bloc<CallCenterEvent, CallCenterState> {
         if (response.data['data'] != null) {
           emit(state.copyWith(
               isLoadMessageCallCenter: 1,
+              message_target: null,
               messages: (response.data['data'] as List)
                   .map((e) => MessageModel.fromJson(e))
                   .toList()));
