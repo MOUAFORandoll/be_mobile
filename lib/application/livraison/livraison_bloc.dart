@@ -96,7 +96,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<SelectColis>(_selectColis);
     on<SelectPointLivraisonColis>(_selectPointLivraison);
     on<ClearPointLivraison>(clearPointLivraison);
-
+    
     on<ManageQte>(_mamageQte);
     on<CalculFrais>(_calculFraisDeLivraison);
 
@@ -372,7 +372,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         maxHeight: 500,
         maxWidth: 500,
       );
-
+      
       if (image != null) {
         List<File> updatedImageColis = List.from(state.imageColis as Iterable)
           ..add(File(image.path));

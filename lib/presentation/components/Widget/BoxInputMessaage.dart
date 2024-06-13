@@ -3,8 +3,14 @@ import '../exportcomponent.dart';
 // ignore: must_be_immutable
 class BoxInputMessaage extends StatelessWidget {
   BoxInputMessaage(
-      {this.controller, this.hint, this.sending = false, this.onTap, this.onTapFile});
-  var onTap, inconSize, sending, onTapFile;
+      {this.isUpdate,
+      this.controller,
+      this.focusNode,
+      this.hint,
+      this.sending = false,
+      this.onTap,
+      this.onTapFile});
+  var onTap, focusNode, isUpdate, inconSize, sending, onTapFile;
 
   final controller;
   String? hint = '';
@@ -20,23 +26,33 @@ class BoxInputMessaage extends StatelessWidget {
         children: [
           InkWell(
             onTap: onTapFile,
-            child: Container(
-              // padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                // color: ColorsApp.primary,
-              ),
-              child:
-                  Icon(Icons.attach_file, color: ColorsApp.primary, size: 35.0),
-            ),
+            child: isUpdate
+                ? Container(
+                    // padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      // color: ColorsApp.primary,
+                    ),
+                    child: Icon(Icons.close, color: ColorsApp.red, size: 35.0),
+                  )
+                : Container(
+                    // padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      // color: ColorsApp.primary,
+                    ),
+                    child: Icon(Icons.attach_file,
+                        color: ColorsApp.primary, size: 35.0),
+                  ),
           ),
           Expanded(
             // flex: 10,
             child: Container(
               constraints: BoxConstraints(
-                  maxHeight: getHeight(context) / 5, minHeight: 18),
-              margin: EdgeInsets.symmetric(horizontal: 2),
+                  maxHeight: getHeight(context) / 5, minHeight: 15),
+              margin: EdgeInsets.symmetric(horizontal: 4),
               child: TextField(
+                focusNode: focusNode,
                 controller: controller,
                 maxLines: null,
                 onChanged: (val) {},
@@ -53,14 +69,14 @@ class BoxInputMessaage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     fontSize: 12,
                   ),
-                  counterText: "",
+                  counterText: '',
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.blue,
                     ),
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   contentPadding: EdgeInsets.symmetric(
                     vertical: 0,

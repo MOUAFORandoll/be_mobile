@@ -47,7 +47,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   signInSocialEvent(SignInSocialEvent event, Emitter<UserState> emit) async {
     try {
       GoogleSignIn _googleSignIn = GoogleSignIn(
-        clientId:
+        serverClientId:
             '255400953271-cpqp7fnn2khmcekjuad4858pm91lj55r.apps.googleusercontent.com',
         scopes: [
           'email',
@@ -56,8 +56,15 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
       print('-------- ------- ------- ---------**-*-*');
 
-      GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-      print('--------${googleUser!.email}----------**-*-*');
+      GoogleSignInAccount? googleUser =
+          await _googleSignIn.signIn().onError((error, stackTrace) {
+        print('----------------${error}--**-*-*');
+      });
+      googleUser!.authentication
+          .then((value) => print('----------------${value}--**-*-*'))
+          .onError(
+              (error, stackTrace) => print('----------------${error}--**-*-*'));
+
       print(googleUser);
       print('-------- ------- ------- ---------**-*-*');
       print(googleUser!.toString());
@@ -523,7 +530,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           authenticationFailedMessage: 'System error'));
     });
   }
-  
+
   _updateUserProfile(UpdateUserImage event, Emitter<UserState> emit) async {
     try {
       emit(state.copyWith(isUpdateUserImage: 0));

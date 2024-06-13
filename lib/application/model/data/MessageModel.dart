@@ -1,15 +1,18 @@
 class MessageModel {
-  int id;
-  bool isCallCenter;
-  String message;
-  String dateSend;
-  String heureSend;
-  String? dateRead; // Optional since it can be null
-  String? heureRead; // Optional since it can be null
-  MessageModel? messageTarget; // Optional since it can be null
+  final int id;
+  final bool isCallCenter;
+  final bool isDelete;
+  final String message;
+  final String dateSend;
+  final String heureSend;
+  final String? dateRead;
+  final String? heureRead;
+  final MessageModel? messageTarget;
+  final List<AttachFile> attachFile;
 
   MessageModel({
     required this.id,
+    required this.isDelete,
     required this.isCallCenter,
     required this.message,
     required this.dateSend,
@@ -17,33 +20,60 @@ class MessageModel {
     this.dateRead,
     this.heureRead,
     this.messageTarget,
+    required this.attachFile,
   });
 
-  // Convert a JSON map to an instance of MessageModel
   factory MessageModel.fromJson(Map<String, dynamic> json) {
+    var attachFileList = json['attach_file'] as List;
+    List<AttachFile> attachFile =
+        attachFileList.map((item) => AttachFile.fromJson(item)).toList();
+
     return MessageModel(
       id: json['id'],
-      isCallCenter: json['is_call_center'],
+      isDelete: json['isDelete'],
+      isCallCenter: json['isCallCenter'],
       message: json['message'],
       dateSend: json['dateSend'],
       heureSend: json['heureSend'],
       dateRead: json['dateRead'],
       heureRead: json['heureRead'],
-      messageTarget:json['messageTarget'] !=null ? MessageModel.fromJson(json['messageTarget']): null,
+      messageTarget: json['messageTarget'] == null
+          ? null
+          : MessageModel.fromJson(json['messageTarget']),
+      attachFile: attachFile,
     );
   }
 
-  // Convert an instance of MessageModel to a JSON map
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'is_call_center': isCallCenter,
+      'isDelete': isDelete,
+      'isCallCenter': isCallCenter,
       'message': message,
       'dateSend': dateSend,
       'heureSend': heureSend,
-      'dateRead':
-          dateRead, // No need to check for null because Dart's JSON encoder handles it
+      'dateRead': dateRead,
       'heureRead': heureRead,
+      'messageTarget': messageTarget,
+      'attach_file': attachFile.map((item) => item.toJson()).toList(),
+    };
+  }
+}
+
+class AttachFile {
+  final String src;
+
+  AttachFile({required this.src});
+
+  factory AttachFile.fromJson(Map<String, dynamic> json) {
+    return AttachFile(
+      src: json['src'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'src': src,
     };
   }
 }

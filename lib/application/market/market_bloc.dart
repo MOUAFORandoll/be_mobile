@@ -246,7 +246,7 @@ class MarketBloc extends Bloc<MarketEvent, MarketState> {
       paniers: paniers_exist,
     ));
   }
-
+  
   isInPanier(produit) {
     List<PanierModel> paniers = state.paniers!;
     int index = paniers.indexWhere((element) => element.id == produit.id);

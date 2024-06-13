@@ -1,13 +1,8 @@
-import 'dart:developer';
-
-import 'package:BabanaExpress/application/callcenter/callcenter_bloc.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/Widget/BoxInputMessaage.dart';
-import 'package:BabanaExpress/presentation/components/Widget/EmptyLivraisonsComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/MessageComponent.dart';
-import 'package:BabanaExpress/presentation/components/Widget/OwnMessgaeCrad.dart';
-import 'package:BabanaExpress/presentation/components/Widget/ReplyCard.dart';
 import 'package:BabanaExpress/presentation/components/Widget/file_option.dart';
+import 'package:BabanaExpress/presentation/components/Widget/load_file_option.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -53,6 +48,9 @@ class _CallCenterPageState extends State<CallCenterPage> {
               if (state.isLoadMessageCallCenter != null &&
                   state.isLoadMessageCallCenter != 0) {
                 scrollToBottom();
+              }
+              if (state.isToUpdate != null && state.isToUpdate!) {
+                FocusScope.of(context).requestFocus(state.focusNode);
               }
             }, builder: (context, state) {
               return state.isLoadMessageCallCenter == 0
@@ -240,14 +238,36 @@ class _CallCenterPageState extends State<CallCenterPage> {
                       ),
                       bottomSheet: Container(
                         constraints: BoxConstraints(
-                            maxHeight: (state.message_target != null)
-                                ? getHeight(context) * .12
-                                : getHeight(context) * .08),
+                            maxHeight: getHeight(context) * .08 +
+                                (state.message_target != null
+                                    ? getHeight(context) * .04
+                                    : 0) +
+                                (state.filesMessage!.length != 0
+                                    ? getHeight(context) * .08
+                                    : 0)),
                         alignment: Alignment.bottomCenter,
                         decoration: BoxDecoration(color: ColorsApp.grey),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
+                            if (state.filesMessage!.length != 0)
+                              Container(
+                                height: getHeight(context) * .07,
+                                child: ListView.builder(
+                                  controller: stateScrollController,
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: state.filesMessage!.length,
+                                  itemBuilder: (context, index) {
+                                    return LoadFileWidget(
+                                        onTap: () => context
+                                            .read<CallCenterBloc>()
+                                            .add(RemoveFilesMessage(
+                                                file: state
+                                                    .filesMessage![index])),
+                                        file: state.filesMessage![index]);
+                                  },
+                                ),
+                              ),
                             if (state.message_target != null)
                               Container(
                                 child: Row(
@@ -312,6 +332,7 @@ class _CallCenterPageState extends State<CallCenterPage> {
                                               BorderRadius.circular(30),
                                         ),
                                         padding: EdgeInsets.all(2),
+                                        margin: EdgeInsets.only(right: 10),
                                         child: InkWell(
                                             onTap: () => context
                                                 .read<CallCenterBloc>()
@@ -326,12 +347,22 @@ class _CallCenterPageState extends State<CallCenterPage> {
                                 ),
                               ),
                             BoxInputMessaage(
+                              focusNode: state.focusNode,
                               controller: state.messageText,
                               sending: state.isLoadSend == 0,
-                              onTapFile: () => onGetFile(context),
-                              onTap: () => context
-                                  .read<CallCenterBloc>()
-                                  .add(NewMessage()),
+                              isUpdate: state.isToUpdate,
+                              onTapFile: () => state.isToUpdate!
+                                  ? context
+                                      .read<CallCenterBloc>()
+                                      .add(CancelSetMessageToUpdate())
+                                  : onGetFile(context),
+                              onTap: () => state.isToUpdate!
+                                  ? context
+                                      .read<CallCenterBloc>()
+                                      .add(UpdateMessage())
+                                  : context
+                                      .read<CallCenterBloc>()
+                                      .add(NewMessage()),
                             ),
                           ],
                         ),
@@ -374,7 +405,7 @@ onGetFile(context) => showModalBottomSheet(
                 margin: EdgeInsets.only(top: kMarginY),
                 height: getHeight(context) * .3,
                 child: GridView.count(
-                    crossAxisCount: 4, // Two items per row
+                    crossAxisCount: 2, // Two items per row
                     mainAxisSpacing: 28.0, // Spacing between rows
                     crossAxisSpacing: 28.0, // Spacing between columns
                     childAspectRatio: 1,
@@ -383,27 +414,27 @@ onGetFile(context) => showModalBottomSheet(
                         title: 'Photos'.tr(),
                         icon: FontAwesomeIcons.image,
                         onTap: () => BlocProvider.of<CallCenterBloc>(context)
-                            .add(FileMessage(type: 0)),
+                            .add(FilesMessage(type: 0)),
                       ),
                       FileOptionWidget(
                         title: 'Camera'.tr(),
                         onTap: () => BlocProvider.of<CallCenterBloc>(context)
-                            .add(FileMessage(type: 1)),
+                            .add(FilesMessage(type: 1)),
                         icon: FontAwesomeIcons.cameraRetro,
                       ),
-                      FileOptionWidget(
-                        title: 'Document'.tr(),
-                        icon: FontAwesomeIcons.file,
-                        arg: '',
-                        onTap: () => BlocProvider.of<CallCenterBloc>(context)
-                            .add(FileMessage(type: 2)),
-                      ),
-                      FileOptionWidget(
-                        icon: FontAwesomeIcons.addressBook,
-                        title: 'Contact',
-                        onTap: () => BlocProvider.of<CallCenterBloc>(context)
-                            .add(FileMessage(type: 3)),
-                      ),
+                      // FileOptionWidget(
+                      //   title: 'Document'.tr(),
+                      //   icon: FontAwesomeIcons.file,
+                      //   arg: '',
+                      //   onTap: () => BlocProvider.of<CallCenterBloc>(context)
+                      //       .add(FilesMessage(type: 2)),
+                      // ),
+                      // FileOptionWidget(
+                      //   icon: FontAwesomeIcons.addressBook,
+                      //   title: 'Contact',
+                      //   onTap: () => BlocProvider.of<CallCenterBloc>(context)
+                      //       .add(FilesMessage(type: 3)),
+                      // ),
                     ])),
           ],
         ))));

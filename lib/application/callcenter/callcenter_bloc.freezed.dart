@@ -22,7 +22,12 @@ mixin _$CallCenterEvent {
     required TResult Function() getMessage,
     required TResult Function() newMessage,
     required TResult Function(MessageModel? message_target) targetMessage,
-    required TResult Function(int? type) fileMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +36,12 @@ mixin _$CallCenterEvent {
     TResult? Function()? getMessage,
     TResult? Function()? newMessage,
     TResult? Function(MessageModel? message_target)? targetMessage,
-    TResult? Function(int? type)? fileMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +50,12 @@ mixin _$CallCenterEvent {
     TResult Function()? getMessage,
     TResult Function()? newMessage,
     TResult Function(MessageModel? message_target)? targetMessage,
-    TResult Function(int? type)? fileMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,7 +65,13 @@ mixin _$CallCenterEvent {
     required TResult Function(GetMessage value) getMessage,
     required TResult Function(NewMessage value) newMessage,
     required TResult Function(TargetMessage value) targetMessage,
-    required TResult Function(FileMessage value) fileMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +80,12 @@ mixin _$CallCenterEvent {
     TResult? Function(GetMessage value)? getMessage,
     TResult? Function(NewMessage value)? newMessage,
     TResult? Function(TargetMessage value)? targetMessage,
-    TResult? Function(FileMessage value)? fileMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +94,12 @@ mixin _$CallCenterEvent {
     TResult Function(GetMessage value)? getMessage,
     TResult Function(NewMessage value)? newMessage,
     TResult Function(TargetMessage value)? targetMessage,
-    TResult Function(FileMessage value)? fileMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,7 +165,12 @@ class _$StartedImpl implements _Started {
     required TResult Function() getMessage,
     required TResult Function() newMessage,
     required TResult Function(MessageModel? message_target) targetMessage,
-    required TResult Function(int? type) fileMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
   }) {
     return started();
   }
@@ -146,7 +182,12 @@ class _$StartedImpl implements _Started {
     TResult? Function()? getMessage,
     TResult? Function()? newMessage,
     TResult? Function(MessageModel? message_target)? targetMessage,
-    TResult? Function(int? type)? fileMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
   }) {
     return started?.call();
   }
@@ -158,7 +199,12 @@ class _$StartedImpl implements _Started {
     TResult Function()? getMessage,
     TResult Function()? newMessage,
     TResult Function(MessageModel? message_target)? targetMessage,
-    TResult Function(int? type)? fileMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -174,7 +220,13 @@ class _$StartedImpl implements _Started {
     required TResult Function(GetMessage value) getMessage,
     required TResult Function(NewMessage value) newMessage,
     required TResult Function(TargetMessage value) targetMessage,
-    required TResult Function(FileMessage value) fileMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
   }) {
     return started(this);
   }
@@ -186,7 +238,12 @@ class _$StartedImpl implements _Started {
     TResult? Function(GetMessage value)? getMessage,
     TResult? Function(NewMessage value)? newMessage,
     TResult? Function(TargetMessage value)? targetMessage,
-    TResult? Function(FileMessage value)? fileMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
   }) {
     return started?.call(this);
   }
@@ -198,7 +255,12 @@ class _$StartedImpl implements _Started {
     TResult Function(GetMessage value)? getMessage,
     TResult Function(NewMessage value)? newMessage,
     TResult Function(TargetMessage value)? targetMessage,
-    TResult Function(FileMessage value)? fileMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -254,7 +316,12 @@ class _$GetMessageImpl implements GetMessage {
     required TResult Function() getMessage,
     required TResult Function() newMessage,
     required TResult Function(MessageModel? message_target) targetMessage,
-    required TResult Function(int? type) fileMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
   }) {
     return getMessage();
   }
@@ -266,7 +333,12 @@ class _$GetMessageImpl implements GetMessage {
     TResult? Function()? getMessage,
     TResult? Function()? newMessage,
     TResult? Function(MessageModel? message_target)? targetMessage,
-    TResult? Function(int? type)? fileMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
   }) {
     return getMessage?.call();
   }
@@ -278,7 +350,12 @@ class _$GetMessageImpl implements GetMessage {
     TResult Function()? getMessage,
     TResult Function()? newMessage,
     TResult Function(MessageModel? message_target)? targetMessage,
-    TResult Function(int? type)? fileMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
     required TResult orElse(),
   }) {
     if (getMessage != null) {
@@ -294,7 +371,13 @@ class _$GetMessageImpl implements GetMessage {
     required TResult Function(GetMessage value) getMessage,
     required TResult Function(NewMessage value) newMessage,
     required TResult Function(TargetMessage value) targetMessage,
-    required TResult Function(FileMessage value) fileMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
   }) {
     return getMessage(this);
   }
@@ -306,7 +389,12 @@ class _$GetMessageImpl implements GetMessage {
     TResult? Function(GetMessage value)? getMessage,
     TResult? Function(NewMessage value)? newMessage,
     TResult? Function(TargetMessage value)? targetMessage,
-    TResult? Function(FileMessage value)? fileMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
   }) {
     return getMessage?.call(this);
   }
@@ -318,7 +406,12 @@ class _$GetMessageImpl implements GetMessage {
     TResult Function(GetMessage value)? getMessage,
     TResult Function(NewMessage value)? newMessage,
     TResult Function(TargetMessage value)? targetMessage,
-    TResult Function(FileMessage value)? fileMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
     required TResult orElse(),
   }) {
     if (getMessage != null) {
@@ -374,7 +467,12 @@ class _$NewMessageImpl implements NewMessage {
     required TResult Function() getMessage,
     required TResult Function() newMessage,
     required TResult Function(MessageModel? message_target) targetMessage,
-    required TResult Function(int? type) fileMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
   }) {
     return newMessage();
   }
@@ -386,7 +484,12 @@ class _$NewMessageImpl implements NewMessage {
     TResult? Function()? getMessage,
     TResult? Function()? newMessage,
     TResult? Function(MessageModel? message_target)? targetMessage,
-    TResult? Function(int? type)? fileMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
   }) {
     return newMessage?.call();
   }
@@ -398,7 +501,12 @@ class _$NewMessageImpl implements NewMessage {
     TResult Function()? getMessage,
     TResult Function()? newMessage,
     TResult Function(MessageModel? message_target)? targetMessage,
-    TResult Function(int? type)? fileMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
     required TResult orElse(),
   }) {
     if (newMessage != null) {
@@ -414,7 +522,13 @@ class _$NewMessageImpl implements NewMessage {
     required TResult Function(GetMessage value) getMessage,
     required TResult Function(NewMessage value) newMessage,
     required TResult Function(TargetMessage value) targetMessage,
-    required TResult Function(FileMessage value) fileMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
   }) {
     return newMessage(this);
   }
@@ -426,7 +540,12 @@ class _$NewMessageImpl implements NewMessage {
     TResult? Function(GetMessage value)? getMessage,
     TResult? Function(NewMessage value)? newMessage,
     TResult? Function(TargetMessage value)? targetMessage,
-    TResult? Function(FileMessage value)? fileMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
   }) {
     return newMessage?.call(this);
   }
@@ -438,7 +557,12 @@ class _$NewMessageImpl implements NewMessage {
     TResult Function(GetMessage value)? getMessage,
     TResult Function(NewMessage value)? newMessage,
     TResult Function(TargetMessage value)? targetMessage,
-    TResult Function(FileMessage value)? fileMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
     required TResult orElse(),
   }) {
     if (newMessage != null) {
@@ -521,7 +645,12 @@ class _$TargetMessageImpl implements TargetMessage {
     required TResult Function() getMessage,
     required TResult Function() newMessage,
     required TResult Function(MessageModel? message_target) targetMessage,
-    required TResult Function(int? type) fileMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
   }) {
     return targetMessage(message_target);
   }
@@ -533,7 +662,12 @@ class _$TargetMessageImpl implements TargetMessage {
     TResult? Function()? getMessage,
     TResult? Function()? newMessage,
     TResult? Function(MessageModel? message_target)? targetMessage,
-    TResult? Function(int? type)? fileMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
   }) {
     return targetMessage?.call(message_target);
   }
@@ -545,7 +679,12 @@ class _$TargetMessageImpl implements TargetMessage {
     TResult Function()? getMessage,
     TResult Function()? newMessage,
     TResult Function(MessageModel? message_target)? targetMessage,
-    TResult Function(int? type)? fileMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
     required TResult orElse(),
   }) {
     if (targetMessage != null) {
@@ -561,7 +700,13 @@ class _$TargetMessageImpl implements TargetMessage {
     required TResult Function(GetMessage value) getMessage,
     required TResult Function(NewMessage value) newMessage,
     required TResult Function(TargetMessage value) targetMessage,
-    required TResult Function(FileMessage value) fileMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
   }) {
     return targetMessage(this);
   }
@@ -573,7 +718,12 @@ class _$TargetMessageImpl implements TargetMessage {
     TResult? Function(GetMessage value)? getMessage,
     TResult? Function(NewMessage value)? newMessage,
     TResult? Function(TargetMessage value)? targetMessage,
-    TResult? Function(FileMessage value)? fileMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
   }) {
     return targetMessage?.call(this);
   }
@@ -585,7 +735,12 @@ class _$TargetMessageImpl implements TargetMessage {
     TResult Function(GetMessage value)? getMessage,
     TResult Function(NewMessage value)? newMessage,
     TResult Function(TargetMessage value)? targetMessage,
-    TResult Function(FileMessage value)? fileMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
     required TResult orElse(),
   }) {
     if (targetMessage != null) {
@@ -606,20 +761,20 @@ abstract class TargetMessage implements CallCenterEvent {
 }
 
 /// @nodoc
-abstract class _$$FileMessageImplCopyWith<$Res> {
-  factory _$$FileMessageImplCopyWith(
-          _$FileMessageImpl value, $Res Function(_$FileMessageImpl) then) =
-      __$$FileMessageImplCopyWithImpl<$Res>;
+abstract class _$$FilesMessageImplCopyWith<$Res> {
+  factory _$$FilesMessageImplCopyWith(
+          _$FilesMessageImpl value, $Res Function(_$FilesMessageImpl) then) =
+      __$$FilesMessageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int? type});
 }
 
 /// @nodoc
-class __$$FileMessageImplCopyWithImpl<$Res>
-    extends _$CallCenterEventCopyWithImpl<$Res, _$FileMessageImpl>
-    implements _$$FileMessageImplCopyWith<$Res> {
-  __$$FileMessageImplCopyWithImpl(
-      _$FileMessageImpl _value, $Res Function(_$FileMessageImpl) _then)
+class __$$FilesMessageImplCopyWithImpl<$Res>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$FilesMessageImpl>
+    implements _$$FilesMessageImplCopyWith<$Res> {
+  __$$FilesMessageImplCopyWithImpl(
+      _$FilesMessageImpl _value, $Res Function(_$FilesMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -627,7 +782,7 @@ class __$$FileMessageImplCopyWithImpl<$Res>
   $Res call({
     Object? type = freezed,
   }) {
-    return _then(_$FileMessageImpl(
+    return _then(_$FilesMessageImpl(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -638,22 +793,22 @@ class __$$FileMessageImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FileMessageImpl implements FileMessage {
-  const _$FileMessageImpl({this.type});
+class _$FilesMessageImpl implements FilesMessage {
+  const _$FilesMessageImpl({this.type});
 
   @override
   final int? type;
 
   @override
   String toString() {
-    return 'CallCenterEvent.fileMessage(type: $type)';
+    return 'CallCenterEvent.filesMessage(type: $type)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FileMessageImpl &&
+            other is _$FilesMessageImpl &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -663,8 +818,8 @@ class _$FileMessageImpl implements FileMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FileMessageImplCopyWith<_$FileMessageImpl> get copyWith =>
-      __$$FileMessageImplCopyWithImpl<_$FileMessageImpl>(this, _$identity);
+  _$$FilesMessageImplCopyWith<_$FilesMessageImpl> get copyWith =>
+      __$$FilesMessageImplCopyWithImpl<_$FilesMessageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -673,9 +828,14 @@ class _$FileMessageImpl implements FileMessage {
     required TResult Function() getMessage,
     required TResult Function() newMessage,
     required TResult Function(MessageModel? message_target) targetMessage,
-    required TResult Function(int? type) fileMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
   }) {
-    return fileMessage(type);
+    return filesMessage(type);
   }
 
   @override
@@ -685,9 +845,14 @@ class _$FileMessageImpl implements FileMessage {
     TResult? Function()? getMessage,
     TResult? Function()? newMessage,
     TResult? Function(MessageModel? message_target)? targetMessage,
-    TResult? Function(int? type)? fileMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
   }) {
-    return fileMessage?.call(type);
+    return filesMessage?.call(type);
   }
 
   @override
@@ -697,11 +862,16 @@ class _$FileMessageImpl implements FileMessage {
     TResult Function()? getMessage,
     TResult Function()? newMessage,
     TResult Function(MessageModel? message_target)? targetMessage,
-    TResult Function(int? type)? fileMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
     required TResult orElse(),
   }) {
-    if (fileMessage != null) {
-      return fileMessage(type);
+    if (filesMessage != null) {
+      return filesMessage(type);
     }
     return orElse();
   }
@@ -713,9 +883,15 @@ class _$FileMessageImpl implements FileMessage {
     required TResult Function(GetMessage value) getMessage,
     required TResult Function(NewMessage value) newMessage,
     required TResult Function(TargetMessage value) targetMessage,
-    required TResult Function(FileMessage value) fileMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
   }) {
-    return fileMessage(this);
+    return filesMessage(this);
   }
 
   @override
@@ -725,9 +901,14 @@ class _$FileMessageImpl implements FileMessage {
     TResult? Function(GetMessage value)? getMessage,
     TResult? Function(NewMessage value)? newMessage,
     TResult? Function(TargetMessage value)? targetMessage,
-    TResult? Function(FileMessage value)? fileMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
   }) {
-    return fileMessage?.call(this);
+    return filesMessage?.call(this);
   }
 
   @override
@@ -737,23 +918,916 @@ class _$FileMessageImpl implements FileMessage {
     TResult Function(GetMessage value)? getMessage,
     TResult Function(NewMessage value)? newMessage,
     TResult Function(TargetMessage value)? targetMessage,
-    TResult Function(FileMessage value)? fileMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
     required TResult orElse(),
   }) {
-    if (fileMessage != null) {
-      return fileMessage(this);
+    if (filesMessage != null) {
+      return filesMessage(this);
     }
     return orElse();
   }
 }
 
-abstract class FileMessage implements CallCenterEvent {
-  const factory FileMessage({final int? type}) = _$FileMessageImpl;
+abstract class FilesMessage implements CallCenterEvent {
+  const factory FilesMessage({final int? type}) = _$FilesMessageImpl;
 
   int? get type;
   @JsonKey(ignore: true)
-  _$$FileMessageImplCopyWith<_$FileMessageImpl> get copyWith =>
+  _$$FilesMessageImplCopyWith<_$FilesMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveFilesMessageImplCopyWith<$Res> {
+  factory _$$RemoveFilesMessageImplCopyWith(_$RemoveFilesMessageImpl value,
+          $Res Function(_$RemoveFilesMessageImpl) then) =
+      __$$RemoveFilesMessageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({XFile? file});
+}
+
+/// @nodoc
+class __$$RemoveFilesMessageImplCopyWithImpl<$Res>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$RemoveFilesMessageImpl>
+    implements _$$RemoveFilesMessageImplCopyWith<$Res> {
+  __$$RemoveFilesMessageImplCopyWithImpl(_$RemoveFilesMessageImpl _value,
+      $Res Function(_$RemoveFilesMessageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? file = freezed,
+  }) {
+    return _then(_$RemoveFilesMessageImpl(
+      file: freezed == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveFilesMessageImpl implements RemoveFilesMessage {
+  const _$RemoveFilesMessageImpl({this.file});
+
+  @override
+  final XFile? file;
+
+  @override
+  String toString() {
+    return 'CallCenterEvent.removeFilesMessage(file: $file)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveFilesMessageImpl &&
+            (identical(other.file, file) || other.file == file));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, file);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveFilesMessageImplCopyWith<_$RemoveFilesMessageImpl> get copyWith =>
+      __$$RemoveFilesMessageImplCopyWithImpl<_$RemoveFilesMessageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMessage,
+    required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
+  }) {
+    return removeFilesMessage(file);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getMessage,
+    TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
+  }) {
+    return removeFilesMessage?.call(file);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMessage,
+    TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
+    required TResult orElse(),
+  }) {
+    if (removeFilesMessage != null) {
+      return removeFilesMessage(file);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetMessage value) getMessage,
+    required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
+  }) {
+    return removeFilesMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetMessage value)? getMessage,
+    TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
+  }) {
+    return removeFilesMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetMessage value)? getMessage,
+    TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
+    required TResult orElse(),
+  }) {
+    if (removeFilesMessage != null) {
+      return removeFilesMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveFilesMessage implements CallCenterEvent {
+  const factory RemoveFilesMessage({final XFile? file}) =
+      _$RemoveFilesMessageImpl;
+
+  XFile? get file;
+  @JsonKey(ignore: true)
+  _$$RemoveFilesMessageImplCopyWith<_$RemoveFilesMessageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteMessageImplCopyWith<$Res> {
+  factory _$$DeleteMessageImplCopyWith(
+          _$DeleteMessageImpl value, $Res Function(_$DeleteMessageImpl) then) =
+      __$$DeleteMessageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MessageModel? message});
+}
+
+/// @nodoc
+class __$$DeleteMessageImplCopyWithImpl<$Res>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$DeleteMessageImpl>
+    implements _$$DeleteMessageImplCopyWith<$Res> {
+  __$$DeleteMessageImplCopyWithImpl(
+      _$DeleteMessageImpl _value, $Res Function(_$DeleteMessageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$DeleteMessageImpl(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as MessageModel?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteMessageImpl implements DeleteMessage {
+  const _$DeleteMessageImpl({this.message});
+
+  @override
+  final MessageModel? message;
+
+  @override
+  String toString() {
+    return 'CallCenterEvent.deleteMessage(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteMessageImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteMessageImplCopyWith<_$DeleteMessageImpl> get copyWith =>
+      __$$DeleteMessageImplCopyWithImpl<_$DeleteMessageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMessage,
+    required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
+  }) {
+    return deleteMessage(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getMessage,
+    TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
+  }) {
+    return deleteMessage?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMessage,
+    TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
+    required TResult orElse(),
+  }) {
+    if (deleteMessage != null) {
+      return deleteMessage(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetMessage value) getMessage,
+    required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
+  }) {
+    return deleteMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetMessage value)? getMessage,
+    TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
+  }) {
+    return deleteMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetMessage value)? getMessage,
+    TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
+    required TResult orElse(),
+  }) {
+    if (deleteMessage != null) {
+      return deleteMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteMessage implements CallCenterEvent {
+  const factory DeleteMessage({final MessageModel? message}) =
+      _$DeleteMessageImpl;
+
+  MessageModel? get message;
+  @JsonKey(ignore: true)
+  _$$DeleteMessageImplCopyWith<_$DeleteMessageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetMessageToUpdateImplCopyWith<$Res> {
+  factory _$$SetMessageToUpdateImplCopyWith(_$SetMessageToUpdateImpl value,
+          $Res Function(_$SetMessageToUpdateImpl) then) =
+      __$$SetMessageToUpdateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MessageModel? message});
+}
+
+/// @nodoc
+class __$$SetMessageToUpdateImplCopyWithImpl<$Res>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$SetMessageToUpdateImpl>
+    implements _$$SetMessageToUpdateImplCopyWith<$Res> {
+  __$$SetMessageToUpdateImplCopyWithImpl(_$SetMessageToUpdateImpl _value,
+      $Res Function(_$SetMessageToUpdateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$SetMessageToUpdateImpl(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as MessageModel?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetMessageToUpdateImpl implements SetMessageToUpdate {
+  const _$SetMessageToUpdateImpl({this.message});
+
+  @override
+  final MessageModel? message;
+
+  @override
+  String toString() {
+    return 'CallCenterEvent.setMessageToUpdate(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetMessageToUpdateImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetMessageToUpdateImplCopyWith<_$SetMessageToUpdateImpl> get copyWith =>
+      __$$SetMessageToUpdateImplCopyWithImpl<_$SetMessageToUpdateImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMessage,
+    required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
+  }) {
+    return setMessageToUpdate(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getMessage,
+    TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
+  }) {
+    return setMessageToUpdate?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMessage,
+    TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
+    required TResult orElse(),
+  }) {
+    if (setMessageToUpdate != null) {
+      return setMessageToUpdate(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetMessage value) getMessage,
+    required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
+  }) {
+    return setMessageToUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetMessage value)? getMessage,
+    TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
+  }) {
+    return setMessageToUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetMessage value)? getMessage,
+    TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
+    required TResult orElse(),
+  }) {
+    if (setMessageToUpdate != null) {
+      return setMessageToUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetMessageToUpdate implements CallCenterEvent {
+  const factory SetMessageToUpdate({final MessageModel? message}) =
+      _$SetMessageToUpdateImpl;
+
+  MessageModel? get message;
+  @JsonKey(ignore: true)
+  _$$SetMessageToUpdateImplCopyWith<_$SetMessageToUpdateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CancelSetMessageToUpdateImplCopyWith<$Res> {
+  factory _$$CancelSetMessageToUpdateImplCopyWith(
+          _$CancelSetMessageToUpdateImpl value,
+          $Res Function(_$CancelSetMessageToUpdateImpl) then) =
+      __$$CancelSetMessageToUpdateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MessageModel? message});
+}
+
+/// @nodoc
+class __$$CancelSetMessageToUpdateImplCopyWithImpl<$Res>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$CancelSetMessageToUpdateImpl>
+    implements _$$CancelSetMessageToUpdateImplCopyWith<$Res> {
+  __$$CancelSetMessageToUpdateImplCopyWithImpl(
+      _$CancelSetMessageToUpdateImpl _value,
+      $Res Function(_$CancelSetMessageToUpdateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$CancelSetMessageToUpdateImpl(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as MessageModel?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CancelSetMessageToUpdateImpl implements CancelSetMessageToUpdate {
+  const _$CancelSetMessageToUpdateImpl({this.message});
+
+  @override
+  final MessageModel? message;
+
+  @override
+  String toString() {
+    return 'CallCenterEvent.cancelSetMessageToUpdate(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CancelSetMessageToUpdateImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CancelSetMessageToUpdateImplCopyWith<_$CancelSetMessageToUpdateImpl>
+      get copyWith => __$$CancelSetMessageToUpdateImplCopyWithImpl<
+          _$CancelSetMessageToUpdateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMessage,
+    required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
+  }) {
+    return cancelSetMessageToUpdate(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getMessage,
+    TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
+  }) {
+    return cancelSetMessageToUpdate?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMessage,
+    TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
+    required TResult orElse(),
+  }) {
+    if (cancelSetMessageToUpdate != null) {
+      return cancelSetMessageToUpdate(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetMessage value) getMessage,
+    required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
+  }) {
+    return cancelSetMessageToUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetMessage value)? getMessage,
+    TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
+  }) {
+    return cancelSetMessageToUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetMessage value)? getMessage,
+    TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
+    required TResult orElse(),
+  }) {
+    if (cancelSetMessageToUpdate != null) {
+      return cancelSetMessageToUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CancelSetMessageToUpdate implements CallCenterEvent {
+  const factory CancelSetMessageToUpdate({final MessageModel? message}) =
+      _$CancelSetMessageToUpdateImpl;
+
+  MessageModel? get message;
+  @JsonKey(ignore: true)
+  _$$CancelSetMessageToUpdateImplCopyWith<_$CancelSetMessageToUpdateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateMessageImplCopyWith<$Res> {
+  factory _$$UpdateMessageImplCopyWith(
+          _$UpdateMessageImpl value, $Res Function(_$UpdateMessageImpl) then) =
+      __$$UpdateMessageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateMessageImplCopyWithImpl<$Res>
+    extends _$CallCenterEventCopyWithImpl<$Res, _$UpdateMessageImpl>
+    implements _$$UpdateMessageImplCopyWith<$Res> {
+  __$$UpdateMessageImplCopyWithImpl(
+      _$UpdateMessageImpl _value, $Res Function(_$UpdateMessageImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateMessageImpl implements UpdateMessage {
+  const _$UpdateMessageImpl();
+
+  @override
+  String toString() {
+    return 'CallCenterEvent.updateMessage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdateMessageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMessage,
+    required TResult Function() newMessage,
+    required TResult Function(MessageModel? message_target) targetMessage,
+    required TResult Function(int? type) filesMessage,
+    required TResult Function(XFile? file) removeFilesMessage,
+    required TResult Function(MessageModel? message) deleteMessage,
+    required TResult Function(MessageModel? message) setMessageToUpdate,
+    required TResult Function(MessageModel? message) cancelSetMessageToUpdate,
+    required TResult Function() updateMessage,
+  }) {
+    return updateMessage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getMessage,
+    TResult? Function()? newMessage,
+    TResult? Function(MessageModel? message_target)? targetMessage,
+    TResult? Function(int? type)? filesMessage,
+    TResult? Function(XFile? file)? removeFilesMessage,
+    TResult? Function(MessageModel? message)? deleteMessage,
+    TResult? Function(MessageModel? message)? setMessageToUpdate,
+    TResult? Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult? Function()? updateMessage,
+  }) {
+    return updateMessage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMessage,
+    TResult Function()? newMessage,
+    TResult Function(MessageModel? message_target)? targetMessage,
+    TResult Function(int? type)? filesMessage,
+    TResult Function(XFile? file)? removeFilesMessage,
+    TResult Function(MessageModel? message)? deleteMessage,
+    TResult Function(MessageModel? message)? setMessageToUpdate,
+    TResult Function(MessageModel? message)? cancelSetMessageToUpdate,
+    TResult Function()? updateMessage,
+    required TResult orElse(),
+  }) {
+    if (updateMessage != null) {
+      return updateMessage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(GetMessage value) getMessage,
+    required TResult Function(NewMessage value) newMessage,
+    required TResult Function(TargetMessage value) targetMessage,
+    required TResult Function(FilesMessage value) filesMessage,
+    required TResult Function(RemoveFilesMessage value) removeFilesMessage,
+    required TResult Function(DeleteMessage value) deleteMessage,
+    required TResult Function(SetMessageToUpdate value) setMessageToUpdate,
+    required TResult Function(CancelSetMessageToUpdate value)
+        cancelSetMessageToUpdate,
+    required TResult Function(UpdateMessage value) updateMessage,
+  }) {
+    return updateMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(GetMessage value)? getMessage,
+    TResult? Function(NewMessage value)? newMessage,
+    TResult? Function(TargetMessage value)? targetMessage,
+    TResult? Function(FilesMessage value)? filesMessage,
+    TResult? Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult? Function(DeleteMessage value)? deleteMessage,
+    TResult? Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult? Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult? Function(UpdateMessage value)? updateMessage,
+  }) {
+    return updateMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(GetMessage value)? getMessage,
+    TResult Function(NewMessage value)? newMessage,
+    TResult Function(TargetMessage value)? targetMessage,
+    TResult Function(FilesMessage value)? filesMessage,
+    TResult Function(RemoveFilesMessage value)? removeFilesMessage,
+    TResult Function(DeleteMessage value)? deleteMessage,
+    TResult Function(SetMessageToUpdate value)? setMessageToUpdate,
+    TResult Function(CancelSetMessageToUpdate value)? cancelSetMessageToUpdate,
+    TResult Function(UpdateMessage value)? updateMessage,
+    required TResult orElse(),
+  }) {
+    if (updateMessage != null) {
+      return updateMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateMessage implements CallCenterEvent {
+  const factory UpdateMessage() = _$UpdateMessageImpl;
 }
 
 /// @nodoc
@@ -761,11 +1835,15 @@ mixin _$CallCenterState {
   TextEditingController? get messageText => throw _privateConstructorUsedError;
   int? get isLoadMessageCallCenter => throw _privateConstructorUsedError;
   int? get isLoadSend => throw _privateConstructorUsedError;
+  bool get isToUpdate => throw _privateConstructorUsedError;
+  String? get typeFile => throw _privateConstructorUsedError;
   ScrollController? get callcenterSrollController =>
       throw _privateConstructorUsedError;
   MessageModel? get message_target => throw _privateConstructorUsedError;
-  XFile? get fileMessage => throw _privateConstructorUsedError;
+  MessageModel? get messageSelected => throw _privateConstructorUsedError;
+  List<XFile>? get filesMessage => throw _privateConstructorUsedError;
   List<MessageModel>? get messages => throw _privateConstructorUsedError;
+  FocusNode? get focusNode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CallCenterStateCopyWith<CallCenterState> get copyWith =>
@@ -782,10 +1860,14 @@ abstract class $CallCenterStateCopyWith<$Res> {
       {TextEditingController? messageText,
       int? isLoadMessageCallCenter,
       int? isLoadSend,
+      bool isToUpdate,
+      String? typeFile,
       ScrollController? callcenterSrollController,
       MessageModel? message_target,
-      XFile? fileMessage,
-      List<MessageModel>? messages});
+      MessageModel? messageSelected,
+      List<XFile>? filesMessage,
+      List<MessageModel>? messages,
+      FocusNode? focusNode});
 }
 
 /// @nodoc
@@ -804,10 +1886,14 @@ class _$CallCenterStateCopyWithImpl<$Res, $Val extends CallCenterState>
     Object? messageText = freezed,
     Object? isLoadMessageCallCenter = freezed,
     Object? isLoadSend = freezed,
+    Object? isToUpdate = null,
+    Object? typeFile = freezed,
     Object? callcenterSrollController = freezed,
     Object? message_target = freezed,
-    Object? fileMessage = freezed,
+    Object? messageSelected = freezed,
+    Object? filesMessage = freezed,
     Object? messages = freezed,
+    Object? focusNode = freezed,
   }) {
     return _then(_value.copyWith(
       messageText: freezed == messageText
@@ -822,6 +1908,14 @@ class _$CallCenterStateCopyWithImpl<$Res, $Val extends CallCenterState>
           ? _value.isLoadSend
           : isLoadSend // ignore: cast_nullable_to_non_nullable
               as int?,
+      isToUpdate: null == isToUpdate
+          ? _value.isToUpdate
+          : isToUpdate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      typeFile: freezed == typeFile
+          ? _value.typeFile
+          : typeFile // ignore: cast_nullable_to_non_nullable
+              as String?,
       callcenterSrollController: freezed == callcenterSrollController
           ? _value.callcenterSrollController
           : callcenterSrollController // ignore: cast_nullable_to_non_nullable
@@ -830,14 +1924,22 @@ class _$CallCenterStateCopyWithImpl<$Res, $Val extends CallCenterState>
           ? _value.message_target
           : message_target // ignore: cast_nullable_to_non_nullable
               as MessageModel?,
-      fileMessage: freezed == fileMessage
-          ? _value.fileMessage
-          : fileMessage // ignore: cast_nullable_to_non_nullable
-              as XFile?,
+      messageSelected: freezed == messageSelected
+          ? _value.messageSelected
+          : messageSelected // ignore: cast_nullable_to_non_nullable
+              as MessageModel?,
+      filesMessage: freezed == filesMessage
+          ? _value.filesMessage
+          : filesMessage // ignore: cast_nullable_to_non_nullable
+              as List<XFile>?,
       messages: freezed == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<MessageModel>?,
+      focusNode: freezed == focusNode
+          ? _value.focusNode
+          : focusNode // ignore: cast_nullable_to_non_nullable
+              as FocusNode?,
     ) as $Val);
   }
 }
@@ -854,10 +1956,14 @@ abstract class _$$CallCenterStateImplCopyWith<$Res>
       {TextEditingController? messageText,
       int? isLoadMessageCallCenter,
       int? isLoadSend,
+      bool isToUpdate,
+      String? typeFile,
       ScrollController? callcenterSrollController,
       MessageModel? message_target,
-      XFile? fileMessage,
-      List<MessageModel>? messages});
+      MessageModel? messageSelected,
+      List<XFile>? filesMessage,
+      List<MessageModel>? messages,
+      FocusNode? focusNode});
 }
 
 /// @nodoc
@@ -874,10 +1980,14 @@ class __$$CallCenterStateImplCopyWithImpl<$Res>
     Object? messageText = freezed,
     Object? isLoadMessageCallCenter = freezed,
     Object? isLoadSend = freezed,
+    Object? isToUpdate = null,
+    Object? typeFile = freezed,
     Object? callcenterSrollController = freezed,
     Object? message_target = freezed,
-    Object? fileMessage = freezed,
+    Object? messageSelected = freezed,
+    Object? filesMessage = freezed,
     Object? messages = freezed,
+    Object? focusNode = freezed,
   }) {
     return _then(_$CallCenterStateImpl(
       messageText: freezed == messageText
@@ -892,6 +2002,14 @@ class __$$CallCenterStateImplCopyWithImpl<$Res>
           ? _value.isLoadSend
           : isLoadSend // ignore: cast_nullable_to_non_nullable
               as int?,
+      isToUpdate: null == isToUpdate
+          ? _value.isToUpdate
+          : isToUpdate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      typeFile: freezed == typeFile
+          ? _value.typeFile
+          : typeFile // ignore: cast_nullable_to_non_nullable
+              as String?,
       callcenterSrollController: freezed == callcenterSrollController
           ? _value.callcenterSrollController
           : callcenterSrollController // ignore: cast_nullable_to_non_nullable
@@ -900,14 +2018,22 @@ class __$$CallCenterStateImplCopyWithImpl<$Res>
           ? _value.message_target
           : message_target // ignore: cast_nullable_to_non_nullable
               as MessageModel?,
-      fileMessage: freezed == fileMessage
-          ? _value.fileMessage
-          : fileMessage // ignore: cast_nullable_to_non_nullable
-              as XFile?,
+      messageSelected: freezed == messageSelected
+          ? _value.messageSelected
+          : messageSelected // ignore: cast_nullable_to_non_nullable
+              as MessageModel?,
+      filesMessage: freezed == filesMessage
+          ? _value._filesMessage
+          : filesMessage // ignore: cast_nullable_to_non_nullable
+              as List<XFile>?,
       messages: freezed == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<MessageModel>?,
+      focusNode: freezed == focusNode
+          ? _value.focusNode
+          : focusNode // ignore: cast_nullable_to_non_nullable
+              as FocusNode?,
     ));
   }
 }
@@ -919,11 +2045,16 @@ class _$CallCenterStateImpl implements _CallCenterState {
       {this.messageText,
       this.isLoadMessageCallCenter,
       this.isLoadSend,
+      required this.isToUpdate,
+      this.typeFile,
       this.callcenterSrollController,
       this.message_target,
-      this.fileMessage,
-      final List<MessageModel>? messages})
-      : _messages = messages;
+      this.messageSelected,
+      final List<XFile>? filesMessage,
+      final List<MessageModel>? messages,
+      this.focusNode})
+      : _filesMessage = filesMessage,
+        _messages = messages;
 
   @override
   final TextEditingController? messageText;
@@ -932,11 +2063,25 @@ class _$CallCenterStateImpl implements _CallCenterState {
   @override
   final int? isLoadSend;
   @override
+  final bool isToUpdate;
+  @override
+  final String? typeFile;
+  @override
   final ScrollController? callcenterSrollController;
   @override
   final MessageModel? message_target;
   @override
-  final XFile? fileMessage;
+  final MessageModel? messageSelected;
+  final List<XFile>? _filesMessage;
+  @override
+  List<XFile>? get filesMessage {
+    final value = _filesMessage;
+    if (value == null) return null;
+    if (_filesMessage is EqualUnmodifiableListView) return _filesMessage;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   final List<MessageModel>? _messages;
   @override
   List<MessageModel>? get messages {
@@ -948,8 +2093,11 @@ class _$CallCenterStateImpl implements _CallCenterState {
   }
 
   @override
+  final FocusNode? focusNode;
+
+  @override
   String toString() {
-    return 'CallCenterState(messageText: $messageText, isLoadMessageCallCenter: $isLoadMessageCallCenter, isLoadSend: $isLoadSend, callcenterSrollController: $callcenterSrollController, message_target: $message_target, fileMessage: $fileMessage, messages: $messages)';
+    return 'CallCenterState(messageText: $messageText, isLoadMessageCallCenter: $isLoadMessageCallCenter, isLoadSend: $isLoadSend, isToUpdate: $isToUpdate, typeFile: $typeFile, callcenterSrollController: $callcenterSrollController, message_target: $message_target, messageSelected: $messageSelected, filesMessage: $filesMessage, messages: $messages, focusNode: $focusNode)';
   }
 
   @override
@@ -964,14 +2112,22 @@ class _$CallCenterStateImpl implements _CallCenterState {
                 other.isLoadMessageCallCenter == isLoadMessageCallCenter) &&
             (identical(other.isLoadSend, isLoadSend) ||
                 other.isLoadSend == isLoadSend) &&
+            (identical(other.isToUpdate, isToUpdate) ||
+                other.isToUpdate == isToUpdate) &&
+            (identical(other.typeFile, typeFile) ||
+                other.typeFile == typeFile) &&
             (identical(other.callcenterSrollController,
                     callcenterSrollController) ||
                 other.callcenterSrollController == callcenterSrollController) &&
             (identical(other.message_target, message_target) ||
                 other.message_target == message_target) &&
-            (identical(other.fileMessage, fileMessage) ||
-                other.fileMessage == fileMessage) &&
-            const DeepCollectionEquality().equals(other._messages, _messages));
+            (identical(other.messageSelected, messageSelected) ||
+                other.messageSelected == messageSelected) &&
+            const DeepCollectionEquality()
+                .equals(other._filesMessage, _filesMessage) &&
+            const DeepCollectionEquality().equals(other._messages, _messages) &&
+            (identical(other.focusNode, focusNode) ||
+                other.focusNode == focusNode));
   }
 
   @override
@@ -980,10 +2136,14 @@ class _$CallCenterStateImpl implements _CallCenterState {
       messageText,
       isLoadMessageCallCenter,
       isLoadSend,
+      isToUpdate,
+      typeFile,
       callcenterSrollController,
       message_target,
-      fileMessage,
-      const DeepCollectionEquality().hash(_messages));
+      messageSelected,
+      const DeepCollectionEquality().hash(_filesMessage),
+      const DeepCollectionEquality().hash(_messages),
+      focusNode);
 
   @JsonKey(ignore: true)
   @override
@@ -998,10 +2158,14 @@ abstract class _CallCenterState implements CallCenterState {
       {final TextEditingController? messageText,
       final int? isLoadMessageCallCenter,
       final int? isLoadSend,
+      required final bool isToUpdate,
+      final String? typeFile,
       final ScrollController? callcenterSrollController,
       final MessageModel? message_target,
-      final XFile? fileMessage,
-      final List<MessageModel>? messages}) = _$CallCenterStateImpl;
+      final MessageModel? messageSelected,
+      final List<XFile>? filesMessage,
+      final List<MessageModel>? messages,
+      final FocusNode? focusNode}) = _$CallCenterStateImpl;
 
   @override
   TextEditingController? get messageText;
@@ -1010,13 +2174,21 @@ abstract class _CallCenterState implements CallCenterState {
   @override
   int? get isLoadSend;
   @override
+  bool get isToUpdate;
+  @override
+  String? get typeFile;
+  @override
   ScrollController? get callcenterSrollController;
   @override
   MessageModel? get message_target;
   @override
-  XFile? get fileMessage;
+  MessageModel? get messageSelected;
+  @override
+  List<XFile>? get filesMessage;
   @override
   List<MessageModel>? get messages;
+  @override
+  FocusNode? get focusNode;
   @override
   @JsonKey(ignore: true)
   _$$CallCenterStateImplCopyWith<_$CallCenterStateImpl> get copyWith =>

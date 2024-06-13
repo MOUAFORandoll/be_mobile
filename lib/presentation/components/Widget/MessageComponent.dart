@@ -1,9 +1,6 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/data/MessageModel.dart';
-import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
-import 'package:BabanaExpress/utils/functions/formatData.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:BabanaExpress/presentation/components/Widget/load_file_online.dart';
 
 import '../exportcomponent.dart';
 
@@ -44,13 +41,15 @@ class _MessageComponentState extends State<MessageComponent>
   }
 
   void _onHorizontalDragUpdate(DragUpdateDetails details) {
-    if (details.primaryDelta! > 0) {
-      _controller.forward().then((value) {
-        _controller.reverse(); // Automatically reverse after forwarding
-      });
-      context
-          .read<CallCenterBloc>()
-          .add(TargetMessage(message_target: widget.message));
+    if (!widget.message.isDelete) {
+      if (details.primaryDelta! > 0) {
+        _controller.forward().then((value) {
+          _controller.reverse(); // Automatically reverse after forwarding
+        });
+        context
+            .read<CallCenterBloc>()
+            .add(TargetMessage(message_target: widget.message));
+      }
     }
   }
 
@@ -79,6 +78,11 @@ class _MessageComponentState extends State<MessageComponent>
         : ColorsApp.white;
 
     return GestureDetector(
+      onLongPressStart: (details) {
+        if (!widget.message.isDelete) {
+          _showPopupMenu(context, details.globalPosition, widget.message);
+        }
+      },
       onHorizontalDragUpdate: _onHorizontalDragUpdate,
       onHorizontalDragEnd: _onHorizontalDragEnd,
       child: SlideTransition(
@@ -92,11 +96,13 @@ class _MessageComponentState extends State<MessageComponent>
                 ? MainAxisAlignment.end
                 : MainAxisAlignment.start,
             children: [
-              (widget.message.messageTarget != null)
-                  ? Container(
+              Column(
+                children: [
+                  Container(
                       margin: EdgeInsets.only(bottom: kMarginY / 2),
                       decoration: BoxDecoration(
-                          borderRadius: !widget.message.isCallCenter
+                          borderRadius: BorderRadius.circular(10),
+                          /*  !widget.message.isCallCenter
                               ? BorderRadius.only(
                                   topLeft: Radius.circular(10),
                                   bottomLeft: Radius.circular(10),
@@ -104,7 +110,7 @@ class _MessageComponentState extends State<MessageComponent>
                               : BorderRadius.only(
                                   topRight: Radius.circular(10),
                                   bottomLeft: Radius.circular(10),
-                                  bottomRight: Radius.circular(10)),
+                                  bottomRight: Radius.circular(10)), */
                           color: color.withOpacity(0.8)),
                       constraints: BoxConstraints(
                         maxWidth: getWith(context) * .50,
@@ -114,118 +120,139 @@ class _MessageComponentState extends State<MessageComponent>
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: colorInter),
-                              padding: EdgeInsets.all(3),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 35,
-                                    width: 4,
-                                    decoration: BoxDecoration(
-                                        color: colorDrag,
-                                        borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(30),
-                                            bottomLeft: Radius.circular(30),
-                                            bottomRight: Radius.circular(30))),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(
-                                        horizontal: kMarginX / 2),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                            child: widget.message.messageTarget!
-                                                    .isCallCenter
-                                                ? Text('Call Center',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Lato',
-                                                        color: ColorsApp.tird,
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w600))
-                                                : Text('Vous',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Lato',
-                                                        color: ColorsApp.second,
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w600))),
-                                        Text(
-                                            widget
-                                                .message.messageTarget!.message,
-                                            style: TextStyle(
-                                              fontFamily: 'Lato',
-                                              color: colorText2.withOpacity(.5),
-                                            )),
-                                      ],
+                            if (widget.message.messageTarget != null)
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: colorInter),
+                                padding: EdgeInsets.all(3),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      height: 35,
+                                      width: 4,
+                                      decoration: BoxDecoration(
+                                          color: colorDrag,
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(30),
+                                              bottomLeft: Radius.circular(30),
+                                              bottomRight:
+                                                  Radius.circular(30))),
                                     ),
-                                  ),
-                                ],
+                                    Container(
+                                      margin: EdgeInsets.symmetric(
+                                          horizontal: kMarginX / 2),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                              child: widget
+                                                      .message
+                                                      .messageTarget!
+                                                      .isCallCenter
+                                                  ? Text('Call Center',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Lato',
+                                                          color: ColorsApp.tird,
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w600))
+                                                  : Text('Vous',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Lato',
+                                                          color:
+                                                              ColorsApp.second,
+                                                          fontSize: 12,
+                                                          fontWeight: FontWeight
+                                                              .w600))),
+                                          Text(
+                                              widget.message.messageTarget!
+                                                  .message,
+                                              style: TextStyle(
+                                                fontFamily: 'Lato',
+                                                color:
+                                                    colorText2.withOpacity(.5),
+                                              )),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
+                            if (widget.message.attachFile.isNotEmpty)
+                              SingleChildScrollView(
+                                  child: widget.message.attachFile.length == 1
+                                      ? Container(
+                                          height: 150,
+                                          child: LoadFileOnlineWidget(
+                                              file:
+                                                  widget.message.attachFile[0]))
+                                      : Container(
+                                          // height: 150,
+                                          child: GridView.builder(
+                                              shrinkWrap: true,
+                                              physics:
+                                                  NeverScrollableScrollPhysics(),
+                                              gridDelegate:
+                                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                                      crossAxisCount: 2,
+                                                      crossAxisSpacing: 1.0,
+                                                      childAspectRatio: 1,
+                                                      mainAxisExtent: 180,
+                                                      mainAxisSpacing: 1.0),
+                                              itemCount: widget
+                                                  .message.attachFile.length,
+                                              itemBuilder: (_ctx, index) =>
+                                                  LoadFileOnlineWidget(
+                                                      file: widget.message
+                                                          .attachFile[index])),
+                                        )),
                             Container(
                               padding: EdgeInsets.all(5),
                               child: Text(widget.message.message,
                                   style: TextStyle(
-                                    fontFamily: 'Lato',
-                                    color: colorText,
-                                  )),
-                            ),
-                          ]))
-                  : Column(
-                      children: [
-                        Stack(
-                          children: [
-                            Container(
-                                margin: EdgeInsets.only(bottom: kMarginY / 2),
-                                decoration: BoxDecoration(
-                                    borderRadius: !widget.message.isCallCenter
-                                        ? BorderRadius.only(
-                                            topLeft: Radius.circular(10),
-                                            bottomLeft: Radius.circular(10),
-                                            bottomRight: Radius.circular(10))
-                                        : BorderRadius.only(
-                                            topRight: Radius.circular(10),
-                                            bottomLeft: Radius.circular(10),
-                                            bottomRight: Radius.circular(10)),
-                                    color: color),
-                                constraints: BoxConstraints(
-                                  maxWidth: getWith(context) * .50,
-                                  minWidth: getWith(context) * .35,
-                                ),
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: kMarginX * 1.3,
-                                    vertical: kMarginY * 1.5),
-                                child: Text(widget.message.message,
-                                    style: TextStyle(
                                       fontFamily: 'Lato',
-                                      color: colorText,
-                                    ))),
-                            Positioned(
-                                bottom: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: EdgeInsets.all(7),
-                                  child: Text(widget.message.heureSend,
-                                      style: TextStyle(
-                                          fontFamily: 'Lato',
-                                          color: colorText,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold)),
-                                )),
-                          ],
-                        ),
-                      ],
-                    ),
+                                      color: widget.message.isDelete
+                                          ? colorText.withOpacity(.5)
+                                          : colorText,
+                                      fontStyle: widget.message.isDelete
+                                          ? FontStyle.italic
+                                          : FontStyle.normal)),
+                            ),
+                          ])),
+                ],
+              )
             ],
           ),
         ),
       ),
     );
   }
+}
+
+void _showPopupMenu(
+    BuildContext context, Offset offset, MessageModel message) async {
+  double left = offset.dx;
+  double top = offset.dy;
+  await showMenu(
+    constraints: BoxConstraints(
+      maxWidth: getWith(context) * .50,
+      minWidth: getWith(context) * .35,
+    ),
+    context: context,
+    position: RelativeRect.fromLTRB(left, top, left + 1, top + 1),
+    items: [
+      new PopupMenuItem(
+          child: Text('Modifier'),
+          onTap: () => context.read<CallCenterBloc>().add(
+                SetMessageToUpdate(message: message),
+              )),
+      new PopupMenuItem(
+        child: Text('Supprimer'),
+        onTap: () =>
+            context.read<CallCenterBloc>().add(DeleteMessage(message: message)),
+      ),
+    ],
+  );
 }
