@@ -179,7 +179,8 @@ class ColisComponentUser extends StatelessWidget {
                                 ),
                                 image: DecorationImage(
                                     image: imageProvider,
-                                    fit: BoxFit.contain,
+                                    fit: BoxFit.cover,
+                                   
                                     colorFilter: ColorFilter.mode(
                                         Colors.transparent,
                                         BlendMode.colorBurn)),

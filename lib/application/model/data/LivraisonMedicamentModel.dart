@@ -12,6 +12,7 @@ class LivraisonMedicamentModel {
   int status;
   List<Medicament> medicaments;
   String initiatedUser;
+  int? service_id;
   String service;
   String date;
   Livreur? livreur;
@@ -28,6 +29,7 @@ class LivraisonMedicamentModel {
     required this.status,
     required this.medicaments,
     required this.initiatedUser,
+    required this.service_id,
     required this.service,
     required this.date,
     this.livreur,
@@ -50,6 +52,7 @@ class LivraisonMedicamentModel {
       status: json['status'],
       medicaments: medicaments,
       initiatedUser: json['initiatedUser'],
+      service_id: json['service_id'],
       service: json['service'],
       date: json['date'],
       livreur:

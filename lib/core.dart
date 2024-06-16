@@ -3,6 +3,7 @@ import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/application/home/repositories/homeRepo.dart';
 
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
 import 'package:BabanaExpress/application/market/repositories/marketRepo.dart';
@@ -38,7 +39,9 @@ Future<void> init() async {
     ..registerFactory(() => UserBloc(userRepo: sl(), database: sl()))
     ..registerLazySingleton(() => UserRepo(apiClient: sl()));
 
-  sl..registerFactory(() => HomeBloc(database: sl()));
+  sl
+    ..registerFactory(() => HomeBloc(homeRepo: sl(), database: sl()))
+    ..registerLazySingleton(() => HomeRepo(apiClient: sl()));
   sl
     ..registerFactory(() => LivraisonBloc(livraisonRepo: sl(), database: sl()))
     ..registerLazySingleton(() => LivraisonRepo(apiClient: sl()));
@@ -71,7 +74,9 @@ void initConnected() async {
 }
 
 Future<void> initLoad(context) async {
-  BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
+  BlocProvider.of<HomeBloc>(context)
+    ..add(UserDataEvent())
+    ..add(HomeStateLivraison());
   BlocProvider.of<UserBloc>(context)
     ..add(GetUserEvent())
     ..add(GetModePaiement())

@@ -1,7 +1,5 @@
 import 'dart:async';
-
-import 'package:BabanaExpress/application/callcenter/callcenter_bloc.dart';
-import 'package:BabanaExpress/application/market/market_bloc.dart';
+ 
 import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';

@@ -1,7 +1,6 @@
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:provider/provider.dart';
+// ignore_for_file: must_be_immutable
+
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
 
 class SocialLogBtn extends StatelessWidget {
   SocialLogBtn({this.validate, this.icon, this.onTap, this.title});

@@ -61,7 +61,7 @@ class LivraisonMedicamentUserComponent extends StatelessWidget {
                                       ? 'En attente de validation'
                                       : livraison.status == 1
                                           ? 'En cours de livraison'
-                                          : 'Colis livres',
+                                          : 'Medicaments livres',
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                     fontSize: 14,

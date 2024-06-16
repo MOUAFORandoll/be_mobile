@@ -9,6 +9,7 @@ class LivraisonModel {
   final int status;
   final List<ColisUser> colis;
   final String initiatedUser;
+  final int? service_id;
   final String service;
   final String date;
   final String ville;
@@ -25,6 +26,7 @@ class LivraisonModel {
     required this.status,
     required this.colis,
     required this.initiatedUser,
+    required this.service_id,
     required this.service,
     required this.date,
     required this.ville,
@@ -45,6 +47,7 @@ class LivraisonModel {
       colis: List<ColisUser>.from(
           json['colis'].map((colis) => ColisUser.fromJson(colis))),
       initiatedUser: json['initiatedUser'],
+      service_id: json['service_id'],
       service: json['service'],
       date: json['date'],
       livreur:

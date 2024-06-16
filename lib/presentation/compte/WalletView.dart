@@ -251,7 +251,7 @@ class _WalletPageState extends State<WalletPage>
                       title: 'Crediter Compte',
                       iconColor: Colors.white,
                       bubbleColor: ColorsApp.primary,
-                      icon: Icons.settings,
+                      icon: FontAwesomeIcons.moneyCheckDollar,
                       titleStyle: TextStyle(fontSize: 16, color: Colors.white),
                       onPress: () {
                         _animationController!.reverse();

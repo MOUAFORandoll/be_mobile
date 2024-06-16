@@ -12,14 +12,10 @@ import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/_commons/theming/app_theme.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/routes/app_router.dart';
-import 'package:BabanaExpress/utils/Services/NotificationService.dart';
-
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:BabanaExpress/routes/app_router.dart'; 
 import 'package:BabanaExpress/application/export_bloc.dart';
 
-import 'package:responsive_framework/responsive_framework.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:responsive_framework/responsive_framework.dart'; 
 
 class AppContent extends StatelessWidget {
   AppContent({super.key});
@@ -78,8 +74,8 @@ class AppContent extends StatelessWidget {
                       SplashBloc(database: sl.get<DatabaseCubit>()),
                 ),
                 BlocProvider<HomeBloc>(
-                  create: (BuildContext context) =>
-                      HomeBloc(database: sl.get<DatabaseCubit>()),
+                  create: (BuildContext context) => HomeBloc(
+                      homeRepo: sl(), database: sl.get<DatabaseCubit>()),
                 ),
                 BlocProvider<PharmacyBloc>(
                   create: (BuildContext context) =>

@@ -1,26 +1,19 @@
-import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
-import 'package:BabanaExpress/presentation/components/Widget/HomeModuleComponent.dart';
-import 'package:BabanaExpress/presentation/components/Widget/btn_text_icon.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
-import 'package:BabanaExpress/presentation/compte/WalletView.dart';
 import 'package:BabanaExpress/presentation/home/FirstView.dart';
-import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart';
-import 'package:BabanaExpress/presentation/market/MarketView.dart';
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
-import 'package:BabanaExpress/presentation/pharmacy/PharmacyView.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_version_plus/new_version_plus.dart';
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -47,7 +40,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         CurvedAnimation(curve: Curves.easeInOut, parent: _animationController!);
     _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
   }
-
+  
   Future<void> _checkForUpdate() async {
     final newVersionPlus = NewVersionPlus(
       iOSId: null,
@@ -68,7 +61,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     print(AppLifecycleState.resumed);
     if (state == AppLifecycleState.paused) {}
   }
-
+  
   @override
   void dispose() {
     // WidgetsBinding.instance.removeObserver(this);
@@ -239,11 +232,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 ),
                                 SliverList(
                                     delegate: SliverChildBuilderDelegate(
-                                        (_, ctx) => state.index == 0
-                                            ? FirstView()
-                                            : state.index == 1
-                                                ? CallCenterPage()
-                                                : CallCenterPage(),
+                                        (_, ctx) => FirstView(),
                                         childCount: 1))
                               ])),
                           floatingActionButton: FloatingActionBubble(
@@ -436,6 +425,15 @@ class CustomDrawer extends StatelessWidget {
               onTap: () {
                 AutoRouter.of(context).replaceAll([PolitiqueRoute()]);
               },
+            ),
+            ListTile(
+              leading: Icon(FontAwesomeIcons.whatsapp),
+              title: Text(
+                'WhatsApp',
+                style: TextStyle(color: ColorsApp.black, fontSize: kBasics),
+              ),
+              onTap: () => launchUrl(Uri.parse(
+                  'https://wa.me/690863838?text=Hello Je suis interesse par vos services')),
             ),
             ListTile(
               leading: Icon(Icons.exit_to_app),

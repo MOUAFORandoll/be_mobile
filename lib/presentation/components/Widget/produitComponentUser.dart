@@ -1,11 +1,10 @@
- 
-import 'package:BabanaExpress/application/model/exportmodel.dart'; 
+import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
- 
-import 'dart:async'; 
-import 'package:permission_handler/permission_handler.dart'; 
+
+import 'dart:async';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
 // ignore: must_be_immutable
@@ -118,7 +117,7 @@ class ProduitComponentUser extends StatelessWidget {
       ),
     );
   }
-  
+
   onOpenColis(context) => showModalBottomSheet(
       context: context,
       builder: (BuildContext context) => Container(
@@ -171,7 +170,7 @@ class ProduitComponentUser extends StatelessWidget {
                                 ),
                                 image: DecorationImage(
                                     image: imageProvider,
-                                    fit: BoxFit.contain,
+                                    fit: BoxFit.cover,
                                     colorFilter: ColorFilter.mode(
                                         Colors.transparent,
                                         BlendMode.colorBurn)),

@@ -2,6 +2,7 @@
 
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/core.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/presentation/components/Widget/colisComponentUser.dart';
 import 'package:BabanaExpress/presentation/components/Widget/custom_alert.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -13,7 +14,7 @@ class LivraisonDataPage extends StatelessWidget {
   LivraisonModel livraison;
   LivraisonDataPage({required this.livraison});
   static const routeName = '/livraison/data';
-  
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LivraisonBloc, LivraisonState>(
@@ -35,11 +36,8 @@ class LivraisonDataPage extends StatelessWidget {
           }
         },
         builder: (context, state) => Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: AppBackButton(),
-              title: Text('yColis'.tr()),
+            appBar: AppBarCustom(
+              title: 'Vos Colis'.tr(),
               actions: [
                 InkWell(
                     child: Container(
@@ -57,7 +55,6 @@ class LivraisonDataPage extends StatelessWidget {
                           }));
                     })
               ],
-              centerTitle: true,
             ),
             body: RefreshIndicator(
               color: ColorsApp.second,

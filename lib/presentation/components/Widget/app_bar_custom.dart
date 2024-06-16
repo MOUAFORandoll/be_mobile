@@ -4,11 +4,8 @@ import 'package:auto_route/auto_route.dart'; // Make sure to import this if usin
 
 class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-
-  AppBarCustom({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
+  final actions;
+  AppBarCustom({Key? key, required this.title, this.actions}) : super(key: key);
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
@@ -39,7 +36,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
         title,
       ),
       centerTitle: true,
-      actions: [],
+      actions: actions,
     );
   }
 }

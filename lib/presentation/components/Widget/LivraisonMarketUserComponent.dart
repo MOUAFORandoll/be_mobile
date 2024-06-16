@@ -71,7 +71,7 @@ class LivraisonMarketUserComponent extends StatelessWidget {
                                             ? 'En attente de validation'
                                             : livraison.status == 1
                                                 ? 'En cours de livraison'
-                                                : 'Colis livres',
+                                                : 'Produits livres',
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
                                           fontSize: 14,

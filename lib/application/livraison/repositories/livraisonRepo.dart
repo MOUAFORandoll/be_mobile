@@ -76,27 +76,14 @@ class LivraisonRepo {
 
     return a;
   }
-
+  
   Future getHistoryLivraisons(keySecret) async {
     Response a = await apiClient
         .getRequest(ApiRoutes.LIVRAISONS + '/user?keySecret=${keySecret}');
 
     return a;
   }
-
-  Future getInfoLivraisonsForHistory(keySecret) async {
-    Response a = await apiClient
-        .getRequest(ApiRoutes.LIVRAISONS + '?keySecret=${keySecret}');
-
-    return a;
-  }
-
-  Future getInfoLivraisonsForBabana(id) async {
-    Response a = await apiClient
-        .getRequest(ApiRoutes.LIVRAISONS + 'babana/info?id=${id}');
-
-    return a;
-  }
+  
 
   Future getLivraisonPointByVille(id) async {
     Response a =

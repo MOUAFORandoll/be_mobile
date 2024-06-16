@@ -49,7 +49,7 @@ class _CallCenterPageState extends State<CallCenterPage> {
                   state.isLoadMessageCallCenter != 0) {
                 scrollToBottom();
               }
-              if (state.isToUpdate != null && state.isToUpdate!) {
+              if ( state.isToUpdate) {
                 FocusScope.of(context).requestFocus(state.focusNode);
               }
             }, builder: (context, state) {
@@ -351,12 +351,12 @@ class _CallCenterPageState extends State<CallCenterPage> {
                               controller: state.messageText,
                               sending: state.isLoadSend == 0,
                               isUpdate: state.isToUpdate,
-                              onTapFile: () => state.isToUpdate!
+                              onTapFile: () => state.isToUpdate
                                   ? context
                                       .read<CallCenterBloc>()
                                       .add(CancelSetMessageToUpdate())
                                   : onGetFile(context),
-                              onTap: () => state.isToUpdate!
+                              onTap: () => state.isToUpdate
                                   ? context
                                       .read<CallCenterBloc>()
                                       .add(UpdateMessage())

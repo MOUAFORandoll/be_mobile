@@ -72,19 +72,20 @@ class AppCarrousselItem extends StatelessWidget {
             backgroundColor: Colors.white,
             radius: 200,
             child: Container(
-              /*   margin: EdgeInsets.only(
-                bottom: kMarginY * 5,
-              ).add(EdgeInsets.symmetric(horizontal: kMarginX * 2)),
-              */
+              child: Image.asset(
+                image,
+                fit: BoxFit.contain,
+              ),
+              padding: EdgeInsets.all(30),
               height: getHeight(context) * .40,
               width: getHeight(context) * .40,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(200),
-                image: DecorationImage(
-                  image: AssetImage(image),
-                  fit: index == 2 ? BoxFit.cover : BoxFit.contain,
-                ),
+                // image: DecorationImage(
+                //   image: AssetImage(image),
+                //   fit: BoxFit.contain,
+                // ),
               ),
             ),
 

@@ -1,7 +1,7 @@
 name: BabanaExpress
 description: A new Flutter project.
 publish_to: "none"
-version: 1.0.0+14
+version: 1.0.0+15
 environment:
   sdk: ">=2.17.0 <3.0.0"
 
@@ -68,6 +68,7 @@ dependencies:
   flavor: ^2.0.0
   flutter_easyloading: ^3.0.5
   flutter_rating_stars: ^1.0.3+4
+  url_launcher:
   rxdart: ^0.27.7
   floating_action_bubble: ^1.1.4
   # fluttertoast: ^8.2.4

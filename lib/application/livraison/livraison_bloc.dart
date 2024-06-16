@@ -96,7 +96,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<SelectColis>(_selectColis);
     on<SelectPointLivraisonColis>(_selectPointLivraison);
     on<ClearPointLivraison>(clearPointLivraison);
-    
+
     on<ManageQte>(_mamageQte);
     on<CalculFrais>(_calculFraisDeLivraison);
 
@@ -108,12 +108,12 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<GetPlaceData>(ongetPlaceData);
     on<SelectModePaiement>(selectModePaiement);
   }
-  
+
   Future<void> selectModePaiement(
       SelectModePaiement event, Emitter<LivraisonState> emit) async {
     emit(state.copyWith(selectedModePaiement: event.modePaiement));
   }
-  
+
   Future<void> ongetPlaceData(
       GetPlaceData event, Emitter<LivraisonState> emit) async {
     emit(state.copyWith(isLoadingPlaceSearchInfo: 0));
@@ -161,7 +161,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       ));
     });
   }
-  
+
   Future<void> getMapPlaceInfo(
       GetMapPlaceInfo event, Emitter<LivraisonState> emit) async {
     emit(state.copyWith(loadingMapPlaceInfo: 0));
@@ -372,7 +372,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         maxHeight: 500,
         maxWidth: 500,
       );
-      
+
       if (image != null) {
         List<File> updatedImageColis = List.from(state.imageColis as Iterable)
           ..add(File(image.path));
@@ -889,6 +889,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       ));
     });
   }
+  
 
   _downloadFacture(DownloadFacture event, Emitter<LivraisonState> emit) async {
     await requestPermission();
