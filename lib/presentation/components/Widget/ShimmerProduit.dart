@@ -10,8 +10,7 @@ class ShimmerProduit extends StatelessWidget {
       highlightColor: Colors.blueGrey,
       child: Container(
           height: getHeight(context) / 1.8,
-
-          // margin: EdgeInsets.symmetric(horizontal: kMarginX),
+          margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
           child: SizedBox(
               height: getHeight(context) / 2,
               child: Stack(children: [
@@ -19,22 +18,22 @@ class ShimmerProduit extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 0.0,
-                            mainAxisSpacing: 10.0),
-                    itemCount: 9,
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 20.0,
+                            childAspectRatio: 15,
+                            mainAxisExtent: 130,
+                            mainAxisSpacing: 25.0),
+                    itemCount: 4,
                     itemBuilder: (_ctx, index) => Column(children: [
                           Container(
-                            height: getHeight(context) / 12,
+                            height: getHeight(context) / 8,
                             width: getWith(context) * 1.1,
                             alignment: Alignment.center,
                             // padding: EdgeInsets.all(kMarginX),
-                            margin: EdgeInsets.only(right: kMarginX),
                             decoration: BoxDecoration(
                                 color: ColorsApp.grey,
                                 borderRadius: BorderRadius.circular(8)),
                           ),
-                          Container(child: Text(''))
                         ]))
               ]))),
     );

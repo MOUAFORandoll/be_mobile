@@ -21,7 +21,9 @@ mixin _$MarketEvent {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -50,7 +52,9 @@ mixin _$MarketEvent {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -76,7 +80,9 @@ mixin _$MarketEvent {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -104,6 +110,8 @@ mixin _$MarketEvent {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -135,6 +143,8 @@ mixin _$MarketEvent {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -163,6 +173,8 @@ mixin _$MarketEvent {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -247,7 +259,9 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -279,7 +293,9 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -308,7 +324,9 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -342,6 +360,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -376,6 +396,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -407,6 +429,8 @@ class _$StartedImpl implements _Started {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -481,7 +505,9 @@ class _$ListProduitsImpl implements ListProduits {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -513,7 +539,9 @@ class _$ListProduitsImpl implements ListProduits {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -542,7 +570,9 @@ class _$ListProduitsImpl implements ListProduits {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -576,6 +606,8 @@ class _$ListProduitsImpl implements ListProduits {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -610,6 +642,8 @@ class _$ListProduitsImpl implements ListProduits {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -641,6 +675,8 @@ class _$ListProduitsImpl implements ListProduits {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -717,7 +753,9 @@ class _$VerifyFormMarketEventImpl implements VerifyFormMarketEvent {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -749,7 +787,9 @@ class _$VerifyFormMarketEventImpl implements VerifyFormMarketEvent {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -778,7 +818,9 @@ class _$VerifyFormMarketEventImpl implements VerifyFormMarketEvent {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -812,6 +854,8 @@ class _$VerifyFormMarketEventImpl implements VerifyFormMarketEvent {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -846,6 +890,8 @@ class _$VerifyFormMarketEventImpl implements VerifyFormMarketEvent {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -877,6 +923,8 @@ class _$VerifyFormMarketEventImpl implements VerifyFormMarketEvent {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -915,6 +963,8 @@ abstract class _$$GetProduitsImplCopyWith<$Res> {
   factory _$$GetProduitsImplCopyWith(
           _$GetProduitsImpl value, $Res Function(_$GetProduitsImpl) then) =
       __$$GetProduitsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool? actualise});
 }
 
 /// @nodoc
@@ -924,26 +974,51 @@ class __$$GetProduitsImplCopyWithImpl<$Res>
   __$$GetProduitsImplCopyWithImpl(
       _$GetProduitsImpl _value, $Res Function(_$GetProduitsImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? actualise = freezed,
+  }) {
+    return _then(_$GetProduitsImpl(
+      freezed == actualise
+          ? _value.actualise
+          : actualise // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$GetProduitsImpl implements GetProduits {
-  const _$GetProduitsImpl();
+  const _$GetProduitsImpl(this.actualise);
+
+  @override
+  final bool? actualise;
 
   @override
   String toString() {
-    return 'MarketEvent.getProduits()';
+    return 'MarketEvent.getProduits(actualise: $actualise)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetProduitsImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$GetProduitsImpl &&
+            (identical(other.actualise, actualise) ||
+                other.actualise == actualise));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, actualise);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetProduitsImplCopyWith<_$GetProduitsImpl> get copyWith =>
+      __$$GetProduitsImplCopyWithImpl<_$GetProduitsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -951,7 +1026,9 @@ class _$GetProduitsImpl implements GetProduits {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -974,7 +1051,7 @@ class _$GetProduitsImpl implements GetProduits {
         manageQteProduit,
     required TResult Function(ProduitModel produit) removeProduitToPanier,
   }) {
-    return getProduits();
+    return getProduits(actualise);
   }
 
   @override
@@ -983,7 +1060,9 @@ class _$GetProduitsImpl implements GetProduits {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -1003,7 +1082,7 @@ class _$GetProduitsImpl implements GetProduits {
     TResult? Function(ProduitModel produit, bool state)? manageQteProduit,
     TResult? Function(ProduitModel produit)? removeProduitToPanier,
   }) {
-    return getProduits?.call();
+    return getProduits?.call(actualise);
   }
 
   @override
@@ -1012,7 +1091,9 @@ class _$GetProduitsImpl implements GetProduits {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -1034,7 +1115,7 @@ class _$GetProduitsImpl implements GetProduits {
     required TResult orElse(),
   }) {
     if (getProduits != null) {
-      return getProduits();
+      return getProduits(actualise);
     }
     return orElse();
   }
@@ -1046,6 +1127,8 @@ class _$GetProduitsImpl implements GetProduits {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -1080,6 +1163,8 @@ class _$GetProduitsImpl implements GetProduits {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -1111,6 +1196,8 @@ class _$GetProduitsImpl implements GetProduits {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -1141,7 +1228,568 @@ class _$GetProduitsImpl implements GetProduits {
 }
 
 abstract class GetProduits implements MarketEvent {
-  const factory GetProduits() = _$GetProduitsImpl;
+  const factory GetProduits(final bool? actualise) = _$GetProduitsImpl;
+
+  bool? get actualise;
+  @JsonKey(ignore: true)
+  _$$GetProduitsImplCopyWith<_$GetProduitsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InitFilterImplCopyWith<$Res> {
+  factory _$$InitFilterImplCopyWith(
+          _$InitFilterImpl value, $Res Function(_$InitFilterImpl) then) =
+      __$$InitFilterImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool? isOpen});
+}
+
+/// @nodoc
+class __$$InitFilterImplCopyWithImpl<$Res>
+    extends _$MarketEventCopyWithImpl<$Res, _$InitFilterImpl>
+    implements _$$InitFilterImplCopyWith<$Res> {
+  __$$InitFilterImplCopyWithImpl(
+      _$InitFilterImpl _value, $Res Function(_$InitFilterImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isOpen = freezed,
+  }) {
+    return _then(_$InitFilterImpl(
+      freezed == isOpen
+          ? _value.isOpen
+          : isOpen // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InitFilterImpl implements InitFilter {
+  const _$InitFilterImpl(this.isOpen);
+
+  @override
+  final bool? isOpen;
+
+  @override
+  String toString() {
+    return 'MarketEvent.initFilter(isOpen: $isOpen)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InitFilterImpl &&
+            (identical(other.isOpen, isOpen) || other.isOpen == isOpen));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isOpen);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InitFilterImplCopyWith<_$InitFilterImpl> get copyWith =>
+      __$$InitFilterImplCopyWithImpl<_$InitFilterImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() listProduits,
+    required TResult Function() verifyForm,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
+    required TResult Function(VilleModel ville) selectedVilleMarket,
+    required TResult Function(CategoryModel categoryProduit)
+        selectedCategoryProduit,
+    required TResult Function() onStartEventMarket,
+    required TResult Function(bool status) mapSelectedMarket,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraisonMarket,
+    required TResult Function(PointLivraisonModel? point_livraison)
+        selectPointLivraisonMarket,
+    required TResult Function() successLivraisonProduitCreate,
+    required TResult Function(ProduitModel colis) selectProduit,
+    required TResult Function() calculFraisLivraisonProduit,
+    required TResult Function() newLivraisonProduit,
+    required TResult Function() getLivraisonProduit,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiementPanier,
+    required TResult Function(int indexCarossel) setCarouselCurrent,
+    required TResult Function(ProduitModel produit) addProduitToPanier,
+    required TResult Function(ProduitModel produit, bool state)
+        manageQteProduit,
+    required TResult Function(ProduitModel produit) removeProduitToPanier,
+  }) {
+    return initFilter(isOpen);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? listProduits,
+    TResult? Function()? verifyForm,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
+    TResult? Function(VilleModel ville)? selectedVilleMarket,
+    TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
+    TResult? Function()? onStartEventMarket,
+    TResult? Function(bool status)? mapSelectedMarket,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraisonMarket,
+    TResult? Function(PointLivraisonModel? point_livraison)?
+        selectPointLivraisonMarket,
+    TResult? Function()? successLivraisonProduitCreate,
+    TResult? Function(ProduitModel colis)? selectProduit,
+    TResult? Function()? calculFraisLivraisonProduit,
+    TResult? Function()? newLivraisonProduit,
+    TResult? Function()? getLivraisonProduit,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiementPanier,
+    TResult? Function(int indexCarossel)? setCarouselCurrent,
+    TResult? Function(ProduitModel produit)? addProduitToPanier,
+    TResult? Function(ProduitModel produit, bool state)? manageQteProduit,
+    TResult? Function(ProduitModel produit)? removeProduitToPanier,
+  }) {
+    return initFilter?.call(isOpen);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? listProduits,
+    TResult Function()? verifyForm,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
+    TResult Function(VilleModel ville)? selectedVilleMarket,
+    TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
+    TResult Function()? onStartEventMarket,
+    TResult Function(bool status)? mapSelectedMarket,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraisonMarket,
+    TResult Function(PointLivraisonModel? point_livraison)?
+        selectPointLivraisonMarket,
+    TResult Function()? successLivraisonProduitCreate,
+    TResult Function(ProduitModel colis)? selectProduit,
+    TResult Function()? calculFraisLivraisonProduit,
+    TResult Function()? newLivraisonProduit,
+    TResult Function()? getLivraisonProduit,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiementPanier,
+    TResult Function(int indexCarossel)? setCarouselCurrent,
+    TResult Function(ProduitModel produit)? addProduitToPanier,
+    TResult Function(ProduitModel produit, bool state)? manageQteProduit,
+    TResult Function(ProduitModel produit)? removeProduitToPanier,
+    required TResult orElse(),
+  }) {
+    if (initFilter != null) {
+      return initFilter(isOpen);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(ListProduits value) listProduits,
+    required TResult Function(VerifyFormMarketEvent value) verifyForm,
+    required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
+    required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
+    required TResult Function(SelectedCategoryProduit value)
+        selectedCategoryProduit,
+    required TResult Function(OnStartEventMarket value) onStartEventMarket,
+    required TResult Function(MapSelectedMarket value) mapSelectedMarket,
+    required TResult Function(MapValidatePointLivraisonMarket value)
+        mapValidatePointLivraisonMarket,
+    required TResult Function(SelectPointLivraisonMarket value)
+        selectPointLivraisonMarket,
+    required TResult Function(SuccessLivraisonProduitCreate value)
+        successLivraisonProduitCreate,
+    required TResult Function(SelectProduit value) selectProduit,
+    required TResult Function(CalculFraisLivraisonProduit value)
+        calculFraisLivraisonProduit,
+    required TResult Function(NewLivraisonProduit value) newLivraisonProduit,
+    required TResult Function(GetLivraisonProduit value) getLivraisonProduit,
+    required TResult Function(SelectModePaiementPanier value)
+        selectModePaiementPanier,
+    required TResult Function(SetCarouselCurrent value) setCarouselCurrent,
+    required TResult Function(AddProduitToPanier value) addProduitToPanier,
+    required TResult Function(ManageQteProduit value) manageQteProduit,
+    required TResult Function(RemoveProduitToPanier value)
+        removeProduitToPanier,
+  }) {
+    return initFilter(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(ListProduits value)? listProduits,
+    TResult? Function(VerifyFormMarketEvent value)? verifyForm,
+    TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
+    TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
+    TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
+    TResult? Function(OnStartEventMarket value)? onStartEventMarket,
+    TResult? Function(MapSelectedMarket value)? mapSelectedMarket,
+    TResult? Function(MapValidatePointLivraisonMarket value)?
+        mapValidatePointLivraisonMarket,
+    TResult? Function(SelectPointLivraisonMarket value)?
+        selectPointLivraisonMarket,
+    TResult? Function(SuccessLivraisonProduitCreate value)?
+        successLivraisonProduitCreate,
+    TResult? Function(SelectProduit value)? selectProduit,
+    TResult? Function(CalculFraisLivraisonProduit value)?
+        calculFraisLivraisonProduit,
+    TResult? Function(NewLivraisonProduit value)? newLivraisonProduit,
+    TResult? Function(GetLivraisonProduit value)? getLivraisonProduit,
+    TResult? Function(SelectModePaiementPanier value)? selectModePaiementPanier,
+    TResult? Function(SetCarouselCurrent value)? setCarouselCurrent,
+    TResult? Function(AddProduitToPanier value)? addProduitToPanier,
+    TResult? Function(ManageQteProduit value)? manageQteProduit,
+    TResult? Function(RemoveProduitToPanier value)? removeProduitToPanier,
+  }) {
+    return initFilter?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(ListProduits value)? listProduits,
+    TResult Function(VerifyFormMarketEvent value)? verifyForm,
+    TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
+    TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
+    TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
+    TResult Function(OnStartEventMarket value)? onStartEventMarket,
+    TResult Function(MapSelectedMarket value)? mapSelectedMarket,
+    TResult Function(MapValidatePointLivraisonMarket value)?
+        mapValidatePointLivraisonMarket,
+    TResult Function(SelectPointLivraisonMarket value)?
+        selectPointLivraisonMarket,
+    TResult Function(SuccessLivraisonProduitCreate value)?
+        successLivraisonProduitCreate,
+    TResult Function(SelectProduit value)? selectProduit,
+    TResult Function(CalculFraisLivraisonProduit value)?
+        calculFraisLivraisonProduit,
+    TResult Function(NewLivraisonProduit value)? newLivraisonProduit,
+    TResult Function(GetLivraisonProduit value)? getLivraisonProduit,
+    TResult Function(SelectModePaiementPanier value)? selectModePaiementPanier,
+    TResult Function(SetCarouselCurrent value)? setCarouselCurrent,
+    TResult Function(AddProduitToPanier value)? addProduitToPanier,
+    TResult Function(ManageQteProduit value)? manageQteProduit,
+    TResult Function(RemoveProduitToPanier value)? removeProduitToPanier,
+    required TResult orElse(),
+  }) {
+    if (initFilter != null) {
+      return initFilter(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InitFilter implements MarketEvent {
+  const factory InitFilter(final bool? isOpen) = _$InitFilterImpl;
+
+  bool? get isOpen;
+  @JsonKey(ignore: true)
+  _$$InitFilterImplCopyWith<_$InitFilterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FilterProduitsImplCopyWith<$Res> {
+  factory _$$FilterProduitsImplCopyWith(_$FilterProduitsImpl value,
+          $Res Function(_$FilterProduitsImpl) then) =
+      __$$FilterProduitsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? search});
+}
+
+/// @nodoc
+class __$$FilterProduitsImplCopyWithImpl<$Res>
+    extends _$MarketEventCopyWithImpl<$Res, _$FilterProduitsImpl>
+    implements _$$FilterProduitsImplCopyWith<$Res> {
+  __$$FilterProduitsImplCopyWithImpl(
+      _$FilterProduitsImpl _value, $Res Function(_$FilterProduitsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? search = freezed,
+  }) {
+    return _then(_$FilterProduitsImpl(
+      search: freezed == search
+          ? _value.search
+          : search // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FilterProduitsImpl implements FilterProduits {
+  const _$FilterProduitsImpl({required this.search});
+
+  @override
+  final String? search;
+
+  @override
+  String toString() {
+    return 'MarketEvent.filterProduits(search: $search)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterProduitsImpl &&
+            (identical(other.search, search) || other.search == search));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, search);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FilterProduitsImplCopyWith<_$FilterProduitsImpl> get copyWith =>
+      __$$FilterProduitsImplCopyWithImpl<_$FilterProduitsImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() listProduits,
+    required TResult Function() verifyForm,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
+    required TResult Function(VilleModel ville) selectedVilleMarket,
+    required TResult Function(CategoryModel categoryProduit)
+        selectedCategoryProduit,
+    required TResult Function() onStartEventMarket,
+    required TResult Function(bool status) mapSelectedMarket,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraisonMarket,
+    required TResult Function(PointLivraisonModel? point_livraison)
+        selectPointLivraisonMarket,
+    required TResult Function() successLivraisonProduitCreate,
+    required TResult Function(ProduitModel colis) selectProduit,
+    required TResult Function() calculFraisLivraisonProduit,
+    required TResult Function() newLivraisonProduit,
+    required TResult Function() getLivraisonProduit,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiementPanier,
+    required TResult Function(int indexCarossel) setCarouselCurrent,
+    required TResult Function(ProduitModel produit) addProduitToPanier,
+    required TResult Function(ProduitModel produit, bool state)
+        manageQteProduit,
+    required TResult Function(ProduitModel produit) removeProduitToPanier,
+  }) {
+    return filterProduits(search);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? listProduits,
+    TResult? Function()? verifyForm,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
+    TResult? Function(VilleModel ville)? selectedVilleMarket,
+    TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
+    TResult? Function()? onStartEventMarket,
+    TResult? Function(bool status)? mapSelectedMarket,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraisonMarket,
+    TResult? Function(PointLivraisonModel? point_livraison)?
+        selectPointLivraisonMarket,
+    TResult? Function()? successLivraisonProduitCreate,
+    TResult? Function(ProduitModel colis)? selectProduit,
+    TResult? Function()? calculFraisLivraisonProduit,
+    TResult? Function()? newLivraisonProduit,
+    TResult? Function()? getLivraisonProduit,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiementPanier,
+    TResult? Function(int indexCarossel)? setCarouselCurrent,
+    TResult? Function(ProduitModel produit)? addProduitToPanier,
+    TResult? Function(ProduitModel produit, bool state)? manageQteProduit,
+    TResult? Function(ProduitModel produit)? removeProduitToPanier,
+  }) {
+    return filterProduits?.call(search);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? listProduits,
+    TResult Function()? verifyForm,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
+    TResult Function(VilleModel ville)? selectedVilleMarket,
+    TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
+    TResult Function()? onStartEventMarket,
+    TResult Function(bool status)? mapSelectedMarket,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraisonMarket,
+    TResult Function(PointLivraisonModel? point_livraison)?
+        selectPointLivraisonMarket,
+    TResult Function()? successLivraisonProduitCreate,
+    TResult Function(ProduitModel colis)? selectProduit,
+    TResult Function()? calculFraisLivraisonProduit,
+    TResult Function()? newLivraisonProduit,
+    TResult Function()? getLivraisonProduit,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiementPanier,
+    TResult Function(int indexCarossel)? setCarouselCurrent,
+    TResult Function(ProduitModel produit)? addProduitToPanier,
+    TResult Function(ProduitModel produit, bool state)? manageQteProduit,
+    TResult Function(ProduitModel produit)? removeProduitToPanier,
+    required TResult orElse(),
+  }) {
+    if (filterProduits != null) {
+      return filterProduits(search);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(ListProduits value) listProduits,
+    required TResult Function(VerifyFormMarketEvent value) verifyForm,
+    required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
+    required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
+    required TResult Function(SelectedCategoryProduit value)
+        selectedCategoryProduit,
+    required TResult Function(OnStartEventMarket value) onStartEventMarket,
+    required TResult Function(MapSelectedMarket value) mapSelectedMarket,
+    required TResult Function(MapValidatePointLivraisonMarket value)
+        mapValidatePointLivraisonMarket,
+    required TResult Function(SelectPointLivraisonMarket value)
+        selectPointLivraisonMarket,
+    required TResult Function(SuccessLivraisonProduitCreate value)
+        successLivraisonProduitCreate,
+    required TResult Function(SelectProduit value) selectProduit,
+    required TResult Function(CalculFraisLivraisonProduit value)
+        calculFraisLivraisonProduit,
+    required TResult Function(NewLivraisonProduit value) newLivraisonProduit,
+    required TResult Function(GetLivraisonProduit value) getLivraisonProduit,
+    required TResult Function(SelectModePaiementPanier value)
+        selectModePaiementPanier,
+    required TResult Function(SetCarouselCurrent value) setCarouselCurrent,
+    required TResult Function(AddProduitToPanier value) addProduitToPanier,
+    required TResult Function(ManageQteProduit value) manageQteProduit,
+    required TResult Function(RemoveProduitToPanier value)
+        removeProduitToPanier,
+  }) {
+    return filterProduits(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(ListProduits value)? listProduits,
+    TResult? Function(VerifyFormMarketEvent value)? verifyForm,
+    TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
+    TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
+    TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
+    TResult? Function(OnStartEventMarket value)? onStartEventMarket,
+    TResult? Function(MapSelectedMarket value)? mapSelectedMarket,
+    TResult? Function(MapValidatePointLivraisonMarket value)?
+        mapValidatePointLivraisonMarket,
+    TResult? Function(SelectPointLivraisonMarket value)?
+        selectPointLivraisonMarket,
+    TResult? Function(SuccessLivraisonProduitCreate value)?
+        successLivraisonProduitCreate,
+    TResult? Function(SelectProduit value)? selectProduit,
+    TResult? Function(CalculFraisLivraisonProduit value)?
+        calculFraisLivraisonProduit,
+    TResult? Function(NewLivraisonProduit value)? newLivraisonProduit,
+    TResult? Function(GetLivraisonProduit value)? getLivraisonProduit,
+    TResult? Function(SelectModePaiementPanier value)? selectModePaiementPanier,
+    TResult? Function(SetCarouselCurrent value)? setCarouselCurrent,
+    TResult? Function(AddProduitToPanier value)? addProduitToPanier,
+    TResult? Function(ManageQteProduit value)? manageQteProduit,
+    TResult? Function(RemoveProduitToPanier value)? removeProduitToPanier,
+  }) {
+    return filterProduits?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(ListProduits value)? listProduits,
+    TResult Function(VerifyFormMarketEvent value)? verifyForm,
+    TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
+    TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
+    TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
+    TResult Function(OnStartEventMarket value)? onStartEventMarket,
+    TResult Function(MapSelectedMarket value)? mapSelectedMarket,
+    TResult Function(MapValidatePointLivraisonMarket value)?
+        mapValidatePointLivraisonMarket,
+    TResult Function(SelectPointLivraisonMarket value)?
+        selectPointLivraisonMarket,
+    TResult Function(SuccessLivraisonProduitCreate value)?
+        successLivraisonProduitCreate,
+    TResult Function(SelectProduit value)? selectProduit,
+    TResult Function(CalculFraisLivraisonProduit value)?
+        calculFraisLivraisonProduit,
+    TResult Function(NewLivraisonProduit value)? newLivraisonProduit,
+    TResult Function(GetLivraisonProduit value)? getLivraisonProduit,
+    TResult Function(SelectModePaiementPanier value)? selectModePaiementPanier,
+    TResult Function(SetCarouselCurrent value)? setCarouselCurrent,
+    TResult Function(AddProduitToPanier value)? addProduitToPanier,
+    TResult Function(ManageQteProduit value)? manageQteProduit,
+    TResult Function(RemoveProduitToPanier value)? removeProduitToPanier,
+    required TResult orElse(),
+  }) {
+    if (filterProduits != null) {
+      return filterProduits(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FilterProduits implements MarketEvent {
+  const factory FilterProduits({required final String? search}) =
+      _$FilterProduitsImpl;
+
+  String? get search;
+  @JsonKey(ignore: true)
+  _$$FilterProduitsImplCopyWith<_$FilterProduitsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1212,7 +1860,9 @@ class _$SelectedVilleMarketImpl implements SelectedVilleMarket {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -1244,7 +1894,9 @@ class _$SelectedVilleMarketImpl implements SelectedVilleMarket {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -1273,7 +1925,9 @@ class _$SelectedVilleMarketImpl implements SelectedVilleMarket {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -1307,6 +1961,8 @@ class _$SelectedVilleMarketImpl implements SelectedVilleMarket {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -1341,6 +1997,8 @@ class _$SelectedVilleMarketImpl implements SelectedVilleMarket {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -1372,6 +2030,8 @@ class _$SelectedVilleMarketImpl implements SelectedVilleMarket {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -1482,7 +2142,9 @@ class _$SelectedCategoryProduitImpl implements SelectedCategoryProduit {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -1514,7 +2176,9 @@ class _$SelectedCategoryProduitImpl implements SelectedCategoryProduit {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -1543,7 +2207,9 @@ class _$SelectedCategoryProduitImpl implements SelectedCategoryProduit {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -1577,6 +2243,8 @@ class _$SelectedCategoryProduitImpl implements SelectedCategoryProduit {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -1611,6 +2279,8 @@ class _$SelectedCategoryProduitImpl implements SelectedCategoryProduit {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -1642,6 +2312,8 @@ class _$SelectedCategoryProduitImpl implements SelectedCategoryProduit {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -1723,7 +2395,9 @@ class _$OnStartEventMarketImpl implements OnStartEventMarket {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -1755,7 +2429,9 @@ class _$OnStartEventMarketImpl implements OnStartEventMarket {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -1784,7 +2460,9 @@ class _$OnStartEventMarketImpl implements OnStartEventMarket {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -1818,6 +2496,8 @@ class _$OnStartEventMarketImpl implements OnStartEventMarket {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -1852,6 +2532,8 @@ class _$OnStartEventMarketImpl implements OnStartEventMarket {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -1883,6 +2565,8 @@ class _$OnStartEventMarketImpl implements OnStartEventMarket {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -1984,7 +2668,9 @@ class _$MapSelectedMarketImpl implements MapSelectedMarket {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -2016,7 +2702,9 @@ class _$MapSelectedMarketImpl implements MapSelectedMarket {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -2045,7 +2733,9 @@ class _$MapSelectedMarketImpl implements MapSelectedMarket {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -2079,6 +2769,8 @@ class _$MapSelectedMarketImpl implements MapSelectedMarket {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -2113,6 +2805,8 @@ class _$MapSelectedMarketImpl implements MapSelectedMarket {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -2144,6 +2838,8 @@ class _$MapSelectedMarketImpl implements MapSelectedMarket {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -2266,7 +2962,9 @@ class _$MapValidatePointLivraisonMarketImpl
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -2298,7 +2996,9 @@ class _$MapValidatePointLivraisonMarketImpl
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -2327,7 +3027,9 @@ class _$MapValidatePointLivraisonMarketImpl
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -2361,6 +3063,8 @@ class _$MapValidatePointLivraisonMarketImpl
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -2395,6 +3099,8 @@ class _$MapValidatePointLivraisonMarketImpl
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -2426,6 +3132,8 @@ class _$MapValidatePointLivraisonMarketImpl
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -2539,7 +3247,9 @@ class _$SelectPointLivraisonMarketImpl implements SelectPointLivraisonMarket {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -2571,7 +3281,9 @@ class _$SelectPointLivraisonMarketImpl implements SelectPointLivraisonMarket {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -2600,7 +3312,9 @@ class _$SelectPointLivraisonMarketImpl implements SelectPointLivraisonMarket {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -2634,6 +3348,8 @@ class _$SelectPointLivraisonMarketImpl implements SelectPointLivraisonMarket {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -2668,6 +3384,8 @@ class _$SelectPointLivraisonMarketImpl implements SelectPointLivraisonMarket {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -2699,6 +3417,8 @@ class _$SelectPointLivraisonMarketImpl implements SelectPointLivraisonMarket {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -2784,7 +3504,9 @@ class _$SuccessLivraisonProduitCreateImpl
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -2816,7 +3538,9 @@ class _$SuccessLivraisonProduitCreateImpl
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -2845,7 +3569,9 @@ class _$SuccessLivraisonProduitCreateImpl
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -2879,6 +3605,8 @@ class _$SuccessLivraisonProduitCreateImpl
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -2913,6 +3641,8 @@ class _$SuccessLivraisonProduitCreateImpl
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -2944,6 +3674,8 @@ class _$SuccessLivraisonProduitCreateImpl
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -3045,7 +3777,9 @@ class _$SelectProduitImpl implements SelectProduit {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -3077,7 +3811,9 @@ class _$SelectProduitImpl implements SelectProduit {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -3106,7 +3842,9 @@ class _$SelectProduitImpl implements SelectProduit {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -3140,6 +3878,8 @@ class _$SelectProduitImpl implements SelectProduit {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -3174,6 +3914,8 @@ class _$SelectProduitImpl implements SelectProduit {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -3205,6 +3947,8 @@ class _$SelectProduitImpl implements SelectProduit {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -3288,7 +4032,9 @@ class _$CalculFraisLivraisonProduitImpl implements CalculFraisLivraisonProduit {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -3320,7 +4066,9 @@ class _$CalculFraisLivraisonProduitImpl implements CalculFraisLivraisonProduit {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -3349,7 +4097,9 @@ class _$CalculFraisLivraisonProduitImpl implements CalculFraisLivraisonProduit {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -3383,6 +4133,8 @@ class _$CalculFraisLivraisonProduitImpl implements CalculFraisLivraisonProduit {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -3417,6 +4169,8 @@ class _$CalculFraisLivraisonProduitImpl implements CalculFraisLivraisonProduit {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -3448,6 +4202,8 @@ class _$CalculFraisLivraisonProduitImpl implements CalculFraisLivraisonProduit {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -3524,7 +4280,9 @@ class _$NewLivraisonProduitImpl implements NewLivraisonProduit {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -3556,7 +4314,9 @@ class _$NewLivraisonProduitImpl implements NewLivraisonProduit {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -3585,7 +4345,9 @@ class _$NewLivraisonProduitImpl implements NewLivraisonProduit {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -3619,6 +4381,8 @@ class _$NewLivraisonProduitImpl implements NewLivraisonProduit {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -3653,6 +4417,8 @@ class _$NewLivraisonProduitImpl implements NewLivraisonProduit {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -3684,6 +4450,8 @@ class _$NewLivraisonProduitImpl implements NewLivraisonProduit {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -3759,7 +4527,9 @@ class _$GetLivraisonProduitImpl implements GetLivraisonProduit {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -3791,7 +4561,9 @@ class _$GetLivraisonProduitImpl implements GetLivraisonProduit {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -3820,7 +4592,9 @@ class _$GetLivraisonProduitImpl implements GetLivraisonProduit {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -3854,6 +4628,8 @@ class _$GetLivraisonProduitImpl implements GetLivraisonProduit {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -3888,6 +4664,8 @@ class _$GetLivraisonProduitImpl implements GetLivraisonProduit {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -3919,6 +4697,8 @@ class _$GetLivraisonProduitImpl implements GetLivraisonProduit {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -4023,7 +4803,9 @@ class _$SelectModePaiementPanierImpl implements SelectModePaiementPanier {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -4055,7 +4837,9 @@ class _$SelectModePaiementPanierImpl implements SelectModePaiementPanier {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -4084,7 +4868,9 @@ class _$SelectModePaiementPanierImpl implements SelectModePaiementPanier {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -4118,6 +4904,8 @@ class _$SelectModePaiementPanierImpl implements SelectModePaiementPanier {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -4152,6 +4940,8 @@ class _$SelectModePaiementPanierImpl implements SelectModePaiementPanier {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -4183,6 +4973,8 @@ class _$SelectModePaiementPanierImpl implements SelectModePaiementPanier {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -4292,7 +5084,9 @@ class _$SetCarouselCurrentImpl implements SetCarouselCurrent {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -4324,7 +5118,9 @@ class _$SetCarouselCurrentImpl implements SetCarouselCurrent {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -4353,7 +5149,9 @@ class _$SetCarouselCurrentImpl implements SetCarouselCurrent {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -4387,6 +5185,8 @@ class _$SetCarouselCurrentImpl implements SetCarouselCurrent {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -4421,6 +5221,8 @@ class _$SetCarouselCurrentImpl implements SetCarouselCurrent {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -4452,6 +5254,8 @@ class _$SetCarouselCurrentImpl implements SetCarouselCurrent {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -4559,7 +5363,9 @@ class _$AddProduitToPanierImpl implements AddProduitToPanier {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -4591,7 +5397,9 @@ class _$AddProduitToPanierImpl implements AddProduitToPanier {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -4620,7 +5428,9 @@ class _$AddProduitToPanierImpl implements AddProduitToPanier {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -4654,6 +5464,8 @@ class _$AddProduitToPanierImpl implements AddProduitToPanier {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -4688,6 +5500,8 @@ class _$AddProduitToPanierImpl implements AddProduitToPanier {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -4719,6 +5533,8 @@ class _$AddProduitToPanierImpl implements AddProduitToPanier {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -4834,7 +5650,9 @@ class _$ManageQteProduitImpl implements ManageQteProduit {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -4866,7 +5684,9 @@ class _$ManageQteProduitImpl implements ManageQteProduit {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -4895,7 +5715,9 @@ class _$ManageQteProduitImpl implements ManageQteProduit {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -4929,6 +5751,8 @@ class _$ManageQteProduitImpl implements ManageQteProduit {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -4963,6 +5787,8 @@ class _$ManageQteProduitImpl implements ManageQteProduit {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -4994,6 +5820,8 @@ class _$ManageQteProduitImpl implements ManageQteProduit {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -5104,7 +5932,9 @@ class _$RemoveProduitToPanierImpl implements RemoveProduitToPanier {
     required TResult Function() started,
     required TResult Function() listProduits,
     required TResult Function() verifyForm,
-    required TResult Function() getProduits,
+    required TResult Function(bool? actualise) getProduits,
+    required TResult Function(bool? isOpen) initFilter,
+    required TResult Function(String? search) filterProduits,
     required TResult Function(VilleModel ville) selectedVilleMarket,
     required TResult Function(CategoryModel categoryProduit)
         selectedCategoryProduit,
@@ -5136,7 +5966,9 @@ class _$RemoveProduitToPanierImpl implements RemoveProduitToPanier {
     TResult? Function()? started,
     TResult? Function()? listProduits,
     TResult? Function()? verifyForm,
-    TResult? Function()? getProduits,
+    TResult? Function(bool? actualise)? getProduits,
+    TResult? Function(bool? isOpen)? initFilter,
+    TResult? Function(String? search)? filterProduits,
     TResult? Function(VilleModel ville)? selectedVilleMarket,
     TResult? Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult? Function()? onStartEventMarket,
@@ -5165,7 +5997,9 @@ class _$RemoveProduitToPanierImpl implements RemoveProduitToPanier {
     TResult Function()? started,
     TResult Function()? listProduits,
     TResult Function()? verifyForm,
-    TResult Function()? getProduits,
+    TResult Function(bool? actualise)? getProduits,
+    TResult Function(bool? isOpen)? initFilter,
+    TResult Function(String? search)? filterProduits,
     TResult Function(VilleModel ville)? selectedVilleMarket,
     TResult Function(CategoryModel categoryProduit)? selectedCategoryProduit,
     TResult Function()? onStartEventMarket,
@@ -5199,6 +6033,8 @@ class _$RemoveProduitToPanierImpl implements RemoveProduitToPanier {
     required TResult Function(ListProduits value) listProduits,
     required TResult Function(VerifyFormMarketEvent value) verifyForm,
     required TResult Function(GetProduits value) getProduits,
+    required TResult Function(InitFilter value) initFilter,
+    required TResult Function(FilterProduits value) filterProduits,
     required TResult Function(SelectedVilleMarket value) selectedVilleMarket,
     required TResult Function(SelectedCategoryProduit value)
         selectedCategoryProduit,
@@ -5233,6 +6069,8 @@ class _$RemoveProduitToPanierImpl implements RemoveProduitToPanier {
     TResult? Function(ListProduits value)? listProduits,
     TResult? Function(VerifyFormMarketEvent value)? verifyForm,
     TResult? Function(GetProduits value)? getProduits,
+    TResult? Function(InitFilter value)? initFilter,
+    TResult? Function(FilterProduits value)? filterProduits,
     TResult? Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult? Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult? Function(OnStartEventMarket value)? onStartEventMarket,
@@ -5264,6 +6102,8 @@ class _$RemoveProduitToPanierImpl implements RemoveProduitToPanier {
     TResult Function(ListProduits value)? listProduits,
     TResult Function(VerifyFormMarketEvent value)? verifyForm,
     TResult Function(GetProduits value)? getProduits,
+    TResult Function(InitFilter value)? initFilter,
+    TResult Function(FilterProduits value)? filterProduits,
     TResult Function(SelectedVilleMarket value)? selectedVilleMarket,
     TResult Function(SelectedCategoryProduit value)? selectedCategoryProduit,
     TResult Function(OnStartEventMarket value)? onStartEventMarket,
@@ -5310,7 +6150,11 @@ mixin _$MarketState {
   String? get paiement_url => throw _privateConstructorUsedError;
   List<VilleModel>? get villeList => throw _privateConstructorUsedError;
   int? get idProduit => throw _privateConstructorUsedError;
+  int? get indexPage => throw _privateConstructorUsedError;
+  int? get indexPageFilter => throw _privateConstructorUsedError;
   List<ProduitModel>? get listProduits => throw _privateConstructorUsedError;
+  List<ProduitModel>? get listProduitsSave =>
+      throw _privateConstructorUsedError;
   List<PanierModel>? get paniers => throw _privateConstructorUsedError;
   List<File>? get imageProduit => throw _privateConstructorUsedError;
   VilleModel? get selectedVIlle => throw _privateConstructorUsedError;
@@ -5340,6 +6184,7 @@ mixin _$MarketState {
   MapPlaceInfoModel? get mapPlaceInfo => throw _privateConstructorUsedError;
   int? get isLoadedVCategory => throw _privateConstructorUsedError;
   String? get urlFacture => throw _privateConstructorUsedError;
+  String? get saveSearch => throw _privateConstructorUsedError;
   List<LivraisonMarketModel>? get userLivraisonList =>
       throw _privateConstructorUsedError;
   WebViewController? get controller => throw _privateConstructorUsedError;
@@ -5368,7 +6213,10 @@ abstract class $MarketStateCopyWith<$Res> {
       String? paiement_url,
       List<VilleModel>? villeList,
       int? idProduit,
+      int? indexPage,
+      int? indexPageFilter,
       List<ProduitModel>? listProduits,
+      List<ProduitModel>? listProduitsSave,
       List<PanierModel>? paniers,
       List<File>? imageProduit,
       VilleModel? selectedVIlle,
@@ -5395,6 +6243,7 @@ abstract class $MarketStateCopyWith<$Res> {
       MapPlaceInfoModel? mapPlaceInfo,
       int? isLoadedVCategory,
       String? urlFacture,
+      String? saveSearch,
       List<LivraisonMarketModel>? userLivraisonList,
       WebViewController? controller,
       LatLng? position,
@@ -5422,7 +6271,10 @@ class _$MarketStateCopyWithImpl<$Res, $Val extends MarketState>
     Object? paiement_url = freezed,
     Object? villeList = freezed,
     Object? idProduit = freezed,
+    Object? indexPage = freezed,
+    Object? indexPageFilter = freezed,
     Object? listProduits = freezed,
+    Object? listProduitsSave = freezed,
     Object? paniers = freezed,
     Object? imageProduit = freezed,
     Object? selectedVIlle = freezed,
@@ -5449,6 +6301,7 @@ class _$MarketStateCopyWithImpl<$Res, $Val extends MarketState>
     Object? mapPlaceInfo = freezed,
     Object? isLoadedVCategory = freezed,
     Object? urlFacture = freezed,
+    Object? saveSearch = freezed,
     Object? userLivraisonList = freezed,
     Object? controller = freezed,
     Object? position = freezed,
@@ -5478,9 +6331,21 @@ class _$MarketStateCopyWithImpl<$Res, $Val extends MarketState>
           ? _value.idProduit
           : idProduit // ignore: cast_nullable_to_non_nullable
               as int?,
+      indexPage: freezed == indexPage
+          ? _value.indexPage
+          : indexPage // ignore: cast_nullable_to_non_nullable
+              as int?,
+      indexPageFilter: freezed == indexPageFilter
+          ? _value.indexPageFilter
+          : indexPageFilter // ignore: cast_nullable_to_non_nullable
+              as int?,
       listProduits: freezed == listProduits
           ? _value.listProduits
           : listProduits // ignore: cast_nullable_to_non_nullable
+              as List<ProduitModel>?,
+      listProduitsSave: freezed == listProduitsSave
+          ? _value.listProduitsSave
+          : listProduitsSave // ignore: cast_nullable_to_non_nullable
               as List<ProduitModel>?,
       paniers: freezed == paniers
           ? _value.paniers
@@ -5586,6 +6451,10 @@ class _$MarketStateCopyWithImpl<$Res, $Val extends MarketState>
           ? _value.urlFacture
           : urlFacture // ignore: cast_nullable_to_non_nullable
               as String?,
+      saveSearch: freezed == saveSearch
+          ? _value.saveSearch
+          : saveSearch // ignore: cast_nullable_to_non_nullable
+              as String?,
       userLivraisonList: freezed == userLivraisonList
           ? _value.userLivraisonList
           : userLivraisonList // ignore: cast_nullable_to_non_nullable
@@ -5632,7 +6501,10 @@ abstract class _$$MarketStateImplCopyWith<$Res>
       String? paiement_url,
       List<VilleModel>? villeList,
       int? idProduit,
+      int? indexPage,
+      int? indexPageFilter,
       List<ProduitModel>? listProduits,
+      List<ProduitModel>? listProduitsSave,
       List<PanierModel>? paniers,
       List<File>? imageProduit,
       VilleModel? selectedVIlle,
@@ -5659,6 +6531,7 @@ abstract class _$$MarketStateImplCopyWith<$Res>
       MapPlaceInfoModel? mapPlaceInfo,
       int? isLoadedVCategory,
       String? urlFacture,
+      String? saveSearch,
       List<LivraisonMarketModel>? userLivraisonList,
       WebViewController? controller,
       LatLng? position,
@@ -5684,7 +6557,10 @@ class __$$MarketStateImplCopyWithImpl<$Res>
     Object? paiement_url = freezed,
     Object? villeList = freezed,
     Object? idProduit = freezed,
+    Object? indexPage = freezed,
+    Object? indexPageFilter = freezed,
     Object? listProduits = freezed,
+    Object? listProduitsSave = freezed,
     Object? paniers = freezed,
     Object? imageProduit = freezed,
     Object? selectedVIlle = freezed,
@@ -5711,6 +6587,7 @@ class __$$MarketStateImplCopyWithImpl<$Res>
     Object? mapPlaceInfo = freezed,
     Object? isLoadedVCategory = freezed,
     Object? urlFacture = freezed,
+    Object? saveSearch = freezed,
     Object? userLivraisonList = freezed,
     Object? controller = freezed,
     Object? position = freezed,
@@ -5740,9 +6617,21 @@ class __$$MarketStateImplCopyWithImpl<$Res>
           ? _value.idProduit
           : idProduit // ignore: cast_nullable_to_non_nullable
               as int?,
+      indexPage: freezed == indexPage
+          ? _value.indexPage
+          : indexPage // ignore: cast_nullable_to_non_nullable
+              as int?,
+      indexPageFilter: freezed == indexPageFilter
+          ? _value.indexPageFilter
+          : indexPageFilter // ignore: cast_nullable_to_non_nullable
+              as int?,
       listProduits: freezed == listProduits
           ? _value._listProduits
           : listProduits // ignore: cast_nullable_to_non_nullable
+              as List<ProduitModel>?,
+      listProduitsSave: freezed == listProduitsSave
+          ? _value._listProduitsSave
+          : listProduitsSave // ignore: cast_nullable_to_non_nullable
               as List<ProduitModel>?,
       paniers: freezed == paniers
           ? _value._paniers
@@ -5848,6 +6737,10 @@ class __$$MarketStateImplCopyWithImpl<$Res>
           ? _value.urlFacture
           : urlFacture // ignore: cast_nullable_to_non_nullable
               as String?,
+      saveSearch: freezed == saveSearch
+          ? _value.saveSearch
+          : saveSearch // ignore: cast_nullable_to_non_nullable
+              as String?,
       userLivraisonList: freezed == userLivraisonList
           ? _value._userLivraisonList
           : userLivraisonList // ignore: cast_nullable_to_non_nullable
@@ -5889,7 +6782,10 @@ class _$MarketStateImpl implements _MarketState {
       this.paiement_url,
       final List<VilleModel>? villeList,
       this.idProduit,
+      this.indexPage,
+      this.indexPageFilter,
       final List<ProduitModel>? listProduits,
+      final List<ProduitModel>? listProduitsSave,
       final List<PanierModel>? paniers,
       final List<File>? imageProduit,
       this.selectedVIlle,
@@ -5916,6 +6812,7 @@ class _$MarketStateImpl implements _MarketState {
       this.mapPlaceInfo,
       this.isLoadedVCategory,
       this.urlFacture,
+      this.saveSearch,
       final List<LivraisonMarketModel>? userLivraisonList,
       this.controller,
       this.position,
@@ -5925,6 +6822,7 @@ class _$MarketStateImpl implements _MarketState {
       this.selectedModePaiement})
       : _villeList = villeList,
         _listProduits = listProduits,
+        _listProduitsSave = listProduitsSave,
         _paniers = paniers,
         _imageProduit = imageProduit,
         _userLivraisonList = userLivraisonList;
@@ -5947,12 +6845,27 @@ class _$MarketStateImpl implements _MarketState {
 
   @override
   final int? idProduit;
+  @override
+  final int? indexPage;
+  @override
+  final int? indexPageFilter;
   final List<ProduitModel>? _listProduits;
   @override
   List<ProduitModel>? get listProduits {
     final value = _listProduits;
     if (value == null) return null;
     if (_listProduits is EqualUnmodifiableListView) return _listProduits;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<ProduitModel>? _listProduitsSave;
+  @override
+  List<ProduitModel>? get listProduitsSave {
+    final value = _listProduitsSave;
+    if (value == null) return null;
+    if (_listProduitsSave is EqualUnmodifiableListView)
+      return _listProduitsSave;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -6025,6 +6938,8 @@ class _$MarketStateImpl implements _MarketState {
   final int? isLoadedVCategory;
   @override
   final String? urlFacture;
+  @override
+  final String? saveSearch;
   final List<LivraisonMarketModel>? _userLivraisonList;
   @override
   List<LivraisonMarketModel>? get userLivraisonList {
@@ -6051,7 +6966,7 @@ class _$MarketStateImpl implements _MarketState {
 
   @override
   String toString() {
-    return 'MarketState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, paiement_url: $paiement_url, villeList: $villeList, idProduit: $idProduit, listProduits: $listProduits, paniers: $paniers, imageProduit: $imageProduit, selectedVIlle: $selectedVIlle, quantiteProduit: $quantiteProduit, contactRecepteur: $contactRecepteur, category: $category, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, indexCarossel: $indexCarossel, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedLivraison: $isLoadedLivraison, isLoadedVille: $isLoadedVille, successLivraison: $successLivraison, launchUrl: $launchUrl, loadingMapPlaceInfo: $loadingMapPlaceInfo, isLoadedProduit: $isLoadedProduit, mapPlaceInfo: $mapPlaceInfo, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, userLivraisonList: $userLivraisonList, controller: $controller, position: $position, isLoadingPlaceSearch: $isLoadingPlaceSearch, isLoadingPlaceSearchInfo: $isLoadingPlaceSearchInfo, formKeyLivraison: $formKeyLivraison, selectedModePaiement: $selectedModePaiement)';
+    return 'MarketState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, paiement_url: $paiement_url, villeList: $villeList, idProduit: $idProduit, indexPage: $indexPage, indexPageFilter: $indexPageFilter, listProduits: $listProduits, listProduitsSave: $listProduitsSave, paniers: $paniers, imageProduit: $imageProduit, selectedVIlle: $selectedVIlle, quantiteProduit: $quantiteProduit, contactRecepteur: $contactRecepteur, category: $category, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, indexCarossel: $indexCarossel, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadedPLivraison: $isLoadedPLivraison, isLoadedLivraison: $isLoadedLivraison, isLoadedVille: $isLoadedVille, successLivraison: $successLivraison, launchUrl: $launchUrl, loadingMapPlaceInfo: $loadingMapPlaceInfo, isLoadedProduit: $isLoadedProduit, mapPlaceInfo: $mapPlaceInfo, isLoadedVCategory: $isLoadedVCategory, urlFacture: $urlFacture, saveSearch: $saveSearch, userLivraisonList: $userLivraisonList, controller: $controller, position: $position, isLoadingPlaceSearch: $isLoadingPlaceSearch, isLoadingPlaceSearchInfo: $isLoadingPlaceSearchInfo, formKeyLivraison: $formKeyLivraison, selectedModePaiement: $selectedModePaiement)';
   }
 
   @override
@@ -6069,8 +6984,14 @@ class _$MarketStateImpl implements _MarketState {
                 .equals(other._villeList, _villeList) &&
             (identical(other.idProduit, idProduit) ||
                 other.idProduit == idProduit) &&
+            (identical(other.indexPage, indexPage) ||
+                other.indexPage == indexPage) &&
+            (identical(other.indexPageFilter, indexPageFilter) ||
+                other.indexPageFilter == indexPageFilter) &&
             const DeepCollectionEquality()
                 .equals(other._listProduits, _listProduits) &&
+            const DeepCollectionEquality()
+                .equals(other._listProduitsSave, _listProduitsSave) &&
             const DeepCollectionEquality().equals(other._paniers, _paniers) &&
             const DeepCollectionEquality()
                 .equals(other._imageProduit, _imageProduit) &&
@@ -6122,8 +7043,8 @@ class _$MarketStateImpl implements _MarketState {
                 other.isLoadedVCategory == isLoadedVCategory) &&
             (identical(other.urlFacture, urlFacture) ||
                 other.urlFacture == urlFacture) &&
-            const DeepCollectionEquality()
-                .equals(other._userLivraisonList, _userLivraisonList) &&
+            (identical(other.saveSearch, saveSearch) || other.saveSearch == saveSearch) &&
+            const DeepCollectionEquality().equals(other._userLivraisonList, _userLivraisonList) &&
             (identical(other.controller, controller) || other.controller == controller) &&
             (identical(other.position, position) || other.position == position) &&
             (identical(other.isLoadingPlaceSearch, isLoadingPlaceSearch) || other.isLoadingPlaceSearch == isLoadingPlaceSearch) &&
@@ -6140,7 +7061,10 @@ class _$MarketStateImpl implements _MarketState {
         paiement_url,
         const DeepCollectionEquality().hash(_villeList),
         idProduit,
+        indexPage,
+        indexPageFilter,
         const DeepCollectionEquality().hash(_listProduits),
+        const DeepCollectionEquality().hash(_listProduitsSave),
         const DeepCollectionEquality().hash(_paniers),
         const DeepCollectionEquality().hash(_imageProduit),
         selectedVIlle,
@@ -6167,6 +7091,7 @@ class _$MarketStateImpl implements _MarketState {
         mapPlaceInfo,
         isLoadedVCategory,
         urlFacture,
+        saveSearch,
         const DeepCollectionEquality().hash(_userLivraisonList),
         controller,
         position,
@@ -6190,7 +7115,10 @@ abstract class _MarketState implements MarketState {
       final String? paiement_url,
       final List<VilleModel>? villeList,
       final int? idProduit,
+      final int? indexPage,
+      final int? indexPageFilter,
       final List<ProduitModel>? listProduits,
+      final List<ProduitModel>? listProduitsSave,
       final List<PanierModel>? paniers,
       final List<File>? imageProduit,
       final VilleModel? selectedVIlle,
@@ -6217,6 +7145,7 @@ abstract class _MarketState implements MarketState {
       final MapPlaceInfoModel? mapPlaceInfo,
       final int? isLoadedVCategory,
       final String? urlFacture,
+      final String? saveSearch,
       final List<LivraisonMarketModel>? userLivraisonList,
       final WebViewController? controller,
       final LatLng? position,
@@ -6236,7 +7165,13 @@ abstract class _MarketState implements MarketState {
   @override
   int? get idProduit;
   @override
+  int? get indexPage;
+  @override
+  int? get indexPageFilter;
+  @override
   List<ProduitModel>? get listProduits;
+  @override
+  List<ProduitModel>? get listProduitsSave;
   @override
   List<PanierModel>? get paniers;
   @override
@@ -6289,6 +7224,8 @@ abstract class _MarketState implements MarketState {
   int? get isLoadedVCategory;
   @override
   String? get urlFacture;
+  @override
+  String? get saveSearch;
   @override
   List<LivraisonMarketModel>? get userLivraisonList;
   @override

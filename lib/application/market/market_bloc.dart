@@ -1,19 +1,20 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/market/repositories/marketRepo.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
 import 'package:BabanaExpress/application/model/data/MapPlaceInfoModel.dart';
-import 'package:BabanaExpress/application/model/data/PanierModel.dart'; 
+import 'package:BabanaExpress/application/model/data/PanierModel.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/core.dart'; 
+import 'package:BabanaExpress/core.dart';
 
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:dio/dio.dart'; 
+import 'package:dio/dio.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 part 'market_event.dart';
@@ -81,6 +82,8 @@ class MarketBloc extends Bloc<MarketEvent, MarketState> {
     on<RemoveProduitToPanier>(removeProduitToPanier);
     on<ManageQteProduit>(manageQteProduit);
     on<NewLivraisonProduit>(newLivraisonProduit);
+    on<FilterProduits>(filterProduits);
+    on<InitFilter>(initFilter);
   }
 
   Future<void> newLivraisonProduit(
@@ -246,7 +249,7 @@ class MarketBloc extends Bloc<MarketEvent, MarketState> {
       paniers: paniers_exist,
     ));
   }
-  
+
   isInPanier(produit) {
     List<PanierModel> paniers = state.paniers!;
     int index = paniers.indexWhere((element) => element.id == produit.id);
@@ -361,24 +364,111 @@ class MarketBloc extends Bloc<MarketEvent, MarketState> {
   }
 
   Future<void> _getProduit(GetProduits event, Emitter<MarketState> emit) async {
-    emit(state.copyWith(
-      isLoadedProduit: 0,
-    ));
-    await marketRepo.getProduits().then((response) {
-      if (response.data != null) {
+    log('----------------${state.isLoadedProduit}----------------');
+
+    if ([1, 2, null].contains(state.isLoadedProduit)) {
+      if (event.actualise == true) {
+        log('----------------${state.isLoadedProduit}----------------');
+        emit(state.copyWith(indexPage: 0, listProduits: []));
+      }
+      var key = await database.getKey();
+      int indexPage = state.indexPage! + 1;
+      emit(state.copyWith(isLoadedProduit: 0, indexPage: indexPage));
+
+      await marketRepo.getProduits(key, state.indexPage).then((response) {
+        if (response.data != null) {
+          log('--------------------------------');
+          log(response.data.toString());
+          List<ProduitModel> _pendingProduits =
+              List.from(state.listProduits! as Iterable);
+          _pendingProduits.addAll((response.data['data'] as List)
+              .map((e) => ProduitModel.fromJson(e))
+              .toList());
+          emit(state.copyWith(
+              isLoadedProduit: 1, listProduits: _pendingProduits));
+          emit(state.copyWith(
+            isLoadedProduit: null,
+          ));
+
+          log('--------------------------------');
+        } else {
+          emit(state.copyWith(
+            isLoadedProduit: 2,
+          ));
+          emit(state.copyWith(
+            isLoadedProduit: null,
+          ));
+        }
+      }).onError((e, s) {
         emit(state.copyWith(
-            isLoadedProduit: 1,
-            listProduits: (response.data['data'] as List)
-                .map((e) => ProduitModel.fromJson(e))
-                .toList()));
+          isLoadedLivraison: 2,
+        ));
+        emit(state.copyWith(
+          isLoadedProduit: null,
+        ));
+      });
+    }
+  }
+
+  Future<void> initFilter(InitFilter event, Emitter<MarketState> emit) async {
+    if (event.isOpen!) {
+      emit(state.copyWith(
+          listProduitsSave: state.listProduits, indexPageFilter: 1));
+      log('----------------${state.listProduitsSave}----------------');
+      emit(state.copyWith(
+        listProduits: [],
+      ));
+    } else {
+      emit(state.copyWith(listProduits: state.listProduitsSave));
+      log('----------------${state.listProduits}----------------');
+    }
+  }
+
+  Future<void> filterProduits(
+      FilterProduits event, Emitter<MarketState> emit) async {
+    log('----------------${state.indexPageFilter}----------------');
+
+    if (state.saveSearch == event.search) {
+      int indexPageFilter = state.indexPageFilter! + 1;
+      emit(state.copyWith(indexPageFilter: indexPageFilter));
+    } else {
+      emit(state.copyWith(
+        indexPageFilter: 1,
+        listProduits: [],
+      ));
+    }
+    emit(state.copyWith(isLoadedProduit: 0, saveSearch: event.search));
+
+    await marketRepo
+        .filterProduits(event.search, state.indexPageFilter)
+        .then((response) {
+      if (response.data != null) {
+        List<ProduitModel> _pendingProduits =
+            List.from(state.listProduits! as Iterable);
+        _pendingProduits.addAll((response.data['data'] as List)
+            .map((e) => ProduitModel.fromJson(e))
+            .toList());
+        emit(
+            state.copyWith(isLoadedProduit: 1, listProduits: _pendingProduits));
+        emit(state.copyWith(
+          isLoadedProduit: null,
+        ));
+
+        log('-------------------${response.data['data']}-------------');
       } else {
         emit(state.copyWith(
           isLoadedProduit: 2,
+        ));
+        emit(state.copyWith(
+          isLoadedProduit: null,
         ));
       }
     }).onError((e, s) {
       emit(state.copyWith(
         isLoadedLivraison: 2,
+      ));
+      emit(state.copyWith(
+        isLoadedProduit: null,
       ));
     });
   }

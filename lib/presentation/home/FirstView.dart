@@ -208,18 +208,32 @@ class _FirstViewState extends State<FirstView>
                                     )),
                                   ],
                                 )))
-                        : Container(
-                            width: getWith(context),
-                            height: getHeight(context) * .12,
-                            child: ListView.builder(
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                itemCount: state.userHomeLivraisonList!.length,
-                                itemBuilder: (context, index) =>
-                                    LivraisonUserHomeComponent(
-                                      livraison:
-                                          state.userHomeLivraisonList![index],
-                                    )))
+                        : state.userHomeLivraisonList!.length == 0
+                            ? Container(
+                                alignment: Alignment.center,
+                                margin: EdgeInsets.symmetric(
+                                        horizontal: kMarginX,
+                                        vertical: kMarginY)
+                                    .add(EdgeInsets.only(top: kMarginY * 2)),
+                                child: Text(
+                                  'Vous n\'avez aucune livraison en cours !',
+                                  style: TextStyle(
+                                      fontSize: kBasics,
+                                      fontWeight: FontWeight.w700),
+                                ))
+                            : Container(
+                                width: getWith(context),
+                                height: getHeight(context) * .12,
+                                child: ListView.builder(
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount:
+                                        state.userHomeLivraisonList!.length,
+                                    itemBuilder: (context, index) =>
+                                        LivraisonUserHomeComponent(
+                                          livraison: state
+                                              .userHomeLivraisonList![index],
+                                        )))
                   ],
                 ),
               ),

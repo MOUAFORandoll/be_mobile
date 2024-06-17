@@ -88,7 +88,7 @@ Future<void> initLoad(context) async {
   BlocProvider.of<PharmacyBloc>(context).add(HistoriqueLivraisonMedicament());
   BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
   BlocProvider.of<MarketBloc>(context)
-    ..add(MarketEvent.getProduits())
+    ..add(MarketEvent.getProduits(false))
     ..add(MarketEvent.getLivraisonProduit());
   BlocProvider.of<CallCenterBloc>(context).add(CallCenterEvent.getMessage());
   initSetDefaultValue(context);

@@ -3,13 +3,15 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 // ignore: must_be_immutable
 class KSearchField extends StatelessWidget {
   final String? title;
-  Function? onChange;
+  TextEditingController? controller;
+  Function(String)? onChange;
   final double? dim;
   bool isCode;
   var width;
 
   KSearchField(
       {Key? key,
+      this.controller,
       this.title,
       this.width,
       this.dim,
@@ -31,10 +33,10 @@ class KSearchField extends StatelessWidget {
       // width: width ?? getWith(context) * .75,
       // padding: EdgeInsets.symmetric(horizontal: 10),
       child: TextField(
-        onChanged: (String value) {},
+        onChanged: (String value) => onChange!(value),
         focusNode: _focusNode,
         // cursorHeight: 30.0,
-        // controller: searchCont.controllerField,
+        controller: controller,
         // textAlign: TextAlign.left,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(vertical: 5),
