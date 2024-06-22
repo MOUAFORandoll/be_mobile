@@ -1,7 +1,10 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_input_contact.dart';
+import 'package:BabanaExpress/utils/Services/ContactService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:contacts_service/contacts_service.dart';
 
 import 'MapPagePointLivraisonMedoc.dart';
 
@@ -377,12 +380,26 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                           margin: EdgeInsets.only(
                             top: kMarginY * 1.5,
                           ),
-                          child: AppInputNew(
+                          child: AppInputContact(
                             controller: state_livraison.contactRecepteur!,
                             icon: Icon(Icons.phone),
                             textInputType: TextInputType.number,
                             // maxLength:13,
                             label: 'yycontact'.tr(),
+                            onTap: () {
+                              ContactService().openContactSelectionModal(
+                                  context: context,
+                                  onTap: (Contact contact) {
+                                    state_livraison.contactRecepteur!.text =
+                                        contact.phones!.first.value.toString();
+                                    AutoRouter.of(context).pop();
+
+                                    showSuccessGetContact(
+                                      'Vous avez choisi ${contact.displayName}',
+                                      context,
+                                    );
+                                  });
+                            },
                             onChanged: (value) {},
                             validator: (value) {
                               return Validators.usPhoneValid(value!);

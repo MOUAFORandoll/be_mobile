@@ -1,11 +1,14 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_input_contact.dart';
 import 'package:BabanaExpress/presentation/market/MapPagePointLivraisonMarket.dart';
 import 'package:BabanaExpress/presentation/market/PaiementMarketPage.dart';
 import 'package:BabanaExpress/presentation/market/SuccesLivraisonMarketPage.dart';
+import 'package:BabanaExpress/utils/Services/ContactService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
 import 'package:BabanaExpress/utils/functions/formatData.dart';
+import 'package:contacts_service/contacts_service.dart';
  
 
 @RoutePage()
@@ -425,16 +428,38 @@ class _InfoLieuxLivraisonMarketPageState
                                                   fontFamily: 'Lato',
                                                   color: ColorsApp.red),
                                             )),
+                                     
                                       Container(
                                         margin: EdgeInsets.only(
                                           top: kMarginY * 1.5,
                                         ),
-                                        child: AppInputNew(
-                                          controller: state.contactRecepteur!,
+                                        child: AppInputContact(
+                                          controller:
+                                              state.contactRecepteur!,
                                           icon: Icon(Icons.phone),
                                           textInputType: TextInputType.number,
                                           // maxLength:13,
                                           label: 'yycontact'.tr(),
+                                          onTap: () {
+                                            ContactService()
+                                                .openContactSelectionModal(
+                                                    context: context,
+                                                    onTap: (Contact contact) {
+                                                      state
+                                                              .contactRecepteur!
+                                                              .text =
+                                                          contact.phones!.first
+                                                              .value
+                                                              .toString();
+                                                      AutoRouter.of(context)
+                                                          .pop();
+
+                                                      showSuccessGetContact(
+                                                        'Vous avez choisi ${contact.displayName}',
+                                                        context,
+                                                      );
+                                                    });
+                                          },
                                           onChanged: (value) {},
                                           validator: (value) {
                                             return Validators.usPhoneValid(

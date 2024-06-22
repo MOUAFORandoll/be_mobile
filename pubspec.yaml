@@ -71,6 +71,7 @@ dependencies:
   url_launcher:
   rxdart: ^0.27.7
   floating_action_bubble: ^1.1.4
+  contacts_service: ^0.6.3
   # fluttertoast: ^8.2.4
 dev_dependencies:
   flutter_test:

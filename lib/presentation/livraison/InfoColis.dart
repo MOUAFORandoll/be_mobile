@@ -1,14 +1,17 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/presentation/components/Button/addColisComponent.dart';
 import 'package:BabanaExpress/presentation/components/Button/uploadImage.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_input_contact.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_input_second.dart';
 import 'package:BabanaExpress/presentation/components/Widget/imageComp.dart';
 import 'package:BabanaExpress/presentation/components/Widget/colisComponent.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
+import 'package:BabanaExpress/utils/Services/ContactService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:contacts_service/contacts_service.dart';
 
 // ignore: must_be_immutable
 class InfoColis extends StatelessWidget {
@@ -237,11 +240,29 @@ class InfoColis extends StatelessWidget {
                                   margin: EdgeInsets.only(
                                     top: kMarginY * 1.5,
                                   ),
-                                  child: AppInputNew(
+                                  child: AppInputContact(
                                     controller: state.contactRecepteur!,
-                                    textInputType: TextInputType.number,
                                     icon: Icon(Icons.phone),
+                                    textInputType: TextInputType.number,
+                                    // maxLength:13,
                                     label: 'yycontactdest'.tr(),
+                                    onTap: () {
+                                      ContactService()
+                                          .openContactSelectionModal(
+                                              context: context,
+                                              onTap: (Contact contact) {
+                                                state.contactRecepteur!.text =
+                                                    contact.phones!.first.value
+                                                        .toString();
+                                                AutoRouter.of(context).pop();
+
+                                                showSuccessGetContact(
+                                                  'Vous avez choisi ${contact.displayName}',
+                                                  context,
+                                                );
+                                              });
+                                    },
+                                    onChanged: (value) {},
                                     validator: (value) {
                                       return Validators.usPhoneValid(value!);
                                     },

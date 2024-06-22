@@ -31,7 +31,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                 maskType: EasyLoadingMaskType.black);
           } else if (state.isRequest == 3) {
             EasyLoading.dismiss();
-
+            
             showError('Une erreur est survenue', context);
           } else if (state.isRequest == 2) {
             EasyLoading.dismiss();

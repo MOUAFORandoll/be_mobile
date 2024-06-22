@@ -5,7 +5,7 @@ import 'package:BabanaExpress/presentation/components/Widget/load_file_online.da
 import '../exportcomponent.dart';
 
 class MessageComponent extends StatefulWidget {
-  const MessageComponent({required this.message});
+  const MessageComponent({Key? key,required this.message}) : super(key: key);
   final MessageModel message;
 
   @override
