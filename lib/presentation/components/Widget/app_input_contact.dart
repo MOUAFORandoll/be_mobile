@@ -11,7 +11,7 @@ class AppInputContact extends StatefulWidget {
   final ValueChanged<String>? onChanged;
   final Function()? onTap;
   final bool obscureText;
-  final bool border; 
+  final bool border;
   final TextInputType? textInputType;
   final bool alignStart;
   final Icon? icon;
@@ -36,6 +36,7 @@ class AppInputContact extends StatefulWidget {
 }
 
 class _AppInputContactState extends State<AppInputContact> {
+  bool isFocused = false;
   bool isVisible = false;
   @override
   Widget build(BuildContext context) {
@@ -44,54 +45,67 @@ class _AppInputContactState extends State<AppInputContact> {
         children: [
           Expanded(
             // width: getWith(context) * .7,
-            child: TextFormField(
-              autofocus: false,
-              textAlign: widget.alignStart ? TextAlign.start : TextAlign.center,
-              controller: widget.controller,
-              style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 12,
-                fontFamily: 'Lato',
+            child: Focus(
+              onFocusChange: (focus) {
+                setState(() {
+                  isFocused = focus;
+                });
+              },
+              child: TextFormField(
+                autofocus: false,
+                textAlign:
+                    widget.alignStart ? TextAlign.start : TextAlign.center,
+                controller: widget.controller,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                  fontFamily: 'Lato',
+                ),
+                maxLength: widget.maxLength,
+                onChanged: widget.onChanged,
+                decoration: InputDecoration(
+                    fillColor:
+                        isFocused ? Colors.grey.shade200 : Colors.grey.shade200,
+                    filled: true,
+                    contentPadding: EdgeInsets.all(18),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color:
+                              isFocused ? ColorsApp.primary : ColorsApp.white,
+                          width: .4),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: ColorsApp.red, width: 1),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: isFocused ? ColorsApp.grey : Colors.transparent,
+                        width: .5,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    errorText: widget.errorText,
+                    errorStyle: TextStyle(
+                      fontSize: 8,
+                      fontFamily: 'Lato',
+                    ),
+                    labelText: widget.label,
+                    labelStyle: TextStyle(
+                      color: ColorsApp.grey, fontFamily: 'Lato',
+                      // fontWeight: FontWeight.w500,
+                      fontSize: kBasics,
+                    ),
+                    hintText: widget.placeholder,
+                    prefixIcon: widget.icon),
+                validator: widget.validator,
+                obscureText: isVisible,
+                keyboardType: widget.textInputType,
               ),
-              maxLength: widget.maxLength,
-              onChanged: widget.onChanged,
-              decoration: InputDecoration(
-                  fillColor: ColorsApp.primary.withOpacity(0.3),
-                  focusColor: ColorsApp.primary.withOpacity(0.3),
-                  hoverColor: ColorsApp.primary.withOpacity(0.3),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.primary, width: 1),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.red, width: 1),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.grey, width: 1),
-                    borderRadius: BorderRadius.circular(8),
-                    // borderSide:
-                    //     BorderSide(color: ColorsApp.tird, width: 1),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  errorText: widget.errorText,
-                  errorStyle: TextStyle(
-                    fontSize: 8,
-                    fontFamily: 'Lato',
-                  ),
-                  labelText: widget.label,
-                  labelStyle: TextStyle(
-                    color: ColorsApp.grey, fontFamily: 'Lato',
-                    // fontWeight: FontWeight.w500,
-                    fontSize: kBasics,
-                  ),
-                  hintText: widget.placeholder,
-                  prefixIcon: widget.icon),
-              validator: widget.validator,
-              obscureText: isVisible,
-              keyboardType: widget.textInputType,
             ),
           ),
           InkWell(

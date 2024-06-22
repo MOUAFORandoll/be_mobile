@@ -142,10 +142,11 @@ class InfoColis extends StatelessWidget {
                                         ? Text('Error')
                                         : Container(
                                             decoration: BoxDecoration(
+                                              color: Colors.grey.shade200,
                                               border: Border.all(
                                                   color: (state.errorCategory!)
                                                       ? ColorsApp.red
-                                                      : ColorsApp.grey,
+                                                      : Colors.grey.shade200,
                                                   width: 1),
                                               borderRadius:
                                                   BorderRadius.circular(8),
@@ -174,10 +175,12 @@ class InfoColis extends StatelessWidget {
                                                 child: Text(
                                                   'ytypecolis'.tr(),
                                                   style: TextStyle(
+                                                      color: ColorsApp.grey,
                                                       overflow: TextOverflow
                                                           .ellipsis),
                                                 ),
                                               ),
+                                              isExpanded: true,
                                               iconSize: 25,
                                               underline: SizedBox(),
                                               style: TextStyle(
@@ -282,11 +285,12 @@ class InfoColis extends StatelessWidget {
                                     (!state.isMapSelectedPointLivraison)
                                         ? Container(
                                             decoration: BoxDecoration(
+                                              color: Colors.grey.shade200,
                                               border: Border.all(
                                                   color: (state
                                                           .errorPointRecuperation!)
                                                       ? ColorsApp.red
-                                                      : ColorsApp.grey,
+                                                      : Colors.grey.shade200,
                                                   width: 1),
                                               borderRadius:
                                                   BorderRadius.circular(8),
@@ -311,6 +315,7 @@ class InfoColis extends StatelessWidget {
                                                 child: Text(
                                                   'yselectpointliv'.tr(),
                                                   style: TextStyle(
+                                                      color: ColorsApp.grey,
                                                       overflow: TextOverflow
                                                           .ellipsis),
                                                 ),
@@ -467,9 +472,8 @@ class InfoColis extends StatelessWidget {
                                             child: Text('yQuantitecolis'.tr())),
                                         Container(
                                             padding: EdgeInsets.symmetric(
-                                                vertical: kMarginY,
                                                 horizontal: kMarginX),
-                                            height: getHeight(context) * .06,
+                                            height: getHeight(context) * .05,
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(5),

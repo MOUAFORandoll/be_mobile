@@ -32,18 +32,8 @@ class ForgotPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          't1Reini'.tr(),
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+      appBar: AppBarCustom(
+        title: 'textAlign'.tr(),
       ),
       body: BlocConsumer<UserBloc, UserState>(
         listener: (context, state) {

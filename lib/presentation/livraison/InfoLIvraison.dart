@@ -69,10 +69,11 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       ? Text('Error')
                       : Container(
                           decoration: BoxDecoration(
+                            color: Colors.grey.shade200,
                             border: Border.all(
                                 color: (state.errorVille!)
                                     ? ColorsApp.red
-                                    : ColorsApp.grey,
+                                    : Colors.grey.shade200,
                                 width: 1),
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -178,11 +179,13 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                         (!state.isMapSelectedPointRecuperation)
                                             ? Container(
                                                 decoration: BoxDecoration(
+                                                  color: Colors.grey.shade200,
                                                   border: Border.all(
                                                       color: (state
                                                               .errorPointRecuperation!)
                                                           ? ColorsApp.red
-                                                          : ColorsApp.grey,
+                                                          : Colors
+                                                              .grey.shade200,
                                                       width: 1),
                                                   borderRadius:
                                                       BorderRadius.circular(8),

@@ -7,10 +7,6 @@ class AboutUsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text("AboutUs"),
-      //   centerTitle: true,
-      // ),
       appBar: AppBarCustom(
         title: 'AboutUs'.tr(),
       ),

@@ -54,10 +54,8 @@ class _PolitiquePageState extends State<PolitiquePage> {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
       return Scaffold(
-          appBar: AppBar(
-            leading: AppBackButton(),
-            title: const Text('Politique de confidentialite'),
-            centerTitle: true,
+          appBar: AppBarCustom(
+            title: 'Politique de confidentialite'.tr(),
           ),
           // backgroundColor: ColorsApp.bg,
           body: controller == null || _progress != 100

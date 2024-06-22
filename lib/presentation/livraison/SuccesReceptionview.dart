@@ -9,7 +9,9 @@ class SuccesReceptionview extends StatelessWidget {
         },
         child: Scaffold(
             backgroundColor: ColorsApp.grey,
-            appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
+            appBar: AppBarCustom(
+              title: ''.tr(),
+            ),
             body: Padding(
                 padding:
                     EdgeInsets.symmetric(vertical: 10, horizontal: kMarginX),

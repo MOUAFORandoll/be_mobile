@@ -263,23 +263,9 @@ class _MapPagePointLivraisonMarketState
         }
       },
       builder: (context, state) => Scaffold(
-        appBar: AppBar(
-            title: Text(
-              'ylivraison'.tr(),
-            ),
-            centerTitle: true,
-            leading: IconButton(
-              icon: Icon(
-                Icons.keyboard_arrow_left_outlined,
-                color: ColorsApp.primary,
-              ),
-              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-              onPressed: () {
-                AutoRouter.of(context).pop();
-              },
-            ),
-            backgroundColor: ColorsApp.white,
-            elevation: 0),
+        appBar: AppBarCustom(
+          title: 'ylivraisons'.tr(),
+        ),
         body: Stack(
           children: [
             Container(

@@ -51,14 +51,15 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                 ? Text('Error')
                                 : Container(
                                     decoration: BoxDecoration(
+                                      color: Colors.grey.shade200,
                                       border: Border.all(
                                           color: (state_livraison.errorVille!)
                                               ? ColorsApp.red
-                                              : ColorsApp.grey,
+                                              : Colors.grey.shade200,
                                           width: 1),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    height: getHeight(context) * .08,
+                                    height: getHeight(context) * .06,
                                     width: getWith(context),
                                     alignment: Alignment.center,
                                     child: state_livraison.villeList!.isEmpty
@@ -172,13 +173,16 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                                       ? Container(
                                                           decoration:
                                                               BoxDecoration(
+                                                            color: Colors
+                                                                .grey.shade200,
                                                             border: Border.all(
                                                                 color: (state
                                                                         .errorPointLivraison!)
                                                                     ? ColorsApp
                                                                         .red
-                                                                    : ColorsApp
-                                                                        .grey,
+                                                                    : Colors
+                                                                        .grey
+                                                                        .shade200,
                                                                 width: 1),
                                                             borderRadius:
                                                                 BorderRadius

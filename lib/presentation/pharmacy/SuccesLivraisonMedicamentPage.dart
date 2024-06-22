@@ -8,7 +8,7 @@ class SuccesLivraisonMedicamentPage extends StatelessWidget {
   const SuccesLivraisonMedicamentPage({super.key});
   static const routeName = '/livraison/medicament/success';
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return BlocConsumer<PharmacyBloc, PharmacyState>(
         listener: (context, state) {
           if (state.isDownloadFacture == 1) {
@@ -27,8 +27,6 @@ class SuccesLivraisonMedicamentPage extends StatelessWidget {
         builder: (context, state) => Container(
             child: Scaffold(
                 backgroundColor: ColorsApp.white,
-                appBar:
-                    AppBar(backgroundColor: Colors.transparent, elevation: 0),
                 body: Padding(
                     padding: EdgeInsets.symmetric(
                         vertical: 10, horizontal: kMarginX),

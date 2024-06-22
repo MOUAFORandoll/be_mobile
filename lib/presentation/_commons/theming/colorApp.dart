@@ -12,7 +12,8 @@ abstract class ColorsApp {
   static const Color bg = Color.fromARGB(255, 248, 250, 250);
 
   static const Color grey = Color(0xFFb2b2b2);
-  static const Color greyNew = Color(0xFFe5e5e5);
+  static const greyNew =
+      Color.fromARGB(255, 238, 238, 238); // Color(0xFFe5e5e5);
   static const Color white = Color(0xFFFFFFFF);
 
   static const Color orange = Color(0xffF29F05);
@@ -20,3 +21,4 @@ abstract class ColorsApp {
   // static Color textColor =
   //     Get.isDarkMode ? Color(0xffB40001) : Color(0xFFF1F6FA);
 }
+// Color.fromARGB(255,238,238,238)

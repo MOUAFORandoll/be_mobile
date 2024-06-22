@@ -1,15 +1,15 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_input_contact.dart';
 import 'package:BabanaExpress/presentation/market/MapPagePointLivraisonMarket.dart';
 import 'package:BabanaExpress/presentation/market/PaiementMarketPage.dart';
 import 'package:BabanaExpress/presentation/market/SuccesLivraisonMarketPage.dart';
 import 'package:BabanaExpress/utils/Services/ContactService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/functions/formatData.dart';
 import 'package:contacts_service/contacts_service.dart';
- 
 
 @RoutePage()
 class InfoLieuxLivraisonMarketPage extends StatefulWidget {
@@ -61,10 +61,8 @@ class _InfoLieuxLivraisonMarketPageState
         },
         builder: (context, state) => BlocBuilder<LivraisonBloc, LivraisonState>(
             builder: (context, state_livraison) => Scaffold(
-                appBar: AppBar(
-                  title: Text('Remplissez vos informations de livraisons'),
-                  leading: AppBackButton(),
-                  centerTitle: true,
+                appBar: AppBarCustom(
+                  title: 'Remplissez vos informations de livraisons'.tr(),
                 ),
                 backgroundColor: ColorsApp.bg,
                 body: Column(children: [
@@ -114,18 +112,20 @@ class _InfoLieuxLivraisonMarketPageState
                                               ? Text('Error')
                                               : Container(
                                                   decoration: BoxDecoration(
+                                                    color: Colors.grey.shade200,
                                                     border: Border.all(
                                                         color: (state_livraison
                                                                 .errorVille!)
                                                             ? ColorsApp.red
-                                                            : ColorsApp.grey,
+                                                            : Colors
+                                                                .grey.shade200,
                                                         width: 1),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8),
                                                   ),
                                                   height:
-                                                      getHeight(context) * .08,
+                                                      getHeight(context) * .06,
                                                   width: getWith(context),
                                                   alignment: Alignment.center,
                                                   child: state_livraison
@@ -274,8 +274,11 @@ class _InfoLieuxLivraisonMarketPageState
                                                                     ? Container(
                                                                         decoration:
                                                                             BoxDecoration(
+                                                                          color: Colors
+                                                                              .grey
+                                                                              .shade200,
                                                                           border: Border.all(
-                                                                              color: (state.errorPointLivraison!) ? ColorsApp.red : ColorsApp.grey,
+                                                                              color: (state.errorPointLivraison!) ? ColorsApp.red : Colors.grey.shade200,
                                                                               width: 1),
                                                                           borderRadius:
                                                                               BorderRadius.circular(8),
@@ -428,14 +431,12 @@ class _InfoLieuxLivraisonMarketPageState
                                                   fontFamily: 'Lato',
                                                   color: ColorsApp.red),
                                             )),
-                                     
                                       Container(
                                         margin: EdgeInsets.only(
                                           top: kMarginY * 1.5,
                                         ),
                                         child: AppInputContact(
-                                          controller:
-                                              state.contactRecepteur!,
+                                          controller: state.contactRecepteur!,
                                           icon: Icon(Icons.phone),
                                           textInputType: TextInputType.number,
                                           // maxLength:13,
@@ -445,8 +446,7 @@ class _InfoLieuxLivraisonMarketPageState
                                                 .openContactSelectionModal(
                                                     context: context,
                                                     onTap: (Contact contact) {
-                                                      state
-                                                              .contactRecepteur!
+                                                      state.contactRecepteur!
                                                               .text =
                                                           contact.phones!.first
                                                               .value

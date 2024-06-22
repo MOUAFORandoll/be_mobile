@@ -38,3 +38,4 @@ export 'package:BabanaExpress/utils/functions/showToast.dart';
 export 'package:flutter_easyloading/flutter_easyloading.dart';
 export 'package:BabanaExpress/presentation/components/Widget/produitComponent.dart';
  
+export 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';

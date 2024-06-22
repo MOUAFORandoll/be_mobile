@@ -27,8 +27,7 @@ class SuccesLivraisonMarketPage extends StatelessWidget {
         builder: (context, state) => Container(
             child: Scaffold(
                 backgroundColor: ColorsApp.white,
-                appBar:
-                    AppBar(backgroundColor: Colors.transparent, elevation: 0),
+               
                 body: Padding(
                     padding: EdgeInsets.symmetric(
                         vertical: 10, horizontal: kMarginX),
