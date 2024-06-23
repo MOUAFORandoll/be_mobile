@@ -25,7 +25,7 @@ class ShimmerHome extends StatelessWidget {
                         color: ColorsApp.grey,
                       ),
                       height: kToolbarHeight / 1.7,
-                      // width: getWith(context) * .75,
+                      // width: getWidth(context) * .75,
                       padding:
                           EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       child: Row(
@@ -66,7 +66,7 @@ class ShimmerHome extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (_ctx, index) => Container(
                     // height: getHeight(context),
-                    // width: getWith(context),
+                    // width: getWidth(context),
                     alignment: Alignment.center,
 
                     margin: EdgeInsets.only(right: kMarginX),
@@ -120,8 +120,8 @@ class ShimmerHome extends StatelessWidget {
                   itemCount: 8,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (_ctx, index) => Container(
-                    width: getWith(context) / 4,
-                    // height: getWith(context) / 3,
+                    width: getWidth(context) / 4,
+                    // height: getWidth(context) / 3,
                     margin: EdgeInsets.only(right: kMarginX / 2),
                     child: Container(
                       // height: getHeight(context) / 4,
@@ -138,7 +138,7 @@ class ShimmerHome extends StatelessWidget {
                             ),
                           ),
                           Container(
-                              // width: getWith(context) / 1.5,
+                              // width: getWidth(context) / 1.5,
                               child: Text(
                             '',
                             overflow: TextOverflow.ellipsis,

@@ -107,7 +107,7 @@ class ColisComponentUser extends StatelessWidget {
                                 top: BorderSide(
                                     color: ColorsApp.greyNew, width: .5))),
                         alignment: Alignment.center,
-                        width: getWith(context) / 2,
+                        width: getWidth(context) / 2,
                         child: Text(
                           colis.nom,
                           textAlign: TextAlign.start,
@@ -148,7 +148,7 @@ class ColisComponentUser extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: kMarginY / 2),
                   padding: EdgeInsets.symmetric(
                       vertical: kMarginY / 2,
-                      horizontal: getWith(context) * .07),
+                      horizontal: getWidth(context) * .07),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -159,14 +159,14 @@ class ColisComponentUser extends StatelessWidget {
                       ])),
               Container(
                 padding:
-                    EdgeInsets.symmetric(horizontal: getWith(context) * .07),
+                    EdgeInsets.symmetric(horizontal: getWidth(context) * .07),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         child: CachedNetworkImage(
                           height: getHeight(context) * .20,
-                          width: getWith(context) * .4,
+                          width: getWidth(context) * .4,
                           fit: BoxFit.cover,
                           imageUrl: colis.images[0].src,
                           imageBuilder: (context, imageProvider) {
@@ -180,7 +180,6 @@ class ColisComponentUser extends StatelessWidget {
                                 image: DecorationImage(
                                     image: imageProvider,
                                     fit: BoxFit.cover,
-                                   
                                     colorFilter: ColorFilter.mode(
                                         Colors.transparent,
                                         BlendMode.colorBurn)),
@@ -222,7 +221,7 @@ class ColisComponentUser extends StatelessWidget {
                             alignment: Alignment.center,
                             margin:
                                 EdgeInsets.symmetric(vertical: kMarginY / 2),
-                            width: getWith(context) * .4,
+                            width: getWidth(context) * .4,
                             child: Text(
                               'ylAwait'.tr(),
                               textAlign: TextAlign.center,
@@ -237,7 +236,7 @@ class ColisComponentUser extends StatelessWidget {
                                     alignment: Alignment.center,
                                     margin: EdgeInsets.symmetric(
                                         vertical: kMarginY / 2),
-                                    width: getWith(context) * .4,
+                                    width: getWidth(context) * .4,
                                     child: Text(
                                       'yPresent'.tr(),
                                       textAlign: TextAlign.center,
@@ -253,7 +252,7 @@ class ColisComponentUser extends StatelessWidget {
                                 // ),
 
                                 Container(
-                                    width: getWith(context) * .4,
+                                    width: getWidth(context) * .4,
                                     alignment: Alignment.center,
                                     padding: EdgeInsets.symmetric(
                                       vertical: kMarginY,
@@ -284,7 +283,7 @@ class ColisComponentUser extends StatelessWidget {
                                   alignment: Alignment.center,
                                   margin: EdgeInsets.symmetric(
                                       vertical: kMarginY / 2),
-                                  width: getWith(context) * .4,
+                                  width: getWidth(context) * .4,
                                   child: Text(
                                     'Partagez ce code au destinataire du colis'
                                         .tr(),
@@ -292,7 +291,7 @@ class ColisComponentUser extends StatelessWidget {
                                   )),
                               InkWell(
                                   child: Container(
-                                    width: getWith(context) * .4,
+                                    width: getWidth(context) * .4,
                                     alignment: Alignment.center,
                                     padding: EdgeInsets.symmetric(
                                         vertical: kMarginY,

@@ -118,7 +118,7 @@ class OnBoardingPage extends StatelessWidget {
                             },
                             child: Container(
                               width: state.index == entry.key
-                                  ? getWith(context) / 10
+                                  ? getWidth(context) / 10
                                   : getHeight(context) / 80,
                               height: getHeight(context) / 80,
                               margin: EdgeInsets.symmetric(

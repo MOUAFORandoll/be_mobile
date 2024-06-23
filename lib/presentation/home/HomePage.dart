@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         CurvedAnimation(curve: Curves.easeInOut, parent: _animationController!);
     _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
   }
-  
+
   Future<void> _checkForUpdate() async {
     final newVersionPlus = NewVersionPlus(
       iOSId: null,
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     print(AppLifecycleState.resumed);
     if (state == AppLifecycleState.paused) {}
   }
-  
+
   @override
   void dispose() {
     // WidgetsBinding.instance.removeObserver(this);
@@ -303,7 +303,7 @@ class CustomDrawer extends StatelessWidget {
         }
       },
       builder: (context, state) => Drawer(
-        width: getWith(context) / 1.35,
+        width: getWidth(context) / 1.35,
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -483,7 +483,7 @@ openUpdateMail(context) => showDialog(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                      width: getWith(context) * .6,
+                      width: getWidth(context) * .6,
                       child: Text('recupmailtitle'.tr())),
                   InkWell(
                       child: Icon(Icons.close,
@@ -569,7 +569,7 @@ openUpdateCompletePhoneProfile(context) => showDialog(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                      width: getWith(context) * .6,
+                      width: getWidth(context) * .6,
                       child: Text('recupmailtitle'.tr())),
                   InkWell(
                       child: Icon(Icons.close,
@@ -667,7 +667,7 @@ openModalLivraison(context) => showModalBottomSheet(
                       margin: EdgeInsets.only(bottom: 8),
                       child: AppButton(
                           text: 'ser1'.tr(),
-                          // width: getWith(context) / 2.5,
+                          // width: getWidth(context) / 2.5,
                           size: MainAxisSize.max,
                           bgColor: ColorsApp.second,
                           onTap: () {
@@ -678,7 +678,7 @@ openModalLivraison(context) => showModalBottomSheet(
                     ),
                     AppButton(
                         text: 'ser2'.tr(),
-                        // width: getWith(context) / 2.5,
+                        // width: getWidth(context) / 2.5,
                         size: MainAxisSize.max,
                         // bgColor: AppColors.secondarytext,
                         onTap: () {

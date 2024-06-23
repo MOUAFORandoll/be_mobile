@@ -34,7 +34,7 @@ class ReplyCard extends StatelessWidget {
                           children: [
                             Container(
                                 margin: EdgeInsets.only(
-                                  right: getWith(context) * .03,
+                                  right: getWidth(context) * .03,
                                 ),
                                 decoration: BoxDecoration(
                                     color: ColorsApp.second,
@@ -60,7 +60,7 @@ class ReplyCard extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.only(
-                          left: getWith(context) * .5,
+                          left: getWidth(context) * .5,
                         ),
                         child: Text(
                           time,
@@ -77,11 +77,11 @@ class ReplyCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                         color: ColorsApp.greyNew),
                     constraints: BoxConstraints(
-                      maxWidth: getWith(context) * .50,
+                      maxWidth: getWidth(context) * .50,
                     ),
                     padding: EdgeInsets.all(kMarginX),
                     margin: EdgeInsets.only(left: kMarginX * 2),
-                    // width: getWith(context) * .58,
+                    // width: getWidth(context) * .58,
                     child: Text(message,
                         style: TextStyle(
                           fontFamily: 'Lato',

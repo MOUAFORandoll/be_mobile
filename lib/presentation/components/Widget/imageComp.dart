@@ -22,7 +22,7 @@ class ImageComp extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50), color: Colors.white),
             margin: EdgeInsets.only(right: 5),
             height: getHeight(context) / 4,
-            width: getWith(context) / 2.4,
+            width: getWidth(context) / 2.4,
             child: ClipRRect(
                 borderRadius:
                     BorderRadius.circular(8.0), // Adjust the radius here

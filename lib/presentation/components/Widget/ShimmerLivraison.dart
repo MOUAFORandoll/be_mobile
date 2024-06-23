@@ -23,7 +23,7 @@ class ShimmerLivraison extends StatelessWidget {
                     itemCount: 6,
                     itemBuilder: (_ctx, index) => Container(
                           height: 4.2,
-                          width: getWith(context),
+                          width: getWidth(context),
                           alignment: Alignment.center,
                           // padding: EdgeInsets.all(kMarginX),
                           // margin: EdgeInsets.symmetric(horizontal: kMarginX),

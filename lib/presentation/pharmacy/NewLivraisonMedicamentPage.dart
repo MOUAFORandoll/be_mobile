@@ -245,7 +245,7 @@ class _NewLivraisonMedicamentPageState
                                 margin: EdgeInsets.only(bottom: 8),
                                 child: AppButton(
                                     text: 'yvalidate'.tr(),
-                                    // width: getWith(context) / 2.5,
+                                    // width: getWidth(context) / 2.5,
                                     size: MainAxisSize.max,
                                     bgColor: ColorsApp.primary,
                                     onTap: () => context

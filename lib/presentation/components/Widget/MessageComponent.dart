@@ -5,7 +5,7 @@ import 'package:BabanaExpress/presentation/components/Widget/load_file_online.da
 import '../exportcomponent.dart';
 
 class MessageComponent extends StatefulWidget {
-  const MessageComponent({Key? key,required this.message}) : super(key: key);
+  const MessageComponent({Key? key, required this.message}) : super(key: key);
   final MessageModel message;
 
   @override
@@ -113,8 +113,8 @@ class _MessageComponentState extends State<MessageComponent>
                                   bottomRight: Radius.circular(10)), */
                           color: color.withOpacity(0.8)),
                       constraints: BoxConstraints(
-                        maxWidth: getWith(context) * .50,
-                        minWidth: getWith(context) * .35,
+                        maxWidth: getWidth(context) * .50,
+                        minWidth: getWidth(context) * .35,
                       ),
                       padding: EdgeInsets.all(3),
                       child: Column(
@@ -237,8 +237,8 @@ void _showPopupMenu(
   double top = offset.dy;
   await showMenu(
     constraints: BoxConstraints(
-      maxWidth: getWith(context) * .50,
-      minWidth: getWith(context) * .35,
+      maxWidth: getWidth(context) * .50,
+      minWidth: getWidth(context) * .35,
     ),
     context: context,
     position: RelativeRect.fromLTRB(left, top, left + 1, top + 1),

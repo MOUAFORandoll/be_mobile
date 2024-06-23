@@ -49,7 +49,7 @@ class _CallCenterPageState extends State<CallCenterPage> {
                   state.isLoadMessageCallCenter != 0) {
                 scrollToBottom();
               }
-              if ( state.isToUpdate) {
+              if (state.isToUpdate) {
                 FocusScope.of(context).requestFocus(state.focusNode);
               }
             }, builder: (context, state) {
@@ -246,7 +246,8 @@ class _CallCenterPageState extends State<CallCenterPage> {
                                     ? getHeight(context) * .08
                                     : 0)),
                         alignment: Alignment.bottomCenter,
-                        decoration: BoxDecoration(color: ColorsApp.grey),
+                        decoration: BoxDecoration(
+                            color: ColorsApp.grey.withOpacity(.3)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [

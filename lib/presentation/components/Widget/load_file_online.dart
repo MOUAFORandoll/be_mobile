@@ -1,9 +1,7 @@
-
-
 import 'package:BabanaExpress/application/model/data/MessageModel.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
-import 'package:cached_network_image/cached_network_image.dart'; 
+import 'package:cached_network_image/cached_network_image.dart';
 
 class LoadFileOnlineWidget extends StatelessWidget {
   LoadFileOnlineWidget({
@@ -44,7 +42,7 @@ class LoadFileOnlineWidget extends StatelessWidget {
                       highlightColor: ColorsApp.primary.withOpacity(.1),
                       child: Container(
                         /*   height: getHeight(context) * .09,
-                                              width: getWith(context) * .25,
+                                              width: getWidth(context) * .25,
                                              */
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
@@ -73,6 +71,3 @@ class LoadFileOnlineWidget extends StatelessWidget {
         onTap: onTap);
   }
 }
-
-
- 

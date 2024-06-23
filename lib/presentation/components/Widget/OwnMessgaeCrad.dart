@@ -8,7 +8,7 @@ class OwnMessageCard extends StatelessWidget {
   const OwnMessageCard({required this.message, required this.time});
   final String message;
   final String time;
-  
+
   @override
   Widget build(BuildContext context) {
     var formatData = new FormatData();
@@ -33,7 +33,7 @@ class OwnMessageCard extends StatelessWidget {
                     children: [
                       Container(
                         margin: EdgeInsets.only(
-                          right: getWith(context) * .5,
+                          right: getWidth(context) * .5,
                         ),
                         child: Text(
                           time,
@@ -59,7 +59,7 @@ class OwnMessageCard extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(
-                                left: getWith(context) * .03,
+                                left: getWidth(context) * .03,
                               ),
                               child: CachedNetworkImage(
                                 height: getHeight(context) / 20,
@@ -92,8 +92,8 @@ class OwnMessageCard extends StatelessWidget {
                                   return CircleAvatar(
                                       backgroundColor: ColorsApp.primary,
                                       radius: 50,
-                                      backgroundImage: AssetImage(
-                                         Assets.babana));
+                                      backgroundImage:
+                                          AssetImage(Assets.babana));
                                 },
                               ),
                             ),
@@ -108,11 +108,11 @@ class OwnMessageCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                         color: ColorsApp.second),
                     constraints: BoxConstraints(
-                      maxWidth: getWith(context) * .50,
+                      maxWidth: getWidth(context) * .50,
                     ),
                     padding: EdgeInsets.all(kMarginX),
                     margin: EdgeInsets.only(right: kMarginX * 2),
-                    // width: getWith(context) * .58,
+                    // width: getWidth(context) * .58,
                     child: Text(message,
                         style: TextStyle(
                           fontFamily: 'Lato',

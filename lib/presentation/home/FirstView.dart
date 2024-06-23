@@ -72,8 +72,8 @@ class _FirstViewState extends State<FirstView>
                                 title: 'Livraison de colis'.tr(),
                                 icon: Assets.colis,
                                 onTap: () {
-                                  // BlocProvider.of<PrestataireRdvBloc>(context)
-                                  //     .add(FetchRdv());
+                                  BlocProvider.of<LivraisonBloc>(context)
+                                      .add(HistoriqueUserLivraison());
                                   AutoRouter.of(context)
                                       .push(HistoriqueLivraisonRoute());
                                 },
@@ -81,8 +81,9 @@ class _FirstViewState extends State<FirstView>
                               HomeOptionWidget(
                                 title: 'Livraison de medicaments'.tr(),
                                 onTap: () {
-                                  // BlocProvider.of<PrestataireRdvBloc>(context)
-                                  //     .add(FetchRdv());
+                                  BlocProvider.of<PharmacyBloc>(context)
+                                      .add(HistoriqueLivraisonMedicament());
+
                                   AutoRouter.of(context).push(
                                       HistoriqueLivraisonMedicamentRoute());
                                 },
@@ -100,6 +101,8 @@ class _FirstViewState extends State<FirstView>
                                 icon: Assets.market_place,
                                 title: 'Market Place',
                                 onTap: () {
+                                  BlocProvider.of<MarketBloc>(context)
+                                      .add(MarketEvent.getLivraisonProduit());
                                   AutoRouter.of(context).push(MarketRoute());
                                 },
                               ),
@@ -142,7 +145,7 @@ class _FirstViewState extends State<FirstView>
                             highlightColor: ColorsApp.primary.withOpacity(.1),
                             child: Container(
                                 height: getHeight(context) * .08,
-                                width: getWith(context) * .9,
+                                width: getWidth(context) * .9,
                                 padding:
                                     EdgeInsets.symmetric(vertical: kMarginY),
                                 margin: EdgeInsets.symmetric(
@@ -170,7 +173,7 @@ class _FirstViewState extends State<FirstView>
                                         ),
                                         child: Container(
                                           height: getHeight(context) * .2,
-                                          width: getWith(context) * .15,
+                                          width: getWidth(context) * .15,
                                           alignment: Alignment.center,
                                           decoration: BoxDecoration(
                                             borderRadius:
@@ -222,7 +225,7 @@ class _FirstViewState extends State<FirstView>
                                       fontWeight: FontWeight.w700),
                                 ))
                             : Container(
-                                width: getWith(context),
+                                width: getWidth(context),
                                 height: getHeight(context) * .12,
                                 child: ListView.builder(
                                     shrinkWrap: true,

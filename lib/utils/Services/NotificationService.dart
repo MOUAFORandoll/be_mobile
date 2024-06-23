@@ -1,5 +1,5 @@
 import 'dart:async';
- 
+
 import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonModel.dart';
@@ -9,6 +9,8 @@ import 'package:BabanaExpress/main_prod.dart';
 import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/presentation/compte/WalletView.dart';
+import 'package:BabanaExpress/presentation/home/HomePage.dart';
+import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonPage.dart';
 import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/subjects.dart';
@@ -94,6 +96,9 @@ class NotificationService {
         if (payload == 'Call Center') {
           sl.get<AppRouter>().pushNamed(CallCenterPage.routeName);
         }
+        if (payload == 'Livraison') {
+          sl.get<AppRouter>().pushNamed(HomePage.routeName);
+        }
         // else {
         // final context = Payload.fromJson(payload as Map<String, dynamic>);
         // BlocProvider.of<LivraisonBloc>(context.context!)
@@ -142,10 +147,7 @@ class NotificationService {
                   ? 'En cours'
                   : 'Effectuee'),
       platformChannelSpecifics,
-      payload: Payload(
-        context: context,
-        titre: 'Livraison',
-      ).toString(),
+      payload: 'Livraison',
     );
   }
 
@@ -188,10 +190,7 @@ class NotificationService {
                   ? 'En cours'
                   : 'Effectuee'),
       platformChannelSpecifics,
-      payload: Payload(
-        context: context,
-        titre: 'Livraison',
-      ).toString(),
+      payload: 'Livraison',
     );
   }
 
@@ -234,16 +233,13 @@ class NotificationService {
                   ? 'En cours'
                   : 'Effectuee'),
       platformChannelSpecifics,
-      payload: Payload(
-        context: context,
-        titre: 'Livraison',
-      ).toString(),
+      payload: 'Livraison',
     );
   }
 
   Future<void> livraisonValidateNotification(
       {required content, required context}) async {
-    var livraison = LivraisonModel.fromJson(content);
+    // var livraison = LivraisonModel.fromJson(content);
 
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
@@ -274,9 +270,7 @@ class NotificationService {
     await flutterLocalNotificationsPlugin.show(
       2,
       'Livraison Enregistrée',
-      'Votre requette de livraison du ' +
-          livraison.date +
-          ' a été enregistrée et est en cours de traitement', // Notification body
+      'Votre requette de livraison a été enregistrée et est en cours de traitement', // Notification body
       platformChannelSpecifics,
       payload: 'Livraison',
     );
@@ -358,7 +352,7 @@ class NotificationService {
       payload: 'Depot',
     );
   }
-  
+
   Future<void> callCenterNotification(
       {required MessageModel content, required context}) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =

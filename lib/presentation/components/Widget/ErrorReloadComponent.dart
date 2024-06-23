@@ -1,4 +1,3 @@
- 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
@@ -19,7 +18,7 @@ class ErrorReloadComponent extends StatelessWidget {
             children: [
               Container(child: Icon(Icons.refresh, size: 70)),
               Container(
-                  width: getWith(context) * .7,
+                  width: getWidth(context) * .7,
                   padding: EdgeInsets.symmetric(vertical: kMarginY),
                   child: Text(
                     'Pas de connexion a internet. Appuie pour reessayer'.tr(),
@@ -27,7 +26,7 @@ class ErrorReloadComponent extends StatelessWidget {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   )),
               Container(
-                  width: getWith(context) * .8,
+                  width: getWidth(context) * .8,
                   child: Text(
                     'Connexion a internet impossible. Bascule sur un autre reseau et reessaie'
                         .tr(),

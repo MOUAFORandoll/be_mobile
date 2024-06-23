@@ -16,7 +16,7 @@ class LivraisonUserHomeComponent extends StatelessWidget {
     return InkWell(
         child: Container(
             height: getHeight(context) * .1,
-            width: getWith(context) * .8,
+            width: getWidth(context) * .8,
             padding: EdgeInsets.symmetric(vertical: kMarginY),
             margin: EdgeInsets.symmetric(
               vertical: kMarginY,
@@ -41,7 +41,7 @@ class LivraisonUserHomeComponent extends StatelessWidget {
                     ),
                     child: Container(
                       height: getHeight(context) * .2,
-                      width: getWith(context) * .15,
+                      width: getWidth(context) * .15,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),

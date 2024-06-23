@@ -4,7 +4,6 @@ import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart
 import 'package:BabanaExpress/presentation/components/Widget/shoppingproduitComponent.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
- 
 
 @RoutePage()
 class ShoppingPage extends StatefulWidget {
@@ -87,7 +86,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
                                       ),
                                     )),
                                 Container(
-                                    width: getWith(context) * 0.65,
+                                    width: getWidth(context) * 0.65,
                                     child: Text(
                                       'Montant du panier :  state.totalPrix} XAF',
                                       style: TextStyle(

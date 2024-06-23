@@ -1,6 +1,5 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
@@ -83,10 +82,38 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                           alignment: Alignment.center,
                           child: state.villeList!.isEmpty
                               ? Container()
-                              : AppDropdown<VilleModel>(
+                              : DropdownButton<VilleModel>(
                                   value: state.selectedVIlle,
-                                  hint: 'yselectville'.tr(),
-                                  items: state.villeList!,
+                                  icon: Container(
+                                    // padding: EdgeInsets.only(top: 4),
+                                    child: Icon(
+                                      Icons.keyboard_arrow_down_outlined,
+                                    ),
+                                  ),
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 7,
+                                  ),
+                                  hint: Container(
+                                    width: getWidth(context) * .65,
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 7,
+                                    ),
+                                    child: Text(
+                                      'yselectville'.tr(),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 12,
+                                          color: ColorsApp.grey,
+                                          fontFamily: 'Lato',
+                                          overflow: TextOverflow.ellipsis),
+                                    ),
+                                  ),
+                                  iconSize: 25,
+                                  isExpanded: true,
+                                  underline: SizedBox(),
+                                  style: TextStyle(
+                                      color: ColorsApp.black, fontSize: 12),
                                   onChanged: (newValue) {
                                     context.read<LivraisonBloc>().add(
                                         SelectedVille(
@@ -94,9 +121,18 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                     context.read<LivraisonBloc>().add(
                                         GetRecupPointEvent(ville: newValue.id));
                                   },
-                                  itemLabelBuilder: (VilleModel value) =>
-                                      value.libelle,
-                                )),
+                                  items: state.villeList!.map((value) {
+                                    return DropdownMenuItem(
+                                      value: value,
+                                      child: Center(
+                                        child: Text(
+                                          value.libelle,
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                        ),
               if (state.errorVille!)
                 Container(
                     padding: EdgeInsets.only(
@@ -136,35 +172,95 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                 //     child: Text('yrecup'.tr())),
                                 Container(
                                     margin: EdgeInsets.only(
-                                      top: kMarginY * 1.5,
+                                      top: kMarginY,
                                     ),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         (!state.isMapSelectedPointRecuperation)
-                                            ? AppDropdown<PointLivraisonModel>(
-                                            maxWidth: getWidth(context) * .65,
-                                                value: state
-                                                    .selected_recuperation_point,
-                                                hint: 'yselectrecupp'.tr(),
-                                                items: state
-                                                    .list_localisation_point!,
-                                                onChanged: (PointLivraisonModel?
-                                                    newValue) {
-                                                  context
-                                                      .read<LivraisonBloc>()
-                                                      .add(
-                                                          SelectPointRecuperation(
-                                                              point_recup:
-                                                                  newValue!));
-                                                },
-                                                itemLabelBuilder:
-                                                    (PointLivraisonModel
-                                                            value) =>
-                                                        value.libelle,
-                                                hasError: state
-                                                    .errorPointRecuperation!)
+                                            ? Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.grey.shade200,
+                                                  border: Border.all(
+                                                      color: (state
+                                                              .errorPointRecuperation!)
+                                                          ? ColorsApp.red
+                                                          : Colors
+                                                              .grey.shade200,
+                                                      width: 1),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                height:
+                                                    getHeight(context) * .06,
+                                                width: getWidth(context) * .65,
+                                                padding: EdgeInsets.symmetric(
+                                                  horizontal: 7,
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: DropdownButton<
+                                                    PointLivraisonModel>(
+                                                  isExpanded: true,
+                                                  value: state
+                                                      .selected_recuperation_point,
+                                                  hint: Container(
+                                                    width:
+                                                        getWidth(context) * .65,
+                                                    alignment: Alignment.center,
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                      horizontal: 7,
+                                                    ),
+                                                    child: Text(
+                                                      'yselectrecupp'.tr(),
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 12,
+                                                          color: ColorsApp.grey,
+                                                          fontFamily: 'Lato',
+                                                          overflow: TextOverflow
+                                                              .ellipsis),
+                                                    ),
+                                                  ),
+                                                  icon: Container(
+                                                    // padding: EdgeInsets.only(top: 4),
+                                                    child: Icon(
+                                                      Icons
+                                                          .keyboard_arrow_down_outlined,
+                                                    ),
+                                                  ),
+                                                  iconSize: 25,
+                                                  underline: SizedBox(),
+                                                  style: TextStyle(
+                                                      color: ColorsApp.black,
+                                                      fontSize: 12),
+                                                  onChanged:
+                                                      (PointLivraisonModel?
+                                                          newValue) {
+                                                    context
+                                                        .read<LivraisonBloc>()
+                                                        .add(
+                                                            SelectPointRecuperation(
+                                                                point_recup:
+                                                                    newValue!));
+                                                  },
+                                                  items: state
+                                                      .list_localisation_point!
+                                                      .map((PointLivraisonModel
+                                                          value) {
+                                                    return DropdownMenuItem(
+                                                      value: value,
+                                                      child: Center(
+                                                        child: Text(
+                                                          value.libelle,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }).toList(),
+                                                ),
+                                              )
                                             : Container(
                                                 padding: EdgeInsets.symmetric(
                                                     vertical: kMarginY,

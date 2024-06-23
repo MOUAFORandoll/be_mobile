@@ -58,7 +58,7 @@ class _MarketPageState extends State<MarketPage>
       print('okkok');
     }
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MarketBloc, MarketState>(

@@ -7,7 +7,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 // / _loaderDialogController.open(context);
 // / _loaderDialogController.close();
 
-// / 
+// /
 class AppLoader {
   static Widget circular(
       {Color? color, double scale = .7, double strokeWidth = 6}) {
@@ -248,7 +248,7 @@ class Loader {
                   ),
                   AnimatedLineOverlay(
                     height: 3.0,
-                    width: getWith(context),
+                    width: getWidth(context),
                   )
                 ]),
           );

@@ -16,8 +16,8 @@ class CircleImage extends StatelessWidget {
           imageUrl: imageUrl,
           imageBuilder: (context, imageProvider) {
             return Container(
-                height: getWith(context) / 5,
-                width: getWith(context) / 5,
+                height: getWidth(context) / 5,
+                width: getWidth(context) / 5,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   border: Border.all(color: ColorsApp.grey, width: 1),
@@ -36,8 +36,8 @@ class CircleImage extends StatelessWidget {
           },
           errorWidget: (context, url, error) {
             return Container(
-                height: getWith(context) / 5,
-                width: getWith(context) / 5,
+                height: getWidth(context) / 5,
+                width: getWidth(context) / 5,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     border: Border.all(color: ColorsApp.grey, width: 1),

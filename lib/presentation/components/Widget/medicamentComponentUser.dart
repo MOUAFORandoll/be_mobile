@@ -94,7 +94,7 @@ class MedicamentComponentUser extends StatelessWidget {
                                 top: BorderSide(
                                     color: ColorsApp.greyNew, width: .5))),
                         alignment: Alignment.center,
-                        width: getWith(context) / 2,
+                        width: getWidth(context) / 2,
                         child: Text(
                           medicament.libelle,
                           textAlign: TextAlign.start,

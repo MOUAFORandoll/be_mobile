@@ -27,7 +27,7 @@ class InputComment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getWith(context) * .66,
+      width: getWidth(context) * .66,
       height: 40,
       margin: EdgeInsets.symmetric(
         horizontal: 4,

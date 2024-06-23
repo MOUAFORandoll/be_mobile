@@ -25,7 +25,7 @@ final kMdIcon = 30.0;
 final kLgIcon = 32.0;
 final kXlIcon = 34.0;
 
-getWith(context) {
+getWidth(context) {
   MediaQueryData queryData;
   queryData = MediaQuery.of(context);
 

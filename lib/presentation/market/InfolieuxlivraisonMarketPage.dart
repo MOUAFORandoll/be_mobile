@@ -126,7 +126,7 @@ class _InfoLieuxLivraisonMarketPageState
                                                   ),
                                                   height:
                                                       getHeight(context) * .06,
-                                                  width: getWith(context),
+                                                  width: getWidth(context),
                                                   alignment: Alignment.center,
                                                   child: state_livraison
                                                           .villeList!.isEmpty
@@ -147,7 +147,7 @@ class _InfoLieuxLivraisonMarketPageState
                                                             horizontal: 7,
                                                           ),
                                                           hint: Container(
-                                                            width: getWith(
+                                                            width: getWidth(
                                                                     context) *
                                                                 .65,
                                                             alignment: Alignment
@@ -285,7 +285,7 @@ class _InfoLieuxLivraisonMarketPageState
                                                                         ),
                                                                         height: getHeight(context) *
                                                                             .06,
-                                                                        width: getWith(context) *
+                                                                        width: getWidth(context) *
                                                                             .65,
                                                                         padding:
                                                                             EdgeInsets.symmetric(
@@ -303,7 +303,7 @@ class _InfoLieuxLivraisonMarketPageState
                                                                           hint:
                                                                               Container(
                                                                             width:
-                                                                                getWith(context) * .65,
+                                                                                getWidth(context) * .65,
                                                                             alignment:
                                                                                 Alignment.center,
                                                                             padding:
@@ -360,7 +360,7 @@ class _InfoLieuxLivraisonMarketPageState
                                                                         alignment:
                                                                             Alignment
                                                                                 .center,
-                                                                        width: getWith(context) *
+                                                                        width: getWidth(context) *
                                                                             .65,
                                                                         decoration: BoxDecoration(
                                                                             borderRadius: BorderRadius.circular(

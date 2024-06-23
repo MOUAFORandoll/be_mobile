@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:BabanaExpress/application/database/database_cubit.dart';
@@ -291,9 +292,12 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   Future<void> _getVilleAndCategory(
       GetVilleAndCategoryEvent event, Emitter<LivraisonState> emit) async {
     emit(state.copyWith(
-      isLoadedVille: 0,
-      isLoadedVCategory: 0,
-    ));
+        selected_recuperation_point: null,
+        isLoadedVille: 0,
+        isLoadedVCategory: 0,
+        villeList: [],
+        list_localisation_point: [],
+        selectedVIlle: null));
     try {
       print('debut get ville event');
       Response response = await livraisonRepo.getVille();
@@ -602,60 +606,62 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       emit(state.copyWith(errorImage: false, isColisOK: true));
       isOk = true;
     }
-    if (state.formKeyColis!.currentState!.validate()) {
-      if (isOk) {
-        List<MultipartFile> imageFiles = [];
 
-        for (int j = 0; j < state.imageColis!.length; j++) {
-          File imageFile = state.imageColis![j];
-          imageFiles.add(await MultipartFile.fromFile(
-            imageFile.path,
-            filename: 'Image$j.jpg',
-          ));
-        }
+    // if (state.formKeyColis!.currentState!.validate()) {
+    // log(isOk.toString());
+    if (isOk) {
+      List<MultipartFile> imageFiles = [];
 
-        Colis newColis = Colis(
-          id: state.idColis!,
-          nom: state.nomColis!.text,
-          quantite: state.quantiteColis!.text,
-          contactRecepteur: state.contactRecepteur!.text,
-          valeurColis: state.valeurColis!.text,
-          category: state.categoryColis!.id!,
-          libelleLocalisation: state.selected_livraison_point!.libelle,
-          quartier: state.selected_livraison_point!.quartier,
-          longitude: state.selected_livraison_point!.longitude,
-          latitude: state.selected_livraison_point!.latitude,
-          idPointLivraisonColis: state.selected_livraison_point != null
-              ? state.selected_livraison_point!.id
-              : 0,
-          listImgColis: state.imageColis!,
-          countImage: state.imageColis!.length,
-        );
-        final listColis = [...state.listColis!, newColis];
-        final newState = state.copyWith(
-            idColis: state.idColis! + 1,
-            listColis: listColis); // Update other properties
-        emit(newState);
-        emit(state.copyWith(
-          // isMapSelectedPointLivraison: false,
-          errorImage: false,
-          isDownloadFacture: 0,
-          isRequest: 0,
-          urlFacture: '',
-          frais: 0,
-          errorQte: false,
-          errorCategory: false,
-          errorPointLivraison: false,
-          // index: 0,
-          imageColis: [],
-          phone: TextEditingController(),
-          nomColis: TextEditingController(),
-          quantiteColis: TextEditingController(text: '1'),
-          contactRecepteur: TextEditingController(),
-          valeurColis: TextEditingController(),
+      for (int j = 0; j < state.imageColis!.length; j++) {
+        File imageFile = state.imageColis![j];
+        imageFiles.add(await MultipartFile.fromFile(
+          imageFile.path,
+          filename: 'Image$j.jpg',
         ));
       }
+
+      Colis newColis = Colis(
+        id: state.idColis!,
+        nom: state.nomColis!.text,
+        quantite: state.quantiteColis!.text,
+        contactRecepteur: state.contactRecepteur!.text,
+        valeurColis: state.valeurColis!.text,
+        category: state.categoryColis!.id!,
+        libelleLocalisation: state.selected_livraison_point!.libelle,
+        quartier: state.selected_livraison_point!.quartier,
+        longitude: state.selected_livraison_point!.longitude,
+        latitude: state.selected_livraison_point!.latitude,
+        idPointLivraisonColis: state.selected_livraison_point != null
+            ? state.selected_livraison_point!.id
+            : 0,
+        listImgColis: state.imageColis!,
+        countImage: state.imageColis!.length,
+      );
+      final listColis = [...state.listColis!, newColis];
+      final newState = state.copyWith(
+          idColis: state.idColis! + 1,
+          listColis: listColis); // Update other properties
+      emit(newState);
+      emit(state.copyWith(
+        // isMapSelectedPointLivraison: false,
+        errorImage: false,
+        isDownloadFacture: 0,
+        isRequest: 0,
+        urlFacture: '',
+        frais: 0,
+        errorQte: false,
+        errorCategory: false,
+        errorPointLivraison: false,
+        // index: 0,
+        imageColis: [],
+        phone: TextEditingController(),
+        nomColis: TextEditingController(),
+        quantiteColis: TextEditingController(text: '1'),
+        contactRecepteur: TextEditingController(),
+        valeurColis: TextEditingController(),
+      ));
     }
+    // }
   }
 
   Future<void> _selectCategory(
@@ -889,7 +895,6 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       ));
     });
   }
-  
 
   _downloadFacture(DownloadFacture event, Emitter<LivraisonState> emit) async {
     await requestPermission();

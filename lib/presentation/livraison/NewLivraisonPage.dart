@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
@@ -31,7 +32,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                 maskType: EasyLoadingMaskType.black);
           } else if (state.isRequest == 3) {
             EasyLoading.dismiss();
-            
+
             showError('Une erreur est survenue', context);
           } else if (state.isRequest == 2) {
             EasyLoading.dismiss();
@@ -64,19 +65,19 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
           }
         },
         builder: (context, state) => Scaffold(
-            backgroundColor: ColorsApp.bg,
-            appBar: AppBarCustom(
-              title: 'yNewLivraison'.tr(),
-            ),
-            body: /*  RefreshIndicator(
+              backgroundColor: ColorsApp.bg,
+              appBar: AppBarCustom(
+                title: 'yNewLivraison'.tr(),
+              ),
+              body: RefreshIndicator(
                 color: ColorsApp.second,
                 onRefresh: () => Future.delayed(
                     Duration(seconds: 5), () => initLoad(context)),
-                child: */
-                Container(
-                    height: getHeight(context),
-                    margin: EdgeInsets.symmetric(
-                        horizontal: kMarginX, vertical: kMarginY),
+                child: Container(
+                  height: getHeight(context) * .7,
+                  margin: EdgeInsets.symmetric(
+                      horizontal: kMarginX, vertical: kMarginY),
+                  child: SingleChildScrollView(
                     child: Column(
                       children: [
                         Container(
@@ -130,97 +131,87 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                     ))
                               ]),
                         ),
-                        Expanded(
-                          child:
-                              state.index == 0 ? InfoLIvraison() : InfoColis(),
-                        ),
-                        Container(
-                            margin: EdgeInsets.symmetric(
-                              vertical: kMarginY * 1.5,
-                            ),
-                            child: state.index == 0
-                                ? AppButton(
-                                    size: MainAxisSize.max,
-                                    bgColor: (state.index == 0)
-                                        ? !(state.selectedVIlle != null &&
-                                                state.selected_recuperation_point !=
-                                                    null &&
-                                                state.contactEmetteur!.text
-                                                        .length !=
-                                                    0 &&
-                                                state.description!.text
-                                                        .length !=
-                                                    0)
-                                            ? ColorsApp.grey
-                                            : ColorsApp.primary
-                                        : (state.listColis!.length == 0)
-                                            ? ColorsApp.grey
-                                            : ColorsApp.primary,
-                                    text: 'ynext'.tr(),
-                                    onTap: () {
-                                      if (state.index == 0) {
-                                        if ((state.selectedVIlle != null &&
+                        state.index == 0 ? InfoLIvraison() : InfoColis(),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              bottomNavigationBar: Container(
+                  margin: EdgeInsets.symmetric(
+                    vertical: kMarginY * 1.5,
+                  ),
+                  height: getHeight(context) * .1,
+                  child: state.index == 0
+                      ? AppButton(
+                          size: MainAxisSize.max,
+                          bgColor: (state.index == 0)
+                              ? !(state.selectedVIlle != null &&
+                                      state.selected_recuperation_point !=
+                                          null &&
+                                      state.contactEmetteur!.text.length != 0 &&
+                                      state.description!.text.length != 0)
+                                  ? ColorsApp.grey
+                                  : ColorsApp.primary
+                              : (state.listColis!.length == 0)
+                                  ? ColorsApp.grey
+                                  : ColorsApp.primary,
+                          text: 'ynext'.tr(),
+                          onTap: () {
+                            if (state.index == 0) {
+                              if ((state.selectedVIlle != null &&
+                                  state.selected_recuperation_point != null &&
+                                  state.contactEmetteur!.text.length != 0 &&
+                                  state.description!.text.length != 0)) {
+                                context
+                                    .read<LivraisonBloc>()
+                                    .add(VerifyFormLivraisonEvent());
+                              }
+                            }
+                          },
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                              AppButton(
+                                  size: MainAxisSize.max,
+                                  bgColor: state.index == 0
+                                      ? ColorsApp.grey
+                                      : ColorsApp.primary,
+                                  text: 'yback'.tr(),
+                                  onTap: () {
+                                    context
+                                        .read<LivraisonBloc>()
+                                        .add(BackIndexEvent());
+                                  }),
+                              AppButton(
+                                size: MainAxisSize.max,
+                                bgColor: (state.index == 0)
+                                    ? !(state.selectedVIlle != null &&
                                             state.selected_recuperation_point !=
                                                 null &&
                                             state.contactEmetteur!.text
                                                     .length !=
                                                 0 &&
-                                            state.description!.text.length !=
-                                                0)) {
-                                          context
-                                              .read<LivraisonBloc>()
-                                              .add(VerifyFormLivraisonEvent());
-                                        }
-                                      }
-                                    },
-                                  )
-                                : Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                        AppButton(
-                                            size: MainAxisSize.max,
-                                            bgColor: state.index == 0
-                                                ? ColorsApp.grey
-                                                : ColorsApp.primary,
-                                            text: 'yback'.tr(),
-                                            onTap: () {
-                                              context
-                                                  .read<LivraisonBloc>()
-                                                  .add(BackIndexEvent());
-                                            }),
-                                        AppButton(
-                                          size: MainAxisSize.max,
-                                          bgColor: (state.index == 0)
-                                              ? !(state.selectedVIlle != null &&
-                                                      state.selected_recuperation_point !=
-                                                          null &&
-                                                      state.contactEmetteur!
-                                                              .text.length !=
-                                                          0 &&
-                                                      state.description!.text
-                                                              .length !=
-                                                          0)
-                                                  ? ColorsApp.grey
-                                                  : ColorsApp.primary
-                                              : (state.listColis!.length == 0)
-                                                  ? ColorsApp.grey
-                                                  : ColorsApp.primary,
-                                          text: 'yeval'.tr(),
-                                          onTap: () {
-                                            if (state.index == 1) {
-                                              if (state.listColis!.length !=
-                                                  0) {
-                                                context
-                                                    .read<LivraisonBloc>()
-                                                    .add(CalculFrais());
-                                              }
-                                            }
-                                          },
-                                        ),
-                                      ])),
-                      ],
-                    ))));
+                                            state.description!.text.length != 0)
+                                        ? ColorsApp.grey
+                                        : ColorsApp.primary
+                                    : (state.listColis!.length == 0)
+                                        ? ColorsApp.grey
+                                        : ColorsApp.primary,
+                                text: 'yeval'.tr(),
+                                onTap: () {
+                                  if (state.index == 1) {
+                                    if (state.listColis!.length != 0) {
+                                      context
+                                          .read<LivraisonBloc>()
+                                          .add(CalculFrais());
+                                    }
+                                  }
+                                },
+                              ),
+                            ])),
+            ));
   }
 
   validateLivraison(contextA) => showModalBottomSheet(
@@ -339,7 +330,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                 margin: EdgeInsets.only(bottom: 8),
                                 child: AppButton(
                                     text: 'yvalidate'.tr(),
-                                    // width: getWith(context) / 2.5,
+                                    // width: getWidth(context) / 2.5,
                                     size: MainAxisSize.max,
                                     bgColor: ColorsApp.primary,
                                     onTap: () => context

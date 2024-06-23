@@ -44,7 +44,7 @@ class _AppInputContactState extends State<AppInputContact> {
       child: Row(
         children: [
           Expanded(
-            // width: getWith(context) * .7,
+            // width: getWidth(context) * .7,
             child: Focus(
               onFocusChange: (focus) {
                 setState(() {
@@ -94,11 +94,18 @@ class _AppInputContactState extends State<AppInputContact> {
                       fontSize: 8,
                       fontFamily: 'Lato',
                     ),
+                    hintStyle: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                      color: Colors.grey.shade500,
+                      fontFamily: 'Lato',
+                      overflow: TextOverflow.ellipsis,
+                    ),
                     labelText: widget.label,
                     labelStyle: TextStyle(
-                      color: ColorsApp.grey, fontFamily: 'Lato',
-                      // fontWeight: FontWeight.w500,
-                      fontSize: kBasics,
+                      color: ColorsApp.grey,
+                      fontFamily: 'Lato',
+                      fontSize: 12,
                     ),
                     hintText: widget.placeholder,
                     prefixIcon: widget.icon),

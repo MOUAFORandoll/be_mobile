@@ -1,6 +1,7 @@
-import 'package:BabanaExpress/application/export_bloc.dart'; 
+import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
- 
+import 'package:BabanaExpress/utils/functions/formatData.dart';
+import 'package:dio/dio.dart';
 
 import '../../../application/model/exportmodel.dart';
 
@@ -13,7 +14,7 @@ class ColisComponent extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    // final getWith(context) = AppSize().getSize(context: context,390.0);
+    // final getWidth(context) = AppSize().getSize(context: context,390.0);
     return BlocBuilder<LivraisonBloc, LivraisonState>(
       builder: (context, state) => Container(
         decoration: BoxDecoration(
@@ -42,7 +43,7 @@ class ColisComponent extends StatelessWidget {
                     children: [
                       Container(
                         // margin: EdgeInsets.only(right: 5),
-                        width: getWith(context) / 2.2,
+                        width: getWidth(context) / 2.2,
                         height: getHeight(context) / 6.5,
                         child: ClipRRect(
                           borderRadius: BorderRadius.only(
@@ -55,14 +56,16 @@ class ColisComponent extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(left: 5, top: kMarginY),
-                        alignment: Alignment.centerLeft,
-                        width: getWith(context) / 2,
+                        margin: EdgeInsets.only(/* left: 5, */ top: kMarginY),
+                        alignment: Alignment.center,
+                        width: getWidth(context) / 2,
                         child: Text(
-                          colis.nom,
+                          FormatData().capitalizeFirstLetter(colis.nom),
                           textAlign: TextAlign.start,
                           maxLines: 2,
-                          style: TextStyle(overflow: TextOverflow.ellipsis),
+                          style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                     ],
@@ -184,7 +187,7 @@ class ColisComponent extends StatelessWidget {
                                                     BorderRadius.circular(8),
                                               ),
                                               height: getHeight(context) * .08,
-                                              width: getWith(context),
+                                              width: getWidth(context),
                                               margin: EdgeInsets.only(
                                                 top: kMarginY * 1.5,
                                               ),
@@ -294,7 +297,7 @@ class ColisComponent extends StatelessWidget {
                                                               color: ColorsApp
                                                                   .grey),
                                                           width:
-                                                              getWith(context) /
+                                                              getWidth(context) /
                                                                   2,
                                                           // height: 35,
                                                           // alignment: Alignment.center,
@@ -411,7 +414,7 @@ class ColisComponent extends StatelessWidget {
                */
                 }),
             Positioned(
-              left: getWith(context) / 3,
+              left: getWidth(context) / 3,
               // top: 10,
               child: InkWell(
                 child: Container(

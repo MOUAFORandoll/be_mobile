@@ -183,7 +183,7 @@ class _MapPagePointLivraisonColisState
                             margin: EdgeInsets.only(
                               top: kMarginY * 1.5,
                             ),
-                            width: getWith(context) * .8,
+                            width: getWidth(context) * .8,
                             child: Text(
                               'Ville de : ${state.mapPlaceInfo!.ville}',
                               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -193,7 +193,7 @@ class _MapPagePointLivraisonColisState
                             margin: EdgeInsets.only(
                               top: kMarginY * 1.5,
                             ),
-                            width: getWith(context) * .8,
+                            width: getWidth(context) * .8,
                             child: Text(
                               'Longitude : ${state.position!.longitude}',
                               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -203,7 +203,7 @@ class _MapPagePointLivraisonColisState
                             margin: EdgeInsets.only(
                               top: kMarginY * 1.5,
                             ),
-                            width: getWith(context) * .8,
+                            width: getWidth(context) * .8,
                             child: Text(
                               'Latitude : ${state.position!.latitude}',
                               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -369,7 +369,7 @@ class _MapPagePointLivraisonColisState
                               color: ColorsApp.white,
                             ),
                             // height: getHeight(context) / 15,
-                            width: getWith(context) * .88,
+                            width: getWidth(context) * .88,
                             child: TextField(
                               controller: searchPointLivraisonController,
                               onChanged: (String value) {
@@ -418,7 +418,7 @@ class _MapPagePointLivraisonColisState
                       (state.isLoadingPlaceSearch! == 0)
                           ? Container(
                               height: getHeight(context) * .15,
-                              width: getWith(context) * .88,
+                              width: getWidth(context) * .88,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
@@ -436,7 +436,7 @@ class _MapPagePointLivraisonColisState
                                   height: state.list_search_place!.length < 5
                                       ? getHeight(context) * .15
                                       : getHeight(context) * .3,
-                                  width: getWith(context) * .88,
+                                  width: getWidth(context) * .88,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     border: Border.all(
@@ -452,7 +452,7 @@ class _MapPagePointLivraisonColisState
                                                   Text('yemptypointliv'.tr())))
                                       : SingleChildScrollView(
                                           child: Container(
-                                            width: getWith(context) * .88,
+                                            width: getWidth(context) * .88,
                                             child: ListView.builder(
                                                 physics:
                                                     NeverScrollableScrollPhysics(),
@@ -483,7 +483,7 @@ class _MapPagePointLivraisonColisState
                                                             Row(
                                                               children: [
                                                                 Container(
-                                                                  width: getWith(
+                                                                  width: getWidth(
                                                                           context) *
                                                                       .65,
                                                                   child: Text(
@@ -632,7 +632,7 @@ class _MapPagePointLivraisonColisState
                                           CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          width: getWith(context) * .53,
+                                          width: getWidth(context) * .53,
                                           child: Text(
                                               state.mapPlaceInfo!.quartier,
                                               maxLines: 2,
@@ -645,7 +645,7 @@ class _MapPagePointLivraisonColisState
                                         Container(
                                           margin: EdgeInsets.symmetric(
                                               vertical: kMarginY),
-                                          width: getWith(context) * .53,
+                                          width: getWidth(context) * .53,
                                           child: Text(state.mapPlaceInfo!.ville,
                                               maxLines: 2,
                                               // overflow: TextOverflow.ellipsis,

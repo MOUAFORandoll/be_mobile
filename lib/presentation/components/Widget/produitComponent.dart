@@ -52,7 +52,7 @@ class ProduitComponent extends StatelessWidget {
                   imageBuilder: (context, imageProvider) {
                     return Container(
                         height: getHeight(context) / 8,
-                        width: getWith(context) * 1.1,
+                        width: getWidth(context) * 1.1,
                         decoration: BoxDecoration(
                           color: ColorsApp.grey,
                           borderRadius: BorderRadius.circular(8),
@@ -76,7 +76,7 @@ class ProduitComponent extends StatelessWidget {
                   errorWidget: (context, url, error) {
                     return Container(
                         height: getHeight(context) / 8,
-                        width: getWith(context) * 1.1,
+                        width: getWidth(context) * 1.1,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                           image: AssetImage(Assets.logo),
@@ -85,7 +85,7 @@ class ProduitComponent extends StatelessWidget {
                 ),
               ]),
               Container(
-                  width: getWith(context) / 2,
+                  width: getWidth(context) / 2,
                   margin: EdgeInsets.symmetric(horizontal: kMarginX / 2),
                   child: Text(produit.titre,
                       overflow: TextOverflow.fade,
@@ -93,7 +93,7 @@ class ProduitComponent extends StatelessWidget {
                       maxLines: 1,
                       style: TexteStyle().secondaryTextStyle)),
               Container(
-                  width: getWith(context) / 2,
+                  width: getWidth(context) / 2,
                   margin: EdgeInsets.symmetric(horizontal: kMarginX / 2),
                   child: Text('XAF ' + produit.prix.toString(),
                       overflow: TextOverflow.ellipsis,

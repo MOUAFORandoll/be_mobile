@@ -9,7 +9,7 @@ class ShimmerProduitBox extends StatelessWidget {
         highlightColor: ColorsApp.primary.withOpacity(.1),
         child: Container(
           height: getHeight(context) / 8,
-          width: getWith(context) * 1.1,
+          width: getWidth(context) * 1.1,
           alignment: Alignment.center,
           decoration: BoxDecoration(
               color: ColorsApp.greyNew, borderRadius: BorderRadius.circular(8)),

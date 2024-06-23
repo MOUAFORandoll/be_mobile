@@ -87,9 +87,9 @@ class _AppInputNewState extends State<AppInputNew> {
               ),
               labelText: widget.label,
               labelStyle: TextStyle(
-                color: ColorsApp.grey, fontFamily: 'Lato',
+                color: Colors.grey.shade500, fontFamily: 'Lato',
                 // fontWeight: FontWeight.w500,
-                fontSize: kBasics,
+                fontSize: 12,
               ),
               hintText: widget.placeholder,
               prefixIcon: widget.icon),

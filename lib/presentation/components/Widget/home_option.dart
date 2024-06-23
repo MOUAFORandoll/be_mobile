@@ -33,7 +33,7 @@ class HomeOptionWidget extends StatelessWidget {
               ),
             ],
           ),
-          width: getWith(context) / 2.4,
+          width: getWidth(context) / 2.4,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,7 +44,7 @@ class HomeOptionWidget extends StatelessWidget {
                     ),
                     child: Container(
                       height: getHeight(context) * .09,
-                      width: getWith(context) * .25,
+                      width: getWidth(context) * .25,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
@@ -62,7 +62,7 @@ class HomeOptionWidget extends StatelessWidget {
                 //     child: SvgPicture.asset(
                 //       icon,
                 //       height: getHeight(context) * .09,
-                //       width: getWith(context) * .25,
+                //       width: getWidth(context) * .25,
                 //     )),
                 Container(
                     margin: EdgeInsets.only(top: kMarginY * 1.5),

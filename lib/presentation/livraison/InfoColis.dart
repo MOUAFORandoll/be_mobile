@@ -1,6 +1,7 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/presentation/components/Button/addColisComponent.dart';
 import 'package:BabanaExpress/presentation/components/Button/uploadImage.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_input_contact.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_input_second.dart';
 import 'package:BabanaExpress/presentation/components/Widget/imageComp.dart';
@@ -19,7 +20,7 @@ class InfoColis extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LivraisonBloc, LivraisonState>(
         builder: (context, state) => Container(
-              // width: getWith(context) * .8,
+              // width: getWidth(context) * .8,
               decoration: BoxDecoration(
                   color: ColorsApp.white,
                   boxShadow: [
@@ -129,84 +130,32 @@ class InfoColis extends StatelessWidget {
                               decoration: BoxDecoration(),
                               child: SingleChildScrollView(
                                   child: Column(children: [
-                                Container(
-                                    padding: EdgeInsets.only(
-                                      top: kMarginY,
-                                    ),
-                                    alignment: Alignment.centerLeft,
-                                    child: Text('ytypecolis'.tr())),
+                                // Container(
+                                //     padding: EdgeInsets.only(
+                                //       top: kMarginY,
+                                //     ),
+                                //     alignment: Alignment.centerLeft,
+                                //     child: Text('ytypecolis'.tr())),
                                 state.isLoadedVCategory == 0
                                     ? CircularProgressIndicator(
                                         color: ColorsApp.primary)
                                     : state.isLoadedVCategory == 2
                                         ? Text('Error')
-                                        : Container(
-                                            decoration: BoxDecoration(
-                                              color: Colors.grey.shade200,
-                                              border: Border.all(
-                                                  color: (state.errorCategory!)
-                                                      ? ColorsApp.red
-                                                      : Colors.grey.shade200,
-                                                  width: 1),
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            height: getHeight(context) * .06,
-                                            width: getWith(context),
-                                            margin: EdgeInsets.only(
-                                              top: kMarginY * 1.5,
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: DropdownButton(
-                                              value: state.categoryColis,
-                                              icon: Container(
-                                                // padding: EdgeInsets.only(top: 4),
-                                                child: Icon(
-                                                  Icons
-                                                      .keyboard_arrow_down_outlined,
-                                                ),
-                                              ),
-                                              hint: Container(
-                                                width: getWith(context) * .65,
-                                                alignment: Alignment.center,
-                                                padding: EdgeInsets.symmetric(
-                                                  horizontal: 7,
-                                                ),
-                                                child: Text(
-                                                  'ytypecolis'.tr(),
-                                                  style: TextStyle(
-                                                      color: ColorsApp.grey,
-                                                      overflow: TextOverflow
-                                                          .ellipsis),
-                                                ),
-                                              ),
-                                              isExpanded: true,
-                                              iconSize: 25,
-                                              underline: SizedBox(),
-                                              style: TextStyle(
-                                                  color: ColorsApp.black,
-                                                  fontSize: 12),
-                                              onChanged:
-                                                  (CategoryModel? newValue) {
-                                                context
-                                                    .read<LivraisonBloc>()
-                                                    .add(SelectedCategory(
-                                                        categoryColis:
-                                                            newValue!));
-                                              },
-                                              items: state.list_category_colis!
-                                                  .map((value) {
-                                                return DropdownMenuItem(
-                                                  value: value,
-                                                  child: Center(
-                                                    child: Text(
-                                                      value.libelle!,
-                                                    ),
-                                                  ),
-                                                );
-                                              }).toList(),
-                                            ),
-                                          ),
+                                        : AppDropdown<CategoryModel>(
+                                            value: state.categoryColis,
+                                            hint: 'ytypecolis'.tr(),
+                                            onChanged:
+                                                (CategoryModel? newValue) {
+                                              context.read<LivraisonBloc>().add(
+                                                  SelectedCategory(
+                                                      categoryColis:
+                                                          newValue!));
+                                            },
+                                            items: state.list_category_colis!,
+                                            itemLabelBuilder:
+                                                (CategoryModel value) =>
+                                                    value.libelle!,
+                                            hasError: state.errorCategory!),
                                 if (state.errorCategory!)
                                   Container(
                                       padding: EdgeInsets.only(
@@ -271,149 +220,109 @@ class InfoColis extends StatelessWidget {
                                     },
                                   ),
                                 ),
+                                // Container(
+                                //     padding: EdgeInsets.only(
+                                //       top: kMarginY,
+                                //     ),
+                                //     alignment: Alignment.centerLeft,
+                                //     child: Text('ylivraison'.tr())),
                                 Container(
-                                    padding: EdgeInsets.only(
-                                      top: kMarginY,
+                                    margin: EdgeInsets.only(
+                                      top: kMarginY * 1.5,
                                     ),
-                                    alignment: Alignment.centerLeft,
-                                    child: Text('ylivraison'.tr())),
-                                Container(
                                     child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    (!state.isMapSelectedPointLivraison)
-                                        ? Container(
-                                            decoration: BoxDecoration(
-                                              color: Colors.grey.shade200,
-                                              border: Border.all(
-                                                  color: (state
-                                                          .errorPointRecuperation!)
-                                                      ? ColorsApp.red
-                                                      : Colors.grey.shade200,
-                                                  width: 1),
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            height: getHeight(context) * .06,
-                                            width: getWith(context) * .75,
-                                            padding: EdgeInsets.symmetric(
-                                              horizontal: 7,
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: DropdownButton<
-                                                PointLivraisonModel>(
-                                              isExpanded: true,
-                                              value: state
-                                                  .selected_livraison_point,
-                                              hint: Container(
-                                                width: getWith(context) * .65,
-                                                alignment: Alignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        (!state.isMapSelectedPointLivraison)
+                                            ? AppDropdown<PointLivraisonModel>(
+                                                maxWidth:
+                                                    getWidth(context) * .76,
+                                                value: state
+                                                    .selected_livraison_point,
+                                                hint: 'yselectpointliv'.tr(),
+                                                onChanged: (PointLivraisonModel?
+                                                    newValue) {
+                                                  context.read<LivraisonBloc>().add(
+                                                      SelectPointLivraisonColis(
+                                                          point_livraison:
+                                                              newValue!));
+                                                },
+                                                items: state
+                                                    .list_localisation_point!,
+                                                itemLabelBuilder:
+                                                    (PointLivraisonModel
+                                                            value) =>
+                                                        value.libelle,
+                                                hasError: state
+                                                    .errorPointRecuperation!,
+                                              )
+                                            : Container(
                                                 padding: EdgeInsets.symmetric(
-                                                  horizontal: 7,
-                                                ),
-                                                child: Text(
-                                                  'yselectpointliv'.tr(),
-                                                  style: TextStyle(
-                                                      color: ColorsApp.grey,
-                                                      overflow: TextOverflow
-                                                          .ellipsis),
-                                                ),
-                                              ),
-                                              icon: Container(
-                                                // padding: EdgeInsets.only(top: 4),
-                                                child: Icon(
-                                                  Icons
-                                                      .keyboard_arrow_down_outlined,
-                                                ),
-                                              ),
-                                              iconSize: 25,
-                                              underline: SizedBox(),
-                                              style: TextStyle(
-                                                  color: ColorsApp.black,
-                                                  fontSize: 12),
-                                              onChanged: (PointLivraisonModel?
-                                                  newValue) {
-                                                context.read<LivraisonBloc>().add(
-                                                    SelectPointLivraisonColis(
-                                                        point_livraison:
-                                                            newValue!));
-                                              },
-                                              items: state
-                                                  .list_localisation_point!
-                                                  .map((PointLivraisonModel
-                                                      value) {
-                                                return DropdownMenuItem(
-                                                  value: value,
-                                                  child: Center(
-                                                    child: Text(
-                                                      value.libelle,
+                                                    vertical: kMarginY,
+                                                    horizontal: kMarginX),
+                                                height:
+                                                    getHeight(context) * .06,
+                                                alignment: Alignment.center,
+                                                width: getWidth(context) * .75,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5),
+                                                    color: ColorsApp.greyNew),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    InkWell(
+                                                      onTap: () => context
+                                                          .read<LivraisonBloc>()
+                                                          .add(
+                                                              ClearPointLivraison()),
+                                                      child: Container(
+                                                        child: Icon(
+                                                          Icons
+                                                              .keyboard_arrow_down_outlined,
+                                                        ),
+                                                      ),
                                                     ),
-                                                  ),
-                                                );
-                                              }).toList(),
-                                            ),
-                                          )
-                                        : Container(
-                                            padding: EdgeInsets.symmetric(
-                                                vertical: kMarginY,
-                                                horizontal: kMarginX),
-                                            height: getHeight(context) * .06,
-                                            alignment: Alignment.center,
-                                            width: getWith(context) * .75,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
-                                                color: ColorsApp.greyNew),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                InkWell(
-                                                  onTap: () => context
-                                                      .read<LivraisonBloc>()
-                                                      .add(
-                                                          ClearPointLivraison()),
-                                                  child: Container(
-                                                    child: Icon(
-                                                      Icons
-                                                          .keyboard_arrow_down_outlined,
+                                                    Container(
+                                                      margin:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal:
+                                                                  kMarginX),
+                                                      child: Text(state
+                                                          .selected_livraison_point!
+                                                          .libelle),
                                                     ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  margin: EdgeInsets.symmetric(
-                                                      horizontal: kMarginX),
-                                                  child: Text(state
-                                                      .selected_livraison_point!
-                                                      .libelle),
-                                                ),
-                                                Container()
-                                              ],
-                                            )),
-                                    InkWell(
-                                        child: Container(
-                                            height: getHeight(context) * .06,
-                                            width: getHeight(context) * .06,
+                                                    Container()
+                                                  ],
+                                                )),
+                                        InkWell(
+                                            child: Container(
+                                                height:
+                                                    getHeight(context) * .06,
+                                                width: getHeight(context) * .06,
 
-                                            // padding: EdgeInsets.all(20),
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                color: ColorsApp.primary,
-                                                borderRadius:
-                                                    BorderRadius.circular(8)),
-                                            child: Icon(
-                                              Icons.location_on,
-                                              color: ColorsApp.white,
-                                            )),
-                                        onTap: () {
-                                          AutoRouter.of(context).pushNamed(
-                                              MapPagePointLivraisonColis
-                                                  .routeName);
-                                        }),
-                                  ],
-                                )),
+                                                // padding: EdgeInsets.all(20),
+                                                alignment: Alignment.center,
+                                                decoration: BoxDecoration(
+                                                    color: ColorsApp.primary,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8)),
+                                                child: Icon(
+                                                  Icons.location_on,
+                                                  color: ColorsApp.white,
+                                                )),
+                                            onTap: () {
+                                              AutoRouter.of(context).pushNamed(
+                                                  MapPagePointLivraisonColis
+                                                      .routeName);
+                                            }),
+                                      ],
+                                    )),
                                 if (state.errorPointLivraison!)
                                   Container(
                                       padding: EdgeInsets.only(
@@ -441,7 +350,7 @@ class InfoColis extends StatelessWidget {
                                             top: kMarginY * 1.5,
                                           ),
                                           // height: 150,
-                                          width: getWith(context) / 2.5,
+                                          width: getWidth(context) / 2.5,
                                           child: AppInputNew(
                                             textInputType: TextInputType.number,
                                             controller: state.valeurColis!,
@@ -459,7 +368,7 @@ class InfoColis extends StatelessWidget {
                                       ]),
                                     ),
                                     Container(
-                                      width: getWith(context) / 2.5,
+                                      width: getWidth(context) / 2.5,
                                       margin: EdgeInsets.only(
                                         bottom: kMarginY * 1.5,
                                       ),
@@ -504,7 +413,8 @@ class InfoColis extends StatelessWidget {
                                                   //         BorderRadius.circular(
                                                   //             12),
                                                   //     color: ColorsApp.greyNew),
-                                                  width: getWith(context) / 5.5,
+                                                  width:
+                                                      getWidth(context) / 5.5,
                                                   // height: 35,
                                                   // alignment: Alignment.center,
                                                   margin: EdgeInsets.only(
@@ -553,7 +463,7 @@ class InfoColis extends StatelessWidget {
                                             color: ColorsApp.red),
                                       )),
                                 Container(
-                                    width: getWith(context),
+                                    width: getWidth(context),
                                     child: InkWell(
                                       child: state.imageColis!.length != 0
                                           ? Container(
@@ -648,7 +558,7 @@ class InfoColis extends StatelessWidget {
                                                                               8),
                                                                       child: AppButton(
                                                                           text: 'yCamera'.tr(),
-                                                                          // width: getWith(context) / 2.5,
+                                                                          // width: getWidth(context) / 2.5,
                                                                           size: MainAxisSize.max,
                                                                           // bgColor: AppColors.primaryGreen,
                                                                           onTap: () {
@@ -658,7 +568,7 @@ class InfoColis extends StatelessWidget {
                                                                   AppButton(
                                                                       text: 'yGalerie'
                                                                           .tr(),
-                                                                      // width: getWith(context) / 2.5,
+                                                                      // width: getWidth(context) / 2.5,
                                                                       size: MainAxisSize
                                                                           .max,
                                                                       // bgColor: AppColors.redarytext,

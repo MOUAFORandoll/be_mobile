@@ -28,7 +28,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: getWith(context) * .9,
+            width: getWidth(context) * .9,
             height: 40,
             margin: EdgeInsets.symmetric(horizontal: 4, vertical: kMarginY
                 // top: 2,
@@ -76,7 +76,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
               : loading == 0
                   ? Container(
                       height: getHeight(context) * .15,
-                      width: getWith(context) * .88,
+                      width: getWidth(context) * .88,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
@@ -91,7 +91,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                   : loading == 2
                       ? Container(
                           height: getHeight(context) * .15,
-                          width: getWith(context) * .88,
+                          width: getWidth(context) * .88,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
@@ -104,7 +104,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                       : data.length == 0
                           ? Container(
                               height: getHeight(context) * .15,
-                              width: getWith(context) * .88,
+                              width: getWidth(context) * .88,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
@@ -116,7 +116,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                               child: Text('Aucun element trouve'.tr()))
                           : Container(
                               margin: EdgeInsets.symmetric(vertical: kMarginY),
-                              width: getWith(context) * .88,
+                              width: getWidth(context) * .88,
                               height: data.length > 6
                                   ? getHeight(context) * .3
                                   : data.length > 3

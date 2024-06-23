@@ -13,7 +13,7 @@ class PlaceComponent extends StatelessWidget {
     return InkWell(
       child: Container(
           height: getHeight(context),
-          width: getWith(context),
+          width: getWidth(context),
           alignment: Alignment.center,
           padding: EdgeInsets.all(0),
           decoration: BoxDecoration(

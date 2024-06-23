@@ -10,7 +10,7 @@ class SocialLogBtn extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        constraints: BoxConstraints(maxWidth: getWith(context) * .3),
+        constraints: BoxConstraints(maxWidth: getWidth(context) * .3),
         padding: EdgeInsets.all(7),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),

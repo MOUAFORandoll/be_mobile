@@ -69,6 +69,7 @@ class PharmacyBloc extends Bloc<PharmacyEvent, PharmacyState> {
     on<MapValidatePointLivraisonPharmacie>(_mapValidatePointPharmacie);
 
     on<SelectModePaiementPharmacie>(selectModePaiement);
+    on<NoValidateP>(noValidate);
   }
 
   Future<void> selectModePaiement(

@@ -16,7 +16,7 @@ class BigtitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: BoxConstraints(maxWidth: getWith(context)),
+        constraints: BoxConstraints(maxWidth: getWidth(context)),
         child: Text(text,
             overflow: TextOverflow.ellipsis,
             // textAlign: TextAlign.left,

@@ -30,7 +30,7 @@ class KSearchField extends StatelessWidget {
       ),
 
       height: kToolbarHeight / 1.3,
-      // width: width ?? getWith(context) * .75,
+      // width: width ?? getWidth(context) * .75,
       // padding: EdgeInsets.symmetric(horizontal: 10),
       child: TextField(
         onChanged: (String value) => onChange!(value),
@@ -52,7 +52,7 @@ class KSearchField extends StatelessWidget {
           //           color: ColorsApp.grey,
           //         ),
           //         // height: searchCont.tsearch == 0 ? 0 : kToolbarHeight / 1.9,
-          //         width: getWith(context) * 0.7,
+          //         width: getWidth(context) * 0.7,
           //         // margin: EdgeInsets.only(
           //         //   left: 3,
           //         // ).add(

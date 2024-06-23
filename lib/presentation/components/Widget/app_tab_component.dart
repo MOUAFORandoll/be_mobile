@@ -14,7 +14,7 @@ class AppTabComponent extends StatelessWidget {
         onTap: onTap,
         child: Container(
           height: getHeight(context) / 1.4,
-          width: getWith(context) / 3.7,
+          width: getWidth(context) / 3.7,
           alignment: Alignment.center,
           padding: EdgeInsets.all(5),
           // margin: EdgeInsets.only(right: kMarginX),

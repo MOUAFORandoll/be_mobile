@@ -8,7 +8,6 @@ import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
- 
 
 @RoutePage()
 class MapPagePointRecuperation extends StatefulWidget {
@@ -185,7 +184,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             margin: EdgeInsets.only(
                               top: kMarginY * 1.5,
                             ),
-                            width: getWith(context) * .8,
+                            width: getWidth(context) * .8,
                             child: Text(
                               'Ville de : ${state.mapPlaceInfo!.ville}',
                               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -195,7 +194,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             margin: EdgeInsets.only(
                               top: kMarginY * 1.5,
                             ),
-                            width: getWith(context) * .8,
+                            width: getWidth(context) * .8,
                             child: Text(
                               'Longitude : ${state.position!.longitude}',
                               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -205,7 +204,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                             margin: EdgeInsets.only(
                               top: kMarginY * 1.5,
                             ),
-                            width: getWith(context) * .8,
+                            width: getWidth(context) * .8,
                             child: Text(
                               'Latitude : ${state.position!.latitude}',
                               style: TextStyle(overflow: TextOverflow.ellipsis),
@@ -265,11 +264,9 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
         }
       },
       builder: (context, state) => Scaffold(
-         
-         appBar: AppBarCustom(
+        appBar: AppBarCustom(
           title: 'Selectionner un point de recuperation'.tr(),
         ),
-    
         body: Stack(
           children: [
             Container(
@@ -373,7 +370,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                               color: ColorsApp.white,
                             ),
                             // height: getHeight(context) / 15,
-                            width: getWith(context) * .88,
+                            width: getWidth(context) * .88,
                             child: TextField(
                               controller: searchPointRecuperationController,
                               onChanged: (String value) {
@@ -422,7 +419,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                       (state.isLoadingPlaceSearch! == 0)
                           ? Container(
                               height: getHeight(context) * .15,
-                              width: getWith(context) * .88,
+                              width: getWidth(context) * .88,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
@@ -440,7 +437,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                   height: state.list_search_place!.length < 5
                                       ? getHeight(context) * .15
                                       : getHeight(context) * .3,
-                                  width: getWith(context) * .88,
+                                  width: getWidth(context) * .88,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     border: Border.all(
@@ -456,7 +453,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                   Text('yemptyrecupliv'.tr())))
                                       : SingleChildScrollView(
                                           child: Container(
-                                            width: getWith(context) * .88,
+                                            width: getWidth(context) * .88,
                                             child: ListView.builder(
                                                 physics:
                                                     NeverScrollableScrollPhysics(),
@@ -492,7 +489,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                 Row(
                                                                   children: [
                                                                     Container(
-                                                                      width: getWith(
+                                                                      width: getWidth(
                                                                               context) *
                                                                           .65,
                                                                       child:
@@ -641,7 +638,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          width: getWith(context) * .53,
+                                          width: getWidth(context) * .53,
                                           child: Text(
                                               state.mapPlaceInfo!.quartier,
                                               maxLines: 2,
@@ -654,7 +651,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                         Container(
                                           margin: EdgeInsets.symmetric(
                                               vertical: kMarginY),
-                                          width: getWith(context) * .53,
+                                          width: getWidth(context) * .53,
                                           child: Text(state.mapPlaceInfo!.ville,
                                               maxLines: 2,
                                               // overflow: TextOverflow.ellipsis,

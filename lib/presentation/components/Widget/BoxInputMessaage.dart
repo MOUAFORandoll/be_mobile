@@ -19,7 +19,6 @@ class BoxInputMessaage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8),
-      // decoration: BoxDecoration(color: ColorsApp.grey),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,30 +56,30 @@ class BoxInputMessaage extends StatelessWidget {
                 maxLines: null,
                 onChanged: (val) {},
                 decoration: InputDecoration(
-                  hintText: hint,
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 12,
-                  ),
-                  labelText: hint,
-                  labelStyle: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 12,
-                  ),
-                  counterText: '',
+                  fillColor: Colors.white,
+                  filled: true,
+                  contentPadding: EdgeInsets.all(10),
                   focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorsApp.white, width: .4),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorsApp.red, width: 1),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.blue,
+                      color: ColorsApp.grey,
+                      width: .5,
                     ),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: 0,
-                    horizontal: 5,
+                  errorStyle: TextStyle(
+                    fontFamily: 'Lato',
+                    color: ColorsApp.red,
                   ),
                 ),
               ),
@@ -92,7 +91,7 @@ class BoxInputMessaage extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(30),
                       color: ColorsApp.primary,
                     ),
                     child: Container(
@@ -105,7 +104,7 @@ class BoxInputMessaage extends StatelessWidget {
               : Container(
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(30),
                     color: ColorsApp.primary,
                   ),
                   child: Container(

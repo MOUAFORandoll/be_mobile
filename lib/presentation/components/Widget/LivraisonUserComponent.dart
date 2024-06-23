@@ -10,7 +10,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 // ignore: must_be_immutable
 class LivraisonUserComponent extends StatelessWidget {
   LivraisonModel livraison;
-  
+
   LivraisonUserComponent({required this.livraison});
   GlobalKey globalKey = new GlobalKey();
   @override
@@ -95,7 +95,7 @@ class LivraisonUserComponent extends StatelessWidget {
                                   ),
                                   child: CachedNetworkImage(
                                     height: getHeight(context) * .09,
-                                    width: getWith(context) * .25,
+                                    width: getWidth(context) * .25,
                                     fit: BoxFit.cover,
                                     imageUrl: livraison.colis[0].images[0].src,
                                     imageBuilder: (context, imageProvider) {
@@ -120,7 +120,7 @@ class LivraisonUserComponent extends StatelessWidget {
                                                 .withOpacity(.1),
                                             child: Container(
                                               /*   height: getHeight(context) * .09,
-                                              width: getWith(context) * .25,
+                                              width: getWidth(context) * .25,
                                              */
                                               alignment: Alignment.center,
                                               decoration: BoxDecoration(
@@ -158,7 +158,7 @@ class LivraisonUserComponent extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        width: getWith(context) * .34,
+                                        width: getWidth(context) * .34,
                                         child: Text(
                                             livraison.libelle.toString(),
                                             maxLines: 2,

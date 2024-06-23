@@ -108,7 +108,7 @@ class ChooseMedicamentView extends StatelessWidget {
                       //       )),
                       if (state.listMedicamentChoose!.length != 0)
                         Container(
-                            width: getWith(context),
+                            width: getWidth(context),
                             margin: EdgeInsets.symmetric(vertical: kMarginY),
                             child: SingleChildScrollView(
                                 child: ListView.builder(
@@ -208,7 +208,7 @@ class SelectedMedicament extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  width: getWith(context) * .3,
+                  width: getWidth(context) * .3,
                   child: Text(
                     medicament.libelle,
                     style: TextStyle(
@@ -218,7 +218,7 @@ class SelectedMedicament extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: getWith(context) * .3,
+                  width: getWidth(context) * .3,
                   child: Text(
                     '400 g',
                     style: TextStyle(
@@ -325,7 +325,7 @@ class SelectedMedicament extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12),
                                       color: ColorsApp.grey),
-                                  width: getWith(context) / 5.5,
+                                  width: getWidth(context) / 5.5,
                                   // height: 35,
                                   // alignment: Alignment.center,
                                   margin: EdgeInsets.only(

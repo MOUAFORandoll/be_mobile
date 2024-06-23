@@ -27,7 +27,7 @@ class ShimmerProduit extends StatelessWidget {
                     itemBuilder: (_ctx, index) => Column(children: [
                           Container(
                             height: getHeight(context) / 8,
-                            width: getWith(context) * 1.1,
+                            width: getWidth(context) * 1.1,
                             alignment: Alignment.center,
                             // padding: EdgeInsets.all(kMarginX),
                             decoration: BoxDecoration(

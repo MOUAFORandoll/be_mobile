@@ -30,7 +30,7 @@ class CommentForm extends StatelessWidget {
 
         // decoration: BoxDecoration(color: ColorsApp.second),
         height: getHeight(context) / 3,
-        width: width ?? getWith(context) * .7,
+        width: width ?? getWidth(context) * .7,
         alignment: Alignment.topCenter,
         child: Column(
             // mainAxisAlignment: MainAxisAlignment.start,
