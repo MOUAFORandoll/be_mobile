@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
@@ -628,68 +630,3 @@ openUpdateCompletePhoneProfile(context) => showDialog(
                 ),
               ])))));
     });
-openModalLivraison(context) => showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) => Container(
-          height: getHeight(context) * .4,
-          padding: EdgeInsets.symmetric(horizontal: kMarginX),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-            ),
-            color: ColorsApp.white,
-          ),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Container(
-                alignment: Alignment.topRight,
-                margin: EdgeInsets.only(top: kMarginY * 2),
-                // padding: EdgeInsets.symmetric(
-                //     horizontal: kMarginX / 2),
-                child: InkWell(
-                  onTap: () => Navigator.of(context).pop,
-                  child: Icon(Icons.close),
-                )),
-            Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
-                child: Text(
-                  'yservice'.tr(),
-                  style: TextStyle(fontWeight: FontWeight.w500),
-                )),
-            Container(
-                margin: EdgeInsets.only(top: kMarginY * 2),
-                child: Column(
-                  // mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: 8),
-                      child: AppButton(
-                          text: 'ser1'.tr(),
-                          // width: getWidth(context) / 2.5,
-                          size: MainAxisSize.max,
-                          bgColor: ColorsApp.second,
-                          onTap: () {
-                            AutoRouter.of(context)
-                                .pushNamed(NewLivraisonPage.routeName);
-                            // setService(1);
-                          }),
-                    ),
-                    AppButton(
-                        text: 'ser2'.tr(),
-                        // width: getWidth(context) / 2.5,
-                        size: MainAxisSize.max,
-                        // bgColor: AppColors.secondarytext,
-                        onTap: () {
-                          // Get.toNamed(AppLinks.NEWLIVRAISON);
-                          // setService(2);
-                        }),
-                  ],
-                ))
-          ])),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      backgroundColor: Colors.transparent,
-    );

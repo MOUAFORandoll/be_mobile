@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:BabanaExpress/application/database/database_cubit.dart';
@@ -782,6 +781,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     });
   }
 
+  // ignore: unused_element
   Future<void> _cleanData(Emitter<LivraisonState> emit) async {
     print(' emit(state.copyWith(isRequest: --------------5))');
     emit(state.copyWith(

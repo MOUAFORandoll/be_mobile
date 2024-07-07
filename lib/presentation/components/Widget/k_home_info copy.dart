@@ -14,10 +14,10 @@ class KHomeInfoS extends StatelessWidget {
       children: [
         BlocBuilder<UserBloc, UserState>(
             builder: (context, state) => state.isVilleQuartier == 0
-                ? Shimmer.fromColors(
+                ? /* Shimmer.fromColors(
                     baseColor: ColorsApp.greyNew,
                     highlightColor: ColorsApp.primary,
-                    child: Container(
+                    child: */ Skeletonizer( enabled: true, child:Container(
                       child: Row(children: [
                         Container(
                             child: Icon(

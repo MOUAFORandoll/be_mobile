@@ -47,7 +47,7 @@ class ReplyCard extends StatelessWidget {
                                     // backgroundColor: ColorsApp.skyBlue,
                                     radius: 20,
                                     backgroundImage:
-                                        AssetImage("assets/logo/logoNew.png"))),
+                                        AssetImage('assets/logo/logoNew.png'))),
                             Container(
                               child: Text(
                                 'Emiy',

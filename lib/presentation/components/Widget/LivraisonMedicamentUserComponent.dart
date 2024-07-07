@@ -1,6 +1,5 @@
 import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
-import 'package:BabanaExpress/presentation/components/Widget/medicamentComponentUser.dart';
-
+import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart'; 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:BabanaExpress/utils/functions/datetime_format_utils.dart';
@@ -214,81 +213,39 @@ class LivraisonMedicamentUserComponent extends StatelessWidget {
                     ),
                   ),
                 ])),
-            onTap: () => showModalBottomSheet(
+            onTap: () => GlobalBottomSheet.show(
                 context: context,
-                builder: (BuildContext context) => Container(
-                    height: getHeight(context) * .9,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                      color: ColorsApp.white,
+                title: 'Medicaments'.tr(),
+                widget: Column(children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: kMarginX, vertical: kMarginY),
+                    child: Text(
+                      'Rechargez votre compte et acceder a plein de bonus y compris de multiples reductions sur vos livraisons'
+                          .tr(),
+                      style: TextStyle(
+                          color: ColorsApp.primary,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12),
                     ),
+                  ),
+                  Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: kMarginX,
-                    ).add(EdgeInsets.only(top: kMarginY)),
-                    child: Column(children: [
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: kMarginX, vertical: kMarginY),
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Medicaments'.tr(),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  ),
-                                  InkWell(
-                                      child: Icon(Icons.close),
-                                      onTap: () =>
-                                          AutoRouter.of(context).pop()),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              child: Text(
-                                'Rechargez votre compte et acceder a plein de bonus y compris de multiples reductions sur vos livraisons'
-                                    .tr(),
-                                style: TextStyle(
-                                    color: ColorsApp.primary,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: kMarginX,
-                            ),
-                            child: GridView.builder(
-                                shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                        crossAxisSpacing: 20.0,
-                                        childAspectRatio: 15,
-                                        mainAxisExtent: 180,
-                                        mainAxisSpacing: 25.0),
-                                itemCount: livraison.medicaments.length,
-                                itemBuilder: (_ctx, index) =>
-                                    MedicamentComponentUser(
-                                        medicament:
-                                            livraison.medicaments[index])),
-                          ),
-                        ),
-                      ),
-                    ]))));
+                    ),
+                    child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 20.0,
+                            childAspectRatio: 15,
+                            mainAxisExtent: 180,
+                            mainAxisSpacing: 25.0),
+                        itemCount: livraison.medicaments.length,
+                        itemBuilder: (_ctx, index) => MedicamentComponentUser(
+                            medicament: livraison.medicaments[index])),
+                  ),
+                ])));
   }
 }

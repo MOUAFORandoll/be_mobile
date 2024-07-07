@@ -19,6 +19,7 @@ class ProduitPage extends StatefulWidget {
 
 class _ProduitPageState extends State<ProduitPage>
     with SingleTickerProviderStateMixin {
+  // ignore: unused_field
   Animation<double>? _animation;
   AnimationController? _animationController;
 

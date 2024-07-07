@@ -1,4 +1,4 @@
-import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
+ 
 import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
 import 'package:BabanaExpress/presentation/user/RegisterPage.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
@@ -8,7 +8,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 
-@RoutePage()
+@RoutePage() 
 class UserInfoPage extends StatefulWidget {
   static const routeName = '/user/info';
   const UserInfoPage({super.key});

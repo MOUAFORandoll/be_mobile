@@ -6,10 +6,10 @@ class ShimmerBoxBoutique extends StatelessWidget {
   var height;
   @override
   Widget build(BuildContext context) {
-    return Shimmer.fromColors(
+    return/*  Shimmer.fromColors(
         baseColor: ColorsApp.grey,
         highlightColor: Colors.blueGrey,
-        child: Container(
+        child:  */Skeletonizer( enabled: true, child:Container(
             height: getHeight(context) * .2,
             width: getHeight(context) * .15,
             decoration: BoxDecoration(

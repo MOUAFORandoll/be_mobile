@@ -13,10 +13,10 @@ class AppLoading extends StatelessWidget {
       width: getWidth(context),
 
       // color: Colors.white,
-      child: Shimmer.fromColors(
+      child:/*  Shimmer.fromColors(
           baseColor: ColorsApp.grey,
           highlightColor: Colors.blueGrey,
-          child: SvgPicture.asset(
+          child:  */Skeletonizer( enabled: true, child:SvgPicture.asset(
             Assets.logoSvg,
             width: getWidth(context),
             height: getHeight(context),

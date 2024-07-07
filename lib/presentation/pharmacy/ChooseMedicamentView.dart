@@ -183,17 +183,20 @@ class SelectedMedicament extends StatelessWidget {
                 },
                 placeholder: (context, url) {
                   return Container(
-                    child: Shimmer.fromColors(
-                        baseColor: ColorsApp.greyNew,
+                    child: /*  Shimmer.fromColors(
+                       baseColor: ColorsApp.greyNew,
                         highlightColor: ColorsApp.primary.withOpacity(.1),
-                        child: Container(
-                          // height: getHeight(context) / 10,
-                          // width: getHeight(context) / 10,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: ColorsApp.greyNew,
-                          ),
-                        )),
+                        child: */
+                        Skeletonizer(
+                            enabled: true,
+                            child: Container(
+                              // height: getHeight(context) / 10,
+                              // width: getHeight(context) / 10,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: ColorsApp.greyNew,
+                              ),
+                            )),
                   );
                 },
                 errorWidget: (context, url, error) {

@@ -1,5 +1,5 @@
 import 'package:BabanaExpress/presentation/components/Form/search_field.dart';
-import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
+
 import 'package:BabanaExpress/presentation/components/Widget/btn_text_icon.dart';
 import 'package:BabanaExpress/presentation/market/ListProduitsView.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
@@ -19,6 +19,7 @@ class MarketPage extends StatefulWidget {
 
 class _MarketPageState extends State<MarketPage>
     with SingleTickerProviderStateMixin {
+  // ignore: unused_field
   Animation<double>? _animation;
   AnimationController? _animationController;
   ScrollController _scrollController = new ScrollController();
@@ -58,7 +59,7 @@ class _MarketPageState extends State<MarketPage>
       print('okkok');
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MarketBloc, MarketState>(
@@ -67,6 +68,10 @@ class _MarketPageState extends State<MarketPage>
               appBar: AppBarCustom(title: 'Market Place', actions: [
                 InkWell(
                   onTap: () {
+                    if (isSearch) {
+                      BlocProvider.of<MarketBloc>(context)
+                          .add(GetProduits(true));
+                    }
                     setState(() {
                       isSearch = !isSearch;
                     });

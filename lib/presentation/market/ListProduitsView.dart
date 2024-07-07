@@ -25,7 +25,7 @@ class ListProduitsView extends StatelessWidget {
                           crossAxisCount: 2,
                           crossAxisSpacing: 20.0,
                           childAspectRatio: 15,
-                          mainAxisExtent: 180,
+                          mainAxisExtent: 200,
                           mainAxisSpacing: 25.0),
                       itemCount: state.listProduits!.length,
                       itemBuilder: (BuildContext context, int index) =>

@@ -3,8 +3,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:BabanaExpress/application/database/database_cubit.dart';
-import 'package:BabanaExpress/application/market/repositories/marketRepo.dart';
-import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
+import 'package:BabanaExpress/application/market/repositories/marketRepo.dart'; 
 import 'package:BabanaExpress/application/model/data/MapPlaceInfoModel.dart';
 import 'package:BabanaExpress/application/model/data/PanierModel.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
@@ -165,6 +164,7 @@ class MarketBloc extends Bloc<MarketEvent, MarketState> {
     return montant;
   }
 
+  // ignore: unused_element
   Future<void> _cleanData(Emitter<MarketState> emit) async {
     print(' emit(state.copyWith(isRequest: --------------5))');
     emit(state.copyWith(

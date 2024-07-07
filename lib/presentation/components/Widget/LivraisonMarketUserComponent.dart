@@ -114,11 +114,11 @@ class LivraisonMarketUserComponent extends StatelessWidget {
                                     },
                                     placeholder: (context, url) {
                                       return Container(
-                                        child: Shimmer.fromColors(
+                                        child:/*  Shimmer.fromColors(
                                             baseColor: ColorsApp.greyNew,
                                             highlightColor: ColorsApp.primary
                                                 .withOpacity(.1),
-                                            child: Container(
+                                            child: */ Skeletonizer( enabled: true, child:Container(
                                               /*   height: getHeight(context) * .09,
                                               width: getWidth(context) * .25,
                                              */

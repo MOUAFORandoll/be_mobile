@@ -1,4 +1,4 @@
-import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
+import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/InfolieuxlivraisonView.dart';
 import 'package:BabanaExpress/presentation/pharmacy/PaiementPharmacyPage.dart';
@@ -120,9 +120,12 @@ class _NewLivraisonMedicamentPageState
                                               : ColorsApp.grey,
                                       text: 'yeval'.tr(),
                                       onTap: () {
-                                        context
-                                            .read<PharmacyBloc>()
-                                            .add(CalculFraisP());
+                                        // validateLivraisonMedicaments(context);
+                                        state.listMedicamentChoose!.isNotEmpty
+                                            ? context
+                                                .read<PharmacyBloc>()
+                                                .add(CalculFraisP())
+                                            : null;
                                       },
                                     ),
                                   ])),
@@ -130,137 +133,105 @@ class _NewLivraisonMedicamentPageState
                 ))));
   }
 
-  validateLivraisonMedicaments(context) => showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) => BlocBuilder<PharmacyBloc,
-                PharmacyState>(
-            builder: (context, state) => Container(
-                height: getHeight(context) * .4,
-                padding: EdgeInsets.symmetric(horizontal: kMarginX),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                  ),
-                  color: ColorsApp.white,
-                ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                          alignment: Alignment.topRight,
-                          margin: EdgeInsets.only(top: kMarginY * 2),
-                          // padding: EdgeInsets.symmetric(
-                          //     horizontal: kMarginX / 2),
-                          child: InkWell(
-                            onTap: () {
-                              AutoRouter.of(context).pop();
-
-                              context.read<PharmacyBloc>().add(NoValidateP());
-                            },
-                            child: Icon(Icons.close),
-                          )),
-                      Container(
-                          alignment: Alignment.center,
-                          margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
-                          child: Row(
-                            children: [
-                              Text(
-                                'yfrais'.tr(),
-                                style: TextStyle(fontWeight: FontWeight.w500),
-                              ),
-                              Text(
-                                '${state.frais} FCFA  ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 14),
-                              ),
-                            ],
-                          )),
-                      BlocBuilder<UserBloc, UserState>(
-                          builder: (contextU, stateU) => Expanded(
-                                  child: SingleChildScrollView(
-                                      child: ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: stateU.listModePaiement!.length,
-                                itemBuilder: (_ctx, index) {
-                                  return InkWell(
-                                      onTap: () {
-                                        context.read<PharmacyBloc>().add(
-                                            SelectModePaiementPharmacie(
-                                                modePaiement: stateU
-                                                    .listModePaiement![index]));
-                                      },
-                                      child: Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                              border: Border.all()),
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 15, vertical: 5),
-                                          margin: EdgeInsets.symmetric(
-                                              vertical: kMarginY / 2,
-                                              horizontal: kMarginX),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Expanded(
-                                                  child: Container(
-                                                      child: Text(
-                                                _format.capitalizeFirstLetter(
-                                                    stateU
-                                                        .listModePaiement![
-                                                            index]
-                                                        .libelle),
-                                                style: TextStyle(),
-                                              ))),
-                                              Checkbox(
-                                                  shape: CircleBorder(),
-                                                  activeColor:
-                                                      ColorsApp.primary,
-                                                  checkColor: ColorsApp.white,
-                                                  value: stateU
-                                                              .listModePaiement![
-                                                          index] ==
-                                                      state
-                                                          .selectedModePaiement,
-                                                  onChanged: (val) {
-                                                    context.read<PharmacyBloc>().add(
-                                                        SelectModePaiementPharmacie(
-                                                            modePaiement: stateU
-                                                                    .listModePaiement![
-                                                                index]));
-                                                  })
-                                            ],
-                                          )));
+  validateLivraisonMedicaments(context) => GlobalBottomSheet.show(
+      maxHeight: getHeight(context) * .4,
+      context: context,
+      title: 'Moyen de paiement'.tr(),
+      widget: BlocBuilder<PharmacyBloc, PharmacyState>(
+          builder: (context, state) =>
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Container(
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.symmetric(horizontal: kMarginX)
+                        .add(EdgeInsets.only(
+                      top: kMarginY,
+                    )),
+                    child: Row(
+                      children: [
+                        Text(
+                          'yfrais'.tr(),
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          '${state.frais} FCFA  ',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 14),
+                        ),
+                      ],
+                    )),
+                BlocBuilder<UserBloc, UserState>(
+                    builder: (contextU, stateU) => SingleChildScrollView(
+                            child: ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: stateU.listModePaiement!.length,
+                          itemBuilder: (_ctx, index) {
+                            return InkWell(
+                                onTap: () {
+                                  context.read<PharmacyBloc>().add(
+                                      SelectModePaiementPharmacie(
+                                          modePaiement:
+                                              stateU.listModePaiement![index]));
                                 },
-                              )))),
-                      Container(
-                          margin: EdgeInsets.only(top: kMarginY),
-                          child: Column(
-                            // mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(bottom: 8),
-                                child: AppButton(
-                                    text: 'yvalidate'.tr(),
-                                    // width: getWidth(context) / 2.5,
-                                    size: MainAxisSize.max,
-                                    bgColor: ColorsApp.primary,
-                                    onTap: () => context
-                                        .read<PharmacyBloc>()
-                                        .add(NewLivraisonPharmacy())),
-                              ),
-                            ],
-                          ))
-                    ]))),
-        isScrollControlled: true,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-        ),
-        backgroundColor: Colors.transparent,
-      ).whenComplete(() {
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        border: Border.all()),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 15, vertical: 5),
+                                    margin: EdgeInsets.symmetric(
+                                        vertical: kMarginY / 2,
+                                        horizontal: kMarginX),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                            child: Container(
+                                                child: Text(
+                                          _format.capitalizeFirstLetter(stateU
+                                              .listModePaiement![index]
+                                              .libelle),
+                                          style: TextStyle(),
+                                        ))),
+                                        Checkbox(
+                                            shape: CircleBorder(),
+                                            activeColor: ColorsApp.primary,
+                                            checkColor: ColorsApp.white,
+                                            value: stateU
+                                                    .listModePaiement![index] ==
+                                                state.selectedModePaiement,
+                                            onChanged: (val) {
+                                              context.read<PharmacyBloc>().add(
+                                                  SelectModePaiementPharmacie(
+                                                      modePaiement: stateU
+                                                              .listModePaiement![
+                                                          index]));
+                                            })
+                                      ],
+                                    )));
+                          },
+                        ))),
+                Container(
+                    margin: EdgeInsets.only(top: kMarginY),
+                    child: Column(
+                      // mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(bottom: 8),
+                          child: AppButton(
+                              text: 'yvalidate'.tr(),
+                              // width: getWidth(context) / 2.5,
+                              size: MainAxisSize.max,
+                              bgColor: ColorsApp.primary,
+                              onTap: () => context
+                                  .read<PharmacyBloc>()
+                                  .add(NewLivraisonPharmacy())),
+                        ),
+                      ],
+                    ))
+              ])) /* .whenComplete(() {
         BlocProvider.of<PharmacyBloc>(context).add(NoValidateP());
-      });
+      } */
+      );
 }

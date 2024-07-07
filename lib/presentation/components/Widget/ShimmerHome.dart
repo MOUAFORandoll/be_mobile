@@ -7,10 +7,10 @@ class ShimmerHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Shimmer.fromColors(
+    return/*  Shimmer.fromColors(
         baseColor: ColorsApp.grey,
         highlightColor: Colors.blueGrey,
-        child: Container(
+        child: */ Skeletonizer( enabled: true, child:Container(
           /*  margin: EdgeInsets.symmetric(
                                                 horizontal: kMarginX), */
           child: SingleChildScrollView(

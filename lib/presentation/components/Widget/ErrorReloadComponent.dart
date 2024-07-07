@@ -9,6 +9,7 @@ class ErrorReloadComponent extends StatelessWidget {
       onTap: onTap,
       child: Container(
           margin: EdgeInsets.symmetric(vertical: getHeight(context) / 12),
+          alignment: Alignment.center,
           decoration: BoxDecoration(
             color: ColorsApp.bg,
           ),

@@ -27,7 +27,7 @@ class ProduitComponent extends StatelessWidget {
       child: Container(
           // height: getHeight(context) / 2.7,
           // margin: EdgeInsets.symmetric(horizontal: 5),
-          padding: EdgeInsets.all(5),
+          // padding: EdgeInsets.all(5),
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(
@@ -51,11 +51,14 @@ class ProduitComponent extends StatelessWidget {
                   imageUrl: produit.images[0].src,
                   imageBuilder: (context, imageProvider) {
                     return Container(
-                        height: getHeight(context) / 8,
+                        height: getHeight(context) / 7,
                         width: getWidth(context) * 1.1,
                         decoration: BoxDecoration(
                           color: ColorsApp.grey,
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(8),
+                            topLeft: Radius.circular(8),
+                          ),
                           image: DecorationImage(
                               image: imageProvider,
                               fit: BoxFit.cover,
@@ -64,12 +67,7 @@ class ProduitComponent extends StatelessWidget {
                         ));
                   },
                   placeholder: (context, url) {
-                    return /* Container(
-                      child: Center(
-                          child: CircularProgressIndicator(
-                        color: ColorsApp.skyBlue,
-                      )),
-                    ) */
+                    return  
 
                         ShimmerProduitBox();
                   },

@@ -1,9 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/presentation/components/Widget/app_bar_custom.dart';
-import 'package:BabanaExpress/presentation/components/Widget/colisComponentUser.dart';
+import 'package:BabanaExpress/core.dart'; 
 import 'package:BabanaExpress/presentation/components/Widget/custom_alert.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:open_filex/open_filex.dart';

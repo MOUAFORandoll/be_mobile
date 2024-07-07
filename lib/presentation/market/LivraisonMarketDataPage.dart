@@ -3,7 +3,6 @@
 import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/components/Widget/custom_alert.dart';
-import 'package:BabanaExpress/presentation/components/Widget/produitComponentUser.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:open_filex/open_filex.dart';
 import '../../application/export_bloc.dart';

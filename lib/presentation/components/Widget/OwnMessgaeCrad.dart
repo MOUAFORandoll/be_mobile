@@ -65,7 +65,7 @@ class OwnMessageCard extends StatelessWidget {
                                 height: getHeight(context) / 20,
                                 width: getHeight(context) / 20,
                                 fit: BoxFit.cover,
-                                imageUrl: "_manager.Userget.profile",
+                                imageUrl: '_manager.Userget.profile',
                                 imageBuilder: (context, imageProvider) {
                                   return Container(
                                     decoration: BoxDecoration(

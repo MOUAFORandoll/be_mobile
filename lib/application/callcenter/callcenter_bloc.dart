@@ -19,7 +19,7 @@ class CallCenterBloc extends Bloc<CallCenterEvent, CallCenterState> {
   CallCenterBloc({required this.callcenterRepo, required this.database})
       : super(CallCenterState.initial()) {
     on<CallCenterEvent>((event, emit) {
-      // TODO: implement event handler
+    
     });
     on<GetMessage>(getMessage);
     on<NewMessage>(newMessage);

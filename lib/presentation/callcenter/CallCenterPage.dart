@@ -1,14 +1,14 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/Widget/BoxInputMessaage.dart';
 import 'package:BabanaExpress/presentation/components/Widget/MessageComponent.dart';
+import 'package:BabanaExpress/presentation/components/Widget/ShimmerMessage.dart';
 import 'package:BabanaExpress/presentation/components/Widget/file_option.dart';
+import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/presentation/components/Widget/load_file_option.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-
-import '../components/Widget/ShimmerLivraison.dart';
-
+ 
 @RoutePage()
 class CallCenterPage extends StatefulWidget {
   static const routeName = '/callcenter';
@@ -144,9 +144,9 @@ class _CallCenterPageState extends State<CallCenterPage> {
                         ],
                       ),
                       body: Container(
-                          margin: EdgeInsets.only(top: kMarginY).add(
-                              EdgeInsets.symmetric(horizontal: kMarginX * 2)),
-                          child: ShimmerLivraison()))
+                          margin: EdgeInsets.only(top: kMarginY)
+                              .add(EdgeInsets.symmetric(horizontal: kMarginX)),
+                          child: ShimmerMessage()))
                   : Scaffold(
                       appBar: AppBar(
                         backgroundColor: Color(0xE9E9E9),
@@ -373,69 +373,43 @@ class _CallCenterPageState extends State<CallCenterPage> {
   }
 }
 
-onGetFile(context) => showModalBottomSheet(
-    context: context,
-    builder: (BuildContext context) => Container(
-        decoration: BoxDecoration(
-            color: ColorsApp.white,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15), topRight: Radius.circular(15))),
-        height: getHeight(context) * .4,
-        child: SingleChildScrollView(
-            child: Column(
-          children: [
-            Container(
-                decoration: BoxDecoration(
-                    color: ColorsApp.white,
-                    border: Border(
-                        bottom: BorderSide(
-                      color: ColorsApp.greyNew,
-                    ))),
-                margin: EdgeInsets.symmetric(vertical: kMarginY / 2),
-                padding: EdgeInsets.symmetric(
-                    vertical: kMarginY / 2, horizontal: kMarginX),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(child: Text('Select Options'.tr())),
-                      InkWell(
-                          child: Container(child: Icon(Icons.close)),
-                          onTap: () => AutoRouter.of(context).pop())
-                    ])),
-            Container(
-                margin: EdgeInsets.only(top: kMarginY),
-                height: getHeight(context) * .3,
-                child: GridView.count(
-                    crossAxisCount: 2, // Two items per row
-                    mainAxisSpacing: 28.0, // Spacing between rows
-                    crossAxisSpacing: 28.0, // Spacing between columns
-                    childAspectRatio: 1,
-                    children: [
-                      FileOptionWidget(
-                        title: 'Photos'.tr(),
-                        icon: FontAwesomeIcons.image,
-                        onTap: () => BlocProvider.of<CallCenterBloc>(context)
-                            .add(FilesMessage(type: 0)),
-                      ),
-                      FileOptionWidget(
-                        title: 'Camera'.tr(),
-                        onTap: () => BlocProvider.of<CallCenterBloc>(context)
-                            .add(FilesMessage(type: 1)),
-                        icon: FontAwesomeIcons.cameraRetro,
-                      ),
-                      // FileOptionWidget(
-                      //   title: 'Document'.tr(),
-                      //   icon: FontAwesomeIcons.file,
-                      //   arg: '',
-                      //   onTap: () => BlocProvider.of<CallCenterBloc>(context)
-                      //       .add(FilesMessage(type: 2)),
-                      // ),
-                      // FileOptionWidget(
-                      //   icon: FontAwesomeIcons.addressBook,
-                      //   title: 'Contact',
-                      //   onTap: () => BlocProvider.of<CallCenterBloc>(context)
-                      //       .add(FilesMessage(type: 3)),
-                      // ),
-                    ])),
-          ],
-        ))));
+onGetFile(context) => GlobalBottomSheet.show(
+      maxHeight: getHeight(context) * .3,
+      context: context,
+      title: 'Selectionner une Option'.tr(),
+      widget: Container(
+          margin: EdgeInsets.only(top: kMarginY),
+          height: getHeight(context) * .2,
+          child: GridView.count(
+              crossAxisCount: 2, // Two items per row
+              mainAxisSpacing: 28.0, // Spacing between rows
+              crossAxisSpacing: 28.0, // Spacing between columns
+              childAspectRatio: 1,
+              children: [
+                FileOptionWidget(
+                  title: 'Photos'.tr(),
+                  icon: FontAwesomeIcons.image,
+                  onTap: () => BlocProvider.of<CallCenterBloc>(context)
+                      .add(FilesMessage(type: 0)),
+                ),
+                FileOptionWidget(
+                  title: 'Camera'.tr(),
+                  onTap: () => BlocProvider.of<CallCenterBloc>(context)
+                      .add(FilesMessage(type: 1)),
+                  icon: FontAwesomeIcons.cameraRetro,
+                ),
+                // FileOptionWidget(
+                //   title: 'Document'.tr(),
+                //   icon: FontAwesomeIcons.file,
+                //   arg: '',
+                //   onTap: () => BlocProvider.of<CallCenterBloc>(context)
+                //       .add(FilesMessage(type: 2)),
+                // ),
+                // FileOptionWidget(
+                //   icon: FontAwesomeIcons.addressBook,
+                //   title: 'Contact',
+                //   onTap: () => BlocProvider.of<CallCenterBloc>(context)
+                //       .add(FilesMessage(type: 3)),
+                // ),
+              ])),
+    );

@@ -140,10 +140,10 @@ class _FirstViewState extends State<FirstView>
                       ),
                     ),
                     state.isLoadedHomeStateLivraison == 0
-                        ? Shimmer.fromColors(
+                        ? /* Shimmer.fromColors(
                             baseColor: ColorsApp.greyNew,
                             highlightColor: ColorsApp.primary.withOpacity(.1),
-                            child: Container(
+                            child: */Skeletonizer( enabled: true, child: Container(
                                 height: getHeight(context) * .08,
                                 width: getWidth(context) * .9,
                                 padding:
