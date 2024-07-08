@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:BabanaExpress/application/callcenter/repositories/callcenterRepo.dart';
 import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
@@ -98,7 +100,6 @@ Future<void> initLoad(context) async {
   BlocProvider.of<LivraisonBloc>(context)
     ..add(StartLogLat())
     ..add(GetVilleAndCategoryEvent());
-  BlocProvider.of<MarketBloc>(context)..add(MarketEvent.getProduits(false));
   initSetDefaultValue(context);
   initSocket(context);
   print('**---------------endLoad-');
@@ -106,6 +107,7 @@ Future<void> initLoad(context) async {
 
 Future<void> initSocket(context) async {
   var database = sl.get<DatabaseCubit>();
+  log('------------------ev ');
   var key = await database.getKey();
   SocketService(context).HistoriqueUserLivraison(
       recepteur: key!,
@@ -167,7 +169,7 @@ Future<void> initSetDefaultValue(context) async {
 Future<void> requestPermission() async {
   PermissionStatus status = await Permission.storage.request();
   print(status);
-  
+
   if (status == PermissionStatus.granted) {
     print('accepte');
   } else {

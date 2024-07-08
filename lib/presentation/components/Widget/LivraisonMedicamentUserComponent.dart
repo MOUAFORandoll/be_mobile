@@ -1,5 +1,5 @@
 import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
-import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart'; 
+import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:BabanaExpress/utils/functions/datetime_format_utils.dart';
@@ -216,20 +216,11 @@ class LivraisonMedicamentUserComponent extends StatelessWidget {
             onTap: () => GlobalBottomSheet.show(
                 context: context,
                 title: 'Medicaments'.tr(),
+                subtitle: 'Voici le contenu de votre commande de medicaments',
                 widget: Column(children: [
                   Container(
                     margin: EdgeInsets.symmetric(
                         horizontal: kMarginX, vertical: kMarginY),
-                    child: Text(
-                      'Rechargez votre compte et acceder a plein de bonus y compris de multiples reductions sur vos livraisons'
-                          .tr(),
-                      style: TextStyle(
-                          color: ColorsApp.primary,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12),
-                    ),
-                  ),
-                  Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: kMarginX,
                     ),

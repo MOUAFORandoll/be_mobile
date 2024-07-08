@@ -6,6 +6,7 @@ import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
 import 'package:BabanaExpress/presentation/home/FirstView.dart';
 import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
+import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
@@ -425,7 +426,7 @@ class CustomDrawer extends StatelessWidget {
                 style: TextStyle(color: ColorsApp.black, fontSize: kBasics),
               ),
               onTap: () {
-                AutoRouter.of(context).pushNamed(PolitiqueRoute.name);
+                AutoRouter.of(context).pushNamed(PolitiquePage.routeName);
               },
             ),
             ListTile(
