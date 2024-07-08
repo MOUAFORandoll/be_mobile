@@ -425,7 +425,7 @@ class CustomDrawer extends StatelessWidget {
                 style: TextStyle(color: ColorsApp.black, fontSize: kBasics),
               ),
               onTap: () {
-                AutoRouter.of(context).replaceAll([PolitiqueRoute()]);
+                AutoRouter.of(context).pushNamed(PolitiqueRoute.name);
               },
             ),
             ListTile(
