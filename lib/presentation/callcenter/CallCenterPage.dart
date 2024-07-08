@@ -19,13 +19,13 @@ class CallCenterPage extends StatefulWidget {
 
 class _CallCenterPageState extends State<CallCenterPage> {
   ScrollController stateScrollController = new ScrollController();
-
+  
   @override
   void initState() {
     super.initState();
     context.read<CallCenterBloc>().add(GetMessage());
   }
-
+  
   void scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (stateScrollController.hasClients) {

@@ -14,12 +14,12 @@ part 'home_bloc.freezed.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final HomeRepo homeRepo;
   final DatabaseCubit database;
-
+  
   HomeBloc({required this.homeRepo, required this.database})
       : super(HomeState.initial()) {
     on<UserDataEvent>((event, emit) async {
       emit(state.copyWith(index: 0));
-
+      
       print('---------UserD-------------------------');
       var user = await database.getUser();
 

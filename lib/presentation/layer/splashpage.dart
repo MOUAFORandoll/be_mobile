@@ -31,7 +31,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             }
             // final HomeBloc h = BlocProvider.of<HomeBloc>(context);
             // h.add(UserDataEvent());
-            print('**----');
+         
             AutoRouter.of(context).replace(state.route);
           }
         },

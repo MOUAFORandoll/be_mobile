@@ -1,10 +1,13 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:BabanaExpress/infrastructure/_commons/network/request_url.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class SocketService {
-  SocketService();
+  final BuildContext context;
+  SocketService(this.context);
   // late IO.Socket socket;
   IO.Socket socket = IO.io(RequestUrl().socketUrl, <String, dynamic>{
     'transports': ['websocket'],
@@ -40,8 +43,11 @@ class SocketService {
   }
 
   void livraisonFinish({required String recepteur, required Function action}) {
+    print('-------------recepteur----');
+    print(recepteur);
     socket.on('livraison_finish', (data) {
       print(data);
+      log(data.toString());
       if (data != null && data != 'null') {
         print(jsonDecode(data));
         if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
@@ -98,7 +104,7 @@ class SocketService {
     // });
     // print(socket.connected);
   }
-  
+
   void callCenter({required String recepteur, required Function action}) {
     socket.on('service_client', (data) {
       print(data);

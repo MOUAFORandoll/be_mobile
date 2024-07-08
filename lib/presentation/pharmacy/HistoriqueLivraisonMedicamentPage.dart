@@ -1,14 +1,26 @@
 import 'package:BabanaExpress/presentation/components/Widget/EmptyLivraisonsComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/ErrorReloadComponent.dart';
-import 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart'; 
+import 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import '../components/Widget/LivraisonMedicamentUserComponent.dart';
 
 @RoutePage()
-class HistoriqueLivraisonMedicamentPage extends StatelessWidget {
+class HistoriqueLivraisonMedicamentPage extends StatefulWidget {
   HistoriqueLivraisonMedicamentPage();
   static const routeName = '/livraison-medicament/list';
+
+  @override
+  State<HistoriqueLivraisonMedicamentPage> createState() =>
+      _HistoriqueLivraisonMedicamentPageState();
+}
+
+class _HistoriqueLivraisonMedicamentPageState
+    extends State<HistoriqueLivraisonMedicamentPage> {
+  void initState() {
+    super.initState();
+    context.read<PharmacyBloc>().add(HistoriqueLivraisonMedicament());
+  }
 
   @override
   Widget build(BuildContext context) {

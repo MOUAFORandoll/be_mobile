@@ -37,6 +37,9 @@ class _MarketPageState extends State<MarketPage>
         CurvedAnimation(curve: Curves.easeInOut, parent: _animationController!);
     _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
     _scrollController.addListener(_scrollListener);
+
+    context.read<MarketBloc>().add(GetLivraisonProduit());
+
     super.initState();
   }
 
@@ -44,6 +47,12 @@ class _MarketPageState extends State<MarketPage>
   void dispose() {
     _scrollController.dispose();
     super.dispose();
+  }
+
+  void _scrollToTop() {
+    setState(() {
+      _scrollController.jumpTo(0.0);
+    });
   }
 
   // Method to handle scroll events
@@ -64,29 +73,33 @@ class _MarketPageState extends State<MarketPage>
   Widget build(BuildContext context) {
     return BlocBuilder<MarketBloc, MarketState>(
         builder: (context, state) => Scaffold(
-              backgroundColor: ColorsApp.bg,
-              appBar: AppBarCustom(title: 'Market Place', actions: [
-                InkWell(
-                  onTap: () {
-                    if (isSearch) {
-                      BlocProvider.of<MarketBloc>(context)
-                          .add(GetProduits(true));
-                    }
-                    setState(() {
-                      isSearch = !isSearch;
-                    });
-                    BlocProvider.of<MarketBloc>(context).add(InitFilter(true));
-                  },
-                  child: Container(
-                      margin: EdgeInsets.only(right: kMarginX),
-                      child: isSearch
-                          ? Icon(Icons.close, color: ColorsApp.red)
-                          : Icon(
-                              Icons.search,
-                            )),
-                )
-              ]),
-              body: CustomScrollView(
+            backgroundColor: ColorsApp.bg,
+            appBar: AppBarCustom(title: 'Market Place', actions: [
+              InkWell(
+                onTap: () {
+                  if (isSearch) {
+                    BlocProvider.of<MarketBloc>(context).add(GetProduits(true));
+                  }
+                  setState(() {
+                    isSearch = !isSearch;
+                  });
+                  BlocProvider.of<MarketBloc>(context).add(InitFilter(true));
+                },
+                child: Container(
+                    margin: EdgeInsets.only(right: kMarginX),
+                    child: isSearch
+                        ? Icon(Icons.close, color: ColorsApp.red)
+                        : Icon(
+                            Icons.search,
+                          )),
+              )
+            ]),
+            body: RefreshIndicator(
+              color: ColorsApp.primary,
+              onRefresh: () async {
+                BlocProvider.of<MarketBloc>(context).add(GetProduits(true));
+              },
+              child: CustomScrollView(
                 controller: _scrollController,
                 slivers: [
                   SliverAppBar(
@@ -130,10 +143,12 @@ class _MarketPageState extends State<MarketPage>
                                       BtnTextIcon(
                                           title: 'Actualiser'.tr(),
                                           icon: Icons.refresh,
-                                          onTap: () =>
-                                              BlocProvider.of<MarketBloc>(
-                                                      context)
-                                                  .add(GetProduits(true))),
+                                          onTap: () {
+                                            _scrollToTop();
+
+                                            BlocProvider.of<MarketBloc>(context)
+                                                .add(GetProduits(true));
+                                          }),
                                     ])),
                     ),
 
@@ -151,6 +166,6 @@ class _MarketPageState extends State<MarketPage>
                   ),
                 ],
               ),
-            ));
+            )));
   }
 }

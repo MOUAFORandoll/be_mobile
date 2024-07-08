@@ -33,6 +33,7 @@ class _WalletPageState extends State<WalletPage>
     final curvedAnimation =
         CurvedAnimation(curve: Curves.easeInOut, parent: _animationController!);
     _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
+    context.read<CompteBloc>().add(HistoriqueTransaction());
 
     super.initState();
   }

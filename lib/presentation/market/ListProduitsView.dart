@@ -7,12 +7,7 @@ class ListProduitsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MarketBloc, MarketState>(
-        builder: (context, state) => RefreshIndicator(
-              color: ColorsApp.primary,
-              onRefresh: () async {
-                //  state .getListProduitBuyHomeSelect(homeComponentModel.type);
-              },
-              child: Column(children: [
+        builder: (context, state) =>  Column(children: [
                 SingleChildScrollView(
                   child: Container(
                     padding: EdgeInsets.symmetric(
@@ -39,6 +34,6 @@ class ListProduitsView extends StatelessWidget {
                 ),
                 state.isLoadedProduit == 0 ? ShimmerProduit() : Container()
               ]),
-            ));
+            );
   }
 }

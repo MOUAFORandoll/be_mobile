@@ -8,9 +8,21 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
 @RoutePage()
-class HistoriqueLivraisonPage extends StatelessWidget {
+class HistoriqueLivraisonPage extends StatefulWidget {
   HistoriqueLivraisonPage();
   static const routeName = '/livraison/list';
+
+  @override
+  State<HistoriqueLivraisonPage> createState() =>
+      _HistoriqueLivraisonPageState();
+}
+
+class _HistoriqueLivraisonPageState extends State<HistoriqueLivraisonPage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
+  }
 
   @override
   Widget build(BuildContext context) {

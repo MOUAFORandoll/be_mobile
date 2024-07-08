@@ -28,6 +28,7 @@ final sl = GetIt.instance;
 Future<void> init() async {
   final db = await new DatabaseCubit();
   GetStorage box = GetStorage();
+  sl.registerSingleton<AppRouter>(AppRouter());
   sl.registerFactory(() => Connectivity());
   sl.registerLazySingleton<IAppRequests>(() => AppRequests());
   sl.registerLazySingleton<INetworkInfo>(() => NetworkInfo(connectivity: sl()));
@@ -61,12 +62,7 @@ Future<void> init() async {
     ..registerLazySingleton(() => CallCenterRepo(apiClient: sl()));
   requestPermission();
 
-  sl.registerSingleton<AppRouter>(AppRouter());
   initConnected();
-  // sl
-  //   ..registerFactory(() => SocketService(
-  //         livraison_bloc: sl(),
-  //       ));
 }
 
 void initConnected() async {
@@ -74,7 +70,8 @@ void initConnected() async {
 }
 
 Future<void> initLoad(context) async {
-  BlocProvider.of<HomeBloc>(context)
+  print('**---------------initLoad-');
+  /* BlocProvider.of<HomeBloc>(context)
     ..add(UserDataEvent())
     ..add(HomeStateLivraison());
   BlocProvider.of<UserBloc>(context)
@@ -86,19 +83,31 @@ Future<void> initLoad(context) async {
     ..add(GetVilleAndCategoryEvent())
     ..add(HistoriqueUserLivraison());
   BlocProvider.of<PharmacyBloc>(context).add(HistoriqueLivraisonMedicament());
-  BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
   BlocProvider.of<MarketBloc>(context)
     ..add(MarketEvent.getProduits(false))
     ..add(MarketEvent.getLivraisonProduit());
-  BlocProvider.of<CallCenterBloc>(context).add(CallCenterEvent.getMessage());
+  BlocProvider.of<CallCenterBloc>(context).add(CallCenterEvent.getMessage()); */
+
+  BlocProvider.of<HomeBloc>(context)
+    ..add(UserDataEvent())
+    ..add(HomeStateLivraison());
+  BlocProvider.of<UserBloc>(context)
+    ..add(GetUserEvent())
+    ..add(GetModePaiement())
+    ..add(GetVilleQuartier());
+  BlocProvider.of<LivraisonBloc>(context)
+    ..add(StartLogLat())
+    ..add(GetVilleAndCategoryEvent());
+  BlocProvider.of<MarketBloc>(context)..add(MarketEvent.getProduits(false));
   initSetDefaultValue(context);
   initSocket(context);
+  print('**---------------endLoad-');
 }
 
 Future<void> initSocket(context) async {
   var database = sl.get<DatabaseCubit>();
   var key = await database.getKey();
-  SocketService().HistoriqueUserLivraison(
+  SocketService(context).HistoriqueUserLivraison(
       recepteur: key!,
       action: (data) {
         print('------------------ev ');
@@ -109,38 +118,33 @@ Future<void> initSocket(context) async {
         // BlocProvider.of<LivraisonBloc>( context)
         //     .add(HistoriqueUserLivraison());
       });
-  SocketService().livraisonValidate(
+  SocketService(context).livraisonValidate(
       recepteur: key,
       action: (data) {
         NotificationService()
             .livraisonValidateNotification(content: data, context: context);
       });
-  SocketService().livraisonMedicament(
+  SocketService(context).livraisonMedicament(
       recepteur: key,
       action: (data) {
         NotificationService()
             .livraisonMedicamensNotification(content: data, context: context);
       });
-  SocketService().livraisonProduit(
+  SocketService(context).livraisonProduit(
       recepteur: key,
       action: (data) {
         NotificationService()
             .livraisonProduitsNotification(content: data, context: context);
       });
-  SocketService().livraisonFinish(
-      recepteur: key,
-      action: (data) {
-        NotificationService()
-            .livraisonFinishNotification(content: data, context: context);
-      });
-  SocketService().transactionCredit(
+  SocketService(context).livraisonFinish(recepteur: key, action: (data) {});
+  SocketService(context).transactionCredit(
       recepteur: key,
       action: (data) {
         // BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
         NotificationService()
             .depotFinishNotification(content: data, context: context);
       });
-  SocketService().callCenter(
+  SocketService(context).callCenter(
       recepteur: key,
       action: (data) {
         // BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
@@ -163,43 +167,10 @@ Future<void> initSetDefaultValue(context) async {
 Future<void> requestPermission() async {
   PermissionStatus status = await Permission.storage.request();
   print(status);
-
+  
   if (status == PermissionStatus.granted) {
     print('accepte');
   } else {
     print('refuse');
   }
 }
-
-// import 'package:BabanaExpress/application/database/database_cubit.dart';
-// import 'package:BabanaExpress/application/export_bloc.dart';
-
-// import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
-// import 'package:BabanaExpress/application/splash/splash_bloc.dart';
-// import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
-// import 'package:get_it/get_it.dart';
-// import 'package:get_storage/get_storage.dart';
-
-// import 'utils/Services/ApiClientNew.dart';
-
-// final sl = GetIt.instance;
-
-// Future<void> init() async {
-//   final db = await new DatabaseCubit();
-//   GetStorage box = GetStorage();
-
-//   sl.registerSingleton<ApiClient>(ApiClient());
-
-//   sl.registerLazySingleton<GetStorage>(() => box);
-
-//   sl.registerLazySingleton<DatabaseCubit>(() => db);
-//   sl..registerFactory(() => SplashBloc(database: sl()));
-//   sl
-//     ..registerFactory(() => UserBloc(userRepo: sl(), database: sl()))
-//     ..registerLazySingleton(() => UserRepo(apiClient: sl()));
-
-//   sl..registerFactory(() => HomeBloc(database: sl()));
-//   sl
-//     ..registerFactory(() => LivraisonBloc(livraisonRepo: sl()))
-//     ..registerLazySingleton(() => LivraisonRepo(apiClient: sl()));
-// }

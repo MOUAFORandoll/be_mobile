@@ -72,8 +72,6 @@ class _FirstViewState extends State<FirstView>
                                 title: 'Livraison de colis'.tr(),
                                 icon: Assets.colis,
                                 onTap: () {
-                                  BlocProvider.of<LivraisonBloc>(context)
-                                      .add(HistoriqueUserLivraison());
                                   AutoRouter.of(context)
                                       .push(HistoriqueLivraisonRoute());
                                 },
@@ -81,9 +79,6 @@ class _FirstViewState extends State<FirstView>
                               HomeOptionWidget(
                                 title: 'Livraison de medicaments'.tr(),
                                 onTap: () {
-                                  BlocProvider.of<PharmacyBloc>(context)
-                                      .add(HistoriqueLivraisonMedicament());
-
                                   AutoRouter.of(context).push(
                                       HistoriqueLivraisonMedicamentRoute());
                                 },
@@ -101,8 +96,6 @@ class _FirstViewState extends State<FirstView>
                                 icon: Assets.market_place,
                                 title: 'Market Place',
                                 onTap: () {
-                                  BlocProvider.of<MarketBloc>(context)
-                                      .add(MarketEvent.getLivraisonProduit());
                                   AutoRouter.of(context).push(MarketRoute());
                                 },
                               ),
@@ -143,7 +136,10 @@ class _FirstViewState extends State<FirstView>
                         ? /* Shimmer.fromColors(
                             baseColor: ColorsApp.greyNew,
                             highlightColor: ColorsApp.primary.withOpacity(.1),
-                            child: */Skeletonizer( enabled: true, child: Container(
+                            child: */
+                        Skeletonizer(
+                            enabled: true,
+                            child: Container(
                                 height: getHeight(context) * .08,
                                 width: getWidth(context) * .9,
                                 padding:
