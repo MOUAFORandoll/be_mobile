@@ -4,6 +4,7 @@ export 'package:BabanaExpress/application/user/user_bloc.dart';
 export 'package:BabanaExpress/application/home/home_bloc.dart';
 export 'package:BabanaExpress/application/pharmacy/pharmacy_bloc.dart';
 
+export 'package:BabanaExpress/application/callcenter/callcenter_bloc.dart';
 export 'package:BabanaExpress/application/compte/compte_bloc.dart';
 export 'package:BabanaExpress/application/market/market_bloc.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';

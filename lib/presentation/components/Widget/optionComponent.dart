@@ -1,4 +1,3 @@
- 
 import '../exportcomponent.dart';
 
 // ignore: must_be_immutable
@@ -15,8 +14,8 @@ class OptionComponent extends StatelessWidget {
           padding: EdgeInsets.only(
               top: getHeight(context) * .04,
               bottom: getHeight(context) * .04,
-              left: getWith(context) * .01,
-              right: getWith(context) * .01),
+              left: getWidth(context) * .01,
+              right: getWidth(context) * .01),
           decoration: BoxDecoration(
             color: this.selected ? ColorsApp.grey : null,
           ),

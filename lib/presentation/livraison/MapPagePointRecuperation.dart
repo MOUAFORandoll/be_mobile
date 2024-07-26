@@ -1,5 +1,7 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/Widget/ShimmerBox.dart';
+
+import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
@@ -7,7 +9,6 @@ import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
- 
 
 @RoutePage()
 class MapPagePointRecuperation extends StatefulWidget {
@@ -113,128 +114,115 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
     close();
   }
 
-  validatePoint() {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) => BlocBuilder<LivraisonBloc,
-                LivraisonState>(
-            builder: (context, state) => Container(
-                height: getHeight(context) * .5,
-                padding: EdgeInsets.symmetric(horizontal: kMarginX),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                  ),
-                  color: ColorsApp.white,
-                ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+  validatePoint() => GlobalBottomSheet.show(
+      maxHeight: getHeight(context) * .5,
+      context: context,
+      title: 'yrecup'.tr(),
+      subtitle: 'Valider les informations de votre point de recuperation'.tr(),
+      widget: BlocBuilder<LivraisonBloc, LivraisonState>(
+          builder: (context, state) =>
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.symmetric(vertical: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         alignment: Alignment.center,
-                        margin: EdgeInsets.symmetric(vertical: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'yrecup'.tr(),
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 14),
-                              ),
-                            ),
-                            InkWell(
-                                child: Icon(Icons.close),
-                                onTap: () => AutoRouter.of(context).pop())
-                          ],
+                        child: Text(
+                          'yrecup'.tr(),
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 14),
                         ),
                       ),
-                      Container(
-                        child: SingleChildScrollView(
-                            child: Column(children: [
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            child: AppInputNew(
-                              controller: libelleLocalisation,
-                              icon: Icon(Icons.label),
-                              label: 'yLibellePl'.tr(),
-                              validator: (value) {
-                                return Validators.isValidUsername(value!);
-                              },
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            child: AppInputNew(
-                              controller: quartier,
-                              icon: Icon(Icons.label),
-                              label: 'yQuartierPl'.tr(),
-                              validator: (value) {
-                                return Validators.isValidUsername(value!);
-                              },
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            width: getWith(context) * .8,
-                            child: Text(
-                              'Ville de : ${state.mapPlaceInfo!.ville}',
-                              style: TextStyle(overflow: TextOverflow.ellipsis),
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            width: getWith(context) * .8,
-                            child: Text(
-                              'Longitude : ${state.position!.longitude}',
-                              style: TextStyle(overflow: TextOverflow.ellipsis),
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            width: getWith(context) * .8,
-                            child: Text(
-                              'Latitude : ${state.position!.latitude}',
-                              style: TextStyle(overflow: TextOverflow.ellipsis),
-                            ),
-                          )
-                        ])),
+                      InkWell(
+                          child: Icon(Icons.close),
+                          onTap: () => AutoRouter.of(context).pop())
+                    ],
+                  ),
+                ),
+                Container(
+                  child: SingleChildScrollView(
+                      child: Column(children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: kMarginY * 1.5,
                       ),
-                      Container(
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              AppButton(
-                                  size: MainAxisSize.max,
-                                  // loading: _userState.isLoading,
-                                  // bgColor: ColorsApp.primary,
-                                  text: 'Valider'.tr(),
-                                  onTap: () async {
-                                    context.read<LivraisonBloc>().add(
-                                        MapValidatePoint(
-                                            libelle: libelleLocalisation.text,
-                                            quartier: quartier.text));
+                      child: AppInputNew(
+                        controller: libelleLocalisation,
+                        icon: Icon(Icons.label),
+                        label: 'yLibellePl'.tr(),
+                        validator: (value) {
+                          return Validators.isValidUsername(value!);
+                        },
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: kMarginY * 1.5,
+                      ),
+                      child: AppInputNew(
+                        controller: quartier,
+                        icon: Icon(Icons.label),
+                        label: 'yQuartierPl'.tr(),
+                        validator: (value) {
+                          return Validators.isValidUsername(value!);
+                        },
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: kMarginY * 1.5,
+                      ),
+                      width: getWidth(context) * .8,
+                      child: Text(
+                        'Ville de : ${state.mapPlaceInfo!.ville}',
+                        style: TextStyle(overflow: TextOverflow.ellipsis),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: kMarginY * 1.5,
+                      ),
+                      width: getWidth(context) * .8,
+                      child: Text(
+                        'Longitude : ${state.position!.longitude}',
+                        style: TextStyle(overflow: TextOverflow.ellipsis),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: kMarginY * 1.5,
+                      ),
+                      width: getWidth(context) * .8,
+                      child: Text(
+                        'Latitude : ${state.position!.latitude}',
+                        style: TextStyle(overflow: TextOverflow.ellipsis),
+                      ),
+                    )
+                  ])),
+                ),
+                Container(
+                  child:
+                      Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                    AppButton(
+                        size: MainAxisSize.max,
+                        // loading: _userState.isLoading,
+                        // bgColor: ColorsApp.primary,
+                        text: 'Valider'.tr(),
+                        onTap: () async {
+                          context.read<LivraisonBloc>().add(MapValidatePoint(
+                              libelle: libelleLocalisation.text,
+                              quartier: quartier.text));
 
-                                    AutoRouter.of(context).pop();
-                                    // AutoRouter.of(context)
-                                    //     .pushNamed(NewLivraisonPage.routeName);
-                                  }),
-                            ]),
-                      )
-                    ]))));
-  }
+                          AutoRouter.of(context).pop();
+                          // AutoRouter.of(context)
+                          //     .pushNamed(NewLivraisonPage.routeName);
+                        }),
+                  ]),
+                )
+              ])));
 
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
@@ -264,23 +252,9 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
         }
       },
       builder: (context, state) => Scaffold(
-        appBar: AppBar(
-            title: Text(
-              'Selectionner un point de recuperation'.tr(),
-            ),
-            centerTitle: true,
-            leading: IconButton(
-              icon: Icon(
-                Icons.keyboard_arrow_left_outlined,
-                color: ColorsApp.primary,
-              ),
-              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-              onPressed: () {
-                AutoRouter.of(context).pop();
-              },
-            ),
-            backgroundColor: ColorsApp.white,
-            elevation: 0),
+        appBar: AppBarCustom(
+          title: 'Selectionner un point de recuperation'.tr(),
+        ),
         body: Stack(
           children: [
             Container(
@@ -384,7 +358,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                               color: ColorsApp.white,
                             ),
                             // height: getHeight(context) / 15,
-                            width: getWith(context) * .88,
+                            width: getWidth(context) * .88,
                             child: TextField(
                               controller: searchPointRecuperationController,
                               onChanged: (String value) {
@@ -433,7 +407,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                       (state.isLoadingPlaceSearch! == 0)
                           ? Container(
                               height: getHeight(context) * .15,
-                              width: getWith(context) * .88,
+                              width: getWidth(context) * .88,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
@@ -451,7 +425,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                   height: state.list_search_place!.length < 5
                                       ? getHeight(context) * .15
                                       : getHeight(context) * .3,
-                                  width: getWith(context) * .88,
+                                  width: getWidth(context) * .88,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     border: Border.all(
@@ -467,7 +441,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                   Text('yemptyrecupliv'.tr())))
                                       : SingleChildScrollView(
                                           child: Container(
-                                            width: getWith(context) * .88,
+                                            width: getWidth(context) * .88,
                                             child: ListView.builder(
                                                 physics:
                                                     NeverScrollableScrollPhysics(),
@@ -503,7 +477,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                                 Row(
                                                                   children: [
                                                                     Container(
-                                                                      width: getWith(
+                                                                      width: getWidth(
                                                                               context) *
                                                                           .65,
                                                                       child:
@@ -652,7 +626,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          width: getWith(context) * .53,
+                                          width: getWidth(context) * .53,
                                           child: Text(
                                               state.mapPlaceInfo!.quartier,
                                               maxLines: 2,
@@ -665,7 +639,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                         Container(
                                           margin: EdgeInsets.symmetric(
                                               vertical: kMarginY),
-                                          width: getWith(context) * .53,
+                                          width: getWidth(context) * .53,
                                           child: Text(state.mapPlaceInfo!.ville,
                                               maxLines: 2,
                                               // overflow: TextOverflow.ellipsis,

@@ -1,7 +1,8 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/data/PanierModel.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';  
-import 'package:cached_network_image/cached_network_image.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 // ignore: must_be_immutable
 class ShoppingproduitComponent extends StatelessWidget {
   PanierModel cartM;
@@ -13,7 +14,7 @@ class ShoppingproduitComponent extends StatelessWidget {
     return InkWell(
       child: Container(
           height: getHeight(context) * .115,
-          width: getWith(context),
+          width: getWidth(context),
           padding: EdgeInsets.only(bottom: kMarginY * 2),
           margin:
               EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
@@ -65,7 +66,7 @@ class ShoppingproduitComponent extends StatelessWidget {
                                         Container(
                                             child: CachedNetworkImage(
                                           height: getHeight(context) * .15,
-                                          width: getWith(context) * .25,
+                                          width: getWidth(context) * .25,
                                           fit: BoxFit.cover,
                                           imageUrl: cartM.produit.images[0].src,
                                           imageBuilder:
@@ -101,8 +102,8 @@ class ShoppingproduitComponent extends StatelessWidget {
                                                 backgroundColor:
                                                     ColorsApp.primary,
                                                 radius: 50,
-                                                backgroundImage: AssetImage(
-                                                    'assets/logo/logoNew.png'));
+                                                backgroundImage:
+                                                    AssetImage('Assets.logo'));
                                           },
                                         )),
                                       ],
@@ -114,20 +115,20 @@ class ShoppingproduitComponent extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                            width: getWith(context) * .5,
+                                            width: getWidth(context) * .5,
                                             margin: EdgeInsets.only(
                                                 top: getHeight(context) * .005,
-                                                left: getWith(context) * .05),
+                                                left: getWidth(context) * .05),
                                             child: smallText(
                                                 text: cartM.produit.titre,
                                                 bolder: true,
                                                 al: true,
                                                 size: kBasics)),
                                         Container(
-                                            width: getWith(context) * .4,
+                                            width: getWidth(context) * .4,
                                             margin: EdgeInsets.only(
                                                 top: getHeight(context) * .005,
-                                                left: getWith(context) * .05),
+                                                left: getWidth(context) * .05),
                                             child: smallText(
                                                 text: 'XAF ' +
                                                     cartM.produit.prix
@@ -137,7 +138,7 @@ class ShoppingproduitComponent extends StatelessWidget {
                                         Container(
                                           margin: EdgeInsets.only(
                                               top: getHeight(context) * .012,
-                                              left: getWith(context) * .025),
+                                              left: getWidth(context) * .025),
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
@@ -155,7 +156,7 @@ class ShoppingproduitComponent extends StatelessWidget {
                                                 },
                                               ),
                                               Container(
-                                                  width: getWith(context) * .2,
+                                                  width: getWidth(context) * .2,
                                                   // margin:
                                                   //     EdgeInsets.only(top: getHeight(context) * .005),
                                                   child: smallText(

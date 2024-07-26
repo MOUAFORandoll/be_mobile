@@ -1,5 +1,5 @@
 // ignore_for_file: must_be_immutable
-
+ 
 import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
@@ -26,33 +26,10 @@ class RegisterPage extends StatelessWidget {
           AutoRouter.of(context).pop();
         },
         child: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              'regbtn'.tr(),
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            centerTitle: true,
-            leading: InkWell(
-                onTap: () {
-                  EasyLoading.dismiss();
-                  AutoRouter.of(context).pop();
-                },
-                child: Container(
-                  margin: EdgeInsets.zero,
-                  // padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-
-                      // borderRadius: BorderRadius.circular(20),
-                      ),
-                  child: Icon(Icons.arrow_back_ios_new, size: 25.0),
-                )),
-            elevation: 0,
-            backgroundColor: Colors.transparent,
+          appBar: AppBarCustom(
+            title: 'regbtn'.tr(),
           ),
+          backgroundColor: Colors.transparent,
           body: BlocConsumer<UserBloc, UserState>(
             listener: (context, state) {
               if (state.isLoading == 1) {
@@ -192,6 +169,15 @@ class RegisterPage extends StatelessWidget {
                                                       re_password.text));
                                         }
                                       }),
+                                  SocialLogBtn(
+                                    icon: FontAwesomeIcons.google,
+                                    onTap: () {
+                                      context
+                                          .read<UserBloc>()
+                                          .add(RegisterSocialEvent());
+                                    },
+                                    title: 'Google',
+                                  ),
                                 ],
                               )),
                         ]),

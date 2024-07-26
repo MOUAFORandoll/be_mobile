@@ -1,5 +1,5 @@
 import 'package:BabanaExpress/infrastructure/_commons/exceptions.dart';
-import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart'; 
+import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:BabanaExpress/infrastructure/_commons/throw_error.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
@@ -50,8 +50,16 @@ class MarketRepo {
     return a;
   }
 
-  Future getProduits() async {
-    Response a = await apiClient.getRequest(ApiRoutes.PRODUITS);
+  Future getProduits(keySecret, page) async {
+    Response a = await apiClient.getRequest(
+        ApiRoutes.PRODUITS + '/read?keySecret=${keySecret}&page=${page}');
+
+    return a;
+  }
+
+  Future filterProduits(search, page) async {
+    Response a = await apiClient.getRequest(
+        ApiRoutes.PRODUITS + '/filter?search=${search}&page=${page}');
 
     return a;
   }

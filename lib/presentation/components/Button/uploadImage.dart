@@ -10,7 +10,7 @@ class UploadImage extends StatelessWidget {
     return InkWell(
         onTap: onTap,
         child: Container(
-            width: getWith(context) / 2.37,
+            width: getWidth(context) / 2.37,
             alignment: Alignment.center,
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
             margin: EdgeInsets.all(5),

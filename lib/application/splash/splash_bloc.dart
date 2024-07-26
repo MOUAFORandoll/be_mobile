@@ -64,7 +64,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
               //   // event.context.watch<CompteBloc>().add(HistoriqueTransaction());
               //   NotificationService().depotFinishNotification(
               //       content: data, context: event.context);
-              // });
+              // }); 
               
         }
         emit(SplashState.loaded(isConnected, route));

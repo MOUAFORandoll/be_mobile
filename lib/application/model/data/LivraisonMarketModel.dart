@@ -12,6 +12,7 @@ class LivraisonMarketModel {
   int status;
   List<ProduitModel> produits;
   String initiatedUser;
+  int? service_id;
   String service;
   String date;
   Livreur? livreur;
@@ -28,6 +29,7 @@ class LivraisonMarketModel {
     required this.status,
     required this.produits,
     required this.initiatedUser,
+    required this.service_id,
     required this.service,
     required this.date,
     this.livreur,
@@ -35,7 +37,7 @@ class LivraisonMarketModel {
 
   factory LivraisonMarketModel.fromJson(Map<String, dynamic> json) {
     List<ProduitModel> produits = List<ProduitModel>.from(
-      json['produits'].map((medicament) => ProduitModel.fromJson(medicament)),
+      json['produits'].map((produit) => ProduitModel.fromJson(produit)),
     );
 
     return LivraisonMarketModel(
@@ -50,6 +52,7 @@ class LivraisonMarketModel {
       status: json['status'],
       produits: produits,
       initiatedUser: json['initiatedUser'],
+      service_id: json['service_id'],
       service: json['service'],
       date: json['date'],
       livreur:

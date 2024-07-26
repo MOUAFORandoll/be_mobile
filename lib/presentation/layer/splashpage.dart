@@ -1,11 +1,9 @@
- 
 import 'package:BabanaExpress/application/splash/splash_bloc.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:BabanaExpress/utils/constants/assets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart'; 
 
 import '../../application/export_bloc.dart';
 import '../../core.dart';
@@ -33,7 +31,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             }
             // final HomeBloc h = BlocProvider.of<HomeBloc>(context);
             // h.add(UserDataEvent());
-            print('**----');
+         
             AutoRouter.of(context).replace(state.route);
           }
         },
@@ -44,14 +42,18 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                 alignment: Alignment.center,
                 child: Container(
                     alignment: Alignment.center,
-                    child: Row(
+                    child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          SvgPicture.asset(
-                            Assets.babana,
-                            color: ColorsApp.white,
-                            height: 60,
-                            width: 60,
+                          Container(
+                            child: Image.asset(
+                              Assets.logo,
+                              fit: BoxFit.contain,
+                            ),
+                            padding: EdgeInsets.all(30),
+                            height: getHeight(context) * .25,
+                            width: getHeight(context) * .25,
                           ),
                           Container(
                               margin: EdgeInsets.only(left: 10),

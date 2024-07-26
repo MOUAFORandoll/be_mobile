@@ -1,7 +1,9 @@
-import 'package:BabanaExpress/application/export_bloc.dart'; 
+import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/Widget/TransactionComponent.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
-import 'package:flutter_spinkit/flutter_spinkit.dart'; 
+
+import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:BabanaExpress/presentation/compte/PaiementDepotPage.dart';
 
@@ -10,8 +12,8 @@ class WalletPage extends StatefulWidget {
   WalletPage({
     Key? key,
   }) : super(key: key);
-  static const routeName = '/wallet/new';
-  
+  static const routeName = '/wallet/page';
+
   @override
   State<WalletPage> createState() => _WalletPageState();
 }
@@ -20,7 +22,7 @@ class _WalletPageState extends State<WalletPage>
     with SingleTickerProviderStateMixin {
   Animation<double>? _animation;
   AnimationController? _animationController;
-  
+
   @override
   void initState() {
     _animationController = AnimationController(
@@ -31,6 +33,7 @@ class _WalletPageState extends State<WalletPage>
     final curvedAnimation =
         CurvedAnimation(curve: Curves.easeInOut, parent: _animationController!);
     _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
+    context.read<CompteBloc>().add(HistoriqueTransaction());
 
     super.initState();
   }
@@ -61,34 +64,15 @@ class _WalletPageState extends State<WalletPage>
             },
             builder: (context, state) => Scaffold(
                 backgroundColor: ColorsApp.bg,
+                appBar: AppBarCustom(
+                  title: 'Mon Portefeuille',
+                ),
                 body: CustomScrollView(
                   controller: _scrollController,
                   slivers: [
                     SliverAppBar(
                       backgroundColor: ColorsApp.bg,
                       automaticallyImplyLeading: false,
-                      centerTitle: true,
-                      title: Text(
-                        'Mon Portefeuille',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                      leading: Container(
-                          child: InkWell(
-                        child: Container(
-                          margin: EdgeInsets.zero,
-                          // padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-
-                              // borderRadius: BorderRadius.circular(20),
-                              ),
-                          child: Icon(Icons.arrow_back_ios_new,
-                              color: ColorsApp.black, size: 25.0),
-                        ),
-                        onTap: () {
-                          AutoRouter.of(context).pop();
-                        },
-                      )),
 
                       bottom: PreferredSize(
                           preferredSize: Size.fromHeight(215),
@@ -269,7 +253,7 @@ class _WalletPageState extends State<WalletPage>
                       title: 'Crediter Compte',
                       iconColor: Colors.white,
                       bubbleColor: ColorsApp.primary,
-                      icon: Icons.settings,
+                      icon: FontAwesomeIcons.moneyCheckDollar,
                       titleStyle: TextStyle(fontSize: 16, color: Colors.white),
                       onPress: () {
                         _animationController!.reverse();
@@ -308,172 +292,82 @@ class _WalletPageState extends State<WalletPage>
                 ))));
   }
 
-  makeDepot() => showModalBottomSheet(
+  makeDepot() => GlobalBottomSheet.show(
+      maxHeight: getHeight(context) * .4,
       context: context,
-      builder: (BuildContext context) => BlocBuilder<CompteBloc, CompteState>(
-            builder: (context, state) => Container(
-              height: getHeight(context) * .9,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
-                color: ColorsApp.white,
+      title: 'Colis'.tr(),
+      subtitle:
+          'Rechargez votre compte et acceder a plein de bonus y compris de multiples reductions sur vos livraisons'
+              .tr(),
+      widget: BlocBuilder<CompteBloc, CompteState>(
+        builder: (context, state) => SingleChildScrollView(
+          child: Column(
+            // mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AppInput(
+                icon: Icon(Icons.phone),
+                controller: state.phone,
+                textInputType: TextInputType.number,
+                placeholder: 'labelphone'.tr(),
               ),
-              padding: EdgeInsets.symmetric(
-                horizontal: kMarginX,
-              ).add(EdgeInsets.only(top: kMarginY)),
-              child: Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        horizontal: kMarginX, vertical: kMarginY),
-                    child: Column(
-                      children: [
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Add money'.tr(),
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
-                              ),
-                              InkWell(
-                                  child: Icon(Icons.close),
-                                  onTap: () => AutoRouter.of(context).pop()),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Text(
-                            'Rechargez votre compte et acceder a plein de bonus y compris de multiples reductions sur vos livraisons'
-                                .tr(),
-                            style: TextStyle(
-                                color: ColorsApp.primary,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                      child: SingleChildScrollView(
-                          child: Column(
-                    // mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AppInput(
-                        icon: Icon(Icons.phone),
-                        controller: state.phone,
-                        textInputType: TextInputType.number,
-                        placeholder: 'labelphone'.tr(),
-                      ),
-                      AppInput(
-                        controller: state.montantTransaction,
-                        textInputType: TextInputType.number,
-                        placeholder: 'Montant De la recharge (XAF)'.tr(),
-                      ),
-                      AppButton(
-                          size: MainAxisSize.max,
-                          bgColor: state.montantTransaction.text.isNotEmpty &&
-                                  state.phone.text.isNotEmpty
-                              ? ColorsApp.primary
-                              : ColorsApp.greyNew,
-                          text: 'Valider',
-                          onTap: () async {
-                            context.read<CompteBloc>().add(CreditCompte());
-                          })
-                    ],
-                  ))),
-                ],
+              AppInput(
+                controller: state.montantTransaction,
+                textInputType: TextInputType.number,
+                placeholder: 'Montant De la recharge (XAF)'.tr(),
               ),
-            ),
-          ));
-
-  makeRetrait() => showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) => BlocBuilder<CompteBloc, CompteState>(
-          builder: (context, state) => Container(
-            height: getHeight(context) * .9,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
-              ),
-              color: ColorsApp.white,
-            ),
-            padding: EdgeInsets.symmetric(
-              horizontal: kMarginX,
-            ).add(EdgeInsets.only(top: kMarginY)),
-            child: Column(children: [
-              Container(
-                margin: EdgeInsets.symmetric(
-                    horizontal: kMarginX, vertical: kMarginY),
-                child: Column(
-                  children: [
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Retirer votre argent'.tr(),
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18),
-                          ),
-                          InkWell(
-                              child: Icon(Icons.close),
-                              onTap: () => AutoRouter.of(context).pop()),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Text(
-                        'Rechargez votre compte et acceder a plein de bonus y compris de multiples reductions sur vos livraisons'
-                            .tr(),
-                        style: TextStyle(
-                            color: ColorsApp.primary,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 12),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: SingleChildScrollView(
-                    child: Column(
-                  // mainAxisSize: MainAxisSize.min,
-                  children: [
-                    AppInput(
-                      icon: Icon(Icons.phone),
-                      controller: state.phone,
-                      textInputType: TextInputType.number,
-                      placeholder: 'labelphone'.tr(),
-                    ),
-                    AppInput(
-                      controller: state.montantTransaction,
-                      textInputType: TextInputType.number,
-                      placeholder: 'Montant Du retrait (XAF)',
-                    ),
-                    AppInput(
-                      icon: Icon(Icons.lock),
-                      controller: state.password,
-                      placeholder: 'labelpassword'.tr(),
-                    ),
-                    AppButton(
-                        size: MainAxisSize.max,
-                        bgColor: ColorsApp.red,
-                        text: 'Retirer',
-                        onTap: () async {
-                          context.read<CompteBloc>().add(RetraitCompte());
-                        })
-                  ],
-                )),
-              ),
-            ]),
+              AppButton(
+                  size: MainAxisSize.max,
+                  bgColor: state.montantTransaction.text.isNotEmpty &&
+                          state.phone.text.isNotEmpty
+                      ? ColorsApp.primary
+                      : ColorsApp.greyNew,
+                  text: 'Valider',
+                  onTap: () async {
+                    context.read<CompteBloc>().add(CreditCompte());
+                  })
+            ],
           ),
+        ),
+      ));
+
+  makeRetrait() => GlobalBottomSheet.show(
+        maxHeight: getHeight(context) * .4,
+        context: context,
+        title: 'Retirer votre argent'.tr(),
+        subtitle:
+            'Rechargez votre compte et acceder a plein de bonus y compris de multiples reductions sur vos livraisons'
+                .tr(),
+        widget: BlocBuilder<CompteBloc, CompteState>(
+          builder: (context, state) => SingleChildScrollView(
+              child: Column(
+            // mainAxisSize: MainAxisSize.min,
+            children: [
+              AppInput(
+                icon: Icon(Icons.phone),
+                controller: state.phone,
+                textInputType: TextInputType.number,
+                placeholder: 'labelphone'.tr(),
+              ),
+              AppInput(
+                controller: state.montantTransaction,
+                textInputType: TextInputType.number,
+                placeholder: 'Montant Du retrait (XAF)',
+              ),
+              AppInput(
+                icon: Icon(Icons.lock),
+                controller: state.password,
+                placeholder: 'labelpassword'.tr(),
+              ),
+              AppButton(
+                  size: MainAxisSize.max,
+                  bgColor: ColorsApp.red,
+                  text: 'Retirer',
+                  onTap: () async {
+                    context.read<CompteBloc>().add(RetraitCompte());
+                  })
+            ],
+          )),
         ),
       );
 }

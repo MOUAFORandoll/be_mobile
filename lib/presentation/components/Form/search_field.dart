@@ -3,13 +3,15 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 // ignore: must_be_immutable
 class KSearchField extends StatelessWidget {
   final String? title;
-  Function? onChange;
+  TextEditingController? controller;
+  Function(String)? onChange;
   final double? dim;
   bool isCode;
   var width;
 
   KSearchField(
       {Key? key,
+      this.controller,
       this.title,
       this.width,
       this.dim,
@@ -28,13 +30,13 @@ class KSearchField extends StatelessWidget {
       ),
 
       height: kToolbarHeight / 1.3,
-      // width: width ?? getWith(context) * .75,
+      // width: width ?? getWidth(context) * .75,
       // padding: EdgeInsets.symmetric(horizontal: 10),
       child: TextField(
-        onChanged: (String value) {},
+        onChanged: (String value) => onChange!(value),
         focusNode: _focusNode,
         // cursorHeight: 30.0,
-        // controller: searchCont.controllerField,
+        controller: controller,
         // textAlign: TextAlign.left,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(vertical: 5),
@@ -50,7 +52,7 @@ class KSearchField extends StatelessWidget {
           //           color: ColorsApp.grey,
           //         ),
           //         // height: searchCont.tsearch == 0 ? 0 : kToolbarHeight / 1.9,
-          //         width: getWith(context) * 0.7,
+          //         width: getWidth(context) * 0.7,
           //         // margin: EdgeInsets.only(
           //         //   left: 3,
           //         // ).add(

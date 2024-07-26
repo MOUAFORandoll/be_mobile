@@ -11,7 +11,7 @@ class TextBackSpace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: BoxConstraints(maxWidth: getWith(context) / 1.5),
+        constraints: BoxConstraints(maxWidth: getWidth(context) / 1.5),
         child: Text(
           text,
           overflow: TextOverflow.ellipsis,

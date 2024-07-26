@@ -1,11 +1,11 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/presentation/components/Button/ShareButton.dart'; 
+import 'package:BabanaExpress/presentation/components/Button/ShareButton.dart';
 import 'package:BabanaExpress/presentation/components/Text/bigtitleText.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart'; 
+import 'package:carousel_slider/carousel_slider.dart';
 
 @RoutePage()
 class ProduitPage extends StatefulWidget {
@@ -19,6 +19,7 @@ class ProduitPage extends StatefulWidget {
 
 class _ProduitPageState extends State<ProduitPage>
     with SingleTickerProviderStateMixin {
+  // ignore: unused_field
   Animation<double>? _animation;
   AnimationController? _animationController;
 
@@ -129,7 +130,7 @@ class _ProduitPageState extends State<ProduitPage>
                               itemBuilder: (_ctx, i, j) => InkWell(
                                   child: CachedNetworkImage(
                                     height: getHeight(context) * .25,
-                                    width: getWith(context) * .5,
+                                    width: getWidth(context) * .5,
                                     fit: BoxFit.cover,
                                     imageUrl: widget.produit.images[i].src,
                                     imageBuilder: (context, imageProvider) {
@@ -157,8 +158,8 @@ class _ProduitPageState extends State<ProduitPage>
                                       return CircleAvatar(
                                           backgroundColor: ColorsApp.primary,
                                           radius: 50,
-                                          backgroundImage: AssetImage(
-                                              'assets/logo/logoNew.png'));
+                                          backgroundImage:
+                                              AssetImage('Assets.logo'));
                                     },
                                   ),
                                   onTap: () async {
@@ -538,7 +539,7 @@ class _ProduitPageState extends State<ProduitPage>
                               },
                             ),
                             Container(
-                                width: getWith(context) * .80,
+                                width: getWidth(context) * .80,
                                 child: AppButton(
                                   size: MainAxisSize.max,
                                   text: /*  prodController.exitP(produit)
@@ -558,7 +559,7 @@ class _ProduitPageState extends State<ProduitPage>
                                     topLeft: Radius.circular(15),
                                     topRight: Radius.circular(15))),
                             padding: EdgeInsets.symmetric(
-                              horizontal: getWith(context) * .07,
+                              horizontal: getWidth(context) * .07,
                             ).add(EdgeInsets.only(bottom: 5)),
                             child: SingleChildScrollView(
                                 child: Column(
@@ -661,7 +662,7 @@ class ImageScreen extends StatelessWidget {
             tag: 'imageTag',
             child: CachedNetworkImage(
               height: getHeight(context),
-              width: getWith(context),
+              width: getWidth(context),
               fit: BoxFit.contain,
               imageUrl: imagePath,
               imageBuilder: (context, imageProvider) {
@@ -689,7 +690,7 @@ class ImageScreen extends StatelessWidget {
                 return CircleAvatar(
                     backgroundColor: ColorsApp.primary,
                     radius: 50,
-                    backgroundImage: AssetImage('assets/logo/logoNew.png'));
+                    backgroundImage: AssetImage('Assets.logo'));
               },
             ),
           ),

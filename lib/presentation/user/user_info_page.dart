@@ -1,3 +1,4 @@
+ 
 import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
 import 'package:BabanaExpress/presentation/user/RegisterPage.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
@@ -7,7 +8,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 
-@RoutePage()
+@RoutePage() 
 class UserInfoPage extends StatefulWidget {
   static const routeName = '/user/info';
   const UserInfoPage({super.key});
@@ -26,18 +27,9 @@ class _UserInfoPageState extends State<UserInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'logbtn'.tr(),
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+      
+      appBar: AppBarCustom(
+        title:  'logbtn'.tr(),
       ),
       body: BlocConsumer<UserBloc, UserState>(
         listener: (context, state) {

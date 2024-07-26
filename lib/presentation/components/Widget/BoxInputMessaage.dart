@@ -1,10 +1,16 @@
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import '../exportcomponent.dart';
 
 // ignore: must_be_immutable
 class BoxInputMessaage extends StatelessWidget {
   BoxInputMessaage(
-      {this.controller, this.hint, this.sending = false, this.onTap});
-  var onTap, inconSize, sending;
+      {this.isUpdate,
+      this.controller,
+      this.focusNode,
+      this.hint,
+      this.sending = false,
+      this.onTap,
+      this.onTapFile});
+  var onTap, focusNode, isUpdate, inconSize, sending, onTapFile;
 
   final controller;
   String? hint = '';
@@ -12,59 +18,68 @@ class BoxInputMessaage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
       padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(color: ColorsApp.grey),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
-            onTap: onTap,
-            child: Container(
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: ColorsApp.tird,
-              ),
-              child: Icon(Icons.add, color: Colors.white, size: 22.0),
-            ),
+            onTap: onTapFile,
+            child: isUpdate
+                ? Container(
+                    // padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      // color: ColorsApp.primary,
+                    ),
+                    child: Icon(Icons.close, color: ColorsApp.red, size: 35.0),
+                  )
+                : Container(
+                    // padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      // color: ColorsApp.primary,
+                    ),
+                    child: Icon(Icons.attach_file,
+                        color: ColorsApp.primary, size: 35.0),
+                  ),
           ),
-          Flexible(
-            flex: 10,
+          Expanded(
+            // flex: 10,
             child: Container(
               constraints: BoxConstraints(
-                  maxHeight: getHeight(context) / 3, minHeight: 18),
-              margin: EdgeInsets.symmetric(horizontal: 2),
+                  maxHeight: getHeight(context) / 5, minHeight: 15),
+              margin: EdgeInsets.symmetric(horizontal: 4),
               child: TextField(
+                focusNode: focusNode,
                 controller: controller,
                 maxLines: null,
                 onChanged: (val) {},
                 decoration: InputDecoration(
-                  hintText: hint,
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 12,
-                  ),
-                  labelText: hint,
-                  labelStyle: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 12,
-                  ),
-                  counterText: '',
+                  fillColor: Colors.white,
+                  filled: true,
+                  contentPadding: EdgeInsets.all(10),
                   focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorsApp.white, width: .4),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorsApp.red, width: 1),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.blue,
+                      color: ColorsApp.grey,
+                      width: .5,
                     ),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(30),
                   ),
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: 0,
-                    horizontal: 5,
+                  errorStyle: TextStyle(
+                    fontFamily: 'Lato',
+                    color: ColorsApp.red,
                   ),
                 ),
               ),
@@ -76,8 +91,8 @@ class BoxInputMessaage extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: ColorsApp.tird,
+                      borderRadius: BorderRadius.circular(30),
+                      color: ColorsApp.primary,
                     ),
                     child: Container(
                         width: 22,
@@ -89,14 +104,14 @@ class BoxInputMessaage extends StatelessWidget {
               : Container(
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: ColorsApp.tird,
+                    borderRadius: BorderRadius.circular(30),
+                    color: ColorsApp.primary,
                   ),
                   child: Container(
                     width: 22,
                     height: 22,
                     child: CircularProgressIndicator(
-                      color: ColorsApp.second,
+                      color: ColorsApp.white,
                     ),
                   ),
                 ),

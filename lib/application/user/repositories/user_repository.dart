@@ -87,13 +87,17 @@ class UserRepo {
       return null;
     }
   }
-
+  
   Future Login(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LOGIN, body: data);
 
     return a;
   }
+  Future LoginSocial(data) async {
+    Response a = await apiClient.postRequest(ApiRoutes.LOGINSOCIAL, body: data);
 
+    return a;
+  }
   Future SendCode(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.SEND_CODE, body: data);
 

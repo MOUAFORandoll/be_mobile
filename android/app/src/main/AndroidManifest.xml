@@ -13,8 +13,10 @@ xmlns:tools="http://schemas.android.com/tools"
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> 
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.READ_CONTACTS"/>
+  <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
   <application
-    android:label="BabanaExpress"
+    android:label="Babana Express"
     android:usesCleartextTraffic="true"  
     android:exported="true"
     android:grantUriPermissions="true"

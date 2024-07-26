@@ -60,7 +60,7 @@ class AppBoutiqueOption extends StatelessWidget {
                                           : Assets.setting)),
               Container(
                 // height: getHeight(context),
-                // width: getWith(context),
+                // width: getWidth(context),
                 // decoration: BoxDecoration(
                 //   color: ColorsApp.tird,
                 // ),

@@ -1,9 +1,8 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart'; 
-import 'package:BabanaExpress/core.dart'; 
+import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
+import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/components/Widget/custom_alert.dart';
-import 'package:BabanaExpress/presentation/components/Widget/produitComponentUser.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:open_filex/open_filex.dart';
 import '../../application/export_bloc.dart';
@@ -35,11 +34,8 @@ class LivraisonMarketDataPage extends StatelessWidget {
           }
         },
         builder: (context, state) => Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: AppBackButton(),
-              title: Text('Le contenu de votre Commande'.tr()),
+            appBar: AppBarCustom(
+              title: 'Le contenu de votre Commande'.tr(),
               actions: [
                 InkWell(
                     child: Container(
@@ -57,7 +53,6 @@ class LivraisonMarketDataPage extends StatelessWidget {
                           }));
                     })
               ],
-              centerTitle: true,
             ),
             body: RefreshIndicator(
               color: ColorsApp.second,

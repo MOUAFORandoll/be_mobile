@@ -28,7 +28,7 @@ class AppButton extends StatelessWidget {
       child: Container(
         constraints: BoxConstraints(
             minHeight: getHeight(context) / 17,
-            minWidth: getWith(context) / 2.9),
+            minWidth: getWidth(context) / 2.9),
         padding: EdgeInsets.symmetric(horizontal: kMarginX),
         margin: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
         decoration: BoxDecoration(

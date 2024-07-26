@@ -1,8 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/presentation/components/Widget/colisComponentUser.dart';
+import 'package:BabanaExpress/core.dart'; 
 import 'package:BabanaExpress/presentation/components/Widget/custom_alert.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:open_filex/open_filex.dart';
@@ -35,11 +34,8 @@ class LivraisonDataPage extends StatelessWidget {
           }
         },
         builder: (context, state) => Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: AppBackButton(),
-              title: Text('yColis'.tr()),
+            appBar: AppBarCustom(
+              title: 'Vos Colis'.tr(),
               actions: [
                 InkWell(
                     child: Container(
@@ -57,7 +53,6 @@ class LivraisonDataPage extends StatelessWidget {
                           }));
                     })
               ],
-              centerTitle: true,
             ),
             body: RefreshIndicator(
               color: ColorsApp.second,

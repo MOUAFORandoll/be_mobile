@@ -101,5 +101,6 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.ongetPlaceData({required PlaceModel place}) =
       GetPlaceData;
   const factory LivraisonEvent.selectModePaiement({required ModePaiementModel modePaiement}) =
-      SelectModePaiement;
+      SelectModePaiement; 
+      
 }

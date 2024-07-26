@@ -21,6 +21,7 @@ showError(
   var snackBar = SnackBar(
     dismissDirection: DismissDirection.up,
     behavior: SnackBarBehavior.floating,
+    padding: EdgeInsets.all(20),
     backgroundColor: ColorsApp.red,
     content: Row(
       children: [
@@ -38,6 +39,7 @@ showSuccess(
 ) {
   var snackBar = SnackBar(
     behavior: SnackBarBehavior.floating,
+    padding: EdgeInsets.all(20),
     backgroundColor: ColorsApp.primary,
     content: Row(
       children: [
@@ -47,6 +49,29 @@ showSuccess(
           style: TextStyle(color: ColorsApp.white),
         )),
         const Icon(Icons.done, color: ColorsApp.white),
+      ],
+    ),
+  );
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+}
+
+showSuccessGetContact(
+  String message,
+  BuildContext context,
+) {
+  var snackBar = SnackBar(
+    behavior: SnackBarBehavior.floating,
+    backgroundColor: ColorsApp.second,
+    duration: Duration(seconds: 5),
+    padding: EdgeInsets.all(20),
+    content: Row(
+      children: [
+        Expanded(
+            child: Text(
+          message,
+          style: TextStyle(color: ColorsApp.white),
+        )),
+        // const Icon(Icons.done, color: ColorsApp.white),
       ],
     ),
   );

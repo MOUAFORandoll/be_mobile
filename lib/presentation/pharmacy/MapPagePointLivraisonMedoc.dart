@@ -1,5 +1,6 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/components/Widget/ShimmerBox.dart';
+import 'package:BabanaExpress/presentation/components/Widget/ShimmerBox.dart'; 
+import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
@@ -112,129 +113,93 @@ class _MapPagePointLivraisonMedocsState
     close();
   }
 
-  validatePoint() {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) => BlocBuilder<LivraisonBloc,
-                LivraisonState>(
-            builder: (context, state) => Container(
-                height: getHeight(context) * .5,
-                padding: EdgeInsets.symmetric(horizontal: kMarginX),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
+  validatePoint() => GlobalBottomSheet.show(
+      maxHeight: getHeight(context) * .5,
+      context: context,
+      title: 'yPointlivraison'.tr(),
+      subtitle: 'Valider les informations de votre point de livraison'.tr(),
+      widget: BlocBuilder<LivraisonBloc, LivraisonState>(
+          builder: (context, state) => Container(
+                  child: SingleChildScrollView(
+                      child: Column(children: [
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kMarginY * 1.5,
                   ),
-                  color: ColorsApp.white,
+                  child: AppInputNew(
+                    controller: libelleLocalisation,
+                    icon: Icon(Icons.label),
+                    label: 'yLibellePl'.tr(),
+                    validator: (value) {
+                      return Validators.isValidUsername(value!);
+                    },
+                  ),
                 ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        margin: EdgeInsets.symmetric(vertical: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'yPointlivraison'.tr(),
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 14),
-                              ),
-                            ),
-                            InkWell(
-                                child: Icon(Icons.close),
-                                onTap: () => AutoRouter.of(context).pop())
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: SingleChildScrollView(
-                            child: Column(children: [
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            child: AppInputNew(
-                              controller: libelleLocalisation,
-                              icon: Icon(Icons.label),
-                              label: 'yLibellePl'.tr(),
-                              validator: (value) {
-                                return Validators.isValidUsername(value!);
-                              },
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            child: AppInputNew(
-                              controller: quartier,
-                              icon: Icon(Icons.label),
-                              label: 'yQuartierPl'.tr(),
-                              validator: (value) {
-                                return Validators.isValidUsername(value!);
-                              },
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            width: getWith(context) * .8,
-                            child: Text(
-                              'Ville de : ${state.mapPlaceInfo!.ville}',
-                              style: TextStyle(overflow: TextOverflow.ellipsis),
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            width: getWith(context) * .8,
-                            child: Text(
-                              'Longitude : ${state.position!.longitude}',
-                              style: TextStyle(overflow: TextOverflow.ellipsis),
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            width: getWith(context) * .8,
-                            child: Text(
-                              'Latitude : ${state.position!.latitude}',
-                              style: TextStyle(overflow: TextOverflow.ellipsis),
-                            ),
-                          )
-                        ])),
-                      ),
-                      Container(
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              AppButton(
-                                  size: MainAxisSize.max,
-                                  // loading: _userState.isLoading,
-                                  // bgColor: ColorsApp.primary,
-                                  text: 'Valider'.tr(),
-                                  onTap: () async {
-                                    context.read<PharmacyBloc>().add(
-                                        MapValidatePointLivraisonPharmacie(
-                                            libelle: libelleLocalisation.text,
-                                            quartier: quartier.text));
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kMarginY * 1.5,
+                  ),
+                  child: AppInputNew(
+                    controller: quartier,
+                    icon: Icon(Icons.label),
+                    label: 'yQuartierPl'.tr(),
+                    validator: (value) {
+                      return Validators.isValidUsername(value!);
+                    },
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kMarginY * 1.5,
+                  ),
+                  width: getWidth(context) * .8,
+                  child: Text(
+                    'Ville de : ${state.mapPlaceInfo!.ville}',
+                    style: TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kMarginY * 1.5,
+                  ),
+                  width: getWidth(context) * .8,
+                  child: Text(
+                    'Longitude : ${state.position!.longitude}',
+                    style: TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kMarginY * 1.5,
+                  ),
+                  width: getWidth(context) * .8,
+                  child: Text(
+                    'Latitude : ${state.position!.latitude}',
+                    style: TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
+                ),
+                Container(
+                  child:
+                      Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                    AppButton(
+                        size: MainAxisSize.max,
+                        // loading: _userState.isLoading,
+                        // bgColor: ColorsApp.primary,
+                        text: 'Valider'.tr(),
+                        onTap: () async {
+                          context.read<PharmacyBloc>().add(
+                              MapValidatePointLivraisonPharmacie(
+                                  libelle: libelleLocalisation.text,
+                                  quartier: quartier.text));
 
-                                    AutoRouter.of(context).pop();
-                                    // AutoRouter.of(context)
-                                    //     .pushNamed(NewLivraisonPage.routeName);
-                                  }),
-                            ]),
-                      )
-                    ]))));
-  }
-
+                          AutoRouter.of(context).pop();
+                          // AutoRouter.of(context)
+                          //     .pushNamed(NewLivraisonPage.routeName);
+                        }),
+                  ]),
+                )
+              ])))));
+  
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
   @override
@@ -263,23 +228,9 @@ class _MapPagePointLivraisonMedocsState
         }
       },
       builder: (context, state) => Scaffold(
-        appBar: AppBar(
-            title: Text(
-              'ylivraison'.tr(),
-            ),
-            centerTitle: true,
-            leading: IconButton(
-              icon: Icon(
-                Icons.keyboard_arrow_left_outlined,
-                color: ColorsApp.primary,
-              ),
-              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-              onPressed: () {
-                AutoRouter.of(context).pop();
-              },
-            ),
-            backgroundColor: ColorsApp.white,
-            elevation: 0),
+        appBar: AppBarCustom(
+          title: 'ylivraison'.tr(),
+        ),
         body: Stack(
           children: [
             Container(
@@ -383,7 +334,7 @@ class _MapPagePointLivraisonMedocsState
                               color: ColorsApp.white,
                             ),
                             // height: getHeight(context) / 15,
-                            width: getWith(context) * .88,
+                            width: getWidth(context) * .88,
                             child: TextField(
                               controller: searchPointLivraisonController,
                               onChanged: (String value) {
@@ -432,7 +383,7 @@ class _MapPagePointLivraisonMedocsState
                       (state.isLoadingPlaceSearch! == 0)
                           ? Container(
                               height: getHeight(context) * .15,
-                              width: getWith(context) * .88,
+                              width: getWidth(context) * .88,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
@@ -450,7 +401,7 @@ class _MapPagePointLivraisonMedocsState
                                   height: state.list_search_place!.length < 5
                                       ? getHeight(context) * .15
                                       : getHeight(context) * .3,
-                                  width: getWith(context) * .88,
+                                  width: getWidth(context) * .88,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     border: Border.all(
@@ -466,7 +417,7 @@ class _MapPagePointLivraisonMedocsState
                                                   Text('yemptypointliv'.tr())))
                                       : SingleChildScrollView(
                                           child: Container(
-                                            width: getWith(context) * .88,
+                                            width: getWidth(context) * .88,
                                             child: ListView.builder(
                                                 physics:
                                                     NeverScrollableScrollPhysics(),
@@ -497,7 +448,7 @@ class _MapPagePointLivraisonMedocsState
                                                             Row(
                                                               children: [
                                                                 Container(
-                                                                  width: getWith(
+                                                                  width: getWidth(
                                                                           context) *
                                                                       .65,
                                                                   child: Text(
@@ -646,7 +597,7 @@ class _MapPagePointLivraisonMedocsState
                                           CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          width: getWith(context) * .53,
+                                          width: getWidth(context) * .53,
                                           child: Text(
                                               state.mapPlaceInfo!.quartier,
                                               maxLines: 2,
@@ -659,7 +610,7 @@ class _MapPagePointLivraisonMedocsState
                                         Container(
                                           margin: EdgeInsets.symmetric(
                                               vertical: kMarginY),
-                                          width: getWith(context) * .53,
+                                          width: getWidth(context) * .53,
                                           child: Text(state.mapPlaceInfo!.ville,
                                               maxLines: 2,
                                               // overflow: TextOverflow.ellipsis,

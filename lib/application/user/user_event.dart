@@ -2,11 +2,12 @@ part of 'user_bloc.dart';
 
 @freezed
 class UserEvent with _$UserEvent {
-  const factory UserEvent.chooseExperience({
+  const factory UserEvent.signInEvent({
     required String phone,
     required String password,
   }) = SignInEvent;
-
+  const factory UserEvent.signInSocialEvent() = SignInSocialEvent;
+  const factory UserEvent.registerSocial() = RegisterSocialEvent;
   const factory UserEvent.register({
     required String name,
     required String phone,

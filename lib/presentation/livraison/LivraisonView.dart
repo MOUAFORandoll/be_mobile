@@ -1,5 +1,7 @@
-import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonView.dart';
+
+import 'package:BabanaExpress/presentation/components/Widget/BtnNextComponent.dart';
+import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonMin.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 import '../../presentation/components/exportcomponent.dart';
 
 class LivraisonView extends StatelessWidget {
@@ -12,27 +14,9 @@ class LivraisonView extends StatelessWidget {
             Container(
               child: Text('Historiques de livraisons'),
             ),
-            InkWell(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: ColorsApp.primary,
-                      borderRadius: BorderRadius.circular(50)),
-                  margin: EdgeInsets.only(
-                    top: kMarginY,
-                  ),
-                  padding: EdgeInsets.all(6)
-                      .add(EdgeInsets.symmetric(horizontal: 5)),
-                  child: Text(
-                    'Actualiser',
-                    style: TextStyle(color: ColorsApp.white),
-                  ),
-                ),
-                onTap: () {
-                  BlocProvider.of<LivraisonBloc>(context)
-                      .add(HistoriqueUserLivraison());
-                })
+            BtnNextComponent(onTap: ()=> AutoRouter.of(context).push(HistoriqueLivraisonRoute()),)
           ]),
-          SingleChildScrollView(child: HistoriqueLivraisonView()),
+          SingleChildScrollView(child: HistoriqueLivraisonMin()),
         ]));
   }
 }

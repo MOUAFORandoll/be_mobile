@@ -15,7 +15,7 @@ class BtnManageView extends StatelessWidget {
       onTap: onTap,
       child: Container(
           // height: getHeight(context) * 1.2,
-          width: getWith(context) * 0.5,
+          width: getWidth(context) * 0.5,
           padding: EdgeInsets.all(kMarginX / 1.1),
           margin:
               EdgeInsets.symmetric(vertical: kMarginY, horizontal: kMarginX),
@@ -33,7 +33,7 @@ class BtnManageView extends StatelessWidget {
                 //         topLeft: Radius.circular(10)),
                 //     child: Image.asset('assets/om.png',
                 //         height: getHeight(context) ,
-                //         width: getWith(context) * .5,
+                //         width: getWidth(context) * .5,
                 //         fit: BoxFit.cover),
                 //   ),
                 // ),
@@ -49,10 +49,10 @@ class BtnManageView extends StatelessWidget {
                 //       color: Colors.white,
                 //     )),
                 Container(
-                  width: getWith(context),
+                  width: getWidth(context),
                   alignment: Alignment.center,
                   // margin: EdgeInsets.only(
-                  //     top: getHeight(context) * .005, left: getWith(context) * .008),
+                  //     top: getHeight(context) * .005, left: getWidth(context) * .008),
                   child: Text(title,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(color: Colors.white, fontSize: 15)),

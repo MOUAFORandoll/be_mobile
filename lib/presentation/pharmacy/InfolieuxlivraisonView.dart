@@ -1,7 +1,11 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_input_contact.dart';
+import 'package:BabanaExpress/utils/Services/ContactService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:contacts_service/contacts_service.dart';
 
 import 'MapPagePointLivraisonMedoc.dart';
 
@@ -36,65 +40,35 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                     child: SingleChildScrollView(
                         child: Column(children: [
                       Column(children: [
-                        Container(
-                            padding: EdgeInsets.only(
-                              top: kMarginY,
-                            ),
-                            alignment: Alignment.centerLeft,
-                            child: Text('yVille'.tr())),
+                        // Container(
+                        //     padding: EdgeInsets.only(
+                        //       top: kMarginY,
+                        //     ),
+                        //     alignment: Alignment.centerLeft,
+                        //     child: Text('yVille'.tr())),
                         state_livraison.isLoadedVille == 0
                             ? CircularProgressIndicator(color: ColorsApp.second)
                             : state_livraison.isLoadedVille == 2
                                 ? Text('Error')
                                 : Container(
                                     decoration: BoxDecoration(
+                                      color: Colors.grey.shade200,
                                       border: Border.all(
                                           color: (state_livraison.errorVille!)
                                               ? ColorsApp.red
-                                              : ColorsApp.grey,
+                                              : Colors.grey.shade200,
                                           width: 1),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    height: getHeight(context) * .08,
-                                    width: getWith(context),
+                                    height: getHeight(context) * .06,
+                                    width: getWidth(context),
                                     alignment: Alignment.center,
                                     child: state_livraison.villeList!.isEmpty
                                         ? Container()
-                                        : DropdownButton<VilleModel>(
+                                        : AppDropdown<VilleModel>(
                                             value: state.selectedVIlle,
-                                            icon: Container(
-                                              // padding: EdgeInsets.only(top: 4),
-                                              child: Icon(
-                                                Icons
-                                                    .keyboard_arrow_down_outlined,
-                                              ),
-                                            ),
-                                            padding: EdgeInsets.symmetric(
-                                              horizontal: 7,
-                                            ),
-                                            hint: Container(
-                                              width: getWith(context) * .65,
-                                              alignment: Alignment.center,
-                                              padding: EdgeInsets.symmetric(
-                                                horizontal: 7,
-                                              ),
-                                              child: Text(
-                                                'yselectville'.tr(),
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 12,
-                                                    color: ColorsApp.grey,
-                                                    fontFamily: 'Lato',
-                                                    overflow:
-                                                        TextOverflow.ellipsis),
-                                              ),
-                                            ),
-                                            iconSize: 25,
-                                            isExpanded: true,
-                                            underline: SizedBox(),
-                                            style: TextStyle(
-                                                color: ColorsApp.black,
-                                                fontSize: 12),
+                                            hint: 'yselectville'.tr(),
+                                            items: state_livraison.villeList!,
                                             onChanged: (newValue) {
                                               context.read<PharmacyBloc>().add(
                                                   SelectedVilleP(
@@ -107,19 +81,10 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                                   SelectPointLivraisonP(
                                                       point_livraison: null));
                                             },
-                                            items: state_livraison.villeList!
-                                                .map((value) {
-                                              return DropdownMenuItem(
-                                                value: value,
-                                                child: Center(
-                                                  child: Text(
+                                            itemLabelBuilder:
+                                                (VilleModel value) =>
                                                     value.libelle,
-                                                  ),
-                                                ),
-                                              );
-                                            }).toList(),
-                                          ),
-                                  ),
+                                          )),
                         if (state_livraison.errorVille!)
                           Container(
                               padding: EdgeInsets.only(
@@ -150,15 +115,16 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                     ? Container()
                                     : Column(
                                         children: [
+                                          // Container(
+                                          //     padding: EdgeInsets.only(
+                                          //       top: kMarginY,
+                                          //     ),
+                                          //     alignment: Alignment.centerLeft,
+                                          //     child:
+                                          //         Text('yselectpointliv'.tr())),
                                           Container(
-                                              padding: EdgeInsets.only(
-                                                top: kMarginY,
-                                              ),
-                                              alignment: Alignment.centerLeft,
-                                              child:
-                                                  Text('yselectpointliv'.tr())),
-                                          Container(
-                                              margin: EdgeInsets.only(),
+                                              margin: EdgeInsets.only(
+                                                  top: kMarginY * 1.5),
                                               child: Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
@@ -166,108 +132,34 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                                 children: [
                                                   (!state
                                                           .isMapSelectedPointLivraison)
-                                                      ? Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            border: Border.all(
-                                                                color: (state
-                                                                        .errorPointLivraison!)
-                                                                    ? ColorsApp
-                                                                        .red
-                                                                    : ColorsApp
-                                                                        .grey,
-                                                                width: 1),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8),
-                                                          ),
-                                                          height: getHeight(
+                                                      ? AppDropdown<
+                                                          PointLivraisonModel>(
+                                                          maxWidth: getWidth(
                                                                   context) *
-                                                              .06,
-                                                          width:
-                                                              getWith(context) *
-                                                                  .65,
-                                                          padding: EdgeInsets
-                                                              .symmetric(
-                                                            horizontal: 7,
-                                                          ),
-                                                          alignment:
-                                                              Alignment.center,
-                                                          child: DropdownButton<
-                                                              PointLivraisonModel>(
-                                                            isExpanded: true,
-                                                            value: state
-                                                                .selected_livraison_point,
-                                                            hint: Container(
-                                                              width: getWith(
-                                                                      context) *
-                                                                  .65,
-                                                              alignment:
-                                                                  Alignment
-                                                                      .center,
-                                                              padding: EdgeInsets
-                                                                  .symmetric(
-                                                                horizontal: 7,
-                                                              ),
-                                                              child: Text(
-                                                                'yselectpointliv'
-                                                                    .tr(),
-                                                                style: TextStyle(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    fontSize:
-                                                                        12,
-                                                                    color: ColorsApp
-                                                                        .grey,
-                                                                    fontFamily:
-                                                                        'Lato',
-                                                                    overflow:
-                                                                        TextOverflow
-                                                                            .ellipsis),
-                                                              ),
-                                                            ),
-                                                            icon: Container(
-                                                              // padding: EdgeInsets.only(top: 4),
-                                                              child: Icon(
-                                                                Icons
-                                                                    .keyboard_arrow_down_outlined,
-                                                              ),
-                                                            ),
-                                                            iconSize: 25,
-                                                            underline:
-                                                                SizedBox(),
-                                                            style: TextStyle(
-                                                                color: ColorsApp
-                                                                    .black,
-                                                                fontSize: 12),
-                                                            onChanged:
-                                                                (PointLivraisonModel?
-                                                                    newValue) {
-                                                              context
-                                                                  .read<
-                                                                      PharmacyBloc>()
-                                                                  .add(SelectPointLivraisonP(
-                                                                      point_livraison:
-                                                                          newValue!));
-                                                            },
-                                                            items: state_livraison
-                                                                .list_localisation_point!
-                                                                .map(
-                                                                    (PointLivraisonModel
-                                                                        value) {
-                                                              return DropdownMenuItem(
-                                                                value: value,
-                                                                child: Center(
-                                                                  child: Text(
-                                                                    value
-                                                                        .libelle,
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            }).toList(),
-                                                          ),
+                                                              .65,
+                                                          value: state
+                                                              .selected_livraison_point,
+                                                          hint:
+                                                              'yselectpointliv'
+                                                                  .tr(),
+                                                          onChanged:
+                                                              (PointLivraisonModel?
+                                                                  newValue) {
+                                                            context
+                                                                .read<
+                                                                    PharmacyBloc>()
+                                                                .add(SelectPointLivraisonP(
+                                                                    point_livraison:
+                                                                        newValue!));
+                                                          },
+                                                          items: state_livraison
+                                                              .list_localisation_point!,
+                                                          itemLabelBuilder:
+                                                              (PointLivraisonModel
+                                                                      value) =>
+                                                                  value.libelle,
+                                                          hasError: state
+                                                              .errorPointLivraison!,
                                                         )
                                                       : Container(
                                                           padding: EdgeInsets
@@ -277,13 +169,14 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                                                                   horizontal:
                                                                       kMarginX),
                                                           height:
-                                                              getHeight(context) *
+                                                              getHeight(
+                                                                      context) *
                                                                   .06,
-                                                          alignment:
-                                                              Alignment.center,
-                                                          width:
-                                                              getWith(context) *
-                                                                  .65,
+                                                          alignment: Alignment
+                                                              .center,
+                                                          width: getWidth(
+                                                                  context) *
+                                                              .65,
                                                           decoration: BoxDecoration(
                                                               borderRadius:
                                                                   BorderRadius
@@ -377,12 +270,26 @@ class InfoLieuxLIvraisonView extends StatelessWidget {
                           margin: EdgeInsets.only(
                             top: kMarginY * 1.5,
                           ),
-                          child: AppInputNew(
+                          child: AppInputContact(
                             controller: state_livraison.contactRecepteur!,
                             icon: Icon(Icons.phone),
                             textInputType: TextInputType.number,
                             // maxLength:13,
                             label: 'yycontact'.tr(),
+                            onTap: () {
+                              ContactService().openContactSelectionModal(
+                                  context: context,
+                                  onTap: (Contact contact) {
+                                    state_livraison.contactRecepteur!.text =
+                                        contact.phones!.first.value.toString();
+                                    AutoRouter.of(context).pop();
+
+                                    showSuccessGetContact(
+                                      'Vous avez choisi ${contact.displayName}',
+                                      context,
+                                    );
+                                  });
+                            },
                             onChanged: (value) {},
                             validator: (value) {
                               return Validators.usPhoneValid(value!);

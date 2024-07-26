@@ -1,4 +1,4 @@
-import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart'; 
+import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
@@ -13,7 +13,7 @@ class LivraisonMarketUserComponent extends StatelessWidget {
   LivraisonMarketUserComponent({required this.livraison});
   GlobalKey globalKey = new GlobalKey();
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     // titre.text = livraison.titre;
     // quantite.text = livraison.quantite.toString();
     // prix.text = livraison.prix.toString();
@@ -71,7 +71,7 @@ class LivraisonMarketUserComponent extends StatelessWidget {
                                             ? 'En attente de validation'
                                             : livraison.status == 1
                                                 ? 'En cours de livraison'
-                                                : 'Colis livres',
+                                                : 'Produits livres',
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
                                           fontSize: 14,
@@ -94,7 +94,7 @@ class LivraisonMarketUserComponent extends StatelessWidget {
                                   ),
                                   child: CachedNetworkImage(
                                     height: getHeight(context) * .09,
-                                    width: getWith(context) * .25,
+                                    width: getWidth(context) * .25,
                                     fit: BoxFit.cover,
                                     imageUrl:
                                         livraison.produits[0].images[0].src,
@@ -114,13 +114,13 @@ class LivraisonMarketUserComponent extends StatelessWidget {
                                     },
                                     placeholder: (context, url) {
                                       return Container(
-                                        child: Shimmer.fromColors(
+                                        child:/*  Shimmer.fromColors(
                                             baseColor: ColorsApp.greyNew,
                                             highlightColor: ColorsApp.primary
                                                 .withOpacity(.1),
-                                            child: Container(
+                                            child: */ Skeletonizer( enabled: true, child:Container(
                                               /*   height: getHeight(context) * .09,
-                                              width: getWith(context) * .25,
+                                              width: getWidth(context) * .25,
                                              */
                                               alignment: Alignment.center,
                                               decoration: BoxDecoration(
@@ -158,7 +158,7 @@ class LivraisonMarketUserComponent extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        width: getWith(context) * .34,
+                                        width: getWidth(context) * .34,
                                         child: Text(
                                             livraison.libelle.toString(),
                                             maxLines: 2,

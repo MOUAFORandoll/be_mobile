@@ -6,7 +6,10 @@ class MarketEvent with _$MarketEvent {
   const factory MarketEvent.listProduits() = ListProduits;
   const factory MarketEvent.verifyForm() = VerifyFormMarketEvent;
 
-  const factory MarketEvent.getProduits() = GetProduits;
+  const factory MarketEvent.getProduits(bool? actualise) = GetProduits;
+  const factory MarketEvent.initFilter(bool? isOpen) = InitFilter;
+  const factory MarketEvent.filterProduits({required String? search}) =
+      FilterProduits;
 
   const factory MarketEvent.selectedVilleMarket({
     required VilleModel ville,
@@ -24,7 +27,7 @@ class MarketEvent with _$MarketEvent {
     required String libelle,
     required String quartier,
   }) = MapValidatePointLivraisonMarket;
-  
+
   const factory MarketEvent.selectPointLivraisonMarket({
     required PointLivraisonModel? point_livraison,
   }) = SelectPointLivraisonMarket;

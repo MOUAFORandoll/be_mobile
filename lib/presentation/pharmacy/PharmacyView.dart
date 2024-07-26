@@ -1,5 +1,6 @@
- 
-import 'package:BabanaExpress/presentation/pharmacy/HistoriqueLivraisonMedicamentView.dart';
+import 'package:BabanaExpress/presentation/components/Widget/BtnNextComponent.dart';
+import 'package:BabanaExpress/presentation/pharmacy/HistoriqueLivraisonMedicamentMin.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
@@ -14,27 +15,12 @@ class PharmacyView extends StatelessWidget {
                 Container(
                   child: Text('Historiques de livraisons de medicaments'),
                 ),
-                InkWell(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: ColorsApp.primary,
-                          borderRadius: BorderRadius.circular(50)),
-                      margin: EdgeInsets.only(
-                        top: kMarginY,
-                      ),
-                      padding: EdgeInsets.all(6)
-                          .add(EdgeInsets.symmetric(horizontal: 5)),
-                      child: Text(
-                        'Actualiser',
-                        style: TextStyle(color: ColorsApp.white),
-                      ),
-                    ),
-                    onTap: () {
-                      BlocProvider.of<PharmacyBloc>(context)
-                          .add(HistoriqueLivraisonMedicament());
-                    })
+                BtnNextComponent(
+                  onTap: () => AutoRouter.of(context)
+                      .push(HistoriqueLivraisonMedicamentRoute()),
+                )
               ]),
-              SingleChildScrollView(child: HistoriqueLivraisonMedicamentView())
+              SingleChildScrollView(child: HistoriqueLivraisonMedicamentMin())
             ])));
   }
 }

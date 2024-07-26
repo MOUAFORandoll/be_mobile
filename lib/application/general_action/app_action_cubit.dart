@@ -24,8 +24,7 @@ class AppActionCubit extends Cubit<AppActionState> {
       }
     });
   }
-
-  Future<void> setIndex(int index) async {
+  setIndex(int index) async {
     emit(state.copyWith(index: index));
     print(index);
   }

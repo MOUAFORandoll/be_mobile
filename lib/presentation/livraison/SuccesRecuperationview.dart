@@ -1,4 +1,4 @@
-import  'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class SuccesRecuperationview extends StatelessWidget {
   @override
@@ -9,7 +9,6 @@ class SuccesRecuperationview extends StatelessWidget {
         },
         child: Scaffold(
             backgroundColor: ColorsApp.grey,
-            appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
             body: Padding(
                 padding:
                     EdgeInsets.symmetric(vertical: 10, horizontal: kMarginX),

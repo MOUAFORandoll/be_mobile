@@ -2,6 +2,7 @@
 import 'package:BabanaExpress/presentation/_commons/theming/app_theme.dart';
 import 'package:BabanaExpress/presentation/components/Widget/ShimmerProduitBox.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
@@ -26,7 +27,7 @@ class ProduitComponent extends StatelessWidget {
       child: Container(
           // height: getHeight(context) / 2.7,
           // margin: EdgeInsets.symmetric(horizontal: 5),
-          padding: EdgeInsets.all(5),
+          // padding: EdgeInsets.all(5),
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(
@@ -50,11 +51,14 @@ class ProduitComponent extends StatelessWidget {
                   imageUrl: produit.images[0].src,
                   imageBuilder: (context, imageProvider) {
                     return Container(
-                        height: getHeight(context) / 8,
-                        width: getWith(context) * 1.1,
+                        height: getHeight(context) / 7,
+                        width: getWidth(context) * 1.1,
                         decoration: BoxDecoration(
                           color: ColorsApp.grey,
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(8),
+                            topLeft: Radius.circular(8),
+                          ),
                           image: DecorationImage(
                               image: imageProvider,
                               fit: BoxFit.cover,
@@ -63,28 +67,23 @@ class ProduitComponent extends StatelessWidget {
                         ));
                   },
                   placeholder: (context, url) {
-                    return /* Container(
-                      child: Center(
-                          child: CircularProgressIndicator(
-                        color: ColorsApp.skyBlue,
-                      )),
-                    ) */
+                    return  
 
                         ShimmerProduitBox();
                   },
                   errorWidget: (context, url, error) {
                     return Container(
                         height: getHeight(context) / 8,
-                        width: getWith(context) * 1.1,
+                        width: getWidth(context) * 1.1,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                          image: AssetImage('assets/logo/logoNew.png'),
+                          image: AssetImage(Assets.logo),
                         )));
                   },
                 ),
               ]),
               Container(
-                  width: getWith(context) / 2,
+                  width: getWidth(context) / 2,
                   margin: EdgeInsets.symmetric(horizontal: kMarginX / 2),
                   child: Text(produit.titre,
                       overflow: TextOverflow.fade,
@@ -92,7 +91,7 @@ class ProduitComponent extends StatelessWidget {
                       maxLines: 1,
                       style: TexteStyle().secondaryTextStyle)),
               Container(
-                  width: getWith(context) / 2,
+                  width: getWidth(context) / 2,
                   margin: EdgeInsets.symmetric(horizontal: kMarginX / 2),
                   child: Text('XAF ' + produit.prix.toString(),
                       overflow: TextOverflow.ellipsis,

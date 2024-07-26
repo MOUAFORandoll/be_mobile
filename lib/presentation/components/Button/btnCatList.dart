@@ -12,7 +12,7 @@ class BtnCatList extends StatelessWidget {
     return InkWell(
         onTap: onTap,
         child: Container(
-          width: getWith(context) * 0.17,
+          width: getWidth(context) * 0.17,
           height: getHeight(context) * 0.08,
           alignment: Alignment.center,
           padding: EdgeInsets.all(this.pVal ?? 10),

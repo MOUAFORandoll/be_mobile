@@ -1,12 +1,15 @@
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
+
+import 'package:BabanaExpress/presentation/components/Widget/app_input_contact.dart';
 import 'package:BabanaExpress/presentation/market/MapPagePointLivraisonMarket.dart';
 import 'package:BabanaExpress/presentation/market/PaiementMarketPage.dart';
 import 'package:BabanaExpress/presentation/market/SuccesLivraisonMarketPage.dart';
+import 'package:BabanaExpress/utils/Services/ContactService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/functions/formatData.dart';
- 
+import 'package:contacts_service/contacts_service.dart';
 
 @RoutePage()
 class InfoLieuxLivraisonMarketPage extends StatefulWidget {
@@ -58,10 +61,8 @@ class _InfoLieuxLivraisonMarketPageState
         },
         builder: (context, state) => BlocBuilder<LivraisonBloc, LivraisonState>(
             builder: (context, state_livraison) => Scaffold(
-                appBar: AppBar(
-                  title: Text('Remplissez vos informations de livraisons'),
-                  leading: AppBackButton(),
-                  centerTitle: true,
+                appBar: AppBarCustom(
+                  title: 'Remplissez vos informations de livraisons'.tr(),
                 ),
                 backgroundColor: ColorsApp.bg,
                 body: Column(children: [
@@ -111,19 +112,21 @@ class _InfoLieuxLivraisonMarketPageState
                                               ? Text('Error')
                                               : Container(
                                                   decoration: BoxDecoration(
+                                                    color: Colors.grey.shade200,
                                                     border: Border.all(
                                                         color: (state_livraison
                                                                 .errorVille!)
                                                             ? ColorsApp.red
-                                                            : ColorsApp.grey,
+                                                            : Colors
+                                                                .grey.shade200,
                                                         width: 1),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8),
                                                   ),
                                                   height:
-                                                      getHeight(context) * .08,
-                                                  width: getWith(context),
+                                                      getHeight(context) * .06,
+                                                  width: getWidth(context),
                                                   alignment: Alignment.center,
                                                   child: state_livraison
                                                           .villeList!.isEmpty
@@ -144,7 +147,7 @@ class _InfoLieuxLivraisonMarketPageState
                                                             horizontal: 7,
                                                           ),
                                                           hint: Container(
-                                                            width: getWith(
+                                                            width: getWidth(
                                                                     context) *
                                                                 .65,
                                                             alignment: Alignment
@@ -271,15 +274,18 @@ class _InfoLieuxLivraisonMarketPageState
                                                                     ? Container(
                                                                         decoration:
                                                                             BoxDecoration(
+                                                                          color: Colors
+                                                                              .grey
+                                                                              .shade200,
                                                                           border: Border.all(
-                                                                              color: (state.errorPointLivraison!) ? ColorsApp.red : ColorsApp.grey,
+                                                                              color: (state.errorPointLivraison!) ? ColorsApp.red : Colors.grey.shade200,
                                                                               width: 1),
                                                                           borderRadius:
                                                                               BorderRadius.circular(8),
                                                                         ),
                                                                         height: getHeight(context) *
                                                                             .06,
-                                                                        width: getWith(context) *
+                                                                        width: getWidth(context) *
                                                                             .65,
                                                                         padding:
                                                                             EdgeInsets.symmetric(
@@ -297,7 +303,7 @@ class _InfoLieuxLivraisonMarketPageState
                                                                           hint:
                                                                               Container(
                                                                             width:
-                                                                                getWith(context) * .65,
+                                                                                getWidth(context) * .65,
                                                                             alignment:
                                                                                 Alignment.center,
                                                                             padding:
@@ -354,7 +360,7 @@ class _InfoLieuxLivraisonMarketPageState
                                                                         alignment:
                                                                             Alignment
                                                                                 .center,
-                                                                        width: getWith(context) *
+                                                                        width: getWidth(context) *
                                                                             .65,
                                                                         decoration: BoxDecoration(
                                                                             borderRadius: BorderRadius.circular(
@@ -429,12 +435,31 @@ class _InfoLieuxLivraisonMarketPageState
                                         margin: EdgeInsets.only(
                                           top: kMarginY * 1.5,
                                         ),
-                                        child: AppInputNew(
+                                        child: AppInputContact(
                                           controller: state.contactRecepteur!,
                                           icon: Icon(Icons.phone),
                                           textInputType: TextInputType.number,
                                           // maxLength:13,
                                           label: 'yycontact'.tr(),
+                                          onTap: () {
+                                            ContactService()
+                                                .openContactSelectionModal(
+                                                    context: context,
+                                                    onTap: (Contact contact) {
+                                                      state.contactRecepteur!
+                                                              .text =
+                                                          contact.phones!.first
+                                                              .value
+                                                              .toString();
+                                                      AutoRouter.of(context)
+                                                          .pop();
+
+                                                      showSuccessGetContact(
+                                                        'Vous avez choisi ${contact.displayName}',
+                                                        context,
+                                                      );
+                                                    });
+                                          },
                                           onChanged: (value) {},
                                           validator: (value) {
                                             return Validators.usPhoneValid(

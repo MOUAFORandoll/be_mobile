@@ -10,7 +10,7 @@ class SimpleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: getWith(context) * .51,
+        width: getWidth(context) * .51,
         child: Text(
           text,
           overflow: TextOverflow.ellipsis,

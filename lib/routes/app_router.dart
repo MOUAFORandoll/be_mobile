@@ -1,7 +1,10 @@
+import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/presentation/compte/PaiementDepotPage.dart';
 import 'package:BabanaExpress/presentation/compte/WalletView.dart';
 import 'package:BabanaExpress/presentation/home/HomePage.dart';
 import 'package:BabanaExpress/presentation/layer/onboardingpage.dart';
+import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonPage.dart';
+import 'package:BabanaExpress/presentation/livraison/LivraisonDataHomePage.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart';
@@ -10,10 +13,12 @@ import 'package:BabanaExpress/presentation/market/HistoriqueLivraisonMarketPage.
 import 'package:BabanaExpress/presentation/market/InfolieuxlivraisonMarketPage.dart';
 import 'package:BabanaExpress/presentation/market/LivraisonMarketDataPage.dart';
 import 'package:BabanaExpress/presentation/market/MapPagePointLivraisonMarket.dart';
+import 'package:BabanaExpress/presentation/market/MarketView.dart';
 import 'package:BabanaExpress/presentation/market/PaiementMarketPage.dart';
 import 'package:BabanaExpress/presentation/market/ProduitPage.dart';
 import 'package:BabanaExpress/presentation/market/ShoppingPage.dart';
 import 'package:BabanaExpress/presentation/market/SuccesLivraisonMarketPage.dart';
+import 'package:BabanaExpress/presentation/pharmacy/HistoriqueLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/SuccesLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/pharmacy/PaiementPharmacyPage.dart';
@@ -89,5 +94,17 @@ class AppRouter extends $AppRouter {
         AutoRoute(
             page: LivraisonMarketDataRoute.page,
             path: LivraisonMarketDataPage.routeName),
+        AutoRoute(
+            page: HistoriqueLivraisonRoute.page,
+            path: HistoriqueLivraisonPage.routeName),
+        AutoRoute(
+            page: HistoriqueLivraisonMedicamentRoute.page,
+            path: HistoriqueLivraisonMedicamentPage.routeName),
+        AutoRoute(page: CallCenterRoute.page, path: CallCenterPage.routeName),
+        AutoRoute(page: MarketRoute.page, path: MarketPage.routeName),
+        AutoRoute(
+            page: LivraisonDataHomeRoute.page,
+            path: LivraisonDataHomePage.routeName),
       ];
 }
+//656019261

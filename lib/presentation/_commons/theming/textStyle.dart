@@ -14,7 +14,7 @@ final kPaddingRight = 10;
 final kPaddingX = 10;
 final kPaddingY = 10;
 
-final kTitle = 15.0;
+final kTitle = 17.0;
 final kDescription = 10.0;
 final kBasics = 14.0;
 final kMin = 7.0;
@@ -25,7 +25,7 @@ final kMdIcon = 30.0;
 final kLgIcon = 32.0;
 final kXlIcon = 34.0;
 
-getWith(context) {
+getWidth(context) {
   MediaQueryData queryData;
   queryData = MediaQuery.of(context);
 
