@@ -20,7 +20,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
   TextEditingController phone = TextEditingController();
 
   TextEditingController password = TextEditingController();
-
+  
   final formKey = GlobalKey<FormState>();
 
   @override
