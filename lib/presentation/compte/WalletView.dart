@@ -47,8 +47,10 @@ class _WalletPageState extends State<WalletPage>
             listener: (context, state) {
               if (state.isLoadingDepot == 0) {
                 EasyLoading.show(
+                    indicator: CircularProgressIndicator(
+                      color: ColorsApp.second,
+                    ),
                     dismissOnTap: true,
-                    status: 'En cours',
                     maskType: EasyLoadingMaskType.black);
               } else if (state.isLoadingDepot == 1) {
                 EasyLoading.dismiss();
@@ -225,7 +227,7 @@ class _WalletPageState extends State<WalletPage>
                     ),
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
-                        (context, index) => state.isLoadedTrans == 0
+                        (context, index) => state.isLoadTrans == 0
                             ? SpinKitCircle(
                                 color: Colors.blue,
                                 size: 40,

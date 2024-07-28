@@ -1,25 +1,27 @@
 import 'package:BabanaExpress/core.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
-import 'package:BabanaExpress/presentation/livraison/SuccesLivraisonPage.dart';
+import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
 import 'package:BabanaExpress/utils/functions/formatData.dart';
+import '../../../application/model/exportmodel.dart';
 import 'InfoColis.dart';
 import 'InfoLIvraison.dart';
 
 @RoutePage()
-class NewLivraisonPage extends StatefulWidget {
-  const NewLivraisonPage({super.key});
-  static const routeName = '/livraison/new';
+class NewLivraisonType1Page extends StatefulWidget {
+  const NewLivraisonType1Page({super.key});
+  static const routeName = '/livraison/type1';
 
   @override
-  State<NewLivraisonPage> createState() => _NewLivraisonPageState();
+  State<NewLivraisonType1Page> createState() => _NewLivraisonType1PageState();
 }
 
-class _NewLivraisonPageState extends State<NewLivraisonPage> {
+class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
   var _format = new FormatData();
 
   @override
@@ -28,8 +30,10 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
         listener: (context, state) {
           if (state.isRequest == 1) {
             EasyLoading.show(
+                indicator: CircularProgressIndicator(
+                  color: ColorsApp.second,
+                ),
                 dismissOnTap: true,
-                status: 'En cours',
                 maskType: EasyLoadingMaskType.black);
           } else if (state.isRequest == 3) {
             EasyLoading.dismiss();
@@ -43,8 +47,10 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
           } else if (state.isRequest == 4) {
             // AutoRouter.of(context).pop();
             EasyLoading.show(
+                indicator: CircularProgressIndicator(
+                  color: ColorsApp.second,
+                ),
                 dismissOnTap: true,
-                status: 'En cours',
                 maskType: EasyLoadingMaskType.black);
           } else if (state.isRequest == 5) {
             AutoRouter.of(context).pop();
@@ -53,7 +59,8 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
               if (state.paiement_url == 'next') {
                 BlocProvider.of<UserBloc>(context)..add(GetUserEvent());
                 BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
-                AutoRouter.of(context).pushNamed(SuccesLivraisonPage.routeName);
+                AutoRouter.of(context)
+                    .pushNamed(SuccesLivraisonType1Page.routeName);
               } else {
                 AutoRouter.of(context).pushNamed(PaimentPage.routeName);
               }
@@ -91,7 +98,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                         horizontal: kMarginX,
                                         vertical: kMarginY),
                                     decoration: BoxDecoration(
-                                        color: state.index == 0
+                                        color: state.indexType1 == 0
                                             ? ColorsApp.primary
                                             : ColorsApp.white,
                                         borderRadius:
@@ -102,7 +109,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                     child: Text(
                                       '1',
                                       style: TextStyle(
-                                        color: state.index == 0
+                                        color: state.indexType1 == 0
                                             ? ColorsApp.white
                                             : ColorsApp.primary,
                                         fontWeight: FontWeight.bold,
@@ -113,7 +120,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                         horizontal: kMarginX,
                                         vertical: kMarginY),
                                     decoration: BoxDecoration(
-                                        color: state.index == 0
+                                        color: state.indexType1 == 0
                                             ? ColorsApp.white
                                             : ColorsApp.primary,
                                         borderRadius:
@@ -124,7 +131,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                     child: Text(
                                       '2',
                                       style: TextStyle(
-                                        color: state.index == 1
+                                        color: state.indexType1 == 1
                                             ? ColorsApp.white
                                             : ColorsApp.primary,
                                         fontWeight: FontWeight.bold,
@@ -132,7 +139,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                     ))
                               ]),
                         ),
-                        state.index == 0 ? InfoLIvraison() : InfoColis(),
+                        state.indexType1 == 0 ? InfoLIvraison() : InfoColis(),
                       ],
                     ),
                   ),
@@ -143,10 +150,10 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                     vertical: kMarginY * 1.5,
                   ),
                   height: getHeight(context) * .1,
-                  child: state.index == 0
+                  child: state.indexType1 == 0
                       ? AppButton(
                           size: MainAxisSize.max,
-                          bgColor: (state.index == 0)
+                          bgColor: (state.indexType1 == 0)
                               ? !(state.selectedVIlle != null &&
                                       state.selected_recuperation_point !=
                                           null &&
@@ -159,14 +166,14 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                   : ColorsApp.primary,
                           text: 'ynext'.tr(),
                           onTap: () {
-                            if (state.index == 0) {
+                            if (state.indexType1 == 0) {
                               if ((state.selectedVIlle != null &&
                                   state.selected_recuperation_point != null &&
                                   state.contactEmetteur!.text.length != 0 &&
                                   state.description!.text.length != 0)) {
                                 context
                                     .read<LivraisonBloc>()
-                                    .add(VerifyFormLivraisonEvent());
+                                    .add(VerifyFormLivraisonType1Event());
                               }
                             }
                           },
@@ -176,18 +183,18 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                           children: [
                               AppButton(
                                   size: MainAxisSize.max,
-                                  bgColor: state.index == 0
+                                  bgColor: state.indexType1 == 0
                                       ? ColorsApp.grey
                                       : ColorsApp.primary,
                                   text: 'yback'.tr(),
                                   onTap: () {
                                     context
                                         .read<LivraisonBloc>()
-                                        .add(BackIndexEvent());
+                                        .add(BackIndexType1Event());
                                   }),
                               AppButton(
                                 size: MainAxisSize.max,
-                                bgColor: (state.index == 0)
+                                bgColor: (state.indexType1 == 0)
                                     ? !(state.selectedVIlle != null &&
                                             state.selected_recuperation_point !=
                                                 null &&
@@ -202,11 +209,11 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                         : ColorsApp.primary,
                                 text: 'yeval'.tr(),
                                 onTap: () {
-                                  if (state.index == 1) {
+                                  if (state.indexType1 == 1) {
                                     if (state.listColis!.length != 0) {
                                       context
                                           .read<LivraisonBloc>()
-                                          .add(CalculFrais());
+                                          .add(CalculFraisType1());
                                     }
                                   }
                                 },
@@ -222,19 +229,6 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
           widget: BlocBuilder<LivraisonBloc, LivraisonState>(
               builder: (context, state) =>
                   Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Container(
-                        alignment: Alignment.topRight,
-                        margin: EdgeInsets.only(top: kMarginY * 2),
-                        // padding: EdgeInsets.symmetric(
-                        //     horizontal: kMarginX / 2),
-                        child: InkWell(
-                          onTap: () {
-                            AutoRouter.of(context).pop();
-
-                            context.read<LivraisonBloc>().add(NoValidate());
-                          },
-                          child: Icon(Icons.close),
-                        )),
                     Container(
                         alignment: Alignment.center,
                         margin: EdgeInsets.symmetric(horizontal: kMarginX)
@@ -255,9 +249,8 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                           ],
                         )),
                     BlocBuilder<UserBloc, UserState>(
-                        builder: (contextU, stateU) => Expanded(
-                                child: SingleChildScrollView(
-                                    child: ListView.builder(
+                        builder: (contextU, stateU) => SingleChildScrollView(
+                                child: ListView.builder(
                               physics: NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               itemCount: stateU.listModePaiement!.length,
@@ -310,7 +303,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                           ],
                                         )));
                               },
-                            )))),
+                            ))),
                     Container(
                         margin: EdgeInsets.only(top: kMarginY),
                         child: Column(
@@ -325,7 +318,7 @@ class _NewLivraisonPageState extends State<NewLivraisonPage> {
                                   bgColor: ColorsApp.primary,
                                   onTap: () => context
                                       .read<LivraisonBloc>()
-                                      .add(NewLivraison())),
+                                      .add(NewLivraisonType1())),
                             ),
                           ],
                         ))

@@ -4,7 +4,7 @@ import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-import 'MapPagePointRecuperation.dart';
+import '../MapPagePointRecuperation.dart';
 
 class InfoLIvraison extends StatefulWidget {
   InfoLIvraison({super.key});
@@ -64,9 +64,9 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
               //     ),
               //     alignment: Alignment.centerLeft,
               //     child: Text('yVille'.tr())),
-              state.isLoadedVille == 0
+              state.isLoadVille == 0
                   ? CircularProgressIndicator(color: ColorsApp.primary)
-                  : state.isLoadedVille == 2
+                  : state.isLoadVille == 2
                       ? Text('Error')
                       : Container(
                           decoration: BoxDecoration(
@@ -114,7 +114,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                           color: ColorsApp.red),
                     )),
 
-              state.isLoadedPLivraison == 0
+              state.isLoadPLivraison == 0
                   ? Container(
                       padding: EdgeInsets.symmetric(
                         vertical: kMarginY * 1.2,
@@ -122,9 +122,9 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       alignment: Alignment.center,
                       child:
                           CircularProgressIndicator(color: ColorsApp.primary))
-                  : state.isLoadedPLivraison == 2
+                  : state.isLoadPLivraison == 2
                       ? Text('Error')
-                      : state.isLoadedPLivraison == null
+                      : state.isLoadPLivraison == null
                           ? Container()
                           : Column(
                               children: [
@@ -144,7 +144,8 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                       children: [
                                         (!state.isMapSelectedPointRecuperation)
                                             ? AppDropdown<PointLivraisonModel>(
-                                            maxWidth: getWidth(context) * .65,
+                                                maxWidth:
+                                                    getWidth(context) * .65,
                                                 value: state
                                                     .selected_recuperation_point,
                                                 hint: 'yselectrecupp'.tr(),
@@ -228,7 +229,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                               AutoRouter.of(context).pushNamed(
                                                   MapPagePointRecuperation
                                                       .routeName);
-                                                 }),
+                                            }),
                                       ],
                                     )),
                               ],

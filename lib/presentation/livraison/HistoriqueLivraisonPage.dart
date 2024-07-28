@@ -1,7 +1,4 @@
-import 'package:BabanaExpress/presentation/components/Widget/EmptyLivraisonsComponent.dart';
-import 'package:BabanaExpress/presentation/components/Widget/ErrorReloadComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/LivraisonUserComponent.dart';
-import 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
@@ -36,9 +33,9 @@ class _HistoriqueLivraisonPageState extends State<HistoriqueLivraisonPage> {
                 margin: EdgeInsets.only(top: kMarginY * 2)
                     .add(EdgeInsets.symmetric(horizontal: kMarginX * 2)),
                 child: SingleChildScrollView(
-                  child: state.isLoadedLivraison == 0
+                  child: state.isLoadLivraison == 0
                       ? ShimmerLivraison()
-                      : state.isLoadedLivraison == 2
+                      : state.isLoadLivraison == 2
                           ? ErrorReloadComponent(
                               onTap: () =>
                                   BlocProvider.of<LivraisonBloc>(context)

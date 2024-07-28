@@ -15,3 +15,4 @@ export 'package:BabanaExpress/application/model/data/ProduitModel.dart';
 export 'package:BabanaExpress/application/model/data/LivraisonUserHomeModel.dart';
 export 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
 export 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
+export 'package:BabanaExpress/application/model/data/ServiceModel.dart';

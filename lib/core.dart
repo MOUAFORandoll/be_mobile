@@ -8,9 +8,7 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/application/home/repositories/homeRepo.dart';
 
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
-import 'package:BabanaExpress/application/market/repositories/marketRepo.dart';
 import 'package:BabanaExpress/application/model/data/MessageModel.dart';
-import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
 import 'package:BabanaExpress/application/splash/splash_bloc.dart';
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
@@ -51,13 +49,7 @@ Future<void> init() async {
   sl
     ..registerFactory(() => CompteBloc(compteRepo: sl(), database: sl()))
     ..registerLazySingleton(() => CompteRepo(apiClient: sl()));
-
-  sl
-    ..registerFactory(() => PharmacyBloc(pharmacyRepo: sl()))
-    ..registerLazySingleton(() => PharmacyRepo(apiClient: sl()));
-  sl
-    ..registerFactory(() => MarketBloc(marketRepo: sl(), database: sl()))
-    ..registerLazySingleton(() => MarketRepo(apiClient: sl()));
+  ;
   sl
     ..registerFactory(
         () => CallCenterBloc(callcenterRepo: sl(), database: sl()))
@@ -73,25 +65,10 @@ void initConnected() async {
 
 Future<void> initLoad(context) async {
   print('**---------------initLoad-');
-  /* BlocProvider.of<HomeBloc>(context)
-    ..add(UserDataEvent())
-    ..add(HomeStateLivraison());
-  BlocProvider.of<UserBloc>(context)
-    ..add(GetUserEvent())
-    ..add(GetModePaiement())
-    ..add(GetVilleQuartier());
-  BlocProvider.of<LivraisonBloc>(context)
-    ..add(StartLogLat())
-    ..add(GetVilleAndCategoryEvent())
-    ..add(HistoriqueUserLivraison());
-  BlocProvider.of<PharmacyBloc>(context).add(HistoriqueLivraisonMedicament());
-  BlocProvider.of<MarketBloc>(context)
-    ..add(MarketEvent.getProduits(false))
-    ..add(MarketEvent.getLivraisonProduit());
-  BlocProvider.of<CallCenterBloc>(context).add(CallCenterEvent.getMessage()); */
 
   BlocProvider.of<HomeBloc>(context)
     ..add(UserDataEvent())
+    ..add(GetService())
     ..add(HomeStateLivraison());
   BlocProvider.of<UserBloc>(context)
     ..add(GetUserEvent())
@@ -162,8 +139,6 @@ Future<void> initSocket(context) async {
 
 Future<void> initSetDefaultValue(context) async {
   BlocProvider.of<LivraisonBloc>(context).add(OnStartEvent());
-  BlocProvider.of<PharmacyBloc>(context).add(OnStartEventP());
-  BlocProvider.of<MarketBloc>(context).add(OnStartEventMarket());
 }
 
 Future<void> requestPermission() async {

@@ -3,7 +3,8 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:BabanaExpress/utils/constants/assets.dart'; 
+import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../application/export_bloc.dart';
 import '../../core.dart';
@@ -31,13 +32,13 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             }
             // final HomeBloc h = BlocProvider.of<HomeBloc>(context);
             // h.add(UserDataEvent());
-         
+
             AutoRouter.of(context).replace(state.route);
           }
         },
         builder: (context, state) {
           return Scaffold(
-              backgroundColor: ColorsApp.primary,
+              backgroundColor: ColorsApp.white,
               body: Container(
                 alignment: Alignment.center,
                 child: Container(
@@ -47,8 +48,8 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Container(
-                            child: Image.asset(
-                              Assets.logo,
+                            child: SvgPicture.asset(
+                              Assets.logo_t1,
                               fit: BoxFit.contain,
                             ),
                             padding: EdgeInsets.all(30),

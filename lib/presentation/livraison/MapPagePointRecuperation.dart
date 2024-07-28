@@ -232,8 +232,10 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
       listener: (context, state) {
         if (state.isLoadingPlaceSearchInfo == 0) {
           EasyLoading.show(
+              indicator: CircularProgressIndicator(
+                color: ColorsApp.second,
+              ),
               dismissOnTap: true,
-              status: 'En cours',
               maskType: EasyLoadingMaskType.black);
         } else if (state.isLoadingPlaceSearchInfo == 1) {
           FocusScope.of(context).unfocus();

@@ -1,6 +1,9 @@
 class Assets {
   Assets._();
   static const logo = 'assets/logo/logo.png';
+  static const logo_t1 = 'assets/logo/logo_t1.svg';
+  static const logo_t2 = 'assets/logo/logo_t2.svg';
+  static const logo_t3 = 'assets/logo/logo_t3.svg';
   static const shop1 = 'assets/images/shop1.png';
   static const bg_home = 'assets/images/bg_home.png';
 

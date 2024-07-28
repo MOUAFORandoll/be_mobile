@@ -84,10 +84,10 @@ class InfoColis extends StatelessWidget {
                       decoration: BoxDecoration(),
                       child: SingleChildScrollView(
                           child: Column(children: [
-                        state.isLoadedVCategory == 0
+                        state.isLoadVCategory == 0
                             ? CircularProgressIndicator(
                                 color: ColorsApp.primary)
-                            : state.isLoadedVCategory == 2
+                            : state.isLoadVCategory == 2
                                 ? Text('Error')
                                 : AppDropdown<CategoryModel>(
                                     value: state.categoryColis,
@@ -453,7 +453,7 @@ class InfoColis extends StatelessWidget {
                       bgColor: ColorsApp.primary,
                       text: 'lbaddprod'.tr(),
                       onTap: () async {
-                        context.read<LivraisonBloc>().add(AddColis());
+                        context.read<LivraisonBloc>().add(AddColisType2());
                         if (state.isColisOK!) {
                           AutoRouter.of(context).pop();
                         }

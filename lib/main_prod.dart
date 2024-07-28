@@ -1,4 +1,5 @@
 
+import 'package:BabanaExpress/config_loading_file.dart';
 import 'package:BabanaExpress/presentation/app.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -19,8 +20,8 @@ Future<void> main() async {
   co.init();
 
   await NotificationService().initializePlatformNotifications();
-  configLoading();
-
+  configLoadingLoading();
+  
   runApp(
     EasyLocalization(
         supportedLocales: supportedLocales,
@@ -29,42 +30,7 @@ Future<void> main() async {
         child: Phoenix(child: AppContent())),
   );
 }
-
-void configLoading() {
-  EasyLoading.instance
-    ..displayDuration = const Duration(milliseconds: 2000)
-    ..indicatorType = EasyLoadingIndicatorType.fadingCircle
-    ..loadingStyle = EasyLoadingStyle.dark
-    ..indicatorSize = 45.0
-    ..radius = 10.0
-    ..progressColor = Colors.yellow
-    ..backgroundColor = Colors.green
-    ..indicatorColor = Colors.yellow
-    ..textColor = Colors.yellow
-    ..maskColor = Colors.blue.withOpacity(0.5)
-    ..userInteractions = true
-    ..dismissOnTap = false
-    ..customAnimation = CustomAnimation();
-}
-
-class CustomAnimation extends EasyLoadingAnimation {
-  CustomAnimation();
-
-  @override
-  Widget buildWidget(
-    Widget child,
-    AnimationController controller,
-    AlignmentGeometry alignment,
-  ) {
-    return Opacity(
-      opacity: controller.value,
-      child: RotationTransition(
-        turns: controller,
-        child: child,
-      ),
-    );
-  }
-}
+ 
 
 var supportedLocales = const [
   Locale('en', 'US'),

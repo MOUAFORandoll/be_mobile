@@ -1,7 +1,7 @@
 import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:dio/dio.dart';
 
-import '../../../utils/constants/apiRoute.dart';
+import '../../../utils/constants/apiRoutes.dart';
 
 class CompteRepo {
   final IAppRequests apiClient;

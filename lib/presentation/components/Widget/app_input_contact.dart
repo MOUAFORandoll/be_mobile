@@ -1,4 +1,5 @@
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+
 class AppInputContact extends StatefulWidget {
   final TextEditingController controller;
   final String? Function(String? value)? validator;
@@ -73,7 +74,7 @@ class _AppInputContactState extends State<AppInputContact> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: ColorsApp.red, width: 1),
+                      borderSide: BorderSide(color: ColorsApp.red, width: .5),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     enabledBorder: OutlineInputBorder(
@@ -90,6 +91,7 @@ class _AppInputContactState extends State<AppInputContact> {
                     errorStyle: TextStyle(
                       fontSize: 8,
                       fontFamily: 'Lato',
+                      color: ColorsApp.red,
                     ),
                     hintStyle: TextStyle(
                       fontWeight: FontWeight.w500,

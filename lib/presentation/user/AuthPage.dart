@@ -36,8 +36,10 @@ class _AuthPageState extends State<AuthPage> {
                 //       'Veuillez patienter pendant que nous vérifions vos informations de connexion...',
                 // );
                 EasyLoading.show(
+                    indicator: CircularProgressIndicator(
+                      color: ColorsApp.second,
+                    ),
                     dismissOnTap: true,
-                    status: 'En cours',
                     maskType: EasyLoadingMaskType.black);
               } else if (state.isLoading == 3) {
                 EasyLoading.dismiss();
@@ -145,7 +147,9 @@ class _AuthPageState extends State<AuthPage> {
                                         ),
                                         child: AppInput(
                                           controller: phone,
-                                          onChanged: (value) {},
+                                          onChanged: (value) {
+                                            formKey.currentState!.validate();
+                                          },
                                           textInputType: TextInputType.phone,
                                           placeholder: 'labelphone'.tr(),
                                           validator: (value) {
@@ -157,6 +161,9 @@ class _AuthPageState extends State<AuthPage> {
                                       AppInputPassword(
                                         controller: password,
                                         placeholder: 'labelpassword'.tr(),
+                                        onChanged: (value) {
+                                          formKey.currentState!.validate();
+                                        },
                                         obscureText: true,
                                         validator: (value) {
                                           //print(value);

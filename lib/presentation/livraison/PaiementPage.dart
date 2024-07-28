@@ -59,15 +59,43 @@ class _PaimentPageState extends State<PaimentPage> {
   Widget build(BuildContext context) {
     return BlocConsumer<LivraisonBloc, LivraisonState>(listener: (ctx, state) {
       print('-------${state.successLivraison}--------livraison_validate--');
-      if (state.successLivraison == true) {
-        showSuccess('Livraison Validee avec succes', context);
-        BlocProvider.of<LivraisonBloc>(context).add(HistoriqueUserLivraison());
-        AutoRouter.of(context).replaceAll([SuccesLivraisonRoute()]);
+      if (state.isRequest == 1) {
+        EasyLoading.show(
+            indicator: CircularProgressIndicator(
+              color: ColorsApp.second,
+            ),
+            dismissOnTap: true,
+            maskType: EasyLoadingMaskType.black);
+      } else if (state.isRequest == 3) {
+        EasyLoading.dismiss();
+
+        showError(state.errorMessage!, context);
+      } else if (state.isRequest == 2) {
+        EasyLoading.dismiss();
+        if (state.successLivraison == true) {
+          showSuccess('Livraison Validee avec succes', context);
+          BlocProvider.of<LivraisonBloc>(context)
+              .add(HistoriqueUserLivraison());
+          AutoRouter.of(context).replaceAll([
+            state.selectedModePaiement!.id == 1
+                ? SuccesLivraisonType1Route()
+                : SuccesLivraisonType2Route()
+          ]);
+        }
+        print('-----44--------*********');
       }
     }, builder: (context, state) {
       return Scaffold(
           appBar: AppBarCustom(
             title: 'Paiement de votre livraison'.tr(),
+            actions:[
+            InkWell(child:Container(child:Icon(Icons.verified)),
+            onTap:()=> BlocProvider.of<LivraisonBloc>(context)
+              .add(VerifyLivraisonState())
+            
+            )
+
+            ]
           ),
 
           // backgroundColor: ColorsApp.bg,

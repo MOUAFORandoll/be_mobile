@@ -1,18 +1,19 @@
 import 'package:BabanaExpress/infrastructure/_commons/exceptions.dart';
-import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart'; 
+import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:BabanaExpress/infrastructure/_commons/throw_error.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../../../utils/constants/apiRoute.dart';
+import '../../../utils/constants/apiRoutes.dart';
 
 class LivraisonRepo {
   final IAppRequests apiClient;
   LivraisonRepo({required this.apiClient});
   final key = 'AIzaSyB2lLkho9yRrZ9DgZ4btFOZ6x22-zZTJ38';
-  Future newLivraison(data) async {
-    Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS, body: data);
-    
+  Future newLivraisonType1(data) async {
+    Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/type-1',
+        body: data);
+
     return a;
   }
   
@@ -59,7 +60,7 @@ class LivraisonRepo {
   Future calculFraisLivraison(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/frais',
         body: data);
-
+    
     return a;
   }
 
@@ -76,14 +77,13 @@ class LivraisonRepo {
 
     return a;
   }
-  
+
   Future getHistoryLivraisons(keySecret) async {
     Response a = await apiClient
         .getRequest(ApiRoutes.LIVRAISONS + '/user?keySecret=${keySecret}');
 
     return a;
   }
-  
 
   Future getLivraisonPointByVille(id) async {
     Response a =
@@ -147,74 +147,23 @@ class LivraisonRepo {
 
     return a;
   }
-
-  /**
-   * 
-  findPlaceAutoComplete() async {
-    try {
-     var connect = Dio.Dio();
-      final response = await connect.get(
-          'https://maps.googleapis.com/maps/api/place/autocomplete/json?key=${key}&input=${placeTexteController.text}');
-
-      if (response.body != null) {
-        print(response.body);
-        
-        final jsonResponse = response.body;
-
-        if (jsonResponse.containsKey('predictions')) {
-          _listTextPLace = [];
-          final predictions = jsonResponse['predictions'];
-
-          for (var prediction in predictions) {
-            if (prediction.containsKey('description')) {
-              _listTextPLace.add(prediction['description']);
-            }
-          }
-        } else {
-          _listTextPLace = [];
-        }
-
-        update();
-      } else {
-        _listTextPLace = [];
-        update();
-      }
-    } catch (e) {}
-  }
-
-  getPlace(text) async {
-    loader.open();
-    var longitude;
-    var latitude;
-    var connect = Dio.Dio();
-    String url = 'https://places.googleapis.com/v1/places:searchText';
-    
-    Map<String, String> headers = {
-      'Content-Type': 'application/json',
-      'X-Goog-Api-Key': key,
-      'X-Goog-FieldMask':
-          'places.displayName,places.formattedAddress,places.location'
-    };
-    Map<String, dynamic> requestBody = {'textQuery': text};
-
-    final response = await connect.post(url,
-        options: Dio.Options(headers: headers), data: requestBody);
-
-    if (response.data != null) {
-      print(response.data);
-      var _loca = Location.fromJson(response.data['places'][0]['location']);
-
-      print(_loca);
-      longitude = _loca.longitude;
-      latitude = _loca.latitude;
-      _placeTexteController.text = text;
-
-      update();
-       EasyLoading.dismiss();
-    }
-
-    return {'longitude': longitude, 'latitude': latitude};
-  }
   
-   */
+  Future newLivraisonType2(data) async {
+    Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/type-2',
+        body: data);
+
+    return a;
+  }
+   Future calculFraisLivraisonType2(data) async {
+    Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/frais',
+        body: data);
+    
+    return a;
+  }
+  Future verifyLivraisonStatePaiement(livraisonId) async {
+    Response a = await apiClient.getRequest(ApiRoutes.LIVRAISONS + '/verifier-etat/${livraisonId}',
+        );
+
+    return a;
+  }
 }

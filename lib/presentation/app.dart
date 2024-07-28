@@ -1,9 +1,7 @@
 import 'package:BabanaExpress/application/callcenter/repositories/callcenterRepo.dart';
 import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
-import 'package:BabanaExpress/application/database/database_cubit.dart';
-import 'package:BabanaExpress/application/market/repositories/marketRepo.dart';
-import 'package:BabanaExpress/application/pharmacy/repositories/pharmacy_repository.dart';
+import 'package:BabanaExpress/application/database/database_cubit.dart'; 
 import 'package:BabanaExpress/application/splash/splash_bloc.dart';
 
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
@@ -59,11 +57,7 @@ class AppContent extends StatelessWidget {
                       userRepo: sl.get<UserRepo>(),
                       database: sl.get<DatabaseCubit>()),
                 ),
-                BlocProvider<MarketBloc>(
-                  create: (BuildContext context) => MarketBloc(
-                      marketRepo: sl.get<MarketRepo>(),
-                      database: sl.get<DatabaseCubit>()),
-                ),
+               
                 BlocProvider<CallCenterBloc>(
                   create: (BuildContext context) => CallCenterBloc(
                       callcenterRepo: sl.get<CallCenterRepo>(),
@@ -77,14 +71,7 @@ class AppContent extends StatelessWidget {
                   create: (BuildContext context) => HomeBloc(
                       homeRepo: sl(), database: sl.get<DatabaseCubit>()),
                 ),
-                BlocProvider<PharmacyBloc>(
-                  create: (BuildContext context) =>
-                      PharmacyBloc(pharmacyRepo: sl.get<PharmacyRepo>()),
-                ),
-                BlocProvider<PharmacyBloc>(
-                  create: (BuildContext context) =>
-                      PharmacyBloc(pharmacyRepo: sl.get<PharmacyRepo>()),
-                ),
+               
               ],
               child: MaterialApp.router(
                 routerConfig: _appRouter.config(),

@@ -68,6 +68,7 @@ class HomeOptionWidget extends StatelessWidget {
                     margin: EdgeInsets.only(top: kMarginY * 1.5),
                     child: Text(
                       title,
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: kBasics,
                         fontFamily: 'Montserrat',

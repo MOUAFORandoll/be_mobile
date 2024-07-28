@@ -26,7 +26,7 @@ class CompteBloc extends Bloc<CompteEvent, CompteState> {
     var key = await database.getKey();
     var user = await database.getUser();
     emit(state.copyWith(
-      isLoadedTrans: 0,
+      isLoadTrans: 0,
     ));
     emit(state.copyWith(
         phone: TextEditingController(
@@ -35,18 +35,18 @@ class CompteBloc extends Bloc<CompteEvent, CompteState> {
     await compteRepo.getListTransaction(key).then((response) {
       if (response.data != null) {
         emit(state.copyWith(
-            isLoadedTrans: 1,
+            isLoadTrans: 1,
             transactionList: (response.data['data'] as List)
                 .map((e) => TransactionModel.fromJson(e))
                 .toList()));
       } else {
         emit(state.copyWith(
-          isLoadedTrans: 2,
+          isLoadTrans: 2,
         ));
       }
     }).onError((e, s) {
       emit(state.copyWith(
-        isLoadedTrans: 2,
+        isLoadTrans: 2,
       ));
     });
   }

@@ -1,7 +1,7 @@
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:dio/dio.dart';
-import 'package:BabanaExpress/utils/constants/apiRoute.dart';
+import 'package:BabanaExpress/utils/constants/apiRoutes.dart';
 
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 
@@ -87,17 +87,19 @@ class UserRepo {
       return null;
     }
   }
-  
+
   Future Login(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LOGIN, body: data);
 
     return a;
   }
+
   Future LoginSocial(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LOGINSOCIAL, body: data);
 
     return a;
   }
+
   Future SendCode(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.SEND_CODE, body: data);
 

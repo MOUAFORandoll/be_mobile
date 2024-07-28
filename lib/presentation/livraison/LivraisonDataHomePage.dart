@@ -1,6 +1,5 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart'; 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:open_filex/open_filex.dart';
 import '../../application/export_bloc.dart';
@@ -15,7 +14,7 @@ class LivraisonDataHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<HomeBloc, HomeState>(
         listener: (context, stateH) async {
-          if (stateH.isLoadedLivraison == 2) {
+          if (stateH.isLoadLivraison == 2) {
             showError('Une erreur est survenue'.tr(), context);
           }
         },
@@ -33,15 +32,17 @@ class LivraisonDataHomePage extends StatelessWidget {
                 showError('errorsaveFature'.tr(), context);
               } else if (state.isDownloadFacture == 0) {
                 EasyLoading.show(
+                    indicator: CircularProgressIndicator(
+                      color: ColorsApp.second,
+                    ),
                     dismissOnTap: true,
-                    status: 'En cours',
                     maskType: EasyLoadingMaskType.black);
               }
             },
             builder: (context, state) => Scaffold(
-               appBar: AppBarCustom(
+                appBar: AppBarCustom(
                   title: 'Votre Livraison'.tr(),
-                ),   
+                ),
                 body: RefreshIndicator(
                   color: ColorsApp.second,
                   onRefresh: () => Future.delayed(
@@ -52,7 +53,7 @@ class LivraisonDataHomePage extends StatelessWidget {
                   child: Container(
                       margin: EdgeInsets.only(top: kMarginY * 2)
                           .add(EdgeInsets.symmetric(horizontal: kMarginX * 2)),
-                      child: stateH.isLoadedLivraison == 0
+                      child: stateH.isLoadLivraison == 0
                           ? ShimmerLivraison()
                           : SingleChildScrollView(
                               child: Column(

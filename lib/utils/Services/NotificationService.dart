@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:BabanaExpress/application/model/data/LivraisonMarketModel.dart';
 import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
@@ -9,7 +10,7 @@ import 'package:BabanaExpress/main_prod.dart';
 import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/presentation/compte/WalletView.dart';
-import 'package:BabanaExpress/presentation/home/HomePage.dart'; 
+import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonPage.dart'; 
 import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/subjects.dart';
@@ -89,20 +90,20 @@ class NotificationService {
       final String? payload = response.payload;
       if (payload != null) {
         print('--------${payload}----------actionnn');
+        log('--------${payload}----------actionnn');
         if (payload == 'Depot') {
           sl.get<AppRouter>().pushNamed(WalletPage.routeName);
         }
         if (payload == 'Call Center') {
           sl.get<AppRouter>().pushNamed(CallCenterPage.routeName);
         }
-        if (payload == 'Livraison') {
-          sl.get<AppRouter>().pushNamed(HomePage.routeName);
+        if (payload == 'Livraison Colis') {
+          sl.get<AppRouter>().pushNamed(HistoriqueLivraisonPage.routeName);
         }
-        // else {
-        // final context = Payload.fromJson(payload as Map<String, dynamic>);
-        // BlocProvider.of<LivraisonBloc>(context.context!)
-        //     .add(LivraisonEvent.getLivraison());
-        // }
+        if (payload == 'Livraison Medicament') {
+         }
+        if (payload == 'Livraison Produit') {
+          }
       }
     });
   }
@@ -146,7 +147,7 @@ class NotificationService {
                   ? 'En cours'
                   : 'Effectuee'),
       platformChannelSpecifics,
-      payload: 'Livraison',
+      payload: 'Livraison Colis',
     );
   }
 
@@ -189,7 +190,7 @@ class NotificationService {
                   ? 'En cours'
                   : 'Effectuee'),
       platformChannelSpecifics,
-      payload: 'Livraison',
+      payload: 'Livraison Medicament',
     );
   }
 
@@ -232,7 +233,7 @@ class NotificationService {
                   ? 'En cours'
                   : 'Effectuee'),
       platformChannelSpecifics,
-      payload: 'Livraison',
+      payload: 'Livraison Produit',
     );
   }
 

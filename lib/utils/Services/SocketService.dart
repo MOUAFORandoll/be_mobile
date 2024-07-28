@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:developer';
+import 'dart:developer'; 
 import 'package:BabanaExpress/infrastructure/_commons/network/request_url.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
@@ -17,7 +17,7 @@ class SocketService {
   void HistoriqueUserLivraison(
       {required String recepteur, required Function action}) {
     socket.on('livraison', (data) {
-      print(data);
+      log(data.toString());
 
       if (data != null && data != 'null') {
         if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {

@@ -67,7 +67,7 @@ class _AppInputNewState extends State<AppInputNew> {
                 borderRadius: BorderRadius.circular(8),
               ),
               errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: ColorsApp.red, width: 1),
+                borderSide: BorderSide(color: ColorsApp.red, width: .5),
                 borderRadius: BorderRadius.circular(8),
               ),
               enabledBorder: OutlineInputBorder(
@@ -83,6 +83,7 @@ class _AppInputNewState extends State<AppInputNew> {
               errorText: widget.errorText,
               errorStyle: TextStyle(
                 fontSize: 8,
+                color: ColorsApp.red,
                 fontFamily: 'Lato',
               ),
               labelText: widget.label,

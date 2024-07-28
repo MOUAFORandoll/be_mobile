@@ -26,6 +26,7 @@ mixin _$HomeEvent {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -40,6 +41,7 @@ mixin _$HomeEvent {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -54,6 +56,7 @@ mixin _$HomeEvent {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -69,6 +72,7 @@ mixin _$HomeEvent {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -83,6 +87,7 @@ mixin _$HomeEvent {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -97,6 +102,7 @@ mixin _$HomeEvent {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -194,6 +200,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -211,6 +218,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -228,6 +236,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -249,6 +258,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -266,6 +276,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -283,6 +294,7 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -350,6 +362,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -367,6 +380,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -384,6 +398,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -405,6 +420,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -422,6 +438,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -439,6 +456,7 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -528,6 +546,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -545,6 +564,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -562,6 +582,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -583,6 +604,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -600,6 +622,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -617,6 +640,7 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -714,6 +738,7 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -731,6 +756,7 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -748,6 +774,7 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -769,6 +796,7 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -786,6 +814,7 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -803,6 +832,7 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -899,6 +929,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -916,6 +947,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -933,6 +965,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -954,6 +987,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -971,6 +1005,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -988,6 +1023,7 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -1092,6 +1128,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -1109,6 +1146,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -1126,6 +1164,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -1147,6 +1186,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -1164,6 +1204,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -1181,6 +1222,7 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -1250,6 +1292,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -1267,6 +1310,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -1284,6 +1328,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -1305,6 +1350,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -1322,6 +1368,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -1339,6 +1386,7 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -1353,6 +1401,163 @@ class _$GetCategoryListImpl implements GetCategoryList {
 
 abstract class GetCategoryList implements HomeEvent {
   const factory GetCategoryList() = _$GetCategoryListImpl;
+}
+
+/// @nodoc
+abstract class _$$GetServiceImplCopyWith<$Res> {
+  factory _$$GetServiceImplCopyWith(
+          _$GetServiceImpl value, $Res Function(_$GetServiceImpl) then) =
+      __$$GetServiceImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetServiceImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetServiceImpl>
+    implements _$$GetServiceImplCopyWith<$Res> {
+  __$$GetServiceImplCopyWithImpl(
+      _$GetServiceImpl _value, $Res Function(_$GetServiceImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetServiceImpl implements GetService {
+  const _$GetServiceImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.getService()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetServiceImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String error) error,
+    required TResult Function() userData,
+    required TResult Function(dynamic index) setIndex,
+    required TResult Function(dynamic index) setIndexHistory,
+    required TResult Function(CategoryModel category) selectCategory,
+    required TResult Function(List<CategoryModel> categoryList)
+        updateListCategory,
+    required TResult Function() getCategoryList,
+    required TResult Function() getService,
+    required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
+  }) {
+    return getService();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String error)? error,
+    TResult? Function()? userData,
+    TResult? Function(dynamic index)? setIndex,
+    TResult? Function(dynamic index)? setIndexHistory,
+    TResult? Function(CategoryModel category)? selectCategory,
+    TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
+    TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
+    TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
+  }) {
+    return getService?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String error)? error,
+    TResult Function()? userData,
+    TResult Function(dynamic index)? setIndex,
+    TResult Function(dynamic index)? setIndexHistory,
+    TResult Function(CategoryModel category)? selectCategory,
+    TResult Function(List<CategoryModel> categoryList)? updateListCategory,
+    TResult Function()? getCategoryList,
+    TResult Function()? getService,
+    TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
+    required TResult orElse(),
+  }) {
+    if (getService != null) {
+      return getService();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ErrorEvent value) error,
+    required TResult Function(UserDataEvent value) userData,
+    required TResult Function(SetIndexEvent value) setIndex,
+    required TResult Function(SetIndexHistoryEvent value) setIndexHistory,
+    required TResult Function(SelectCategory value) selectCategory,
+    required TResult Function(UpdateListCategory value) updateListCategory,
+    required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
+    required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
+  }) {
+    return getService(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ErrorEvent value)? error,
+    TResult? Function(UserDataEvent value)? userData,
+    TResult? Function(SetIndexEvent value)? setIndex,
+    TResult? Function(SetIndexHistoryEvent value)? setIndexHistory,
+    TResult? Function(SelectCategory value)? selectCategory,
+    TResult? Function(UpdateListCategory value)? updateListCategory,
+    TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
+    TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
+  }) {
+    return getService?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ErrorEvent value)? error,
+    TResult Function(UserDataEvent value)? userData,
+    TResult Function(SetIndexEvent value)? setIndex,
+    TResult Function(SetIndexHistoryEvent value)? setIndexHistory,
+    TResult Function(SelectCategory value)? selectCategory,
+    TResult Function(UpdateListCategory value)? updateListCategory,
+    TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
+    TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
+    required TResult orElse(),
+  }) {
+    if (getService != null) {
+      return getService(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetService implements HomeEvent {
+  const factory GetService() = _$GetServiceImpl;
 }
 
 /// @nodoc
@@ -1401,6 +1606,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -1418,6 +1624,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -1435,6 +1642,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -1456,6 +1664,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -1473,6 +1682,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -1490,6 +1700,7 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -1552,6 +1763,7 @@ class _$HomeStateLivraisonImpl implements HomeStateLivraison {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -1569,6 +1781,7 @@ class _$HomeStateLivraisonImpl implements HomeStateLivraison {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -1586,6 +1799,7 @@ class _$HomeStateLivraisonImpl implements HomeStateLivraison {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -1607,6 +1821,7 @@ class _$HomeStateLivraisonImpl implements HomeStateLivraison {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -1624,6 +1839,7 @@ class _$HomeStateLivraisonImpl implements HomeStateLivraison {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -1641,6 +1857,7 @@ class _$HomeStateLivraisonImpl implements HomeStateLivraison {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -1731,6 +1948,7 @@ class _$FindLivraisonByIdImpl implements FindLivraisonById {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
     required TResult Function() homeStateLivraison,
     required TResult Function(int idLivraison) findLivraisonById,
@@ -1748,6 +1966,7 @@ class _$FindLivraisonByIdImpl implements FindLivraisonById {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
     TResult? Function()? homeStateLivraison,
     TResult? Function(int idLivraison)? findLivraisonById,
@@ -1765,6 +1984,7 @@ class _$FindLivraisonByIdImpl implements FindLivraisonById {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
     TResult Function()? homeStateLivraison,
     TResult Function(int idLivraison)? findLivraisonById,
@@ -1786,6 +2006,7 @@ class _$FindLivraisonByIdImpl implements FindLivraisonById {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
     required TResult Function(HomeStateLivraison value) homeStateLivraison,
     required TResult Function(FindLivraisonById value) findLivraisonById,
@@ -1803,6 +2024,7 @@ class _$FindLivraisonByIdImpl implements FindLivraisonById {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult? Function(HomeStateLivraison value)? homeStateLivraison,
     TResult? Function(FindLivraisonById value)? findLivraisonById,
@@ -1820,6 +2042,7 @@ class _$FindLivraisonByIdImpl implements FindLivraisonById {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
     TResult Function(HomeStateLivraison value)? homeStateLivraison,
     TResult Function(FindLivraisonById value)? findLivraisonById,
@@ -1847,14 +2070,16 @@ mixin _$HomeState {
   User? get user => throw _privateConstructorUsedError;
   int get index => throw _privateConstructorUsedError;
   int get indexHistory => throw _privateConstructorUsedError;
-  int? get isLoadedLivraison => throw _privateConstructorUsedError;
+  int? get isLoadLivraison => throw _privateConstructorUsedError;
+  int? get isLoadService => throw _privateConstructorUsedError;
   int? get service_id => throw _privateConstructorUsedError;
   bool? get recupMailStatus => throw _privateConstructorUsedError;
   List<LivraisonUserHomeModel>? get userHomeLivraisonList =>
       throw _privateConstructorUsedError;
+  List<ServiceModel>? get listServices => throw _privateConstructorUsedError;
   dynamic get livraison => throw _privateConstructorUsedError;
   bool? get noOpen => throw _privateConstructorUsedError;
-  int get isLoadedHomeStateLivraison => throw _privateConstructorUsedError;
+  int get isLoadHomeStateLivraison => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -1870,13 +2095,15 @@ abstract class $HomeStateCopyWith<$Res> {
       {User? user,
       int index,
       int indexHistory,
-      int? isLoadedLivraison,
+      int? isLoadLivraison,
+      int? isLoadService,
       int? service_id,
       bool? recupMailStatus,
       List<LivraisonUserHomeModel>? userHomeLivraisonList,
+      List<ServiceModel>? listServices,
       dynamic livraison,
       bool? noOpen,
-      int isLoadedHomeStateLivraison});
+      int isLoadHomeStateLivraison});
 }
 
 /// @nodoc
@@ -1895,13 +2122,15 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? user = freezed,
     Object? index = null,
     Object? indexHistory = null,
-    Object? isLoadedLivraison = freezed,
+    Object? isLoadLivraison = freezed,
+    Object? isLoadService = freezed,
     Object? service_id = freezed,
     Object? recupMailStatus = freezed,
     Object? userHomeLivraisonList = freezed,
+    Object? listServices = freezed,
     Object? livraison = freezed,
     Object? noOpen = freezed,
-    Object? isLoadedHomeStateLivraison = null,
+    Object? isLoadHomeStateLivraison = null,
   }) {
     return _then(_value.copyWith(
       user: freezed == user
@@ -1916,9 +2145,13 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.indexHistory
           : indexHistory // ignore: cast_nullable_to_non_nullable
               as int,
-      isLoadedLivraison: freezed == isLoadedLivraison
-          ? _value.isLoadedLivraison
-          : isLoadedLivraison // ignore: cast_nullable_to_non_nullable
+      isLoadLivraison: freezed == isLoadLivraison
+          ? _value.isLoadLivraison
+          : isLoadLivraison // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isLoadService: freezed == isLoadService
+          ? _value.isLoadService
+          : isLoadService // ignore: cast_nullable_to_non_nullable
               as int?,
       service_id: freezed == service_id
           ? _value.service_id
@@ -1932,6 +2165,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.userHomeLivraisonList
           : userHomeLivraisonList // ignore: cast_nullable_to_non_nullable
               as List<LivraisonUserHomeModel>?,
+      listServices: freezed == listServices
+          ? _value.listServices
+          : listServices // ignore: cast_nullable_to_non_nullable
+              as List<ServiceModel>?,
       livraison: freezed == livraison
           ? _value.livraison
           : livraison // ignore: cast_nullable_to_non_nullable
@@ -1940,9 +2177,9 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.noOpen
           : noOpen // ignore: cast_nullable_to_non_nullable
               as bool?,
-      isLoadedHomeStateLivraison: null == isLoadedHomeStateLivraison
-          ? _value.isLoadedHomeStateLivraison
-          : isLoadedHomeStateLivraison // ignore: cast_nullable_to_non_nullable
+      isLoadHomeStateLivraison: null == isLoadHomeStateLivraison
+          ? _value.isLoadHomeStateLivraison
+          : isLoadHomeStateLivraison // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -1960,13 +2197,15 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       {User? user,
       int index,
       int indexHistory,
-      int? isLoadedLivraison,
+      int? isLoadLivraison,
+      int? isLoadService,
       int? service_id,
       bool? recupMailStatus,
       List<LivraisonUserHomeModel>? userHomeLivraisonList,
+      List<ServiceModel>? listServices,
       dynamic livraison,
       bool? noOpen,
-      int isLoadedHomeStateLivraison});
+      int isLoadHomeStateLivraison});
 }
 
 /// @nodoc
@@ -1983,13 +2222,15 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? user = freezed,
     Object? index = null,
     Object? indexHistory = null,
-    Object? isLoadedLivraison = freezed,
+    Object? isLoadLivraison = freezed,
+    Object? isLoadService = freezed,
     Object? service_id = freezed,
     Object? recupMailStatus = freezed,
     Object? userHomeLivraisonList = freezed,
+    Object? listServices = freezed,
     Object? livraison = freezed,
     Object? noOpen = freezed,
-    Object? isLoadedHomeStateLivraison = null,
+    Object? isLoadHomeStateLivraison = null,
   }) {
     return _then(_$HomeStateImpl(
       user: freezed == user
@@ -2004,9 +2245,13 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.indexHistory
           : indexHistory // ignore: cast_nullable_to_non_nullable
               as int,
-      isLoadedLivraison: freezed == isLoadedLivraison
-          ? _value.isLoadedLivraison
-          : isLoadedLivraison // ignore: cast_nullable_to_non_nullable
+      isLoadLivraison: freezed == isLoadLivraison
+          ? _value.isLoadLivraison
+          : isLoadLivraison // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isLoadService: freezed == isLoadService
+          ? _value.isLoadService
+          : isLoadService // ignore: cast_nullable_to_non_nullable
               as int?,
       service_id: freezed == service_id
           ? _value.service_id
@@ -2020,6 +2265,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value._userHomeLivraisonList
           : userHomeLivraisonList // ignore: cast_nullable_to_non_nullable
               as List<LivraisonUserHomeModel>?,
+      listServices: freezed == listServices
+          ? _value._listServices
+          : listServices // ignore: cast_nullable_to_non_nullable
+              as List<ServiceModel>?,
       livraison: freezed == livraison
           ? _value.livraison
           : livraison // ignore: cast_nullable_to_non_nullable
@@ -2028,9 +2277,9 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.noOpen
           : noOpen // ignore: cast_nullable_to_non_nullable
               as bool?,
-      isLoadedHomeStateLivraison: null == isLoadedHomeStateLivraison
-          ? _value.isLoadedHomeStateLivraison
-          : isLoadedHomeStateLivraison // ignore: cast_nullable_to_non_nullable
+      isLoadHomeStateLivraison: null == isLoadHomeStateLivraison
+          ? _value.isLoadHomeStateLivraison
+          : isLoadHomeStateLivraison // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -2043,14 +2292,17 @@ class _$HomeStateImpl implements _HomeState {
       {required this.user,
       required this.index,
       required this.indexHistory,
-      required this.isLoadedLivraison,
+      required this.isLoadLivraison,
+      required this.isLoadService,
       required this.service_id,
       required this.recupMailStatus,
       final List<LivraisonUserHomeModel>? userHomeLivraisonList,
+      final List<ServiceModel>? listServices,
       this.livraison,
       required this.noOpen,
-      required this.isLoadedHomeStateLivraison})
-      : _userHomeLivraisonList = userHomeLivraisonList;
+      required this.isLoadHomeStateLivraison})
+      : _userHomeLivraisonList = userHomeLivraisonList,
+        _listServices = listServices;
 
   @override
   final User? user;
@@ -2059,7 +2311,9 @@ class _$HomeStateImpl implements _HomeState {
   @override
   final int indexHistory;
   @override
-  final int? isLoadedLivraison;
+  final int? isLoadLivraison;
+  @override
+  final int? isLoadService;
   @override
   final int? service_id;
   @override
@@ -2075,16 +2329,26 @@ class _$HomeStateImpl implements _HomeState {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<ServiceModel>? _listServices;
+  @override
+  List<ServiceModel>? get listServices {
+    final value = _listServices;
+    if (value == null) return null;
+    if (_listServices is EqualUnmodifiableListView) return _listServices;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final dynamic livraison;
   @override
   final bool? noOpen;
   @override
-  final int isLoadedHomeStateLivraison;
+  final int isLoadHomeStateLivraison;
 
   @override
   String toString() {
-    return 'HomeState(user: $user, index: $index, indexHistory: $indexHistory, isLoadedLivraison: $isLoadedLivraison, service_id: $service_id, recupMailStatus: $recupMailStatus, userHomeLivraisonList: $userHomeLivraisonList, livraison: $livraison, noOpen: $noOpen, isLoadedHomeStateLivraison: $isLoadedHomeStateLivraison)';
+    return 'HomeState(user: $user, index: $index, indexHistory: $indexHistory, isLoadLivraison: $isLoadLivraison, isLoadService: $isLoadService, service_id: $service_id, recupMailStatus: $recupMailStatus, userHomeLivraisonList: $userHomeLivraisonList, listServices: $listServices, livraison: $livraison, noOpen: $noOpen, isLoadHomeStateLivraison: $isLoadHomeStateLivraison)';
   }
 
   @override
@@ -2096,20 +2360,23 @@ class _$HomeStateImpl implements _HomeState {
             (identical(other.index, index) || other.index == index) &&
             (identical(other.indexHistory, indexHistory) ||
                 other.indexHistory == indexHistory) &&
-            (identical(other.isLoadedLivraison, isLoadedLivraison) ||
-                other.isLoadedLivraison == isLoadedLivraison) &&
+            (identical(other.isLoadLivraison, isLoadLivraison) ||
+                other.isLoadLivraison == isLoadLivraison) &&
+            (identical(other.isLoadService, isLoadService) ||
+                other.isLoadService == isLoadService) &&
             (identical(other.service_id, service_id) ||
                 other.service_id == service_id) &&
             (identical(other.recupMailStatus, recupMailStatus) ||
                 other.recupMailStatus == recupMailStatus) &&
             const DeepCollectionEquality()
                 .equals(other._userHomeLivraisonList, _userHomeLivraisonList) &&
+            const DeepCollectionEquality()
+                .equals(other._listServices, _listServices) &&
             const DeepCollectionEquality().equals(other.livraison, livraison) &&
             (identical(other.noOpen, noOpen) || other.noOpen == noOpen) &&
-            (identical(other.isLoadedHomeStateLivraison,
-                    isLoadedHomeStateLivraison) ||
-                other.isLoadedHomeStateLivraison ==
-                    isLoadedHomeStateLivraison));
+            (identical(
+                    other.isLoadHomeStateLivraison, isLoadHomeStateLivraison) ||
+                other.isLoadHomeStateLivraison == isLoadHomeStateLivraison));
   }
 
   @override
@@ -2118,13 +2385,15 @@ class _$HomeStateImpl implements _HomeState {
       user,
       index,
       indexHistory,
-      isLoadedLivraison,
+      isLoadLivraison,
+      isLoadService,
       service_id,
       recupMailStatus,
       const DeepCollectionEquality().hash(_userHomeLivraisonList),
+      const DeepCollectionEquality().hash(_listServices),
       const DeepCollectionEquality().hash(livraison),
       noOpen,
-      isLoadedHomeStateLivraison);
+      isLoadHomeStateLivraison);
 
   @JsonKey(ignore: true)
   @override
@@ -2138,13 +2407,15 @@ abstract class _HomeState implements HomeState {
       {required final User? user,
       required final int index,
       required final int indexHistory,
-      required final int? isLoadedLivraison,
+      required final int? isLoadLivraison,
+      required final int? isLoadService,
       required final int? service_id,
       required final bool? recupMailStatus,
       final List<LivraisonUserHomeModel>? userHomeLivraisonList,
+      final List<ServiceModel>? listServices,
       final dynamic livraison,
       required final bool? noOpen,
-      required final int isLoadedHomeStateLivraison}) = _$HomeStateImpl;
+      required final int isLoadHomeStateLivraison}) = _$HomeStateImpl;
 
   @override
   User? get user;
@@ -2153,7 +2424,9 @@ abstract class _HomeState implements HomeState {
   @override
   int get indexHistory;
   @override
-  int? get isLoadedLivraison;
+  int? get isLoadLivraison;
+  @override
+  int? get isLoadService;
   @override
   int? get service_id;
   @override
@@ -2161,11 +2434,13 @@ abstract class _HomeState implements HomeState {
   @override
   List<LivraisonUserHomeModel>? get userHomeLivraisonList;
   @override
+  List<ServiceModel>? get listServices;
+  @override
   dynamic get livraison;
   @override
   bool? get noOpen;
   @override
-  int get isLoadedHomeStateLivraison;
+  int get isLoadHomeStateLivraison;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>

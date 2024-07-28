@@ -1,5 +1,5 @@
 // ignore_for_file: must_be_immutable
- 
+
 import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
@@ -34,8 +34,10 @@ class RegisterPage extends StatelessWidget {
             listener: (context, state) {
               if (state.isLoading == 1) {
                 EasyLoading.show(
+                    indicator: CircularProgressIndicator(
+                      color: ColorsApp.second,
+                    ),
                     dismissOnTap: true,
-                    status: 'En cours',
                     maskType: EasyLoadingMaskType.black);
               } else if (state.isLoading == 3) {
                 EasyLoading.dismiss();
@@ -87,7 +89,9 @@ class RegisterPage extends StatelessWidget {
                                     ),
                                     child: AppInput(
                                       controller: name,
-                                      onChanged: (value) {},
+                                      onChanged: (value) {
+                                        formKey.currentState!.validate();
+                                      },
                                       placeholder: 'labelname'.tr(),
                                       validator: (value) {
                                         return Validators.isValidUsername(
@@ -101,7 +105,9 @@ class RegisterPage extends StatelessWidget {
                                     ),
                                     child: AppInput(
                                       controller: phone,
-                                      onChanged: (value) {},
+                                      onChanged: (value) {
+                                        formKey.currentState!.validate();
+                                      },
                                       placeholder: 'labelphone'.tr(),
                                       validator: (value) {
                                         return Validators.usPhoneValid(value!);
@@ -111,6 +117,9 @@ class RegisterPage extends StatelessWidget {
                                   AppInputPassword(
                                     controller: password,
                                     placeholder: 'labelpassword'.tr(),
+                                    onChanged: (value) {
+                                      formKey.currentState!.validate();
+                                    },
                                     obscureText: true,
                                     validator: (value) {
                                       //print(value);
@@ -121,6 +130,9 @@ class RegisterPage extends StatelessWidget {
                                   AppInputPassword(
                                     controller: re_password,
                                     placeholder: 'labelrpassword'.tr(),
+                                    onChanged: (value) {
+                                      formKey.currentState!.validate();
+                                    },
                                     obscureText: true,
                                     validator: (value) {
                                       //print(value);

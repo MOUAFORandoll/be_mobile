@@ -261,8 +261,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   _OnSignOut(SignOutEvent event, Emitter<UserState> emit) async {
     EasyLoading.show(
+        indicator: CircularProgressIndicator(
+          color: ColorsApp.second,
+        ),
         dismissOnTap: true,
-        status: 'En cours',
+        
         maskType: EasyLoadingMaskType.black);
     await Future.delayed(Duration(seconds: 5), () {
       EasyLoading.dismiss();
@@ -271,7 +274,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       AutoRouter.of(event.context).replaceAll([AuthRoute()]);
     });
   }
-
+  
   _GetUserEvent(GetUserEvent event, Emitter<UserState> emit) async {
     await userRepo.getUser().then((value) async {
       if (value.data['data'] != null) {

@@ -1,4 +1,4 @@
-import '../exportcomponent.dart'; 
+import '../exportcomponent.dart';
 
 class AppInput extends StatefulWidget {
   final TextEditingController controller;
@@ -90,7 +90,7 @@ class _AppInputState extends State<AppInput> {
                   borderRadius: BorderRadius.circular(15),
                 ),
                 errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorsApp.red, width: 1),
+                  borderSide: BorderSide(color: ColorsApp.red, width: .5),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 enabledBorder: OutlineInputBorder(
@@ -105,6 +105,7 @@ class _AppInputState extends State<AppInput> {
                 ),
                 errorText: widget.errorText,
                 errorStyle: TextStyle(
+                  fontSize: 8,
                   fontFamily: 'Lato',
                   color: ColorsApp.red,
                 ),
@@ -217,7 +218,7 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: ColorsApp.red, width: 1),
+                      borderSide: BorderSide(color: ColorsApp.red, width: .5),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     enabledBorder: OutlineInputBorder(
@@ -231,6 +232,7 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     errorStyle: TextStyle(
+                      fontSize: 8,
                       fontFamily: 'Lato',
                       color: ColorsApp.red,
                     ),

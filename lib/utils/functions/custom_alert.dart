@@ -1,5 +1,8 @@
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class CustomArlert {
   void comfirm(
@@ -21,7 +24,7 @@ class CustomArlert {
                     Center(
                       child: Text(
                         content!,
-                        textScaler: TextScaler.linear(0.9),
+                        textScaler: TextScaler.linear(12),
                         textAlign: TextAlign.center,
                       ),
                     )
@@ -34,9 +37,7 @@ class CustomArlert {
                       Navigator.of(context).pop(true);
                     },
                     color: Colors.white,
-                    border: Border.all(
-                      color: ColorsApp.primary,
-                    ),
+                    border: Border.all(color: ColorsApp.primary),
                     child: Text(
                       ignoreText ?? 'Non',
                       style: TextStyle(color: ColorsApp.primary, fontSize: 15),
@@ -77,9 +78,7 @@ class CustomArlert {
               child: Center(
                 child: Text(
                   content,
-                  textScaler: TextScaler.linear(
-                    0.9,
-                  ),
+                  textScaler: TextScaler.linear(0.9),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -91,12 +90,43 @@ class CustomArlert {
             onPressed: () {
               Navigator.of(context).pop(true);
             },
-            color: ColorsApp.primary,
+            color: ColorsApp.green,
             child: Text(
               'alert.okay'.tr(),
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
         ]).show();
+  }
+}
+
+class CustomFlush {
+  void success(
+      { 
+      required String content,
+      bool? isError,
+      Toast? toastLength}) {
+    Fluttertoast.showToast(
+        msg: content,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 1,
+        backgroundColor: ColorsApp.green,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
+
+  void error({
+   
+    required String content,
+  }) {
+    Fluttertoast.showToast(
+        msg: content,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 1,
+        backgroundColor: ColorsApp.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 }

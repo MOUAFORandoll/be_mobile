@@ -1,7 +1,4 @@
-import 'package:BabanaExpress/presentation/components/Widget/EmptyLivraisonsComponent.dart';
-import 'package:BabanaExpress/presentation/components/Widget/ErrorReloadComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/LivraisonUserComponent.dart';
-import 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
@@ -20,9 +17,9 @@ class HistoriqueLivraisonMin extends StatelessWidget {
             Duration(seconds: 5),
             () => BlocProvider.of<LivraisonBloc>(context)
                 .add(HistoriqueUserLivraison())),
-        child: state.isLoadedLivraison == 0
+        child: state.isLoadLivraison == 0
             ? ShimmerLivraison()
-            : state.isLoadedLivraison == 2
+            : state.isLoadLivraison == 2
                 ? ErrorReloadComponent(
                     onTap: () => BlocProvider.of<LivraisonBloc>(context)
                         .add(HistoriqueUserLivraison()),

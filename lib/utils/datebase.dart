@@ -16,7 +16,6 @@ GetStorage box = GetStorage();
 
 class DataBaseController {
   late final Store store;
-  
 
   DataBaseController();
   // Le constructeur est privé pour empêcher l'instanciation directe

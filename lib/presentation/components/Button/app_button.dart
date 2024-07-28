@@ -4,7 +4,7 @@ class AppButton extends StatelessWidget {
   final Color bgColor;
   final Color textColor;
   final text;
-  final Widget? leading;
+  final bool disabled;
   final VoidCallback? onTap;
   final int loading;
   final MainAxisSize size;
@@ -15,7 +15,7 @@ class AppButton extends StatelessWidget {
     this.bgColor = ColorsApp.primary,
     this.textColor = Colors.white,
     this.onTap,
-    this.leading,
+    this.disabled = false,
     this.border,
     this.loading = 0,
     this.size = MainAxisSize.min,
@@ -24,11 +24,13 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: loading == 1 ? null : onTap,
+      onTap: disabled ? null : onTap,
       child: Container(
+        height: getHeight(context) * .05,
         constraints: BoxConstraints(
-            minHeight: getHeight(context) / 17,
-            minWidth: getWidth(context) / 2.9),
+            minHeight: getHeight(context) * .07,
+            maxHeight: getHeight(context) * .07,
+            minWidth: getWidth(context) * .40),
         padding: EdgeInsets.symmetric(horizontal: kMarginX),
         margin: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
         decoration: BoxDecoration(
@@ -41,27 +43,19 @@ class AppButton extends StatelessWidget {
             //   ),
             // ],
             borderRadius: BorderRadius.circular(15),
-            color: loading == 1 ? bgColor.withOpacity(.5) : bgColor,
+            color: disabled ? bgColor.withOpacity(.5) : bgColor,
             border: border),
         alignment: Alignment.center,
-        child: loading == 1
-            ? Container(
-                height: 20,
-                width: 20,
-                child: CircularProgressIndicator(
-                  color: ColorsApp.primary,
-                ),
-              )
-            : Text(
-                text,
-                style: TextStyle(
-                  fontFamily: 'Lato',
-                  color: textColor,
-                  fontWeight: FontWeight.w600,
-                  overflow: TextOverflow.ellipsis,
-                  // fontSize: 1,
-                ),
-              ),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontFamily: 'Lato',
+            color: textColor,
+            fontWeight: FontWeight.w600,
+            overflow: TextOverflow.ellipsis,
+            // fontSize: 1,
+          ),
+        ),
       ),
     );
   }

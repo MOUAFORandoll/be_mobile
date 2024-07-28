@@ -1,6 +1,5 @@
- 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart'; 
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 
 import 'package:get_storage/get_storage.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -59,13 +58,12 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
           //           content: data, context: event.context);
           //     });
           // SocketService().transactionCredit(
-              // recepteur: key,
-              // action: (data) {
-              //   // event.context.watch<CompteBloc>().add(HistoriqueTransaction());
-              //   NotificationService().depotFinishNotification(
-              //       content: data, context: event.context);
-              // }); 
-              
+          // recepteur: key,
+          // action: (data) {
+          //   // event.context.watch<CompteBloc>().add(HistoriqueTransaction());
+          //   NotificationService().depotFinishNotification(
+          //       content: data, context: event.context);
+          // });
         }
         emit(SplashState.loaded(isConnected, route));
       });

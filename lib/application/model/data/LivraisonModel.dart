@@ -3,7 +3,6 @@ class LivraisonModel {
   final String libelle;
   final String description;
   final String contactEmetteur;
-  final String lienDeLivraison;
   final int quantite;
   final String montant;
   final int status;
@@ -14,13 +13,12 @@ class LivraisonModel {
   final String date;
   final String ville;
   final Livreur? livreur;
-  
+
   LivraisonModel({
     required this.id,
     required this.libelle,
     required this.description,
     required this.contactEmetteur,
-    required this.lienDeLivraison,
     required this.quantite,
     required this.montant,
     required this.status,
@@ -40,7 +38,6 @@ class LivraisonModel {
       ville: json['ville'],
       description: json['description'],
       contactEmetteur: json['contactEmetteur'],
-      lienDeLivraison: json['lienDeLivraison'],
       quantite: json['quantite'],
       montant: json['montant'].toString(),
       status: json['status'],

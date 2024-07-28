@@ -4,8 +4,6 @@ import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
 import 'package:BabanaExpress/presentation/home/FirstView.dart';
-import 'package:BabanaExpress/presentation/livraison/NewLivraisonPage.dart';
-import 'package:BabanaExpress/presentation/pharmacy/NewLivraisonMedicamentPage.dart';
 import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
@@ -74,15 +72,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<MarketBloc, MarketState>(
-        listener: (context, state) {},
-        builder: (context, state) => BlocConsumer<LivraisonBloc,
-                LivraisonState>(
-            listener: (context, state) {},
-            builder: (context, state) => BlocConsumer<PharmacyBloc,
-                    PharmacyState>(
-                listener: (context, state) {},
-                builder: (context, state) => BlocConsumer<HomeBloc, HomeState>(
+    return  BlocConsumer<HomeBloc, HomeState>(
                     listener: (context, state) {
                       if (state.user!.email.isEmpty) {
                         return openUpdateMail(context);
@@ -250,8 +240,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     fontSize: 16, color: Colors.white),
                                 onPress: () {
                                   _animationController!.reverse();
-                                  AutoRouter.of(context)
-                                      .pushNamed(NewLivraisonPage.routeName);
+                                  // AutoRouter.of(context)
+                                  //     .pushNamed(NewLivraisonPage.routeName);
                                 },
                               ),
                               Bubble(
@@ -263,8 +253,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     fontSize: 16, color: Colors.white),
                                 onPress: () {
                                   _animationController!.reverse();
-                                  AutoRouter.of(context).pushNamed(
-                                      NewLivraisonMedicamentPage.routeName);
+                               
                                 },
                               ),
                             ],
@@ -277,7 +266,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             backGroundColor: Colors.white,
                           ),
                           resizeToAvoidBottomInset: true,
-                        )))));
+                        ));
   }
 }
 
@@ -291,8 +280,10 @@ class CustomDrawer extends StatelessWidget {
       listener: (context, state) {
         if (state.isUpdateUserImage == 1) {
           EasyLoading.show(
+              indicator: CircularProgressIndicator(
+                color: ColorsApp.second,
+              ),
               dismissOnTap: true,
-              status: 'En cours',
               maskType: EasyLoadingMaskType.black);
         } else if (state.isUpdateUserImage == 3) {
           EasyLoading.dismiss();
@@ -404,8 +395,14 @@ class CustomDrawer extends StatelessWidget {
                 style: TextStyle(color: ColorsApp.black, fontSize: kBasics),
               ),
               onTap: () {
-                // Navigate to the home page or perform an action
-                Navigator.pop(context);
+                EasyLoading.show(
+                    indicator: CircularProgressIndicator(
+                      color: ColorsApp.second,
+                    ),
+                    dismissOnTap: true,
+                    maskType: EasyLoadingMaskType.clear);
+
+                // Navigator.pop(context);
               },
             ),
             ListTile(
@@ -468,8 +465,10 @@ openUpdateMail(context) => showDialog(
           listener: (context, state) {
             if (state.updating!) {
               EasyLoading.show(
+                  indicator: CircularProgressIndicator(
+                    color: ColorsApp.second,
+                  ),
                   dismissOnTap: true,
-                  status: 'En cours',
                   maskType: EasyLoadingMaskType.black);
             } else {
               EasyLoading.dismiss();
@@ -554,8 +553,10 @@ openUpdateCompletePhoneProfile(context) => showDialog(
           listener: (context, state) {
             if (state.updating!) {
               EasyLoading.show(
+                  indicator: CircularProgressIndicator(
+                    color: ColorsApp.second,
+                  ),
                   dismissOnTap: true,
-                  status: 'En cours',
                   maskType: EasyLoadingMaskType.black);
             } else {
               EasyLoading.dismiss();

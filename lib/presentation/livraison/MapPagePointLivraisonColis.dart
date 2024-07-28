@@ -113,95 +113,92 @@ class _MapPagePointLivraisonColisState
     close();
   }
 
-  validatePoint() =>
-    GlobalBottomSheet.show(
-        maxHeight: getHeight(context) * .5,
-        context: context,
-        title: 'yPointlivraison'.tr(),
-        subtitle: 'Valider les informations de votre point de livraisons'.tr(),
-        widget: BlocBuilder<LivraisonBloc, LivraisonState>(
-            builder: (context, state) => Container(
-                    child: SingleChildScrollView(
-                        child: Column(children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: kMarginY * 1.5,
-                    ),
-                    child: AppInputNew(
-                      controller: libelleLocalisation,
-                      icon: Icon(Icons.label),
-                      label: 'yLibellePl'.tr(),
-                      validator: (value) {
-                        return Validators.isValidUsername(value!);
-                      },
-                    ),
+  validatePoint() => GlobalBottomSheet.show(
+      maxHeight: getHeight(context) * .5,
+      context: context,
+      title: 'yPointlivraison'.tr(),
+      subtitle: 'Valider les informations de votre point de livraisons'.tr(),
+      widget: BlocBuilder<LivraisonBloc, LivraisonState>(
+          builder: (context, state) => Container(
+                  child: SingleChildScrollView(
+                      child: Column(children: [
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kMarginY * 1.5,
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: kMarginY * 1.5,
-                    ),
-                    child: AppInputNew(
-                      controller: quartier,
-                      icon: Icon(Icons.label),
-                      label: 'yQuartierPl'.tr(),
-                      validator: (value) {
-                        return Validators.isValidUsername(value!);
-                      },
-                    ),
+                  child: AppInputNew(
+                    controller: libelleLocalisation,
+                    icon: Icon(Icons.label),
+                    label: 'yLibellePl'.tr(),
+                    validator: (value) {
+                      return Validators.isValidUsername(value!);
+                    },
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: kMarginY * 1.5,
-                    ),
-                    width: getWidth(context) * .8,
-                    child: Text(
-                      'Ville de : ${state.mapPlaceInfo!.ville}',
-                      style: TextStyle(overflow: TextOverflow.ellipsis),
-                    ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kMarginY * 1.5,
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: kMarginY * 1.5,
-                    ),
-                    width: getWidth(context) * .8,
-                    child: Text(
-                      'Longitude : ${state.position!.longitude}',
-                      style: TextStyle(overflow: TextOverflow.ellipsis),
-                    ),
+                  child: AppInputNew(
+                    controller: quartier,
+                    icon: Icon(Icons.label),
+                    label: 'yQuartierPl'.tr(),
+                    validator: (value) {
+                      return Validators.isValidUsername(value!);
+                    },
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: kMarginY * 1.5,
-                    ),
-                    width: getWidth(context) * .8,
-                    child: Text(
-                      'Latitude : ${state.position!.latitude}',
-                      style: TextStyle(overflow: TextOverflow.ellipsis),
-                    ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kMarginY * 1.5,
                   ),
-                  Container(
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          AppButton(
-                              size: MainAxisSize.max,
-                              // loading: _userState.isLoading,
-                              // bgColor: ColorsApp.primary,
-                              text: 'Valider'.tr(),
-                              onTap: () async {
-                                context.read<LivraisonBloc>().add(
-                                    MapValidatePointLivraison(
-                                        libelle: libelleLocalisation.text,
-                                        quartier: quartier.text));
+                  width: getWidth(context) * .8,
+                  child: Text(
+                    'Ville de : ${state.mapPlaceInfo!.ville}',
+                    style: TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kMarginY * 1.5,
+                  ),
+                  width: getWidth(context) * .8,
+                  child: Text(
+                    'Longitude : ${state.position!.longitude}',
+                    style: TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: kMarginY * 1.5,
+                  ),
+                  width: getWidth(context) * .8,
+                  child: Text(
+                    'Latitude : ${state.position!.latitude}',
+                    style: TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
+                ),
+                Container(
+                  child:
+                      Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                    AppButton(
+                        size: MainAxisSize.max,
+                        // loading: _userState.isLoading,
+                        // bgColor: ColorsApp.primary,
+                        text: 'Valider'.tr(),
+                        onTap: () async {
+                          context.read<LivraisonBloc>().add(
+                              MapValidatePointLivraison(
+                                  libelle: libelleLocalisation.text,
+                                  quartier: quartier.text));
 
-                                AutoRouter.of(context).pop();
-                                // AutoRouter.of(context)
-                                //     .pushNamed(NewLivraisonPage.routeName);
-                              }),
-                        ]),
-                  )
-                ])))));
-  
+                          AutoRouter.of(context).pop();
+                          // AutoRouter.of(context)
+                          //     .pushNamed(NewLivraisonPage.routeName);
+                        }),
+                  ]),
+                )
+              ])))));
 
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
@@ -211,8 +208,10 @@ class _MapPagePointLivraisonColisState
       listener: (context, state) {
         if (state.isLoadingPlaceSearchInfo == 0) {
           EasyLoading.show(
+              indicator: CircularProgressIndicator(
+                color: ColorsApp.second,
+              ),
               dismissOnTap: true,
-              status: 'En cours',
               maskType: EasyLoadingMaskType.black);
         } else if (state.isLoadingPlaceSearchInfo == 1) {
           FocusScope.of(context).unfocus();

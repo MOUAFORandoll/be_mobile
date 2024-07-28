@@ -1,8 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/core.dart'; 
-import 'package:BabanaExpress/presentation/components/Widget/custom_alert.dart';
+import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:open_filex/open_filex.dart';
 import '../../application/export_bloc.dart';
@@ -28,8 +27,10 @@ class LivraisonDataPage extends StatelessWidget {
             showError('errorsaveFature'.tr(), context);
           } else if (state.isDownloadFacture == 0) {
             EasyLoading.show(
+                indicator: CircularProgressIndicator(
+                  color: ColorsApp.second,
+                ),
                 dismissOnTap: true,
-                status: 'En cours',
                 maskType: EasyLoadingMaskType.black);
           }
         },
