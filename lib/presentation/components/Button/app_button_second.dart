@@ -1,69 +1,71 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-
 class AppButtonSecond extends StatelessWidget {
   final Color bgColor;
   final Color textColor;
   final text;
-  final Widget? leading;
+  final marginAdd;
   final VoidCallback? onTap;
+  final bool disabled;
   final int loading;
   final MainAxisSize size;
   final BoxBorder? border;
+  final IconData? prefixIcon;
+  final IconData? sufixIcon;
   AppButtonSecond({
     Key? key,
     required this.text,
-    this.bgColor = ColorsApp.second,
+    this.marginAdd,
+    this.bgColor = ColorsApp.primary,
     this.textColor = Colors.white,
     this.onTap,
-    this.leading,
+    this.disabled = false,
     this.border,
+    this.prefixIcon,
+    this.sufixIcon,
     this.loading = 0,
     this.size = MainAxisSize.min,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: loading == 1 ? null : onTap,
-      child: Container(
-        constraints: BoxConstraints(
-            minHeight: getHeight(context) / 17,
-            minWidth: getWidth(context) / 2.9),
-        padding: EdgeInsets.symmetric(horizontal: kMarginX),
-        margin: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
-        decoration: BoxDecoration(
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: Colors.grey.withOpacity(0.5),
-            //     spreadRadius: 2,
-            //     blurRadius: 7,
-            //     offset: Offset(0, 1),
-            //   ),
-            // ],
-            borderRadius: BorderRadius.circular(21),
-            color: loading == 1 ? bgColor.withOpacity(.5) : bgColor,
-            border: border),
-        alignment: Alignment.center,
-        child: loading == 1
-            ? Container(
-                height: 20,
-                width: 20,
-                child: CircularProgressIndicator(
-                  color: ColorsApp.red,
-                ),
-              )
-            : Text(
-                text,
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  color: textColor,
-                  fontWeight: FontWeight.w600,
-                  overflow: TextOverflow.ellipsis,
-                  fontSize: 12,
-                ),
+    return InkWell(
+        child: Container(
+          // width: getWidth(context),
+          constraints: BoxConstraints(
+              minHeight: getHeight(context) * .07,
+              maxHeight: getHeight(context) * .07,
+              minWidth: getWidth(context) * .40),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(80),
+              color: disabled ? bgColor.withOpacity(.5) : bgColor,
+              border: border),
+          padding: EdgeInsets.all(15),
+          margin: EdgeInsets.symmetric(vertical: kMarginY * 2)
+              .add(marginAdd ?? EdgeInsets.all(0)),
+          child: Row(
+            mainAxisSize: size,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  if (prefixIcon != null) Icon(prefixIcon!),
+                  Container(
+                    margin: EdgeInsets.only(left: kMarginX),
+                    child: Text(
+                      text,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 13,
+                          color: textColor),
+                    ),
+                  ),
+                ],
               ),
-      ),
-    );
+              if (sufixIcon != null) Icon(sufixIcon!),
+            ],
+          ),
+        ),
+        onTap: onTap);
   }
 }

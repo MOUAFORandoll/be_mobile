@@ -148,7 +148,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   : GoogleMap(
                       initialCameraPosition: _kLake,
                       myLocationEnabled: true,
-                      myLocationButtonEnabled: true,
+                      myLocationButtonEnabled: false,
+                      indoorViewEnabled: true,
                       markers: {_position},
                       onMapCreated: (GoogleMapController mapcontroller) async {
                         _controller.complete(mapcontroller);
@@ -160,7 +161,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             target: LatLng(_position.position.latitude,
                                 _position.position.longitude),
                             tilt: 50,
-                            zoom: 15.5,
+                            zoom: 150.5,
                           );
 
                           _position = Marker(
@@ -342,46 +343,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   ],
                                 ),
                               ),
-                              InkWell(
-                                child: Container(
-                                  width: getWidth(context),
-                                  padding: EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    color: ColorsApp.greyNew,
-                                  ),
-                                  margin: EdgeInsets.symmetric(
-                                      vertical: kMarginY * 2),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(Icons.library_books),
-                                          Container(
-                                            margin:
-                                                EdgeInsets.only(left: kMarginX),
-                                            child: Text(
-                                              'Mon Historique'.tr(),
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 13,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Icon(Icons.arrow_circle_right),
-                                    ],
-                                  ),
-                                ),
-                                onTap: () {
-                                  AutoRouter.of(context)
-                                      .push(HistoriqueLivraisonRoute());
-                                },
-                              )
+                              AppButtonSecond(
+                                  prefixIcon: Icons.library_books,
+                                  sufixIcon: Icons.arrow_circle_right,
+                                  size: MainAxisSize.max,
+                                  bgColor: ColorsApp.greyNew,
+                                  text: 'Mon Historique'.tr(),
+                                  textColor: ColorsApp.primary,
+                                  onTap: () {
+                                    AutoRouter.of(context)
+                                        .push(HistoriqueLivraisonRoute());
+                                  }),
                             ],
                           ),
                         ),

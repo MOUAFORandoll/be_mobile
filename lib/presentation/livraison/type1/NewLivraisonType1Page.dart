@@ -1,4 +1,5 @@
 import 'package:BabanaExpress/core.dart';
+import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
@@ -151,8 +152,10 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                   ),
                   height: getHeight(context) * .1,
                   child: state.indexType1 == 0
-                      ? AppButton(
+                      ? AppButtonSecond(
                           size: MainAxisSize.max,
+                          marginAdd:
+                              EdgeInsets.symmetric(horizontal: kMarginX * 2),
                           bgColor: (state.indexType1 == 0)
                               ? !(state.selectedVIlle != null &&
                                       state.selected_recuperation_point !=
@@ -163,6 +166,17 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                                   : ColorsApp.primary
                               : (state.listColis!.length == 0)
                                   ? ColorsApp.grey
+                                  : ColorsApp.primary,
+                          textColor: (state.indexType1 == 0)
+                              ? (state.selectedVIlle != null &&
+                                      state.selected_recuperation_point !=
+                                          null &&
+                                      state.contactEmetteur!.text.length != 0 &&
+                                      state.description!.text.length != 0)
+                                  ? ColorsApp.white
+                                  : ColorsApp.primary
+                              : !(state.listColis!.length == 0)
+                                  ? ColorsApp.white
                                   : ColorsApp.primary,
                           text: 'ynext'.tr(),
                           onTap: () {
@@ -181,7 +195,9 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                              AppButton(
+                              AppButtonSecond(
+                                  marginAdd: EdgeInsets.symmetric(
+                                      horizontal: kMarginX * 2),
                                   size: MainAxisSize.max,
                                   bgColor: state.indexType1 == 0
                                       ? ColorsApp.grey
@@ -192,7 +208,9 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                                         .read<LivraisonBloc>()
                                         .add(BackIndexType1Event());
                                   }),
-                              AppButton(
+                              AppButtonSecond(
+                                marginAdd:
+                                    EdgeInsets.symmetric(horizontal: kMarginX),
                                 size: MainAxisSize.max,
                                 bgColor: (state.indexType1 == 0)
                                     ? !(state.selectedVIlle != null &&
@@ -311,7 +329,7 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                           children: [
                             Container(
                               margin: EdgeInsets.only(bottom: 8),
-                              child: AppButton(
+                              child: AppButtonSecond(
                                   text: 'yvalidate'.tr(),
                                   // width: getWidth(context) / 2.5,
                                   size: MainAxisSize.max,
