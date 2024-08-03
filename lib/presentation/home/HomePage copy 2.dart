@@ -58,11 +58,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  Future<void> getPosition() async {
+  Future<void> getPOsition() async {
     var position;
-    setState(() {
-      _kLake = null;
-    });
+
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -84,7 +82,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       desiredAccuracy: LocationAccuracy.high,
     );
     position = await Geolocator.getCurrentPosition();
-
     setState(() {
       latitude = position.latitude;
       longitude = position.longitude;
@@ -93,7 +90,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           bearing: 0,
           target: LatLng(latitude, longitude),
           tilt: 50,
-          zoom: 90.5);
+          zoom: 100.5);
 
       _position = Marker(
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
@@ -105,7 +102,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           onTap: () {},
           position: LatLng(latitude, longitude));
     });
-    context.read<LivraisonBloc>().add(GetMapPlaceInfo());
 
     super.initState();
   }
@@ -119,7 +115,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       Completer<GoogleMapController>();
   var _kLake;
   initState() {
-    getPosition();
+    getPOsition();
 
     _checkForUpdate();
   }
@@ -136,171 +132,132 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           print('-----44-- ---find noe--*is ok*******');
         }
       },
-      builder: (context, state) => BlocBuilder<LivraisonBloc, LivraisonState>(
-        builder: (context, stateSLivraison) => Scaffold(
-          backgroundColor: Colors.transparent,
-          drawer: CustomDrawer(user: state.user),
-          body: Stack(
-            children: [
-              // Google Map covering the entire screen
-              _kLake == null
-                  ? Center(child: CircularProgressIndicator())
-                  : GoogleMap(
-                      initialCameraPosition: _kLake,
-                      myLocationEnabled: true,
-                      myLocationButtonEnabled: true,
-                      markers: {_position},
-                      onMapCreated: (GoogleMapController mapcontroller) async {
-                        _controller.complete(mapcontroller);
-                        mapController = await _controller.future;
+      builder: (context, state) => Scaffold(
+        backgroundColor: Colors.transparent,
+        drawer: CustomDrawer(user: state.user),
+        body: Stack(
+          children: [
+            // Google Map covering the entire screen
+            _kLake == null
+                ? Center(child: CircularProgressIndicator())
+                : GoogleMap(
+                    initialCameraPosition: _kLake,
+                    myLocationEnabled: true,
+                    myLocationButtonEnabled: true,
+                    markers: {_position},
+                    onMapCreated: (GoogleMapController mapcontroller) async {
+                      _controller.complete(mapcontroller);
+                      mapController = await _controller.future;
 
-                        setState(() {
-                          _kLake = CameraPosition(
-                            bearing: 0,
-                            target: LatLng(_position.position.latitude,
-                                _position.position.longitude),
-                            tilt: 50,
-                            zoom: 15.5,
-                          );
+                      setState(() {
+                        _kLake = CameraPosition(
+                          bearing: 0,
+                          target: LatLng(_position.position.latitude,
+                              _position.position.longitude),
+                          tilt: 50,
+                          zoom: 15.5,
+                        );
 
-                          _position = Marker(
+                        _position = Marker(
+                          icon: BitmapDescriptor.defaultMarkerWithHue(
+                              BitmapDescriptor.hueCyan),
+                          markerId: MarkerId('1'),
+                          draggable: true,
+                          infoWindow: InfoWindow(title: 'Vous êtes ici'),
+                          onTap: () {},
+                          position: LatLng(_position.position.latitude,
+                              _position.position.longitude),
+                        );
+
+                        mapController!.animateCamera(
+                            CameraUpdate.newCameraPosition(_kLake));
+                        print('Camera animation executed');
+                      });
+                    },
+                    onTap: (LatLng value) {
+                      print(value);
+                      context
+                          .read<LivraisonBloc>()
+                          .add(SetLogLat(latLng: value));
+                      context.read<LivraisonBloc>().add(GetMapPlaceInfo());
+
+                      setState(() {
+                        _position = Marker(
                             icon: BitmapDescriptor.defaultMarkerWithHue(
                                 BitmapDescriptor.hueCyan),
                             markerId: MarkerId('1'),
                             draggable: true,
                             infoWindow: InfoWindow(title: 'Vous êtes ici'),
                             onTap: () {},
-                            position: LatLng(_position.position.latitude,
-                                _position.position.longitude),
-                          );
-
-                          mapController!.animateCamera(
-                              CameraUpdate.newCameraPosition(_kLake));
-                          print('Camera animation executed');
-                        });
-                      },
-                      onTap: (LatLng value) {
-                        print(value);
-                        context
-                            .read<LivraisonBloc>()
-                            .add(SetLogLat(latLng: value));
-                        context.read<LivraisonBloc>().add(GetMapPlaceInfo());
-
-                        setState(() {
-                          _position = Marker(
-                              icon: BitmapDescriptor.defaultMarkerWithHue(
-                                  BitmapDescriptor.hueCyan),
-                              markerId: MarkerId('1'),
-                              draggable: true,
-                              infoWindow: InfoWindow(title: 'Vous êtes ici'),
-                              onTap: () {},
-                              position:
-                                  LatLng(value.latitude, value.longitude));
-                        });
-                      },
+                            position: LatLng(value.latitude, value.longitude));
+                      });
+                    },
+                  ),
+            // Floating AppBar
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: AppBar(
+                automaticallyImplyLeading: false,
+                leading: Builder(builder: (context) {
+                  return InkWell(
+                      child: Container(
+                        width: 10,
+                        height: 10,
+                        child: SvgPicture.asset(Assets.menu,
+                            color: ColorsApp.primary, fit: BoxFit.none),
+                      ),
+                      onTap: () => Scaffold.of(context).openDrawer());
+                }),
+                title: Text(
+                  'Babana Express',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      color: ColorsApp.primary,
+                      fontFamily: 'Lato',
+                      fontSize: kTitle,
+                      fontWeight: FontWeight.w600),
+                ),
+                centerTitle: true,
+                elevation: 0.0,
+                backgroundColor: Colors.transparent,
+                foregroundColor: Colors.transparent,
+              ),
+            ),
+            // Draggable Bottom Sheet
+            DraggableScrollableSheet(
+              initialChildSize: 0.4,
+              minChildSize: 0.1,
+              maxChildSize: 0.4,
+              builder:
+                  (BuildContext context, ScrollController scrollController) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      height: 10,
+                      width: 50,
+                      margin: EdgeInsets.only(
+                        bottom: kMarginY,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: ColorsApp.white,
+                      ),
                     ),
-              // Floating Circular AppBar
-              Positioned(
-                top: 50,
-                left: 0,
-                right: 0,
-                child: Center(
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: getWidth(context),
-                    padding: EdgeInsets.all(8),
-                    margin: EdgeInsets.symmetric(
-                        vertical: kMarginY, horizontal: kMarginX),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: ColorsApp.white.withOpacity(0.9),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 8,
-                          offset: Offset(0, 4),
+                    Container(
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(35)),
+                          color: ColorsApp.white,
                         ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          icon: SvgPicture.asset(
-                            Assets.menu,
-                            color: ColorsApp.primary,
-                          ),
-                          onPressed: () => Scaffold.of(context).openDrawer(),
-                          // Fix: Use ScaffoldMessenger to open the drawer
-                        ),
-                        Column(
+                        padding: EdgeInsets.symmetric(
+                            vertical: kMarginY, horizontal: kMarginX),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              child: Text(
-                                'Babana Express',
-                                style: TextStyle(
-                                  color: ColorsApp.primary,
-                                  fontFamily: 'Lato',
-                                ),
-                              ),
-                            ),
-                            if (stateSLivraison.mapPlaceInfo != null)
-                              Container(
-                                child: Text(
-                                  '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
-                                  style: TextStyle(
-                                    color: ColorsApp.second,
-                                    fontFamily: 'Lato',
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
-                        SizedBox(width: 24), // For balance between icons
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              // Draggable Bottom Sheet
-              DraggableScrollableSheet(
-                initialChildSize: 0.42,
-                minChildSize: 0.1,
-                maxChildSize: 0.7,
-                builder:
-                    (BuildContext context, ScrollController scrollController) {
-                  return SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          child: Container(
-                              margin: EdgeInsets.symmetric(
-                                  vertical: kMarginY, horizontal: kMarginX),
-                              decoration: BoxDecoration(
-                                  color: ColorsApp.white,
-                                  borderRadius: BorderRadius.circular(50)),
-                              padding: EdgeInsets.all(10),
-                              child: Icon(
-                                Icons.refresh,
-                                color: ColorsApp.black,
-                              )),
-                          onTap: () => getPosition(),
-                          // Fix: Use ScaffoldMessenger to open the drawer
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.vertical(top: Radius.circular(35)),
-                            color: ColorsApp.white,
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              vertical: kMarginY, horizontal: kMarginX),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
                                 margin: EdgeInsets.symmetric(
                                     vertical: kMarginY / 2),
                                 child: Text(
@@ -311,87 +268,42 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     fontFamily: 'Montserrat',
                                     fontWeight: FontWeight.w500,
                                   ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.symmetric(
-                                    vertical: kMarginY / 2),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    HomePropositionWidget(
-                                      title:
-                                          'Je veux faire livrer mon colis'.tr(),
-                                      icon: Assets.colis,
-                                      onTap: () {
-                                        AutoRouter.of(context)
-                                            .push(NewLivraisonType1Route());
-                                      },
-                                    ),
-                                    HomePropositionWidget(
-                                      title:
-                                          'Je veux qu\'on recuperer mon colis'
-                                              .tr(),
-                                      onTap: () {
-                                        AutoRouter.of(context)
-                                            .push(NewLivraisonType2Route());
-                                      },
-                                      icon: Assets.colis,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              InkWell(
-                                child: Container(
-                                  width: getWidth(context),
-                                  padding: EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    color: ColorsApp.greyNew,
+                                )),
+                            Container(
+                              margin:
+                                  EdgeInsets.symmetric(vertical: kMarginY / 2),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  HomePropositionWidget(
+                                    title:
+                                        'Je veux faire livrer mon colis'.tr(),
+                                    icon: Assets.colis,
+                                    onTap: () {
+                                      AutoRouter.of(context)
+                                          .push(NewLivraisonType1Route());
+                                    },
                                   ),
-                                  margin: EdgeInsets.symmetric(
-                                      vertical: kMarginY * 2),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(Icons.library_books),
-                                          Container(
-                                            margin:
-                                                EdgeInsets.only(left: kMarginX),
-                                            child: Text(
-                                              'Mon Historique'.tr(),
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 13,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Icon(Icons.arrow_circle_right),
-                                    ],
+                                  HomePropositionWidget(
+                                    title: 'Je veux qu\'on recuperer mon colis'
+                                        .tr(),
+                                    onTap: () {
+                                      AutoRouter.of(context)
+                                          .push(NewLivraisonType2Route());
+                                    },
+                                    icon: Assets.colis,
                                   ),
-                                ),
-                                onTap: () {
-                                  AutoRouter.of(context)
-                                      .push(HistoriqueLivraisonRoute());
-                                },
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
+                                ],
+                              ),
+                            )
+                          ],
+                        )),
+                  ],
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

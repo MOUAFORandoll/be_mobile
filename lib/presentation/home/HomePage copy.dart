@@ -1,10 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
-import 'dart:async';
-
-import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
-import 'package:BabanaExpress/presentation/components/Widget/home_proposition_widget.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
 import 'package:BabanaExpress/presentation/home/FirstView.dart';
@@ -30,6 +26,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  Animation<double>? _animation;
+  AnimationController? _animationController;
+
+  void initState() {
+    super.initState();
+    _checkForUpdate();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 260),
+    );
+
+    final curvedAnimation =
+        CurvedAnimation(curve: Curves.easeInOut, parent: _animationController!);
+    _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
+  }
+
   Future<void> _checkForUpdate() async {
     final newVersionPlus = NewVersionPlus(
       iOSId: null,
@@ -54,347 +66,207 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void dispose() {
     // WidgetsBinding.instance.removeObserver(this);
-
+    _animationController!.dispose();
     super.dispose();
-  }
-
-  Future<void> getPosition() async {
-    var position;
-    setState(() {
-      _kLake = null;
-    });
-    bool serviceEnabled;
-    LocationPermission permission;
-
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {}
-
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.always ||
-          permission == LocationPermission.unableToDetermine ||
-          permission == LocationPermission.whileInUse) {
-        position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high,
-        );
-      }
-    }
-    position = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high,
-    );
-    position = await Geolocator.getCurrentPosition();
-
-    setState(() {
-      latitude = position.latitude;
-      longitude = position.longitude;
-
-      _kLake = CameraPosition(
-          bearing: 0,
-          target: LatLng(latitude, longitude),
-          tilt: 50,
-          zoom: 90.5);
-
-      _position = Marker(
-          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-          markerId: MarkerId('1'),
-          draggable: true,
-          infoWindow: InfoWindow(
-            title: 'Vous etes ici',
-          ),
-          onTap: () {},
-          position: LatLng(latitude, longitude));
-    });
-    context.read<LivraisonBloc>().add(GetMapPlaceInfo());
-
-    super.initState();
-  }
-
-  GoogleMapController? mapController;
-  late Marker _position;
-
-  var latitude = 0.0;
-  var longitude = 0.0;
-  final Completer<GoogleMapController> _controller =
-      Completer<GoogleMapController>();
-  var _kLake;
-  initState() {
-    getPosition();
-
-    _checkForUpdate();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeBloc, HomeState>(
-      listener: (context, state) {
-        if (state.user?.email.isEmpty ?? true) {
-          return openUpdateMail(context);
-        } else if (state.user?.phone.isEmpty ?? true) {
-          return openUpdateCompletePhoneProfile(context);
-        } else {
-          print('-----44-- ---find noe--*is ok*******');
-        }
-      },
-      builder: (context, state) => BlocBuilder<LivraisonBloc, LivraisonState>(
-        builder: (context, stateSLivraison) => Scaffold(
-          backgroundColor: Colors.transparent,
-          drawer: CustomDrawer(user: state.user),
-          body: Stack(
-            children: [
-              // Google Map covering the entire screen
-              _kLake == null
-                  ? Center(child: CircularProgressIndicator())
-                  : GoogleMap(
-                      initialCameraPosition: _kLake,
-                      myLocationEnabled: true,
-                      myLocationButtonEnabled: true,
-                      markers: {_position},
-                      onMapCreated: (GoogleMapController mapcontroller) async {
-                        _controller.complete(mapcontroller);
-                        mapController = await _controller.future;
-
-                        setState(() {
-                          _kLake = CameraPosition(
-                            bearing: 0,
-                            target: LatLng(_position.position.latitude,
-                                _position.position.longitude),
-                            tilt: 50,
-                            zoom: 15.5,
-                          );
-
-                          _position = Marker(
-                            icon: BitmapDescriptor.defaultMarkerWithHue(
-                                BitmapDescriptor.hueCyan),
-                            markerId: MarkerId('1'),
-                            draggable: true,
-                            infoWindow: InfoWindow(title: 'Vous êtes ici'),
-                            onTap: () {},
-                            position: LatLng(_position.position.latitude,
-                                _position.position.longitude),
-                          );
-
-                          mapController!.animateCamera(
-                              CameraUpdate.newCameraPosition(_kLake));
-                          print('Camera animation executed');
-                        });
-                      },
-                      onTap: (LatLng value) {
-                        print(value);
-                        context
-                            .read<LivraisonBloc>()
-                            .add(SetLogLat(latLng: value));
-                        context.read<LivraisonBloc>().add(GetMapPlaceInfo());
-
-                        setState(() {
-                          _position = Marker(
-                              icon: BitmapDescriptor.defaultMarkerWithHue(
-                                  BitmapDescriptor.hueCyan),
-                              markerId: MarkerId('1'),
-                              draggable: true,
-                              infoWindow: InfoWindow(title: 'Vous êtes ici'),
-                              onTap: () {},
-                              position:
-                                  LatLng(value.latitude, value.longitude));
-                        });
-                      },
-                    ),
-              // Floating Circular AppBar
-              Positioned(
-                top: 50,
-                left: 0,
-                right: 0,
-                child: Center(
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: getWidth(context),
-                    padding: EdgeInsets.all(8),
-                    margin: EdgeInsets.symmetric(
-                        vertical: kMarginY, horizontal: kMarginX),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: ColorsApp.white.withOpacity(0.9),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 8,
-                          offset: Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          icon: SvgPicture.asset(
-                            Assets.menu,
-                            color: ColorsApp.primary,
-                          ),
-                          onPressed: () => Scaffold.of(context).openDrawer(),
-                          // Fix: Use ScaffoldMessenger to open the drawer
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              child: Text(
-                                'Babana Express',
-                                style: TextStyle(
-                                  color: ColorsApp.primary,
-                                  fontFamily: 'Lato',
-                                ),
-                              ),
-                            ),
-                            if (stateSLivraison.mapPlaceInfo != null)
-                              Container(
-                                child: Text(
-                                  '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
-                                  style: TextStyle(
-                                    color: ColorsApp.second,
-                                    fontFamily: 'Lato',
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
-                        SizedBox(width: 24), // For balance between icons
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              // Draggable Bottom Sheet
-              DraggableScrollableSheet(
-                initialChildSize: 0.42,
-                minChildSize: 0.1,
-                maxChildSize: 0.7,
-                builder:
-                    (BuildContext context, ScrollController scrollController) {
-                  return SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          child: Container(
-                              margin: EdgeInsets.symmetric(
-                                  vertical: kMarginY, horizontal: kMarginX),
+    return  BlocConsumer<HomeBloc, HomeState>(
+                    listener: (context, state) {
+                      if (state.user!.email.isEmpty) {
+                        return openUpdateMail(context);
+                      } else if (state.user!.phone.isEmpty) {
+                        return openUpdateCompletePhoneProfile(context);
+                      } else {
+                        print('-----44-- ---find noe--*is ok*******');
+                      }
+                    },
+                    builder: (context, state) => Scaffold(
+                          backgroundColor: ColorsApp.bg,
+                          drawer: CustomDrawer(user: state.user),
+                          body: Container(
                               decoration: BoxDecoration(
-                                  color: ColorsApp.white,
-                                  borderRadius: BorderRadius.circular(50)),
-                              padding: EdgeInsets.all(10),
-                              child: Icon(
-                                Icons.refresh,
-                                color: ColorsApp.black,
-                              )),
-                          onTap: () => getPosition(),
-                          // Fix: Use ScaffoldMessenger to open the drawer
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.vertical(top: Radius.circular(35)),
-                            color: ColorsApp.white,
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              vertical: kMarginY, horizontal: kMarginX),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.symmetric(
-                                    vertical: kMarginY / 2),
-                                child: Text(
-                                  'Que desirez vous ?',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: kBasics * 1.3,
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w500,
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(Assets.bg_home))),
+                              child: CustomScrollView(slivers: [
+                                SliverAppBar(
+                                  automaticallyImplyLeading: false,
+                                  leading: Builder(builder: (context) {
+                                    return InkWell(
+                                        child: Container(
+                                          width: 10,
+                                          height: 10,
+                                          child: SvgPicture.asset(Assets.menu,
+                                              color: ColorsApp.white,
+                                              fit: BoxFit.none),
+                                        ),
+                                        onTap: () =>
+                                            Scaffold.of(context).openDrawer());
+                                  }),
+                                  title: Text(
+                                    'Babana Express',
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        color: ColorsApp.white,
+                                        fontFamily: 'Lato',
+                                        fontSize: kTitle,
+                                        fontWeight: FontWeight.w600),
                                   ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.symmetric(
-                                    vertical: kMarginY / 2),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    HomePropositionWidget(
-                                      title:
-                                          'Je veux faire livrer mon colis'.tr(),
-                                      icon: Assets.colis,
-                                      onTap: () {
-                                        AutoRouter.of(context)
-                                            .push(NewLivraisonType1Route());
-                                      },
-                                    ),
-                                    HomePropositionWidget(
-                                      title:
-                                          'Je veux qu\'on recuperer mon colis'
-                                              .tr(),
-                                      onTap: () {
-                                        AutoRouter.of(context)
-                                            .push(NewLivraisonType2Route());
-                                      },
-                                      icon: Assets.colis,
-                                    ),
+                                  centerTitle: true,
+                                  actions: [
+                                    InkWell(
+                                        child: Container(
+                                            decoration: BoxDecoration(
+                                                color: ColorsApp.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(30)),
+                                            padding: EdgeInsets.all(8),
+                                            margin: EdgeInsets.only(
+                                                right: kMarginX),
+                                            child: SvgIcon(
+                                              icon: Assets.call_center,
+                                              color: ColorsApp.primary,
+                                            )),
+                                        onTap: () {
+                                          AutoRouter.of(context)
+                                              .push(CallCenterRoute());
+                                        }),
+                                    // InkWell(
+                                    //     child: Container(
+                                    //         margin: EdgeInsets.only(
+                                    //             right: kMarginX * 2),
+                                    //         child: SvgIcon(
+                                    //           icon: Assets.bell,
+                                    //           color: ColorsApp.white,
+                                    //         )),
+                                    //     onTap: () {}),
                                   ],
-                                ),
-                              ),
-                              InkWell(
-                                child: Container(
-                                  width: getWidth(context),
-                                  padding: EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    color: ColorsApp.greyNew,
-                                  ),
-                                  margin: EdgeInsets.symmetric(
-                                      vertical: kMarginY * 2),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(Icons.library_books),
-                                          Container(
-                                            margin:
-                                                EdgeInsets.only(left: kMarginX),
-                                            child: Text(
-                                              'Mon Historique'.tr(),
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 13,
+                                  flexibleSpace: Container(
+                                    margin: EdgeInsets.only(
+                                      top: getHeight(context) * .13,
+                                    ).add(EdgeInsets.symmetric(
+                                        horizontal: kMarginY)),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Solde du compte',
+                                                style: TextStyle(
+                                                  color: ColorsApp.white,
+                                                  fontFamily: 'Lato',
+                                                ),
                                               ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Icon(Icons.arrow_circle_right),
-                                    ],
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                        color: ColorsApp.white
+                                                            .withOpacity(.5)),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 5.5,
+                                                            vertical: 3),
+                                                    margin: EdgeInsets.only(
+                                                        right: kMarginY),
+                                                    child: Text(
+                                                      'FCFA',
+                                                      style: TextStyle(
+                                                          color:
+                                                              ColorsApp.white,
+                                                          fontFamily: 'Lato',
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w600),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: Text(
+                                                      '${state.user!.solde}',
+                                                      style: TextStyle(
+                                                          color:
+                                                              ColorsApp.white,
+                                                          fontFamily: 'Lato',
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w800),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ]),
+                                        KHomeInfo(),
+                                      ],
+                                    ),
                                   ),
+
+                                  pinned: true,
+
+                                  collapsedHeight: getHeight(context) * .153,
+                                  elevation: 10.0,
+                                  backgroundColor: Colors
+                                      .transparent, // Set your desired background color
+                                  // shape: RoundedRectangleBorder(
+                                  //   borderRadius: BorderRadius.vertical(
+                                  //     bottom: Radius.circular(30.0),
+                                  //   ),
+                                  // ),
                                 ),
-                                onTap: () {
-                                  AutoRouter.of(context)
-                                      .push(HistoriqueLivraisonRoute());
+                                SliverList(
+                                    delegate: SliverChildBuilderDelegate(
+                                        (_, ctx) => FirstView(),
+                                        childCount: 1))
+                              ])),
+                          floatingActionButton: FloatingActionBubble(
+                            items: <Bubble>[
+                              // Floating action menu item
+                              Bubble(
+                                title: 'livraison'.tr(),
+                                iconColor: Colors.white,
+                                bubbleColor: ColorsApp.primary,
+                                icon: Icons.collections,
+                                titleStyle: TextStyle(
+                                    fontSize: 16, color: Colors.white),
+                                onPress: () {
+                                  _animationController!.reverse();
+                                  // AutoRouter.of(context)
+                                  //     .pushNamed(NewLivraisonPage.routeName);
                                 },
-                              )
+                              ),
+                              Bubble(
+                                title: 'pharmacie'.tr(),
+                                iconColor: Colors.white,
+                                bubbleColor: ColorsApp.black,
+                                icon: Icons.medical_information,
+                                titleStyle: TextStyle(
+                                    fontSize: 16, color: Colors.white),
+                                onPress: () {
+                                  _animationController!.reverse();
+                               
+                                },
+                              ),
                             ],
+                            animation: _animation!,
+                            onPress: () => _animationController!.isCompleted
+                                ? _animationController!.reverse()
+                                : _animationController!.forward(),
+                            iconColor: ColorsApp.primary,
+                            iconData: Icons.add,
+                            backGroundColor: Colors.white,
                           ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+                          resizeToAvoidBottomInset: true,
+                        ));
   }
 }
 

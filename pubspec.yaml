@@ -48,7 +48,7 @@ dependencies:
   webview_flutter: ^4.2.3
   google_sign_in:
   file_picker: ^8.0.3
-  
+
   auto_route: ^7.8.3
   flutter_bloc: ^8.0.1
   freezed_annotation: ^2.0.3
@@ -73,7 +73,7 @@ dependencies:
   rxdart: ^0.27.7
   floating_action_bubble: ^1.1.4
   contacts_service: ^0.6.3
-  fluttertoast: ^8.2.4
+  fluttertoast: ^8.2.4 
 dev_dependencies:
   flutter_test:
     sdk: flutter
