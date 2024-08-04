@@ -71,6 +71,7 @@ mixin _$LivraisonEvent {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -125,6 +126,7 @@ mixin _$LivraisonEvent {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -178,6 +180,7 @@ mixin _$LivraisonEvent {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -239,6 +242,7 @@ mixin _$LivraisonEvent {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -291,6 +295,7 @@ mixin _$LivraisonEvent {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -343,6 +348,7 @@ mixin _$LivraisonEvent {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -462,6 +468,7 @@ class _$VerifyFormLivraisonType1EventImpl
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return verifyFormType1();
   }
@@ -519,6 +526,7 @@ class _$VerifyFormLivraisonType1EventImpl
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return verifyFormType1?.call();
   }
@@ -575,6 +583,7 @@ class _$VerifyFormLivraisonType1EventImpl
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (verifyFormType1 != null) {
@@ -642,6 +651,7 @@ class _$VerifyFormLivraisonType1EventImpl
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return verifyFormType1(this);
   }
@@ -697,6 +707,7 @@ class _$VerifyFormLivraisonType1EventImpl
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return verifyFormType1?.call(this);
   }
@@ -752,6 +763,7 @@ class _$VerifyFormLivraisonType1EventImpl
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (verifyFormType1 != null) {
@@ -858,6 +870,7 @@ class _$BackIndexType1EventImpl implements BackIndexType1Event {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return backIndexType1();
   }
@@ -915,6 +928,7 @@ class _$BackIndexType1EventImpl implements BackIndexType1Event {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return backIndexType1?.call();
   }
@@ -971,6 +985,7 @@ class _$BackIndexType1EventImpl implements BackIndexType1Event {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (backIndexType1 != null) {
@@ -1038,6 +1053,7 @@ class _$BackIndexType1EventImpl implements BackIndexType1Event {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return backIndexType1(this);
   }
@@ -1093,6 +1109,7 @@ class _$BackIndexType1EventImpl implements BackIndexType1Event {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return backIndexType1?.call(this);
   }
@@ -1148,6 +1165,7 @@ class _$BackIndexType1EventImpl implements BackIndexType1Event {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (backIndexType1 != null) {
@@ -1255,6 +1273,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return getVilleAndCategory();
   }
@@ -1312,6 +1331,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return getVilleAndCategory?.call();
   }
@@ -1368,6 +1388,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1435,6 +1456,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return getVilleAndCategory(this);
   }
@@ -1490,6 +1512,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return getVilleAndCategory?.call(this);
   }
@@ -1545,6 +1568,7 @@ class _$GetVilleAndCategoryEventImpl implements GetVilleAndCategoryEvent {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getVilleAndCategory != null) {
@@ -1675,6 +1699,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return selectedVille(ville);
   }
@@ -1732,6 +1757,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return selectedVille?.call(ville);
   }
@@ -1788,6 +1814,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -1855,6 +1882,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return selectedVille(this);
   }
@@ -1910,6 +1938,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return selectedVille?.call(this);
   }
@@ -1965,6 +1994,7 @@ class _$SelectedVilleImpl implements SelectedVille {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectedVille != null) {
@@ -2103,6 +2133,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return selectedCategory(categoryColis);
   }
@@ -2160,6 +2191,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return selectedCategory?.call(categoryColis);
   }
@@ -2216,6 +2248,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -2283,6 +2316,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return selectedCategory(this);
   }
@@ -2338,6 +2372,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return selectedCategory?.call(this);
   }
@@ -2393,6 +2428,7 @@ class _$SelectedCategoryImpl implements SelectedCategory {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectedCategory != null) {
@@ -2533,6 +2569,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return selectPointRecuperation(point_recup);
   }
@@ -2590,6 +2627,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return selectPointRecuperation?.call(point_recup);
   }
@@ -2646,6 +2684,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -2713,6 +2752,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return selectPointRecuperation(this);
   }
@@ -2768,6 +2808,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return selectPointRecuperation?.call(this);
   }
@@ -2823,6 +2864,7 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectPointRecuperation != null) {
@@ -2937,6 +2979,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return clearPointRecuperation();
   }
@@ -2994,6 +3037,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return clearPointRecuperation?.call();
   }
@@ -3050,6 +3094,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (clearPointRecuperation != null) {
@@ -3117,6 +3162,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return clearPointRecuperation(this);
   }
@@ -3172,6 +3218,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return clearPointRecuperation?.call(this);
   }
@@ -3227,6 +3274,7 @@ class _$ClearPointRecuperationImpl implements ClearPointRecuperation {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (clearPointRecuperation != null) {
@@ -3332,6 +3380,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return clearPoinLivraison();
   }
@@ -3389,6 +3438,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return clearPoinLivraison?.call();
   }
@@ -3445,6 +3495,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (clearPoinLivraison != null) {
@@ -3512,6 +3563,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return clearPoinLivraison(this);
   }
@@ -3567,6 +3619,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return clearPoinLivraison?.call(this);
   }
@@ -3622,6 +3675,7 @@ class _$ClearPointLivraisonImpl implements ClearPointLivraison {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (clearPoinLivraison != null) {
@@ -3765,6 +3819,7 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return Start(latLng, quartier_recuperation_point);
   }
@@ -3822,6 +3877,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return Start?.call(latLng, quartier_recuperation_point);
   }
@@ -3878,6 +3934,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -3945,6 +4002,7 @@ class _$SetLogLatImpl implements SetLogLat {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return Start(this);
   }
@@ -4000,6 +4058,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return Start?.call(this);
   }
@@ -4055,6 +4114,7 @@ class _$SetLogLatImpl implements SetLogLat {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (Start != null) {
@@ -4167,6 +4227,7 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return setStartLogLat();
   }
@@ -4224,6 +4285,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return setStartLogLat?.call();
   }
@@ -4280,6 +4342,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -4347,6 +4410,7 @@ class _$StartLogLatImpl implements StartLogLat {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return setStartLogLat(this);
   }
@@ -4402,6 +4466,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return setStartLogLat?.call(this);
   }
@@ -4457,6 +4522,7 @@ class _$StartLogLatImpl implements StartLogLat {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (setStartLogLat != null) {
@@ -4588,6 +4654,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return getRecupPoint(ville);
   }
@@ -4645,6 +4712,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return getRecupPoint?.call(ville);
   }
@@ -4701,6 +4769,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -4768,6 +4837,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return getRecupPoint(this);
   }
@@ -4823,6 +4893,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return getRecupPoint?.call(this);
   }
@@ -4878,6 +4949,7 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getRecupPoint != null) {
@@ -5015,6 +5087,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return searchpointevent(text);
   }
@@ -5072,6 +5145,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return searchpointevent?.call(text);
   }
@@ -5128,6 +5202,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -5195,6 +5270,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return searchpointevent(this);
   }
@@ -5250,6 +5326,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return searchpointevent?.call(this);
   }
@@ -5305,6 +5382,7 @@ class _$SearchPointEventImpl implements SearchPointEvent {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (searchpointevent != null) {
@@ -5441,6 +5519,7 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return mapSelected(status);
   }
@@ -5498,6 +5577,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return mapSelected?.call(status);
   }
@@ -5554,6 +5634,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -5621,6 +5702,7 @@ class _$MapSelectedImpl implements MapSelected {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return mapSelected(this);
   }
@@ -5676,6 +5758,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return mapSelected?.call(this);
   }
@@ -5731,6 +5814,7 @@ class _$MapSelectedImpl implements MapSelected {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (mapSelected != null) {
@@ -5876,6 +5960,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return mapValidatePoint(libelle, quartier);
   }
@@ -5933,6 +6018,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return mapValidatePoint?.call(libelle, quartier);
   }
@@ -5989,6 +6075,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -6056,6 +6143,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return mapValidatePoint(this);
   }
@@ -6111,6 +6199,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return mapValidatePoint?.call(this);
   }
@@ -6166,6 +6255,7 @@ class _$MapValidatePointImpl implements MapValidatePoint {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (mapValidatePoint != null) {
@@ -6317,6 +6407,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return mapValidatePointLivraison(libelle, quartier);
   }
@@ -6374,6 +6465,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return mapValidatePointLivraison?.call(libelle, quartier);
   }
@@ -6430,6 +6522,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -6497,6 +6590,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return mapValidatePointLivraison(this);
   }
@@ -6552,6 +6646,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return mapValidatePointLivraison?.call(this);
   }
@@ -6607,6 +6702,7 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (mapValidatePointLivraison != null) {
@@ -6719,6 +6815,7 @@ class _$AddColisType1Impl implements AddColisType1 {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return addColisType1();
   }
@@ -6776,6 +6873,7 @@ class _$AddColisType1Impl implements AddColisType1 {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return addColisType1?.call();
   }
@@ -6832,6 +6930,7 @@ class _$AddColisType1Impl implements AddColisType1 {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (addColisType1 != null) {
@@ -6899,6 +6998,7 @@ class _$AddColisType1Impl implements AddColisType1 {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return addColisType1(this);
   }
@@ -6954,6 +7054,7 @@ class _$AddColisType1Impl implements AddColisType1 {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return addColisType1?.call(this);
   }
@@ -7009,6 +7110,7 @@ class _$AddColisType1Impl implements AddColisType1 {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (addColisType1 != null) {
@@ -7139,6 +7241,7 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return updateColis(idColis);
   }
@@ -7196,6 +7299,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return updateColis?.call(idColis);
   }
@@ -7252,6 +7356,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -7319,6 +7424,7 @@ class _$UpdateColisImpl implements UpdateColis {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return updateColis(this);
   }
@@ -7374,6 +7480,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return updateColis?.call(this);
   }
@@ -7429,6 +7536,7 @@ class _$UpdateColisImpl implements UpdateColis {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (updateColis != null) {
@@ -7564,6 +7672,7 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return deleteColis(idColis);
   }
@@ -7621,6 +7730,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return deleteColis?.call(idColis);
   }
@@ -7677,6 +7787,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -7744,6 +7855,7 @@ class _$DeleteColisImpl implements DeleteColis {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return deleteColis(this);
   }
@@ -7799,6 +7911,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return deleteColis?.call(this);
   }
@@ -7854,6 +7967,7 @@ class _$DeleteColisImpl implements DeleteColis {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (deleteColis != null) {
@@ -7965,6 +8079,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return getImageColisAppareil();
   }
@@ -8022,6 +8137,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return getImageColisAppareil?.call();
   }
@@ -8078,6 +8194,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -8145,6 +8262,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return getImageColisAppareil(this);
   }
@@ -8200,6 +8318,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return getImageColisAppareil?.call(this);
   }
@@ -8255,6 +8374,7 @@ class _$GetImageColisAppareilImpl implements GetImageColisAppareil {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getImageColisAppareil != null) {
@@ -8360,6 +8480,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return getImageColisGalerie();
   }
@@ -8417,6 +8538,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return getImageColisGalerie?.call();
   }
@@ -8473,6 +8595,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -8540,6 +8663,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return getImageColisGalerie(this);
   }
@@ -8595,6 +8719,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return getImageColisGalerie?.call(this);
   }
@@ -8650,6 +8775,7 @@ class _$GetImageColisGalerieImpl implements GetImageColisGalerie {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getImageColisGalerie != null) {
@@ -8782,6 +8908,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return addImageColisAppareil(idColis);
   }
@@ -8839,6 +8966,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return addImageColisAppareil?.call(idColis);
   }
@@ -8895,6 +9023,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -8962,6 +9091,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return addImageColisAppareil(this);
   }
@@ -9017,6 +9147,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return addImageColisAppareil?.call(this);
   }
@@ -9072,6 +9203,7 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (addImageColisAppareil != null) {
@@ -9210,6 +9342,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return addImageColisGalerie(idColis);
   }
@@ -9267,6 +9400,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return addImageColisGalerie?.call(idColis);
   }
@@ -9323,6 +9457,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -9390,6 +9525,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return addImageColisGalerie(this);
   }
@@ -9445,6 +9581,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return addImageColisGalerie?.call(this);
   }
@@ -9500,6 +9637,7 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (addImageColisGalerie != null) {
@@ -9640,6 +9778,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return selectPointLivraisonColis(point_livraison);
   }
@@ -9697,6 +9836,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return selectPointLivraisonColis?.call(point_livraison);
   }
@@ -9753,6 +9893,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -9820,6 +9961,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return selectPointLivraisonColis(this);
   }
@@ -9875,6 +10017,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return selectPointLivraisonColis?.call(this);
   }
@@ -9930,6 +10073,7 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectPointLivraisonColis != null) {
@@ -10044,6 +10188,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return successLivraisonCreate();
   }
@@ -10101,6 +10246,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return successLivraisonCreate?.call();
   }
@@ -10157,6 +10303,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (successLivraisonCreate != null) {
@@ -10224,6 +10371,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return successLivraisonCreate(this);
   }
@@ -10279,6 +10427,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return successLivraisonCreate?.call(this);
   }
@@ -10334,6 +10483,7 @@ class _$SuccessLivraisonCreateImpl implements SuccessLivraisonCreate {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (successLivraisonCreate != null) {
@@ -10476,6 +10626,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return removeImageFromColis(idColis, position);
   }
@@ -10533,6 +10684,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return removeImageFromColis?.call(idColis, position);
   }
@@ -10589,6 +10741,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -10656,6 +10809,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return removeImageFromColis(this);
   }
@@ -10711,6 +10865,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return removeImageFromColis?.call(this);
   }
@@ -10766,6 +10921,7 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (removeImageFromColis != null) {
@@ -10926,6 +11082,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return updateImageInColis(idColis, position, updatedImage);
   }
@@ -10983,6 +11140,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return updateImageInColis?.call(idColis, position, updatedImage);
   }
@@ -11039,6 +11197,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -11106,6 +11265,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return updateImageInColis(this);
   }
@@ -11161,6 +11321,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return updateImageInColis?.call(this);
   }
@@ -11216,6 +11377,7 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (updateImageInColis != null) {
@@ -11356,6 +11518,7 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return selectColis(colis);
   }
@@ -11413,6 +11576,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return selectColis?.call(colis);
   }
@@ -11469,6 +11633,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -11536,6 +11701,7 @@ class _$SelectColisImpl implements SelectColis {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return selectColis(this);
   }
@@ -11591,6 +11757,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return selectColis?.call(this);
   }
@@ -11646,6 +11813,7 @@ class _$SelectColisImpl implements SelectColis {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectColis != null) {
@@ -11781,6 +11949,7 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return manageQte(state);
   }
@@ -11838,6 +12007,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return manageQte?.call(state);
   }
@@ -11894,6 +12064,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -11961,6 +12132,7 @@ class _$ManageQteImpl implements ManageQte {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return manageQte(this);
   }
@@ -12016,6 +12188,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return manageQte?.call(this);
   }
@@ -12071,6 +12244,7 @@ class _$ManageQteImpl implements ManageQte {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (manageQte != null) {
@@ -12180,6 +12354,7 @@ class _$CalculFraisType1Impl implements CalculFraisType1 {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return calculFraisType1();
   }
@@ -12237,6 +12412,7 @@ class _$CalculFraisType1Impl implements CalculFraisType1 {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return calculFraisType1?.call();
   }
@@ -12293,6 +12469,7 @@ class _$CalculFraisType1Impl implements CalculFraisType1 {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (calculFraisType1 != null) {
@@ -12360,6 +12537,7 @@ class _$CalculFraisType1Impl implements CalculFraisType1 {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return calculFraisType1(this);
   }
@@ -12415,6 +12593,7 @@ class _$CalculFraisType1Impl implements CalculFraisType1 {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return calculFraisType1?.call(this);
   }
@@ -12470,6 +12649,7 @@ class _$CalculFraisType1Impl implements CalculFraisType1 {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (calculFraisType1 != null) {
@@ -12574,6 +12754,7 @@ class _$NewLivraisonType1Impl implements NewLivraisonType1 {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return newLivraisonType1();
   }
@@ -12631,6 +12812,7 @@ class _$NewLivraisonType1Impl implements NewLivraisonType1 {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return newLivraisonType1?.call();
   }
@@ -12687,6 +12869,7 @@ class _$NewLivraisonType1Impl implements NewLivraisonType1 {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (newLivraisonType1 != null) {
@@ -12754,6 +12937,7 @@ class _$NewLivraisonType1Impl implements NewLivraisonType1 {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return newLivraisonType1(this);
   }
@@ -12809,6 +12993,7 @@ class _$NewLivraisonType1Impl implements NewLivraisonType1 {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return newLivraisonType1?.call(this);
   }
@@ -12864,6 +13049,7 @@ class _$NewLivraisonType1Impl implements NewLivraisonType1 {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (newLivraisonType1 != null) {
@@ -12969,6 +13155,7 @@ class _$VerifyLivraisonType1Impl implements VerifyLivraisonType1 {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return verifyLivraisonType1();
   }
@@ -13026,6 +13213,7 @@ class _$VerifyLivraisonType1Impl implements VerifyLivraisonType1 {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return verifyLivraisonType1?.call();
   }
@@ -13082,6 +13270,7 @@ class _$VerifyLivraisonType1Impl implements VerifyLivraisonType1 {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (verifyLivraisonType1 != null) {
@@ -13149,6 +13338,7 @@ class _$VerifyLivraisonType1Impl implements VerifyLivraisonType1 {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return verifyLivraisonType1(this);
   }
@@ -13204,6 +13394,7 @@ class _$VerifyLivraisonType1Impl implements VerifyLivraisonType1 {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return verifyLivraisonType1?.call(this);
   }
@@ -13259,6 +13450,7 @@ class _$VerifyLivraisonType1Impl implements VerifyLivraisonType1 {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (verifyLivraisonType1 != null) {
@@ -13366,6 +13558,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return getLivraison();
   }
@@ -13423,6 +13616,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return getLivraison?.call();
   }
@@ -13479,6 +13673,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getLivraison != null) {
@@ -13546,6 +13741,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return getLivraison(this);
   }
@@ -13601,6 +13797,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return getLivraison?.call(this);
   }
@@ -13656,6 +13853,7 @@ class _$HistoriqueUserLivraisonImpl implements HistoriqueUserLivraison {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getLivraison != null) {
@@ -13787,6 +13985,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return downloadFacture(id);
   }
@@ -13844,6 +14043,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return downloadFacture?.call(id);
   }
@@ -13900,6 +14100,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -13967,6 +14168,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return downloadFacture(this);
   }
@@ -14022,6 +14224,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return downloadFacture?.call(this);
   }
@@ -14077,6 +14280,7 @@ class _$DownloadFactureImpl implements DownloadFacture {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (downloadFacture != null) {
@@ -14187,6 +14391,7 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return noValidate();
   }
@@ -14244,6 +14449,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return noValidate?.call();
   }
@@ -14300,6 +14506,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (noValidate != null) {
@@ -14367,6 +14574,7 @@ class _$NoValidateImpl implements NoValidate {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return noValidate(this);
   }
@@ -14422,6 +14630,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return noValidate?.call(this);
   }
@@ -14477,6 +14686,7 @@ class _$NoValidateImpl implements NoValidate {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (noValidate != null) {
@@ -14581,6 +14791,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return onStartEvent();
   }
@@ -14638,6 +14849,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return onStartEvent?.call();
   }
@@ -14694,6 +14906,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (onStartEvent != null) {
@@ -14761,6 +14974,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return onStartEvent(this);
   }
@@ -14816,6 +15030,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return onStartEvent?.call(this);
   }
@@ -14871,6 +15086,7 @@ class _$OnStartEventImpl implements OnStartEvent {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (onStartEvent != null) {
@@ -14975,6 +15191,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return getMapPlaceInfo();
   }
@@ -15032,6 +15249,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return getMapPlaceInfo?.call();
   }
@@ -15088,6 +15306,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getMapPlaceInfo != null) {
@@ -15155,6 +15374,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return getMapPlaceInfo(this);
   }
@@ -15210,6 +15430,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return getMapPlaceInfo?.call(this);
   }
@@ -15265,6 +15486,7 @@ class _$GetMapPlaceInfoImpl implements GetMapPlaceInfo {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (getMapPlaceInfo != null) {
@@ -15395,6 +15617,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return onAutoComplet(text);
   }
@@ -15452,6 +15675,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return onAutoComplet?.call(text);
   }
@@ -15508,6 +15732,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (onAutoComplet != null) {
@@ -15575,6 +15800,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return onAutoComplet(this);
   }
@@ -15630,6 +15856,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return onAutoComplet?.call(this);
   }
@@ -15685,6 +15912,7 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (onAutoComplet != null) {
@@ -15821,6 +16049,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return ongetPlaceData(place);
   }
@@ -15878,6 +16107,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return ongetPlaceData?.call(place);
   }
@@ -15934,6 +16164,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (ongetPlaceData != null) {
@@ -16001,6 +16232,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return ongetPlaceData(this);
   }
@@ -16056,6 +16288,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return ongetPlaceData?.call(this);
   }
@@ -16111,6 +16344,7 @@ class _$GetPlaceDataImpl implements GetPlaceData {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (ongetPlaceData != null) {
@@ -16249,6 +16483,7 @@ class _$SelectModePaiementImpl implements SelectModePaiement {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return selectModePaiement(modePaiement);
   }
@@ -16306,6 +16541,7 @@ class _$SelectModePaiementImpl implements SelectModePaiement {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return selectModePaiement?.call(modePaiement);
   }
@@ -16362,6 +16598,7 @@ class _$SelectModePaiementImpl implements SelectModePaiement {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectModePaiement != null) {
@@ -16429,6 +16666,7 @@ class _$SelectModePaiementImpl implements SelectModePaiement {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return selectModePaiement(this);
   }
@@ -16484,6 +16722,7 @@ class _$SelectModePaiementImpl implements SelectModePaiement {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return selectModePaiement?.call(this);
   }
@@ -16539,6 +16778,7 @@ class _$SelectModePaiementImpl implements SelectModePaiement {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectModePaiement != null) {
@@ -16676,6 +16916,7 @@ class _$SelectServiceImpl implements SelectService {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return selectService(service);
   }
@@ -16733,6 +16974,7 @@ class _$SelectServiceImpl implements SelectService {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return selectService?.call(service);
   }
@@ -16789,6 +17031,7 @@ class _$SelectServiceImpl implements SelectService {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectService != null) {
@@ -16856,6 +17099,7 @@ class _$SelectServiceImpl implements SelectService {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return selectService(this);
   }
@@ -16911,6 +17155,7 @@ class _$SelectServiceImpl implements SelectService {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return selectService?.call(this);
   }
@@ -16966,6 +17211,7 @@ class _$SelectServiceImpl implements SelectService {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (selectService != null) {
@@ -17081,6 +17327,7 @@ class _$VerifyFormLivraisonType2EventImpl
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return verifyFormType2();
   }
@@ -17138,6 +17385,7 @@ class _$VerifyFormLivraisonType2EventImpl
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return verifyFormType2?.call();
   }
@@ -17194,6 +17442,7 @@ class _$VerifyFormLivraisonType2EventImpl
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (verifyFormType2 != null) {
@@ -17261,6 +17510,7 @@ class _$VerifyFormLivraisonType2EventImpl
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return verifyFormType2(this);
   }
@@ -17316,6 +17566,7 @@ class _$VerifyFormLivraisonType2EventImpl
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return verifyFormType2?.call(this);
   }
@@ -17371,6 +17622,7 @@ class _$VerifyFormLivraisonType2EventImpl
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (verifyFormType2 != null) {
@@ -17477,6 +17729,7 @@ class _$BackIndexType2EventImpl implements BackIndexType2Event {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return backIndexType2();
   }
@@ -17534,6 +17787,7 @@ class _$BackIndexType2EventImpl implements BackIndexType2Event {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return backIndexType2?.call();
   }
@@ -17590,6 +17844,7 @@ class _$BackIndexType2EventImpl implements BackIndexType2Event {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (backIndexType2 != null) {
@@ -17657,6 +17912,7 @@ class _$BackIndexType2EventImpl implements BackIndexType2Event {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return backIndexType2(this);
   }
@@ -17712,6 +17968,7 @@ class _$BackIndexType2EventImpl implements BackIndexType2Event {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return backIndexType2?.call(this);
   }
@@ -17767,6 +18024,7 @@ class _$BackIndexType2EventImpl implements BackIndexType2Event {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (backIndexType2 != null) {
@@ -17871,6 +18129,7 @@ class _$CalculFraisType2Impl implements CalculFraisType2 {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return calculFraisType2();
   }
@@ -17928,6 +18187,7 @@ class _$CalculFraisType2Impl implements CalculFraisType2 {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return calculFraisType2?.call();
   }
@@ -17984,6 +18244,7 @@ class _$CalculFraisType2Impl implements CalculFraisType2 {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (calculFraisType2 != null) {
@@ -18051,6 +18312,7 @@ class _$CalculFraisType2Impl implements CalculFraisType2 {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return calculFraisType2(this);
   }
@@ -18106,6 +18368,7 @@ class _$CalculFraisType2Impl implements CalculFraisType2 {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return calculFraisType2?.call(this);
   }
@@ -18161,6 +18424,7 @@ class _$CalculFraisType2Impl implements CalculFraisType2 {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (calculFraisType2 != null) {
@@ -18265,6 +18529,7 @@ class _$AddColisType2Impl implements AddColisType2 {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return addColisType2();
   }
@@ -18322,6 +18587,7 @@ class _$AddColisType2Impl implements AddColisType2 {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return addColisType2?.call();
   }
@@ -18378,6 +18644,7 @@ class _$AddColisType2Impl implements AddColisType2 {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (addColisType2 != null) {
@@ -18445,6 +18712,7 @@ class _$AddColisType2Impl implements AddColisType2 {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return addColisType2(this);
   }
@@ -18500,6 +18768,7 @@ class _$AddColisType2Impl implements AddColisType2 {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return addColisType2?.call(this);
   }
@@ -18555,6 +18824,7 @@ class _$AddColisType2Impl implements AddColisType2 {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (addColisType2 != null) {
@@ -18659,6 +18929,7 @@ class _$NewLivraisonType2Impl implements NewLivraisonType2 {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return newLivraisonType2();
   }
@@ -18716,6 +18987,7 @@ class _$NewLivraisonType2Impl implements NewLivraisonType2 {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return newLivraisonType2?.call();
   }
@@ -18772,6 +19044,7 @@ class _$NewLivraisonType2Impl implements NewLivraisonType2 {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (newLivraisonType2 != null) {
@@ -18839,6 +19112,7 @@ class _$NewLivraisonType2Impl implements NewLivraisonType2 {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return newLivraisonType2(this);
   }
@@ -18894,6 +19168,7 @@ class _$NewLivraisonType2Impl implements NewLivraisonType2 {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return newLivraisonType2?.call(this);
   }
@@ -18949,6 +19224,7 @@ class _$NewLivraisonType2Impl implements NewLivraisonType2 {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (newLivraisonType2 != null) {
@@ -19054,6 +19330,7 @@ class _$VerifyLivraisonStateImpl implements VerifyLivraisonState {
     required TResult Function() addColisType2,
     required TResult Function() newLivraisonType2,
     required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
   }) {
     return verifyLivraisonState();
   }
@@ -19111,6 +19388,7 @@ class _$VerifyLivraisonStateImpl implements VerifyLivraisonState {
     TResult? Function()? addColisType2,
     TResult? Function()? newLivraisonType2,
     TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
   }) {
     return verifyLivraisonState?.call();
   }
@@ -19167,6 +19445,7 @@ class _$VerifyLivraisonStateImpl implements VerifyLivraisonState {
     TResult Function()? addColisType2,
     TResult Function()? newLivraisonType2,
     TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
     required TResult orElse(),
   }) {
     if (verifyLivraisonState != null) {
@@ -19234,6 +19513,7 @@ class _$VerifyLivraisonStateImpl implements VerifyLivraisonState {
     required TResult Function(AddColisType2 value) addColisType2,
     required TResult Function(NewLivraisonType2 value) newLivraisonType2,
     required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
   }) {
     return verifyLivraisonState(this);
   }
@@ -19289,6 +19569,7 @@ class _$VerifyLivraisonStateImpl implements VerifyLivraisonState {
     TResult? Function(AddColisType2 value)? addColisType2,
     TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
   }) {
     return verifyLivraisonState?.call(this);
   }
@@ -19344,6 +19625,7 @@ class _$VerifyLivraisonStateImpl implements VerifyLivraisonState {
     TResult Function(AddColisType2 value)? addColisType2,
     TResult Function(NewLivraisonType2 value)? newLivraisonType2,
     TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
     required TResult orElse(),
   }) {
     if (verifyLivraisonState != null) {
@@ -19355,6 +19637,440 @@ class _$VerifyLivraisonStateImpl implements VerifyLivraisonState {
 
 abstract class VerifyLivraisonState implements LivraisonEvent {
   const factory VerifyLivraisonState() = _$VerifyLivraisonStateImpl;
+}
+
+/// @nodoc
+abstract class _$$GetConversationColisImplCopyWith<$Res> {
+  factory _$$GetConversationColisImplCopyWith(_$GetConversationColisImpl value,
+          $Res Function(_$GetConversationColisImpl) then) =
+      __$$GetConversationColisImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int idColis});
+}
+
+/// @nodoc
+class __$$GetConversationColisImplCopyWithImpl<$Res>
+    extends _$LivraisonEventCopyWithImpl<$Res, _$GetConversationColisImpl>
+    implements _$$GetConversationColisImplCopyWith<$Res> {
+  __$$GetConversationColisImplCopyWithImpl(_$GetConversationColisImpl _value,
+      $Res Function(_$GetConversationColisImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idColis = null,
+  }) {
+    return _then(_$GetConversationColisImpl(
+      idColis: null == idColis
+          ? _value.idColis
+          : idColis // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetConversationColisImpl implements GetConversationColis {
+  const _$GetConversationColisImpl({required this.idColis});
+
+  @override
+  final int idColis;
+
+  @override
+  String toString() {
+    return 'LivraisonEvent.getConversationColis(idColis: $idColis)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetConversationColisImpl &&
+            (identical(other.idColis, idColis) || other.idColis == idColis));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idColis);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetConversationColisImplCopyWith<_$GetConversationColisImpl>
+      get copyWith =>
+          __$$GetConversationColisImplCopyWithImpl<_$GetConversationColisImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() verifyFormType1,
+    required TResult Function() backIndexType1,
+    required TResult Function() getVilleAndCategory,
+    required TResult Function(VilleModel ville) selectedVille,
+    required TResult Function(CategoryModel categoryColis) selectedCategory,
+    required TResult Function(PointLivraisonModel point_recup)
+        selectPointRecuperation,
+    required TResult Function() clearPointRecuperation,
+    required TResult Function() clearPoinLivraison,
+    required TResult Function(
+            LatLng latLng, String? quartier_recuperation_point)
+        Start,
+    required TResult Function() setStartLogLat,
+    required TResult Function(int ville) getRecupPoint,
+    required TResult Function(String text) searchpointevent,
+    required TResult Function(bool status) mapSelected,
+    required TResult Function(String libelle, String quartier) mapValidatePoint,
+    required TResult Function(String libelle, String quartier)
+        mapValidatePointLivraison,
+    required TResult Function() addColisType1,
+    required TResult Function(int idColis) updateColis,
+    required TResult Function(int idColis) deleteColis,
+    required TResult Function() getImageColisAppareil,
+    required TResult Function() getImageColisGalerie,
+    required TResult Function(int idColis) addImageColisAppareil,
+    required TResult Function(int idColis) addImageColisGalerie,
+    required TResult Function(PointLivraisonModel point_livraison)
+        selectPointLivraisonColis,
+    required TResult Function() successLivraisonCreate,
+    required TResult Function(int idColis, int position) removeImageFromColis,
+    required TResult Function(int idColis, int position, File updatedImage)
+        updateImageInColis,
+    required TResult Function(Colis colis) selectColis,
+    required TResult Function(bool state) manageQte,
+    required TResult Function() calculFraisType1,
+    required TResult Function() newLivraisonType1,
+    required TResult Function() verifyLivraisonType1,
+    required TResult Function() getLivraison,
+    required TResult Function(int id) downloadFacture,
+    required TResult Function() noValidate,
+    required TResult Function() onStartEvent,
+    required TResult Function() getMapPlaceInfo,
+    required TResult Function(String text) onAutoComplet,
+    required TResult Function(PlaceModel place) ongetPlaceData,
+    required TResult Function(ModePaiementModel modePaiement)
+        selectModePaiement,
+    required TResult Function(ServiceModel service) selectService,
+    required TResult Function() verifyFormType2,
+    required TResult Function() backIndexType2,
+    required TResult Function() calculFraisType2,
+    required TResult Function() addColisType2,
+    required TResult Function() newLivraisonType2,
+    required TResult Function() verifyLivraisonState,
+    required TResult Function(int idColis) getConversationColis,
+  }) {
+    return getConversationColis(idColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? verifyFormType1,
+    TResult? Function()? backIndexType1,
+    TResult? Function()? getVilleAndCategory,
+    TResult? Function(VilleModel ville)? selectedVille,
+    TResult? Function(CategoryModel categoryColis)? selectedCategory,
+    TResult? Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult? Function()? clearPointRecuperation,
+    TResult? Function()? clearPoinLivraison,
+    TResult? Function(LatLng latLng, String? quartier_recuperation_point)?
+        Start,
+    TResult? Function()? setStartLogLat,
+    TResult? Function(int ville)? getRecupPoint,
+    TResult? Function(String text)? searchpointevent,
+    TResult? Function(bool status)? mapSelected,
+    TResult? Function(String libelle, String quartier)? mapValidatePoint,
+    TResult? Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult? Function()? addColisType1,
+    TResult? Function(int idColis)? updateColis,
+    TResult? Function(int idColis)? deleteColis,
+    TResult? Function()? getImageColisAppareil,
+    TResult? Function()? getImageColisGalerie,
+    TResult? Function(int idColis)? addImageColisAppareil,
+    TResult? Function(int idColis)? addImageColisGalerie,
+    TResult? Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult? Function()? successLivraisonCreate,
+    TResult? Function(int idColis, int position)? removeImageFromColis,
+    TResult? Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult? Function(Colis colis)? selectColis,
+    TResult? Function(bool state)? manageQte,
+    TResult? Function()? calculFraisType1,
+    TResult? Function()? newLivraisonType1,
+    TResult? Function()? verifyLivraisonType1,
+    TResult? Function()? getLivraison,
+    TResult? Function(int id)? downloadFacture,
+    TResult? Function()? noValidate,
+    TResult? Function()? onStartEvent,
+    TResult? Function()? getMapPlaceInfo,
+    TResult? Function(String text)? onAutoComplet,
+    TResult? Function(PlaceModel place)? ongetPlaceData,
+    TResult? Function(ModePaiementModel modePaiement)? selectModePaiement,
+    TResult? Function(ServiceModel service)? selectService,
+    TResult? Function()? verifyFormType2,
+    TResult? Function()? backIndexType2,
+    TResult? Function()? calculFraisType2,
+    TResult? Function()? addColisType2,
+    TResult? Function()? newLivraisonType2,
+    TResult? Function()? verifyLivraisonState,
+    TResult? Function(int idColis)? getConversationColis,
+  }) {
+    return getConversationColis?.call(idColis);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? verifyFormType1,
+    TResult Function()? backIndexType1,
+    TResult Function()? getVilleAndCategory,
+    TResult Function(VilleModel ville)? selectedVille,
+    TResult Function(CategoryModel categoryColis)? selectedCategory,
+    TResult Function(PointLivraisonModel point_recup)? selectPointRecuperation,
+    TResult Function()? clearPointRecuperation,
+    TResult Function()? clearPoinLivraison,
+    TResult Function(LatLng latLng, String? quartier_recuperation_point)? Start,
+    TResult Function()? setStartLogLat,
+    TResult Function(int ville)? getRecupPoint,
+    TResult Function(String text)? searchpointevent,
+    TResult Function(bool status)? mapSelected,
+    TResult Function(String libelle, String quartier)? mapValidatePoint,
+    TResult Function(String libelle, String quartier)?
+        mapValidatePointLivraison,
+    TResult Function()? addColisType1,
+    TResult Function(int idColis)? updateColis,
+    TResult Function(int idColis)? deleteColis,
+    TResult Function()? getImageColisAppareil,
+    TResult Function()? getImageColisGalerie,
+    TResult Function(int idColis)? addImageColisAppareil,
+    TResult Function(int idColis)? addImageColisGalerie,
+    TResult Function(PointLivraisonModel point_livraison)?
+        selectPointLivraisonColis,
+    TResult Function()? successLivraisonCreate,
+    TResult Function(int idColis, int position)? removeImageFromColis,
+    TResult Function(int idColis, int position, File updatedImage)?
+        updateImageInColis,
+    TResult Function(Colis colis)? selectColis,
+    TResult Function(bool state)? manageQte,
+    TResult Function()? calculFraisType1,
+    TResult Function()? newLivraisonType1,
+    TResult Function()? verifyLivraisonType1,
+    TResult Function()? getLivraison,
+    TResult Function(int id)? downloadFacture,
+    TResult Function()? noValidate,
+    TResult Function()? onStartEvent,
+    TResult Function()? getMapPlaceInfo,
+    TResult Function(String text)? onAutoComplet,
+    TResult Function(PlaceModel place)? ongetPlaceData,
+    TResult Function(ModePaiementModel modePaiement)? selectModePaiement,
+    TResult Function(ServiceModel service)? selectService,
+    TResult Function()? verifyFormType2,
+    TResult Function()? backIndexType2,
+    TResult Function()? calculFraisType2,
+    TResult Function()? addColisType2,
+    TResult Function()? newLivraisonType2,
+    TResult Function()? verifyLivraisonState,
+    TResult Function(int idColis)? getConversationColis,
+    required TResult orElse(),
+  }) {
+    if (getConversationColis != null) {
+      return getConversationColis(idColis);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(VerifyFormLivraisonType1Event value)
+        verifyFormType1,
+    required TResult Function(BackIndexType1Event value) backIndexType1,
+    required TResult Function(GetVilleAndCategoryEvent value)
+        getVilleAndCategory,
+    required TResult Function(SelectedVille value) selectedVille,
+    required TResult Function(SelectedCategory value) selectedCategory,
+    required TResult Function(SelectPointRecuperation value)
+        selectPointRecuperation,
+    required TResult Function(ClearPointRecuperation value)
+        clearPointRecuperation,
+    required TResult Function(ClearPointLivraison value) clearPoinLivraison,
+    required TResult Function(SetLogLat value) Start,
+    required TResult Function(StartLogLat value) setStartLogLat,
+    required TResult Function(GetRecupPointEvent value) getRecupPoint,
+    required TResult Function(SearchPointEvent value) searchpointevent,
+    required TResult Function(MapSelected value) mapSelected,
+    required TResult Function(MapValidatePoint value) mapValidatePoint,
+    required TResult Function(MapValidatePointLivraison value)
+        mapValidatePointLivraison,
+    required TResult Function(AddColisType1 value) addColisType1,
+    required TResult Function(UpdateColis value) updateColis,
+    required TResult Function(DeleteColis value) deleteColis,
+    required TResult Function(GetImageColisAppareil value)
+        getImageColisAppareil,
+    required TResult Function(GetImageColisGalerie value) getImageColisGalerie,
+    required TResult Function(AddImageColisAppareil value)
+        addImageColisAppareil,
+    required TResult Function(AddImageColisGalerie value) addImageColisGalerie,
+    required TResult Function(SelectPointLivraisonColis value)
+        selectPointLivraisonColis,
+    required TResult Function(SuccessLivraisonCreate value)
+        successLivraisonCreate,
+    required TResult Function(RemoveImageFromColis value) removeImageFromColis,
+    required TResult Function(UpdateImageInColis value) updateImageInColis,
+    required TResult Function(SelectColis value) selectColis,
+    required TResult Function(ManageQte value) manageQte,
+    required TResult Function(CalculFraisType1 value) calculFraisType1,
+    required TResult Function(NewLivraisonType1 value) newLivraisonType1,
+    required TResult Function(VerifyLivraisonType1 value) verifyLivraisonType1,
+    required TResult Function(HistoriqueUserLivraison value) getLivraison,
+    required TResult Function(DownloadFacture value) downloadFacture,
+    required TResult Function(NoValidate value) noValidate,
+    required TResult Function(OnStartEvent value) onStartEvent,
+    required TResult Function(GetMapPlaceInfo value) getMapPlaceInfo,
+    required TResult Function(OnAutoComplet value) onAutoComplet,
+    required TResult Function(GetPlaceData value) ongetPlaceData,
+    required TResult Function(SelectModePaiement value) selectModePaiement,
+    required TResult Function(SelectService value) selectService,
+    required TResult Function(VerifyFormLivraisonType2Event value)
+        verifyFormType2,
+    required TResult Function(BackIndexType2Event value) backIndexType2,
+    required TResult Function(CalculFraisType2 value) calculFraisType2,
+    required TResult Function(AddColisType2 value) addColisType2,
+    required TResult Function(NewLivraisonType2 value) newLivraisonType2,
+    required TResult Function(VerifyLivraisonState value) verifyLivraisonState,
+    required TResult Function(GetConversationColis value) getConversationColis,
+  }) {
+    return getConversationColis(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(VerifyFormLivraisonType1Event value)? verifyFormType1,
+    TResult? Function(BackIndexType1Event value)? backIndexType1,
+    TResult? Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult? Function(SelectedVille value)? selectedVille,
+    TResult? Function(SelectedCategory value)? selectedCategory,
+    TResult? Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult? Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult? Function(ClearPointLivraison value)? clearPoinLivraison,
+    TResult? Function(SetLogLat value)? Start,
+    TResult? Function(StartLogLat value)? setStartLogLat,
+    TResult? Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult? Function(SearchPointEvent value)? searchpointevent,
+    TResult? Function(MapSelected value)? mapSelected,
+    TResult? Function(MapValidatePoint value)? mapValidatePoint,
+    TResult? Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult? Function(AddColisType1 value)? addColisType1,
+    TResult? Function(UpdateColis value)? updateColis,
+    TResult? Function(DeleteColis value)? deleteColis,
+    TResult? Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult? Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult? Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult? Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult? Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult? Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult? Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult? Function(UpdateImageInColis value)? updateImageInColis,
+    TResult? Function(SelectColis value)? selectColis,
+    TResult? Function(ManageQte value)? manageQte,
+    TResult? Function(CalculFraisType1 value)? calculFraisType1,
+    TResult? Function(NewLivraisonType1 value)? newLivraisonType1,
+    TResult? Function(VerifyLivraisonType1 value)? verifyLivraisonType1,
+    TResult? Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult? Function(DownloadFacture value)? downloadFacture,
+    TResult? Function(NoValidate value)? noValidate,
+    TResult? Function(OnStartEvent value)? onStartEvent,
+    TResult? Function(GetMapPlaceInfo value)? getMapPlaceInfo,
+    TResult? Function(OnAutoComplet value)? onAutoComplet,
+    TResult? Function(GetPlaceData value)? ongetPlaceData,
+    TResult? Function(SelectModePaiement value)? selectModePaiement,
+    TResult? Function(SelectService value)? selectService,
+    TResult? Function(VerifyFormLivraisonType2Event value)? verifyFormType2,
+    TResult? Function(BackIndexType2Event value)? backIndexType2,
+    TResult? Function(CalculFraisType2 value)? calculFraisType2,
+    TResult? Function(AddColisType2 value)? addColisType2,
+    TResult? Function(NewLivraisonType2 value)? newLivraisonType2,
+    TResult? Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult? Function(GetConversationColis value)? getConversationColis,
+  }) {
+    return getConversationColis?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(VerifyFormLivraisonType1Event value)? verifyFormType1,
+    TResult Function(BackIndexType1Event value)? backIndexType1,
+    TResult Function(GetVilleAndCategoryEvent value)? getVilleAndCategory,
+    TResult Function(SelectedVille value)? selectedVille,
+    TResult Function(SelectedCategory value)? selectedCategory,
+    TResult Function(SelectPointRecuperation value)? selectPointRecuperation,
+    TResult Function(ClearPointRecuperation value)? clearPointRecuperation,
+    TResult Function(ClearPointLivraison value)? clearPoinLivraison,
+    TResult Function(SetLogLat value)? Start,
+    TResult Function(StartLogLat value)? setStartLogLat,
+    TResult Function(GetRecupPointEvent value)? getRecupPoint,
+    TResult Function(SearchPointEvent value)? searchpointevent,
+    TResult Function(MapSelected value)? mapSelected,
+    TResult Function(MapValidatePoint value)? mapValidatePoint,
+    TResult Function(MapValidatePointLivraison value)?
+        mapValidatePointLivraison,
+    TResult Function(AddColisType1 value)? addColisType1,
+    TResult Function(UpdateColis value)? updateColis,
+    TResult Function(DeleteColis value)? deleteColis,
+    TResult Function(GetImageColisAppareil value)? getImageColisAppareil,
+    TResult Function(GetImageColisGalerie value)? getImageColisGalerie,
+    TResult Function(AddImageColisAppareil value)? addImageColisAppareil,
+    TResult Function(AddImageColisGalerie value)? addImageColisGalerie,
+    TResult Function(SelectPointLivraisonColis value)?
+        selectPointLivraisonColis,
+    TResult Function(SuccessLivraisonCreate value)? successLivraisonCreate,
+    TResult Function(RemoveImageFromColis value)? removeImageFromColis,
+    TResult Function(UpdateImageInColis value)? updateImageInColis,
+    TResult Function(SelectColis value)? selectColis,
+    TResult Function(ManageQte value)? manageQte,
+    TResult Function(CalculFraisType1 value)? calculFraisType1,
+    TResult Function(NewLivraisonType1 value)? newLivraisonType1,
+    TResult Function(VerifyLivraisonType1 value)? verifyLivraisonType1,
+    TResult Function(HistoriqueUserLivraison value)? getLivraison,
+    TResult Function(DownloadFacture value)? downloadFacture,
+    TResult Function(NoValidate value)? noValidate,
+    TResult Function(OnStartEvent value)? onStartEvent,
+    TResult Function(GetMapPlaceInfo value)? getMapPlaceInfo,
+    TResult Function(OnAutoComplet value)? onAutoComplet,
+    TResult Function(GetPlaceData value)? ongetPlaceData,
+    TResult Function(SelectModePaiement value)? selectModePaiement,
+    TResult Function(SelectService value)? selectService,
+    TResult Function(VerifyFormLivraisonType2Event value)? verifyFormType2,
+    TResult Function(BackIndexType2Event value)? backIndexType2,
+    TResult Function(CalculFraisType2 value)? calculFraisType2,
+    TResult Function(AddColisType2 value)? addColisType2,
+    TResult Function(NewLivraisonType2 value)? newLivraisonType2,
+    TResult Function(VerifyLivraisonState value)? verifyLivraisonState,
+    TResult Function(GetConversationColis value)? getConversationColis,
+    required TResult orElse(),
+  }) {
+    if (getConversationColis != null) {
+      return getConversationColis(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetConversationColis implements LivraisonEvent {
+  const factory GetConversationColis({required final int idColis}) =
+      _$GetConversationColisImpl;
+
+  int get idColis;
+  @JsonKey(ignore: true)
+  _$$GetConversationColisImplCopyWith<_$GetConversationColisImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -19429,6 +20145,9 @@ mixin _$LivraisonState {
       throw _privateConstructorUsedError;
   ServiceModel? get selectedService => throw _privateConstructorUsedError;
   int get indexType2 => throw _privateConstructorUsedError;
+  ConversationColisModel? get conversationColis =>
+      throw _privateConstructorUsedError;
+  int? get isLoadingConversationColis => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LivraisonStateCopyWith<LivraisonState> get copyWith =>
@@ -19499,7 +20218,9 @@ abstract class $LivraisonStateCopyWith<$Res> {
       LatLng? findedPlaceInfo,
       ModePaiementModel? selectedModePaiement,
       ServiceModel? selectedService,
-      int indexType2});
+      int indexType2,
+      ConversationColisModel? conversationColis,
+      int? isLoadingConversationColis});
 }
 
 /// @nodoc
@@ -19573,6 +20294,8 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? selectedModePaiement = freezed,
     Object? selectedService = freezed,
     Object? indexType2 = null,
+    Object? conversationColis = freezed,
+    Object? isLoadingConversationColis = freezed,
   }) {
     return _then(_value.copyWith(
       errorVille: freezed == errorVille
@@ -19807,6 +20530,14 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.indexType2
           : indexType2 // ignore: cast_nullable_to_non_nullable
               as int,
+      conversationColis: freezed == conversationColis
+          ? _value.conversationColis
+          : conversationColis // ignore: cast_nullable_to_non_nullable
+              as ConversationColisModel?,
+      isLoadingConversationColis: freezed == isLoadingConversationColis
+          ? _value.isLoadingConversationColis
+          : isLoadingConversationColis // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -19877,7 +20608,9 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       LatLng? findedPlaceInfo,
       ModePaiementModel? selectedModePaiement,
       ServiceModel? selectedService,
-      int indexType2});
+      int indexType2,
+      ConversationColisModel? conversationColis,
+      int? isLoadingConversationColis});
 }
 
 /// @nodoc
@@ -19949,6 +20682,8 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? selectedModePaiement = freezed,
     Object? selectedService = freezed,
     Object? indexType2 = null,
+    Object? conversationColis = freezed,
+    Object? isLoadingConversationColis = freezed,
   }) {
     return _then(_$LivraisonStateImpl(
       errorVille: freezed == errorVille
@@ -20183,6 +20918,14 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value.indexType2
           : indexType2 // ignore: cast_nullable_to_non_nullable
               as int,
+      conversationColis: freezed == conversationColis
+          ? _value.conversationColis
+          : conversationColis // ignore: cast_nullable_to_non_nullable
+              as ConversationColisModel?,
+      isLoadingConversationColis: freezed == isLoadingConversationColis
+          ? _value.isLoadingConversationColis
+          : isLoadingConversationColis // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -20248,7 +20991,9 @@ class _$LivraisonStateImpl implements _LivraisonState {
       this.findedPlaceInfo,
       this.selectedModePaiement,
       this.selectedService,
-      required this.indexType2})
+      required this.indexType2,
+      this.conversationColis,
+      this.isLoadingConversationColis})
       : _villeList = villeList,
         _listColis = listColis,
         _imageColis = imageColis,
@@ -20444,10 +21189,14 @@ class _$LivraisonStateImpl implements _LivraisonState {
   final ServiceModel? selectedService;
   @override
   final int indexType2;
+  @override
+  final ConversationColisModel? conversationColis;
+  @override
+  final int? isLoadingConversationColis;
 
   @override
   String toString() {
-    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, indexType1: $indexType1, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadPLivraison: $isLoadPLivraison, isLoadLivraison: $isLoadLivraison, isLoadVille: $isLoadVille, isColisOK: $isColisOK, successLivraison: $successLivraison, launchUrl: $launchUrl, loadingMapPlaceInfo: $loadingMapPlaceInfo, mapPlaceInfo: $mapPlaceInfo, isLoadVCategory: $isLoadVCategory, urlFacture: $urlFacture, errorMessage: $errorMessage, urlLivraison: $urlLivraison, userLivraisonList: $userLivraisonList, controller: $controller, position: $position, isLoadingPlaceSearch: $isLoadingPlaceSearch, currentLivraisonId: $currentLivraisonId, isLoadingPlaceSearchInfo: $isLoadingPlaceSearchInfo, list_search_place: $list_search_place, findedPlaceInfo: $findedPlaceInfo, selectedModePaiement: $selectedModePaiement, selectedService: $selectedService, indexType2: $indexType2)';
+    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, indexType1: $indexType1, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadPLivraison: $isLoadPLivraison, isLoadLivraison: $isLoadLivraison, isLoadVille: $isLoadVille, isColisOK: $isColisOK, successLivraison: $successLivraison, launchUrl: $launchUrl, loadingMapPlaceInfo: $loadingMapPlaceInfo, mapPlaceInfo: $mapPlaceInfo, isLoadVCategory: $isLoadVCategory, urlFacture: $urlFacture, errorMessage: $errorMessage, urlLivraison: $urlLivraison, userLivraisonList: $userLivraisonList, controller: $controller, position: $position, isLoadingPlaceSearch: $isLoadingPlaceSearch, currentLivraisonId: $currentLivraisonId, isLoadingPlaceSearchInfo: $isLoadingPlaceSearchInfo, list_search_place: $list_search_place, findedPlaceInfo: $findedPlaceInfo, selectedModePaiement: $selectedModePaiement, selectedService: $selectedService, indexType2: $indexType2, conversationColis: $conversationColis, isLoadingConversationColis: $isLoadingConversationColis)';
   }
 
   @override
@@ -20538,7 +21287,9 @@ class _$LivraisonStateImpl implements _LivraisonState {
             (identical(other.findedPlaceInfo, findedPlaceInfo) || other.findedPlaceInfo == findedPlaceInfo) &&
             (identical(other.selectedModePaiement, selectedModePaiement) || other.selectedModePaiement == selectedModePaiement) &&
             (identical(other.selectedService, selectedService) || other.selectedService == selectedService) &&
-            (identical(other.indexType2, indexType2) || other.indexType2 == indexType2));
+            (identical(other.indexType2, indexType2) || other.indexType2 == indexType2) &&
+            (identical(other.conversationColis, conversationColis) || other.conversationColis == conversationColis) &&
+            (identical(other.isLoadingConversationColis, isLoadingConversationColis) || other.isLoadingConversationColis == isLoadingConversationColis));
   }
 
   @override
@@ -20601,7 +21352,9 @@ class _$LivraisonStateImpl implements _LivraisonState {
         findedPlaceInfo,
         selectedModePaiement,
         selectedService,
-        indexType2
+        indexType2,
+        conversationColis,
+        isLoadingConversationColis
       ]);
 
   @JsonKey(ignore: true)
@@ -20671,7 +21424,9 @@ abstract class _LivraisonState implements LivraisonState {
       final LatLng? findedPlaceInfo,
       final ModePaiementModel? selectedModePaiement,
       final ServiceModel? selectedService,
-      required final int indexType2}) = _$LivraisonStateImpl;
+      required final int indexType2,
+      final ConversationColisModel? conversationColis,
+      final int? isLoadingConversationColis}) = _$LivraisonStateImpl;
 
   @override
   bool? get errorVille;
@@ -20789,6 +21544,10 @@ abstract class _LivraisonState implements LivraisonState {
   ServiceModel? get selectedService;
   @override
   int get indexType2;
+  @override
+  ConversationColisModel? get conversationColis;
+  @override
+  int? get isLoadingConversationColis;
   @override
   @JsonKey(ignore: true)
   _$$LivraisonStateImplCopyWith<_$LivraisonStateImpl> get copyWith =>

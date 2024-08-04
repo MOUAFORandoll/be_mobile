@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
+import 'package:BabanaExpress/application/model/data/ConversationColisModel.dart';
 import 'package:BabanaExpress/application/model/data/MapPlaceInfoModel.dart';
 import 'package:BabanaExpress/application/model/data/PlaceModel.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
@@ -113,6 +114,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<OnAutoComplet>(onAutoComplet);
     on<GetPlaceData>(ongetPlaceData);
     on<SelectModePaiement>(selectModePaiement);
+    on<GetConversationColis>(getConversationColis);
     on<BackIndexType2Event>((event, emit) async {
       print('BackIndexEvent');
       emit(state.copyWith(indexType2: 0));
@@ -190,7 +192,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
   Future<void> getMapPlaceInfo(
       GetMapPlaceInfo event, Emitter<LivraisonState> emit) async {
-    emit(state.copyWith(loadingMapPlaceInfo: 0));
+    emit(state.copyWith(loadingMapPlaceInfo: 0, mapPlaceInfo: null));
 
     await livraisonRepo
         .getMapPlaceInfo(state.position!.longitude, state.position!.latitude)
@@ -1271,6 +1273,28 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       print('---------------${e}');
       emit(state.copyWith(isRequest: 3));
       emit(state.copyWith(isRequest: null));
+    });
+  }
+
+  Future<void> getConversationColis(
+      GetConversationColis event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isLoadingConversationColis: 0));
+
+    await livraisonRepo.getConversationColis(event.idColis).then((response) {
+      print(response.data);
+      if (response.data != null) {
+        emit(state.copyWith(
+            isLoadingConversationColis: 1,
+            conversationColis:
+                ConversationColisModel.fromJson(response.data['data'])));
+        emit(state.copyWith(
+          isLoadingConversationColis: null,
+        ));
+      } else {
+        emit(state.copyWith(isLoadingConversationColis: 2));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(isLoadingConversationColis: 2));
     });
   }
 }

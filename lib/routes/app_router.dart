@@ -4,6 +4,7 @@ import 'package:BabanaExpress/presentation/compte/WalletView.dart';
 import 'package:BabanaExpress/presentation/home/HomePage.dart';
 import 'package:BabanaExpress/presentation/layer/onboardingpage.dart';
 import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonPage.dart';
+import 'package:BabanaExpress/presentation/livraison/ColisConversationPage.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataHomePage.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
@@ -72,6 +73,9 @@ class AppRouter extends $AppRouter {
         AutoRoute(
             page: SuccesLivraisonType2Route.page,
             path: SuccesLivraisonType2Page.routeName),
+        AutoRoute(
+            page: ColisConversationRoute.page,
+            path: ColisConversationPage.routeName),
       ];
 }
 //656019261

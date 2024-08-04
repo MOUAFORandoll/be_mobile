@@ -24,6 +24,12 @@ class LivraisonRepo {
     return a;
   }
 
+  Future getConversationColis(idColis ) async {
+    Response a =
+        await apiClient.getRequest(ApiRoutes.LIVRAISONS + '/conversation/${idColis}');
+
+    return a;
+  }
   Future downloadRapportLivraison(id) async {
     Response response =
         await apiClient.getRequest('/imprimer/facture-livraison/${id}');

@@ -7,10 +7,10 @@ abstract class ColorsApp {
 
   static const Color black = Color(0xFF101923);
   // static const Color second = Color(0xFF0BBC5C);
-  static const Color second = Color(0xFF00bec5);
+  static const Color second = Color(0xFF009FE3);
   static const Color tird = Color(0xFFFFC107);
   static const Color bg = Color.fromARGB(255, 248, 250, 250);
-  
+
   static const Color grey = Color(0xFFb2b2b2);
   static const greyNew =
       Color.fromARGB(255, 238, 238, 238); // Color(0xFFe5e5e5);

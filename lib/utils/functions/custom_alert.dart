@@ -24,7 +24,6 @@ class CustomArlert {
                     Center(
                       child: Text(
                         content!,
-                        textScaler: TextScaler.linear(12),
                         textAlign: TextAlign.center,
                       ),
                     )
@@ -101,11 +100,7 @@ class CustomArlert {
 }
 
 class CustomFlush {
-  void success(
-      { 
-      required String content,
-      bool? isError,
-      Toast? toastLength}) {
+  void success({required String content, bool? isError, Toast? toastLength}) {
     Fluttertoast.showToast(
         msg: content,
         toastLength: Toast.LENGTH_SHORT,
@@ -117,7 +112,6 @@ class CustomFlush {
   }
 
   void error({
-   
     required String content,
   }) {
     Fluttertoast.showToast(

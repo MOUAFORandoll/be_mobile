@@ -62,17 +62,20 @@ class LivraisonState with _$LivraisonState {
     ModePaiementModel? selectedModePaiement,
     ServiceModel? selectedService,
     required int indexType2,
+    ConversationColisModel? conversationColis,
+    int? isLoadingConversationColis,
   }) = _LivraisonState;
-  
+
   factory LivraisonState.initial() => LivraisonState(
         formKeyLivraison: GlobalKey<FormState>(),
-       errorMessage :'', formKeyColis: GlobalKey<FormState>(),
+        errorMessage: '',
+        formKeyColis: GlobalKey<FormState>(),
         loadingMapPlaceInfo: 0,
         selectedModePaiement: null,
         currentLivraisonId: null,
         list_search_place: [],
         paiement_url: '',
-        urlLivraison : '',
+        urlLivraison: '',
         findedPlaceInfo: null,
         selectedService: null,
         controller: null,

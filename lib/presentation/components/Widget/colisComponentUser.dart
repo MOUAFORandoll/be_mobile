@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
+import 'package:BabanaExpress/presentation/livraison/ColisConversationPage.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -30,7 +32,12 @@ class ColisComponentUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LivraisonBloc, LivraisonState>(
       builder: (context, state) => InkWell(
-        onTap: () => onOpenColis(context),
+        onTap: () {
+          context
+              .read<LivraisonBloc>()
+              .add(GetConversationColis(idColis: colis.id));
+          onOpenColis(context);
+        },
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -132,218 +139,12 @@ class ColisComponentUser extends StatelessWidget {
   }
 
   onOpenColis(context) => GlobalBottomSheet.show(
-      maxHeight: getHeight(context) * .4,
+      maxHeight: getHeight(context) * .9,
       context: context,
       title: 'Colis'.tr(),
       subtitle: 'Suivez les informations de votre colis'.tr(),
       widget: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: getWidth(context) * .07),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    child: CachedNetworkImage(
-                      height: getHeight(context) * .20,
-                      width: getWidth(context) * .4,
-                      fit: BoxFit.cover,
-                      imageUrl: colis.images[0].src,
-                      imageBuilder: (context, imageProvider) {
-                        return Container(
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              color: ColorsApp.primary.withOpacity(.1),
-                            ),
-                            image: DecorationImage(
-                                image: imageProvider,
-                                fit: BoxFit.cover,
-                                colorFilter: ColorFilter.mode(
-                                    Colors.transparent, BlendMode.colorBurn)),
-                          ),
-                        );
-                      },
-                      placeholder: (context, url) {
-                        return Container(
-                          child: /*  Shimmer.fromColors(
-                                  baseColor: ColorsApp.greyNew,
-                                  highlightColor:
-                                      ColorsApp.primary.withOpacity(.1),
-                                  child: */
-                              Skeletonizer(
-                                  enabled: true,
-                                  child: Container(
-                                    // height: getHeight(context) / 10,
-                                    // width: getHeight(context) / 10,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      color: ColorsApp.greyNew,
-                                    ),
-                                  )),
-                        );
-                      },
-                      errorWidget: (context, url, error) {
-                        return Container(
-                            // height: getHeight(context) / 10,
-                            // width: getHeight(context) / 10,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                image: DecorationImage(
-                                    image: AssetImage('assets/login.png'))));
-                      },
-                    ),
-                  ),
-                  if (colis.statusLivraisonColis == 0)
-                    Container(
-                        alignment: Alignment.center,
-                        margin: EdgeInsets.symmetric(vertical: kMarginY / 2),
-                        width: getWidth(context) * .4,
-                        child: Text(
-                          'ylAwait'.tr(),
-                          textAlign: TextAlign.center,
-                        )),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      if (colis.statusLivraisonColis == 1)
-                        Column(
-                          children: [
-                            Container(
-                                alignment: Alignment.center,
-                                margin: EdgeInsets.symmetric(
-                                    vertical: kMarginY / 2),
-                                width: getWidth(context) * .4,
-                                child: Text(
-                                  'yPresent'.tr(),
-                                  textAlign: TextAlign.center,
-                                )),
-                            // QrImageView(
-                            //   data: colis.code_recuperation_colis,
-                            //   version: QrVersions.auto,
-                            //   gapless: true,
-                            //   embeddedImage: AssetImage('assets/logo/logo.png'),
-                            //   // embeddedImageStyle:
-                            //   //     QrEmbeddedImageStyle(size: Size(20, 20)),
-                            //   size: 200.0,
-                            // ),
-
-                            Container(
-                                width: getWidth(context) * .4,
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(
-                                  vertical: kMarginY,
-                                ),
-                                margin:
-                                    EdgeInsets.symmetric(vertical: kMarginY),
-                                decoration: BoxDecoration(
-                                    color: ColorsApp.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: ColorsApp.grey.withOpacity(0.8),
-                                        spreadRadius: 2,
-                                        blurRadius: 5,
-                                        offset: Offset(0, 2),
-                                      ),
-                                    ],
-                                    borderRadius: BorderRadius.circular(8)),
-                                child: Text(
-                                  colis.code_recuperation_colis,
-                                ))
-                          ],
-                        ),
-                      if (colis.statusLivraisonColis == 1 ||
-                          colis.statusLivraisonColis == 2)
-                        Column(children: [
-                          Container(
-                              alignment: Alignment.center,
-                              margin:
-                                  EdgeInsets.symmetric(vertical: kMarginY / 2),
-                              width: getWidth(context) * .4,
-                              child: Text(
-                                'Partagez ce code au destinataire du colis'
-                                    .tr(),
-                                textAlign: TextAlign.center,
-                              )),
-                          InkWell(
-                              child: Container(
-                                width: getWidth(context) * .4,
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(
-                                    vertical: kMarginY, horizontal: kMarginX),
-                                margin:
-                                    EdgeInsets.symmetric(vertical: kMarginY),
-                                decoration: BoxDecoration(
-                                    color: ColorsApp.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: ColorsApp.grey.withOpacity(0.8),
-                                        spreadRadius: 2,
-                                        blurRadius: 5,
-                                        offset: Offset(0, 2),
-                                      ),
-                                    ],
-                                    borderRadius: BorderRadius.circular(8)),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SizedBox(),
-                                    Container(
-                                      child: Text(
-                                        colis.code_livraison_colis,
-                                      ),
-                                    ),
-                                    Icon(
-                                      Icons.switch_access_shortcut_add_outlined,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              onTap: () async => _shareCode())
-                        ]),
-                    ],
-                  ),
-                  //  Container(
-                  //   height: 150.0,
-                  //   child: RepaintBoundary(
-                  //     key: globalKey,
-                  //     child: QrImageView(
-                  //       data: colis.code_livraison_colis,
-                  //       version: QrVersions.auto,
-                  //       embeddedImage: AssetImage('assets/logo/logo.png'),
-                  //       // embeddedImageStyle:
-                  //       //     QrEmbeddedImageStyle(size: Size(20, 20)),
-                  //       size: 200.0,
-                  //     ),
-                  //   ),
-                  // ),
-
-                  if (colis.statusLivraisonColis == 2) Text('ylEncous'.tr()),
-                  if (colis.statusLivraisonColis == 3) Text('ylFinish'.tr()),
-                  // if (colis.statusLivraisonColis == 1)
-                  //   Container(
-                  //       margin: EdgeInsets.symmetric(
-                  //         vertical: kMarginY * 1.5,
-                  //       ),
-                  //       child: AppButtonIcon(
-                  //           icon: Icons.switch_access_shortcut_add_outlined,
-                  //           bgColor: ColorsApp.primary,
-                  //           textColor: ColorsApp.white,
-                  //           text: 'yShareCodeRecup'.tr(),
-                  //           onTap: () async => _captureAndSavePng())),
-                ]),
-          ),
-          if (colis.statusLivraisonColis != 3 &&
-              colis.statusLivraisonColis != 0)
-            Container(
-                margin: EdgeInsets.symmetric(vertical: kMarginY),
-                child: Text('Veuillez ne pas divulguer ces codes'.tr(),
-                    style: TextStyle(color: ColorsApp.red))),
-        ],
+        children: [ColisConversationPage(colis: colis)],
       ));
 
   Future<void> requestPermission() async {

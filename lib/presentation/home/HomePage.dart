@@ -10,6 +10,7 @@ import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
 import 'package:BabanaExpress/presentation/home/FirstView.dart';
 import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -19,353 +20,365 @@ import 'package:new_version_plus/new_version_plus.dart';
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
   static const routeName = '/home';
 
   const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  Animation<double>? _animation;
+  AnimationController? _animationController;
+
+  GoogleMapController? mapController;
+  late Marker _position;
+  final GeolocationService _geolocationService =
+      GeolocationService(); // Instance de la classe GeolocationService
+
+  double latitude = 0.0;
+  double longitude = 0.0;
+  final Completer<GoogleMapController> _controller =
+      Completer<GoogleMapController>();
+  CameraPosition? _kLake;
+
+  @override
+  void initState() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 260),
+    );
+
+    final curvedAnimation =
+        CurvedAnimation(curve: Curves.easeInOut, parent: _animationController!);
+    _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
+
+    super.initState();
+    _getPosition();
+    _checkForUpdate();
+    _listenToPositionStream();
+  }
+
   Future<void> _checkForUpdate() async {
     final newVersionPlus = NewVersionPlus(
       iOSId: null,
       androidId: 'com.app.babanaexpress',
     );
     final status = await newVersionPlus.getVersionStatus();
-    print('*---------***--------------------**');
-    print(status!.canUpdate);
-    print(status.localVersion);
-    print(status.storeVersion);
-    print(status.appStoreLink);
     newVersionPlus.showAlertIfNecessary(context: context);
-    print('*---------***--------------------**');
   }
 
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    print('state*************************');
-    print(AppLifecycleState.resumed);
-    if (state == AppLifecycleState.paused) {}
-  }
+  void _listenToPositionStream() {
+    _geolocationService.getPositionStream().listen((Position position) {
+      setState(() {
+        latitude = position.latitude;
+        longitude = position.longitude;
 
-  @override
-  void dispose() {
-    // WidgetsBinding.instance.removeObserver(this);
-
-    super.dispose();
-  }
-
-  Future<void> getPosition() async {
-    var position;
-    setState(() {
-      _kLake = null;
+        _updateCameraPosition();
+        _updateMarker(latitude: latitude, longitude: longitude);
+      });
+      context
+          .read<LivraisonBloc>()
+          .add(SetLogLat(latLng: LatLng(latitude, longitude)));
+      context.read<LivraisonBloc>().add(GetMapPlaceInfo());
     });
-    bool serviceEnabled;
-    LocationPermission permission;
+  }
 
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {}
-
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.always ||
-          permission == LocationPermission.unableToDetermine ||
-          permission == LocationPermission.whileInUse) {
-        position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high,
-        );
-      }
-    }
-    position = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high,
+  void _updateCameraPosition() {
+    _kLake = CameraPosition(
+      bearing: 0,
+      target: LatLng(latitude, longitude),
+      tilt: 0,
+      zoom: 17.5,
     );
-    position = await Geolocator.getCurrentPosition();
 
-    setState(() {
-      latitude = position.latitude;
-      longitude = position.longitude;
-
-      _kLake = CameraPosition(
-          bearing: 0,
-          target: LatLng(latitude, longitude),
-          tilt: 50,
-          zoom: 90.5);
-
-      _position = Marker(
-          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
-          markerId: MarkerId('1'),
-          draggable: true,
-          infoWindow: InfoWindow(
-            title: 'Vous etes ici',
-          ),
-          onTap: () {},
-          position: LatLng(latitude, longitude));
-    });
-    context.read<LivraisonBloc>().add(GetMapPlaceInfo());
-
-    super.initState();
+    if (mapController != null) {
+      mapController!.animateCamera(CameraUpdate.newCameraPosition(_kLake!));
+    }
   }
 
-  GoogleMapController? mapController;
-  late Marker _position;
+  Future<void> _getPosition() async {
+    final position = await _geolocationService.getCurrentPosition();
 
-  var latitude = 0.0;
-  var longitude = 0.0;
-  final Completer<GoogleMapController> _controller =
-      Completer<GoogleMapController>();
-  var _kLake;
-  initState() {
-    getPosition();
+    if (position != null) {
+      setState(() {
+        latitude = position.latitude;
+        longitude = position.longitude;
 
-    _checkForUpdate();
+        _updateCameraPosition();
+        _updateMarker(latitude: latitude, longitude: longitude);
+      });
+      context
+          .read<LivraisonBloc>()
+          .add(SetLogLat(latLng: LatLng(latitude, longitude)));
+      context.read<LivraisonBloc>().add(GetMapPlaceInfo());
+    } else {
+      // Gérez les erreurs ou les cas où la position n'a pas pu être obtenue
+    }
+  }
+
+  // void _updateMarker() {
+  //   _position = Marker(
+  //     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+  //     markerId: MarkerId('1'),
+  //     draggable: true,
+  //     infoWindow: InfoWindow(title: 'Vous êtes ici'),
+  //     position: LatLng(latitude, longitude),
+  //   );
+  // }
+
+  Future<BitmapDescriptor> _getMarkerIcon() async {
+    return await BitmapDescriptor.fromAssetImage(
+      ImageConfiguration(size: Size(48, 48)), // Spécifiez la taille ici
+      Assets.logo, // Chemin vers votre image dans les assets
+    );
+  }
+
+  _updateMarker({required latitude, required longitude}) async {
+    final markerIcon = await _getMarkerIcon();
+
+    setState(() {
+      _position = Marker(
+        icon: BitmapDescriptor.defaultMarker,
+        // icon: markerIcon,
+        markerId: MarkerId('1'),
+        draggable: true,
+        infoWindow: InfoWindow(
+          title: 'Vous êtes ici',
+        ),
+      
+        position: LatLng(latitude, longitude),
+      );
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeBloc, HomeState>(
-      listener: (context, state) {
-        if (state.user?.email.isEmpty ?? true) {
-          return openUpdateMail(context);
-        } else if (state.user?.phone.isEmpty ?? true) {
-          return openUpdateCompletePhoneProfile(context);
-        } else {
-          print('-----44-- ---find noe--*is ok*******');
-        }
+      listener: (context, state) {},
+      builder: (context, state) {
+        return BlocBuilder<LivraisonBloc, LivraisonState>(
+          builder: (context, stateSLivraison) {
+            return Scaffold(
+              backgroundColor: ColorsApp.greyNew,
+              drawer: CustomDrawer(user: state.user),
+              body: Stack(
+                children: [
+                  _kLake == null
+                      ? Center(child: CircularProgressIndicator())
+                      : _buildGoogleMap(),
+                  _buildFloatingAppBar(context, stateSLivraison),
+                  _buildDraggableBottomSheet(),
+                ],
+              ),
+            );
+          },
+        );
       },
-      builder: (context, state) => BlocBuilder<LivraisonBloc, LivraisonState>(
-        builder: (context, stateSLivraison) => Scaffold(
-          backgroundColor: Colors.transparent,
-          drawer: CustomDrawer(user: state.user),
-          body: Stack(
+    );
+  }
+
+  Widget _buildGoogleMap() {
+    return GoogleMap(
+      initialCameraPosition: _kLake!,
+      myLocationEnabled: true,
+      myLocationButtonEnabled: false,
+      indoorViewEnabled: true,
+      markers: {_position},
+      onMapCreated: (GoogleMapController mapController) async {
+        _controller.complete(mapController);
+        this.mapController = await _controller.future;
+        _updateCameraPosition();
+        mapController.animateCamera(CameraUpdate.newCameraPosition(_kLake!));
+      },
+      onTap: (LatLng value) {
+        // setState(() {
+        //   _position = Marker(
+        //     icon: _getMarkerIcon(),
+        //     // BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+        //     markerId: MarkerId('1'),
+        //     draggable: true,
+        //     infoWindow: InfoWindow(title: 'Vous êtes ici'),
+        //     position: LatLng(value.latitude, value.longitude),
+        //   );
+        // });
+        _updateMarker(latitude: value.latitude, longitude: value.longitude);
+        context.read<LivraisonBloc>().add(SetLogLat(latLng: value));
+        context.read<LivraisonBloc>().add(GetMapPlaceInfo());
+      },
+    );
+  }
+
+  Widget _buildFloatingAppBar(
+      BuildContext context, LivraisonState stateSLivraison) {
+    return Positioned(
+      top: 50,
+      left: 0,
+      right: 0,
+      child: Center(
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.9,
+          padding: EdgeInsets.all(8),
+          margin:
+              EdgeInsets.symmetric(vertical: kMarginY, horizontal: kMarginX),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            color: ColorsApp.white.withOpacity(0.9),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 8,
+                offset: Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Google Map covering the entire screen
-              _kLake == null
-                  ? Center(child: CircularProgressIndicator())
-                  : GoogleMap(
-                      initialCameraPosition: _kLake,
-                      myLocationEnabled: true,
-                      myLocationButtonEnabled: false,
-                      indoorViewEnabled: true,
-                      markers: {_position},
-                      onMapCreated: (GoogleMapController mapcontroller) async {
-                        _controller.complete(mapcontroller);
-                        mapController = await _controller.future;
-
-                        setState(() {
-                          _kLake = CameraPosition(
-                            bearing: 0,
-                            target: LatLng(_position.position.latitude,
-                                _position.position.longitude),
-                            tilt: 50,
-                            zoom: 150.5,
-                          );
-
-                          _position = Marker(
-                            icon: BitmapDescriptor.defaultMarkerWithHue(
-                                BitmapDescriptor.hueCyan),
-                            markerId: MarkerId('1'),
-                            draggable: true,
-                            infoWindow: InfoWindow(title: 'Vous êtes ici'),
-                            onTap: () {},
-                            position: LatLng(_position.position.latitude,
-                                _position.position.longitude),
-                          );
-
-                          mapController!.animateCamera(
-                              CameraUpdate.newCameraPosition(_kLake));
-                          print('Camera animation executed');
-                        });
-                      },
-                      onTap: (LatLng value) {
-                        print(value);
-                        context
-                            .read<LivraisonBloc>()
-                            .add(SetLogLat(latLng: value));
-                        context.read<LivraisonBloc>().add(GetMapPlaceInfo());
-
-                        setState(() {
-                          _position = Marker(
-                              icon: BitmapDescriptor.defaultMarkerWithHue(
-                                  BitmapDescriptor.hueCyan),
-                              markerId: MarkerId('1'),
-                              draggable: true,
-                              infoWindow: InfoWindow(title: 'Vous êtes ici'),
-                              onTap: () {},
-                              position:
-                                  LatLng(value.latitude, value.longitude));
-                        });
-                      },
-                    ),
-              // Floating Circular AppBar
-              Positioned(
-                top: 50,
-                left: 0,
-                right: 0,
-                child: Center(
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: getWidth(context),
-                    padding: EdgeInsets.all(8),
-                    margin: EdgeInsets.symmetric(
-                        vertical: kMarginY, horizontal: kMarginX),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: ColorsApp.white.withOpacity(0.9),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 8,
-                          offset: Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          icon: SvgPicture.asset(
-                            Assets.menu,
-                            color: ColorsApp.primary,
-                          ),
-                          onPressed: () => Scaffold.of(context).openDrawer(),
-                          // Fix: Use ScaffoldMessenger to open the drawer
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              child: Text(
-                                'Babana Express',
-                                style: TextStyle(
-                                  color: ColorsApp.primary,
-                                  fontFamily: 'Lato',
-                                ),
-                              ),
-                            ),
-                            if (stateSLivraison.mapPlaceInfo != null)
-                              Container(
-                                child: Text(
-                                  '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
-                                  style: TextStyle(
-                                    color: ColorsApp.second,
-                                    fontFamily: 'Lato',
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
-                        SizedBox(width: 24), // For balance between icons
-                      ],
+              IconButton(
+                icon: SvgPicture.asset(Assets.menu, color: ColorsApp.primary),
+                onPressed: () => Scaffold.of(context).openDrawer(),
+              ),
+              Column(
+                children: [
+                  Text(
+                    'Babana Express',
+                    style: TextStyle(
+                      color: ColorsApp.primary,
+                      fontFamily: 'Lato',
                     ),
                   ),
-                ),
-              ),
-              // Draggable Bottom Sheet
-              DraggableScrollableSheet(
-                initialChildSize: 0.42,
-                minChildSize: 0.1,
-                maxChildSize: 0.7,
-                builder:
-                    (BuildContext context, ScrollController scrollController) {
-                  return SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          child: Container(
-                              margin: EdgeInsets.symmetric(
-                                  vertical: kMarginY, horizontal: kMarginX),
-                              decoration: BoxDecoration(
-                                  color: ColorsApp.white,
-                                  borderRadius: BorderRadius.circular(50)),
-                              padding: EdgeInsets.all(10),
-                              child: Icon(
-                                Icons.refresh,
-                                color: ColorsApp.black,
-                              )),
-                          onTap: () => getPosition(),
-                          // Fix: Use ScaffoldMessenger to open the drawer
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.vertical(top: Radius.circular(35)),
-                            color: ColorsApp.white,
+                  if (stateSLivraison.loadingMapPlaceInfo == 0)
+                    Skeletonizer(
+                        enabled: true,
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: Text(
+                            'Douala-Douala',
                           ),
-                          padding: EdgeInsets.symmetric(
-                              vertical: kMarginY, horizontal: kMarginX),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.symmetric(
-                                    vertical: kMarginY / 2),
-                                child: Text(
-                                  'Que desirez vous ?',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: kBasics * 1.3,
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.symmetric(
-                                    vertical: kMarginY / 2),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    HomePropositionWidget(
-                                      title:
-                                          'Je veux faire livrer mon colis'.tr(),
-                                      icon: Assets.colis,
-                                      onTap: () {
-                                        AutoRouter.of(context)
-                                            .push(NewLivraisonType1Route());
-                                      },
-                                    ),
-                                    HomePropositionWidget(
-                                      title:
-                                          'Je veux qu\'on recuperer mon colis'
-                                              .tr(),
-                                      onTap: () {
-                                        AutoRouter.of(context)
-                                            .push(NewLivraisonType2Route());
-                                      },
-                                      icon: Assets.colis,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              AppButtonSecond(
-                                  prefixIcon: Icons.library_books,
-                                  sufixIcon: Icons.arrow_circle_right,
-                                  size: MainAxisSize.max,
-                                  bgColor: ColorsApp.greyNew,
-                                  text: 'Mon Historique'.tr(),
-                                  textColor: ColorsApp.primary,
-                                  onTap: () {
-                                    AutoRouter.of(context)
-                                        .push(HistoriqueLivraisonRoute());
-                                  }),
-                            ],
-                          ),
-                        ),
-                      ],
+                        )),
+                  if (stateSLivraison.mapPlaceInfo != null)
+                    Text(
+                      '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
+                      style: TextStyle(
+                        color: ColorsApp.second,
+                        fontFamily: 'Lato',
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  );
-                },
+                ],
               ),
+              SizedBox(width: 24),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildDraggableBottomSheet() {
+    return DraggableScrollableSheet(
+      initialChildSize: 0.42,
+      minChildSize: 0.1,
+      maxChildSize: 0.7,
+      builder: (BuildContext context, ScrollController scrollController) {
+        return SingleChildScrollView(
+          controller: scrollController,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              AnimatedBuilder(
+                animation: _animationController!,
+                builder: (context, child) {
+                  return Transform.rotate(
+                    angle: _animation!.value * 2 * 3.1415926535,
+                    child: child,
+                  );
+                },
+                child: InkWell(
+                  child: Container(
+                    margin: EdgeInsets.symmetric(
+                        vertical: kMarginY, horizontal: kMarginX),
+                    decoration: BoxDecoration(
+                      color: ColorsApp.second,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    padding: EdgeInsets.all(10),
+                    child: Icon(Icons.refresh, color: ColorsApp.white),
+                  ),
+                  onTap: () {
+                    _animationController!.forward(from: 0.0);
+                    _getPosition();
+                  },
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(35)),
+                  color: ColorsApp.white,
+                ),
+                padding: EdgeInsets.symmetric(
+                    vertical: kMarginY, horizontal: kMarginX),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Que desirez vous ?',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: kBasics * 1.3,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(height: kMarginY),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        HomePropositionWidget(
+                          title: 'Je veux faire livrer mon colis'.tr(),
+                          icon: Assets.colis,
+                          onTap: () {
+                            AutoRouter.of(context)
+                                .push(NewLivraisonType1Route());
+                          },
+                        ),
+                        HomePropositionWidget(
+                          title: 'Je veux qu\'on recuperer mon colis'.tr(),
+                          icon: Assets.colis,
+                          onTap: () {
+                            AutoRouter.of(context)
+                                .push(NewLivraisonType2Route());
+                          },
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: kMarginY),
+                    AppButtonSecond(
+                      prefixIcon: Icons.library_books,
+                      sufixIcon: Icons.arrow_circle_right,
+                      size: MainAxisSize.max,
+                      bgColor: ColorsApp.greyNew,
+                      text: 'Mon Historique'.tr(),
+                      textColor: ColorsApp.primary,
+                      onTap: () {
+                        AutoRouter.of(context).push(HistoriqueLivraisonRoute());
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

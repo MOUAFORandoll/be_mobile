@@ -54,6 +54,7 @@ class LivraisonModel {
 }
 
 class ColisUser {
+  final int id;
   final String nom;
   final int valeurColis;
   final int statusLivraisonColis;
@@ -65,6 +66,7 @@ class ColisUser {
   final List<ImageColis> images;
 
   ColisUser({
+    required this.id,
     required this.nom,
     required this.valeurColis,
     required this.statusLivraisonColis,
@@ -78,6 +80,7 @@ class ColisUser {
 
   factory ColisUser.fromJson(Map<String, dynamic> json) {
     return ColisUser(
+      id: json['id'],
       nom: json['nom'],
       valeurColis: json['valeurColis'],
       statusLivraisonColis: json['statusLivraisonColis'],

@@ -133,7 +133,7 @@ class SuccesLivraisonType2Page extends StatelessWidget {
 
   Future<void> _shareCode(lienLivraison) async {
     await Share.share(
-        'Envoyer ce lien au detenteur du colis pour validation  ${lienLivraison}'
+        'Envoyer ce lien au detenteur du colis pour validation :  ${lienLivraison}'
             .tr(),
         subject:
             'Cliquer sur ce lien pour valider la recuperation du colis'.tr() +

@@ -120,4 +120,11 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.addColisType2() = AddColisType2;
   const factory LivraisonEvent.newLivraisonType2() = NewLivraisonType2;
   const factory LivraisonEvent.verifyLivraisonState() = VerifyLivraisonState;
+
+
+
+  
+  const factory LivraisonEvent.getConversationColis({
+    required int idColis,
+  }) = GetConversationColis;
 }
