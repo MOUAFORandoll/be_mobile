@@ -18,29 +18,27 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_version_plus/new_version_plus.dart';
-import '../../presentation/components/exportcomponent.dart';
+import '../components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'package:flutter_animarker/flutter_map_marker_animation.dart';
-
 @RoutePage()
-class HomePage extends StatefulWidget {
-  static const routeName = '/home';
+class LivraiSonMapPage extends StatefulWidget {
+  static const routeName = '/livraison/map-page';
 
-  const HomePage({Key? key}) : super(key: key);
+  const LivraiSonMapPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<LivraiSonMapPage> createState() => _LivraiSonMapPageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+class _LivraiSonMapPageState extends State<LivraiSonMapPage>
+    with TickerProviderStateMixin {
   Animation<double>? _animation;
   AnimationController? _animationController;
-
   Set<Circle> circles = <Circle>{};
   Set<Marker> listPoint = <Marker>{};
   late Marker _positionStart;
@@ -291,8 +289,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget _buildDraggableBottomSheet() {
     return DraggableScrollableSheet(
       initialChildSize: 0.42,
-      minChildSize: 0.12,
-      maxChildSize: 0.43,
+      minChildSize: 0.1,
+      maxChildSize: 0.7,
       builder: (BuildContext context, ScrollController scrollController) {
         return SingleChildScrollView(
           controller: scrollController,

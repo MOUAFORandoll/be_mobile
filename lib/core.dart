@@ -74,7 +74,7 @@ Future<void> initLoad(context) async {
     ..add(GetUserEvent())
     ..add(GetModePaiement())
     ..add(GetVilleQuartier());
-  BlocProvider.of<LivraisonBloc>(context)
+  BlocProvider.of<LivraisonBloc>(context)..add(CurrentUserStateLivraison())
     ..add(StartLogLat())
     ..add(GetVilleAndCategoryEvent());
   initSetDefaultValue(context);
@@ -99,9 +99,27 @@ Future<void> initSocket(context) async {
       });
   SocketService(context).livraisonValidate(
       recepteur: key,
-      action: (data) {
+      action: (data) async {
+        await database.saveLivraisonIdToGetPosition(livraison_id: data.id);
+        BlocProvider.of<LivraisonBloc>(context).add(LivraisonEvent.started());
+
         NotificationService()
             .livraisonValidateNotification(content: data, context: context);
+      });
+
+  SocketService(context).livraisonFinish(
+      recepteur: key,
+      action: (data) async {
+        await database.endsaveLivraisonIdToGetPosition();
+        BlocProvider.of<LivraisonBloc>(context).add(LivraisonEvent.started());
+      });
+
+  SocketService(context).livreurLivraisonPosition(
+      recepteur: key,
+      action: (data) async {
+        BlocProvider.of<LivraisonBloc>(context).add(
+            LivraisonEvent.updatePositionLivraisonLivreur(
+                longitude: data['longitude'], latitude: data['latitude']));
       });
   SocketService(context).livraisonMedicament(
       recepteur: key,
@@ -115,7 +133,7 @@ Future<void> initSocket(context) async {
         NotificationService()
             .livraisonProduitsNotification(content: data, context: context);
       });
-  SocketService(context).livraisonFinish(recepteur: key, action: (data) {});
+
   SocketService(context).transactionCredit(
       recepteur: key,
       action: (data) {

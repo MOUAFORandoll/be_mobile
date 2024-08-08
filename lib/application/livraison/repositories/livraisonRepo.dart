@@ -172,4 +172,17 @@ class LivraisonRepo {
 
     return a;
   }
+
+  Future getCurrentLivraisonsState(keySecret) async {
+    Response a = await apiClient.getRequest(
+        ApiRoutes.LIVRAISONS + '/current-user-livraison-state?keySecret=${keySecret}');
+
+    return a;
+  }
+  Future getPolyLinePoint(livraisonId) async {
+    Response a = await apiClient.getRequest(ApiRoutes.LIVRAISONS + '/verifier-etat/${livraisonId}',
+        );
+
+    return a;
+  }
 }

@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
 import 'package:BabanaExpress/application/model/data/ConversationColisModel.dart';
+import 'package:BabanaExpress/application/model/data/CurrentLivraisonPositionModel.dart';
+import 'package:BabanaExpress/application/model/data/LivreurLivraisonPositionModel.dart';
 import 'package:BabanaExpress/application/model/data/MapPlaceInfoModel.dart';
 import 'package:BabanaExpress/application/model/data/PlaceModel.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
@@ -126,6 +128,10 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<AddColisType2>(addColisType2);
     on<NewLivraisonType2>(_newLivraisonType2);
     on<VerifyLivraisonState>(verifyLivraisonState);
+
+    on<UpdatePositionLivraisonLivreur>(updatePositionLivraisonLivreur);
+    on<Started>(started);
+    on<CurrentUserStateLivraison>(currentUserStateLivraison);
   }
 
   Future<void> _verifyFormLivraisonType2Event(
@@ -261,7 +267,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         ville: state.selectedVIlle!.libelle,
         longitude: state.position!.longitude,
         latitude: state.position!.latitude);
-
+    print('-------${state.position!.longitude}');
     emit(state.copyWith(
       selected_livraison_point: _point,
       errorVille: false,
@@ -636,7 +642,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     }
 
     // if (state.formKeyColis!.currentState!.validate()) {
-    // log(isOk.toString());
+    log(isOk.toString());
     if (isOk) {
       List<MultipartFile> imageFiles = [];
 
@@ -647,7 +653,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
           filename: 'Image$j.jpg',
         ));
       }
-
+      print(state.selected_livraison_point!.toJson());
       Colis newColis = Colis(
         id: state.idColis!,
         nom: state.nomColis!.text,
@@ -1296,6 +1302,86 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     }).onError((e, s) {
       emit(state.copyWith(isLoadingConversationColis: 2));
     });
+  }
+
+  Future<void> currentUserStateLivraison(
+      CurrentUserStateLivraison event, Emitter<LivraisonState> emit) async {
+    var key = await database.getKey();
+
+    await livraisonRepo.getCurrentLivraisonsState(key).then((response) {
+      if (response.data != null) {
+        log(response.data.toString());
+        emit(state.copyWith(
+            findCurrentlyDelivery: true,
+            currentLivraison:
+                CurrentLivraisonPositionModel.fromJson(response.data)));
+        emit(state.copyWith(
+          findCurrentlyDelivery: false,
+        ));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith());
+    });
+  }
+
+  Future<void> started(Started event, Emitter<LivraisonState> emit) async {
+    var livraisonId = await database.getLivraisonIdToGetPosition();
+    if (livraisonId != null) {
+      emit(state.copyWith(
+        isCurrentlyDelivery: true,
+      ));
+    } else {
+      emit(state.copyWith(
+        isCurrentlyDelivery: true,
+      ));
+    }
+  }
+
+  Future<void> getPolyline() async {
+    await livraisonRepo
+        .getPolyLinePoint(54)
+        .then((response) {})
+        .onError((e, s) {});
+  }
+
+  Future<void> updatePositionLivraisonLivreur(
+      UpdatePositionLivraisonLivreur event,
+      Emitter<LivraisonState> emit) async {
+    var keySecret = await database.getKey();
+    var livraisonId = await database.getLivraisonIdToGetPosition();
+
+    // Code de gestion des instances et des positions
+    List<LivreurLivraisonPositionModel> listLivreurLivraisonPosition =
+        List<LivreurLivraisonPositionModel>.from(
+            state.listLivreurLivraisonPosition);
+
+    var livreurLivraisonPosition = listLivreurLivraisonPosition.firstWhere(
+      (element) => element.livraison_id == livraisonId,
+      orElse: () {
+        final newModel = LivreurLivraisonPositionModel(
+          livraison_id: livraisonId!,
+          positionLiveur: [],
+        );
+        listLivreurLivraisonPosition.add(newModel);
+        return newModel;
+      },
+    );
+
+// Ajouter la nouvelle position à l'instance trouvée ou nouvellement créée
+    livreurLivraisonPosition.positionLiveur.add(PositionLiveur(
+      longitude: event.longitude,
+      latitude: event.latitude,
+    ));
+
+// Mettre à jour la liste principale
+    listLivreurLivraisonPosition = listLivreurLivraisonPosition.map((element) {
+      return element.livraison_id == livreurLivraisonPosition.livraison_id
+          ? livreurLivraisonPosition
+          : element;
+    }).toList();
+    emit(state.copyWith(
+      listLivreurLivraisonPosition: listLivreurLivraisonPosition,
+    ));
   }
 }
   // context.read<LivraisonBloc>().add(GetImageColisGalerie()) 

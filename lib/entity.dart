@@ -230,3 +230,27 @@ class KeyUser {
     );
   }
 }
+@Entity()
+class LivraisonPosition {
+  int id = 0;
+
+  @Property()
+  int livraison_id;
+
+  LivraisonPosition({
+    required this.livraison_id,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'livraison_id': livraison_id,
+    };
+  }
+
+  factory LivraisonPosition.fromJson(Map<String, dynamic> json) {
+    return LivraisonPosition(
+      livraison_id: json['livraison_id'],
+    );
+  }
+}
+

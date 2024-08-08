@@ -255,6 +255,25 @@ final _entities = <ModelEntity>[
             flags: 0)
       ],
       relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(9, 8280626420191203340),
+      name: 'LivraisonPosition',
+      lastPropertyId: const IdUid(2, 8401013570103419353),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 4601798035686055122),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 8401013570103419353),
+            name: 'livraison_id',
+            type: 6,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
 ];
 
@@ -285,7 +304,7 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(8, 6314683099039113893),
+      lastEntityId: const IdUid(9, 8280626420191203340),
       lastIndexId: const IdUid(0, 0),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
@@ -595,6 +614,31 @@ ModelDefinition getObjectBoxModel() {
           final object = YourDataModel(id: idParam, name: nameParam);
 
           return object;
+        }),
+    LivraisonPosition: EntityDefinition<LivraisonPosition>(
+        model: _entities[8],
+        toOneRelations: (LivraisonPosition object) => [],
+        toManyRelations: (LivraisonPosition object) => {},
+        getId: (LivraisonPosition object) => object.id,
+        setId: (LivraisonPosition object, int id) {
+          object.id = id;
+        },
+        objectToFB: (LivraisonPosition object, fb.Builder fbb) {
+          fbb.startTable(3);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.livraison_id);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final livraison_idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          final object = LivraisonPosition(livraison_id: livraison_idParam)
+            ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+
+          return object;
         })
   };
 
@@ -737,4 +781,15 @@ class YourDataModel_ {
   /// see [YourDataModel.name]
   static final name =
       QueryStringProperty<YourDataModel>(_entities[7].properties[1]);
+}
+
+/// [LivraisonPosition] entity fields to define ObjectBox queries.
+class LivraisonPosition_ {
+  /// see [LivraisonPosition.id]
+  static final id =
+      QueryIntegerProperty<LivraisonPosition>(_entities[8].properties[0]);
+
+  /// see [LivraisonPosition.livraison_id]
+  static final livraison_id =
+      QueryIntegerProperty<LivraisonPosition>(_entities[8].properties[1]);
 }

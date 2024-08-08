@@ -453,7 +453,7 @@ class InfoColis extends StatelessWidget {
                       bgColor: ColorsApp.primary,
                       text: 'lbaddprod'.tr(),
                       onTap: () async {
-                        context.read<LivraisonBloc>().add(AddColisType2());
+                        context.read<LivraisonBloc>().add(AddColisType1());
                         if (state.isColisOK!) {
                           AutoRouter.of(context).pop();
                         }

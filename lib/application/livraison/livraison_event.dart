@@ -127,4 +127,12 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.getConversationColis({
     required int idColis,
   }) = GetConversationColis;
+
+  const factory LivraisonEvent.currentUserStateLivraison() = CurrentUserStateLivraison;
+
+    const factory LivraisonEvent.updatePositionLivraisonLivreur(
+      {required double longitude,
+      required double latitude}) = UpdatePositionLivraisonLivreur;
+  const factory LivraisonEvent.started() = Started;
+
 }

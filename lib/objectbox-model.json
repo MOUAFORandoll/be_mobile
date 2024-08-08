@@ -239,9 +239,28 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "9:8280626420191203340",
+      "lastPropertyId": "2:8401013570103419353",
+      "name": "LivraisonPosition",
+      "properties": [
+        {
+          "id": "1:4601798035686055122",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:8401013570103419353",
+          "name": "livraison_id",
+          "type": 6
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "8:6314683099039113893",
+  "lastEntityId": "9:8280626420191203340",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

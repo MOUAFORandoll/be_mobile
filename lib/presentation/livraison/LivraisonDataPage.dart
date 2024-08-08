@@ -3,6 +3,7 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:open_filex/open_filex.dart';
 import '../../application/export_bloc.dart';
 
@@ -54,6 +55,10 @@ class LivraisonDataPage extends StatelessWidget {
                           }));
                     })
               ],
+            ),
+            floatingActionButton: FloatingActionButton(
+              child: Text('Voir La map'),
+              onPressed: () => AutoRouter.of(context).push(LivraiSonMapRoute()),
             ),
             body: RefreshIndicator(
               color: ColorsApp.second,

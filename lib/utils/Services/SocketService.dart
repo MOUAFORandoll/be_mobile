@@ -59,6 +59,23 @@ class SocketService {
     });
   }
 
+  void livreurLivraisonPosition({required String recepteur, required Function action}) {
+    print('-------------recepteur----');
+    print(recepteur);
+    socket.on('livreur_livraison_position', (data) {
+      print(data);
+      log(data.toString());
+      if (data != null && data != 'null') {
+        print(jsonDecode(data));
+        if (jsonDecode(data)['recepteur'].toString() == recepteur.toString()) {
+          print('-----------------');
+          print(jsonDecode(data));
+          action(jsonDecode(data)['data']);
+        }
+      }
+    });
+  }
+
   void livraisonProduit({required String recepteur, required Function action}) {
     socket.on('livraison_produit', (data) {
       print(data);

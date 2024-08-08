@@ -157,6 +157,39 @@ class DatabaseCubit extends Cubit<DatabaseState> {
     return true;
   }
 
+  // Insert operation
+  Future<bool> saveLivraisonIdToGetPosition({required int livraison_id}) async {
+    try {
+      _store.box<LivraisonPosition>().put(LivraisonPosition(
+            livraison_id: livraison_id,
+          ));
+      return true;
+    } catch (e) {
+      print('Error inserting LivraisonPosition: $e');
+      return false;
+    }
+  }
+
+  Future<int?> getLivraisonIdToGetPosition() async {
+    final _storeLivraisonPosition = _store.box<LivraisonPosition>();
+    final livraisonPosition = _storeLivraisonPosition.getAll();
+    return livraisonPosition.isNotEmpty
+        ? livraisonPosition.first.livraison_id
+        : null;
+  }
+
+  // Insert operation
+  Future<bool> endsaveLivraisonIdToGetPosition() async {
+    try {
+      _store.box<LivraisonPosition>().removeAll();
+
+      return true;
+    } catch (e) {
+      print('Error end LivraisonPosition: $e');
+      return false;
+    }
+  }
+
   Future<void> disconnect() async {
     _store.box<Commande>().removeAll();
     _store.box<Theme>().removeAll();
