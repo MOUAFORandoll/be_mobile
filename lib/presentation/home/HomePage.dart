@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       bearing: 0,
       target: LatLng(latitude, longitude),
       tilt: 0,
-      zoom: 30.5,
+      zoom: 20.5,
     );
 
     if (mapController != null) {
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         Circle(
           circleId: CircleId('current_location'),
           center: LatLng(latitude, longitude),
-          radius: 40,
+          radius: 20,
           fillColor: ColorsApp.second.withOpacity(0.1),
           strokeColor: ColorsApp.second.withOpacity(0.1),
           strokeWidth: 1,

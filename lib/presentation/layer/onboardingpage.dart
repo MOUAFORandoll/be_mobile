@@ -11,12 +11,11 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 @RoutePage()
 class OnBoardingPage extends StatelessWidget {
   static const routeName = '/onboarding';
-  const OnBoardingPage({super.key});
+  OnBoardingPage({super.key});
 
+  final CarouselController controller = CarouselController();
   @override
   Widget build(BuildContext context) {
-    final CarouselController controller = CarouselController();
-
     return BlocBuilder<AppActionCubit, AppActionState>(
         builder: (context, state) {
       return Scaffold(
