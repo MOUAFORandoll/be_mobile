@@ -2,8 +2,7 @@ import 'dart:io';
 
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
-import 'package:BabanaExpress/presentation/livraison/ColisConversationPage.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/presentation/livraison/ColisConversationPage.dart'; 
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -156,11 +155,11 @@ class ColisComponentUser extends StatelessWidget {
     }
   }
 
-  Future<void> _shareCode() async {
-    await Share.share('yCodeThis'.tr() + ' ${colis.code_livraison_colis}',
-        subject: 'yCodeThis'.tr() + ' ${colis.code_livraison_colis}');
-    print('save');
-  }
+  // Future<void> _shareCode() async {
+  //   await Share.share('yCodeThis'.tr() + ' ${colis.code_livraison_colis}',
+  //       subject: 'yCodeThis'.tr() + ' ${colis.code_livraison_colis}');
+  //   print('save');
+  // }
 
   bool dirExists = false;
   // ignore: unused_element

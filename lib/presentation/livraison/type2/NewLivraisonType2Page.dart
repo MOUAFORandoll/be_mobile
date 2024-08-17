@@ -1,16 +1,12 @@
 import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
-import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';
-import 'package:BabanaExpress/utils/functions/custom_alert.dart';
 import 'package:BabanaExpress/utils/functions/formatData.dart';
-import '../../../application/model/exportmodel.dart';
 import 'InfoColis.dart';
 import 'InfoLIvraison.dart';
 
@@ -73,7 +69,7 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
                         AutoRouter.of(context).pushNamed(PaimentPage.routeName);
                       }
                     }
-                    
+
                     // context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
                     //
 

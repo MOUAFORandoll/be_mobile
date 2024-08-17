@@ -1346,8 +1346,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
   Future<void> updatePositionLivraisonLivreur(
       UpdatePositionLivraisonLivreur event,
-      Emitter<LivraisonState> emit) async {
-    var keySecret = await database.getKey();
+      Emitter<LivraisonState> emit) async { 
     var livraisonId = await database.getLivraisonIdToGetPosition();
 
     // Code de gestion des instances et des positions

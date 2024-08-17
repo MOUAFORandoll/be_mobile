@@ -10,7 +10,6 @@ import 'package:BabanaExpress/presentation/livraison/LivraisonDataHomePage.dart'
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
-import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/NewLivraisonType1Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';

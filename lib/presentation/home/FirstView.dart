@@ -4,9 +4,7 @@ import 'package:BabanaExpress/presentation/components/Widget/home_option_widget.
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import '../../presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/livraison/type1/NewLivraisonType1Page.dart'; 
-import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page.dart'; 
+import 'package:BabanaExpress/application/export_bloc.dart';  
 
 class FirstView extends StatefulWidget {
   @override

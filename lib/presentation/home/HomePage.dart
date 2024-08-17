@@ -1,31 +1,21 @@
 // ignore_for_file: deprecated_member_use
 
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BabanaExpress/presentation/components/Widget/home_proposition_widget.dart';
-import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
-import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
-import 'package:BabanaExpress/presentation/home/FirstView.dart';
 import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_version_plus/new_version_plus.dart';
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-import 'package:flutter_animarker/flutter_map_marker_animation.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -73,7 +63,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       iOSId: null,
       androidId: 'com.app.babanaexpress',
     );
-    final status = await newVersionPlus.getVersionStatus();
+    // final status = await newVersionPlus.getVersionStatus();
     newVersionPlus.showAlertIfNecessary(context: context);
   }
 
@@ -98,7 +88,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       bearing: 0,
       target: LatLng(latitude, longitude),
       tilt: 0,
-      zoom: 13.5,
+      zoom: 30.5,
     );
 
     if (mapController != null) {
@@ -125,16 +115,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     }
   }
 
-  Future<BitmapDescriptor> _getMarkerIcon() async {
-    return await BitmapDescriptor.fromAssetImage(
-      ImageConfiguration(size: Size(5, 8)),
-      Assets.logo,
-    );
-  }
+  // Future<BitmapDescriptor> _getMarkerIcon() async {
+  //   return await BitmapDescriptor.fromAssetImage(
+  //     ImageConfiguration(size: Size(5, 8)),
+  //     Assets.logo,
+  //   );
+  // }
 
   Future<void> _updateMarker(
       {required double latitude, required double longitude}) async {
-    final markerIcon = await _getMarkerIcon();
+    // final markerIcon = await _getMarkerIcon();
 
     setState(() {
       _positionStart = Marker(
@@ -147,7 +137,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       listPoint = <Marker>{_positionStart};
       circles = <Circle>{
         Circle(
-          circleId: CircleId("current_location"),
+          circleId: CircleId('current_location'),
           center: LatLng(latitude, longitude),
           radius: 40,
           fillColor: ColorsApp.second.withOpacity(0.1),
@@ -193,7 +183,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ? Center(child: CircularProgressIndicator())
                       : _buildGoogleMap(),
                   _buildFloatingAppBar(context, stateSLivraison),
-                  _buildDraggableBottomSheet(),
+                  Positioned(bottom: 0, child: _buildDraggableBottomSheet()),
+                  // _buildDraggableBottomSheet(),
                 ],
               ),
             );
@@ -209,6 +200,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       myLocationEnabled: true,
       myLocationButtonEnabled: false,
       indoorViewEnabled: true,
+      // liteModeEnabled: true,
       markers: listPoint,
       circles: circles,
       onMapCreated: (GoogleMapController mapController) async {
@@ -288,6 +280,104 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
   }
 
+  Widget _buildDraggableBottomSheet() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+      ),
+      width: getWidth(context),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            AnimatedBuilder(
+              animation: _animationController!,
+              builder: (context, child) {
+                return Transform.rotate(
+                  angle: _animation!.value * 2 * 3.1415926535,
+                  child: child,
+                );
+              },
+              child: InkWell(
+                child: Container(
+                  margin: EdgeInsets.symmetric(
+                      vertical: kMarginY, horizontal: kMarginX),
+                  decoration: BoxDecoration(
+                    color: ColorsApp.second,
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  padding: EdgeInsets.all(10),
+                  child: Icon(Icons.refresh, color: ColorsApp.white),
+                ),
+                onTap: () {
+                  _animationController!.forward(from: 0.0);
+                  BlocProvider.of<LivraisonBloc>(context)
+                      .add(CurrentUserStateLivraison());
+                  _getPosition();
+                },
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(35)),
+                color: ColorsApp.white,
+              ),
+              padding: EdgeInsets.symmetric(
+                  vertical: kMarginY, horizontal: kMarginX),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Que desirez vous ?',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: kBasics * 1.3,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(height: kMarginY),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      HomePropositionWidget(
+                        title: 'Je veux faire livrer mon colis'.tr(),
+                        icon: Assets.colis,
+                        onTap: () {
+                          AutoRouter.of(context).push(NewLivraisonType1Route());
+                        },
+                      ),
+                      HomePropositionWidget(
+                        title: 'Je veux qu\'on recuperer mon colis'.tr(),
+                        icon: Assets.colis,
+                        onTap: () {
+                          AutoRouter.of(context).push(NewLivraisonType2Route());
+                        },
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: kMarginY),
+                  AppButtonSecond(
+                    prefixIcon: Icons.library_books,
+                    sufixIcon: Icons.arrow_circle_right,
+                    size: MainAxisSize.max,
+                    bgColor: ColorsApp.greyNew,
+                    text: 'Mon Historique'.tr(),
+                    textColor: ColorsApp.primary,
+                    onTap: () {
+                      AutoRouter.of(context).push(HistoriqueLivraisonRoute());
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+/* 
   Widget _buildDraggableBottomSheet() {
     return DraggableScrollableSheet(
       initialChildSize: 0.42,
@@ -388,6 +478,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       },
     );
   }
+ */
 }
 
 // ignore: must_be_immutable

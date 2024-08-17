@@ -1,29 +1,21 @@
 // ignore_for_file: deprecated_member_use
 
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BabanaExpress/presentation/components/Widget/home_proposition_widget.dart';
-import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
-import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
-import 'package:BabanaExpress/presentation/home/FirstView.dart';
 import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_version_plus/new_version_plus.dart';
 import '../components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 @RoutePage()
 class LivraiSonMapPage extends StatefulWidget {
@@ -71,7 +63,7 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
       iOSId: null,
       androidId: 'com.app.babanaexpress',
     );
-    final status = await newVersionPlus.getVersionStatus();
+    // final status = await newVersionPlus.getVersionStatus();
     newVersionPlus.showAlertIfNecessary(context: context);
   }
 
@@ -123,16 +115,16 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
     }
   }
 
-  Future<BitmapDescriptor> _getMarkerIcon() async {
-    return await BitmapDescriptor.fromAssetImage(
-      ImageConfiguration(size: Size(5, 8)),
-      Assets.logo,
-    );
-  }
+  // Future<BitmapDescriptor> _getMarkerIcon() async {
+  //   return await BitmapDescriptor.fromAssetImage(
+  //     ImageConfiguration(size: Size(5, 8)),
+  //     Assets.logo,
+  //   );
+  // }
 
   Future<void> _updateMarker(
       {required double latitude, required double longitude}) async {
-    final markerIcon = await _getMarkerIcon();
+    // final markerIcon = await _getMarkerIcon();
 
     setState(() {
       _positionStart = Marker(
@@ -145,7 +137,7 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
       listPoint = <Marker>{_positionStart};
       circles = <Circle>{
         Circle(
-          circleId: CircleId("current_location"),
+          circleId: CircleId('current_location'),
           center: LatLng(latitude, longitude),
           radius: 40,
           fillColor: ColorsApp.second.withOpacity(0.1),

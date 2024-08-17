@@ -1,6 +1,5 @@
 import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
-import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
+import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart'; 
 
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -8,8 +7,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
-import 'package:BabanaExpress/utils/functions/formatData.dart';
-import '../../../application/model/exportmodel.dart';
+import 'package:BabanaExpress/utils/functions/formatData.dart'; 
 import 'InfoColis.dart';
 import 'InfoLIvraison.dart';
 

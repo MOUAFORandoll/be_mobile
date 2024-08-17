@@ -1,5 +1,4 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/presentation/components/Button/addColisComponent.dart';
 import 'package:BabanaExpress/presentation/components/Button/uploadImage.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_input_contact.dart';
@@ -7,8 +6,6 @@ import 'package:BabanaExpress/presentation/components/Widget/app_input_second.da
 import 'package:BabanaExpress/presentation/components/Widget/file_option.dart';
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/presentation/components/Widget/imageComp.dart';
-import 'package:BabanaExpress/presentation/components/Widget/colisComponent.dart';
-import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BabanaExpress/utils/Services/ContactService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
