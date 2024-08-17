@@ -145,7 +145,7 @@ abstract class $AppRouter extends _i25.RootStackRouter {
     OnBoardingRoute.name: (routeData) {
       return _i25.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i15.OnBoardingPage(),
+        child:   _i15.OnBoardingPage(),
       );
     },
     PaimentDepotRoute.name: (routeData) {
