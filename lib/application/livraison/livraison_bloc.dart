@@ -208,7 +208,16 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         emit(state.copyWith(
             loadingMapPlaceInfo: 1,
             mapPlaceInfo: MapPlaceInfoModel.fromJson(response.data)));
-        emit(state.copyWith(loadingMapPlaceInfo: null));
+        emit(state.copyWith(
+            loadingMapPlaceInfo: null,
+            // libelleLocalisationRecuperation:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierRecuperation:
+                TextEditingController(text: state.mapPlaceInfo!.quartier),
+            // libelleLocalisationLivraison:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierLivraison:
+                TextEditingController(text: state.mapPlaceInfo!.quartier)));
       } else {
         emit(state.copyWith(loadingMapPlaceInfo: 2));
       }
@@ -1346,7 +1355,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
   Future<void> updatePositionLivraisonLivreur(
       UpdatePositionLivraisonLivreur event,
-      Emitter<LivraisonState> emit) async { 
+      Emitter<LivraisonState> emit) async {
     var livraisonId = await database.getLivraisonIdToGetPosition();
 
     // Code de gestion des instances et des positions

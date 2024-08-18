@@ -229,20 +229,23 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               EdgeInsets.symmetric(vertical: kMarginY, horizontal: kMarginX),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            color: ColorsApp.white.withOpacity(0.9),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 8,
-                offset: Offset(0, 4),
-              ),
-            ],
+            color: ColorsApp.primary,
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.black26,
+            //     blurRadius: 8,
+            //     offset: Offset(0, 4),
+            //   ),
+            // ],
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: SvgPicture.asset(Assets.menu, color: ColorsApp.primary),
+                icon: SvgPicture.asset(
+                  Assets.menu,
+                  color: ColorsApp.white,
+                ),
                 onPressed: () => Scaffold.of(context).openDrawer(),
               ),
               Column(
@@ -250,7 +253,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Text(
                     'Babana Express',
                     style: TextStyle(
-                      color: ColorsApp.primary,
+                      color: ColorsApp.white,
                       fontFamily: 'Lato',
                     ),
                   ),
@@ -258,14 +261,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     Skeletonizer(
                       enabled: true,
                       child: Container(
-                        child: Text('Douala-Douala'),
+                        child: Text(
+                          'Douala-Douala',
+                          style: TextStyle(
+                            color: ColorsApp.white,
+                            fontFamily: 'Lato',
+                          ),
+                        ),
                       ),
                     ),
                   if (stateSLivraison.mapPlaceInfo != null)
                     Text(
                       '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
                       style: TextStyle(
-                        color: ColorsApp.second,
+                        color: ColorsApp.white,
                         fontFamily: 'Lato',
                         fontWeight: FontWeight.w600,
                       ),

@@ -3,7 +3,9 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; // 
 class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final actions;
-  AppBarCustom({Key? key, required this.title, this.actions}) : super(key: key);
+  final actionBack;
+  AppBarCustom({Key? key, required this.title, this.actions, this.actionBack})
+      : super(key: key);
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
@@ -14,7 +16,18 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: ColorsApp.white,
       elevation: 0,
       leading: InkWell(
-        onTap: () => AutoRouter.of(context).pop(),
+        onTap:
+            actionBack != null ? actionBack : () => AutoRouter.of(context).pop()
+        /*  () {
+          return actionBack;
+          if (actionBack != null) {
+            print('--------${actionBack}');
+            () => actionBack;
+          } else {
+            AutoRouter.of(context).pop();
+          }
+        } */
+        ,
         child: Container(
           alignment: Alignment.centerRight,
           child: Row(

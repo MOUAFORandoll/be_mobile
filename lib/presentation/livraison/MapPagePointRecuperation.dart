@@ -23,8 +23,6 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
   late Marker _position;
   TextEditingController searchPointRecuperationController =
       TextEditingController();
-  TextEditingController libelleLocalisation = TextEditingController();
-  TextEditingController quartier = TextEditingController();
 
   var loadPlaceInfo = true;
   var latitude = 0.0;
@@ -78,12 +76,9 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
     print('-------000------');
 
     print('-----1----------------');
-    // libelleLocalisation.text = state.mapPlaceInfo!.ville;
-    quartier.text = state.mapPlaceInfo!.quartier;
-
+    
     setState(() {
-      quartier.text = state.mapPlaceInfo!.quartier;
-      _kLake = CameraPosition(
+        _kLake = CameraPosition(
         bearing: 0,
         target: LatLng(value.latitude, value.longitude),
         tilt: 50,
@@ -103,9 +98,8 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
       context.read<LivraisonBloc>().add(GetMapPlaceInfo());
       print('Camera animation executed');
 
-      // libelleLocalisation.text = state.mapPlaceInfo!.ville;
-      quartier.text = state.mapPlaceInfo!.quartier;
-
+      // state.libelleLocalisationRecuperation.text = state.mapPlaceInfo!.ville;
+    
       print('-------------');
       print('Updated _kLake: $_kLake');
       print('Updated _position: $_position');
@@ -123,26 +117,6 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
           builder: (context, state) =>
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
                 Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.symmetric(vertical: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'yrecup'.tr(),
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 14),
-                        ),
-                      ),
-                      InkWell(
-                          child: Icon(Icons.close),
-                          onTap: () => AutoRouter.of(context).pop())
-                    ],
-                  ),
-                ),
-                Container(
                   child: SingleChildScrollView(
                       child: Column(children: [
                     Container(
@@ -150,7 +124,8 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                         top: kMarginY * 1.5,
                       ),
                       child: AppInputNew(
-                        controller: libelleLocalisation,
+                        controller:
+                            state.libelleLocalisationRecuperation ,
                         icon: Icon(Icons.label),
                         label: 'yLibellePl'.tr(),
                         validator: (value) {
@@ -163,7 +138,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                         top: kMarginY * 1.5,
                       ),
                       child: AppInputNew(
-                        controller: quartier,
+                        controller: state.quartierRecuperation,
                         icon: Icon(Icons.label),
                         label: 'yQuartierPl'.tr(),
                         validator: (value) {
@@ -213,9 +188,11 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                         text: 'Valider'.tr(),
                         onTap: () async {
                           context.read<LivraisonBloc>().add(MapValidatePoint(
-                              libelle: libelleLocalisation.text,
-                              quartier: quartier.text));
+                              libelle:
+                                  state.libelleLocalisationRecuperation.text,
+                              quartier: state.quartierRecuperation.text));
 
+                          Navigator.of(context).pop(true);
                           AutoRouter.of(context).pop();
                           // AutoRouter.of(context)
                           //     .pushNamed(NewLivraisonPage.routeName);
@@ -249,12 +226,32 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
           print('-----44--------*********');
         }
         if (state.loadingMapPlaceInfo == 1) {
-          libelleLocalisation.text = '';
-          quartier.text = state.mapPlaceInfo!.quartier;
+          // state.libelleLocalisationRecuperation.text = '';
+          // quartier.text = state.mapPlaceInfo!.quartier;
         }
       },
       builder: (context, state) => Scaffold(
         appBar: AppBarCustom(
+          actionBack: () => (state
+                      .libelleLocalisationRecuperation.text.isNotEmpty &&
+                  state.quartierRecuperation.text.isNotEmpty)
+              ? AutoRouter.of(context).pop()
+              : CustomArlert().comfirm(
+                  context: context,
+                  content:
+                      'Vous allez quitter la page sans valider le point de recuperation '
+                          .tr(),
+                  onpressed: () {
+                    Navigator.of(context).pop(true);
+                    AutoRouter.of(context).pop();
+                  }),
+          // ()
+          //  {
+          //   if (state.libelleLocalisationRecuperation.text.isNotEmpty &&
+          //       quartier.text.isNotEmpty) {
+          //     print('-------------------------------fdfdfd');
+          //   }
+          // },
           title: 'Selectionner un point de recuperation'.tr(),
         ),
         body: Stack(
@@ -312,8 +309,9 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
 
                         print('Camera animation executed');
                         setState(() {
-                          libelleLocalisation.text = state.mapPlaceInfo!.ville;
-                          quartier.text = state.mapPlaceInfo!.quartier;
+                          // state.libelleLocalisationRecuperation.text =
+                          //     state.mapPlaceInfo!.ville;
+                          // quartier.text = state.mapPlaceInfo!.quartier;
                         });
                         print('-------------');
                         print('Updated _kLake: $_kLake');

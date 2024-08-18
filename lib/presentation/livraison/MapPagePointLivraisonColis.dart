@@ -22,8 +22,6 @@ class _MapPagePointLivraisonColisState
   late Marker _position;
   TextEditingController searchPointLivraisonController =
       TextEditingController();
-  TextEditingController libelleLocalisation = TextEditingController();
-  TextEditingController quartier = TextEditingController();
 
   var loadPlaceInfo = true;
   var latitude = 0.0;
@@ -78,10 +76,8 @@ class _MapPagePointLivraisonColisState
 
     print('-----1----------------');
     // libelleLocalisation.text = state.mapPlaceInfo!.ville;
-    quartier.text = state.mapPlaceInfo!.quartier;
 
     setState(() {
-      quartier.text = state.mapPlaceInfo!.quartier;
       _kLake = CameraPosition(
         bearing: 0,
         target: LatLng(value.latitude, value.longitude),
@@ -101,9 +97,6 @@ class _MapPagePointLivraisonColisState
       mapController!.animateCamera(CameraUpdate.newCameraPosition(_kLake));
       context.read<LivraisonBloc>().add(GetMapPlaceInfo());
       print('Camera animation executed');
-
-      // libelleLocalisation.text = state.mapPlaceInfo!.ville;
-      quartier.text = state.mapPlaceInfo!.quartier;
 
       print('-------------');
       print('Updated _kLake: $_kLake');
@@ -127,7 +120,7 @@ class _MapPagePointLivraisonColisState
                     top: kMarginY * 1.5,
                   ),
                   child: AppInputNew(
-                    controller: libelleLocalisation,
+                    controller: state.libelleLocalisationLivraison,
                     icon: Icon(Icons.label),
                     label: 'yLibellePl'.tr(),
                     validator: (value) {
@@ -140,7 +133,7 @@ class _MapPagePointLivraisonColisState
                     top: kMarginY * 1.5,
                   ),
                   child: AppInputNew(
-                    controller: quartier,
+                    controller: state.quartierLivraison,
                     icon: Icon(Icons.label),
                     label: 'yQuartierPl'.tr(),
                     validator: (value) {
@@ -189,9 +182,11 @@ class _MapPagePointLivraisonColisState
                         onTap: () async {
                           context.read<LivraisonBloc>().add(
                               MapValidatePointLivraison(
-                                  libelle: libelleLocalisation.text,
-                                  quartier: quartier.text));
+                                  libelle:
+                                      state.libelleLocalisationLivraison.text,
+                                  quartier: state.quartierLivraison.text));
 
+                          Navigator.of(context).pop(true);
                           AutoRouter.of(context).pop();
                           // AutoRouter.of(context)
                           //     .pushNamed(NewLivraisonPage.routeName);
@@ -224,13 +219,23 @@ class _MapPagePointLivraisonColisState
           EasyLoading.dismiss();
           print('-----44--------*********');
         }
-        if (state.loadingMapPlaceInfo == 1) {
-          libelleLocalisation.text = '';
-          quartier.text = state.mapPlaceInfo!.quartier;
-        }
+        if (state.loadingMapPlaceInfo == 1) {}
       },
       builder: (context, state) => Scaffold(
         appBar: AppBarCustom(
+          actionBack: () => (state
+                      .libelleLocalisationLivraison.text.isNotEmpty &&
+                  state.quartierLivraison.text.isNotEmpty)
+              ? AutoRouter.of(context).pop()
+              : CustomArlert().comfirm(
+                  context: context,
+                  content:
+                      'Vous allez quitter la page sans valider le point de livraison  '
+                          .tr(),
+                  onpressed: () {
+                    Navigator.of(context).pop(true);
+                    AutoRouter.of(context).pop();
+                  }),
           title: 'ylivraison'.tr(),
         ),
         body: Stack(
@@ -287,10 +292,7 @@ class _MapPagePointLivraisonColisState
                             CameraUpdate.newCameraPosition(_kLake));
 
                         print('Camera animation executed');
-                        setState(() {
-                          libelleLocalisation.text = state.mapPlaceInfo!.ville;
-                          quartier.text = state.mapPlaceInfo!.quartier;
-                        });
+                        setState(() {});
                         print('-------------');
                         print('Updated _kLake: $_kLake');
                         print('Updated _position: $_position');

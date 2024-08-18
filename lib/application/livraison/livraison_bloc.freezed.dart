@@ -22739,6 +22739,14 @@ mixin _$LivraisonState {
   TextEditingController? get contactRecepteur =>
       throw _privateConstructorUsedError;
   TextEditingController? get valeurColis => throw _privateConstructorUsedError;
+  TextEditingController get libelleLocalisationRecuperation =>
+      throw _privateConstructorUsedError;
+  TextEditingController get quartierRecuperation =>
+      throw _privateConstructorUsedError;
+  TextEditingController get libelleLocalisationLivraison =>
+      throw _privateConstructorUsedError;
+  TextEditingController get quartierLivraison =>
+      throw _privateConstructorUsedError;
   CategoryModel? get categoryColis => throw _privateConstructorUsedError;
   List<CategoryModel>? get list_category_colis =>
       throw _privateConstructorUsedError;
@@ -22823,6 +22831,10 @@ abstract class $LivraisonStateCopyWith<$Res> {
       TextEditingController? quantiteColis,
       TextEditingController? contactRecepteur,
       TextEditingController? valeurColis,
+      TextEditingController libelleLocalisationRecuperation,
+      TextEditingController quartierRecuperation,
+      TextEditingController libelleLocalisationLivraison,
+      TextEditingController quartierLivraison,
       CategoryModel? categoryColis,
       List<CategoryModel>? list_category_colis,
       bool isMapSelectedPointLivraison,
@@ -22902,6 +22914,10 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
     Object? quantiteColis = freezed,
     Object? contactRecepteur = freezed,
     Object? valeurColis = freezed,
+    Object? libelleLocalisationRecuperation = null,
+    Object? quartierRecuperation = null,
+    Object? libelleLocalisationLivraison = null,
+    Object? quartierLivraison = null,
     Object? categoryColis = freezed,
     Object? list_category_colis = freezed,
     Object? isMapSelectedPointLivraison = null,
@@ -23040,6 +23056,22 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
           ? _value.valeurColis
           : valeurColis // ignore: cast_nullable_to_non_nullable
               as TextEditingController?,
+      libelleLocalisationRecuperation: null == libelleLocalisationRecuperation
+          ? _value.libelleLocalisationRecuperation
+          : libelleLocalisationRecuperation // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      quartierRecuperation: null == quartierRecuperation
+          ? _value.quartierRecuperation
+          : quartierRecuperation // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      libelleLocalisationLivraison: null == libelleLocalisationLivraison
+          ? _value.libelleLocalisationLivraison
+          : libelleLocalisationLivraison // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      quartierLivraison: null == quartierLivraison
+          ? _value.quartierLivraison
+          : quartierLivraison // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       categoryColis: freezed == categoryColis
           ? _value.categoryColis
           : categoryColis // ignore: cast_nullable_to_non_nullable
@@ -23237,6 +23269,10 @@ abstract class _$$LivraisonStateImplCopyWith<$Res>
       TextEditingController? quantiteColis,
       TextEditingController? contactRecepteur,
       TextEditingController? valeurColis,
+      TextEditingController libelleLocalisationRecuperation,
+      TextEditingController quartierRecuperation,
+      TextEditingController libelleLocalisationLivraison,
+      TextEditingController quartierLivraison,
       CategoryModel? categoryColis,
       List<CategoryModel>? list_category_colis,
       bool isMapSelectedPointLivraison,
@@ -23314,6 +23350,10 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
     Object? quantiteColis = freezed,
     Object? contactRecepteur = freezed,
     Object? valeurColis = freezed,
+    Object? libelleLocalisationRecuperation = null,
+    Object? quartierRecuperation = null,
+    Object? libelleLocalisationLivraison = null,
+    Object? quartierLivraison = null,
     Object? categoryColis = freezed,
     Object? list_category_colis = freezed,
     Object? isMapSelectedPointLivraison = null,
@@ -23452,6 +23492,22 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
           ? _value.valeurColis
           : valeurColis // ignore: cast_nullable_to_non_nullable
               as TextEditingController?,
+      libelleLocalisationRecuperation: null == libelleLocalisationRecuperation
+          ? _value.libelleLocalisationRecuperation
+          : libelleLocalisationRecuperation // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      quartierRecuperation: null == quartierRecuperation
+          ? _value.quartierRecuperation
+          : quartierRecuperation // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      libelleLocalisationLivraison: null == libelleLocalisationLivraison
+          ? _value.libelleLocalisationLivraison
+          : libelleLocalisationLivraison // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      quartierLivraison: null == quartierLivraison
+          ? _value.quartierLivraison
+          : quartierLivraison // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       categoryColis: freezed == categoryColis
           ? _value.categoryColis
           : categoryColis // ignore: cast_nullable_to_non_nullable
@@ -23644,6 +23700,10 @@ class _$LivraisonStateImpl implements _LivraisonState {
       this.quantiteColis,
       this.contactRecepteur,
       this.valeurColis,
+      required this.libelleLocalisationRecuperation,
+      required this.quartierRecuperation,
+      required this.libelleLocalisationLivraison,
+      required this.quartierLivraison,
       this.categoryColis,
       final List<CategoryModel>? list_category_colis,
       required this.isMapSelectedPointLivraison,
@@ -23787,6 +23847,14 @@ class _$LivraisonStateImpl implements _LivraisonState {
   @override
   final TextEditingController? valeurColis;
   @override
+  final TextEditingController libelleLocalisationRecuperation;
+  @override
+  final TextEditingController quartierRecuperation;
+  @override
+  final TextEditingController libelleLocalisationLivraison;
+  @override
+  final TextEditingController quartierLivraison;
+  @override
   final CategoryModel? categoryColis;
   final List<CategoryModel>? _list_category_colis;
   @override
@@ -23903,7 +23971,7 @@ class _$LivraisonStateImpl implements _LivraisonState {
 
   @override
   String toString() {
-    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, indexType1: $indexType1, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadPLivraison: $isLoadPLivraison, isLoadLivraison: $isLoadLivraison, isLoadVille: $isLoadVille, isColisOK: $isColisOK, successLivraison: $successLivraison, launchUrl: $launchUrl, loadingMapPlaceInfo: $loadingMapPlaceInfo, mapPlaceInfo: $mapPlaceInfo, isLoadVCategory: $isLoadVCategory, urlFacture: $urlFacture, errorMessage: $errorMessage, urlLivraison: $urlLivraison, userLivraisonList: $userLivraisonList, controller: $controller, position: $position, isLoadingPlaceSearch: $isLoadingPlaceSearch, currentLivraisonId: $currentLivraisonId, isLoadingPlaceSearchInfo: $isLoadingPlaceSearchInfo, list_search_place: $list_search_place, findedPlaceInfo: $findedPlaceInfo, selectedModePaiement: $selectedModePaiement, selectedService: $selectedService, indexType2: $indexType2, conversationColis: $conversationColis, isLoadingConversationColis: $isLoadingConversationColis, listLivreurLivraisonPosition: $listLivreurLivraisonPosition, currentLivraison: $currentLivraison, findCurrentlyDelivery: $findCurrentlyDelivery, isCurrentlyDelivery: $isCurrentlyDelivery)';
+    return 'LivraisonState(errorVille: $errorVille, errorPointRecuperation: $errorPointRecuperation, isMapSelectedPointRecuperation: $isMapSelectedPointRecuperation, indexType1: $indexType1, selected_recuperation_point: $selected_recuperation_point, quartier_recuperation_point: $quartier_recuperation_point, paiement_url: $paiement_url, villeList: $villeList, idColis: $idColis, listColis: $listColis, imageColis: $imageColis, list_localisation_point: $list_localisation_point, list_search_point_localisation: $list_search_point_localisation, selectedVIlle: $selectedVIlle, phone: $phone, libelle: $libelle, contactEmetteur: $contactEmetteur, description: $description, formKeyLivraison: $formKeyLivraison, formKeyColis: $formKeyColis, nomColis: $nomColis, quantiteColis: $quantiteColis, contactRecepteur: $contactRecepteur, valeurColis: $valeurColis, libelleLocalisationRecuperation: $libelleLocalisationRecuperation, quartierRecuperation: $quartierRecuperation, libelleLocalisationLivraison: $libelleLocalisationLivraison, quartierLivraison: $quartierLivraison, categoryColis: $categoryColis, list_category_colis: $list_category_colis, isMapSelectedPointLivraison: $isMapSelectedPointLivraison, selected_livraison_point: $selected_livraison_point, errorCategory: $errorCategory, errorPointLivraison: $errorPointLivraison, isRequest: $isRequest, frais: $frais, errorQte: $errorQte, isDownloadFacture: $isDownloadFacture, errorImage: $errorImage, isLoadPLivraison: $isLoadPLivraison, isLoadLivraison: $isLoadLivraison, isLoadVille: $isLoadVille, isColisOK: $isColisOK, successLivraison: $successLivraison, launchUrl: $launchUrl, loadingMapPlaceInfo: $loadingMapPlaceInfo, mapPlaceInfo: $mapPlaceInfo, isLoadVCategory: $isLoadVCategory, urlFacture: $urlFacture, errorMessage: $errorMessage, urlLivraison: $urlLivraison, userLivraisonList: $userLivraisonList, controller: $controller, position: $position, isLoadingPlaceSearch: $isLoadingPlaceSearch, currentLivraisonId: $currentLivraisonId, isLoadingPlaceSearchInfo: $isLoadingPlaceSearchInfo, list_search_place: $list_search_place, findedPlaceInfo: $findedPlaceInfo, selectedModePaiement: $selectedModePaiement, selectedService: $selectedService, indexType2: $indexType2, conversationColis: $conversationColis, isLoadingConversationColis: $isLoadingConversationColis, listLivreurLivraisonPosition: $listLivreurLivraisonPosition, currentLivraison: $currentLivraison, findCurrentlyDelivery: $findCurrentlyDelivery, isCurrentlyDelivery: $isCurrentlyDelivery)';
   }
 
   @override
@@ -23960,8 +24028,12 @@ class _$LivraisonStateImpl implements _LivraisonState {
                 other.contactRecepteur == contactRecepteur) &&
             (identical(other.valeurColis, valeurColis) ||
                 other.valeurColis == valeurColis) &&
-            (identical(other.categoryColis, categoryColis) ||
-                other.categoryColis == categoryColis) &&
+            (identical(other.libelleLocalisationRecuperation, libelleLocalisationRecuperation) ||
+                other.libelleLocalisationRecuperation == libelleLocalisationRecuperation) &&
+            (identical(other.quartierRecuperation, quartierRecuperation) || other.quartierRecuperation == quartierRecuperation) &&
+            (identical(other.libelleLocalisationLivraison, libelleLocalisationLivraison) || other.libelleLocalisationLivraison == libelleLocalisationLivraison) &&
+            (identical(other.quartierLivraison, quartierLivraison) || other.quartierLivraison == quartierLivraison) &&
+            (identical(other.categoryColis, categoryColis) || other.categoryColis == categoryColis) &&
             const DeepCollectionEquality().equals(other._list_category_colis, _list_category_colis) &&
             (identical(other.isMapSelectedPointLivraison, isMapSelectedPointLivraison) || other.isMapSelectedPointLivraison == isMapSelectedPointLivraison) &&
             (identical(other.selected_livraison_point, selected_livraison_point) || other.selected_livraison_point == selected_livraison_point) &&
@@ -24030,6 +24102,10 @@ class _$LivraisonStateImpl implements _LivraisonState {
         quantiteColis,
         contactRecepteur,
         valeurColis,
+        libelleLocalisationRecuperation,
+        quartierRecuperation,
+        libelleLocalisationLivraison,
+        quartierLivraison,
         categoryColis,
         const DeepCollectionEquality().hash(_list_category_colis),
         isMapSelectedPointLivraison,
@@ -24106,6 +24182,10 @@ abstract class _LivraisonState implements LivraisonState {
       final TextEditingController? quantiteColis,
       final TextEditingController? contactRecepteur,
       final TextEditingController? valeurColis,
+      required final TextEditingController libelleLocalisationRecuperation,
+      required final TextEditingController quartierRecuperation,
+      required final TextEditingController libelleLocalisationLivraison,
+      required final TextEditingController quartierLivraison,
       final CategoryModel? categoryColis,
       final List<CategoryModel>? list_category_colis,
       required final bool isMapSelectedPointLivraison,
@@ -24196,6 +24276,14 @@ abstract class _LivraisonState implements LivraisonState {
   TextEditingController? get contactRecepteur;
   @override
   TextEditingController? get valeurColis;
+  @override
+  TextEditingController get libelleLocalisationRecuperation;
+  @override
+  TextEditingController get quartierRecuperation;
+  @override
+  TextEditingController get libelleLocalisationLivraison;
+  @override
+  TextEditingController get quartierLivraison;
   @override
   CategoryModel? get categoryColis;
   @override

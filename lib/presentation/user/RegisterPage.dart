@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
 import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
@@ -70,26 +71,10 @@ class _RegisterPageState extends State<RegisterPage> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                    margin: EdgeInsets.symmetric(
-                                      horizontal: kMarginX / 2,
-                                    ).add(EdgeInsets.only(top: kMarginY * 2)),
-                                    child: Text(
-                                      'Renseignez vos informations',
-                                      style: TextStyle(
-                                          fontSize: kTitle * 1.3,
-                                          fontWeight: FontWeight.w700),
-                                    )),
-                                Container(
-                                    margin: EdgeInsets.symmetric(
-                                      horizontal: kMarginX / 2,
-                                    ),
-                                    child: Text(
-                                      'regTitle'.tr(),
-                                      style: TextStyle(
-                                        fontSize: kBasics,
-                                      ),
-                                    )),
+                                TitleComponent(
+                                  title: 'Renseignez vos informations',
+                                  subTitle: 'regTitle'.tr(),
+                                ),
                                 Container(
                                     margin: EdgeInsets.only(
                                         top: kMarginY, bottom: kMarginY),

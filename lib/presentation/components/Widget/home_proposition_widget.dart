@@ -15,7 +15,7 @@ class HomePropositionWidget extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: ColorsApp.greyNew, //Color.fromARGB(0, 238, 238, 238),
+            color: ColorsApp.primary, //Color.fromARGB(0, 238, 238, 238),
             borderRadius: BorderRadius.circular(18),
             // border: Border.all(color: ColorsApp.primary, width: 1.5),
             boxShadow: [],
@@ -31,6 +31,7 @@ class HomePropositionWidget extends StatelessWidget {
                       title,
                       style: TextStyle(
                         fontSize: kBasics,
+                        color: ColorsApp.white,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w500,
                       ),
@@ -41,6 +42,7 @@ class HomePropositionWidget extends StatelessWidget {
                       title,
                       maxLines: 1,
                       style: TextStyle(
+                        color: ColorsApp.white,
                         fontSize: kBasics * .8,
                         fontFamily: 'Montserrat',
                       ),

@@ -28,6 +28,10 @@ class LivraisonState with _$LivraisonState {
       TextEditingController? quantiteColis,
       TextEditingController? contactRecepteur,
       TextEditingController? valeurColis,
+      required TextEditingController libelleLocalisationRecuperation,
+      required TextEditingController quartierRecuperation,
+      required TextEditingController libelleLocalisationLivraison,
+      required TextEditingController quartierLivraison,
       CategoryModel? categoryColis,
       List<CategoryModel>? list_category_colis,
       required bool isMapSelectedPointLivraison,
@@ -66,7 +70,7 @@ class LivraisonState with _$LivraisonState {
       int? isLoadingConversationColis,
       required List<LivreurLivraisonPositionModel> listLivreurLivraisonPosition,
       CurrentLivraisonPositionModel? currentLivraison,
-       required bool findCurrentlyDelivery,
+      required bool findCurrentlyDelivery,
       required bool isCurrentlyDelivery}) = _LivraisonState;
 
   factory LivraisonState.initial() => LivraisonState(
@@ -125,5 +129,9 @@ class LivraisonState with _$LivraisonState {
         contactRecepteur: TextEditingController(),
         valeurColis: TextEditingController(),
         indexType2: 0,
+        libelleLocalisationRecuperation: TextEditingController(),
+        quartierRecuperation: TextEditingController(),
+        libelleLocalisationLivraison: TextEditingController(),
+        quartierLivraison: TextEditingController(),
       );
 }

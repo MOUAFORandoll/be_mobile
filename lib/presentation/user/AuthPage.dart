@@ -1,4 +1,5 @@
 import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
+import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
 import 'package:BabanaExpress/presentation/layer/onboardingcomponent.dart';
 import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
 import 'package:BabanaExpress/presentation/user/RegisterPage.dart';
@@ -68,30 +69,12 @@ class _AuthPageState extends State<AuthPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Column(
-                              children: [
-                                Container(
-                                    margin: EdgeInsets.symmetric(
-                                      horizontal: kMarginX / 2,
-                                    ).add(EdgeInsets.only(top: kMarginY * 2)),
-                                    child: Text(
-                                      'Renseignez votre numero de telephone',
-                                      style: TextStyle(
-                                          fontSize: kTitle * 1.3,
-                                          fontWeight: FontWeight.w700),
-                                    )),
-                              ],
-                            ),
-                            Container(
-                                margin: EdgeInsets.symmetric(
-                                  horizontal: kMarginX / 2,
-                                ),
-                                child: Text(
+                            TitleComponent(
+                              title: 'Renseignez votre numero de telephone',
+                              subTitle:
                                   'Renseignez votre numero de telephone pour creer un compte ou pour se connecter',
-                                  style: TextStyle(
-                                    fontSize: kBasics,
-                                  ),
-                                )),
+                            
+                            ),
                             Padding(
                               padding: EdgeInsets.symmetric(
                                 vertical: kMarginY,

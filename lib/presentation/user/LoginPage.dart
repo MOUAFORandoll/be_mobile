@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
 import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
 import 'package:BabanaExpress/presentation/user/RegisterPage.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
@@ -69,26 +70,11 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                  margin: EdgeInsets.symmetric(
-                                    horizontal: kMarginX / 2,
-                                  ).add(EdgeInsets.only(top: kMarginY * 2)),
-                                  child: Text(
-                                    'Renseignez votre mot de passe',
-                                    style: TextStyle(
-                                        fontSize: kTitle * 1.3,
-                                        fontWeight: FontWeight.w700),
-                                  )),
-                              Container(
-                                  margin: EdgeInsets.symmetric(
-                                    horizontal: kMarginX / 2,
-                                  ),
-                                  child: Text(
+                              TitleComponent(
+                                title: 'Renseignez votre mot de passe',
+                                subTitle:
                                     'Renseignez votre mot de passe pour acceder a ton compte',
-                                    style: TextStyle(
-                                      fontSize: kBasics,
-                                    ),
-                                  )),
+                              ),
                               Container(
                                   margin: EdgeInsets.only(bottom: kMarginY),
                                   child: Column(children: [
