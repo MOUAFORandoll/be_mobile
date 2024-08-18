@@ -158,7 +158,7 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
                           ),
                           height: getHeight(context) * .1,
                           child: state.indexType2 == 0
-                              ? AppButton(
+                              ? AppButtonSecond(
                                   size: MainAxisSize.max,
                                   // bgColor: (state.indexType2 == 0)
                                   //     ? !(state.selectedVIlle != null &&
@@ -191,7 +191,7 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                      AppButton(
+                                      AppButtonSecond(
                                           size: MainAxisSize.max,
                                           bgColor: state.indexType2 == 0
                                               ? ColorsApp.grey
@@ -202,7 +202,7 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
                                                 .read<LivraisonBloc>()
                                                 .add(BackIndexType2Event());
                                           }),
-                                      AppButton(
+                                      AppButtonSecond(
                                         size: MainAxisSize.max,
                                         // bgColor: (state.indexType2 == 0)
                                         //     ? !(state.selectedVIlle != null &&

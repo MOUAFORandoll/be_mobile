@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class AppButtonSecond extends StatelessWidget {
   final Color bgColor;
   final Color textColor;
-  final text;
-  final marginAdd;
+  final String text;
+  final EdgeInsetsGeometry? marginAdd;
   final VoidCallback? onTap;
   final bool disabled;
   final int loading;
@@ -12,7 +13,8 @@ class AppButtonSecond extends StatelessWidget {
   final BoxBorder? border;
   final IconData? prefixIcon;
   final IconData? sufixIcon;
-  AppButtonSecond({
+
+  const AppButtonSecond({
     Key? key,
     required this.text,
     this.marginAdd,
@@ -30,43 +32,43 @@ class AppButtonSecond extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        child: Container(
-          alignment: Alignment.center, // width: getWidth(context),
-          height: getHeight(context) * .055,
-          constraints: BoxConstraints(minWidth: getWidth(context) * .40),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(80),
-              color: disabled ? bgColor.withOpacity(.5) : bgColor,
-              border: border),
-          padding: EdgeInsets.all(10),
-          margin: EdgeInsets.symmetric(vertical: kMarginY * 2)
-              .add(marginAdd ?? EdgeInsets.all(0))
-              .add(EdgeInsets.symmetric(horizontal: kMarginX)),
-          child: Row(
-            mainAxisSize: size,
-            mainAxisAlignment: sufixIcon != null
-                ? MainAxisAlignment.spaceBetween
-                : MainAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  if (prefixIcon != null) Icon(prefixIcon!),
-                  Container(
-                    margin: EdgeInsets.only(left: kMarginX),
-                    child: Text(
-                      text,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: kBasics * 1.2,
-                          color: textColor),
-                    ),
-                  ),
-                ],
-              ),
-              if (sufixIcon != null) Icon(sufixIcon!),
-            ],
-          ),
+      onTap: !disabled ? onTap : null,
+      child: Container(
+        alignment: Alignment.center,
+        height: getHeight(context) * 0.055,
+        constraints: BoxConstraints(minWidth: getWidth(context) * 0.40),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(80),
+          color: disabled ? bgColor.withOpacity(0.5) : bgColor,
+          border: border,
         ),
-        onTap: onTap);
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.symmetric(vertical: kMarginY * 2)
+            .add(marginAdd ?? EdgeInsets.zero)
+            .add(EdgeInsets.symmetric(horizontal: kMarginX)),
+        child: Row(
+          mainAxisSize: size,
+          mainAxisAlignment: sufixIcon != null
+              ? MainAxisAlignment.spaceBetween
+              : MainAxisAlignment.center,
+          children: [
+            if (prefixIcon != null) Icon(prefixIcon!, color: textColor),
+            SizedBox(width: prefixIcon != null ? kMarginX : 0),
+            Text(
+              text,
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: kBasics * 1.2,
+                color: textColor,
+              ),
+            ),
+            if (sufixIcon != null) ...[
+              SizedBox(width: kMarginX),
+              Icon(sufixIcon!, color: textColor),
+            ],
+          ],
+        ),
+      ),
+    );
   }
 }

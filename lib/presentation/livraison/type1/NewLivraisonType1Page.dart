@@ -1,5 +1,5 @@
 import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart'; 
+import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
 
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -7,7 +7,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
-import 'package:BabanaExpress/utils/functions/formatData.dart'; 
+import 'package:BabanaExpress/utils/functions/formatData.dart';
 import 'InfoColis.dart';
 import 'InfoLIvraison.dart';
 
@@ -152,8 +152,7 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                   child: state.indexType1 == 0
                       ? AppButtonSecond(
                           size: MainAxisSize.max,
-                          marginAdd:
-                              EdgeInsets.symmetric(horizontal: kMarginX * 2),
+                          marginAdd: EdgeInsets.symmetric(horizontal: kMarginX),
                           bgColor: (state.indexType1 == 0)
                               ? !(state.selectedVIlle != null &&
                                       state.selected_recuperation_point !=
@@ -195,7 +194,7 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                           children: [
                               AppButtonSecond(
                                   marginAdd: EdgeInsets.symmetric(
-                                      horizontal: kMarginX * 2),
+                                      horizontal: kMarginX),
                                   size: MainAxisSize.max,
                                   bgColor: state.indexType1 == 0
                                       ? ColorsApp.grey
@@ -207,8 +206,6 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                                         .add(BackIndexType1Event());
                                   }),
                               AppButtonSecond(
-                                marginAdd:
-                                    EdgeInsets.symmetric(horizontal: kMarginX),
                                 size: MainAxisSize.max,
                                 bgColor: (state.indexType1 == 0)
                                     ? !(state.selectedVIlle != null &&
