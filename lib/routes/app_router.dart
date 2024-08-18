@@ -15,6 +15,7 @@ import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page
 import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/user/AuthPage.dart';
 import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
+import 'package:BabanaExpress/presentation/user/LoginPage.dart';
 import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
 import 'package:BabanaExpress/presentation/user/RegisterPage.dart';
 import 'package:BabanaExpress/test.dart';
@@ -33,6 +34,8 @@ class AppRouter extends $AppRouter {
             path: SplashScreenPage.routeName),
         AutoRoute(page: OnBoardingRoute.page, path: OnBoardingPage.routeName),
         AutoRoute(page: AuthRoute.page, path: AuthPage.routeName),
+        AutoRoute(page: LoginRoute.page, path: LoginPage.routeName),
+
         AutoRoute(page: RegisterRoute.page, path: RegisterPage.routeName),
         AutoRoute(
             page: ForgotPasswordRoute.page, path: ForgotPasswordPage.routeName),
@@ -75,9 +78,9 @@ class AppRouter extends $AppRouter {
             path: SuccesLivraisonType2Page.routeName),
         AutoRoute(
             page: ColisConversationRoute.page,
-            path: ColisConversationPage.routeName),  AutoRoute(
-            page: LivraiSonMapRoute.page,
-            path: LivraiSonMapPage.routeName),
+            path: ColisConversationPage.routeName),
+        AutoRoute(
+            page: LivraiSonMapRoute.page, path: LivraiSonMapPage.routeName),
       ];
 }
 //656019261

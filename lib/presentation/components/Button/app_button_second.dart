@@ -31,21 +31,22 @@ class AppButtonSecond extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         child: Container(
-          // width: getWidth(context),
-          constraints: BoxConstraints(
-              minHeight: getHeight(context) * .07,
-              maxHeight: getHeight(context) * .07,
-              minWidth: getWidth(context) * .40),
+          alignment: Alignment.center, // width: getWidth(context),
+          height: getHeight(context) * .055,
+          constraints: BoxConstraints(minWidth: getWidth(context) * .40),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(80),
               color: disabled ? bgColor.withOpacity(.5) : bgColor,
               border: border),
-          padding: EdgeInsets.all(15),
+          padding: EdgeInsets.all(10),
           margin: EdgeInsets.symmetric(vertical: kMarginY * 2)
-              .add(marginAdd ?? EdgeInsets.all(0)),
+              .add(marginAdd ?? EdgeInsets.all(0))
+              .add(EdgeInsets.symmetric(horizontal: kMarginX)),
           child: Row(
             mainAxisSize: size,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: sufixIcon != null
+                ? MainAxisAlignment.spaceBetween
+                : MainAxisAlignment.center,
             children: [
               Row(
                 children: [
@@ -55,8 +56,8 @@ class AppButtonSecond extends StatelessWidget {
                     child: Text(
                       text,
                       style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 13,
+                          fontWeight: FontWeight.w700,
+                          fontSize: kBasics * 1.2,
                           color: textColor),
                     ),
                   ),

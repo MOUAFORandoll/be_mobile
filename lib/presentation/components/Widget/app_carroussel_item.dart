@@ -70,7 +70,7 @@ class AppCarrousselItem extends StatelessWidget {
           // ),
           CircleAvatar(
             backgroundColor: Colors.white,
-            radius: 200,
+            radius: 150,
             child: Container(
               child: Image.asset(
                 image,

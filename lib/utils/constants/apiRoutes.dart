@@ -8,6 +8,7 @@ class ApiRoutes {
   static const USER = '/user/get';
   static const LIVREUR = '/livreur/read/ville';
   static const LIVRAISON_POINT = '/point_localisations';
+  static const VERIFY_EXIST = '/auth/user-exist-verify';
 
   static const LOGIN = '/auth/user';
   static const LOGINSOCIAL = '/auth/user/social';

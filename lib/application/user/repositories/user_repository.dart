@@ -88,38 +88,43 @@ class UserRepo {
     }
   }
 
-  Future Login(data) async {
+  Future verifUserExist(data) async {
+    Response a = await apiClient.postRequest(ApiRoutes.VERIFY_EXIST, body: data);
+
+    return a;
+  }
+  Future login(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LOGIN, body: data);
 
     return a;
   }
 
-  Future LoginSocial(data) async {
+  Future loginSocial(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LOGINSOCIAL, body: data);
 
     return a;
   }
 
-  Future SendCode(data) async {
+  Future sendCode(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.SEND_CODE, body: data);
 
     return a;
   }
 
-  Future VerifyCode(data) async {
+  Future verifyCode(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.VERIFY_CODE, body: data);
 
     return a;
   }
 
-  Future ResetPassword(data) async {
+  Future resetPassword(data) async {
     Response a =
         await apiClient.postRequest(ApiRoutes.REST_PASSWORD, body: data);
 
     return a;
   }
 
-  Future SignUp(data) async {
+  Future signUp(data) async {
     //print(data);
     Response a0 = await apiClient.postRequest(ApiRoutes.SIGNUP, body: data);
 

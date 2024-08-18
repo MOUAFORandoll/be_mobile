@@ -126,9 +126,9 @@ class _FirstViewState extends State<FirstView>
                                           color: ColorsApp.primary),
                                       onTap: () {
                                         _startAnimation();
-                                        context
-                                            .read<HomeBloc>()
-                                            .add(HomeStateLivraison());
+                                        // context
+                                        //     .read<HomeBloc>()
+                                        //     .add(HomeStateLivraison());
                                       },
                                     ),
                                   ),

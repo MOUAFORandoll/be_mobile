@@ -68,13 +68,14 @@ Future<void> initLoad(context) async {
 
   BlocProvider.of<HomeBloc>(context)
     ..add(UserDataEvent())
-    ..add(GetService())
-    ..add(HomeStateLivraison());
+    ..add(GetService());
+  // ..add(HomeStateLivraison());
   BlocProvider.of<UserBloc>(context)
     ..add(GetUserEvent())
     ..add(GetModePaiement())
     ..add(GetVilleQuartier());
-  BlocProvider.of<LivraisonBloc>(context)..add(CurrentUserStateLivraison())
+  BlocProvider.of<LivraisonBloc>(context)
+    ..add(CurrentUserStateLivraison())
     ..add(StartLogLat())
     ..add(GetVilleAndCategoryEvent());
   initSetDefaultValue(context);

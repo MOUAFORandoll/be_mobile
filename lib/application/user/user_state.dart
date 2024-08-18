@@ -18,10 +18,20 @@ class UserState with _$UserState {
       int? loadModePaiement,
       bool? successReset,
       List<ModePaiementModel>? listModePaiement,
+      required TextEditingController phone,
+      required TextEditingController password,
+      required TextEditingController name,
+      required TextEditingController re_password,
+      required int? isExistLoading,
       bool? updating}) = _UserState;
 
   factory UserState.initial() => UserState(
+      phone: TextEditingController(),
+      password: TextEditingController(),
+      name: TextEditingController(),
+      re_password: TextEditingController(),
       isSocialAuthentification: null,
+      isExistLoading: null,
       isCode: 0,
       updating: false,
       isCorrectCode: 0,
@@ -34,28 +44,11 @@ class UserState with _$UserState {
       listModePaiement: [],
       isVilleQuartier: 0);
 
-  factory UserState.authenticationFailed({
-    required String message,
-  }) =>
-      UserState(
-        authenticationFailedMessage: message,
-      );
-
-  factory UserState.registerFailed({
-    required String message,
-  }) =>
-      UserState(
-        registerFailedMessage: message,
-      );
-
   factory UserState.unauthenticated() => UserState.initial();
 
   factory UserState.checkingUser() => UserState.initial();
 
   factory UserState.loginIngUser() => UserState.initial();
-
-  factory UserState.loginIngFailed({required String message}) =>
-      UserState(authenticationFailedMessage: message);
 
   factory UserState.authenticated() => UserState.initial();
 }

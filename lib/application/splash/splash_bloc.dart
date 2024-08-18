@@ -29,7 +29,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
         PageRouteInfo<dynamic> route;
 
         route = (box.read('first') != 1)
-            ? const OnBoardingRoute()
+            ? OnBoardingRoute()
             : isConnected
                 ? const HomeRoute()
                 : const AuthRoute();

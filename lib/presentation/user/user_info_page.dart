@@ -20,7 +20,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
   TextEditingController phone = TextEditingController();
 
   TextEditingController password = TextEditingController();
-  
+
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -137,10 +137,9 @@ class _UserInfoPageState extends State<UserInfoPage> {
                                     });
 
                                     if (formKey.currentState!.validate()) {
-                                      context.read<UserBloc>().add(SignInEvent(
-                                            password: password.text,
-                                            phone: phone.text,
-                                          ));
+                                      context
+                                          .read<UserBloc>()
+                                          .add(SignInEvent());
                                     }
                                   }),
                               InkWell(

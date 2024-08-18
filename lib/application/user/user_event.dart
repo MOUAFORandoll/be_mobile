@@ -2,18 +2,11 @@ part of 'user_bloc.dart';
 
 @freezed
 class UserEvent with _$UserEvent {
-  const factory UserEvent.signInEvent({
-    required String phone,
-    required String password,
-  }) = SignInEvent;
+  const factory UserEvent.signInEvent() = SignInEvent;
+  const factory UserEvent.verifUserExist() = VerifUserExist;
   const factory UserEvent.signInSocialEvent() = SignInSocialEvent;
   const factory UserEvent.registerSocial() = RegisterSocialEvent;
-  const factory UserEvent.register({
-    required String name,
-    required String phone,
-    required String password,
-    required String re_password,
-  }) = RegisterEvent;
+  const factory UserEvent.register() = RegisterEvent;
 
   const factory UserEvent.sendCode({required String data}) = SendCode;
   const factory UserEvent.updateUserInfo({required Map data}) = UpdateUserInfo;

@@ -8,16 +8,13 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/core.dart';
+import 'package:flutter/material.dart';
 
 @RoutePage()
 class RegisterPage extends StatelessWidget {
   static const routeName = '/register';
 
-  TextEditingController phone = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  TextEditingController password = TextEditingController();
-  TextEditingController name = TextEditingController();
-  TextEditingController re_password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -55,144 +52,123 @@ class RegisterPage extends StatelessWidget {
               // if (state is InitialDataState) {
               //   InitialDataState _userState = state as InitialDataState;
 
-              return SingleChildScrollView(
-                child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: kMarginX),
-                  child: Form(
-                    key: formKey,
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY,
-                            ),
-                            child: Text(
-                              'regTitle'.tr(),
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 13,
-                                // color: ColorsApp.orange,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ),
-                          Container(
-                              margin: EdgeInsets.only(
-                                  top: kMarginY, bottom: kMarginY),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      top: kMarginY,
+              return Container(
+                margin: EdgeInsets.symmetric(horizontal: kMarginX),
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                    margin: EdgeInsets.symmetric(
+                                      horizontal: kMarginX / 2,
+                                    ).add(EdgeInsets.only(top: kMarginY * 2)),
+                                    child: Text(
+                                      'Renseigne vos informations',
+                                      style: TextStyle(
+                                          fontSize: kTitle * 1.3,
+                                          fontWeight: FontWeight.w700),
+                                    )),
+                                Container(
+                                    margin: EdgeInsets.symmetric(
+                                      horizontal: kMarginX / 2,
                                     ),
-                                    child: AppInput(
-                                      controller: name,
-                                      onChanged: (value) {
-                                        formKey.currentState!.validate();
-                                      },
-                                      placeholder: 'labelname'.tr(),
-                                      validator: (value) {
-                                        return Validators.isValidUsername(
-                                            value!);
-                                      },
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      top: kMarginY,
-                                    ),
-                                    child: AppInput(
-                                      controller: phone,
-                                      onChanged: (value) {
-                                        formKey.currentState!.validate();
-                                      },
-                                      placeholder: 'labelphone'.tr(),
-                                      validator: (value) {
-                                        return Validators.usPhoneValid(value!);
-                                      },
-                                    ),
-                                  ),
-                                  AppInputPassword(
-                                    controller: password,
-                                    placeholder: 'labelpassword'.tr(),
-                                    onChanged: (value) {
-                                      formKey.currentState!.validate();
-                                    },
-                                    obscureText: true,
-                                    validator: (value) {
-                                      //print(value);
-                                      return Validators.required(
-                                          'Mot de passe', value!);
-                                    },
-                                  ),
-                                  AppInputPassword(
-                                    controller: re_password,
-                                    placeholder: 'labelrpassword'.tr(),
-                                    onChanged: (value) {
-                                      formKey.currentState!.validate();
-                                    },
-                                    obscureText: true,
-                                    validator: (value) {
-                                      //print(value);
-                                      return Validators.required(
-                                          'Mot de passe', value!);
-                                    },
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(bottom: kMarginY),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
+                                    child: Text(
+                                      'regTitle'.tr(),
+                                      style: TextStyle(
+                                        fontSize: kBasics,
+                                      ),
+                                    )),
+                                Container(
+                                    margin: EdgeInsets.only(
+                                        top: kMarginY, bottom: kMarginY),
+                                    child: Column(
                                       children: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              AutoRouter.of(context).pushNamed(
-                                                  ForgotPasswordPage.routeName),
-                                          child: Text('forgotpass'.tr(),
-                                              style: TextStyle(
-                                                fontFamily: 'Lato',
-                                                color: ColorsApp.primary,
-                                              )),
-                                        )
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            top: kMarginY,
+                                          ),
+                                          child: AppInput(
+                                            controller: state.name,
+                                            onChanged: (value) {
+                                              formKey.currentState!.validate();
+                                            },
+                                            placeholder: 'labelname'.tr(),
+                                            validator: (value) {
+                                              return Validators.isValidUsername(
+                                                  value!);
+                                            },
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                            top: kMarginY,
+                                          ),
+                                          child: AppInput(
+                                            controller: state.phone,
+                                            onChanged: (value) {
+                                              formKey.currentState!.validate();
+                                            },
+                                            placeholder: 'labelphone'.tr(),
+                                            validator: (value) {
+                                              return Validators.usPhoneValid(
+                                                  value!);
+                                            },
+                                          ),
+                                        ),
+                                        AppInputPassword(
+                                          controller: state.password,
+                                          placeholder: 'labelpassword'.tr(),
+                                          onChanged: (value) {
+                                            formKey.currentState!.validate();
+                                          },
+                                          obscureText: true,
+                                          validator: (value) {
+                                            //print(value);
+                                            return Validators.required(
+                                                'Mot de passe', value!);
+                                          },
+                                        ),
+                                        AppInputPassword(
+                                          controller: state.re_password,
+                                          placeholder: 'labelrpassword'.tr(),
+                                          onChanged: (value) {
+                                            formKey.currentState!.validate();
+                                          },
+                                          obscureText: true,
+                                          validator: (value) {
+                                            //print(value);
+                                            return Validators.required(
+                                                'Mot de passe', value!);
+                                          },
+                                        ),
                                       ],
-                                    ),
-                                  ),
-                                  AppButton(
-                                      size: MainAxisSize.max,
-                                      // bgColor: ColorsApp.primary,
-                                      text: 'regbtn'.tr(),
-                                      onTap: () async {
-                                        if (formKey.currentState!.validate()) {
-                                          if (password.text !=
-                                              re_password.text) {
-                                            showError(
-                                                'Les mots de passes sont differents',
-                                                context);
+                                    )),
+                              ]),
+                        ),
+                      ),
+                      AppButtonSecond(
+                          size: MainAxisSize.max,
+                          // bgColor: ColorsApp.primary,
+                          text: 'regbtn'.tr(),
+                          onTap: () async {
+                            if (formKey.currentState!.validate()) {
+                              if (state.password.text !=
+                                  state.re_password.text) {
+                                showError('Les mots de passes sont differents',
+                                    context);
 
-                                            return;
-                                          }
-                                          context.read<UserBloc>().add(
-                                              RegisterEvent(
-                                                  name: name.text,
-                                                  phone: phone.text,
-                                                  password: password.text,
-                                                  re_password:
-                                                      re_password.text));
-                                        }
-                                      }),
-                                  SocialLogBtn(
-                                    icon: FontAwesomeIcons.google,
-                                    onTap: () {
-                                      context
-                                          .read<UserBloc>()
-                                          .add(RegisterSocialEvent());
-                                    },
-                                    title: 'Google',
-                                  ),
-                                ],
-                              )),
-                        ]),
+                                return;
+                              }
+                              context.read<UserBloc>().add(RegisterEvent());
+                            }
+                          }),
+                    ],
                   ),
                 ),
               );
