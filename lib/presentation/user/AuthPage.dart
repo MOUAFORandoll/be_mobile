@@ -75,7 +75,7 @@ class _AuthPageState extends State<AuthPage> {
                                       horizontal: kMarginX / 2,
                                     ).add(EdgeInsets.only(top: kMarginY * 2)),
                                     child: Text(
-                                      'Renseigne ton numero de telephone',
+                                      'Renseignez votre numero de telephone',
                                       style: TextStyle(
                                           fontSize: kTitle * 1.3,
                                           fontWeight: FontWeight.w700),
@@ -87,7 +87,7 @@ class _AuthPageState extends State<AuthPage> {
                                   horizontal: kMarginX / 2,
                                 ),
                                 child: Text(
-                                  'Renseigne ton numero de telephone pour creer ton compte ou pour te connecter',
+                                  'Renseignez votre numero de telephone pour creer un compte ou pour se connecter',
                                   style: TextStyle(
                                     fontSize: kBasics,
                                   ),

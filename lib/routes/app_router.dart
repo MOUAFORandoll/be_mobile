@@ -28,59 +28,123 @@ import 'app_router.gr.dart';
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
 class AppRouter extends $AppRouter {
   List<AutoRoute> get routes => [
-        AutoRoute(
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
             page: SplashScreenRoute.page,
             initial: true,
             path: SplashScreenPage.routeName),
-        AutoRoute(page: OnBoardingRoute.page, path: OnBoardingPage.routeName),
-        AutoRoute(page: AuthRoute.page, path: AuthPage.routeName),
-        AutoRoute(page: LoginRoute.page, path: LoginPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: OnBoardingRoute.page,
+            path: OnBoardingPage.routeName),
+        CustomRoute(page: AuthRoute.page, path: AuthPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: LoginRoute.page,
+            path: LoginPage.routeName),
 
-        AutoRoute(page: RegisterRoute.page, path: RegisterPage.routeName),
-        AutoRoute(
-            page: ForgotPasswordRoute.page, path: ForgotPasswordPage.routeName),
-        AutoRoute(page: HomeRoute.page, path: HomePage.routeName),
-        AutoRoute(
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: RegisterRoute.page,
+            path: RegisterPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: ForgotPasswordRoute.page,
+            path: ForgotPasswordPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: HomeRoute.page,
+            path: HomePage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
             page: NewLivraisonType1Route.page,
             path: NewLivraisonType1Page.routeName),
 
-        AutoRoute(
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
             page: MapRoutePointRecuperation.page,
             path: MapPagePointRecuperation.routeName),
-        AutoRoute(
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
             page: MapRoutePointLivraisonColis.page,
             path: MapPagePointLivraisonColis.routeName),
-        AutoRoute(
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
             page: SuccesLivraisonType1Route.page,
             path: SuccesLivraisonType1Page.routeName),
 
-        AutoRoute(page: MyTestRoute.page, path: MyTestPage.routeName),
-        AutoRoute(page: PolitiqueRoute.page, path: PolitiquePage.routeName),
-        AutoRoute(
-            page: LivraisonDataRoute.page, path: LivraisonDataPage.routeName),
-        AutoRoute(page: WalletRoute.page, path: WalletPage.routeName),
-        AutoRoute(
-            page: PaimentDepotRoute.page, path: PaimentDepotPage.routeName),
-        AutoRoute(
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: MyTestRoute.page,
+            path: MyTestPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: PolitiqueRoute.page,
+            path: PolitiquePage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: LivraisonDataRoute.page,
+            path: LivraisonDataPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: WalletRoute.page,
+            path: WalletPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: PaimentDepotRoute.page,
+            path: PaimentDepotPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
             page: HistoriqueLivraisonRoute.page,
             path: HistoriqueLivraisonPage.routeName),
-        AutoRoute(page: CallCenterRoute.page, path: CallCenterPage.routeName),
-        AutoRoute(
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: CallCenterRoute.page,
+            path: CallCenterPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
             page: LivraisonDataHomeRoute.page,
             path: LivraisonDataHomePage.routeName),
 
         //Livraison Type 2
-        AutoRoute(
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
             page: NewLivraisonType2Route.page,
             path: NewLivraisonType2Page.routeName),
-        AutoRoute(
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
             page: SuccesLivraisonType2Route.page,
             path: SuccesLivraisonType2Page.routeName),
-        AutoRoute(
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
             page: ColisConversationRoute.page,
             path: ColisConversationPage.routeName),
-        AutoRoute(
-            page: LivraiSonMapRoute.page, path: LivraiSonMapPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: LivraiSonMapRoute.page,
+            path: LivraiSonMapPage.routeName),
       ];
 }
 //656019261

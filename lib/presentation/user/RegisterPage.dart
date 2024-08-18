@@ -11,10 +11,16 @@ import 'package:BabanaExpress/core.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   static const routeName = '/register';
 
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
   final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -69,7 +75,7 @@ class RegisterPage extends StatelessWidget {
                                       horizontal: kMarginX / 2,
                                     ).add(EdgeInsets.only(top: kMarginY * 2)),
                                     child: Text(
-                                      'Renseigne vos informations',
+                                      'Renseignez vos informations',
                                       style: TextStyle(
                                           fontSize: kTitle * 1.3,
                                           fontWeight: FontWeight.w700),

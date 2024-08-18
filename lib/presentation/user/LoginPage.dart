@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                                     horizontal: kMarginX / 2,
                                   ).add(EdgeInsets.only(top: kMarginY * 2)),
                                   child: Text(
-                                    'Renseigne ton mot de passe',
+                                    'Renseignez votre mot de passe',
                                     style: TextStyle(
                                         fontSize: kTitle * 1.3,
                                         fontWeight: FontWeight.w700),
@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                                     horizontal: kMarginX / 2,
                                   ),
                                   child: Text(
-                                    'Renseigne ton mot de passe pour acceder a ton compte',
+                                    'Renseignez votre mot de passe pour acceder a ton compte',
                                     style: TextStyle(
                                       fontSize: kBasics,
                                     ),
@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                                             child: Text('forgotpass'.tr(),
                                                 style: TextStyle(
                                                   fontFamily: 'Lato',
-                                                  color: ColorsApp.primary,
+                                                  color: ColorsApp.second,
                                                 )),
                                           )
                                         ],
