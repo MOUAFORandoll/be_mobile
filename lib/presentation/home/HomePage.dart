@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       bearing: 0,
       target: LatLng(latitude, longitude),
       tilt: 0,
-      zoom: 20.5,
+      zoom: 15.5,
     );
 
     if (mapController != null) {
@@ -200,7 +200,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       myLocationEnabled: true,
       myLocationButtonEnabled: false,
       indoorViewEnabled: true,
-      // liteModeEnabled: true,
+      liteModeEnabled: false,
+      trafficEnabled: true,
       markers: listPoint,
       circles: circles,
       onMapCreated: (GoogleMapController mapController) async {
