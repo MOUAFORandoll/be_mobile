@@ -1,15 +1,18 @@
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
+import 'package:BabanaExpress/presentation/components/Widget/delivry_widget_title.dart';
 
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
+import 'package:BabanaExpress/presentation/components/Widget/recuperation_delivery_zone_widget.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
+import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/functions/formatData.dart';
-import 'InfoColis.dart';
-import 'InfoLIvraison.dart';
+import 'InfoColistype1.dart';
+import 'InfoLIvraisontype1.dart';
 
 @RoutePage()
 class NewLivraisonType1Page extends StatefulWidget {
@@ -84,63 +87,78 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                   height: getHeight(context) * .7,
                   margin: EdgeInsets.symmetric(
                       horizontal: kMarginX, vertical: kMarginY),
+                  padding: EdgeInsets.symmetric(vertical: kMarginY),
                   child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                    margin: EdgeInsets.symmetric(
-                                        horizontal: kMarginX,
-                                        vertical: kMarginY),
-                                    decoration: BoxDecoration(
-                                        color: state.indexType1 == 0
-                                            ? ColorsApp.primary
-                                            : ColorsApp.white,
-                                        borderRadius:
-                                            BorderRadius.circular(50)),
-                                    height: 30,
-                                    width: 30,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      '1',
-                                      style: TextStyle(
-                                        color: state.indexType1 == 0
-                                            ? ColorsApp.white
-                                            : ColorsApp.primary,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    )),
-                                Container(
-                                    margin: EdgeInsets.symmetric(
-                                        horizontal: kMarginX,
-                                        vertical: kMarginY),
-                                    decoration: BoxDecoration(
-                                        color: state.indexType1 == 0
-                                            ? ColorsApp.white
-                                            : ColorsApp.primary,
-                                        borderRadius:
-                                            BorderRadius.circular(50)),
-                                    height: 30,
-                                    width: 30,
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      '2',
-                                      style: TextStyle(
-                                        color: state.indexType1 == 1
-                                            ? ColorsApp.white
-                                            : ColorsApp.primary,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ))
-                              ]),
+                    child: Column(children: [
+                      RecuperationDeliveryZoneWidget(
+                          title: 'Zone de recuperation',
+                          subTitle: 'Appuyer pour definir Zone de recuperation',
+                          onTap: () => AutoRouter.of(context)
+                              .pushNamed(InfoLIvraisonType1Page.routeName)),
+                      Container(
+                        margin: EdgeInsets.only(
+                          top: kMarginY * 1.5,
                         ),
-                        state.indexType1 == 0 ? InfoLIvraison() : InfoColis(),
-                      ],
-                    ),
+                        child: TextFormField(
+                          controller: state.description,
+                          onChanged: (value) {},
+                          validator: (value) {
+                            return Validators.isValidUsername(value!);
+                          },
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14,
+                            fontFamily: 'Lato',
+                          ),
+                          maxLines: 10,
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: ColorsApp.primary, width: 1),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: ColorsApp.red, width: 1),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: ColorsApp.grey, width: 1),
+                              borderRadius: BorderRadius.circular(8),
+                              // borderSide:
+                              //     BorderSide(color: ColorsApp.tird, width: 1),
+                            ),
+                            errorStyle: TextStyle(
+                              fontSize: 8,
+                              fontFamily: 'Lato',
+                            ),
+                            labelStyle: TextStyle(
+                              color: ColorsApp.grey,
+                              fontFamily: 'Lato',
+                              // fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                            ),
+                            labelText: 'ydescript'.tr(),
+                            fillColor: ColorsApp.tird,
+                            counter: Offstage(),
+                            // hintText: 'lbdescprod'.tr(),
+                            alignLabelWithHint: true,
+                            hintStyle: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ),
+                      ),
+                      DelivryWidgetTitle(
+                        title: 'Zone de recuperation',
+                        icon: FontAwesomeIcons.locationDot,
+                      ),
+                      DelivryWidgetTitle(
+                        title: 'Information de livraison colis',
+                        icon: FontAwesomeIcons.locationDot,
+                      )
+                    ]),
                   ),
                 ),
               ),

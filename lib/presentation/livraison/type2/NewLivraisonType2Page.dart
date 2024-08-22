@@ -7,8 +7,8 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';
 import 'package:BabanaExpress/utils/functions/formatData.dart';
-import 'InfoColis.dart';
-import 'InfoLIvraison.dart';
+import 'InfoColistype2.dart';
+import 'InfoLIvraisonType2.dart';
 
 @RoutePage()
 class NewLivraisonType2Page extends StatefulWidget {
@@ -144,9 +144,9 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
                                             ))
                                       ]),
                                 ),
-                                state.indexType2 == 0
-                                    ? InfoColis()
-                                    : InfoLIvraison(),
+                                // state.indexType2 == 0
+                                //     ? InfoColis()
+                                //     : InfoLIvraison(),
                               ],
                             ),
                           ),

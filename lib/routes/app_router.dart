@@ -9,8 +9,12 @@ import 'package:BabanaExpress/presentation/livraison/LivraiSonMapPage.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataHomePage.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
+import 'package:BabanaExpress/presentation/livraison/type1/InfoColistype1.dart';
+import 'package:BabanaExpress/presentation/livraison/type1/InfoLIvraisontype1.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/NewLivraisonType1Page.dart';
+import 'package:BabanaExpress/presentation/livraison/type2/InfoColistype2.dart';
+import 'package:BabanaExpress/presentation/livraison/type2/InfoLIvraisonType2.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/user/AuthPage.dart';
@@ -145,6 +149,29 @@ class AppRouter extends $AppRouter {
             durationInMilliseconds: 600,
             page: LivraiSonMapRoute.page,
             path: LivraiSonMapPage.routeName),
+
+//New design
+
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: InfoColistype1Route.page,
+            path: InfoColistype1Page.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: InfoLIvraisonType1Route.page,
+            path: InfoLIvraisonType1Page.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: InfoColistype2Route.page,
+            path: InfoColistype2Page.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: InfoLIvraisonType2Route.page,
+            path: InfoLIvraisonType2Page.routeName),
       ];
 }
 //656019261

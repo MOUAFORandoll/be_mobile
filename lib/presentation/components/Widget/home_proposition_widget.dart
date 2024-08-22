@@ -32,7 +32,7 @@ class HomePropositionWidget extends StatelessWidget {
                       style: TextStyle(
                         fontSize: kBasics,
                         color: ColorsApp.white,
-                        fontFamily: 'Montserrat',
+                        fontFamily: 'Lato',
                         fontWeight: FontWeight.w500,
                       ),
                     )),
@@ -44,7 +44,7 @@ class HomePropositionWidget extends StatelessWidget {
                       style: TextStyle(
                         color: ColorsApp.white,
                         fontSize: kBasics * .8,
-                        fontFamily: 'Montserrat',
+                        fontFamily: 'Lato',
                       ),
                     )),
                 Container(

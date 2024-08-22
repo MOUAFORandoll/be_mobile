@@ -12,7 +12,7 @@ class AppButton extends StatelessWidget {
   AppButton({
     Key? key,
     required this.text,
-    this.bgColor = ColorsApp.primary,
+    this.bgColor = ColorsApp.second,
     this.textColor = Colors.white,
     this.onTap,
     this.disabled = false,

@@ -16,8 +16,15 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:contacts_service/contacts_service.dart';
 
-// ignore: must_be_immutable
-class InfoColis extends StatelessWidget {
+@RoutePage()
+class InfoColistype1Page extends StatefulWidget {
+  static const routeName = '/infocolis/type1';
+
+  @override
+  State<InfoColistype1Page> createState() => _InfoColistype1PageState();
+}
+
+class _InfoColistype1PageState extends State<InfoColistype1Page> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LivraisonBloc, LivraisonState>(

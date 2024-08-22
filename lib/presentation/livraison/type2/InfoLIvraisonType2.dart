@@ -6,14 +6,16 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import '../MapPagePointRecuperation.dart';
 
-class InfoLIvraison extends StatefulWidget {
-  InfoLIvraison({super.key});
+@RoutePage()
+class InfoLIvraisonType2Page extends StatefulWidget {
+  static const routeName = '/infolivraison/type2';
+  InfoLIvraisonType2Page({super.key});
 
   @override
-  State<InfoLIvraison> createState() => _InfoLIvraisonState();
+  State<InfoLIvraisonType2Page> createState() => _InfoLIvraisonType2PageState();
 }
 
-class _InfoLIvraisonState extends State<InfoLIvraison> {
+class _InfoLIvraisonType2PageState extends State<InfoLIvraisonType2Page> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LivraisonBloc, LivraisonState>(
@@ -41,33 +43,29 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
           margin: EdgeInsets.symmetric(horizontal: kMarginX),
           padding: EdgeInsets.all(kMarginX * 1.5),
           child: SingleChildScrollView(
-            child: Column(children: [
-              // Container(
-              //   margin: EdgeInsets.only(
-              //     top: kMarginY * 1.5,
-              //   ),
-              //   child: AppInputNew(
-              //     controller: state.libelle!,
-              //     icon: Icon(Icons.label),
-              //     label: 'yLibelle'.tr(),
-              //     onChanged: (value) {
-              //       // verifyForm();
-              //     },
-              //     validator: (value) {
-              //       return Validators.isValidUsername(value!);
-              //     },
-              //   ),
-              // ),
-              // Container(
-              //     padding: EdgeInsets.only(
-              //       top: kMarginY,
-              //     ),
-              //     alignment: Alignment.centerLeft,
-              //     child: Text('yVille'.tr())),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Container(
+                margin: EdgeInsets.symmetric(
+                  vertical: kMarginY * 1.5,
+                ),
+                child: Text(
+                  'Ou devons nous vous livrer ?',
+                  style: TextStyle(
+                      fontSize: kTitle,
+                      fontFamily: 'Lato',
+                      color: ColorsApp.black,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
               state.isLoadVille == 0
                   ? CircularProgressIndicator(color: ColorsApp.primary)
                   : state.isLoadVille == 2
-                      ? Text('Error')
+                      ? InkWell(
+                          child: Text('Error'),
+                          onTap: () => context
+                              .read<LivraisonBloc>()
+                              .add(GetVilleAndCategoryEvent()))
                       : Container(
                           decoration: BoxDecoration(
                             color: Colors.grey.shade200,
@@ -113,7 +111,6 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                           fontFamily: 'Lato',
                           color: ColorsApp.red),
                     )),
-
               state.isLoadPLivraison == 0
                   ? Container(
                       padding: EdgeInsets.symmetric(
@@ -123,7 +120,11 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                       child:
                           CircularProgressIndicator(color: ColorsApp.primary))
                   : state.isLoadPLivraison == 2
-                      ? Text('Error')
+                      ? InkWell(
+                          onTap: () => context
+                              .read<LivraisonBloc>()
+                              .add(GetVilleAndCategoryEvent()),
+                          child: Text('Error'))
                       : state.isLoadPLivraison == null
                           ? Container()
                           : Column(
@@ -147,18 +148,16 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                                                 maxWidth:
                                                     getWidth(context) * .65,
                                                 value: state
-                                                    .selected_recuperation_point,
-                                                hint: 'yselectrecupp'.tr(),
+                                                    .selected_livraison_point,
+                                                hint: 'yselectpointliv'.tr(),
                                                 items: state
                                                     .list_localisation_point!,
                                                 onChanged: (PointLivraisonModel?
                                                     newValue) {
-                                                  context
-                                                      .read<LivraisonBloc>()
-                                                      .add(
-                                                          SelectPointRecuperation(
-                                                              point_recup:
-                                                                  newValue!));
+                                                  context.read<LivraisonBloc>().add(
+                                                      SelectPointLivraisonColis(
+                                                          point_livraison:
+                                                              newValue!));
                                                 },
                                                 itemLabelBuilder:
                                                     (PointLivraisonModel
@@ -255,7 +254,7 @@ class _InfoLIvraisonState extends State<InfoLIvraison> {
                   top: kMarginY * 1.5,
                 ),
                 child: AppInputNew(
-                  controller: state.contactEmetteur!,
+                  controller: state.contactRecepteur!,
                   icon: Icon(Icons.phone),
                   textInputType: TextInputType.number,
                   // maxLength:13,

@@ -1,5 +1,5 @@
- 
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+
 class FileOptionWidget extends StatelessWidget {
   FileOptionWidget({
     required this.title,
@@ -30,7 +30,7 @@ class FileOptionWidget extends StatelessWidget {
                       title,
                       style: TextStyle(
                         fontSize: kBasics,
-                        fontFamily: 'Montserrat',
+                        fontFamily: 'Lato',
                         fontWeight: FontWeight.w500,
                       ),
                     )),

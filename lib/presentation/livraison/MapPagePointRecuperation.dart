@@ -76,9 +76,9 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
     print('-------000------');
 
     print('-----1----------------');
-    
+
     setState(() {
-        _kLake = CameraPosition(
+      _kLake = CameraPosition(
         bearing: 0,
         target: LatLng(value.latitude, value.longitude),
         tilt: 50,
@@ -99,7 +99,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
       print('Camera animation executed');
 
       // state.libelleLocalisationRecuperation.text = state.mapPlaceInfo!.ville;
-    
+
       print('-------------');
       print('Updated _kLake: $_kLake');
       print('Updated _position: $_position');
@@ -124,8 +124,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                         top: kMarginY * 1.5,
                       ),
                       child: AppInputNew(
-                        controller:
-                            state.libelleLocalisationRecuperation ,
+                        controller: state.libelleLocalisationRecuperation,
                         icon: Icon(Icons.label),
                         label: 'yLibellePl'.tr(),
                         validator: (value) {

@@ -13,7 +13,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorsApp.white,
+      backgroundColor: ColorsApp.second,
       elevation: 0,
       leading: InkWell(
         onTap:
@@ -34,10 +34,10 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Icon(Icons.arrow_back_ios_new,
-                  color: ColorsApp.black, size: 20.0),
+                  color: ColorsApp.white, size: kSmIcon * .7),
               Text(
                 'Back',
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(color: ColorsApp.white, fontSize: kBasics),
               ),
             ],
           ),
@@ -45,6 +45,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: Text(
         title,
+        style: TextStyle(color: ColorsApp.white, fontSize: kBasics),
       ),
       centerTitle: true,
       actions: actions,

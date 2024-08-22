@@ -265,7 +265,7 @@
 //                                   textAlign: TextAlign.center,
 //                                   style: TextStyle(
 //                                     fontSize: kBasics * 1.3,
-//                                     fontFamily: 'Montserrat',
+//                                     fontFamily: 'Lato',
 //                                     fontWeight: FontWeight.w500,
 //                                   ),
 //                                 )),
