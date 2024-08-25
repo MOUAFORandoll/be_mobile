@@ -58,7 +58,6 @@ class _FirstViewState extends State<FirstView>
                               'Services',
                               style: TextStyle(
                                   color: ColorsApp.white,
-                                  fontFamily: 'Helvetica',
                                   fontSize: kTitle * 1.5,
                                   fontWeight: FontWeight.w800),
                             ),
@@ -110,7 +109,7 @@ class _FirstViewState extends State<FirstView>
                                     'Vos livraisons en cours',
                                     style: TextStyle(
                                         // color: ColorsApp.white,
-                                        fontFamily: 'Helvetica',
+
                                         fontSize: kTitle * 1.3,
                                         fontWeight: FontWeight.w700),
                                   ),
@@ -195,7 +194,7 @@ class _FirstViewState extends State<FirstView>
                                                 'Livraison de medicaments',
                                                 style: TextStyle(
                                                     // color: ColorsApp.white,
-                                                    fontFamily: 'Helvetica',
+
                                                     fontWeight:
                                                         FontWeight.w800),
                                               ),
@@ -204,7 +203,6 @@ class _FirstViewState extends State<FirstView>
                                                 style: TextStyle(
                                                   // color: ColorsApp.white,
                                                   fontSize: 11,
-                                                  fontFamily: 'Helvetica',
                                                 ),
                                               ),
                                             ],

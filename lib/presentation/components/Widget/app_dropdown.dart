@@ -26,11 +26,10 @@ class AppDropdown<T> extends StatelessWidget {
       children: [
         Container(
           margin: EdgeInsets.only(bottom: kMarginY),
-          child: Text(title!,
+          child: Text(title! ?? '',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: kBasics,
-                fontFamily: 'Helvetica',
                 fontWeight: FontWeight.w700,
               )),
         ),
@@ -87,7 +86,6 @@ class AppDropdown<T> extends StatelessWidget {
           fontWeight: FontWeight.w500,
           fontSize: 12,
           color: Colors.grey.shade500,
-          fontFamily: 'Helvetica',
           overflow: TextOverflow.ellipsis,
         ),
       ),

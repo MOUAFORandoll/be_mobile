@@ -254,7 +254,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     'Babana Express',
                     style: TextStyle(
                       color: ColorsApp.white,
-                      fontFamily: 'Helvetica',
                     ),
                   ),
                   if (stateSLivraison.loadingMapPlaceInfo == 0)
@@ -265,7 +264,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           'Douala-Douala',
                           style: TextStyle(
                             color: ColorsApp.white,
-                            fontFamily: 'Helvetica',
                           ),
                         ),
                       ),
@@ -275,7 +273,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
                       style: TextStyle(
                         color: ColorsApp.white,
-                        fontFamily: 'Helvetica',
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -341,7 +338,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: kBasics * 1.3,
-                      fontFamily: 'Helvetica',
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -444,7 +440,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: kBasics * 1.3,
-                          fontFamily: 'Helvetica',
+                           
                         fontWeight: FontWeight.w500,
                       ),
                     ),

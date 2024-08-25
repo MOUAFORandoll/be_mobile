@@ -49,7 +49,6 @@ class TransactionComponent extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: kTitle * .8,
-                    fontFamily: 'Helvetica',
                   ),
                 )),
               ],
@@ -67,7 +66,6 @@ class TransactionComponent extends StatelessWidget {
                       'XAF ',
                       style: TextStyle(
                         fontSize: kDescription,
-                        fontFamily: 'Helvetica',
                       ),
                     )),
                     Container(
@@ -75,9 +73,7 @@ class TransactionComponent extends StatelessWidget {
                       transaction.montant.toString(),
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                          fontSize: kTitle,
-                          fontFamily: 'Helvetica',
-                          fontWeight: FontWeight.w800),
+                          fontSize: kTitle, fontWeight: FontWeight.w800),
                     )),
                   ],
                 )),
@@ -89,15 +85,13 @@ class TransactionComponent extends StatelessWidget {
                       'Etat : ',
                       style: TextStyle(
                         fontSize: kDescription,
-                        fontFamily: 'Helvetica',
                       ),
                     )),
                     Container(
                         child: Text(
                       transaction.status.toString(),
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          fontFamily: 'Helvetica', fontWeight: FontWeight.w800),
+                      style: TextStyle(fontWeight: FontWeight.w800),
                     )),
                     Container(
                         margin: EdgeInsets.only(left: kMarginX),

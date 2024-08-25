@@ -118,7 +118,6 @@ class _UserInfoPageState extends State<UserInfoPage> {
                                               ForgotPasswordPage.routeName),
                                       child: Text('forgotpass'.tr(),
                                           style: TextStyle(
-                                            fontFamily: 'Helvetica',
                                             color: ColorsApp.second,
                                           )),
                                     )
@@ -153,7 +152,6 @@ class _UserInfoPageState extends State<UserInfoPage> {
                                       children: [
                                         Text('regbtn'.tr(),
                                             style: TextStyle(
-                                                fontFamily: 'Helvetica',
                                                 color: ColorsApp.second,
                                                 fontSize: 15)),
                                         Icon(

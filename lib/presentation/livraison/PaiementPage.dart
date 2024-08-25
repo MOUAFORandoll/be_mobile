@@ -77,7 +77,7 @@ class _PaiementPageState extends State<PaiementPage> {
           BlocProvider.of<LivraisonBloc>(context)
               .add(HistoriqueUserLivraison());
           AutoRouter.of(context).replaceAll([
-            state.selectedModePaiement!.id == 1
+            state.selectedService == 1
                 ? SuccesLivraisonType1Route()
                 : SuccesLivraisonType2Route()
           ]);

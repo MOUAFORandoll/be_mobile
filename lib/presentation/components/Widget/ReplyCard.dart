@@ -84,7 +84,6 @@ class ReplyCard extends StatelessWidget {
                     // width: getWidth(context) * .58,
                     child: Text(message,
                         style: TextStyle(
-                          fontFamily: 'Helvetica',
                           color: ColorsApp.white,
                         ))),
               ],

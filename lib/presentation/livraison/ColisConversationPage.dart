@@ -223,10 +223,7 @@ class _ColisConversationPageState extends State<ColisConversationPage> {
                                               widget.colis.code_livraison_colis,
                                             ),
                                           ),
-                                          Icon(
-                                            Icons
-                                                .switch_access_shortcut_add_outlined,
-                                          ),
+                                          Icon(FontAwesomeIcons.shareNodes),
                                         ],
                                       ),
                                     ),
@@ -473,7 +470,6 @@ class ColisConversationWidget extends StatelessWidget {
               title,
               style: TextStyle(
                   color: ColorsApp.second,
-                  fontFamily: 'Helvetica',
                   fontWeight: FontWeight.w600,
                   fontSize: kTitle),
             ),
@@ -484,7 +480,6 @@ class ColisConversationWidget extends StatelessWidget {
                 FormatDateTime().convertirDateSecond(date),
                 style: TextStyle(
                   color: ColorsApp.primary,
-                  fontFamily: 'Helvetica',
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -495,7 +490,6 @@ class ColisConversationWidget extends StatelessWidget {
                 FormatDateTime().extractTimeToDate(date),
                 style: TextStyle(
                   color: ColorsApp.primary,
-                  fontFamily: 'Helvetica',
                   fontWeight: FontWeight.w400,
                 ),
               ),

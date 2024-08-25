@@ -110,7 +110,7 @@
 //                                     overflow: TextOverflow.ellipsis,
 //                                     style: TextStyle(
 //                                         color: ColorsApp.white,
-//                                           fontFamily: 'Helvetica',
+//                                            
 //                                         fontSize: kTitle,
 //                                         fontWeight: FontWeight.w600),
 //                                   ),
@@ -160,7 +160,7 @@
 //                                                 'Solde du compte',
 //                                                 style: TextStyle(
 //                                                   color: ColorsApp.white,
-//                                                     fontFamily: 'Helvetica',
+//                                                      
 //                                                 ),
 //                                               ),
 //                                               Row(
@@ -185,7 +185,7 @@
 //                                                       style: TextStyle(
 //                                                           color:
 //                                                               ColorsApp.white,
-//                                                             fontFamily: 'Helvetica',
+//                                                              
 //                                                           fontSize: 18,
 //                                                           fontWeight:
 //                                                               FontWeight.w600),
@@ -197,7 +197,7 @@
 //                                                       style: TextStyle(
 //                                                           color:
 //                                                               ColorsApp.white,
-//                                                             fontFamily: 'Helvetica',
+//                                                              
 //                                                           fontSize: 18,
 //                                                           fontWeight:
 //                                                               FontWeight.w800),

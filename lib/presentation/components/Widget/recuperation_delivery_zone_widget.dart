@@ -49,7 +49,6 @@ class RecuperationDeliveryZoneWidget extends StatelessWidget {
                 style: TextStyle(
                   color: isSelected ? ColorsApp.primary : Colors.grey.shade500,
                   fontSize: kBasics,
-                  fontFamily: 'Helvetica',
                   fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
                 )),
           ),

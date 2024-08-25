@@ -63,7 +63,7 @@ class LivraisonUserHomeComponent extends StatelessWidget {
                         livraison.libelle,
                         style: TextStyle(
                             // color: ColorsApp.white,
-                            fontFamily: 'Helvetica',
+
                             fontWeight: FontWeight.w800),
                       ),
                     ),
@@ -81,7 +81,6 @@ class LivraisonUserHomeComponent extends StatelessWidget {
                               style: TextStyle(
                                 // color: ColorsApp.white,
                                 fontSize: 11,
-                                fontFamily: 'Helvetica',
                               ),
                             ),
                           ),

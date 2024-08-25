@@ -68,10 +68,8 @@ class AppBoutiqueOption extends StatelessWidget {
                   vertical: kMarginY,
                 ),
                 child: Text(title,
-                    style: TextStyle(
-                        fontFamily: 'Helvetica',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 12)),
+                    style:
+                        TextStyle(fontWeight: FontWeight.w600, fontSize: 12)),
               ),
             ],
           ),

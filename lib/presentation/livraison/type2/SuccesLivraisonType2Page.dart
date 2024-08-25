@@ -1,5 +1,7 @@
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../application/export_bloc.dart';
 import 'package:share_plus/share_plus.dart';
@@ -33,19 +35,23 @@ class SuccesLivraisonType2Page extends StatelessWidget {
                 backgroundColor: ColorsApp.white,
                 body: Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: 10, horizontal: kMarginX),
+                        vertical: kMarginY * 4, horizontal: kMarginX),
                     child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        // crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: ColorsApp.second,
-                              borderRadius: BorderRadius.circular(60),
-                            ),
-                            padding: EdgeInsets.all(kMarginY * 1.5),
-                            child: Icon(Icons.check,
-                                color: Colors.white, size: 40.0),
+                          TitleComponent(
+                            title: 'Confirmation de livraison'.tr(),
+                            subTitle:
+                                'Vous avez confirme cette livraison de colis'
+                                    .tr(),
+                          ),
+                          SizedBox(
+                            height: getHeight(context) * .15,
+                          ),
+                          SvgPicture.asset(
+                            Assets.livraison_success,
+                            height: getHeight(context) * .30,
                           ),
                           Container(
                               margin: EdgeInsets.symmetric(
@@ -96,10 +102,7 @@ class SuccesLivraisonType2Page extends StatelessWidget {
                                             state.urlLivraison!,
                                           ),
                                         ),
-                                        Icon(
-                                          Icons
-                                              .switch_access_shortcut_add_outlined,
-                                        ),
+                                        Icon(FontAwesomeIcons.shareNodes),
                                       ],
                                     ),
                                   ),
@@ -109,7 +112,7 @@ class SuccesLivraisonType2Page extends StatelessWidget {
                                 margin: EdgeInsets.symmetric(
                                   vertical: kMarginY * 4,
                                 ),
-                                child: AppButton(
+                                child: AppButtonSecond(
                                   size: MainAxisSize.max,
                                   // border: Border.all(color: ColorsApp.primary),
                                   text: 'yMenu'.tr(),
@@ -133,7 +136,7 @@ class SuccesLivraisonType2Page extends StatelessWidget {
 
   Future<void> _shareCode(lienLivraison) async {
     await Share.share(
-        'Envoyer ce lien au detenteur du colis pour validation :  ${lienLivraison}'
+        'Une livraison dont vous etes en pocession du colis nous a ete signale, suivez ce lien pour validation :  ${lienLivraison}'
             .tr(),
         subject:
             'Cliquer sur ce lien pour valider la recuperation du colis'.tr() +

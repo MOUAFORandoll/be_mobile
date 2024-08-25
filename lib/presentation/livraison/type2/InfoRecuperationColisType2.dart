@@ -17,19 +17,19 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:contacts_service/contacts_service.dart';
 
 @RoutePage()
-class InfoColisType1Page extends StatefulWidget {
-  static const routeName = '/infocolis/type1';
+class InfoRecuperationColisType2Page extends StatefulWidget {
+  static const routeName = '/infocolis/type2';
 
   @override
-  State<InfoColisType1Page> createState() => _InfoColisType1PageState();
+  State<InfoRecuperationColisType2Page> createState() =>
+      _InfoRecuperationColisType2PageState();
 }
 
-class _InfoColisType1PageState extends State<InfoColisType1Page> {
+class _InfoRecuperationColisType2PageState
+    extends State<InfoRecuperationColisType2Page> {
   late Marker _position;
-  TextEditingController searchPointRecuperationController =
-      TextEditingController();
+  TextEditingController searchPointController = TextEditingController();
 
-  var loadPlaceInfoLivraison = true;
   var latitude = 0.0;
   var longitude = 0.0;
   var _kLake;
@@ -59,7 +59,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
 
   close() {
     setState(() {
-      searchPointRecuperationController.clear();
+      searchPointController.clear();
     });
   }
 
@@ -125,7 +125,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                         color: ColorsApp.white,
                       ),
                       child: TextField(
-                        controller: searchPointRecuperationController,
+                        controller: searchPointController,
                         onChanged: (String value) {
                           print('---------**-**-${value}');
                           if (value.isNotEmpty) {
@@ -138,11 +138,10 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                           contentPadding: EdgeInsets.all(10),
                           suffixIcon: InkWell(
                               child: Icon(
-                                  searchPointRecuperationController.text.isEmpty
+                                  searchPointController.text.isEmpty
                                       ? Icons.search
                                       : Icons.close,
-                                  color: searchPointRecuperationController
-                                          .text.isEmpty
+                                  color: searchPointController.text.isEmpty
                                       ? ColorsApp.second
                                       : ColorsApp.red),
                               onTap: () {
@@ -278,7 +277,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
     print(
         'La carte a bougé. Nouvelle position : ${_userPosition.latitude}, ${_userPosition.longitude}');
 
-    context.read<LivraisonBloc>().add(LoadPlaceInfoLivraison(
+    context.read<LivraisonBloc>().add(LoadPlaceInfoRecuperation(
         latLng: new LatLng(_userPosition.latitude, _userPosition.longitude)));
   }
 
@@ -294,8 +293,8 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
           print('-----------------------changement.*******----------------');
           _kLake = CameraPosition(
               bearing: 0,
-              target: LatLng(state.selected_livraison_point!.latitude,
-                  state.selected_livraison_point!.longitude),
+              target: LatLng(state.selected_recuperation_point!.latitude,
+                  state.selected_recuperation_point!.longitude),
               tilt: 45,
               zoom: 15.5);
           print(
@@ -345,7 +344,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                   onMapCreated: (GoogleMapController mapcontroller) async {
                     _controller.complete(mapcontroller);
                     mapController = await _controller.future;
-                    context.read<LivraisonBloc>().add(LoadPlaceInfoLivraison(
+                    context.read<LivraisonBloc>().add(LoadPlaceInfoRecuperation(
                         latLng: new LatLng(state.position!.latitude,
                             state.position!.longitude)));
                     setState(() {
@@ -376,7 +375,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                       print('Updated _kLake: $_kLake');
                       print('Updated _position: $_position');
                     });
-                    context.read<LivraisonBloc>().add(LoadPlaceInfoLivraison(
+                    context.read<LivraisonBloc>().add(LoadPlaceInfoRecuperation(
                         latLng: new LatLng(state.position!.latitude,
                             state.position!.longitude)));
                   },
@@ -485,7 +484,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
               top: 380,
               left: 150,
               child: (state.isLoadEmplacementInfo == 0 ||
-                      state.selected_livraison_point == null)
+                      state.selected_recuperation_point == null)
                   ? Skeletonizer(
                       enabled: true,
                       child: Container(
@@ -528,14 +527,14 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            state.selected_livraison_point!.quartier,
+                            state.selected_recuperation_point!.quartier,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            state.selected_livraison_point!.ville,
+                            state.selected_recuperation_point!.ville,
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.grey[700],
@@ -592,7 +591,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: DelivryWidgetTitle(
-                          title: 'Informations de livraison du colis',
+                          title: 'Informations de recuperation du colis',
                           icon: FontAwesomeIcons.locationDot,
                         ),
                       ),
@@ -609,7 +608,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                 InkWell(
                                   onTap: () => searchPoint(),
                                   child: (state.isLoadEmplacementInfo == 0 ||
-                                          state.selected_livraison_point ==
+                                          state.selected_recuperation_point ==
                                               null)
                                       ? Skeletonizer(
                                           enabled: true,
@@ -663,7 +662,8 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                             children: [
                                               Container(
                                                   child: Text(
-                                                state.selected_livraison_point!
+                                                state
+                                                    .selected_recuperation_point!
                                                     .quartier,
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.w600,
@@ -671,7 +671,8 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                               )),
                                               Container(
                                                   child: Text(
-                                                state.selected_livraison_point!
+                                                state
+                                                    .selected_recuperation_point!
                                                     .ville,
                                                 style: TextStyle(),
                                               )),
@@ -783,17 +784,17 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                         top: kMarginY * 1.5,
                                       ),
                                       child: AppInputContact(
-                                        controller: state.contactRecepteur!,
+                                        controller: state.contactEmetteur!,
                                         icon: Icon(Icons.phone),
                                         textInputType: TextInputType.number,
                                         // maxLength:13,
-                                        label: 'yycontactdest'.tr(),
+                                        label: 'Numero du detenteur'.tr(),
                                         onTap: () {
                                           ContactService()
                                               .openContactSelectionModal(
                                                   context: context,
                                                   onTap: (Contact contact) {
-                                                    state.contactRecepteur!
+                                                    state.contactEmetteur!
                                                             .text =
                                                         contact
                                                             .phones!.first.value
@@ -1039,14 +1040,14 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                           marginAdd: EdgeInsets.symmetric(horizontal: kMarginX),
                           disabled: !(state.categoryColis != null &&
                               state.nomColis!.text.length != 0 &&
-                              state.contactRecepteur!.text.length != 0 &&
+                              state.contactEmetteur!.text.length != 0 &&
                               state.valeurColis!.text.length != 0 &&
                               state.quantiteColis!.text.length != 0 &&
-                              state.selected_livraison_point != null &&
+                              state.selected_recuperation_point != null &&
                               state.imageColis!.length != 0),
                           text: 'lbaddprod'.tr(),
                           onTap: () async {
-                            context.read<LivraisonBloc>().add(AddColisType1());
+                            context.read<LivraisonBloc>().add(AddColisType2());
                             if (state.isColisOK!) {
                               AutoRouter.of(context).pop();
                             }

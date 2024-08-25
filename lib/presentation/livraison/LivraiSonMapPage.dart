@@ -247,7 +247,6 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
                     'Babana Express',
                     style: TextStyle(
                       color: ColorsApp.primary,
-                      fontFamily: 'Helvetica',
                     ),
                   ),
                   if (stateSLivraison.loadingMapPlaceInfo == 0)
@@ -262,7 +261,6 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
                       '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
                       style: TextStyle(
                         color: ColorsApp.second,
-                        fontFamily: 'Helvetica',
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -329,7 +327,6 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: kBasics * 1.3,
-                        fontFamily: 'Helvetica',
                         fontWeight: FontWeight.w500,
                       ),
                     ),

@@ -14,8 +14,8 @@ import 'package:BabanaExpress/presentation/livraison/type1/InfoColisType1.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/InfoRecuperationType1.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/NewLivraisonType1Page.dart';
-import 'package:BabanaExpress/presentation/livraison/type2/InfoColisType2.dart';
-import 'package:BabanaExpress/presentation/livraison/type2/InfoRecuperationType2.dart';
+import 'package:BabanaExpress/presentation/livraison/type2/InfoRecuperationColisType2.dart';
+import 'package:BabanaExpress/presentation/livraison/type2/InfoLivraisonType2.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/user/AuthPage.dart';
@@ -167,12 +167,12 @@ class AppRouter extends $AppRouter {
             transitionsBuilder: TransitionsBuilders.slideLeft,
             durationInMilliseconds: 600,
             page: InfoColisType2Route.page,
-            path: InfoColisType2Page.routeName),
+            path: InfoRecuperationColisType2Page.routeName),
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,
             durationInMilliseconds: 600,
-            page: InfoRecuperationType2Route.page,
-            path: InfoRecuperationType2Page.routeName),
+            page: InfoLivraisonType2Route.page,
+            path: InfoLivraisonType2Page.routeName),
 
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,

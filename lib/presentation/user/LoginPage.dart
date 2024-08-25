@@ -102,7 +102,6 @@ class _LoginPageState extends State<LoginPage> {
                                                             .routeName),
                                             child: Text('forgotpass'.tr(),
                                                 style: TextStyle(
-                                                  fontFamily: 'Helvetica',
                                                   color: ColorsApp.second,
                                                 )),
                                           )

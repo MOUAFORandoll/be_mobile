@@ -61,7 +61,7 @@
 //                       overflow: TextOverflow.ellipsis,
 //                       style: TextStyle(
 //                           color: ColorsApp.white,
-//                             fontFamily: 'Helvetica',
+//                              
 //                           fontSize: 15,
 //                           fontWeight: FontWeight.w600),
 //                     ),
@@ -131,7 +131,7 @@
 //                                             color:
 //                                                 ColorsApp.black.withOpacity(.3),
 //                                             fontSize: 12,
-//                                               fontFamily: 'Helvetica',
+//                                                
 //                                           ),
 //                                         )),
 //                                   ],
@@ -184,7 +184,7 @@
 //                                                               .routeName),
 //                                               child: Text('forgotpass'.tr(),
 //                                                   style: TextStyle(
-//                                                       fontFamily: 'Helvetica',
+//                                                        
 //                                                     color: ColorsApp.primary,
 //                                                   )),
 //                                             )
@@ -248,7 +248,7 @@
 //                                               children: [
 //                                                 Text('regbtn'.tr(),
 //                                                     style: TextStyle(
-//                                                           fontFamily: 'Helvetica',
+//                                                            
 //                                                         color:
 //                                                             ColorsApp.primary,
 //                                                         fontSize: 15)),

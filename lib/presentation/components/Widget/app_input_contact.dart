@@ -57,7 +57,6 @@ class _AppInputContactState extends State<AppInputContact> {
                 style: const TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 12,
-                  fontFamily: 'Helvetica',
                 ),
                 maxLength: widget.maxLength,
                 onChanged: widget.onChanged,
@@ -90,20 +89,17 @@ class _AppInputContactState extends State<AppInputContact> {
                     errorText: widget.errorText,
                     errorStyle: TextStyle(
                       fontSize: 8,
-                      fontFamily: 'Helvetica',
                       color: ColorsApp.red,
                     ),
                     hintStyle: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 12,
                       color: Colors.grey.shade500,
-                      fontFamily: 'Helvetica',
                       overflow: TextOverflow.ellipsis,
                     ),
                     labelText: widget.label,
                     labelStyle: TextStyle(
                       color: ColorsApp.grey,
-                      fontFamily: 'Helvetica',
                       fontSize: 12,
                     ),
                     hintText: widget.placeholder,

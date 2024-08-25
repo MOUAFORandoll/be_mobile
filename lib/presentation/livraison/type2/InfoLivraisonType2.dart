@@ -1,25 +1,27 @@
 import 'dart:async';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/application/model/exportmodel.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 import 'package:BabanaExpress/presentation/components/Widget/delivry_widget_title.dart';
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
+import '../MapPagePointRecuperation.dart';
+
 @RoutePage()
-class InfoRecuperationType1Page extends StatefulWidget {
-  static const routeName = '/infolivraison/type1';
-  InfoRecuperationType1Page({super.key});
+class InfoLivraisonType2Page extends StatefulWidget {
+  static const routeName = '/infolivraison/type2';
+  InfoLivraisonType2Page({super.key});
 
   @override
-  State<InfoRecuperationType1Page> createState() =>
-      _InfoRecuperationType1PageState();
+  State<InfoLivraisonType2Page> createState() => _InfoLivraisonType2PageState();
 }
 
-class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
+class _InfoLivraisonType2PageState extends State<InfoLivraisonType2Page> {
   late Marker _position;
-  TextEditingController searchPointRecuperationController =
-      TextEditingController();
+  TextEditingController searchPointController = TextEditingController();
 
   var loadPlaceInfoRecuperation = true;
   var latitude = 0.0;
@@ -51,7 +53,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
 
   close() {
     setState(() {
-      searchPointRecuperationController.clear();
+      searchPointController.clear();
     });
   }
 
@@ -102,7 +104,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
       maxHeight: getHeight(context) * .9,
       context: context,
       title: 'yrecup'.tr(),
-      subtitle: 'Rechercher votre lieux de recuperation'.tr(),
+      subtitle: 'Rechercher votre lieux de livraison'.tr(),
       widget: BlocBuilder<LivraisonBloc, LivraisonState>(
           builder: (context, state) => Container(
                 child: Column(
@@ -117,7 +119,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                         color: ColorsApp.white,
                       ),
                       child: TextField(
-                        controller: searchPointRecuperationController,
+                        controller: searchPointController,
                         onChanged: (String value) {
                           print('---------**-**-${value}');
                           if (value.isNotEmpty) {
@@ -130,11 +132,10 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                           contentPadding: EdgeInsets.all(10),
                           suffixIcon: InkWell(
                               child: Icon(
-                                  searchPointRecuperationController.text.isEmpty
+                                  searchPointController.text.isEmpty
                                       ? Icons.search
                                       : Icons.close,
-                                  color: searchPointRecuperationController
-                                          .text.isEmpty
+                                  color: searchPointController.text.isEmpty
                                       ? ColorsApp.second
                                       : ColorsApp.red),
                               onTap: () {
@@ -270,7 +271,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
     print(
         'La carte a bougé. Nouvelle position : ${_userPosition.latitude}, ${_userPosition.longitude}');
 
-    context.read<LivraisonBloc>().add(LoadPlaceInfoRecuperation(
+    context.read<LivraisonBloc>().add(LoadPlaceInfoLivraison(
         latLng: new LatLng(_userPosition.latitude, _userPosition.longitude)));
   }
 
@@ -286,8 +287,8 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
           print('-----------------------changement.*******----------------');
           _kLake = CameraPosition(
               bearing: 0,
-              target: LatLng(state.selected_recuperation_point!.latitude,
-                  state.selected_recuperation_point!.longitude),
+              target: LatLng(state.selected_livraison_point!.latitude,
+                  state.selected_livraison_point!.longitude),
               tilt: 45,
               zoom: 15.5);
           print(
@@ -337,7 +338,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                   onMapCreated: (GoogleMapController mapcontroller) async {
                     _controller.complete(mapcontroller);
                     mapController = await _controller.future;
-                    context.read<LivraisonBloc>().add(LoadPlaceInfoRecuperation(
+                    context.read<LivraisonBloc>().add(LoadPlaceInfoLivraison(
                         latLng: new LatLng(state.position!.latitude,
                             state.position!.longitude)));
                     setState(() {
@@ -368,7 +369,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                       print('Updated _kLake: $_kLake');
                       print('Updated _position: $_position');
                     });
-                    context.read<LivraisonBloc>().add(LoadPlaceInfoRecuperation(
+                    context.read<LivraisonBloc>().add(LoadPlaceInfoLivraison(
                         latLng: new LatLng(state.position!.latitude,
                             state.position!.longitude)));
                   },
@@ -477,7 +478,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
               top: 380,
               left: 150,
               child: (state.isLoadEmplacementInfo == 0 ||
-                      state.selected_recuperation_point == null)
+                      state.selected_livraison_point == null)
                   ? Skeletonizer(
                       enabled: true,
                       child: Container(
@@ -520,14 +521,14 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            state.selected_recuperation_point!.quartier,
+                            state.selected_livraison_point!.quartier,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            state.selected_recuperation_point!.ville,
+                            state.selected_livraison_point!.ville,
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.grey[700],
@@ -584,14 +585,14 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: DelivryWidgetTitle(
-                          title: 'Information de recuperation',
+                          title: 'Information de livraison',
                           icon: FontAwesomeIcons.locationDot,
                         ),
                       ),
                       InkWell(
                         onTap: () => searchPoint(),
                         child: (state.isLoadEmplacementInfo == 0 ||
-                                state.selected_recuperation_point == null)
+                                state.selected_livraison_point == null)
                             ? Skeletonizer(
                                 enabled: true,
                                 child: Container(
@@ -649,15 +650,14 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                                   children: [
                                     Container(
                                         child: Text(
-                                      state.selected_recuperation_point!
-                                          .quartier,
+                                      state.selected_livraison_point!.quartier,
                                       style: TextStyle(
                                           fontWeight: FontWeight.w600,
                                           fontSize: kBasics * 1.3),
                                     )),
                                     Container(
                                         child: Text(
-                                      state.selected_recuperation_point!.ville,
+                                      state.selected_livraison_point!.ville,
                                       style: TextStyle(),
                                     )),
                                   ],
@@ -667,7 +667,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                       Container(
                         // margin: EdgeInsets.only(top: kMarginY),
                         child: AppInput(
-                          controller: state.contactEmetteur!,
+                          controller: state.contactRecepteur!,
                           icon: Icon(Icons.phone),
                           textInputType: TextInputType.number,
                           placeholder: 'yycontact'.tr(),

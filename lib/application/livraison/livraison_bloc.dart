@@ -804,7 +804,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       emit(state.copyWith(
         // isMapSelectedPointLivraison: false,
         errorImage: false,
-        isDownloadFacture: 0,
+        isDownloadFacture: null,
         isRequest: 0,
         urlFacture: '',
         frais: 0,
@@ -912,16 +912,18 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
             ' emit(state.copyWith(isRequest: -------${response.statusCode}-------5))');
         print(response.data['paiement_url']);
         if (response.data != null) {
+          emit(state.copyWith(
+            currentLivraisonId: response.data['livraisonId'],
+          ));
+
           if (state.selectedModePaiement!.id == 1) {
             emit(state.copyWith(
-                currentLivraisonId: response.data['livraisonId'],
                 isRequest: 5,
-                isDownloadFacture: 0,
+            
                 paiement_url: response.data['paiement_url']));
           }
           if (state.selectedModePaiement!.id == 2) {
-            emit(state.copyWith(
-                isRequest: 5, isDownloadFacture: 0, paiement_url: 'next'));
+            emit(state.copyWith(isRequest: 5, paiement_url: 'next'));
           }
           emit(state.copyWith(isRequest: null));
 
@@ -953,7 +955,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
       isLoadVCategory: 0,
       errorImage: false,
-      isDownloadFacture: 0,
+      isDownloadFacture: null,
       isRequest: 0,
       // urlFacture: '',
       isLoadPLivraison: 0,
@@ -1086,6 +1088,8 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   _downloadFacture(DownloadFacture event, Emitter<LivraisonState> emit) async {
     await requestPermission();
     emit(state.copyWith(
+      isDownloadFacture: null,
+    )); emit(state.copyWith(
       isDownloadFacture: 0,
     ));
     await livraisonRepo.downloadRapportLivraison(event.id).then((response) {
@@ -1195,7 +1199,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       emit(state.copyWith(
         // isMapSelectedPointLivraison: false,
         errorImage: false,
-        isDownloadFacture: 0,
+        isDownloadFacture: null,
         isRequest: 0,
         urlFacture: '',
         frais: 0,
@@ -1310,20 +1314,22 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
             'fff emit(state.copyWith(isRequest: -------${response.statusCode}-------5))');
 
         if (response.data != null) {
+          emit(state.copyWith(
+            currentLivraisonId: response.data['livraisonId'],
+          ));
           if (state.selectedModePaiement!.id == 1) {
             emit(state.copyWith(
                 isRequest: 5,
-                isDownloadFacture: 0,
+                
                 paiement_url: response.data['paiement_url']));
           }
           emit(state.copyWith(isRequest: null));
 
           if (state.selectedModePaiement!.id == 2) {
             emit(state.copyWith(
-                currentLivraisonId: response.data['livraisonId'],
                 urlLivraison: response.data['url_livraison'],
                 isRequest: 5,
-                isDownloadFacture: 0,
+                
                 paiement_url: 'next'));
           }
           emit(state.copyWith(isRequest: null));
@@ -1370,7 +1376,6 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         if (state.selectedModePaiement!.id == 1) {
           emit(state.copyWith(
             successLivraison: true,
-            isDownloadFacture: 0,
           ));
         }
         if (state.selectedModePaiement!.id == 2) {

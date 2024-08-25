@@ -28,7 +28,6 @@ class DelivryWidgetTitle extends StatelessWidget {
               maxLines: 2,
               style: TextStyle(
                 fontSize: kTitle * 1.3,
-                fontFamily: 'Helvetica',
                 fontWeight: FontWeight.bold,
               ),
             )),

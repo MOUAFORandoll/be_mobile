@@ -34,7 +34,6 @@ class DeliveryComponent extends StatelessWidget {
                 child: Text(
                   text,
                   style: TextStyle(
-                      fontFamily: 'Helvetica',
                       fontSize: 12,
                       color: ColorsApp.primary,
                       fontWeight: bold ? FontWeight.w600 : FontWeight.normal),

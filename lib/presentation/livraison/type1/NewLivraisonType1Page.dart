@@ -135,7 +135,6 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                           title: 'Zone de recuperation',
                           icon: FontAwesomeIcons.locationDot,
                         ),
-                       
                         RecuperationDeliveryZoneWidget(
                             title: state.selected_recuperation_point != null
                                 ? '${state.selected_recuperation_point!.quartier}, ${state.selected_recuperation_point!.ville}'
@@ -155,7 +154,6 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                             style: const TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
-                              fontFamily: 'Helvetica',
                             ),
                             maxLines: 10,
                             decoration: InputDecoration(
@@ -178,11 +176,10 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                               ),
                               errorStyle: TextStyle(
                                 fontSize: 8,
-                                fontFamily: 'Helvetica',
                               ),
                               labelStyle: TextStyle(
                                 color: ColorsApp.grey,
-                                fontFamily: 'Helvetica',
+
                                 // fontWeight: FontWeight.w500,
                                 fontSize: 14,
                               ),
@@ -244,86 +241,32 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                         ),
                       ]),
                     )),
-                    Container(
-                        // margin: EdgeInsets.symmetric(
-                        //   vertical: kMarginY,
-                        // ),
-                        // height: getHeight(context) * .0,
-                        child: state.indexType1 == 0
-                            ? AppButtonSecond(
-                                size: MainAxisSize.max,
-                                bgColor: ColorsApp.second,
-                                text: 'ynext'.tr(),
-                                disabled: !(state.selectedVIlle != null &&
-                                    state.selected_recuperation_point != null &&
-                                    state.contactEmetteur!.text.length != 0 &&
-                                    state.selected_livraison_point != null &&
-                                    state.listColis!.length != 0 &&
-                                    state.description!.text.length != 0),
-                                onTap: () {
-                                  context
-                                      .read<LivraisonBloc>()
-                                      .add(CalculFraisType1());
-                                  // if (state.indexType1 == 0) {
-                                  //   if ((state.selectedVIlle != null &&
-                                  //       state.selected_recuperation_point !=
-                                  //           null &&
-                                  //       state.contactEmetteur!.text.length !=
-                                  //           0 &&
-                                  //       state.description!.text.length != 0)) {
-                                  //     context
-                                  //         .read<LivraisonBloc>()
-                                  //         .add(VerifyFormLivraisonType1Event());
-                                  //   }
-                                  // }
-                                },
-                              )
-                            : Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                    AppButtonSecond(
-                                        marginAdd: EdgeInsets.symmetric(
-                                            horizontal: kMarginX),
-                                        size: MainAxisSize.max,
-                                        bgColor: state.indexType1 == 0
-                                            ? ColorsApp.grey
-                                            : ColorsApp.primary,
-                                        text: 'yback'.tr(),
-                                        onTap: () {
-                                          context
-                                              .read<LivraisonBloc>()
-                                              .add(BackIndexType1Event());
-                                        }),
-                                    AppButtonSecond(
-                                      size: MainAxisSize.max,
-                                      bgColor: (state.indexType1 == 0)
-                                          ? !(state.selectedVIlle != null &&
-                                                  state.selected_recuperation_point !=
-                                                      null &&
-                                                  state.contactEmetteur!.text
-                                                          .length !=
-                                                      0 &&
-                                                  state.description!.text
-                                                          .length !=
-                                                      0)
-                                              ? ColorsApp.grey
-                                              : ColorsApp.primary
-                                          : (state.listColis!.length == 0)
-                                              ? ColorsApp.grey
-                                              : ColorsApp.primary,
-                                      text: 'yeval'.tr(),
-                                      onTap: () {
-                                        if (state.indexType1 == 1) {
-                                          if (state.listColis!.length != 0) {
-                                            context
-                                                .read<LivraisonBloc>()
-                                                .add(CalculFraisType1());
-                                          }
-                                        }
-                                      },
-                                    ),
-                                  ])),
+                    AppButtonSecond(
+                      size: MainAxisSize.max,
+                      bgColor: ColorsApp.second,
+                      text: 'ynext'.tr(),
+                      disabled: !(state.selectedVIlle != null &&
+                          state.selected_recuperation_point != null &&
+                          state.contactEmetteur!.text.length != 0 &&
+                          state.selected_livraison_point != null &&
+                          state.listColis!.length != 0 &&
+                          state.description!.text.length != 0),
+                      onTap: () {
+                        context.read<LivraisonBloc>().add(CalculFraisType1());
+                        // if (state.indexType1 == 0) {
+                        //   if ((state.selectedVIlle != null &&
+                        //       state.selected_recuperation_point !=
+                        //           null &&
+                        //       state.contactEmetteur!.text.length !=
+                        //           0 &&
+                        //       state.description!.text.length != 0)) {
+                        //     context
+                        //         .read<LivraisonBloc>()
+                        //         .add(VerifyFormLivraisonType1Event());
+                        //   }
+                        // }
+                      },
+                    )
                   ]),
                 ),
               ),

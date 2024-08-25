@@ -66,7 +66,6 @@ class AppButtonIcon extends StatelessWidget {
               text,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontFamily: 'Helvetica',
                 color: disabled ? textColor.withOpacity(.5) : textColor,
                 fontWeight: FontWeight.w600,
               ),

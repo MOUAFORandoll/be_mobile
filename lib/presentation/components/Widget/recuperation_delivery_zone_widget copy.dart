@@ -48,7 +48,7 @@
 //                   textAlign: TextAlign.center,
 //                   style: TextStyle(
 //                     fontSize: kTitle * 1.2,
-//                       fontFamily: 'Helvetica',
+//                        
 //                     fontWeight: FontWeight.w700,
 //                   ),
 //                 )),
@@ -60,7 +60,7 @@
 //                     style: TextStyle(
 //                       color: ColorsApp.grey.withOpacity(.5),
 //                       fontSize: kBasics,
-//                         fontFamily: 'Helvetica',
+//                          
 //                     ),
 //                   )),
 //                 if (subInfo!.length != 0)
@@ -70,7 +70,7 @@
 //                     textAlign: TextAlign.center,
 //                     style: TextStyle(
 //                       fontSize: kBasics,
-//                         fontFamily: 'Helvetica',
+//                          
 //                       color: ColorsApp.second,
 //                       fontWeight: FontWeight.w700,
 //                     ),

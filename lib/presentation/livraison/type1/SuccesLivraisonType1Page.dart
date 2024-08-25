@@ -1,5 +1,7 @@
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../application/export_bloc.dart';
 
@@ -32,47 +34,36 @@ class SuccesLivraisonType1Page extends StatelessWidget {
                 backgroundColor: ColorsApp.white,
                 body: Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: 10, horizontal: kMarginX),
+                        vertical: kMarginY * 4, horizontal: kMarginX),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: ColorsApp.second,
-                            borderRadius: BorderRadius.circular(60),
-                          ),
-                          padding: EdgeInsets.all(kMarginY * 1.5),
-                          child: Icon(Icons.check,
-                              color: Colors.white, size: 40.0),
+                        TitleComponent(
+                          title: 'Confirmation de livraison'.tr(),
+                          subTitle:
+                              'Vous avez confirme cette livraison de colis'
+                                  .tr(),
+                        ),
+                        SizedBox(
+                          height: getHeight(context) * .15,
+                        ),
+                        SvgPicture.asset(
+                          Assets.livraison_success,
+                          height: getHeight(context) * .30,
                         ),
                         Container(
                             margin: EdgeInsets.symmetric(
-                              vertical: kMarginY * 2,
+                              vertical: kMarginY * 4,
                             ),
                             child: Text('succesLivraison'.tr(),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(color: ColorsApp.primary))),
-                        // Container(
-                        //   margin: EdgeInsets.symmetric(
-                        //     vertical: kMarginY * 2,
-                        //   ),
-                        //   child: AppButton(
-                        //     size: MainAxisSize.max,
-                        //     // border: Border.all(color: ColorsApp.primary),
-                        //     text: 'ydFacture'.tr(),
-                        //     onTap: () async {
-                        //       context
-                        //           .read<LivraisonBloc>()
-                        //           .add(DownloadFacture());
-                        //     },
-                        //   ),
-                        // ),
                         Container(
                           margin: EdgeInsets.symmetric(
                             vertical: kMarginY * 4,
                           ),
-                          child: AppButton(
+                          child: AppButtonSecond(
                             size: MainAxisSize.max,
                             // border: Border.all(color: ColorsApp.primary),
                             text: 'yMenu'.tr(),

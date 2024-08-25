@@ -21,7 +21,6 @@ class AppTextTitle extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       softWrap: true,
       style: TextStyle(
-          fontFamily: 'Helvetica',
           fontWeight: bolder ? FontWeight.w600 : FontWeight.normal,
           // fontSize: big ? kXlText / this.percent : kLgText / this.percent,
           color: color),

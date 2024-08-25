@@ -215,7 +215,7 @@
 //                   overflow: TextOverflow.ellipsis,
 //                   style: TextStyle(
 //                       color: ColorsApp.primary,
-//                         fontFamily: 'Helvetica',
+//                          
 //                       fontSize: kTitle,
 //                       fontWeight: FontWeight.w600),
 //                 ),
@@ -265,7 +265,7 @@
 //                                   textAlign: TextAlign.center,
 //                                   style: TextStyle(
 //                                     fontSize: kBasics * 1.3,
-//                                       fontFamily: 'Helvetica',
+//                                        
 //                                     fontWeight: FontWeight.w500,
 //                                   ),
 //                                 )),

@@ -43,9 +43,9 @@ import 'package:BabanaExpress/presentation/livraison/type1/NewLivraisonType1Page
     as _i18;
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart'
     as _i26;
-import 'package:BabanaExpress/presentation/livraison/type2/InfoColisType2.dart'
+import 'package:BabanaExpress/presentation/livraison/type2/InfoRecuperationColisType2.dart'
     as _i8;
-import 'package:BabanaExpress/presentation/livraison/type2/InfoRecuperationType2.dart'
+import 'package:BabanaExpress/presentation/livraison/type2/InfoLivraisonType2.dart'
     as _i10;
 import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page.dart'
     as _i19;
@@ -110,7 +110,7 @@ abstract class $AppRouter extends _i30.RootStackRouter {
     InfoColisType2Route.name: (routeData) {
       return _i30.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.InfoColisType2Page(),
+        child: _i8.InfoRecuperationColisType2Page(),
       );
     },
     InfoRecuperationType1Route.name: (routeData) {
@@ -121,12 +121,12 @@ abstract class $AppRouter extends _i30.RootStackRouter {
         child: _i9.InfoRecuperationType1Page(key: args.key),
       );
     },
-    InfoRecuperationType2Route.name: (routeData) {
-      final args = routeData.argsAs<InfoRecuperationType2RouteArgs>(
-          orElse: () => const InfoRecuperationType2RouteArgs());
+    InfoLivraisonType2Route.name: (routeData) {
+      final args = routeData.argsAs<InfoLivraisonType2RouteArgs>(
+          orElse: () => const InfoLivraisonType2RouteArgs());
       return _i30.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i10.InfoRecuperationType2Page(key: args.key),
+        child: _i10.InfoLivraisonType2Page(key: args.key),
       );
     },
     LivraiSonMapRoute.name: (routeData) {
@@ -367,7 +367,7 @@ class InfoColisType1Route extends _i30.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.InfoColisType2Page]
+/// [_i8.InfoRecuperationColisType2Page]
 class InfoColisType2Route extends _i30.PageRouteInfo<void> {
   const InfoColisType2Route({List<_i30.PageRouteInfo>? children})
       : super(
@@ -411,32 +411,32 @@ class InfoRecuperationType1RouteArgs {
 }
 
 /// generated route for
-/// [_i10.InfoRecuperationType2Page]
-class InfoRecuperationType2Route
-    extends _i30.PageRouteInfo<InfoRecuperationType2RouteArgs> {
-  InfoRecuperationType2Route({
+/// [_i10.InfoLivraisonType2Page]
+class InfoLivraisonType2Route
+    extends _i30.PageRouteInfo<InfoLivraisonType2RouteArgs> {
+  InfoLivraisonType2Route({
     _i32.Key? key,
     List<_i30.PageRouteInfo>? children,
   }) : super(
-          InfoRecuperationType2Route.name,
-          args: InfoRecuperationType2RouteArgs(key: key),
+          InfoLivraisonType2Route.name,
+          args: InfoLivraisonType2RouteArgs(key: key),
           initialChildren: children,
         );
 
-  static const String name = 'InfoRecuperationType2Route';
+  static const String name = 'InfoLivraisonType2Route';
 
-  static const _i30.PageInfo<InfoRecuperationType2RouteArgs> page =
-      _i30.PageInfo<InfoRecuperationType2RouteArgs>(name);
+  static const _i30.PageInfo<InfoLivraisonType2RouteArgs> page =
+      _i30.PageInfo<InfoLivraisonType2RouteArgs>(name);
 }
 
-class InfoRecuperationType2RouteArgs {
-  const InfoRecuperationType2RouteArgs({this.key});
+class InfoLivraisonType2RouteArgs {
+  const InfoLivraisonType2RouteArgs({this.key});
 
   final _i32.Key? key;
 
   @override
   String toString() {
-    return 'InfoRecuperationType2RouteArgs{key: $key}';
+    return 'InfoLivraisonType2RouteArgs{key: $key}';
   }
 }
 
