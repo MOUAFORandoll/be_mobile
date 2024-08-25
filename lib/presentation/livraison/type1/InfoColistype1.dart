@@ -452,7 +452,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                         'Appuyer pour rechercher',
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
-                                          fontFamily: 'Lato',
+                                          fontFamily: 'Helvetica',
                                           color: ColorsApp.grey,
                                         ),
                                       ),
@@ -616,7 +616,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                                     'Douala-Douala Douala-Douala',
                                                     style: TextStyle(
                                                       color: ColorsApp.white,
-                                                      fontFamily: 'Lato',
+                                                      fontFamily: 'Helvetica',
                                                     ),
                                                   ),
                                                 ),
@@ -625,7 +625,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                                     'Douala-Douala',
                                                     style: TextStyle(
                                                       color: ColorsApp.white,
-                                                      fontFamily: 'Lato',
+                                                      fontFamily: 'Helvetica',
                                                     ),
                                                   ),
                                                 ),
@@ -652,7 +652,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                                 state.selected_livraison_point!
                                                     .quartier,
                                                 style: TextStyle(
-                                                    fontFamily: 'Lato',
+                                                    fontFamily: 'Helvetica',
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: kBasics * 1.3),
                                               )),
@@ -661,7 +661,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                                 state.selected_livraison_point!
                                                     .ville,
                                                 style: TextStyle(
-                                                  fontFamily: 'Lato',
+                                                  fontFamily: 'Helvetica',
                                                 ),
                                               )),
                                             ],
@@ -696,7 +696,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                                       'Douala-Douala Douala-Douala',
                                                       style: TextStyle(
                                                         color: ColorsApp.white,
-                                                        fontFamily: 'Lato',
+                                                        fontFamily: 'Helvetica',
                                                       ),
                                                     ),
                                                   ),
@@ -705,7 +705,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                                       'Douala-Douala',
                                                       style: TextStyle(
                                                         color: ColorsApp.white,
-                                                        fontFamily: 'Lato',
+                                                        fontFamily: 'Helvetica',
                                                       ),
                                                     ),
                                                   ),
@@ -717,6 +717,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                             ? Text('Error')
                                             : AppDropdown<CategoryModel>(
                                                 value: state.categoryColis,
+                                                title: 'ytypecolis'.tr(),
                                                 hint: 'ytypecolis'.tr(),
                                                 onChanged:
                                                     (CategoryModel? newValue) {
@@ -745,7 +746,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                             'eselecttype'.tr(),
                                             style: TextStyle(
                                                 fontSize: 8,
-                                                fontFamily: 'Lato',
+                                                fontFamily: 'Helvetica',
                                                 color: ColorsApp.red),
                                           )),
                                     Container(
@@ -931,84 +932,81 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                             'eQuantitecolis'.tr(),
                                             style: TextStyle(
                                                 fontSize: 8,
-                                                fontFamily: 'Lato',
+                                                fontFamily: 'Helvetica',
                                                 color: ColorsApp.red),
                                           )),
                                     Container(
-                                        width: getWidth(context),
+                                        // width: getWidth(context),
                                         child: InkWell(
-                                          child: state.imageColis!.length != 0
-                                              ? Container(
-                                                  margin: EdgeInsets.only(
-                                                    top: kMarginY,
-                                                  ),
-                                                  child: ImageComp(
-                                                      file:
-                                                          state.imageColis![0],
-                                                      index: 0))
-                                              : UploadImage(
-                                                  color: ColorsApp.primary,
-                                                  title: 'yphotoColis'.tr(),
-                                                  icon: Icons.camera_alt),
-                                          onTap: () => GlobalBottomSheet.show(
-                                              maxHeight:
-                                                  getHeight(context) * .3,
-                                              context: context,
-                                              title: 'yphotoColisT'.tr(),
-                                              widget: BlocBuilder<LivraisonBloc,
-                                                  LivraisonState>(
-                                                builder: (context, state) =>
-                                                    Container(
-                                                        margin: EdgeInsets.only(
-                                                            top: kMarginY),
-                                                        height:
-                                                            getHeight(context) *
-                                                                .2,
-                                                        child: GridView.count(
-                                                            crossAxisCount:
-                                                                2, // Two items per row
-                                                            mainAxisSpacing:
-                                                                28.0, // Spacing between rows
-                                                            crossAxisSpacing:
-                                                                28.0, // Spacing between columns
-                                                            childAspectRatio: 1,
-                                                            children: [
-                                                              FileOptionWidget(
-                                                                  title:
-                                                                      'yGalerie'
-                                                                          .tr(),
-                                                                  icon:
-                                                                      FontAwesomeIcons
-                                                                          .image,
-                                                                  onTap: () {
-                                                                    context
-                                                                        .read<
-                                                                            LivraisonBloc>()
-                                                                        .add(
-                                                                            GetImageColisGalerie());
-                                                                    AutoRouter.of(
-                                                                            context)
-                                                                        .pop();
-                                                                  }),
-                                                              FileOptionWidget(
-                                                                title: 'yCamera'
-                                                                    .tr(),
-                                                                onTap: () {
-                                                                  context
-                                                                      .read<
-                                                                          LivraisonBloc>()
-                                                                      .add(
-                                                                          GetImageColisAppareil());
-                                                                  AutoRouter.of(
-                                                                          context)
-                                                                      .pop();
-                                                                },
-                                                                icon: FontAwesomeIcons
+                                      child: state.imageColis!.length != 0
+                                          ? Container(
+                                              margin: EdgeInsets.only(
+                                                top: kMarginY,
+                                              ),
+                                              child: ImageComp(
+                                                file: state.imageColis![0],
+                                              ))
+                                          : UploadImage(
+                                              color: ColorsApp.primary,
+                                              title: 'yphotoColis'.tr(),
+                                              icon: Icons.camera_alt),
+                                      onTap: () => GlobalBottomSheet.show(
+                                          maxHeight: getHeight(context) * .3,
+                                          context: context,
+                                          title: 'yphotoColisT'.tr(),
+                                          widget: BlocBuilder<LivraisonBloc,
+                                              LivraisonState>(
+                                            builder: (context, state) =>
+                                                Container(
+                                                    margin: EdgeInsets.only(
+                                                        top: kMarginY),
+                                                    height:
+                                                        getHeight(context) * .2,
+                                                    child: GridView.count(
+                                                        crossAxisCount:
+                                                            2, // Two items per row
+                                                        mainAxisSpacing:
+                                                            28.0, // Spacing between rows
+                                                        crossAxisSpacing:
+                                                            28.0, // Spacing between columns
+                                                        childAspectRatio: 1,
+                                                        children: [
+                                                          FileOptionWidget(
+                                                              title: 'yGalerie'
+                                                                  .tr(),
+                                                              icon:
+                                                                  FontAwesomeIcons
+                                                                      .image,
+                                                              onTap: () {
+                                                                context
+                                                                    .read<
+                                                                        LivraisonBloc>()
+                                                                    .add(
+                                                                        GetImageColisGalerie());
+                                                                AutoRouter.of(
+                                                                        context)
+                                                                    .pop();
+                                                              }),
+                                                          FileOptionWidget(
+                                                            title:
+                                                                'yCamera'.tr(),
+                                                            onTap: () {
+                                                              context
+                                                                  .read<
+                                                                      LivraisonBloc>()
+                                                                  .add(
+                                                                      GetImageColisAppareil());
+                                                              AutoRouter.of(
+                                                                      context)
+                                                                  .pop();
+                                                            },
+                                                            icon:
+                                                                FontAwesomeIcons
                                                                     .cameraRetro,
-                                                              ),
-                                                            ])),
-                                              )),
-                                        )),
+                                                          ),
+                                                        ])),
+                                          )),
+                                    )),
                                     if (state.errorImage!)
                                       Container(
                                           padding: EdgeInsets.only(
@@ -1019,7 +1017,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                             'ephotoColisT'.tr(),
                                             style: TextStyle(
                                                 fontSize: 8,
-                                                fontFamily: 'Lato',
+                                                fontFamily: 'Helvetica',
                                                 color: ColorsApp.red),
                                           ))
                                   ])),
@@ -1029,11 +1027,17 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                           bgColor: ColorsApp.second,
                           size: MainAxisSize.max,
                           marginAdd: EdgeInsets.symmetric(horizontal: kMarginX),
+                          disabled: !(state.categoryColis != null &&
+                              state.nomColis!.text.length != 0 &&
+                              state.contactRecepteur!.text.length != 0 &&
+                              state.valeurColis!.text.length != 0 &&
+                              state.quantiteColis!.text.length != 0 &&
+                              state.selected_livraison_point != null &&
+                              state.imageColis!.length != 0),
                           text: 'lbaddprod'.tr(),
                           onTap: () async {
                             context.read<LivraisonBloc>().add(AddColisType1());
                             if (state.isColisOK!) {
-                              AutoRouter.of(context).pop();
                               AutoRouter.of(context).pop();
                             }
                           }),

@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
-import 'dart:async'; 
+import 'dart:async';
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
-import 'package:BabanaExpress/presentation/components/Widget/home_proposition_widget.dart'; 
+import 'package:BabanaExpress/presentation/components/Widget/home_proposition_widget.dart';
 import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
@@ -247,7 +247,7 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
                     'Babana Express',
                     style: TextStyle(
                       color: ColorsApp.primary,
-                      fontFamily: 'Lato',
+                      fontFamily: 'Helvetica',
                     ),
                   ),
                   if (stateSLivraison.loadingMapPlaceInfo == 0)
@@ -262,7 +262,7 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
                       '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
                       style: TextStyle(
                         color: ColorsApp.second,
-                        fontFamily: 'Lato',
+                        fontFamily: 'Helvetica',
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -329,7 +329,7 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: kBasics * 1.3,
-                        fontFamily: 'Lato',
+                        fontFamily: 'Helvetica',
                         fontWeight: FontWeight.w500,
                       ),
                     ),

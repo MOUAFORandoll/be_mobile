@@ -10,16 +10,37 @@ class UploadImage extends StatelessWidget {
     return InkWell(
         onTap: onTap,
         child: Container(
-            width: getWidth(context) / 2.37,
+            margin: EdgeInsets.symmetric(vertical: 0).add(EdgeInsets.only(
+              right: kMarginX / 2,
+            )),
+            padding: EdgeInsets.symmetric(
+              horizontal: kMarginY / 2,
+            ),
             alignment: Alignment.center,
-            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-            margin: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-            decoration: new BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+            height: getWidth(context) * .30,
+            width: getWidth(context) * .30,
+            decoration: BoxDecoration(
+                color: ColorsApp.primary.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(150),
+                boxShadow: [
+                  BoxShadow(
+                    color: ColorsApp.primary.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                    offset: Offset(0, 2),
+                  ),
+                  BoxShadow(
+                    color: ColorsApp.black.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                    offset: Offset(0, 2),
+                  ),
+                ],
                 border: Border.all(color: ColorsApp.grey)
                 // color: (color == null) ? ColorsApp.blue : color,
                 ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(
                   child: Icon(icon, color: color),

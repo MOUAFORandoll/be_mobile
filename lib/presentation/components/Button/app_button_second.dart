@@ -1,4 +1,3 @@
-
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class AppButtonSecond extends StatelessWidget {
@@ -39,7 +38,7 @@ class AppButtonSecond extends StatelessWidget {
         constraints: BoxConstraints(minWidth: getWidth(context) * 0.40),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(80),
-          color: disabled ? bgColor.withOpacity(0.5) : bgColor,
+          color: disabled ? ColorsApp.greyNew : bgColor,
           border: border,
         ),
         padding: EdgeInsets.all(10),
@@ -58,7 +57,7 @@ class AppButtonSecond extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: kBasics * 1.2,
-                color: textColor,
+                color: disabled ? ColorsApp.primary : textColor,
               ),
             ),
             if (sufixIcon != null) ...[

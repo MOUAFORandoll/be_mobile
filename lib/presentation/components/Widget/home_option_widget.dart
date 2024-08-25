@@ -71,7 +71,7 @@ class HomeOptionWidget extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: kBasics,
-                        fontFamily: 'Lato',
+                        fontFamily: 'Helvetica',
                         fontWeight: FontWeight.w500,
                       ),
                     )),

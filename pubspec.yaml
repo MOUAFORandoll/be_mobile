@@ -106,65 +106,108 @@ flutter:
         - asset: assets/fonts/Lato/Lato-Regular.ttf
         - asset: assets/fonts/Lato/Lato-Thin.ttf
         - asset: assets/fonts/Lato/Lato-ThinItalic.ttf
+    - family: coolvetica
+      fonts:
+        - asset: assets/fonts/coolvetica/coolvetica compressed hv.otf
+        - asset: assets/fonts/coolvetica/coolvetica condensed rg.otf
+        - asset: assets/fonts/coolvetica/coolvetica crammed rg.otf
+        - asset: assets/fonts/coolvetica/coolvetica rg it.otf
+        - asset: assets/fonts/coolvetica/coolvetica rga.otf
+
+    - family: Helvetica
+      fonts:
+        - asset: assets/fonts/helvetica/Helvetica Black Condensed Oblique.otf
+        - asset: assets/fonts/helvetica/Helvetica Black Condensed.otf
+        - asset: assets/fonts/helvetica/Helvetica Black Oblique.otf
+        - asset: assets/fonts/helvetica/helvetica black.otf
+        - asset: assets/fonts/helvetica/Helvetica Bold Condensed.otf
+        - asset: assets/fonts/helvetica/Helvetica Bold Narrow Oblique.otf
+        - asset: assets/fonts/helvetica/Helvetica Condensed Bold Oblique.otf
+        - asset: assets/fonts/helvetica/Helvetica Condensed Oblique.otf
+        - asset: assets/fonts/helvetica/Helvetica Condensed Regular.ttf
+        - asset: assets/fonts/helvetica/Helvetica Extra Compressed Regular.otf
+        - asset: assets/fonts/helvetica/Helvetica Inserat Roman.otf
+        - asset: assets/fonts/helvetica/Helvetica Light Condensed.otf
+        - asset: assets/fonts/helvetica/Helvetica Roman.ttf
+        - asset: assets/fonts/helvetica/Helvetica Rounded Black.otf
+        - asset: assets/fonts/helvetica/Helvetica Rounded Bold Oblique.otf
+        - asset: assets/fonts/helvetica/Helvetica Rounded Bold.otf
+        - asset: assets/fonts/helvetica/Helvetica Rounded Condensed Bold.otf
+        - asset: assets/fonts/helvetica/Helvetica Rounded LT Std Bold Condensed Oblique.otf
+        - asset: assets/fonts/helvetica/Helvetica Ultra Compressed.otf
+        - asset: assets/fonts/helvetica/Helvetica.ttf
+        - asset: assets/fonts/helvetica/helvetica_condensed.ttf
+        - asset: assets/fonts/helvetica/Helvetica-Bold Oblique.ttf
+        - asset: assets/fonts/helvetica/Helvetica-Bold.ttf
+        - asset: assets/fonts/helvetica/helvetica-compressed.otf
+        - asset: assets/fonts/helvetica/helvetica-light.ttf
+        - asset: assets/fonts/helvetica/Helvetica-LightOblique.ttf
+        - asset: assets/fonts/helvetica/Helvetica-Narrow Bold.ttf
+        - asset: assets/fonts/helvetica/Helvetica-Narrow Roman.ttf
+        - asset: assets/fonts/helvetica/Helvetica-Narrow-Oblique.ttf
+        - asset: assets/fonts/helvetica/Helvetica-Oblique.ttf
+        - asset: assets/fonts/helvetica/helvetica-rounded-bold.otf
 
   uses-material-design: true
 
   assets:
+    - assets
     - assets/env/
     - assets/translations/
     - assets/images/
     - assets/svg_icones/
-    - assets/logo/logo.png
-    - assets/images/bg_white.jpeg
-    - assets/logo/logo.png
-    - assets/logo/logo_t1.svg
-    - assets/logo/logo_t2.svg
-    - assets/logo/logo_t3.svg
-    - assets/om.png
-    - assets/login.png
-    - assets/register.png
-    - assets/payement/om.png
-    - assets/payement/momo.png
-    - assets/payement/paycard.png
-    - assets/svg_icones/user.svg
-    - assets/svg_icones/callreceive.svg
-    - assets/svg_icones/mapTagUser.svg
-    - assets/svg_icones/onbo1.png
-    - assets/svg_icones/onbo2.png
-    - assets/svg_icones/onbo3.png
-    - assets/svg_icones/logImg.png
-    - assets/svg_icones/menu.svg
-    - assets/svg_icones/logUser1.svg
-    - assets/svg_icones/shoppingCart.svg
-    - assets/svg_icones/refresh.svg
-    - assets/svg_icones/home.svg
-    - assets/svg_icones/bagmoney.svg
-    - assets/svg_icones/phone_mobile.svg
-    - assets/svg_icones/key.svg
-    - assets/svg_icones/grid1.svg
-    - assets/svg_icones/grid2.svg
-    - assets/svg_icones/list0.svg
-    - assets/svg_icones/logo.svg
-    - assets/svg_icones/logo_without.svg
-    - assets/svg_icones/logo_esq.svg
-    - assets/svg_icones/play.svg
-    - assets/svg_icones/bell.svg
-    - assets/svg_icones/like.svg
-    - assets/svg_icones/story_boutique.svg
-    - assets/images/shop2.png
-    - assets/images/shop1.png
-    - assets/images/empty_shop.png
-    - assets/svg_icones/hand.svg
-    - assets/svg_icones/location.svg
-    - assets/svg_icones/nmreproduit.svg
-    - assets/svg_icones/setting.svg
-    - assets/svg_icones/produits.svg
-    - assets/svg_icones/short.svg
-    - assets/svg_icones/commandes.svg
-    - assets/svg_icones/ventes.svg
-    - assets/svg_icones/babana.svg
-    - assets/svg_icones/p3.svg
-    - assets/svg_icones/p2.svg
-    - assets/svg_icones/p1.svg
-    - assets/svg_icones/colis.svg
-    - assets/svg_icones/wallet.svg
+    - assets/payement/
+    # - assets/logo/logo.png
+    # - assets/images/bg_white.jpeg
+    # - assets/logo/logo.png
+    # - assets/logo/logo_t1.svg
+    # - assets/logo/logo_t2.svg
+    # - assets/logo/logo_t3.svg
+    # - assets/om.png
+    # - assets/login.png
+    # - assets/register.png
+    # - assets/payement/om.png
+    # - assets/payement/momo.png
+    # - assets/payement/paycard.png
+    # - assets/svg_icones/user.svg
+    # - assets/svg_icones/callreceive.svg
+    # - assets/svg_icones/mapTagUser.svg
+    # - assets/svg_icones/onbo1.png
+    # - assets/svg_icones/onbo2.png
+    # - assets/svg_icones/onbo3.png
+    # - assets/svg_icones/logImg.png
+    # - assets/svg_icones/menu.svg
+    # - assets/svg_icones/logUser1.svg
+    # - assets/svg_icones/shoppingCart.svg
+    # - assets/svg_icones/refresh.svg
+    # - assets/svg_icones/home.svg
+    # - assets/svg_icones/bagmoney.svg
+    # - assets/svg_icones/phone_mobile.svg
+    # - assets/svg_icones/key.svg
+    # - assets/svg_icones/grid1.svg
+    # - assets/svg_icones/grid2.svg
+    # - assets/svg_icones/list0.svg
+    # - assets/svg_icones/logo.svg
+    # - assets/svg_icones/logo_without.svg
+    # - assets/svg_icones/logo_esq.svg
+    # - assets/svg_icones/play.svg
+    # - assets/svg_icones/bell.svg
+    # - assets/svg_icones/like.svg
+    # - assets/svg_icones/story_boutique.svg
+    # - assets/images/shop2.png
+    # - assets/images/shop1.png
+    # - assets/images/empty_shop.png
+    # - assets/svg_icones/hand.svg
+    # - assets/svg_icones/location.svg
+    # - assets/svg_icones/nmreproduit.svg
+    # - assets/svg_icones/setting.svg
+    # - assets/svg_icones/produits.svg
+    # - assets/svg_icones/short.svg
+    # - assets/svg_icones/commandes.svg
+    # - assets/svg_icones/ventes.svg
+    # - assets/svg_icones/babana.svg
+    # - assets/svg_icones/p3.svg
+    # - assets/svg_icones/p2.svg
+    # - assets/svg_icones/p1.svg
+    # - assets/svg_icones/colis.svg
+    # - assets/svg_icones/wallet.svg

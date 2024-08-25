@@ -39,7 +39,7 @@ class HomeModuleComponent extends StatelessWidget {
                     title,
                     maxLines: 4,
                     style: TextStyle(
-                      fontFamily: 'Lato',
+                      fontFamily: 'Helvetica',
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                     ),

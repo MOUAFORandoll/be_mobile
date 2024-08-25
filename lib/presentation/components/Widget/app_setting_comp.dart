@@ -43,7 +43,7 @@ class AppSettingComp extends StatelessWidget {
             Container(
                 child: Text(title,
                     style: TextStyle(
-                        fontFamily: 'Lato',
+                        fontFamily: 'Helvetica',
                         fontWeight: FontWeight.w600)) /* ) */),
             // Container(
             //     child: Icon(

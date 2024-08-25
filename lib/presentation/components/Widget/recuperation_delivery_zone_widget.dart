@@ -1,12 +1,11 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class RecuperationDeliveryZoneWidget extends StatelessWidget {
-  RecuperationDeliveryZoneWidget({
-    required this.title,
-    required this.onTap,
-  });
+  RecuperationDeliveryZoneWidget(
+      {required this.title, required this.onTap, required this.isSelected});
   final String title;
   final onTap;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -40,15 +39,18 @@ class RecuperationDeliveryZoneWidget extends StatelessWidget {
               //   borderRadius: BorderRadius.circular(30),
               // ),
               child: Icon(FontAwesomeIcons.searchengin,
-                  size: 20, color: ColorsApp.primary)),
+                  size: 20,
+                  color:
+                      isSelected ? ColorsApp.primary : Colors.grey.shade500)),
           Container(
             margin: EdgeInsets.symmetric(horizontal: kMarginX),
             child: Text(title,
                 textAlign: TextAlign.center,
                 style: TextStyle(
+                  color: isSelected ? ColorsApp.primary : Colors.grey.shade500,
                   fontSize: kBasics,
-                  fontFamily: 'Lato',
-                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Helvetica',
+                  fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
                 )),
           ),
         ]),

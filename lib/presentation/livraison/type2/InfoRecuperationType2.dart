@@ -54,7 +54,7 @@ class _InfoRecuperationType2PageState extends State<InfoRecuperationType2Page> {
                   'Ou devons nous vous livrer ?',
                   style: TextStyle(
                       fontSize: kTitle,
-                      fontFamily: 'Lato',
+                      fontFamily: 'Helvetica',
                       color: ColorsApp.black,
                       fontWeight: FontWeight.w600),
                 ),
@@ -109,7 +109,7 @@ class _InfoRecuperationType2PageState extends State<InfoRecuperationType2Page> {
                       'eselectville'.tr(),
                       style: TextStyle(
                           fontSize: 8,
-                          fontFamily: 'Lato',
+                          fontFamily: 'Helvetica',
                           color: ColorsApp.red),
                     )),
               state.isLoadPLivraison == 0
@@ -247,7 +247,7 @@ class _InfoRecuperationType2PageState extends State<InfoRecuperationType2Page> {
                       'eselectrecup'.tr(),
                       style: TextStyle(
                           fontSize: 8,
-                          fontFamily: 'Lato',
+                          fontFamily: 'Helvetica',
                           color: ColorsApp.red),
                     )),
               Container(
@@ -279,7 +279,7 @@ class _InfoRecuperationType2PageState extends State<InfoRecuperationType2Page> {
                   style: const TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
-                    fontFamily: 'Lato',
+                    fontFamily: 'Helvetica',
                   ),
                   maxLines: 10,
                   decoration: InputDecoration(
@@ -300,11 +300,11 @@ class _InfoRecuperationType2PageState extends State<InfoRecuperationType2Page> {
                     ),
                     errorStyle: TextStyle(
                       fontSize: 8,
-                      fontFamily: 'Lato',
+                      fontFamily: 'Helvetica',
                     ),
                     labelStyle: TextStyle(
                       color: ColorsApp.grey,
-                      fontFamily: 'Lato',
+                      fontFamily: 'Helvetica',
                       // fontWeight: FontWeight.w500,
                       fontSize: 12,
                     ),

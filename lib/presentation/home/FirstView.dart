@@ -4,7 +4,7 @@ import 'package:BabanaExpress/presentation/components/Widget/home_option_widget.
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import '../../presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/application/export_bloc.dart';  
+import 'package:BabanaExpress/application/export_bloc.dart';
 
 class FirstView extends StatefulWidget {
   @override
@@ -58,7 +58,7 @@ class _FirstViewState extends State<FirstView>
                               'Services',
                               style: TextStyle(
                                   color: ColorsApp.white,
-                                  fontFamily: 'Lato',
+                                  fontFamily: 'Helvetica',
                                   fontSize: kTitle * 1.5,
                                   fontWeight: FontWeight.w800),
                             ),
@@ -86,10 +86,8 @@ class _FirstViewState extends State<FirstView>
                                           'Je veux qu\'on recuperer mon colis'
                                               .tr(),
                                       onTap: () {
-                                          
-                                          AutoRouter.of(context)
+                                        AutoRouter.of(context)
                                             .push(NewLivraisonType2Route());
-
                                       },
                                       icon: Assets.colis,
                                     ),
@@ -102,7 +100,6 @@ class _FirstViewState extends State<FirstView>
                                             .push(WalletRoute());
                                       },
                                     ),
-                                 
                                   ])),
                           Container(
                             child: Row(
@@ -113,7 +110,7 @@ class _FirstViewState extends State<FirstView>
                                     'Vos livraisons en cours',
                                     style: TextStyle(
                                         // color: ColorsApp.white,
-                                        fontFamily: 'Lato',
+                                        fontFamily: 'Helvetica',
                                         fontSize: kTitle * 1.3,
                                         fontWeight: FontWeight.w700),
                                   ),
@@ -198,7 +195,7 @@ class _FirstViewState extends State<FirstView>
                                                 'Livraison de medicaments',
                                                 style: TextStyle(
                                                     // color: ColorsApp.white,
-                                                    fontFamily: 'Lato',
+                                                    fontFamily: 'Helvetica',
                                                     fontWeight:
                                                         FontWeight.w800),
                                               ),
@@ -207,7 +204,7 @@ class _FirstViewState extends State<FirstView>
                                                 style: TextStyle(
                                                   // color: ColorsApp.white,
                                                   fontSize: 11,
-                                                  fontFamily: 'Lato',
+                                                  fontFamily: 'Helvetica',
                                                 ),
                                               ),
                                             ],

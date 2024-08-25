@@ -58,7 +58,7 @@ class _AppInputState extends State<AppInput> {
               style: TextStyle(
                 color: ColorsApp.black.withOpacity(.3),
                 fontSize: 12,
-                fontFamily: 'Lato',
+                fontFamily: 'Helvetica',
               ),
             ),
           ),
@@ -75,7 +75,7 @@ class _AppInputState extends State<AppInput> {
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 12,
-                fontFamily: 'Lato',
+                fontFamily: 'Helvetica',
               ),
               onChanged: widget.onChanged,
               decoration: InputDecoration(
@@ -106,7 +106,7 @@ class _AppInputState extends State<AppInput> {
                 errorText: widget.errorText,
                 errorStyle: TextStyle(
                   fontSize: 8,
-                  fontFamily: 'Lato',
+                  fontFamily: 'Helvetica',
                   color: ColorsApp.red,
                 ),
                 prefixIcon: widget.prefix,
@@ -116,7 +116,7 @@ class _AppInputState extends State<AppInput> {
                 hintStyle: TextStyle(
                   color: ColorsApp.black.withOpacity(.3),
                   fontSize: 12,
-                  fontFamily: 'Lato',
+                  fontFamily: 'Helvetica',
                 ),
                 suffixIcon: widget.icon,
               ),
@@ -183,7 +183,7 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                   style: TextStyle(
                     color: ColorsApp.black.withOpacity(.3),
                     fontSize: 12,
-                    fontFamily: 'Lato',
+                    fontFamily: 'Helvetica',
                   ),
                 )),
             Focus(
@@ -200,7 +200,7 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                   fontWeight: FontWeight.w500,
                   // color: ColorsApp.tird,
                   fontSize: 12,
-                  fontFamily: 'Lato',
+                  fontFamily: 'Helvetica',
                 ),
                 // maxLength: widget.maxLength,
                 onChanged: widget.onChanged,
@@ -233,7 +233,7 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                     ),
                     errorStyle: TextStyle(
                       fontSize: 8,
-                      fontFamily: 'Lato',
+                      fontFamily: 'Helvetica',
                       color: ColorsApp.red,
                     ),
                     hintText: 'Entrer du texte',
@@ -241,7 +241,7 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                     hintStyle: TextStyle(
                       color: ColorsApp.black.withOpacity(.3),
                       fontSize: 12,
-                      fontFamily: 'Lato',
+                      fontFamily: 'Helvetica',
                     ),
                     suffixIcon: widget.obscureText == true
                         ? IconButton(

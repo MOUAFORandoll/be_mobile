@@ -1360,12 +1360,11 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       VerifyLivraisonState event, Emitter<LivraisonState> emit) async {
     emit(state.copyWith(isRequest: 0));
     emit(state.copyWith(isRequest: 1));
+    print('${state.selectedService} state.selectedService --------------5))');
 
     await livraisonRepo
         .verifyLivraisonStatePaiement(state.currentLivraisonId)
         .then((response) {
-      print('${state.selectedService} state.selectedService --------------5))');
-
       if (response.statusCode == 200) {
         emit(state.copyWith(isRequest: 2));
         if (state.selectedModePaiement!.id == 1) {
@@ -1388,7 +1387,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
         emit(state.copyWith(isRequest: null));
 
-        // add(HistoriqueUserLivraison());
+        add(HistoriqueUserLivraison());
       } else {
         emit(state.copyWith(
           isRequest: 3,
@@ -1397,7 +1396,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         emit(state.copyWith(isRequest: null, errorMessage: ''));
       }
     }).onError((e, s) {
-      print('${e}');
+      print('${e.toString()}');
       log('===================================');
       print('====================-----${s}---------5))');
 

@@ -78,7 +78,7 @@ class BoxInputMessaage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   errorStyle: TextStyle(
-                    fontFamily: 'Lato',
+                    fontFamily: 'Helvetica',
                     color: ColorsApp.red,
                   ),
                 ),

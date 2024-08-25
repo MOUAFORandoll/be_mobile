@@ -444,7 +444,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                                         'Appuyer pour rechercher',
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
-                                          fontFamily: 'Lato',
+                                          fontFamily: 'Helvetica',
                                           color: ColorsApp.grey,
                                         ),
                                       ),
@@ -600,7 +600,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                                           'Douala-Douala Douala-Douala',
                                           style: TextStyle(
                                             color: ColorsApp.white,
-                                            fontFamily: 'Lato',
+                                            fontFamily: 'Helvetica',
                                           ),
                                         ),
                                       ),
@@ -609,7 +609,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                                           'Douala-Douala',
                                           style: TextStyle(
                                             color: ColorsApp.white,
-                                            fontFamily: 'Lato',
+                                            fontFamily: 'Helvetica',
                                           ),
                                         ),
                                       ),
@@ -638,7 +638,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                                       state.selected_recuperation_point!
                                           .quartier,
                                       style: TextStyle(
-                                          fontFamily: 'Lato',
+                                          fontFamily: 'Helvetica',
                                           fontWeight: FontWeight.w600,
                                           fontSize: kBasics * 1.3),
                                     )),
@@ -646,7 +646,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                                         child: Text(
                                       state.selected_recuperation_point!.ville,
                                       style: TextStyle(
-                                        fontFamily: 'Lato',
+                                        fontFamily: 'Helvetica',
                                       ),
                                     )),
                                   ],

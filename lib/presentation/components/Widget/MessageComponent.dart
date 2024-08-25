@@ -153,14 +153,16 @@ class _MessageComponentState extends State<MessageComponent>
                                                       .isCallCenter
                                                   ? Text('Call Center',
                                                       style: TextStyle(
-                                                          fontFamily: 'Lato',
+                                                          fontFamily:
+                                                              'coolvetica',
                                                           color: ColorsApp.tird,
                                                           fontSize: 12,
                                                           fontWeight:
                                                               FontWeight.w600))
                                                   : Text('Vous',
                                                       style: TextStyle(
-                                                          fontFamily: 'Lato',
+                                                          fontFamily:
+                                                              'coolvetica',
                                                           color:
                                                               ColorsApp.second,
                                                           fontSize: 12,
@@ -170,7 +172,7 @@ class _MessageComponentState extends State<MessageComponent>
                                               widget.message.messageTarget!
                                                   .message,
                                               style: TextStyle(
-                                                fontFamily: 'Lato',
+                                                fontFamily: 'Helvetica',
                                                 color:
                                                     colorText2.withOpacity(.5),
                                               )),
@@ -212,7 +214,7 @@ class _MessageComponentState extends State<MessageComponent>
                               padding: EdgeInsets.all(5),
                               child: Text(widget.message.message,
                                   style: TextStyle(
-                                      fontFamily: 'Lato',
+                                      fontFamily: 'Helvetica',
                                       color: widget.message.isDelete
                                           ? colorText.withOpacity(.5)
                                           : colorText,

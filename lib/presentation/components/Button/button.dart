@@ -114,7 +114,7 @@ class ButtonAction extends StatelessWidget {
                   style: TextStyle(
                       // fontSize:
                       //     kDescription,
-                      fontFamily: 'Lato',
+                      fontFamily: 'Helvetica',
                       color: ColorsApp.white,
                       fontWeight: FontWeight.w700),
                 )),

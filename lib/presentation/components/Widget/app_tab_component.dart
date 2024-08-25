@@ -26,7 +26,7 @@ class AppTabComponent extends StatelessWidget {
           child: Text(libelle,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                  fontFamily: 'Lato',
+                  fontFamily: 'Helvetica',
                   color: !selected ? ColorsApp.grey : ColorsApp.white,
                   fontSize: kDescription,
                   fontWeight: FontWeight.w700)),

@@ -26,7 +26,7 @@ class ShimmerHome extends StatelessWidget {
                 'Services',
                 style: TextStyle(
                     color: ColorsApp.white,
-                    fontFamily: 'Lato',
+                    fontFamily: 'Helvetica',
                     fontSize: kTitle * 1.5,
                     fontWeight: FontWeight.w800),
               ),

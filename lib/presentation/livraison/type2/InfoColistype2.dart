@@ -86,7 +86,7 @@ class _InfoColisType2PageState extends State<InfoColisType2Page> {
                             'eselecttype'.tr(),
                             style: TextStyle(
                                 fontSize: 8,
-                                fontFamily: 'Lato',
+                                fontFamily: 'Helvetica',
                                 color: ColorsApp.red),
                           )),
                     Container(
@@ -244,7 +244,7 @@ class _InfoColisType2PageState extends State<InfoColisType2Page> {
                             'eQuantitecolis'.tr(),
                             style: TextStyle(
                                 fontSize: 8,
-                                fontFamily: 'Lato',
+                                fontFamily: 'Helvetica',
                                 color: ColorsApp.red),
                           )),
                     Container(
@@ -256,7 +256,8 @@ class _InfoColisType2PageState extends State<InfoColisType2Page> {
                                     top: kMarginY,
                                   ),
                                   child: ImageComp(
-                                      file: state.imageColis![0], index: 0))
+                                    file: state.imageColis![0],
+                                  ))
                               : UploadImage(
                                   color: ColorsApp.primary,
                                   title: 'yphotoColis'.tr(),
@@ -314,7 +315,7 @@ class _InfoColisType2PageState extends State<InfoColisType2Page> {
                             'ephotoColisT'.tr(),
                             style: TextStyle(
                                 fontSize: 8,
-                                fontFamily: 'Lato',
+                                fontFamily: 'Helvetica',
                                 color: ColorsApp.red),
                           ))
                   ]))),

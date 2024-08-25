@@ -1,13 +1,12 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:BabanaExpress/application/model/exportmodel.dart'; 
+import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:BabanaExpress/utils/functions/datetime_format_utils.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'dart:io';
- 
 
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'dart:typed_data';
 import 'dart:async';
@@ -474,7 +473,7 @@ class ColisConversationWidget extends StatelessWidget {
               title,
               style: TextStyle(
                   color: ColorsApp.second,
-                  fontFamily: 'Lato',
+                  fontFamily: 'Helvetica',
                   fontWeight: FontWeight.w600,
                   fontSize: kTitle),
             ),
@@ -485,7 +484,7 @@ class ColisConversationWidget extends StatelessWidget {
                 FormatDateTime().convertirDateSecond(date),
                 style: TextStyle(
                   color: ColorsApp.primary,
-                  fontFamily: 'Lato',
+                  fontFamily: 'Helvetica',
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -496,7 +495,7 @@ class ColisConversationWidget extends StatelessWidget {
                 FormatDateTime().extractTimeToDate(date),
                 style: TextStyle(
                   color: ColorsApp.primary,
-                  fontFamily: 'Lato',
+                  fontFamily: 'Helvetica',
                   fontWeight: FontWeight.w400,
                 ),
               ),

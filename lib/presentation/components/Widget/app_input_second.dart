@@ -37,7 +37,7 @@ class _AppInputSecondState extends State<AppInputSecond> {
         style: const TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: 12,
-          fontFamily: 'Lato',
+          fontFamily: 'Helvetica',
         ),
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
@@ -51,7 +51,7 @@ class _AppInputSecondState extends State<AppInputSecond> {
           errorText: widget.errorText,
           errorStyle: TextStyle(
             fontSize: 8,
-            fontFamily: 'Lato',
+            fontFamily: 'Helvetica',
             color: ColorsApp.red,
           ),
         ),

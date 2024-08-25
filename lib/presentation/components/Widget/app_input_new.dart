@@ -51,7 +51,7 @@ class _AppInputNewState extends State<AppInputNew> {
           style: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 12,
-            fontFamily: 'Lato',
+            fontFamily: 'Helvetica',
           ),
           maxLength: widget.maxLength,
           onChanged: widget.onChanged,
@@ -84,11 +84,11 @@ class _AppInputNewState extends State<AppInputNew> {
               errorStyle: TextStyle(
                 fontSize: 8,
                 color: ColorsApp.red,
-                fontFamily: 'Lato',
+                fontFamily: 'Helvetica',
               ),
               labelText: widget.label,
               labelStyle: TextStyle(
-                color: Colors.grey.shade500, fontFamily: 'Lato',
+                color: Colors.grey.shade500, fontFamily: 'Helvetica',
                 // fontWeight: FontWeight.w500,
                 fontSize: 12,
               ),

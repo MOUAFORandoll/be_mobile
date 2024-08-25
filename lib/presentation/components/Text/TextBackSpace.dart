@@ -16,7 +16,7 @@ class TextBackSpace extends StatelessWidget {
           text,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-              fontFamily: 'Lato',
+              fontFamily: 'Helvetica',
               fontSize: 14,
               color: color,
               fontWeight: bolder ? FontWeight.w600 : FontWeight.normal),

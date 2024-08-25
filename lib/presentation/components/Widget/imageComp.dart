@@ -4,48 +4,44 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 // ignore: must_be_immutable
 class ImageComp extends StatelessWidget {
-  File file;
-  int index;
+  File file; 
   ImageComp({
-    required this.file,
-    required this.index,
+    required this.file, 
   });
   @override
   Widget build(BuildContext context) {
-    return /* Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: */ /*  Stack(children: [ */
-        Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50), color: Colors.white),
-            margin: EdgeInsets.only(right: 5),
-            height: getHeight(context) / 4,
-            width: getWidth(context) / 2.4,
-            child: ClipRRect(
-                borderRadius:
-                    BorderRadius.circular(8.0), // Adjust the radius here
-                child: Image.file(
-                  file,
-                  fit: BoxFit.cover,
-                )))
-        // Positioned(
-        //     right: 0,
-        //     top: 0,
-        //     child: Container(
-        //         decoration: BoxDecoration(
-        //             borderRadius: BorderRadius.only(
-        //                 topLeft: Radius.circular(10),
-        //                 bottomLeft: Radius.circular(10)),
-        //             color: Colors.white),
-        //         padding: EdgeInsets.all(5),
-        //         child: InkWell(
-        //             child: Icon(Icons.close, color: Colors.red, size: 15),
-        //             onTap: () async {
-        //               // await Get.find<BoutiqueController>().deleteImage(index);
-        //             })))
-        // ]),
-        /*  ) */;
+    return    Container(
+                        margin: EdgeInsets.symmetric(vertical: 0)
+                            .add(EdgeInsets.only(
+                          right: kMarginX / 2,
+                        )),
+                        height: getWidth(context) * .24,
+                        width: getWidth(context) * .24,
+                        decoration: BoxDecoration(
+                          color: ColorsApp.red,
+                          borderRadius: BorderRadius.circular(150),
+                          boxShadow: [
+                            BoxShadow(
+                              color: ColorsApp.primary.withOpacity(0.1),
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: Offset(0, 2),
+                            ),
+                            BoxShadow(
+                              color: ColorsApp.black.withOpacity(0.1),
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(150),
+                          child: Image.file(
+                            file,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
   }
 }

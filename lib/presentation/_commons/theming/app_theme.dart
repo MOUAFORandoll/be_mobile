@@ -2,48 +2,48 @@ import '../../components/exportcomponent.dart';
 
 class TexteStyle {
   final errorStyle = TextStyle(
-    fontFamily: 'Lato',
+    fontFamily: 'Helvetica',
     fontSize: kBasics,
     color: ColorsApp.black,
   );
 
   final primaryTextStyle = TextStyle(
-    fontFamily: 'Lato',
+    fontFamily: 'Helvetica',
     color: ColorsApp.black,
     fontSize: kBasics,
   );
   final primaryBigTextStyle = TextStyle(
-    fontFamily: 'Lato',
+    fontFamily: 'Helvetica',
     color: ColorsApp.black,
     fontSize: kBasics,
   );
   final bprimaryBigTextStyle = TextStyle(
-      fontFamily: 'Lato',
+      fontFamily: 'Helvetica',
       color: ColorsApp.black,
       fontSize: kBasics,
       fontWeight: FontWeight.w600);
   final bprimaryTextStyle = TextStyle(
-      fontFamily: 'Lato',
+      fontFamily: 'Helvetica',
       color: ColorsApp.black,
       fontSize: kBasics,
       fontWeight: FontWeight.w600);
   final secondaryTextStyle = TextStyle(
-    fontFamily: 'Lato',
+    fontFamily: 'Helvetica',
     color: ColorsApp.black,
     fontSize: kBasics,
   );
   final bsecondaryTextStyle = TextStyle(
-      fontFamily: 'Lato',
+      fontFamily: 'Helvetica',
       color: ColorsApp.black,
       fontSize: kBasics,
       fontWeight: FontWeight.w600);
   final largeTextStyle = TextStyle(
-    fontFamily: 'Lato',
+    fontFamily: 'Helvetica',
     color: ColorsApp.black,
     fontSize: kBasics,
   );
   final blargeTextStyle = TextStyle(
-      fontFamily: 'Lato',
+      fontFamily: 'Helvetica',
       color: ColorsApp.black,
       fontSize: kBasics,
       fontWeight: FontWeight.w600);
@@ -51,10 +51,10 @@ class TexteStyle {
 
 ThemeData darkTheme = ThemeData(
   primaryColor: ColorsApp.white,
-  fontFamily: 'Lato',
+  fontFamily: 'Helvetica',
   dividerColor: ColorsApp.white,
   textTheme: TextTheme(
-    bodyMedium: TextStyle(fontFamily: 'Lato', color: ColorsApp.black),
+    bodyMedium: TextStyle(fontFamily: 'Helvetica', color: ColorsApp.black),
   ),
   colorScheme: ColorScheme.fromSwatch(
     primarySwatch: Colors.grey,
@@ -63,7 +63,7 @@ ThemeData darkTheme = ThemeData(
 );
 
 ThemeData lightTheme(context) => ThemeData(
-      fontFamily: 'Lato',
+      fontFamily: 'Helvetica',
       primaryColor: ColorsApp.black,
       iconTheme: IconThemeData(
         color: ColorsApp.black,
@@ -86,7 +86,7 @@ ThemeData lightTheme(context) => ThemeData(
       useMaterial3: true,
       appBarTheme: AppBarTheme(
         titleTextStyle: TextStyle(
-            fontFamily: 'Lato',
+            fontFamily: 'Helvetica',
             fontSize: kBasics,
             color: ColorsApp.black,
             fontWeight: FontWeight.w700),

@@ -69,7 +69,7 @@ class AppBoutiqueOption extends StatelessWidget {
                 ),
                 child: Text(title,
                     style: TextStyle(
-                        fontFamily: 'Lato',
+                        fontFamily: 'Helvetica',
                         fontWeight: FontWeight.w600,
                         fontSize: 12)),
               ),

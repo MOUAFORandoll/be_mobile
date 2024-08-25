@@ -30,7 +30,7 @@ class FileOptionWidget extends StatelessWidget {
                       title,
                       style: TextStyle(
                         fontSize: kBasics,
-                        fontFamily: 'Lato',
+                        fontFamily: 'Helvetica',
                         fontWeight: FontWeight.w500,
                       ),
                     )),
