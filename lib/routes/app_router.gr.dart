@@ -35,17 +35,17 @@ import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.
 import 'package:BabanaExpress/presentation/livraison/MapPagePointRecuperation.dart'
     as _i16;
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart' as _i22;
-import 'package:BabanaExpress/presentation/livraison/type1/InfoColistype1.dart'
+import 'package:BabanaExpress/presentation/livraison/type1/InfoColisType1.dart'
     as _i7;
-import 'package:BabanaExpress/presentation/livraison/type1/InfoLIvraisontype1.dart'
+import 'package:BabanaExpress/presentation/livraison/type1/InfoRecuperationType1.dart'
     as _i9;
 import 'package:BabanaExpress/presentation/livraison/type1/NewLivraisonType1Page.dart'
     as _i18;
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart'
     as _i26;
-import 'package:BabanaExpress/presentation/livraison/type2/InfoColistype2.dart'
+import 'package:BabanaExpress/presentation/livraison/type2/InfoColisType2.dart'
     as _i8;
-import 'package:BabanaExpress/presentation/livraison/type2/InfoLIvraisonType2.dart'
+import 'package:BabanaExpress/presentation/livraison/type2/InfoRecuperationType2.dart'
     as _i10;
 import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page.dart'
     as _i19;
@@ -101,32 +101,32 @@ abstract class $AppRouter extends _i30.RootStackRouter {
         child: const _i6.HomePage(),
       );
     },
-    InfoColistype1Route.name: (routeData) {
+    InfoColisType1Route.name: (routeData) {
       return _i30.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i7.InfoColistype1Page(),
+        child: _i7.InfoColisType1Page(),
       );
     },
-    InfoColistype2Route.name: (routeData) {
+    InfoColisType2Route.name: (routeData) {
       return _i30.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i8.InfoColistype2Page(),
+        child: _i8.InfoColisType2Page(),
       );
     },
-    InfoLIvraisonType1Route.name: (routeData) {
-      final args = routeData.argsAs<InfoLIvraisonType1RouteArgs>(
-          orElse: () => const InfoLIvraisonType1RouteArgs());
+    InfoRecuperationType1Route.name: (routeData) {
+      final args = routeData.argsAs<InfoRecuperationType1RouteArgs>(
+          orElse: () => const InfoRecuperationType1RouteArgs());
       return _i30.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i9.InfoLIvraisonType1Page(key: args.key),
+        child: _i9.InfoRecuperationType1Page(key: args.key),
       );
     },
-    InfoLIvraisonType2Route.name: (routeData) {
-      final args = routeData.argsAs<InfoLIvraisonType2RouteArgs>(
-          orElse: () => const InfoLIvraisonType2RouteArgs());
+    InfoRecuperationType2Route.name: (routeData) {
+      final args = routeData.argsAs<InfoRecuperationType2RouteArgs>(
+          orElse: () => const InfoRecuperationType2RouteArgs());
       return _i30.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i10.InfoLIvraisonType2Page(key: args.key),
+        child: _i10.InfoRecuperationType2Page(key: args.key),
       );
     },
     LivraiSonMapRoute.name: (routeData) {
@@ -193,16 +193,16 @@ abstract class $AppRouter extends _i30.RootStackRouter {
         child: _i20.OnBoardingPage(key: args.key),
       );
     },
-    PaimentDepotRoute.name: (routeData) {
+    PaiementDepotRoute.name: (routeData) {
       return _i30.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i21.PaimentDepotPage(),
+        child: const _i21.PaiementDepotPage(),
       );
     },
-    PaimentRoute.name: (routeData) {
+    PaiementRoute.name: (routeData) {
       return _i30.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i22.PaimentPage(),
+        child: const _i22.PaiementPage(),
       );
     },
     PolitiqueRoute.name: (routeData) {
@@ -353,90 +353,90 @@ class HomeRoute extends _i30.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.InfoColistype1Page]
-class InfoColistype1Route extends _i30.PageRouteInfo<void> {
-  const InfoColistype1Route({List<_i30.PageRouteInfo>? children})
+/// [_i7.InfoColisType1Page]
+class InfoColisType1Route extends _i30.PageRouteInfo<void> {
+  const InfoColisType1Route({List<_i30.PageRouteInfo>? children})
       : super(
-          InfoColistype1Route.name,
+          InfoColisType1Route.name,
           initialChildren: children,
         );
 
-  static const String name = 'InfoColistype1Route';
+  static const String name = 'InfoColisType1Route';
 
   static const _i30.PageInfo<void> page = _i30.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i8.InfoColistype2Page]
-class InfoColistype2Route extends _i30.PageRouteInfo<void> {
-  const InfoColistype2Route({List<_i30.PageRouteInfo>? children})
+/// [_i8.InfoColisType2Page]
+class InfoColisType2Route extends _i30.PageRouteInfo<void> {
+  const InfoColisType2Route({List<_i30.PageRouteInfo>? children})
       : super(
-          InfoColistype2Route.name,
+          InfoColisType2Route.name,
           initialChildren: children,
         );
 
-  static const String name = 'InfoColistype2Route';
+  static const String name = 'InfoColisType2Route';
 
   static const _i30.PageInfo<void> page = _i30.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i9.InfoLIvraisonType1Page]
-class InfoLIvraisonType1Route
-    extends _i30.PageRouteInfo<InfoLIvraisonType1RouteArgs> {
-  InfoLIvraisonType1Route({
+/// [_i9.InfoRecuperationType1Page]
+class InfoRecuperationType1Route
+    extends _i30.PageRouteInfo<InfoRecuperationType1RouteArgs> {
+  InfoRecuperationType1Route({
     _i32.Key? key,
     List<_i30.PageRouteInfo>? children,
   }) : super(
-          InfoLIvraisonType1Route.name,
-          args: InfoLIvraisonType1RouteArgs(key: key),
+          InfoRecuperationType1Route.name,
+          args: InfoRecuperationType1RouteArgs(key: key),
           initialChildren: children,
         );
 
-  static const String name = 'InfoLIvraisonType1Route';
+  static const String name = 'InfoRecuperationType1Route';
 
-  static const _i30.PageInfo<InfoLIvraisonType1RouteArgs> page =
-      _i30.PageInfo<InfoLIvraisonType1RouteArgs>(name);
+  static const _i30.PageInfo<InfoRecuperationType1RouteArgs> page =
+      _i30.PageInfo<InfoRecuperationType1RouteArgs>(name);
 }
 
-class InfoLIvraisonType1RouteArgs {
-  const InfoLIvraisonType1RouteArgs({this.key});
+class InfoRecuperationType1RouteArgs {
+  const InfoRecuperationType1RouteArgs({this.key});
 
   final _i32.Key? key;
 
   @override
   String toString() {
-    return 'InfoLIvraisonType1RouteArgs{key: $key}';
+    return 'InfoRecuperationType1RouteArgs{key: $key}';
   }
 }
 
 /// generated route for
-/// [_i10.InfoLIvraisonType2Page]
-class InfoLIvraisonType2Route
-    extends _i30.PageRouteInfo<InfoLIvraisonType2RouteArgs> {
-  InfoLIvraisonType2Route({
+/// [_i10.InfoRecuperationType2Page]
+class InfoRecuperationType2Route
+    extends _i30.PageRouteInfo<InfoRecuperationType2RouteArgs> {
+  InfoRecuperationType2Route({
     _i32.Key? key,
     List<_i30.PageRouteInfo>? children,
   }) : super(
-          InfoLIvraisonType2Route.name,
-          args: InfoLIvraisonType2RouteArgs(key: key),
+          InfoRecuperationType2Route.name,
+          args: InfoRecuperationType2RouteArgs(key: key),
           initialChildren: children,
         );
 
-  static const String name = 'InfoLIvraisonType2Route';
+  static const String name = 'InfoRecuperationType2Route';
 
-  static const _i30.PageInfo<InfoLIvraisonType2RouteArgs> page =
-      _i30.PageInfo<InfoLIvraisonType2RouteArgs>(name);
+  static const _i30.PageInfo<InfoRecuperationType2RouteArgs> page =
+      _i30.PageInfo<InfoRecuperationType2RouteArgs>(name);
 }
 
-class InfoLIvraisonType2RouteArgs {
-  const InfoLIvraisonType2RouteArgs({this.key});
+class InfoRecuperationType2RouteArgs {
+  const InfoRecuperationType2RouteArgs({this.key});
 
   final _i32.Key? key;
 
   @override
   String toString() {
-    return 'InfoLIvraisonType2RouteArgs{key: $key}';
+    return 'InfoRecuperationType2RouteArgs{key: $key}';
   }
 }
 
@@ -627,29 +627,29 @@ class OnBoardingRouteArgs {
 }
 
 /// generated route for
-/// [_i21.PaimentDepotPage]
-class PaimentDepotRoute extends _i30.PageRouteInfo<void> {
-  const PaimentDepotRoute({List<_i30.PageRouteInfo>? children})
+/// [_i21.PaiementDepotPage]
+class PaiementDepotRoute extends _i30.PageRouteInfo<void> {
+  const PaiementDepotRoute({List<_i30.PageRouteInfo>? children})
       : super(
-          PaimentDepotRoute.name,
+          PaiementDepotRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'PaimentDepotRoute';
+  static const String name = 'PaiementDepotRoute';
 
   static const _i30.PageInfo<void> page = _i30.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i22.PaimentPage]
-class PaimentRoute extends _i30.PageRouteInfo<void> {
-  const PaimentRoute({List<_i30.PageRouteInfo>? children})
+/// [_i22.PaiementPage]
+class PaiementRoute extends _i30.PageRouteInfo<void> {
+  const PaiementRoute({List<_i30.PageRouteInfo>? children})
       : super(
-          PaimentRoute.name,
+          PaiementRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'PaimentRoute';
+  static const String name = 'PaiementRoute';
 
   static const _i30.PageInfo<void> page = _i30.PageInfo<void>(name);
 }

@@ -1,5 +1,7 @@
 import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
+import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
+import 'package:BabanaExpress/presentation/components/Widget/colisComponentUserView.dart';
 import 'package:BabanaExpress/presentation/components/Widget/delivry_widget_title.dart';
 
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
@@ -11,8 +13,9 @@ import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/functions/formatData.dart';
-import 'InfoColistype1.dart';
-import 'InfoLIvraisontype1.dart';
+import '../../../application/model/exportmodel.dart';
+import 'InfoColisType1.dart';
+import 'InfoRecuperationType1.dart';
 
 @RoutePage()
 class NewLivraisonType1Page extends StatefulWidget {
@@ -55,7 +58,8 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                 dismissOnTap: true,
                 maskType: EasyLoadingMaskType.black);
           } else if (state.isRequest == 5) {
-            AutoRouter.of(context).pop();
+            print('-----paiemnt--------*********');
+
             EasyLoading.dismiss();
             if (state.paiement_url != null) {
               if (state.paiement_url == 'next') {
@@ -64,7 +68,7 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                 AutoRouter.of(context)
                     .pushNamed(SuccesLivraisonType1Page.routeName);
               } else {
-                AutoRouter.of(context).pushNamed(PaimentPage.routeName);
+                AutoRouter.of(context).pushNamed(PaiementPage.routeName);
               }
             }
 
@@ -84,172 +88,238 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                 onRefresh: () => Future.delayed(
                     Duration(seconds: 5), () => initLoad(context)),
                 child: Container(
-                  height: getHeight(context) * .7,
                   margin: EdgeInsets.symmetric(
                       horizontal: kMarginX, vertical: kMarginY),
                   padding: EdgeInsets.symmetric(vertical: kMarginY),
-                  child: SingleChildScrollView(
-                    child: Column(children: [
-                      RecuperationDeliveryZoneWidget(
-                          title: 'Zone de recuperation',
-                          subTitle: 'Appuyer pour definir Zone de recuperation',
-                          onTap: () => AutoRouter.of(context)
-                              .pushNamed(InfoLIvraisonType1Page.routeName)),
-                      Container(
-                        margin: EdgeInsets.only(
-                          top: kMarginY * 1.5,
+                  child: Column(children: [
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
+                      child: state.isLoadVille == 0
+                          ? CircularProgressIndicator(color: ColorsApp.primary)
+                          : state.isLoadVille == 2
+                              ? InkWell(
+                                  child: Text('Error'),
+                                  onTap: () => context
+                                      .read<LivraisonBloc>()
+                                      .add(GetVilleAndCategoryEvent()))
+                              : Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade200,
+                                    border: Border.all(
+                                        color: (state.errorVille!)
+                                            ? ColorsApp.red
+                                            : Colors.grey.shade200,
+                                        width: 1),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  height: getHeight(context) * .06,
+                                  width: getWidth(context),
+                                  alignment: Alignment.center,
+                                  child: state.villeList!.isEmpty
+                                      ? Container()
+                                      : AppDropdown<VilleModel>(
+                                          value: state.selectedVIlle,
+                                          hint: 'yselectville'.tr(),
+                                          items: state.villeList!,
+                                          onChanged: (newValue) {
+                                            context.read<LivraisonBloc>().add(
+                                                SelectedVille(
+                                                    ville: newValue
+                                                        as VilleModel));
+                                            context.read<LivraisonBloc>().add(
+                                                GetRecupPointEvent(
+                                                    ville: newValue.id));
+                                          },
+                                          itemLabelBuilder:
+                                              (VilleModel value) =>
+                                                  value.libelle,
+                                        )),
+                    ),
+                    DelivryWidgetTitle(
+                      title: 'Zone de recuperation',
+                      icon: FontAwesomeIcons.locationDot,
+                    ),
+                    RecuperationDeliveryZoneWidget(
+                        title: state.selected_recuperation_point != null
+                            ? '${state.selected_recuperation_point!.quartier}, ${state.selected_recuperation_point!.ville}'
+                            : 'Appuyer pour definir Zone de recuperation',
+                        onTap: () => AutoRouter.of(context)
+                            .pushNamed(InfoRecuperationType1Page.routeName)),
+                    Container(
+                      margin: EdgeInsets.only(bottom: kMarginY),
+                      child: TextFormField(
+                        controller: state.description,
+                        onChanged: (value) {},
+                        validator: (value) {
+                          return Validators.isValidUsername(value!);
+                        },
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          fontFamily: 'Lato',
                         ),
-                        child: TextFormField(
-                          controller: state.description,
-                          onChanged: (value) {},
-                          validator: (value) {
-                            return Validators.isValidUsername(value!);
-                          },
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14,
+                        maxLines: 10,
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: ColorsApp.primary, width: 1),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: ColorsApp.red, width: 1),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: ColorsApp.grey, width: 1),
+                            borderRadius: BorderRadius.circular(8),
+                            // borderSide:
+                            //     BorderSide(color: ColorsApp.tird, width: 1),
+                          ),
+                          errorStyle: TextStyle(
+                            fontSize: 8,
                             fontFamily: 'Lato',
                           ),
-                          maxLines: 10,
-                          decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: ColorsApp.primary, width: 1),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: ColorsApp.red, width: 1),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: ColorsApp.grey, width: 1),
-                              borderRadius: BorderRadius.circular(8),
-                              // borderSide:
-                              //     BorderSide(color: ColorsApp.tird, width: 1),
-                            ),
-                            errorStyle: TextStyle(
-                              fontSize: 8,
-                              fontFamily: 'Lato',
-                            ),
-                            labelStyle: TextStyle(
-                              color: ColorsApp.grey,
-                              fontFamily: 'Lato',
-                              // fontWeight: FontWeight.w500,
-                              fontSize: 12,
-                            ),
-                            labelText: 'ydescript'.tr(),
-                            fillColor: ColorsApp.tird,
-                            counter: Offstage(),
-                            // hintText: 'lbdescprod'.tr(),
-                            alignLabelWithHint: true,
-                            hintStyle: TextStyle(
-                              color: Colors.grey,
-                            ),
+                          labelStyle: TextStyle(
+                            color: ColorsApp.grey,
+                            fontFamily: 'Lato',
+                            // fontWeight: FontWeight.w500,
+                            fontSize: 14,
+                          ),
+                          labelText:
+                              'Donnez quelques details sur l\'endroit de recuperation des colis'
+                                  .tr(),
+                          fillColor: ColorsApp.tird,
+                          counter: Offstage(),
+                          // hintText: 'lbdescprod'.tr(),
+                          alignLabelWithHint: true,
+                          hintStyle: TextStyle(
+                            color: Colors.grey,
                           ),
                         ),
                       ),
-                      DelivryWidgetTitle(
-                        title: 'Zone de recuperation',
-                        icon: FontAwesomeIcons.locationDot,
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      // margin: EdgeInsets.only(top: kMarginY * 3),
+                      child: DelivryWidgetTitle(
+                        title: 'Information des colis',
+                        icon: FontAwesomeIcons.clipboardList,
                       ),
-                      DelivryWidgetTitle(
-                        title: 'Information de livraison colis',
-                        icon: FontAwesomeIcons.locationDot,
-                      )
-                    ]),
-                  ),
-                ),
-              ),
-              bottomNavigationBar: Container(
-                  margin: EdgeInsets.symmetric(
-                    vertical: kMarginY * 1.5,
-                  ),
-                  height: getHeight(context) * .1,
-                  child: state.indexType1 == 0
-                      ? AppButtonSecond(
-                          size: MainAxisSize.max,
-                          marginAdd: EdgeInsets.symmetric(horizontal: kMarginX),
-                          bgColor: (state.indexType1 == 0)
-                              ? !(state.selectedVIlle != null &&
-                                      state.selected_recuperation_point !=
-                                          null &&
-                                      state.contactEmetteur!.text.length != 0 &&
-                                      state.description!.text.length != 0)
-                                  ? ColorsApp.grey
-                                  : ColorsApp.primary
-                              : (state.listColis!.length == 0)
-                                  ? ColorsApp.grey
-                                  : ColorsApp.primary,
-                          textColor: (state.indexType1 == 0)
-                              ? (state.selectedVIlle != null &&
-                                      state.selected_recuperation_point !=
-                                          null &&
-                                      state.contactEmetteur!.text.length != 0 &&
-                                      state.description!.text.length != 0)
-                                  ? ColorsApp.white
-                                  : ColorsApp.primary
-                              : !(state.listColis!.length == 0)
-                                  ? ColorsApp.white
-                                  : ColorsApp.primary,
-                          text: 'ynext'.tr(),
-                          onTap: () {
-                            if (state.indexType1 == 0) {
-                              if ((state.selectedVIlle != null &&
-                                  state.selected_recuperation_point != null &&
-                                  state.contactEmetteur!.text.length != 0 &&
-                                  state.description!.text.length != 0)) {
-                                context
-                                    .read<LivraisonBloc>()
-                                    .add(VerifyFormLivraisonType1Event());
-                              }
-                            }
-                          },
-                        )
-                      : Row(
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: ColorsApp.greyNew,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                          vertical: kMarginY, horizontal: kMarginX),
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(top: kMarginY * 2),
+                      child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                              AppButtonSecond(
-                                  marginAdd: EdgeInsets.symmetric(
-                                      horizontal: kMarginX),
-                                  size: MainAxisSize.max,
-                                  bgColor: state.indexType1 == 0
-                                      ? ColorsApp.grey
-                                      : ColorsApp.primary,
-                                  text: 'yback'.tr(),
-                                  onTap: () {
-                                    context
-                                        .read<LivraisonBloc>()
-                                        .add(BackIndexType1Event());
-                                  }),
-                              AppButtonSecond(
+                            ColisComponentUserView(
+                                colis: state.listColis!.length >= 1
+                                    ? state.listColis![0]
+                                    : null,
+                                onTap: () => AutoRouter.of(context)
+                                    .pushNamed(InfoColisType1Page.routeName)),
+                            ColisComponentUserView(
+                                colis: state.listColis!.length >= 2
+                                    ? state.listColis![1]
+                                    : null,
+                                onTap: () => AutoRouter.of(context)
+                                    .pushNamed(InfoColisType1Page.routeName)),
+                            ColisComponentUserView(
+                                colis: state.listColis!.length >= 3
+                                    ? state.listColis![2]
+                                    : null,
+                                onTap: () => AutoRouter.of(context)
+                                    .pushNamed(InfoColisType1Page.routeName)),
+                          ]),
+                    ),
+                    Spacer(),
+                    Container(
+                        // margin: EdgeInsets.symmetric(
+                        //   vertical: kMarginY,
+                        // ),
+                        // height: getHeight(context) * .0,
+                        child: state.indexType1 == 0
+                            ? AppButtonSecond(
                                 size: MainAxisSize.max,
-                                bgColor: (state.indexType1 == 0)
-                                    ? !(state.selectedVIlle != null &&
-                                            state.selected_recuperation_point !=
-                                                null &&
-                                            state.contactEmetteur!.text
-                                                    .length !=
-                                                0 &&
-                                            state.description!.text.length != 0)
-                                        ? ColorsApp.grey
-                                        : ColorsApp.primary
-                                    : (state.listColis!.length == 0)
-                                        ? ColorsApp.grey
-                                        : ColorsApp.primary,
-                                text: 'yeval'.tr(),
+                                marginAdd:
+                                    EdgeInsets.symmetric(horizontal: kMarginX),
+                                bgColor: ColorsApp.second,
+                                text: 'ynext'.tr(),
                                 onTap: () {
-                                  if (state.indexType1 == 1) {
-                                    if (state.listColis!.length != 0) {
-                                      context
-                                          .read<LivraisonBloc>()
-                                          .add(CalculFraisType1());
-                                    }
-                                  }
+                                  context
+                                      .read<LivraisonBloc>()
+                                      .add(CalculFraisType1());
+                                  // if (state.indexType1 == 0) {
+                                  //   if ((state.selectedVIlle != null &&
+                                  //       state.selected_recuperation_point !=
+                                  //           null &&
+                                  //       state.contactEmetteur!.text.length !=
+                                  //           0 &&
+                                  //       state.description!.text.length != 0)) {
+                                  //     context
+                                  //         .read<LivraisonBloc>()
+                                  //         .add(VerifyFormLivraisonType1Event());
+                                  //   }
+                                  // }
                                 },
-                              ),
-                            ])),
+                              )
+                            : Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                    AppButtonSecond(
+                                        marginAdd: EdgeInsets.symmetric(
+                                            horizontal: kMarginX),
+                                        size: MainAxisSize.max,
+                                        bgColor: state.indexType1 == 0
+                                            ? ColorsApp.grey
+                                            : ColorsApp.primary,
+                                        text: 'yback'.tr(),
+                                        onTap: () {
+                                          context
+                                              .read<LivraisonBloc>()
+                                              .add(BackIndexType1Event());
+                                        }),
+                                    AppButtonSecond(
+                                      size: MainAxisSize.max,
+                                      bgColor: (state.indexType1 == 0)
+                                          ? !(state.selectedVIlle != null &&
+                                                  state.selected_recuperation_point !=
+                                                      null &&
+                                                  state.contactEmetteur!.text
+                                                          .length !=
+                                                      0 &&
+                                                  state.description!.text
+                                                          .length !=
+                                                      0)
+                                              ? ColorsApp.grey
+                                              : ColorsApp.primary
+                                          : (state.listColis!.length == 0)
+                                              ? ColorsApp.grey
+                                              : ColorsApp.primary,
+                                      text: 'yeval'.tr(),
+                                      onTap: () {
+                                        if (state.indexType1 == 1) {
+                                          if (state.listColis!.length != 0) {
+                                            context
+                                                .read<LivraisonBloc>()
+                                                .add(CalculFraisType1());
+                                          }
+                                        }
+                                      },
+                                    ),
+                                  ])),
+                  ]),
+                ),
+              ),
             ));
   }
 
@@ -346,7 +416,7 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                                   text: 'yvalidate'.tr(),
                                   // width: getWidth(context) / 2.5,
                                   size: MainAxisSize.max,
-                                  bgColor: ColorsApp.primary,
+                                  bgColor: ColorsApp.second,
                                   onTap: () => context
                                       .read<LivraisonBloc>()
                                       .add(NewLivraisonType1())),

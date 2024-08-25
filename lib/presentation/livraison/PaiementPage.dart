@@ -6,15 +6,15 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 @RoutePage()
-class PaimentPage extends StatefulWidget {
+class PaiementPage extends StatefulWidget {
   static const routeName = '/paiement';
 
-  const PaimentPage({super.key});
+  const PaiementPage({super.key});
   @override
-  State<PaimentPage> createState() => _PaimentPageState();
+  State<PaiementPage> createState() => _PaiementPageState();
 }
 
-class _PaimentPageState extends State<PaimentPage> {
+class _PaiementPageState extends State<PaiementPage> {
   WebViewController? controller;
   int _progress = 0;
   void initState() {
@@ -86,17 +86,15 @@ class _PaimentPageState extends State<PaimentPage> {
       }
     }, builder: (context, state) {
       return Scaffold(
-          appBar: AppBarCustom(
-            title: 'Paiement de votre livraison'.tr(),
-            actions:[
-            InkWell(child:Container(child:Icon(Icons.verified)),
-            onTap:()=> BlocProvider.of<LivraisonBloc>(context)
-              .add(VerifyLivraisonState())
-            
-            )
-
-            ]
-          ),
+          appBar:
+              AppBarCustom(title: 'Paiement de votre livraison'.tr(), actions: [
+            InkWell(
+                child: Container(
+                    margin: EdgeInsets.only(right: kMarginX),
+                    child: Icon(Icons.verified)),
+                onTap: () => BlocProvider.of<LivraisonBloc>(context)
+                    .add(VerifyLivraisonState()))
+          ]),
 
           // backgroundColor: ColorsApp.bg,
           body: controller == null || _progress != 100

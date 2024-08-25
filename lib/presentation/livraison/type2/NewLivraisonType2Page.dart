@@ -7,8 +7,6 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';
 import 'package:BabanaExpress/utils/functions/formatData.dart';
-import 'InfoColistype2.dart';
-import 'InfoLIvraisonType2.dart';
 
 @RoutePage()
 class NewLivraisonType2Page extends StatefulWidget {
@@ -25,209 +23,207 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UserBloc, UserState>(
-        builder: (contextU, stateU) =>
-            BlocConsumer<LivraisonBloc, LivraisonState>(
-                listener: (context, state) {
-                  if (state.isRequest == 1) {
-                    EasyLoading.show(
-                        indicator: CircularProgressIndicator(
-                          color: ColorsApp.second,
-                        ),
-                        dismissOnTap: true,
-                        maskType: EasyLoadingMaskType.black);
-                  } else if (state.isRequest == 3) {
-                    EasyLoading.dismiss();
+        builder: (contextU, stateU) => BlocConsumer<LivraisonBloc,
+                LivraisonState>(
+            listener: (context, state) {
+              if (state.isRequest == 1) {
+                EasyLoading.show(
+                    indicator: CircularProgressIndicator(
+                      color: ColorsApp.second,
+                    ),
+                    dismissOnTap: true,
+                    maskType: EasyLoadingMaskType.black);
+              } else if (state.isRequest == 3) {
+                EasyLoading.dismiss();
 
-                    CustomFlush().error(
-                      content: state.errorMessage!,
-                    );
-                  } else if (state.isRequest == 2) {
-                    EasyLoading.dismiss();
-                    if (stateU.listModePaiement!.length == 0) {
-                      context.read<UserBloc>().add(GetModePaiement());
-                    }
-                    validateLivraison(context);
-                    print('-----44--------*********');
-                  } else if (state.isRequest == 4) {
-                    // AutoRouter.of(context).pop();
-                    EasyLoading.show(
-                        indicator: CircularProgressIndicator(
-                          color: ColorsApp.second,
-                        ),
-                        dismissOnTap: true,
-                        maskType: EasyLoadingMaskType.black);
-                  } else if (state.isRequest == 5) {
-                    AutoRouter.of(context).pop();
-                    EasyLoading.dismiss();
-                    if (state.paiement_url != null) {
-                      if (state.paiement_url == 'next') {
-                        BlocProvider.of<UserBloc>(context)..add(GetUserEvent());
-                        BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
-                        AutoRouter.of(context)
-                            .pushNamed(SuccesLivraisonType2Page.routeName);
-                      } else {
-                        AutoRouter.of(context).pushNamed(PaimentPage.routeName);
-                      }
-                    }
-
-                    // context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
-                    //
-
-                    print('-----44--------*********');
+                CustomFlush().error(
+                  content: state.errorMessage!,
+                );
+              } else if (state.isRequest == 2) {
+                EasyLoading.dismiss();
+                if (stateU.listModePaiement!.length == 0) {
+                  context.read<UserBloc>().add(GetModePaiement());
+                }
+                validateLivraison(context);
+                print('-----44--------*********');
+              } else if (state.isRequest == 4) {
+                // AutoRouter.of(context).pop();
+                EasyLoading.show(
+                    indicator: CircularProgressIndicator(
+                      color: ColorsApp.second,
+                    ),
+                    dismissOnTap: true,
+                    maskType: EasyLoadingMaskType.black);
+              } else if (state.isRequest == 5) {
+                AutoRouter.of(context).pop();
+                EasyLoading.dismiss();
+                if (state.paiement_url != null) {
+                  if (state.paiement_url == 'next') {
+                    BlocProvider.of<UserBloc>(context)..add(GetUserEvent());
+                    BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
+                    AutoRouter.of(context)
+                        .pushNamed(SuccesLivraisonType2Page.routeName);
+                  } else {
+                    AutoRouter.of(context).pushNamed(PaiementPage.routeName);
                   }
-                },
-                builder: (context, state) => Scaffold(
-                      backgroundColor: ColorsApp.bg,
-                      appBar: AppBarCustom(
-                        title: 'yNewLivraison'.tr(),
-                      ),
-                      body: RefreshIndicator(
-                        color: ColorsApp.second,
-                        onRefresh: () => Future.delayed(
-                            Duration(seconds: 5), () => initLoad(context)),
-                        child: Container(
-                          height: getHeight(context) * .7,
-                          margin: EdgeInsets.symmetric(
-                              horizontal: kMarginX, vertical: kMarginY),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                  child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: kMarginX,
-                                                vertical: kMarginY),
-                                            decoration: BoxDecoration(
-                                                color: state.indexType2 == 0
-                                                    ? ColorsApp.primary
-                                                    : ColorsApp.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(50)),
-                                            height: 30,
-                                            width: 30,
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              '1',
-                                              style: TextStyle(
-                                                color: state.indexType2 == 0
-                                                    ? ColorsApp.white
-                                                    : ColorsApp.primary,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            )),
-                                        Container(
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: kMarginX,
-                                                vertical: kMarginY),
-                                            decoration: BoxDecoration(
-                                                color: state.indexType2 == 0
-                                                    ? ColorsApp.white
-                                                    : ColorsApp.primary,
-                                                borderRadius:
-                                                    BorderRadius.circular(50)),
-                                            height: 30,
-                                            width: 30,
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              '2',
-                                              style: TextStyle(
-                                                color: state.indexType2 == 1
-                                                    ? ColorsApp.white
-                                                    : ColorsApp.primary,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ))
-                                      ]),
-                                ),
-                                // state.indexType2 == 0
-                                //     ? InfoColis()
-                                //     : InfoLIvraison(),
-                              ],
+                }
+
+                // context.read<LivraisonBloc>().add(HistoriqueUserLivraison());
+                //
+
+                print('-----44--------*********');
+              }
+            },
+            builder: (context, state) => Scaffold(
+                  backgroundColor: ColorsApp.bg,
+                  appBar: AppBarCustom(
+                    title: 'yNewLivraison'.tr(),
+                  ),
+                  body: RefreshIndicator(
+                    color: ColorsApp.second,
+                    onRefresh: () => Future.delayed(
+                        Duration(seconds: 5), () => initLoad(context)),
+                    child: Container(
+                      height: getHeight(context) * .7,
+                      margin: EdgeInsets.symmetric(
+                          horizontal: kMarginX, vertical: kMarginY),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Container(
+                              alignment: Alignment.center,
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: kMarginX,
+                                            vertical: kMarginY),
+                                        decoration: BoxDecoration(
+                                            color: state.indexType2 == 0
+                                                ? ColorsApp.primary
+                                                : ColorsApp.white,
+                                            borderRadius:
+                                                BorderRadius.circular(50)),
+                                        height: 30,
+                                        width: 30,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '1',
+                                          style: TextStyle(
+                                            color: state.indexType2 == 0
+                                                ? ColorsApp.white
+                                                : ColorsApp.primary,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        )),
+                                    Container(
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: kMarginX,
+                                            vertical: kMarginY),
+                                        decoration: BoxDecoration(
+                                            color: state.indexType2 == 0
+                                                ? ColorsApp.white
+                                                : ColorsApp.primary,
+                                            borderRadius:
+                                                BorderRadius.circular(50)),
+                                        height: 30,
+                                        width: 30,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '2',
+                                          style: TextStyle(
+                                            color: state.indexType2 == 1
+                                                ? ColorsApp.white
+                                                : ColorsApp.primary,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ))
+                                  ]),
                             ),
-                          ),
+                            // state.indexType2 == 0
+                            //     ? InfoColis()
+                            //     : InfoLIvraison(),
+                          ],
                         ),
                       ),
-                      bottomNavigationBar: Container(
-                          margin: EdgeInsets.symmetric(
-                            vertical: kMarginY * 1.5,
-                          ),
-                          height: getHeight(context) * .1,
-                          child: state.indexType2 == 0
-                              ? AppButtonSecond(
-                                  size: MainAxisSize.max,
-                                  // bgColor: (state.indexType2 == 0)
-                                  //     ? !(state.selectedVIlle != null &&
-                                  //             state.selected_recuperation_point !=
-                                  //                 null &&
-                                  //             state.contactEmetteur!.text.length != 0 &&
-                                  //             state.description!.text.length != 0)
-                                  //         ? ColorsApp.grey
-                                  //         : ColorsApp.primary
-                                  //     : (state.listColis!.length == 0)
-                                  //         ? ColorsApp.grey
-                                  //         : ColorsApp.primary,
-                                  text: 'ynext'.tr(),
-                                  onTap: () {
-                                    // if (state.indexType2 == 0) {
-                                    //   if ((state.selectedVIlle != null &&
-                                    //       state.selected_recuperation_point != null &&
-                                    //       state.contactEmetteur!.text.length != 0 &&
-                                    //       state.description!.text.length != 0)) {
-                                    if (state.formKeyColis!.currentState!
-                                        .validate()) {
-                                      context
-                                          .read<LivraisonBloc>()
-                                          .add(VerifyFormLivraisonType2Event());
-                                      // }
-                                    }
-                                  },
-                                )
-                              : Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                      AppButtonSecond(
-                                          size: MainAxisSize.max,
-                                          bgColor: state.indexType2 == 0
-                                              ? ColorsApp.grey
-                                              : ColorsApp.primary,
-                                          text: 'yback'.tr(),
-                                          onTap: () {
-                                            context
-                                                .read<LivraisonBloc>()
-                                                .add(BackIndexType2Event());
-                                          }),
-                                      AppButtonSecond(
-                                        size: MainAxisSize.max,
-                                        // bgColor: (state.indexType2 == 0)
-                                        //     ? !(state.selectedVIlle != null &&
-                                        //             state.selected_recuperation_point !=
-                                        //                 null &&
-                                        //             state.contactEmetteur!.text
-                                        //                     .length !=
-                                        //                 0 &&
-                                        //             state.description!.text.length != 0)
-                                        //         ? ColorsApp.grey
-                                        //         : ColorsApp.primary
-                                        //     : (state.listColis!.length == 0)
-                                        //         ? ColorsApp.grey
-                                        //         : ColorsApp.primary,
-                                        text: 'yeval'.tr(),
-                                        onTap: () {
-                                          if (state.indexType2 == 1) {
-                                            context
-                                                .read<LivraisonBloc>()
-                                                .add(CalculFraisType2());
-                                          }
-                                        },
-                                      ),
-                                    ])),
-                    )));
+                    ),
+                  ),
+                  bottomNavigationBar: Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical: kMarginY * 1.5,
+                      ),
+                      height: getHeight(context) * .1,
+                      child: state.indexType2 == 0
+                          ? AppButtonSecond(
+                              size: MainAxisSize.max,
+                              // bgColor: (state.indexType2 == 0)
+                              //     ? !(state.selectedVIlle != null &&
+                              //             state.selected_recuperation_point !=
+                              //                 null &&
+                              //             state.contactEmetteur!.text.length != 0 &&
+                              //             state.description!.text.length != 0)
+                              //         ? ColorsApp.grey
+                              //         : ColorsApp.primary
+                              //     : (state.listColis!.length == 0)
+                              //         ? ColorsApp.grey
+                              //         : ColorsApp.primary,
+                              text: 'ynext'.tr(),
+                              onTap: () {
+                                // if (state.indexType2 == 0) {
+                                //   if ((state.selectedVIlle != null &&
+                                //       state.selected_recuperation_point != null &&
+                                //       state.contactEmetteur!.text.length != 0 &&
+                                //       state.description!.text.length != 0)) {
+                                if (state.formKeyColis!.currentState!
+                                    .validate()) {
+                                  context
+                                      .read<LivraisonBloc>()
+                                      .add(VerifyFormLivraisonType2Event());
+                                  // }
+                                }
+                              },
+                            )
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                  AppButtonSecond(
+                                      size: MainAxisSize.max,
+                                      bgColor: state.indexType2 == 0
+                                          ? ColorsApp.grey
+                                          : ColorsApp.primary,
+                                      text: 'yback'.tr(),
+                                      onTap: () {
+                                        context
+                                            .read<LivraisonBloc>()
+                                            .add(BackIndexType2Event());
+                                      }),
+                                  AppButtonSecond(
+                                    size: MainAxisSize.max,
+                                    // bgColor: (state.indexType2 == 0)
+                                    //     ? !(state.selectedVIlle != null &&
+                                    //             state.selected_recuperation_point !=
+                                    //                 null &&
+                                    //             state.contactEmetteur!.text
+                                    //                     .length !=
+                                    //                 0 &&
+                                    //             state.description!.text.length != 0)
+                                    //         ? ColorsApp.grey
+                                    //         : ColorsApp.primary
+                                    //     : (state.listColis!.length == 0)
+                                    //         ? ColorsApp.grey
+                                    //         : ColorsApp.primary,
+                                    text: 'yeval'.tr(),
+                                    onTap: () {
+                                      if (state.indexType2 == 1) {
+                                        context
+                                            .read<LivraisonBloc>()
+                                            .add(CalculFraisType2());
+                                      }
+                                    },
+                                  ),
+                                ])),
+                )));
   }
 
   validateLivraison(contextA) => GlobalBottomSheet.show(

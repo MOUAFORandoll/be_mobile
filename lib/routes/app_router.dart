@@ -9,12 +9,13 @@ import 'package:BabanaExpress/presentation/livraison/LivraiSonMapPage.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataHomePage.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart';
 import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
-import 'package:BabanaExpress/presentation/livraison/type1/InfoColistype1.dart';
-import 'package:BabanaExpress/presentation/livraison/type1/InfoLIvraisontype1.dart';
+import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
+import 'package:BabanaExpress/presentation/livraison/type1/InfoColisType1.dart';
+import 'package:BabanaExpress/presentation/livraison/type1/InfoRecuperationType1.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/NewLivraisonType1Page.dart';
-import 'package:BabanaExpress/presentation/livraison/type2/InfoColistype2.dart';
-import 'package:BabanaExpress/presentation/livraison/type2/InfoLIvraisonType2.dart';
+import 'package:BabanaExpress/presentation/livraison/type2/InfoColisType2.dart';
+import 'package:BabanaExpress/presentation/livraison/type2/InfoRecuperationType2.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/user/AuthPage.dart';
@@ -110,8 +111,8 @@ class AppRouter extends $AppRouter {
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,
             durationInMilliseconds: 600,
-            page: PaimentDepotRoute.page,
-            path: PaimentDepotPage.routeName),
+            page: PaiementDepotRoute.page,
+            path: PaiementDepotPage.routeName),
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,
             durationInMilliseconds: 600,
@@ -155,23 +156,29 @@ class AppRouter extends $AppRouter {
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,
             durationInMilliseconds: 600,
-            page: InfoColistype1Route.page,
-            path: InfoColistype1Page.routeName),
+            page: InfoColisType1Route.page,
+            path: InfoColisType1Page.routeName),
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,
             durationInMilliseconds: 600,
-            page: InfoLIvraisonType1Route.page,
-            path: InfoLIvraisonType1Page.routeName),
+            page: InfoRecuperationType1Route.page,
+            path: InfoRecuperationType1Page.routeName),
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,
             durationInMilliseconds: 600,
-            page: InfoColistype2Route.page,
-            path: InfoColistype2Page.routeName),
+            page: InfoColisType2Route.page,
+            path: InfoColisType2Page.routeName),
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,
             durationInMilliseconds: 600,
-            page: InfoLIvraisonType2Route.page,
-            path: InfoLIvraisonType2Page.routeName),
+            page: InfoRecuperationType2Route.page,
+            path: InfoRecuperationType2Page.routeName),
+
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: PaiementRoute.page,
+            path: PaiementPage.routeName),
       ];
 }
 //656019261

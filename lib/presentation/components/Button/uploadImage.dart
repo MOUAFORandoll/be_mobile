@@ -13,7 +13,7 @@ class UploadImage extends StatelessWidget {
             width: getWidth(context) / 2.37,
             alignment: Alignment.center,
             padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
             decoration: new BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: ColorsApp.grey)

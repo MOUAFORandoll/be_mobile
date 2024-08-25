@@ -3,7 +3,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 // ignore: must_be_immutable
 class TitleComponent extends StatelessWidget {
   String title;
-  String subTitle;
+  String? subTitle;
   TitleComponent({
     required this.title,
     required this.subTitle,
@@ -33,7 +33,7 @@ class TitleComponent extends StatelessWidget {
                   Container(
                       width: getWidth(context) * .9,
                       child: Text(
-                        subTitle,
+                        subTitle!,
                         style: TextStyle(
                           fontSize: kBasics,
                         ),

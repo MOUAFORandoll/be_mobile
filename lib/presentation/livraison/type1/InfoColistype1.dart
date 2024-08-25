@@ -1,14 +1,14 @@
+import 'dart:async';
+
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/presentation/components/Button/addColisComponent.dart';
 import 'package:BabanaExpress/presentation/components/Button/uploadImage.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_input_contact.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_input_second.dart';
+import 'package:BabanaExpress/presentation/components/Widget/delivry_widget_title.dart';
 import 'package:BabanaExpress/presentation/components/Widget/file_option.dart';
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/presentation/components/Widget/imageComp.dart';
-import 'package:BabanaExpress/presentation/components/Widget/colisComponent.dart';
-import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart';
 import 'package:BabanaExpress/utils/Services/ContactService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -17,567 +17,1034 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:contacts_service/contacts_service.dart';
 
 @RoutePage()
-class InfoColistype1Page extends StatefulWidget {
+class InfoColisType1Page extends StatefulWidget {
   static const routeName = '/infocolis/type1';
 
   @override
-  State<InfoColistype1Page> createState() => _InfoColistype1PageState();
+  State<InfoColisType1Page> createState() => _InfoColisType1PageState();
 }
 
-class _InfoColistype1PageState extends State<InfoColistype1Page> {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<LivraisonBloc, LivraisonState>(
-        builder: (context, state) => Container(
-              // width: getWidth(context) * .8,
-              decoration: BoxDecoration(
-                  color: ColorsApp.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: ColorsApp.primary.withOpacity(0.1),
-                      spreadRadius: 5,
-                      blurRadius: 5,
-                      offset: Offset(0, 2),
-                    ),
-                    BoxShadow(
-                      color: ColorsApp.greyNew.withOpacity(0.1),
-                      spreadRadius: 5,
-                      blurRadius: 5,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(8)),
-              margin: EdgeInsets.symmetric(horizontal: kMarginX),
-              padding: EdgeInsets.all(kMarginX * 1.5),
-              child: Column(children: [
-                Stack(children: [
-                  GridView.builder(
-                      shrinkWrap: true,
-                      // physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10.0,
-                          childAspectRatio: 20,
-                          mainAxisExtent: getHeight(context) / 4.5,
-                          mainAxisSpacing: 20.0),
-                      itemCount: state.listColis!.length + 1,
-                      itemBuilder: (_ctx, index) =>
-                          index != state.listColis!.length
-                              ? ColisComponent(colis: state.listColis![index])
-                              : AddColisComponent(
-                                  title: 'Mon colis',
-                                  onTap: () {
-                                    // state.cleanImage();
-                                    // state.resetPointLivraison();
-                                    openModalAddColis(context);
-                                  },
-                                )),
-                ]),
-              ]),
-            ));
+class _InfoColisType1PageState extends State<InfoColisType1Page> {
+  late Marker _position;
+  TextEditingController searchPointRecuperationController =
+      TextEditingController();
+
+  var loadPlaceInfoLivraison = true;
+  var latitude = 0.0;
+  var longitude = 0.0;
+  var _kLake;
+  initState() {
+    setState(() {
+      _kLake = CameraPosition(
+          bearing: 0,
+          target: LatLng(latitude, longitude),
+          tilt: 45,
+          zoom: 15.5);
+    });
+    print('-------${longitude}------${latitude}');
+    super.initState();
+    _position = Marker(
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+        markerId: MarkerId('1'),
+        draggable: true,
+        infoWindow: InfoWindow(
+          title: 'Vous etes ici',
+        ),
+        onTap: () {},
+        position: LatLng(latitude, longitude));
+    context.read<LivraisonBloc>().add(GetMapPlaceInfo());
   }
 
-  openModalAddColis(context) => GlobalBottomSheet.show(
-        context: context,
-        title: 'Informations du colis',
-        subtitle: 'Renseignez nous les informations de votre colis'.tr(),
-        widget: BlocBuilder<LivraisonBloc, LivraisonState>(
-            builder: (context, state) => Form(
-                key: state.formKeyColis,
-                child: Column(children: [
-                  Container(
-                      margin: EdgeInsets.only(top: kMarginY),
-                      padding: EdgeInsets.symmetric(horizontal: kMarginX / 2),
-                      decoration: BoxDecoration(),
-                      child: SingleChildScrollView(
-                          child: Column(children: [
-                        state.isLoadVCategory == 0
-                            ? CircularProgressIndicator(
-                                color: ColorsApp.primary)
-                            : state.isLoadVCategory == 2
-                                ? Text('Error')
-                                : AppDropdown<CategoryModel>(
-                                    value: state.categoryColis,
-                                    hint: 'ytypecolis'.tr(),
-                                    onChanged: (CategoryModel? newValue) {
-                                      context.read<LivraisonBloc>().add(
-                                          SelectedCategory(
-                                              categoryColis: newValue!));
-                                    },
-                                    items: state.list_category_colis!,
-                                    itemLabelBuilder: (CategoryModel value) =>
-                                        value.libelle!,
-                                    hasError: state.errorCategory!),
-                        if (state.errorCategory!)
-                          Container(
-                              padding: EdgeInsets.only(
-                                top: kMarginY,
-                              ),
-                              margin: EdgeInsets.only(
-                                left: 10,
-                              ),
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                'eselecttype'.tr(),
-                                style: TextStyle(
-                                    fontSize: 8,
-                                    fontFamily: 'Lato',
-                                    color: ColorsApp.red),
-                              )),
-                        Container(
-                          margin: EdgeInsets.only(
-                            top: kMarginY * 1.5,
+  GoogleMapController? mapController;
+
+  close() {
+    setState(() {
+      searchPointRecuperationController.clear();
+    });
+  }
+
+  selectPoint(LivraisonState state, value) {
+    print('-------000------');
+    print(value);
+    // state.setPositionRecuperation(LatLng(value.latitude, value.longitude));
+    context
+        .read<LivraisonBloc>()
+        .add(SetLogLat(latLng: LatLng(value.latitude, value.longitude)));
+
+    print('-------000------');
+
+    print('-----1----------------');
+
+    setState(() {
+      _kLake = CameraPosition(
+        bearing: 0,
+        target: LatLng(value.latitude, value.longitude),
+        tilt: 50,
+        zoom: 18.5,
+      );
+
+      _position = Marker(
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueCyan),
+          markerId: MarkerId('1'),
+          draggable: true,
+          infoWindow: InfoWindow(
+            title: 'Vous etes ici',
+          ),
+          onTap: () {},
+          position: LatLng(value.latitude, value.longitude));
+      mapController!.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+      context.read<LivraisonBloc>().add(GetMapPlaceInfo());
+      print('Camera animation executed');
+
+      // state.libelleLocalisationRecuperation.text = state.mapPlaceInfo!.ville;
+
+      print('-------------');
+      print('Updated _kLake: $_kLake');
+      print('Updated _position: $_position');
+    });
+
+    close();
+  }
+
+  searchPoint() => GlobalBottomSheet.show(
+      maxHeight: getHeight(context) * .9,
+      context: context,
+      title: 'ylivraison'.tr(),
+      subtitle: 'Rechercher votre lieux de livraison'.tr(),
+      widget: BlocBuilder<LivraisonBloc, LivraisonState>(
+          builder: (context, state) => Container(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: kMarginX) / 2,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: Color.fromARGB(255, 231, 229, 229),
+                        ),
+                        color: ColorsApp.white,
+                      ),
+                      child: TextField(
+                        controller: searchPointRecuperationController,
+                        onChanged: (String value) {
+                          print('---------**-**-${value}');
+                          if (value.isNotEmpty) {
+                            context
+                                .read<LivraisonBloc>()
+                                .add(OnAutoComplet(text: value));
+                          }
+                        },
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(10),
+                          suffixIcon: InkWell(
+                              child: Icon(
+                                  searchPointRecuperationController.text.isEmpty
+                                      ? Icons.search
+                                      : Icons.close,
+                                  color: searchPointRecuperationController
+                                          .text.isEmpty
+                                      ? ColorsApp.second
+                                      : ColorsApp.red),
+                              onTap: () {
+                                close();
+                                FocusScope.of(context).unfocus();
+                              }),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.zero,
                           ),
-                          child: AppInputNew(
-                            controller: state.nomColis!,
-                            icon: Icon(Icons.label),
-                            onChanged: (newValue) {
-                              // state.verifyFormColis();
-                            },
-                            label: 'ynomcolis'.tr(),
-                            validator: (value) {
-                              return Validators.isValidUsername(value!);
-                            },
+                          prefixStyle: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 14,
+                          ),
+                          hintStyle: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 14,
                           ),
                         ),
-                        Container(
-                          margin: EdgeInsets.only(
-                            top: kMarginY * 1.5,
-                          ),
-                          child: AppInputContact(
-                            controller: state.contactRecepteur!,
-                            icon: Icon(Icons.phone),
-                            textInputType: TextInputType.number,
-                            // maxLength:13,
-                            label: 'yycontactdest'.tr(),
-                            onTap: () {
-                              ContactService().openContactSelectionModal(
-                                  context: context,
-                                  onTap: (Contact contact) {
-                                    state.contactRecepteur!.text =
-                                        contact.phones!.first.value.toString();
-                                    AutoRouter.of(context).pop();
+                      ),
+                    ),
+                    if (state.isLoadingPlaceSearch != null)
+                      (state.isLoadingPlaceSearch! == 0)
+                          ? Container(
 
-                                    showSuccessGetContact(
-                                      'Vous avez choisi ${contact.displayName}',
-                                      context,
-                                    );
-                                  });
-                            },
-                            onChanged: (value) {},
-                            validator: (value) {
-                              return Validators.usPhoneValid(value!);
-                            },
-                          ),
-                        ),
-                        Container(
-                            margin: EdgeInsets.only(
-                              top: kMarginY * 1.5,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                (!state.isMapSelectedPointLivraison)
-                                    ? AppDropdown<PointLivraisonModel>(
-                                        maxWidth: getWidth(context) * .76,
-                                        value: state.selected_livraison_point,
-                                        hint: 'yselectpointliv'.tr(),
-                                        onChanged:
-                                            (PointLivraisonModel? newValue) {
-                                          context.read<LivraisonBloc>().add(
-                                              SelectPointLivraisonColis(
-                                                  point_livraison: newValue!));
-                                        },
-                                        items: state.list_localisation_point!,
-                                        itemLabelBuilder:
-                                            (PointLivraisonModel value) =>
-                                                value.libelle,
-                                        hasError: state.errorPointRecuperation!,
-                                      )
-                                    : Container(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: kMarginY,
-                                            horizontal: kMarginX),
-                                        height: getHeight(context) * .06,
-                                        alignment: Alignment.center,
-                                        width: getWidth(context) * .75,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: ColorsApp.greyNew),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            InkWell(
-                                              onTap: () => context
-                                                  .read<LivraisonBloc>()
-                                                  .add(ClearPointLivraison()),
-                                              child: Container(
-                                                child: Icon(
-                                                  Icons
-                                                      .keyboard_arrow_down_outlined,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.symmetric(
-                                                  horizontal: kMarginX),
-                                              child: Text(state
-                                                  .selected_livraison_point!
-                                                  .libelle),
-                                            ),
-                                            Container()
-                                          ],
-                                        )),
-                                InkWell(
-                                    child: Container(
-                                        height: getHeight(context) * .06,
-                                        width: getHeight(context) * .06,
-
-                                        // padding: EdgeInsets.all(20),
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                            color: ColorsApp.primary,
-                                            borderRadius:
-                                                BorderRadius.circular(8)),
-                                        child: Icon(
-                                          Icons.location_on,
-                                          color: ColorsApp.white,
-                                        )),
-                                    onTap: () {
-                                      AutoRouter.of(context).pushNamed(
-                                          MapPagePointLivraisonColis.routeName);
-                                    }),
-                              ],
-                            )),
-                        if (state.errorPointLivraison!)
-                          Container(
-                              padding: EdgeInsets.only(
-                                top: kMarginY,
-                              ),
-                              margin: EdgeInsets.only(
-                                left: 10,
-                              ),
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                'eselectpoitnliv'.tr(),
-                                style: TextStyle(
-                                    fontSize: 8,
-                                    fontFamily: 'Lato',
-                                    color: ColorsApp.red),
-                              )),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              child: Column(children: [
-                                Container(
-                                  margin: EdgeInsets.only(
-                                    top: kMarginY * 1.5,
-                                  ),
-                                  // height: 150,
-                                  width: getWidth(context) / 2.5,
-                                  child: AppInputNew(
-                                    textInputType: TextInputType.number,
-                                    controller: state.valeurColis!,
-                                    icon: Icon(Icons.monetization_on),
-                                    onChanged: (newValue) {
-                                      // state.verifyFormColis();
-                                    },
-                                    label: 'yprixcolis'.tr(),
-                                    validator: (value) {
-                                      return Validators.usNumeriqValid(value!);
-                                    },
-                                  ),
+                              // decoration: BoxDecoration(
+                              //   borderRadius: BorderRadius.circular(5),
+                              //   border: Border.all(
+                              //     color: Color.fromARGB(255, 231, 229, 229),
+                              //   ),
+                              //   color: ColorsApp.white,
+                              // ),
+                              alignment: Alignment.center,
+                              child: Center(
+                                  child: CircularProgressIndicator(
+                                color: ColorsApp.primary,
+                              )))
+                          : (state.isLoadingPlaceSearch! == 2)
+                              ? Container()
+                              : Container(
+                                  // height: state.list_search_place!.length < 5
+                                  //     ? getHeight(context) * .15
+                                  //     : getHeight(context) * .3,
+                                  // width: getWidth(context) * .88,
+                                  // decoration: BoxDecoration(
+                                  //   borderRadius: BorderRadius.circular(5),
+                                  //   border: Border.all(
+                                  //     color: Color.fromARGB(255, 231, 229, 229),
+                                  //   ),
+                                  //   color: ColorsApp.white,
+                                  // ),
+                                  child: state.list_search_place!.length == 0
+                                      ? Container(
+                                          height: getHeight(context) / 10,
+                                          child: Center(
+                                              child:
+                                                  Text('yemptyrecupliv'.tr())))
+                                      : SingleChildScrollView(
+                                          child: Container(
+                                              margin: EdgeInsets.only(
+                                                  top: kMarginY * 2),
+                                              height: getHeight(context) * .73,
+                                              child: ListView.builder(
+                                                  shrinkWrap: true,
+                                                  itemCount: state
+                                                      .list_search_place!
+                                                      .length,
+                                                  itemBuilder:
+                                                      (_, index) => InkWell(
+                                                            onTap: () {
+                                                              context
+                                                                  .read<
+                                                                      LivraisonBloc>()
+                                                                  .add(GetPlaceDataRecuperation(
+                                                                      place: state
+                                                                              .list_search_place![
+                                                                          index]));
+                                                            },
+                                                            child: Container(
+                                                              margin: EdgeInsets
+                                                                  .all(8),
+                                                              child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Row(
+                                                                    children: [
+                                                                      Container(
+                                                                        width: getWidth(context) *
+                                                                            .65,
+                                                                        child:
+                                                                            Text(
+                                                                          state
+                                                                              .list_search_place![index]
+                                                                              .libelle,
+                                                                          overflow:
+                                                                              TextOverflow.ellipsis,
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  Container(
+                                                                      child: Icon(
+                                                                          Icons
+                                                                              .location_on)),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ))),
+                                        ),
                                 ),
-                              ]),
-                            ),
-                            Container(
-                              width: getWidth(context) / 2.5,
-                              margin: EdgeInsets.only(
-                                bottom: kMarginY * 1.5,
+                  ],
+                ),
+              )));
+  var _userPosition;
+  final Completer<GoogleMapController> _controller =
+      Completer<GoogleMapController>();
+  void _onCameraMove(CameraPosition position) {
+    // Méthode appelée lorsque la carte est déplacée
+
+    setState(() {
+      _userPosition = position.target;
+    });
+    print(
+        'Camera position: ${_userPosition.latitude}, ${_userPosition.longitude}');
+    // Vous pouvez appeler votre méthode ici
+  }
+
+  void _onMapMoved() {
+    // Implémentez ici la logique à exécuter lorsque la carte bouge
+    // Exemple: Mettez à jour la position de l'utilisateur ou autre
+    print(
+        'La carte a bougé. Nouvelle position : ${_userPosition.latitude}, ${_userPosition.longitude}');
+
+    context.read<LivraisonBloc>().add(LoadPlaceInfoLivraison(
+        latLng: new LatLng(_userPosition.latitude, _userPosition.longitude)));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<LivraisonBloc, LivraisonState>(
+        listener: (context, state) {
+      if (state.isLoadingPlaceSearchInfo == 0) {
+        // AutoRouter.of(context).pop();
+      }
+      if (state.isLoadingPlaceSearchInfo == 1) {
+        setState(() {
+          print('-----------------------changement.*******----------------');
+          _kLake = CameraPosition(
+              bearing: 0,
+              target: LatLng(state.selected_livraison_point!.latitude,
+                  state.selected_livraison_point!.longitude),
+              tilt: 45,
+              zoom: 15.5);
+          print(
+              '--------mapController---------------changement.*******----------------');
+          mapController!.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+        });
+      }
+    }, builder: (context, state) {
+      return Scaffold(
+        backgroundColor: ColorsApp.bg,
+        // appBar: AppBarCustom(
+        //   title: 'Point de récupération'.tr(),
+        // ),
+        body: Stack(children: [
+          Container(
+              height: getHeight(context) * .95,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
+                ),
+                color: ColorsApp.white,
+              ),
+              child: GoogleMap(
+                  initialCameraPosition: _kLake,
+                  myLocationEnabled:
+                      true, // Active la localisation de l'utilisateur
+                  myLocationButtonEnabled:
+                      false, // Bouton pour centrer sur la position actuelle
+                  compassEnabled: false, // Boussole
+                  mapToolbarEnabled: false, // Barre d'outils de la carte
+                  indoorViewEnabled: true, // Vue intérieure des bâtiments
+                  trafficEnabled: true, // Trafic en temps réel
+                  buildingsEnabled: true, // Affiche les bâtiments en 3D
+                  onCameraMove: _onCameraMove,
+                  onCameraIdle: _onMapMoved,
+                  tiltGesturesEnabled:
+                      true, // Active le contrôle de l'inclinaison
+                  zoomGesturesEnabled: true, // Active le contrôle du zoom
+                  rotateGesturesEnabled:
+                      true, // Active le contrôle de la rotation
+                  scrollGesturesEnabled: true, // Active le défilement
+                  mapType: MapType
+                      .normal, // Type de carte (peut être normal, satellite, terrain ou hybride)
+                  // markers: {_position},
+                  // compassEnabled: true,
+                  onMapCreated: (GoogleMapController mapcontroller) async {
+                    _controller.complete(mapcontroller);
+                    mapController = await _controller.future;
+                    context.read<LivraisonBloc>().add(LoadPlaceInfoLivraison(
+                        latLng: new LatLng(state.position!.latitude,
+                            state.position!.longitude)));
+                    setState(() {
+                      _kLake = CameraPosition(
+                        bearing: 0,
+                        target: LatLng(state.position!.latitude,
+                            state.position!.longitude),
+                        tilt: 50,
+                        zoom: 15.5,
+                      );
+
+                      _position = Marker(
+                        icon: BitmapDescriptor.defaultMarkerWithHue(
+                            BitmapDescriptor.hueCyan),
+                        markerId: MarkerId('1'),
+                        draggable: true,
+                        infoWindow: InfoWindow(
+                          title: 'Vous etes ici',
+                        ),
+                        onTap: () {},
+                        position: LatLng(state.position!.latitude,
+                            state.position!.longitude),
+                      );
+                      mapController!.animateCamera(
+                          CameraUpdate.newCameraPosition(_kLake));
+
+                      print('-------------');
+                      print('Updated _kLake: $_kLake');
+                      print('Updated _position: $_position');
+                    });
+                    context.read<LivraisonBloc>().add(LoadPlaceInfoLivraison(
+                        latLng: new LatLng(state.position!.latitude,
+                            state.position!.longitude)));
+                  },
+                  onTap: (LatLng value) {
+                    print(value);
+                    context.read<LivraisonBloc>().add(SetLogLat(latLng: value));
+                    context.read<LivraisonBloc>().add(GetMapPlaceInfo());
+
+                    setState(() {
+                      _position = Marker(
+                          icon: BitmapDescriptor.defaultMarkerWithHue(
+                              BitmapDescriptor.hueCyan),
+                          markerId: MarkerId('1'),
+                          draggable: true,
+                          infoWindow: InfoWindow(
+                            title: 'Vous etes ici',
+                          ),
+                          onTap: () {},
+                          position: LatLng(value.latitude, value.longitude));
+                    });
+                  })),
+          Positioned(
+            top: 40,
+            child: Container(
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: kMarginX) / 2,
+                    // alignment: Alignment.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: () => AutoRouter.of(context).pop(),
+                          child: Container(
+                            margin:
+                                EdgeInsets.symmetric(horizontal: kMarginX / 2),
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(
+                                color: Color.fromARGB(255, 231, 229, 229),
                               ),
-                              child: Column(children: [
-                                Container(
-                                    padding: EdgeInsets.only(
-                                      top: kMarginY,
+                              color: ColorsApp.second,
+                            ),
+                            alignment: Alignment.center,
+                            child: Icon(Icons.arrow_back_ios_new,
+                                color: ColorsApp.white, size: kSmIcon * .7),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () => searchPoint(),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  color: Color.fromARGB(255, 231, 229, 229),
+                                ),
+                                color: ColorsApp.white,
+                              ),
+                              width: getWidth(context) * .83,
+                              height: getHeight(context) * .05,
+                              alignment: Alignment.center,
+                              child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                        left: kMarginX,
+                                      ),
+                                      child: Text(
+                                        'Appuyer pour rechercher',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          fontFamily: 'Lato',
+                                          color: ColorsApp.grey,
+                                        ),
+                                      ),
                                     ),
-                                    alignment: Alignment.centerLeft,
-                                    child: Text('yQuantitecolis'.tr())),
-                                Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: kMarginX),
-                                    height: getHeight(context) * .05,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        border: Border.all(
-                                            color: (state.errorQte!)
-                                                ? ColorsApp.red
-                                                : ColorsApp.greyNew,
-                                            width: 1),
-                                        color: ColorsApp.greyNew),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        InkWell(
-                                            child: Icon(Icons.remove),
-                                            onTap: () {
-                                              context
-                                                  .read<LivraisonBloc>()
-                                                  .add(ManageQte(state: false));
-                                            }),
-                                        Container(
-                                          // decoration: BoxDecoration(
-                                          //     borderRadius:
-                                          //         BorderRadius.circular(
-                                          //             12),
-                                          //     color: ColorsApp.greyNew),
-                                          width: getWidth(context) / 5.5,
-                                          // height: 35,
-                                          // alignment: Alignment.center,
-                                          margin: EdgeInsets.only(
-                                            bottom: kMarginY,
+                                    Container(
+                                        margin: EdgeInsets.only(
+                                          right: kMarginX,
+                                        ),
+                                        child: Icon(
+                                          Icons.search,
+                                          color: ColorsApp.grey,
+                                        ))
+                                  ])),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Stack(children: [
+            Center(
+              child: Icon(
+                Icons.location_pin,
+                size: 50,
+                color: Colors.red,
+              ),
+            ),
+            Positioned(
+              top: 380,
+              left: 150,
+              child: (state.isLoadEmplacementInfo == 0 ||
+                      state.selected_livraison_point == null)
+                  ? Skeletonizer(
+                      enabled: true,
+                      child: Container(
+                          height: 68,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Douala 5e,',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                'Douala, Cameroon',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                            ],
+                          )),
+                    )
+                  : Container(
+                      height: 68,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            state.selected_livraison_point!.quartier,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            state.selected_livraison_point!.ville,
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey[700],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+            ),
+          ]),
+          DraggableScrollableSheet(
+            initialChildSize: 0.35,
+            minChildSize: 0.3,
+            maxChildSize: 0.65,
+            builder: (BuildContext context, ScrollController scrollController) {
+              return Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 10,
+                      offset: Offset(0, -5),
+                    ),
+                  ],
+                ),
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: DelivryWidgetTitle(
+                          title: 'Informations de livraison du colis',
+                          icon: FontAwesomeIcons.locationDot,
+                        ),
+                      ),
+                      Container(
+                          margin: EdgeInsets.only(
+                            top: 0,
+                          ).add(
+                            EdgeInsets.symmetric(horizontal: kMarginX),
+                          ),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                InkWell(
+                                  onTap: () => searchPoint(),
+                                  child: (state.isLoadEmplacementInfo == 0 ||
+                                          state.selected_livraison_point ==
+                                              null)
+                                      ? Skeletonizer(
+                                          enabled: true,
+                                          child: Container(
+                                            width: getWidth(context),
+                                            padding: EdgeInsets.all(8),
+                                            decoration: BoxDecoration(
+                                              color: Colors.grey.shade100,
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Container(
+                                                  child: Text(
+                                                    'Douala-Douala Douala-Douala',
+                                                    style: TextStyle(
+                                                      color: ColorsApp.white,
+                                                      fontFamily: 'Lato',
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  child: Text(
+                                                    'Douala-Douala',
+                                                    style: TextStyle(
+                                                      color: ColorsApp.white,
+                                                      fontFamily: 'Lato',
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                          child: AppInputSecond(
-                                            controller: state.quantiteColis!,
-                                            textInputType: TextInputType.number,
-                                            validator: (value) {
-                                              return Validators.usNumeriqValid(
-                                                  value!);
-                                            },
+                                        )
+                                      : Container(
+                                          width: getWidth(context),
+                                          padding: EdgeInsets.all(8),
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey.shade100,
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                  child: Text(
+                                                state.selected_livraison_point!
+                                                    .quartier,
+                                                style: TextStyle(
+                                                    fontFamily: 'Lato',
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: kBasics * 1.3),
+                                              )),
+                                              Container(
+                                                  child: Text(
+                                                state.selected_livraison_point!
+                                                    .ville,
+                                                style: TextStyle(
+                                                  fontFamily: 'Lato',
+                                                ),
+                                              )),
+                                            ],
                                           ),
                                         ),
-                                        InkWell(
-                                            child: Icon(Icons.add),
-                                            onTap: () {
-                                              context
-                                                  .read<LivraisonBloc>()
-                                                  .add(ManageQte(state: true));
-                                            })
-                                      ],
-                                    )),
-                              ]),
-                            )
-                          ],
-                        ),
-                        if (state.errorQte!)
-                          Container(
-                              padding: EdgeInsets.only(
-                                top: kMarginY,
-                              ),
-                              margin: EdgeInsets.only(
-                                left: 10,
-                              ),
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                'eQuantitecolis'.tr(),
-                                style: TextStyle(
-                                    fontSize: 8,
-                                    fontFamily: 'Lato',
-                                    color: ColorsApp.red),
-                              )),
-                        Container(
-                            width: getWidth(context),
-                            child: InkWell(
-                              child: state.imageColis!.length != 0
-                                  ? Container(
-                                      margin: EdgeInsets.only(
-                                        top: kMarginY,
-                                      ),
-                                      child: ImageComp(
-                                          file: state.imageColis![0], index: 0))
-                                  : UploadImage(
-                                      color: ColorsApp.primary,
-                                      title: 'yphotoColis'.tr(),
-                                      icon: Icons.camera_alt),
-                              onTap: () => GlobalBottomSheet.show(
-                                  maxHeight: getHeight(context) * .3,
-                                  context: context,
-                                  title: 'yphotoColisT'.tr(),
-                                  widget: BlocBuilder<LivraisonBloc,
-                                      LivraisonState>(
-                                    builder: (context, state) => Container(
-                                        margin: EdgeInsets.only(top: kMarginY),
-                                        height: getHeight(context) * .2,
-                                        child: GridView.count(
-                                            crossAxisCount:
-                                                2, // Two items per row
-                                            mainAxisSpacing:
-                                                28.0, // Spacing between rows
-                                            crossAxisSpacing:
-                                                28.0, // Spacing between columns
-                                            childAspectRatio: 1,
-                                            children: [
-                                              FileOptionWidget(
-                                                  title: 'yGalerie'.tr(),
-                                                  icon: FontAwesomeIcons.image,
-                                                  onTap: () {
-                                                    context
-                                                        .read<LivraisonBloc>()
-                                                        .add(
-                                                            GetImageColisGalerie());
-                                                    AutoRouter.of(context)
-                                                        .pop();
-                                                  }),
-                                              FileOptionWidget(
-                                                title: 'yCamera'.tr(),
-                                                onTap: () {
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(
+                                    top: kMarginY,
+                                  ),
+                                  child: SingleChildScrollView(
+                                      child: Column(children: [
+                                    state.isLoadVCategory == 0
+                                        ? Skeletonizer(
+                                            enabled: true,
+                                            child: Container(
+                                              width: getWidth(context),
+                                              padding: EdgeInsets.all(8),
+                                              decoration: BoxDecoration(
+                                                color: Colors.grey.shade100,
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                              ),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    child: Text(
+                                                      'Douala-Douala Douala-Douala',
+                                                      style: TextStyle(
+                                                        color: ColorsApp.white,
+                                                        fontFamily: 'Lato',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: Text(
+                                                      'Douala-Douala',
+                                                      style: TextStyle(
+                                                        color: ColorsApp.white,
+                                                        fontFamily: 'Lato',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          )
+                                        : state.isLoadVCategory == 2
+                                            ? Text('Error')
+                                            : AppDropdown<CategoryModel>(
+                                                value: state.categoryColis,
+                                                hint: 'ytypecolis'.tr(),
+                                                onChanged:
+                                                    (CategoryModel? newValue) {
                                                   context
                                                       .read<LivraisonBloc>()
-                                                      .add(
-                                                          GetImageColisAppareil());
-                                                  AutoRouter.of(context).pop();
+                                                      .add(SelectedCategory(
+                                                          categoryColis:
+                                                              newValue!));
                                                 },
-                                                icon: FontAwesomeIcons
-                                                    .cameraRetro,
+                                                items:
+                                                    state.list_category_colis!,
+                                                itemLabelBuilder:
+                                                    (CategoryModel value) =>
+                                                        value.libelle!,
+                                                hasError: state.errorCategory!),
+                                    if (state.errorCategory!)
+                                      Container(
+                                          padding: EdgeInsets.only(
+                                            top: kMarginY,
+                                          ),
+                                          margin: EdgeInsets.only(
+                                            left: 10,
+                                          ),
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            'eselecttype'.tr(),
+                                            style: TextStyle(
+                                                fontSize: 8,
+                                                fontFamily: 'Lato',
+                                                color: ColorsApp.red),
+                                          )),
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                        top: kMarginY * 1.5,
+                                      ),
+                                      child: AppInputNew(
+                                        controller: state.nomColis!,
+                                        icon: Icon(Icons.label),
+                                        onChanged: (newValue) {
+                                          // state.verifyFormColis();
+                                        },
+                                        label: 'ynomcolis'.tr(),
+                                        validator: (value) {
+                                          return Validators.isValidUsername(
+                                              value!);
+                                        },
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                        top: kMarginY * 1.5,
+                                      ),
+                                      child: AppInputContact(
+                                        controller: state.contactRecepteur!,
+                                        icon: Icon(Icons.phone),
+                                        textInputType: TextInputType.number,
+                                        // maxLength:13,
+                                        label: 'yycontactdest'.tr(),
+                                        onTap: () {
+                                          ContactService()
+                                              .openContactSelectionModal(
+                                                  context: context,
+                                                  onTap: (Contact contact) {
+                                                    state.contactRecepteur!
+                                                            .text =
+                                                        contact
+                                                            .phones!.first.value
+                                                            .toString();
+                                                    AutoRouter.of(context)
+                                                        .pop();
+
+                                                    showSuccessGetContact(
+                                                      'Vous avez choisi ${contact.displayName}',
+                                                      context,
+                                                    );
+                                                  });
+                                        },
+                                        onChanged: (value) {},
+                                        validator: (value) {
+                                          return Validators.usPhoneValid(
+                                              value!);
+                                        },
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          child: Column(children: [
+                                            Container(
+                                              margin: EdgeInsets.only(
+                                                top: kMarginY * 1.5,
                                               ),
-                                            ])),
-                                  )),
-                            )),
-                        if (state.errorImage!)
-                          Container(
-                              padding: EdgeInsets.only(
-                                top: kMarginY,
-                              ),
-                              margin: EdgeInsets.only(
-                                left: 10,
-                              ),
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                'ephotoColisT'.tr(),
-                                style: TextStyle(
-                                    fontSize: 8,
-                                    fontFamily: 'Lato',
-                                    color: ColorsApp.red),
-                              ))
-                      ]))),
-                  AppButton(
-                      size: MainAxisSize.max,
-                      bgColor: ColorsApp.primary,
-                      text: 'lbaddprod'.tr(),
-                      onTap: () async {
-                        context.read<LivraisonBloc>().add(AddColisType1());
-                        if (state.isColisOK!) {
-                          AutoRouter.of(context).pop();
-                        }
-                      }),
-                ]))),
+                                              // height: 150,
+                                              width: getWidth(context) / 2.5,
+                                              child: AppInputNew(
+                                                textInputType:
+                                                    TextInputType.number,
+                                                controller: state.valeurColis!,
+                                                icon:
+                                                    Icon(Icons.monetization_on),
+                                                onChanged: (newValue) {
+                                                  // state.verifyFormColis();
+                                                },
+                                                label: 'yprixcolis'.tr(),
+                                                validator: (value) {
+                                                  return Validators
+                                                      .usNumeriqValid(value!);
+                                                },
+                                              ),
+                                            ),
+                                          ]),
+                                        ),
+                                        Container(
+                                          width: getWidth(context) / 2.5,
+                                          margin: EdgeInsets.only(
+                                            bottom: kMarginY * 1.5,
+                                          ),
+                                          child: Column(children: [
+                                            Container(
+                                                padding: EdgeInsets.only(
+                                                  top: kMarginY,
+                                                ),
+                                                alignment: Alignment.centerLeft,
+                                                child: Text(
+                                                    'yQuantitecolis'.tr())),
+                                            Container(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: kMarginX),
+                                                height:
+                                                    getHeight(context) * .05,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5),
+                                                    border: Border.all(
+                                                        color: (state.errorQte!)
+                                                            ? ColorsApp.red
+                                                            : ColorsApp.greyNew,
+                                                        width: 1),
+                                                    color: ColorsApp.greyNew),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    InkWell(
+                                                        child:
+                                                            Icon(Icons.remove),
+                                                        onTap: () {
+                                                          context
+                                                              .read<
+                                                                  LivraisonBloc>()
+                                                              .add(ManageQte(
+                                                                  state:
+                                                                      false));
+                                                        }),
+                                                    Container(
+                                                      // decoration: BoxDecoration(
+                                                      //     borderRadius:
+                                                      //         BorderRadius.circular(
+                                                      //             12),
+                                                      //     color: ColorsApp.greyNew),
+                                                      width: getWidth(context) /
+                                                          5.5,
+                                                      // height: 35,
+                                                      // alignment: Alignment.center,
+                                                      margin: EdgeInsets.only(
+                                                        bottom: kMarginY,
+                                                      ),
+                                                      child: AppInputSecond(
+                                                        controller: state
+                                                            .quantiteColis!,
+                                                        textInputType:
+                                                            TextInputType
+                                                                .number,
+                                                        validator: (value) {
+                                                          return Validators
+                                                              .usNumeriqValid(
+                                                                  value!);
+                                                        },
+                                                      ),
+                                                    ),
+                                                    InkWell(
+                                                        child: Icon(Icons.add),
+                                                        onTap: () {
+                                                          context
+                                                              .read<
+                                                                  LivraisonBloc>()
+                                                              .add(ManageQte(
+                                                                  state: true));
+                                                        })
+                                                  ],
+                                                )),
+                                          ]),
+                                        )
+                                      ],
+                                    ),
+                                    if (state.errorQte!)
+                                      Container(
+                                          padding: EdgeInsets.only(
+                                            top: kMarginY,
+                                          ),
+                                          margin: EdgeInsets.only(
+                                            left: 10,
+                                          ),
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            'eQuantitecolis'.tr(),
+                                            style: TextStyle(
+                                                fontSize: 8,
+                                                fontFamily: 'Lato',
+                                                color: ColorsApp.red),
+                                          )),
+                                    Container(
+                                        width: getWidth(context),
+                                        child: InkWell(
+                                          child: state.imageColis!.length != 0
+                                              ? Container(
+                                                  margin: EdgeInsets.only(
+                                                    top: kMarginY,
+                                                  ),
+                                                  child: ImageComp(
+                                                      file:
+                                                          state.imageColis![0],
+                                                      index: 0))
+                                              : UploadImage(
+                                                  color: ColorsApp.primary,
+                                                  title: 'yphotoColis'.tr(),
+                                                  icon: Icons.camera_alt),
+                                          onTap: () => GlobalBottomSheet.show(
+                                              maxHeight:
+                                                  getHeight(context) * .3,
+                                              context: context,
+                                              title: 'yphotoColisT'.tr(),
+                                              widget: BlocBuilder<LivraisonBloc,
+                                                  LivraisonState>(
+                                                builder: (context, state) =>
+                                                    Container(
+                                                        margin: EdgeInsets.only(
+                                                            top: kMarginY),
+                                                        height:
+                                                            getHeight(context) *
+                                                                .2,
+                                                        child: GridView.count(
+                                                            crossAxisCount:
+                                                                2, // Two items per row
+                                                            mainAxisSpacing:
+                                                                28.0, // Spacing between rows
+                                                            crossAxisSpacing:
+                                                                28.0, // Spacing between columns
+                                                            childAspectRatio: 1,
+                                                            children: [
+                                                              FileOptionWidget(
+                                                                  title:
+                                                                      'yGalerie'
+                                                                          .tr(),
+                                                                  icon:
+                                                                      FontAwesomeIcons
+                                                                          .image,
+                                                                  onTap: () {
+                                                                    context
+                                                                        .read<
+                                                                            LivraisonBloc>()
+                                                                        .add(
+                                                                            GetImageColisGalerie());
+                                                                    AutoRouter.of(
+                                                                            context)
+                                                                        .pop();
+                                                                  }),
+                                                              FileOptionWidget(
+                                                                title: 'yCamera'
+                                                                    .tr(),
+                                                                onTap: () {
+                                                                  context
+                                                                      .read<
+                                                                          LivraisonBloc>()
+                                                                      .add(
+                                                                          GetImageColisAppareil());
+                                                                  AutoRouter.of(
+                                                                          context)
+                                                                      .pop();
+                                                                },
+                                                                icon: FontAwesomeIcons
+                                                                    .cameraRetro,
+                                                              ),
+                                                            ])),
+                                              )),
+                                        )),
+                                    if (state.errorImage!)
+                                      Container(
+                                          padding: EdgeInsets.only(
+                                            top: kMarginY,
+                                          ),
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            'ephotoColisT'.tr(),
+                                            style: TextStyle(
+                                                fontSize: 8,
+                                                fontFamily: 'Lato',
+                                                color: ColorsApp.red),
+                                          ))
+                                  ])),
+                                ),
+                              ])),
+                      AppButtonSecond(
+                          bgColor: ColorsApp.second,
+                          size: MainAxisSize.max,
+                          marginAdd: EdgeInsets.symmetric(horizontal: kMarginX),
+                          text: 'lbaddprod'.tr(),
+                          onTap: () async {
+                            context.read<LivraisonBloc>().add(AddColisType1());
+                            if (state.isColisOK!) {
+                              AutoRouter.of(context).pop();
+                              AutoRouter.of(context).pop();
+                            }
+                          }),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        ]),
       );
+    });
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import '../../presentation/components/exportcomponent.dart';
-// import 'package:BabanaExpress/application/export_bloc.dart';
-
-// import 'package:webview_flutter/webview_flutter.dart';
-// @RoutePage()
-// class PaimentPage extends StatefulWidget {
-//   static const routeName = '/paiement';
-
-//   const PaimentPage({Key? key}) : super(key: key);
-
-//   @override
-//   State<PaimentPage> createState() => _PaimentPageState();
-// }
-
-// class _PaimentPageState extends State<PaimentPage> {
-//   late WebViewController? controller; // Déclarer controller comme nullable
-  
-//   @override
-//   void initState() {
-//     super.initState();
-//     controller = null; // Initialiser controller à null
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocConsumer<LivraisonBloc, LivraisonState>(
-//       listener: (ctx, state) {
-//         if (state.paiement_url != null) {
-//           setState(() {
-//             controller = WebViewController()..loadUrl(state.paiement_url!);
-//           });
-//         }
-//       },
-//       builder: (context, state) {
-//         return Scaffold(
-//           appBar: AppBar(
-//             leading: AppBackButton(),
-//             title: const Text('Paiement de votre livraison'),
-//             centerTitle: true,
-//           ),
-//           body: controller != null // Vérifier si controller n'est pas null
-//               ? WebView(
-//                   initialUrl: '', // Remplacez par l'URL initiale si nécessaire
-//                   onWebViewCreated: (WebViewController webViewController) {
-//                     controller = webViewController;
-//                   },
-//                 )
-//               : Center(
-//                   child: CircularProgressIndicator(), // Afficher un indicateur de chargement si controller est null
-//                 ),
-//         );
-//       },
-//     );
-//   }
-// }

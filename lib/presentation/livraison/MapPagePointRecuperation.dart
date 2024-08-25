@@ -24,7 +24,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
   TextEditingController searchPointRecuperationController =
       TextEditingController();
 
-  var loadPlaceInfo = true;
+  var loadPlaceInfoRecuperation = true;
   var latitude = 0.0;
   var longitude = 0.0;
   var _kLake;
@@ -453,7 +453,7 @@ class _MapPagePointRecuperationState extends State<MapPagePointRecuperation> {
                                                             context
                                                                     .read<
                                                                         LivraisonBloc>()
-                                                                    .add(GetPlaceData(
+                                                                    .add(GetPlaceDataRecuperation(
                                                                         place: state
                                                                             .list_search_place![index]))
                                                                 /*    .then((e) {

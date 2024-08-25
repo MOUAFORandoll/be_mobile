@@ -14,14 +14,14 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:contacts_service/contacts_service.dart';
 
 @RoutePage()
-class InfoColistype2Page extends StatefulWidget {
+class InfoColisType2Page extends StatefulWidget {
   static const routeName = '/infocolis/type2';
 
   @override
-  State<InfoColistype2Page> createState() => _InfoColistype2PageState();
+  State<InfoColisType2Page> createState() => _InfoColisType2PageState();
 }
 
-class _InfoColistype2PageState extends State<InfoColistype2Page> {
+class _InfoColisType2PageState extends State<InfoColisType2Page> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LivraisonBloc, LivraisonState>(
@@ -386,16 +386,16 @@ class _InfoColistype2PageState extends State<InfoColistype2Page> {
 
 // import 'package:webview_flutter/webview_flutter.dart';
 // @RoutePage()
-// class PaimentPage extends StatefulWidget {
+// class PaiementPage extends StatefulWidget {
 //   static const routeName = '/paiement';
 
-//   const PaimentPage({Key? key}) : super(key: key);
+//   const PaiementPage({Key? key}) : super(key: key);
 
 //   @override
-//   State<PaimentPage> createState() => _PaimentPageState();
+//   State<PaiementPage> createState() => _PaiementPageState();
 // }
 
-// class _PaimentPageState extends State<PaimentPage> {
+// class _PaiementPageState extends State<PaiementPage> {
 //   late WebViewController? controller; // Déclarer controller comme nullable
   
 //   @override

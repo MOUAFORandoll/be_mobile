@@ -1,11 +1,6 @@
-import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
-
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
 import 'package:BabanaExpress/application/export_bloc.dart';
 
 class OnBoardingComponent extends StatelessWidget {

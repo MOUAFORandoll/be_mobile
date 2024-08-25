@@ -7,15 +7,16 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import '../MapPagePointRecuperation.dart';
 
 @RoutePage()
-class InfoLIvraisonType2Page extends StatefulWidget {
+class InfoRecuperationType2Page extends StatefulWidget {
   static const routeName = '/infolivraison/type2';
-  InfoLIvraisonType2Page({super.key});
+  InfoRecuperationType2Page({super.key});
 
   @override
-  State<InfoLIvraisonType2Page> createState() => _InfoLIvraisonType2PageState();
+  State<InfoRecuperationType2Page> createState() =>
+      _InfoRecuperationType2PageState();
 }
 
-class _InfoLIvraisonType2PageState extends State<InfoLIvraisonType2Page> {
+class _InfoRecuperationType2PageState extends State<InfoRecuperationType2Page> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LivraisonBloc, LivraisonState>(
@@ -162,7 +163,7 @@ class _InfoLIvraisonType2PageState extends State<InfoLIvraisonType2Page> {
                                                 itemLabelBuilder:
                                                     (PointLivraisonModel
                                                             value) =>
-                                                        value.libelle,
+                                                        value.libelle!,
                                                 hasError: state
                                                     .errorPointRecuperation!)
                                             : Container(
@@ -202,7 +203,7 @@ class _InfoLIvraisonType2PageState extends State<InfoLIvraisonType2Page> {
                                                                   kMarginX),
                                                       child: Text(state
                                                           .selected_recuperation_point!
-                                                          .libelle),
+                                                          .libelle!),
                                                     ),
                                                     Container()
                                                   ],

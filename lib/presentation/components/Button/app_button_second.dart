@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class AppButtonSecond extends StatelessWidget {
@@ -44,8 +44,7 @@ class AppButtonSecond extends StatelessWidget {
         ),
         padding: EdgeInsets.all(10),
         margin: EdgeInsets.symmetric(vertical: kMarginY * 2)
-            .add(marginAdd ?? EdgeInsets.zero)
-            .add(EdgeInsets.symmetric(horizontal: kMarginX)),
+            .add(marginAdd ?? EdgeInsets.zero),
         child: Row(
           mainAxisSize: size,
           mainAxisAlignment: sufixIcon != null

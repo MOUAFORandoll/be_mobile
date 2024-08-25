@@ -114,7 +114,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<DownloadFacture>(_downloadFacture);
     on<GetMapPlaceInfo>(getMapPlaceInfo);
     on<OnAutoComplet>(onAutoComplet);
-    on<GetPlaceData>(ongetPlaceData);
+    on<GetPlaceDataRecuperation>(getPlaceDataRecuperation);
     on<SelectModePaiement>(selectModePaiement);
     on<GetConversationColis>(getConversationColis);
     on<BackIndexType2Event>((event, emit) async {
@@ -132,6 +132,9 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<UpdatePositionLivraisonLivreur>(updatePositionLivraisonLivreur);
     on<Started>(started);
     on<CurrentUserStateLivraison>(currentUserStateLivraison);
+    on<LoadPlaceInfoRecuperation>(loadPlaceInfoRecuperation);
+    on<LoadPlaceInfoLivraison>(loadPlaceInfoLivraison);
+    on<GetPlaceDataLivraison>(getPlaceDataLivraison);
   }
 
   Future<void> _verifyFormLivraisonType2Event(
@@ -148,8 +151,8 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     emit(state.copyWith(selectedModePaiement: event.modePaiement));
   }
 
-  Future<void> ongetPlaceData(
-      GetPlaceData event, Emitter<LivraisonState> emit) async {
+  Future<void> getPlaceDataRecuperation(
+      GetPlaceDataRecuperation event, Emitter<LivraisonState> emit) async {
     emit(state.copyWith(isLoadingPlaceSearchInfo: 0));
 
     await livraisonRepo
@@ -159,6 +162,8 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       if (response.data != null) {
         emit(state.copyWith(
             isLoadingPlaceSearchInfo: 1,
+            selected_recuperation_point:
+                PointLivraisonModel.fromJson(response.data),
             findedPlaceInfo:
                 LatLng(response.data['latitude'], response.data['longitude'])));
         emit(state.copyWith(
@@ -166,9 +171,47 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         ));
       } else {
         emit(state.copyWith(isLoadingPlaceSearchInfo: 2));
+        emit(state.copyWith(
+          isLoadingPlaceSearchInfo: null,
+        ));
       }
     }).onError((e, s) {
       emit(state.copyWith(isLoadingPlaceSearchInfo: 2));
+      emit(state.copyWith(
+        isLoadingPlaceSearchInfo: null,
+      ));
+    });
+  }
+
+  Future<void> getPlaceDataLivraison(
+      GetPlaceDataLivraison event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isLoadingPlaceSearchInfo: 0));
+
+    await livraisonRepo
+        .searchMapPlaceInfo(event.place.libelle, event.place.type)
+        .then((response) {
+      print(response.data);
+      if (response.data != null) {
+        emit(state.copyWith(
+            isLoadingPlaceSearchInfo: 1,
+            selected_recuperation_point:
+                PointLivraisonModel.fromJson(response.data),
+            findedPlaceInfo:
+                LatLng(response.data['latitude'], response.data['longitude'])));
+        emit(state.copyWith(
+          isLoadingPlaceSearchInfo: null,
+        ));
+      } else {
+        emit(state.copyWith(isLoadingPlaceSearchInfo: 2));
+        emit(state.copyWith(
+          isLoadingPlaceSearchInfo: null,
+        ));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(isLoadingPlaceSearchInfo: 2));
+      emit(state.copyWith(
+        isLoadingPlaceSearchInfo: null,
+      ));
     });
   }
 
@@ -210,6 +253,76 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
             mapPlaceInfo: MapPlaceInfoModel.fromJson(response.data)));
         emit(state.copyWith(
             loadingMapPlaceInfo: null,
+            // libelleLocalisationRecuperation:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierRecuperation:
+                TextEditingController(text: state.mapPlaceInfo!.quartier),
+            // libelleLocalisationLivraison:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierLivraison:
+                TextEditingController(text: state.mapPlaceInfo!.quartier)));
+      } else {
+        emit(state.copyWith(loadingMapPlaceInfo: 2));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(loadingMapPlaceInfo: 2));
+    });
+  }
+
+  Future<void> loadPlaceInfoRecuperation(
+      LoadPlaceInfoRecuperation event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isLoadEmplacementInfo: 0, mapPlaceInfo: null));
+
+    await livraisonRepo
+        .getMapPlaceInfo(event.latLng.longitude, event.latLng.latitude)
+        .then((response) {
+      print(response.data);
+      if (response.data != null) {
+        emit(state.copyWith(
+          isLoadEmplacementInfo: 1,
+          selected_recuperation_point:
+              PointLivraisonModel.fromJson(response.data).copyWith(
+            longitude: state.position!.longitude,
+            latitude: state.position!.latitude,
+          ),
+        ));
+        emit(state.copyWith(
+            isLoadEmplacementInfo: null,
+            // libelleLocalisationRecuperation:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierRecuperation:
+                TextEditingController(text: state.mapPlaceInfo!.quartier),
+            // libelleLocalisationLivraison:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierLivraison:
+                TextEditingController(text: state.mapPlaceInfo!.quartier)));
+      } else {
+        emit(state.copyWith(loadingMapPlaceInfo: 2));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(loadingMapPlaceInfo: 2));
+    });
+  }
+
+  Future<void> loadPlaceInfoLivraison(
+      LoadPlaceInfoLivraison event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isLoadEmplacementInfo: 0, mapPlaceInfo: null));
+
+    await livraisonRepo
+        .getMapPlaceInfo(event.latLng.longitude, event.latLng.latitude)
+        .then((response) {
+      print(response.data);
+      if (response.data != null) {
+        emit(state.copyWith(
+          isLoadEmplacementInfo: 1,
+          selected_livraison_point:
+              PointLivraisonModel.fromJson(response.data).copyWith(
+            longitude: state.position!.longitude,
+            latitude: state.position!.latitude,
+          ),
+        ));
+        emit(state.copyWith(
+            isLoadEmplacementInfo: null,
             // libelleLocalisationRecuperation:
             //     TextEditingController(text: state.mapPlaceInfo!.ville),
             quartierRecuperation:
@@ -651,7 +764,10 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     }
 
     // if (state.formKeyColis!.currentState!.validate()) {
-    log(isOk.toString());
+    log('====================================');
+    log(state.isColisOK.toString());
+    log('====================================');
+
     if (isOk) {
       List<MultipartFile> imageFiles = [];
 
@@ -798,6 +914,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         if (response.data != null) {
           if (state.selectedModePaiement!.id == 1) {
             emit(state.copyWith(
+                currentLivraisonId: response.data['livraisonId'],
                 isRequest: 5,
                 isDownloadFacture: 0,
                 paiement_url: response.data['paiement_url']));
@@ -806,6 +923,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
             emit(state.copyWith(
                 isRequest: 5, isDownloadFacture: 0, paiement_url: 'next'));
           }
+          emit(state.copyWith(isRequest: null));
 
           add(HistoriqueUserLivraison());
           print('00 emit(state.copyWith(isRequest: --------------5))');
@@ -1255,13 +1373,16 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
               isDownloadFacture: 0,
             ));
           }
-
           if (state.selectedModePaiement!.id == 2) {
-            emit(state.copyWith(
-                successLivraison: true,
-                urlLivraison: response.data['url_livraison'],
-                paiement_url: 'next'));
+            emit(state.copyWith(successLivraison: true, paiement_url: 'next'));
           }
+
+          if (state.selectedService == 2) {
+            emit(state.copyWith(
+              urlLivraison: response.data['url_livraison'],
+            ));
+          }
+
           emit(state.copyWith(isRequest: null));
 
           add(HistoriqueUserLivraison());
@@ -1344,13 +1465,6 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         isCurrentlyDelivery: true,
       ));
     }
-  }
-
-  Future<void> getPolyline() async {
-    await livraisonRepo
-        .getPolyLinePoint(54)
-        .then((response) {})
-        .onError((e, s) {});
   }
 
   Future<void> updatePositionLivraisonLivreur(

@@ -101,11 +101,11 @@ Future<void> initSocket(context) async {
   SocketService(context).livraisonValidate(
       recepteur: key,
       action: (data) async {
-        await database.saveLivraisonIdToGetPosition(livraison_id: data.id);
-        BlocProvider.of<LivraisonBloc>(context).add(LivraisonEvent.started());
+        await database.saveLivraisonIdToGetPosition(livraison_id: data);
 
         NotificationService()
             .livraisonValidateNotification(content: data, context: context);
+        // BlocProvider.of<LivraisonBloc>(context).add(LivraisonEvent.started());
       });
 
   SocketService(context).livraisonFinish(

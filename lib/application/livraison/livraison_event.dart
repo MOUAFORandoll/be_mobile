@@ -102,13 +102,13 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.getMapPlaceInfo() = GetMapPlaceInfo;
   const factory LivraisonEvent.onAutoComplet({required String text}) =
       OnAutoComplet;
-  const factory LivraisonEvent.ongetPlaceData({required PlaceModel place}) =
-      GetPlaceData;
+  const factory LivraisonEvent.getPlaceDataRecuperation(
+      {required PlaceModel place}) = GetPlaceDataRecuperation;
   const factory LivraisonEvent.selectModePaiement(
       {required ModePaiementModel modePaiement}) = SelectModePaiement;
 
   const factory LivraisonEvent.selectService({
-    required ServiceModel service,
+    required int service,
   }) = SelectService;
 
   const factory LivraisonEvent.verifyFormType2() =
@@ -121,18 +121,26 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.newLivraisonType2() = NewLivraisonType2;
   const factory LivraisonEvent.verifyLivraisonState() = VerifyLivraisonState;
 
-
-
-  
   const factory LivraisonEvent.getConversationColis({
     required int idColis,
   }) = GetConversationColis;
 
-  const factory LivraisonEvent.currentUserStateLivraison() = CurrentUserStateLivraison;
+  const factory LivraisonEvent.currentUserStateLivraison() =
+      CurrentUserStateLivraison;
 
-    const factory LivraisonEvent.updatePositionLivraisonLivreur(
+  const factory LivraisonEvent.updatePositionLivraisonLivreur(
       {required double longitude,
       required double latitude}) = UpdatePositionLivraisonLivreur;
   const factory LivraisonEvent.started() = Started;
 
+  const factory LivraisonEvent.loadPlaceInfoRecuperation({
+    required LatLng latLng,
+  }) = LoadPlaceInfoRecuperation;
+
+  const factory LivraisonEvent.loadPlaceInfoLivraison({
+    required LatLng latLng,
+  }) = LoadPlaceInfoLivraison;
+
+  const factory LivraisonEvent.getPlaceDataLivraison(
+      {required PlaceModel place}) = GetPlaceDataLivraison;
 }

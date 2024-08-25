@@ -61,7 +61,7 @@
 //                 AutoRouter.of(context)
 //                     .pushNamed(SuccesLivraisonType1Page.routeName);
 //               } else {
-//                 AutoRouter.of(context).pushNamed(PaimentPage.routeName);
+//                 AutoRouter.of(context).pushNamed(PaiementPage.routeName);
 //               }
 //             }
 

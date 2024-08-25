@@ -4,15 +4,15 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 @RoutePage()
-class PaimentDepotPage extends StatefulWidget {
+class PaiementDepotPage extends StatefulWidget {
   static const routeName = '/paiement/depot';
 
-  const PaimentDepotPage({super.key});
+  const PaiementDepotPage({super.key});
   @override
-  State<PaimentDepotPage> createState() => _PaimentDepotPageState();
+  State<PaiementDepotPage> createState() => _PaiementDepotPageState();
 }
 
-class _PaimentDepotPageState extends State<PaimentDepotPage> {
+class _PaiementDepotPageState extends State<PaiementDepotPage> {
   WebViewController? controller;
   int _progress = 0;
   void initState() {

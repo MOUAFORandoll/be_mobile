@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:developer'; 
+import 'dart:developer';
 import 'package:BabanaExpress/infrastructure/_commons/network/request_url.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
@@ -32,11 +32,12 @@ class SocketService {
   void livraisonValidate(
       {required String recepteur, required Function action}) {
     socket.on('livraison_validate', (data) {
-      print(data);
+      print('-------------livraison_validate----');
+      print(jsonDecode(data)['id']);
       if (data != null && data != 'null') {
         var decodedData = jsonDecode(data);
         if (decodedData['recepteur'].toString() == recepteur.toString()) {
-          action(jsonDecode(data)['data']);
+          action(jsonDecode(data)['id']);
         }
       }
     });
@@ -59,7 +60,8 @@ class SocketService {
     });
   }
 
-  void livreurLivraisonPosition({required String recepteur, required Function action}) {
+  void livreurLivraisonPosition(
+      {required String recepteur, required Function action}) {
     print('-------------recepteur----');
     print(recepteur);
     socket.on('livreur_livraison_position', (data) {

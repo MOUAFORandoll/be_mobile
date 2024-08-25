@@ -10,27 +10,29 @@ class DelivryWidgetTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
-          /* mainAxisAlignment: MainAxisAlignment.spaceBetween, */ children: [
-            Container(
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: ColorsApp.green.withOpacity(.2),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Icon(icon, size: 20, color: ColorsApp.primary)),
-            Container(
-                margin: EdgeInsets.only(left: kMarginX),
-                child: Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: kTitle * 1.1,
-                    fontFamily: 'Lato',
-                    fontWeight: FontWeight.w700,
-                  ),
-                )),
-          ]),
+      child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+        Container(
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: ColorsApp.second,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Icon(icon, size: 20, color: ColorsApp.white)),
+        Container(
+            alignment: Alignment.centerLeft,
+            width: getWidth(context) * .8,
+            margin: EdgeInsets.only(left: kMarginX),
+            child: Text(
+              title,
+              textAlign: TextAlign.left,
+              maxLines: 2,
+              style: TextStyle(
+                fontSize: kTitle * 1.3,
+                fontFamily: 'Lato',
+                fontWeight: FontWeight.bold,
+              ),
+            )),
+      ]),
     );
   }
 }

@@ -1,14 +1,10 @@
-import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
+ 
 import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
-import 'package:BabanaExpress/presentation/layer/onboardingcomponent.dart';
-import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
-import 'package:BabanaExpress/presentation/user/RegisterPage.dart';
+import 'package:BabanaExpress/presentation/layer/onboardingcomponent.dart'; 
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/routes/app_router.gr.dart'; 
 
 @RoutePage()
 class AuthPage extends StatefulWidget {

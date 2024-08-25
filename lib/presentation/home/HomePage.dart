@@ -2,7 +2,6 @@
 
 import 'dart:async';
 
-import 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BabanaExpress/presentation/components/Widget/home_proposition_widget.dart';
 import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
@@ -354,6 +353,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         title: 'Je veux faire livrer mon colis'.tr(),
                         icon: Assets.colis,
                         onTap: () {
+                          BlocProvider.of<LivraisonBloc>(context)
+                              .add(SelectService(service: 1));
                           AutoRouter.of(context).push(NewLivraisonType1Route());
                         },
                       ),
@@ -361,6 +362,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         title: 'Je veux qu\'on recuperer mon colis'.tr(),
                         icon: Assets.colis,
                         onTap: () {
+                          BlocProvider.of<LivraisonBloc>(context)
+                              .add(SelectService(service: 2));
                           AutoRouter.of(context).push(NewLivraisonType2Route());
                         },
                       ),

@@ -55,7 +55,7 @@ class _WalletPageState extends State<WalletPage>
               } else if (state.isLoadingDepot == 1) {
                 EasyLoading.dismiss();
                 if (state.paiement_url != null) {
-                  AutoRouter.of(context).pushNamed(PaimentDepotPage.routeName);
+                  AutoRouter.of(context).pushNamed(PaiementDepotPage.routeName);
                 }
               } else if (state.isLoadingDepot == 2) {
                 EasyLoading.dismiss();

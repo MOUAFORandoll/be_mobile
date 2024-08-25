@@ -16,7 +16,7 @@ class LivraisonRepo {
 
     return a;
   }
-  
+
   Future getMapPlaceInfo(long, lat) async {
     Response a =
         await apiClient.getRequest('/location/user?long=${long}&lat=${lat}');
@@ -24,12 +24,13 @@ class LivraisonRepo {
     return a;
   }
 
-  Future getConversationColis(idColis ) async {
-    Response a =
-        await apiClient.getRequest(ApiRoutes.LIVRAISONS + '/conversation/${idColis}');
+  Future getConversationColis(idColis) async {
+    Response a = await apiClient
+        .getRequest(ApiRoutes.LIVRAISONS + '/conversation/${idColis}');
 
     return a;
   }
+
   Future downloadRapportLivraison(id) async {
     Response response =
         await apiClient.getRequest('/imprimer/facture-livraison/${id}');
@@ -66,7 +67,7 @@ class LivraisonRepo {
   Future calculFraisLivraison(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/frais',
         body: data);
-    
+
     return a;
   }
 
@@ -153,35 +154,32 @@ class LivraisonRepo {
 
     return a;
   }
-  
+
   Future newLivraisonType2(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/type-2',
         body: data);
 
     return a;
   }
-   Future calculFraisLivraisonType2(data) async {
+
+  Future calculFraisLivraisonType2(data) async {
     Response a = await apiClient.postRequest(ApiRoutes.LIVRAISONS + '/frais',
         body: data);
-    
+
     return a;
   }
+
   Future verifyLivraisonStatePaiement(livraisonId) async {
-    Response a = await apiClient.getRequest(ApiRoutes.LIVRAISONS + '/verifier-etat/${livraisonId}',
-        );
+    Response a = await apiClient.getRequest(
+      ApiRoutes.LIVRAISONS + '/verifier-etat/${livraisonId}',
+    );
 
     return a;
   }
 
   Future getCurrentLivraisonsState(keySecret) async {
-    Response a = await apiClient.getRequest(
-        ApiRoutes.LIVRAISONS + '/current-user-livraison-state?keySecret=${keySecret}');
-
-    return a;
-  }
-  Future getPolyLinePoint(livraisonId) async {
-    Response a = await apiClient.getRequest(ApiRoutes.LIVRAISONS + '/verifier-etat/${livraisonId}',
-        );
+    Response a = await apiClient.getRequest(ApiRoutes.LIVRAISONS +
+        '/current-user-livraison-state?keySecret=${keySecret}');
 
     return a;
   }
