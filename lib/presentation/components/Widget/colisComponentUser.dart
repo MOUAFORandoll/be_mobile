@@ -6,16 +6,9 @@ import 'package:BabanaExpress/presentation/livraison/ColisConversationPage.dart'
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-
-import 'dart:typed_data';
-import 'dart:async';
-import 'dart:ui';
-import 'package:flutter/rendering.dart';
-
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:share_plus/share_plus.dart';
-import 'package:path/path.dart' as path;
+ 
+import 'dart:async';  
+import 'package:permission_handler/permission_handler.dart';   
 import 'package:BabanaExpress/application/export_bloc.dart';
 
 // ignore: must_be_immutable
@@ -163,59 +156,59 @@ class ColisComponentUser extends StatelessWidget {
 
   bool dirExists = false;
   // ignore: unused_element
-  Future<void> _captureAndSavePng() async {
-    try {
-      await requestPermission();
+  // Future<void> _captureAndSavePng() async {
+  //   try {
+  //     await requestPermission();
 
-      final directory = await getTemporaryDirectory();
-      print('----------path-----${directory.path}-');
-      final externalDir = path.join(directory.path, 'Download', 'Qr_code');
+  //     final directory = await getTemporaryDirectory();
+  //     print('----------path-----${directory.path}-');
+  //     final externalDir = path.join(directory.path, 'Download', 'Qr_code');
 
-      RenderRepaintBoundary boundary =
-          globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
-      var image = await boundary.toImage(pixelRatio: 3.0);
+  //     RenderRepaintBoundary boundary =
+  //         globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+  //     var image = await boundary.toImage(pixelRatio: 3.0);
 
-      final whitePaint = Paint()..color = Colors.white;
-      final recorder = PictureRecorder();
-      final canvas = Canvas(
-          recorder,
-          Rect.fromLTWH(0, 0, image.width.toDouble() * 1.5,
-              image.height.toDouble() * 1.5));
-      canvas.drawRect(
-          Rect.fromLTWH(0, 0, image.width.toDouble() * 1.5,
-              image.height.toDouble() * 1.5),
-          whitePaint);
-      canvas.drawImage(image, Offset.zero, Paint());
-      final picture = recorder.endRecording();
-      final img = await picture.toImage(image.width, image.height);
-      ByteData? byteData = await img.toByteData(format: ImageByteFormat.png);
-      Uint8List pngBytes = byteData!.buffer.asUint8List();
+  //     final whitePaint = Paint()..color = Colors.white;
+  //     final recorder = PictureRecorder();
+  //     final canvas = Canvas(
+  //         recorder,
+  //         Rect.fromLTWH(0, 0, image.width.toDouble() * 1.5,
+  //             image.height.toDouble() * 1.5));
+  //     canvas.drawRect(
+  //         Rect.fromLTWH(0, 0, image.width.toDouble() * 1.5,
+  //             image.height.toDouble() * 1.5),
+  //         whitePaint);
+  //     canvas.drawImage(image, Offset.zero, Paint());
+  //     final picture = recorder.endRecording();
+  //     final img = await picture.toImage(image.width, image.height);
+  //     ByteData? byteData = await img.toByteData(format: ImageByteFormat.png);
+  //     Uint8List pngBytes = byteData!.buffer.asUint8List();
 
-      //Check for duplicate file name to avoid Override
-      String fileName = 'qr_code';
-      int i = 1;
-      while (await File('$externalDir/$fileName.png').exists()) {
-        fileName = 'qr_code_$i';
-        i++;
-      }
+  //     //Check for duplicate file name to avoid Override
+  //     String fileName = 'qr_code';
+  //     int i = 1;
+  //     while (await File('$externalDir/$fileName.png').exists()) {
+  //       fileName = 'qr_code_$i';
+  //       i++;
+  //     }
 
-      dirExists = await File(externalDir).exists();
-      //if not then create the path
-      if (!dirExists) {
-        print('...........');
+  //     dirExists = await File(externalDir).exists();
+  //     //if not then create the path
+  //     if (!dirExists) {
+  //       print('...........');
 
-        await Directory(externalDir).create(recursive: true);
-        dirExists = true;
-      }
+  //       await Directory(externalDir).create(recursive: true);
+  //       dirExists = true;
+  //     }
 
-      final file = await File('$externalDir/$fileName.png').create();
-      await file.writeAsBytes(pngBytes);
-      final fileX = await XFile(file.path);
-      await Share.shareXFiles([fileX],
-          text: 'yCodeThis'.tr() + ' ${colis.code_livraison_colis}');
-      print('save');
-    } catch (e) {
-      print('error--------${e}');
-    }
-  }
+  //     final file = await File('$externalDir/$fileName.png').create();
+  //     await file.writeAsBytes(pngBytes);
+  //     final fileX = await XFile(file.path);
+  //     await Share.shareXFiles([fileX],
+  //         text: 'yCodeThis'.tr() + ' ${colis.code_livraison_colis}');
+  //     print('save');
+  //   } catch (e) {
+  //     print('error--------${e}');
+  //   }
+  // }
 }
