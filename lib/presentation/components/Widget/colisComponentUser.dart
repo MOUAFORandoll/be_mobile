@@ -2,13 +2,13 @@ import 'dart:io';
 
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
-import 'package:BabanaExpress/presentation/livraison/ColisConversationPage.dart'; 
+import 'package:BabanaExpress/presentation/livraison/ColisConversationPage.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
- 
-import 'dart:async';  
-import 'package:permission_handler/permission_handler.dart';   
+
+import 'dart:async';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 
 // ignore: must_be_immutable

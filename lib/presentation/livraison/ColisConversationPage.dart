@@ -3,10 +3,10 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:BabanaExpress/utils/functions/datetime_format_utils.dart';
-import 'package:cached_network_image/cached_network_image.dart'; 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
- 
-import 'dart:async'; 
+
+import 'dart:async';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
