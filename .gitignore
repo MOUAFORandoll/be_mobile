@@ -9,6 +9,7 @@
 .buildlog/
 .history
 .svn/
+.dart_tool
 
 # IntelliJ related
 *.iml
@@ -25,6 +26,7 @@
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
+.vscode/
 .flutter-plugins
 .flutter-plugins-dependencies
 .packages
@@ -54,3 +56,5 @@ models.jsonc
 /
 .vscode
 .dart_tool
+/.vscode
+/.dart_tool
