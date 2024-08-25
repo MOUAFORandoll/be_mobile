@@ -9,23 +9,23 @@ class CompteRepo {
   final key = 'AIzaSyB2lLkho9yRrZ9DgZ4btFOZ6x22-zZTJ38';
 
   Future getListTransaction(keySecret) async {
-    Response a = await apiClient.getRequest(
+    Response _reponse = await apiClient.getRequest(
         ApiRoutes.TRANSACTION_READ + '?keySecret=' + keySecret.toString());
 
-    return a;
+    return _reponse;
   }
 
   Future retraitCompte(data) async {
-    Response a =
+    Response _reponse =
         await apiClient.postRequest(ApiRoutes.TRANSACTION_RETRAIT, body: data);
 
-    return a;
+    return _reponse;
   }
 
   Future creditCompte(data) async {
-    Response a =
+    Response _reponse =
         await apiClient.postRequest(ApiRoutes.TRANSACTION_DEPOT, body: data);
 
-    return a;
+    return _reponse;
   }
 }

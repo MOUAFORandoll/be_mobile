@@ -1364,35 +1364,31 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     await livraisonRepo
         .verifyLivraisonStatePaiement(state.currentLivraisonId)
         .then((response) {
-      if (response.statusCode == 201) {
-        if (response.data != null) {
-          emit(state.copyWith(isRequest: 2));
-          if (state.selectedModePaiement!.id == 1) {
-            emit(state.copyWith(
-              successLivraison: true,
-              isDownloadFacture: 0,
-            ));
-          }
-          if (state.selectedModePaiement!.id == 2) {
-            emit(state.copyWith(successLivraison: true, paiement_url: 'next'));
-          }
+      print('${state.selectedService} state.selectedService --------------5))');
 
-          if (state.selectedService == 2) {
-            emit(state.copyWith(
-              urlLivraison: response.data['url_livraison'],
-            ));
-          }
-
-          emit(state.copyWith(isRequest: null));
-
-          add(HistoriqueUserLivraison());
-        } else {
+      if (response.statusCode == 200) {
+        emit(state.copyWith(isRequest: 2));
+        if (state.selectedModePaiement!.id == 1) {
           emit(state.copyWith(
-            isRequest: 3,
-            errorMessage: response.data['message'],
+            successLivraison: true,
+            isDownloadFacture: 0,
           ));
-          emit(state.copyWith(isRequest: null, errorMessage: ''));
         }
+        if (state.selectedModePaiement!.id == 2) {
+          emit(state.copyWith(successLivraison: true, paiement_url: 'next'));
+        }
+
+        if (state.selectedService == 2) {
+          emit(state.copyWith(
+            urlLivraison: response.data['url_livraison'],
+          ));
+        }
+        print(
+            '${state.selectedService} state.selectedService --------------5))');
+
+        emit(state.copyWith(isRequest: null));
+
+        // add(HistoriqueUserLivraison());
       } else {
         emit(state.copyWith(
           isRequest: 3,
@@ -1401,12 +1397,10 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         emit(state.copyWith(isRequest: null, errorMessage: ''));
       }
     }).onError((e, s) {
-      print('${e} onError(state.onError(onError: --------------5))');
+      print('${e}');
+      log('===================================');
+      print('====================-----${s}---------5))');
 
-      emit(state.copyWith(isRequest: 3));
-      emit(state.copyWith(isRequest: null));
-    }).catchError((e) {
-      print('---------------${e}');
       emit(state.copyWith(isRequest: 3));
       emit(state.copyWith(isRequest: null));
     });

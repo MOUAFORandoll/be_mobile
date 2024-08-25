@@ -14,44 +14,46 @@ class UserRepo {
     var getId = await dababase.getId();
     print('-----user---${getId}');
     if (getId != null) {
-      Response a = await apiClient.getRequest(ApiRoutes.USER + '?id=${getId}');
+      Response _reponse =
+          await apiClient.getRequest(ApiRoutes.USER + '?id=${getId}');
 
-      return a;
+      return _reponse;
     } else {
       return null;
     }
   }
 
   Future getModePaiement() async {
-    Response a = await apiClient.getRequest('/modepaiement/read');
+    Response _reponse = await apiClient.getRequest('/modepaiement/read');
 
-    return a;
+    return _reponse;
   }
 
   Future getVilleQuartier(long, lat) async {
-    Response a =
+    Response _reponse =
         await apiClient.getRequest('/location/user?long=${long}&lat=${lat}');
     ;
 
-    return a;
+    return _reponse;
   }
 
   Future userRefresh() async {
     var kk = await dababase.getKeyKen();
     if (kk != null) {
-      Response a = await apiClient.postRequest(ApiRoutes.Refresh,
+      Response _reponse = await apiClient.postRequest(ApiRoutes.Refresh,
           body: {'refreshToken': kk['refreshToken']});
 
-      dababase.saveKeyKen(a.data);
+      dababase.saveKeyKen(_reponse.data);
     } else {
       return null;
     }
   }
 
   Future updateUser(data) async {
-    Response a = await apiClient.postRequest(ApiRoutes.UPDATE_USER, body: data);
+    Response _reponse =
+        await apiClient.postRequest(ApiRoutes.UPDATE_USER, body: data);
 
-    return a;
+    return _reponse;
   }
 
   Future newConnexion() async {
@@ -70,13 +72,13 @@ class UserRepo {
         };
         await dababase.saveLonLat(data);
 
-        Response a =
+        Response _reponse =
             await apiClient.postRequest(ApiRoutes.LOCATION_USER, body: data);
 
         // //print('ssnewlocatio-------------------------');
         // //print(a.body);
 
-        return a;
+        return _reponse;
       } catch (e) {
         return null;
       }
@@ -89,59 +91,66 @@ class UserRepo {
   }
 
   Future verifUserExist(data) async {
-    Response a = await apiClient.postRequest(ApiRoutes.VERIFY_EXIST, body: data);
+    Response _reponse =
+        await apiClient.postRequest(ApiRoutes.VERIFY_EXIST, body: data);
 
-    return a;
+    return _reponse;
   }
-  Future login(data) async {
-    Response a = await apiClient.postRequest(ApiRoutes.LOGIN, body: data);
 
-    return a;
+  Future login(data) async {
+    Response _reponse =
+        await apiClient.postRequest(ApiRoutes.LOGIN, body: data);
+
+    return _reponse;
   }
 
   Future loginSocial(data) async {
-    Response a = await apiClient.postRequest(ApiRoutes.LOGINSOCIAL, body: data);
+    Response _reponse =
+        await apiClient.postRequest(ApiRoutes.LOGINSOCIAL, body: data);
 
-    return a;
+    return _reponse;
   }
 
   Future sendCode(data) async {
-    Response a = await apiClient.postRequest(ApiRoutes.SEND_CODE, body: data);
+    Response _reponse =
+        await apiClient.postRequest(ApiRoutes.SEND_CODE, body: data);
 
-    return a;
+    return _reponse;
   }
 
   Future verifyCode(data) async {
-    Response a = await apiClient.postRequest(ApiRoutes.VERIFY_CODE, body: data);
+    Response _reponse =
+        await apiClient.postRequest(ApiRoutes.VERIFY_CODE, body: data);
 
-    return a;
+    return _reponse;
   }
 
   Future resetPassword(data) async {
-    Response a =
+    Response _reponse =
         await apiClient.postRequest(ApiRoutes.REST_PASSWORD, body: data);
 
-    return a;
+    return _reponse;
   }
 
   Future signUp(data) async {
     //print(data);
-    Response a0 = await apiClient.postRequest(ApiRoutes.SIGNUP, body: data);
+    Response _reponse =
+        await apiClient.postRequest(ApiRoutes.SIGNUP, body: data);
 
-    return a0;
+    return _reponse;
   }
 
   Future getListFieul(keySecret, page) async {
-    Response a = await apiClient.getRequest(
+    Response _reponse = await apiClient.getRequest(
         ApiRoutes.LIST_FIEUL + '?keySecret=${keySecret}&page=${page}');
 
-    return a;
+    return _reponse;
   }
 
   Future updateImageUser(data) async {
-    Response a =
+    Response _reponse =
         await apiClient.postRequest(ApiRoutes.USER_IMAGE_UPDATE, body: data);
 
-    return a;
+    return _reponse;
   }
 }

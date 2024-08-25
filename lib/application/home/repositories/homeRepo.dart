@@ -8,22 +8,22 @@ class HomeRepo {
   HomeRepo({required this.apiClient});
 
   Future getHomeLivraisonsState(keySecret) async {
-    Response a = await apiClient.getRequest(
+    Response _reponse = await apiClient.getRequest(
         ApiRoutes.LIVRAISONS + '/user-home-state?keySecret=${keySecret}');
 
-    return a;
+    return _reponse;
   }
 
   Future getServices() async {
-    Response a = await apiClient.getRequest(ApiRoutes.SERVICES);
+    Response _reponse = await apiClient.getRequest(ApiRoutes.SERVICES);
 
-    return a;
+    return _reponse;
   }
 
   Future findLivraisonById(idLivraison) async {
-    Response a = await apiClient.getRequest(
+    Response _reponse = await apiClient.getRequest(
         ApiRoutes.LIVRAISONS + '/info-home-user?idLivraison=${idLivraison}');
 
-    return a;
+    return _reponse;
   }
 }
