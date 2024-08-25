@@ -7,7 +7,7 @@ environment:
 
 dependencies:
   cached_network_image: ^3.3.1
-  carousel_slider: ^4.2.1
+  carousel_slider: ^5.0.0
   open_filex: ^4.4.0
   connectivity: ^3.0.6
   custom_navigation_bar: ^0.8.2
