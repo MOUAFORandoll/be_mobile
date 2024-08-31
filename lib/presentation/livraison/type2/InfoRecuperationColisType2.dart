@@ -708,8 +708,6 @@ class _InfoRecuperationColisType2PageState
                                                       'Douala-Douala Douala-Douala',
                                                       style: TextStyle(
                                                         color: ColorsApp.white,
-                                                        fontFamily:
-                                                            'coolvetica',
                                                       ),
                                                     ),
                                                   ),
@@ -718,8 +716,6 @@ class _InfoRecuperationColisType2PageState
                                                       'Douala-Douala',
                                                       style: TextStyle(
                                                         color: ColorsApp.white,
-                                                        fontFamily:
-                                                            'coolvetica',
                                                       ),
                                                     ),
                                                   ),

@@ -75,7 +75,8 @@ class OnBoardingPage extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: AppButton(
-                    text: state.index == 2 ? 'Continuer' : 'Suivant',
+                    text: /* state.index == 2 ?  */
+                        'Continuer' /*  : 'Suivant' */,
                     textColor: ColorsApp.primary,
                     bgColor: Colors.white,
                     onTap: () {

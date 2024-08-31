@@ -152,44 +152,7 @@ class Localisation {
     );
   }
 }
-
-@Entity()
-class Commande {
-  int id = 0;
-
-  @Property()
-  String codeCommande;
-
-  @Property()
-  String codeClient;
-
-  @Property()
-  String date;
-
-  Commande(
-      {this.id = 0,
-      required this.codeCommande,
-      required this.codeClient,
-      required this.date});
-
-  Map<String, dynamic> toMap() {
-    return {
-      'codeCommande': codeCommande,
-      'codeClient': codeClient,
-      'date': date,
-    };
-  }
-
-  factory Commande.fromJson(Map<String, dynamic> json) {
-    return Commande(
-      id: json['id'],
-      codeCommande: json['codeCommande'],
-      codeClient: json['codeClient'],
-      date: json['date'],
-    );
-  }
-}
-
+ 
 @Entity()
 class KeyUser {
   int id = 0;

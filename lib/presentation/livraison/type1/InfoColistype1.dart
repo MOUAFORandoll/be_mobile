@@ -707,8 +707,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                                       'Douala-Douala Douala-Douala',
                                                       style: TextStyle(
                                                         color: ColorsApp.white,
-                                                        fontFamily:
-                                                            'coolvetica',
+                                                       
                                                       ),
                                                     ),
                                                   ),
@@ -717,8 +716,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                                       'Douala-Douala',
                                                       style: TextStyle(
                                                         color: ColorsApp.white,
-                                                        fontFamily:
-                                                            'coolvetica',
+                                                       
                                                       ),
                                                     ),
                                                   ),

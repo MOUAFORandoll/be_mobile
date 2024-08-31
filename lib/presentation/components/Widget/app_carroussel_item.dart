@@ -15,6 +15,7 @@ class AppCarrousselItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: ColorsApp.primary,
       ),
+      height: getHeight(context),
       padding:
           EdgeInsets.symmetric(vertical: kMarginY * 7, horizontal: kMarginX),
       child: Column(
@@ -77,7 +78,7 @@ class AppCarrousselItem extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
               padding: EdgeInsets.all(30),
-              height: getHeight(context) * .40,
+              height: getHeight(context) * .80,
               width: getHeight(context) * .40,
               decoration: BoxDecoration(
                 color: Colors.white,

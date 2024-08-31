@@ -1,4 +1,3 @@
-
 import 'package:BabanaExpress/config_loading_file.dart';
 import 'package:BabanaExpress/presentation/app.dart';
 
@@ -6,7 +5,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/Services/NotificationService.dart';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'infrastructure/_commons/network/env_config.dart'; 
+import 'infrastructure/_commons/network/env_config.dart';
 import 'core.dart' as co;
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
@@ -21,7 +20,7 @@ Future<void> main() async {
 
   await NotificationService().initializePlatformNotifications();
   configLoadingLoading();
-  
+
   runApp(
     EasyLocalization(
         supportedLocales: supportedLocales,
@@ -30,10 +29,8 @@ Future<void> main() async {
         child: Phoenix(child: AppContent())),
   );
 }
- 
 
 var supportedLocales = const [
   Locale('en', 'US'),
   Locale('fr', 'FR'),
 ];
- 

@@ -7,8 +7,6 @@
 // ignore_for_file: camel_case_types, depend_on_referenced_packages
 // coverage:ignore-file
 
-import 'dart:typed_data';
-
 import 'package:flat_buffers/flat_buffers.dart' as fb;
 import 'package:objectbox/internal.dart'; // generated code can access "internal" functionality
 import 'package:objectbox/objectbox.dart';

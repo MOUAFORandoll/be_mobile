@@ -50,17 +50,6 @@ class DataBaseController {
     //  }s
   }
 
-  // Insert operation
-  insertCommande(int id, String codeCommande, String codeClient, String date) {
-    final commandeBox = store.box<Commande>();
-    store.box<Commande>().put(Commande(
-        id: commandeBox.query().build().find().length + 1,
-        codeCommande: codeCommande,
-        codeClient: codeClient,
-        date: date));
-    return true;
-  }
-
   saveUser(User user) async {
     print('----------------saveeeeeee');
     store.box<User>().put(user);
@@ -73,12 +62,6 @@ class DataBaseController {
     final users = userBox.getAll();
     print(users.length);
     return users.isNotEmpty ? users.first : null;
-  }
-
-  List<Commande> getListCommande() {
-    final commandeBox = store.box<Commande>();
-    // commandeBox.query().build().find().forEach((e) => print(e.codeCommande));
-    return commandeBox.query().build().find();
   }
 
   Future<Map<String, dynamic>?> getLonLat() async {
@@ -141,17 +124,6 @@ class DataBaseController {
     return true;
   }
   // ... autres méthodes
-
-  // InsertAll operation
-  insertAllCommandes() {
-    for (var i = 10; i < 100; i++) {
-      // final commandeBox =;
-      print('-------ii--${i}');
-      store.box<Commande>().put(Commande(
-          codeCommande: 'codeCommande$i', codeClient: '', date: 'date$i'));
-    }
-    return true;
-  }
 
   // Delete operation
   Future<void> deleteAll() async {

@@ -20,5 +20,9 @@ abstract class ColorsApp {
   static const Color red = Color.fromARGB(255, 243, 102, 102);
   // static Color textColor =
   //     Get.isDarkMode ? Color(0xffB40001) : Color(0xFFF1F6FA);
+
+  static const Color disabledGrey = Color(0xFFDDDEE1);
+  static const Color disabledGreySurface = Color(0xFFF5F5F5);
+  static const Color scaffoldBackground = Color(0xFFFBFCF5);
 }
 // Color.fromARGB(255,238,238,238)

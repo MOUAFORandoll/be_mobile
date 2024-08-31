@@ -8,7 +8,7 @@ import 'package:BabanaExpress/presentation/components/Widget/load_file_option.da
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
- 
+
 @RoutePage()
 class CallCenterPage extends StatefulWidget {
   static const routeName = '/callcenter';
@@ -19,13 +19,13 @@ class CallCenterPage extends StatefulWidget {
 
 class _CallCenterPageState extends State<CallCenterPage> {
   ScrollController stateScrollController = new ScrollController();
-  
+
   @override
   void initState() {
     super.initState();
     context.read<CallCenterBloc>().add(GetMessage());
   }
-  
+
   void scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (stateScrollController.hasClients) {
@@ -297,8 +297,6 @@ class _CallCenterPageState extends State<CallCenterPage> {
                                                             .isCallCenter
                                                         ? Text('Call Center',
                                                             style: TextStyle(
-                                                                fontFamily:
-                                                                    'Lato',
                                                                 color: ColorsApp
                                                                     .tird,
                                                                 fontSize: 15,
@@ -307,8 +305,6 @@ class _CallCenterPageState extends State<CallCenterPage> {
                                                                         .w600))
                                                         : Text('Vous',
                                                             style: TextStyle(
-                                                                fontFamily:
-                                                                    'Lato',
                                                                 color: ColorsApp
                                                                     .second,
                                                                 fontSize: 15,

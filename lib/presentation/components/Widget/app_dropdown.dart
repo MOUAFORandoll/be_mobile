@@ -26,7 +26,7 @@ class AppDropdown<T> extends StatelessWidget {
       children: [
         Container(
           margin: EdgeInsets.only(bottom: kMarginY),
-          child: Text(title! ?? '',
+          child: Text(title!,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: kBasics,

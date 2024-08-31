@@ -153,16 +153,14 @@ class _MessageComponentState extends State<MessageComponent>
                                                       .isCallCenter
                                                   ? Text('Call Center',
                                                       style: TextStyle(
-                                                          fontFamily:
-                                                              'coolvetica',
+                                                        
                                                           color: ColorsApp.tird,
                                                           fontSize: 12,
                                                           fontWeight:
                                                               FontWeight.w600))
                                                   : Text('Vous',
                                                       style: TextStyle(
-                                                          fontFamily:
-                                                              'coolvetica',
+                                                        
                                                           color:
                                                               ColorsApp.second,
                                                           fontSize: 12,
