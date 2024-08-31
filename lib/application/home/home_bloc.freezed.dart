@@ -12,7 +12,7 @@ part of 'home_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$HomeEvent {
@@ -126,6 +126,9 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -145,6 +148,8 @@ class __$$ErrorEventImplCopyWithImpl<$Res>
       _$ErrorEventImpl _value, $Res Function(_$ErrorEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -183,7 +188,9 @@ class _$ErrorEventImpl implements ErrorEvent {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorEventImplCopyWith<_$ErrorEventImpl> get copyWith =>
@@ -311,7 +318,10 @@ abstract class ErrorEvent implements HomeEvent {
   const factory ErrorEvent({required final String error}) = _$ErrorEventImpl;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorEventImplCopyWith<_$ErrorEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -330,6 +340,9 @@ class __$$UserDataEventImplCopyWithImpl<$Res>
   __$$UserDataEventImplCopyWithImpl(
       _$UserDataEventImpl _value, $Res Function(_$UserDataEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -490,6 +503,8 @@ class __$$SetIndexEventImplCopyWithImpl<$Res>
       _$SetIndexEventImpl _value, $Res Function(_$SetIndexEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -529,7 +544,9 @@ class _$SetIndexEventImpl implements SetIndexEvent {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SetIndexEventImplCopyWith<_$SetIndexEventImpl> get copyWith =>
@@ -658,7 +675,10 @@ abstract class SetIndexEvent implements HomeEvent {
       _$SetIndexEventImpl;
 
   dynamic get index;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetIndexEventImplCopyWith<_$SetIndexEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -680,6 +700,8 @@ class __$$SetIndexHistoryEventImplCopyWithImpl<$Res>
       $Res Function(_$SetIndexHistoryEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -719,7 +741,9 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SetIndexHistoryEventImplCopyWith<_$SetIndexHistoryEventImpl>
@@ -850,7 +874,10 @@ abstract class SetIndexHistoryEvent implements HomeEvent {
       _$SetIndexHistoryEventImpl;
 
   dynamic get index;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetIndexHistoryEventImplCopyWith<_$SetIndexHistoryEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -872,6 +899,8 @@ class __$$SelectCategoryImplCopyWithImpl<$Res>
       _$SelectCategoryImpl _value, $Res Function(_$SelectCategoryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -911,7 +940,9 @@ class _$SelectCategoryImpl implements SelectCategory {
   @override
   int get hashCode => Object.hash(runtimeType, category);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelectCategoryImplCopyWith<_$SelectCategoryImpl> get copyWith =>
@@ -1041,7 +1072,10 @@ abstract class SelectCategory implements HomeEvent {
       _$SelectCategoryImpl;
 
   CategoryModel get category;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectCategoryImplCopyWith<_$SelectCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1063,6 +1097,8 @@ class __$$UpdateListCategoryImplCopyWithImpl<$Res>
       $Res Function(_$UpdateListCategoryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1110,7 +1146,9 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_categoryList));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateListCategoryImplCopyWith<_$UpdateListCategoryImpl> get copyWith =>
@@ -1241,7 +1279,10 @@ abstract class UpdateListCategory implements HomeEvent {
       _$UpdateListCategoryImpl;
 
   List<CategoryModel> get categoryList;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateListCategoryImplCopyWith<_$UpdateListCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1260,6 +1301,9 @@ class __$$GetCategoryListImplCopyWithImpl<$Res>
   __$$GetCategoryListImplCopyWithImpl(
       _$GetCategoryListImpl _value, $Res Function(_$GetCategoryListImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1417,6 +1461,9 @@ class __$$GetServiceImplCopyWithImpl<$Res>
   __$$GetServiceImplCopyWithImpl(
       _$GetServiceImpl _value, $Res Function(_$GetServiceImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1574,6 +1621,9 @@ class __$$OpenLivraisonModalImplCopyWithImpl<$Res>
   __$$OpenLivraisonModalImplCopyWithImpl(_$OpenLivraisonModalImpl _value,
       $Res Function(_$OpenLivraisonModalImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1731,6 +1781,9 @@ class __$$HomeStateLivraisonImplCopyWithImpl<$Res>
   __$$HomeStateLivraisonImplCopyWithImpl(_$HomeStateLivraisonImpl _value,
       $Res Function(_$HomeStateLivraisonImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1891,6 +1944,8 @@ class __$$FindLivraisonByIdImplCopyWithImpl<$Res>
       $Res Function(_$FindLivraisonByIdImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1930,7 +1985,9 @@ class _$FindLivraisonByIdImpl implements FindLivraisonById {
   @override
   int get hashCode => Object.hash(runtimeType, idLivraison);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FindLivraisonByIdImplCopyWith<_$FindLivraisonByIdImpl> get copyWith =>
@@ -2060,7 +2117,10 @@ abstract class FindLivraisonById implements HomeEvent {
       _$FindLivraisonByIdImpl;
 
   int get idLivraison;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FindLivraisonByIdImplCopyWith<_$FindLivraisonByIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2081,7 +2141,9 @@ mixin _$HomeState {
   bool? get noOpen => throw _privateConstructorUsedError;
   int get isLoadHomeStateLivraison => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HomeStateCopyWith<HomeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2116,6 +2178,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2216,6 +2280,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
       _$HomeStateImpl _value, $Res Function(_$HomeStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2395,7 +2461,9 @@ class _$HomeStateImpl implements _HomeState {
       noOpen,
       isLoadHomeStateLivraison);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
@@ -2441,8 +2509,11 @@ abstract class _HomeState implements HomeState {
   bool? get noOpen;
   @override
   int get isLoadHomeStateLivraison;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

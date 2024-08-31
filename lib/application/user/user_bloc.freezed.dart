@@ -12,7 +12,7 @@ part of 'user_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$UserEvent {
@@ -143,6 +143,9 @@ class _$UserEventCopyWithImpl<$Res, $Val extends UserEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -159,6 +162,9 @@ class __$$SignInEventImplCopyWithImpl<$Res>
   __$$SignInEventImplCopyWithImpl(
       _$SignInEventImpl _value, $Res Function(_$SignInEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -333,6 +339,9 @@ class __$$VerifUserExistImplCopyWithImpl<$Res>
   __$$VerifUserExistImplCopyWithImpl(
       _$VerifUserExistImpl _value, $Res Function(_$VerifUserExistImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -507,6 +516,9 @@ class __$$SignInSocialEventImplCopyWithImpl<$Res>
   __$$SignInSocialEventImplCopyWithImpl(_$SignInSocialEventImpl _value,
       $Res Function(_$SignInSocialEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -681,6 +693,9 @@ class __$$RegisterSocialEventImplCopyWithImpl<$Res>
   __$$RegisterSocialEventImplCopyWithImpl(_$RegisterSocialEventImpl _value,
       $Res Function(_$RegisterSocialEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -856,6 +871,9 @@ class __$$RegisterEventImplCopyWithImpl<$Res>
   __$$RegisterEventImplCopyWithImpl(
       _$RegisterEventImpl _value, $Res Function(_$RegisterEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1033,6 +1051,8 @@ class __$$SendCodeImplCopyWithImpl<$Res>
       _$SendCodeImpl _value, $Res Function(_$SendCodeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1071,7 +1091,9 @@ class _$SendCodeImpl implements SendCode {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SendCodeImplCopyWith<_$SendCodeImpl> get copyWith =>
@@ -1216,7 +1238,10 @@ abstract class SendCode implements UserEvent {
   const factory SendCode({required final String data}) = _$SendCodeImpl;
 
   String get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SendCodeImplCopyWith<_$SendCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1238,6 +1263,8 @@ class __$$UpdateUserInfoImplCopyWithImpl<$Res>
       _$UpdateUserInfoImpl _value, $Res Function(_$UpdateUserInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1283,7 +1310,9 @@ class _$UpdateUserInfoImpl implements UpdateUserInfo {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateUserInfoImplCopyWith<_$UpdateUserInfoImpl> get copyWith =>
@@ -1430,7 +1459,10 @@ abstract class UpdateUserInfo implements UserEvent {
       _$UpdateUserInfoImpl;
 
   Map<dynamic, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateUserInfoImplCopyWith<_$UpdateUserInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1452,6 +1484,8 @@ class __$$VerifyCodeImplCopyWithImpl<$Res>
       _$VerifyCodeImpl _value, $Res Function(_$VerifyCodeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1498,7 +1532,9 @@ class _$VerifyCodeImpl implements VerifyCode {
   @override
   int get hashCode => Object.hash(runtimeType, data, code);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$VerifyCodeImplCopyWith<_$VerifyCodeImpl> get copyWith =>
@@ -1646,7 +1682,10 @@ abstract class VerifyCode implements UserEvent {
 
   String get data;
   String get code;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$VerifyCodeImplCopyWith<_$VerifyCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1668,6 +1707,8 @@ class __$$ResetPasswordImplCopyWithImpl<$Res>
       _$ResetPasswordImpl _value, $Res Function(_$ResetPasswordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1715,7 +1756,9 @@ class _$ResetPasswordImpl implements ResetPassword {
   @override
   int get hashCode => Object.hash(runtimeType, data, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ResetPasswordImplCopyWith<_$ResetPasswordImpl> get copyWith =>
@@ -1863,7 +1906,10 @@ abstract class ResetPassword implements UserEvent {
 
   String get data;
   String get password;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ResetPasswordImplCopyWith<_$ResetPasswordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1885,6 +1931,8 @@ class __$$SignOutEventImplCopyWithImpl<$Res>
       _$SignOutEventImpl _value, $Res Function(_$SignOutEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1923,7 +1971,9 @@ class _$SignOutEventImpl implements SignOutEvent {
   @override
   int get hashCode => Object.hash(runtimeType, context);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SignOutEventImplCopyWith<_$SignOutEventImpl> get copyWith =>
@@ -2069,7 +2119,10 @@ abstract class SignOutEvent implements UserEvent {
       _$SignOutEventImpl;
 
   BuildContext get context;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SignOutEventImplCopyWith<_$SignOutEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2088,6 +2141,9 @@ class __$$GetUserEventImplCopyWithImpl<$Res>
   __$$GetUserEventImplCopyWithImpl(
       _$GetUserEventImpl _value, $Res Function(_$GetUserEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2262,6 +2318,9 @@ class __$$GetVilleQuartierImplCopyWithImpl<$Res>
   __$$GetVilleQuartierImplCopyWithImpl(_$GetVilleQuartierImpl _value,
       $Res Function(_$GetVilleQuartierImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2436,6 +2495,9 @@ class __$$UpdateUserImageImplCopyWithImpl<$Res>
   __$$UpdateUserImageImplCopyWithImpl(
       _$UpdateUserImageImpl _value, $Res Function(_$UpdateUserImageImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2610,6 +2672,9 @@ class __$$GetModePaiementImplCopyWithImpl<$Res>
   __$$GetModePaiementImplCopyWithImpl(
       _$GetModePaiementImpl _value, $Res Function(_$GetModePaiementImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UserEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2795,7 +2860,9 @@ mixin _$UserState {
   int? get isExistLoading => throw _privateConstructorUsedError;
   bool? get updating => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserStateCopyWith<UserState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2839,6 +2906,8 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2993,6 +3062,8 @@ class __$$UserStateImplCopyWithImpl<$Res>
       _$UserStateImpl _value, $Res Function(_$UserStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3266,7 +3337,9 @@ class _$UserStateImpl implements _UserState {
         updating
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>
@@ -3339,8 +3412,11 @@ abstract class _UserState implements UserState {
   int? get isExistLoading;
   @override
   bool? get updating;
+
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

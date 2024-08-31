@@ -47,6 +47,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Future<void> homeStateLivraison(
       HomeStateLivraison event, Emitter<HomeState> emit) async {
     var key = await database.getKey();
+    print('---------key-------------------------*ataEvent***${key}');
     emit(state.copyWith(
       isLoadHomeStateLivraison: 0,
     ));

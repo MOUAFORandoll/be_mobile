@@ -12,7 +12,7 @@ part of 'livraison_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LivraisonEvent {
@@ -421,6 +421,9 @@ class _$LivraisonEventCopyWithImpl<$Res, $Val extends LivraisonEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -440,6 +443,9 @@ class __$$VerifyFormLivraisonType1EventImplCopyWithImpl<$Res>
       _$VerifyFormLivraisonType1EventImpl _value,
       $Res Function(_$VerifyFormLivraisonType1EventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -894,6 +900,9 @@ class __$$BackIndexType1EventImplCopyWithImpl<$Res>
   __$$BackIndexType1EventImplCopyWithImpl(_$BackIndexType1EventImpl _value,
       $Res Function(_$BackIndexType1EventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1348,6 +1357,9 @@ class __$$GetVilleAndCategoryEventImplCopyWithImpl<$Res>
       _$GetVilleAndCategoryEventImpl _value,
       $Res Function(_$GetVilleAndCategoryEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1803,6 +1815,8 @@ class __$$SelectedVilleImplCopyWithImpl<$Res>
       _$SelectedVilleImpl _value, $Res Function(_$SelectedVilleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1841,7 +1855,9 @@ class _$SelectedVilleImpl implements SelectedVille {
   @override
   int get hashCode => Object.hash(runtimeType, ville);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelectedVilleImplCopyWith<_$SelectedVilleImpl> get copyWith =>
@@ -2264,7 +2280,10 @@ abstract class SelectedVille implements LivraisonEvent {
       _$SelectedVilleImpl;
 
   VilleModel get ville;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectedVilleImplCopyWith<_$SelectedVilleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2286,6 +2305,8 @@ class __$$SelectedCategoryImplCopyWithImpl<$Res>
       $Res Function(_$SelectedCategoryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2325,7 +2346,9 @@ class _$SelectedCategoryImpl implements SelectedCategory {
   @override
   int get hashCode => Object.hash(runtimeType, categoryColis);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelectedCategoryImplCopyWith<_$SelectedCategoryImpl> get copyWith =>
@@ -2749,7 +2772,10 @@ abstract class SelectedCategory implements LivraisonEvent {
       _$SelectedCategoryImpl;
 
   CategoryModel get categoryColis;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectedCategoryImplCopyWith<_$SelectedCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2773,6 +2799,8 @@ class __$$SelectPointRecuperationImplCopyWithImpl<$Res>
       $Res Function(_$SelectPointRecuperationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2812,7 +2840,9 @@ class _$SelectPointRecuperationImpl implements SelectPointRecuperation {
   @override
   int get hashCode => Object.hash(runtimeType, point_recup);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelectPointRecuperationImplCopyWith<_$SelectPointRecuperationImpl>
@@ -3237,7 +3267,10 @@ abstract class SelectPointRecuperation implements LivraisonEvent {
       _$SelectPointRecuperationImpl;
 
   PointLivraisonModel get point_recup;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectPointRecuperationImplCopyWith<_$SelectPointRecuperationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -3258,6 +3291,9 @@ class __$$ClearPointRecuperationImplCopyWithImpl<$Res>
       _$ClearPointRecuperationImpl _value,
       $Res Function(_$ClearPointRecuperationImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -3710,6 +3746,9 @@ class __$$ClearPointLivraisonImplCopyWithImpl<$Res>
   __$$ClearPointLivraisonImplCopyWithImpl(_$ClearPointLivraisonImpl _value,
       $Res Function(_$ClearPointLivraisonImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -4165,6 +4204,8 @@ class __$$SetLogLatImplCopyWithImpl<$Res>
       _$SetLogLatImpl _value, $Res Function(_$SetLogLatImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -4216,7 +4257,9 @@ class _$SetLogLatImpl implements SetLogLat {
   int get hashCode =>
       Object.hash(runtimeType, latLng, quartier_recuperation_point);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SetLogLatImplCopyWith<_$SetLogLatImpl> get copyWith =>
@@ -4641,7 +4684,10 @@ abstract class SetLogLat implements LivraisonEvent {
 
   LatLng get latLng;
   String? get quartier_recuperation_point;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetLogLatImplCopyWith<_$SetLogLatImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -4660,6 +4706,9 @@ class __$$StartLogLatImplCopyWithImpl<$Res>
   __$$StartLogLatImplCopyWithImpl(
       _$StartLogLatImpl _value, $Res Function(_$StartLogLatImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -5114,6 +5163,8 @@ class __$$GetRecupPointEventImplCopyWithImpl<$Res>
       $Res Function(_$GetRecupPointEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -5152,7 +5203,9 @@ class _$GetRecupPointEventImpl implements GetRecupPointEvent {
   @override
   int get hashCode => Object.hash(runtimeType, ville);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetRecupPointEventImplCopyWith<_$GetRecupPointEventImpl> get copyWith =>
@@ -5576,7 +5629,10 @@ abstract class GetRecupPointEvent implements LivraisonEvent {
       _$GetRecupPointEventImpl;
 
   int get ville;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetRecupPointEventImplCopyWith<_$GetRecupPointEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -5598,6 +5654,8 @@ class __$$SearchPointEventImplCopyWithImpl<$Res>
       $Res Function(_$SearchPointEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -5636,7 +5694,9 @@ class _$SearchPointEventImpl implements SearchPointEvent {
   @override
   int get hashCode => Object.hash(runtimeType, text);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SearchPointEventImplCopyWith<_$SearchPointEventImpl> get copyWith =>
@@ -6060,7 +6120,10 @@ abstract class SearchPointEvent implements LivraisonEvent {
       _$SearchPointEventImpl;
 
   String get text;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SearchPointEventImplCopyWith<_$SearchPointEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -6082,6 +6145,8 @@ class __$$MapSelectedImplCopyWithImpl<$Res>
       _$MapSelectedImpl _value, $Res Function(_$MapSelectedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -6120,7 +6185,9 @@ class _$MapSelectedImpl implements MapSelected {
   @override
   int get hashCode => Object.hash(runtimeType, status);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MapSelectedImplCopyWith<_$MapSelectedImpl> get copyWith =>
@@ -6542,7 +6609,10 @@ abstract class MapSelected implements LivraisonEvent {
   const factory MapSelected({required final bool status}) = _$MapSelectedImpl;
 
   bool get status;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MapSelectedImplCopyWith<_$MapSelectedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -6564,6 +6634,8 @@ class __$$MapValidatePointImplCopyWithImpl<$Res>
       $Res Function(_$MapValidatePointImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -6611,7 +6683,9 @@ class _$MapValidatePointImpl implements MapValidatePoint {
   @override
   int get hashCode => Object.hash(runtimeType, libelle, quartier);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MapValidatePointImplCopyWith<_$MapValidatePointImpl> get copyWith =>
@@ -7037,7 +7111,10 @@ abstract class MapValidatePoint implements LivraisonEvent {
 
   String get libelle;
   String get quartier;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MapValidatePointImplCopyWith<_$MapValidatePointImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -7061,6 +7138,8 @@ class __$$MapValidatePointLivraisonImplCopyWithImpl<$Res>
       $Res Function(_$MapValidatePointLivraisonImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -7109,7 +7188,9 @@ class _$MapValidatePointLivraisonImpl implements MapValidatePointLivraison {
   @override
   int get hashCode => Object.hash(runtimeType, libelle, quartier);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MapValidatePointLivraisonImplCopyWith<_$MapValidatePointLivraisonImpl>
@@ -7535,7 +7616,10 @@ abstract class MapValidatePointLivraison implements LivraisonEvent {
 
   String get libelle;
   String get quartier;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MapValidatePointLivraisonImplCopyWith<_$MapValidatePointLivraisonImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -7554,6 +7638,9 @@ class __$$AddColisType1ImplCopyWithImpl<$Res>
   __$$AddColisType1ImplCopyWithImpl(
       _$AddColisType1Impl _value, $Res Function(_$AddColisType1Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -8008,6 +8095,8 @@ class __$$UpdateColisImplCopyWithImpl<$Res>
       _$UpdateColisImpl _value, $Res Function(_$UpdateColisImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -8046,7 +8135,9 @@ class _$UpdateColisImpl implements UpdateColis {
   @override
   int get hashCode => Object.hash(runtimeType, idColis);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateColisImplCopyWith<_$UpdateColisImpl> get copyWith =>
@@ -8468,7 +8559,10 @@ abstract class UpdateColis implements LivraisonEvent {
   const factory UpdateColis({required final int idColis}) = _$UpdateColisImpl;
 
   int get idColis;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateColisImplCopyWith<_$UpdateColisImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -8490,6 +8584,8 @@ class __$$DeleteColisImplCopyWithImpl<$Res>
       _$DeleteColisImpl _value, $Res Function(_$DeleteColisImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -8528,7 +8624,9 @@ class _$DeleteColisImpl implements DeleteColis {
   @override
   int get hashCode => Object.hash(runtimeType, idColis);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteColisImplCopyWith<_$DeleteColisImpl> get copyWith =>
@@ -8950,7 +9048,10 @@ abstract class DeleteColis implements LivraisonEvent {
   const factory DeleteColis({required final int idColis}) = _$DeleteColisImpl;
 
   int get idColis;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteColisImplCopyWith<_$DeleteColisImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -8970,6 +9071,9 @@ class __$$GetImageColisAppareilImplCopyWithImpl<$Res>
   __$$GetImageColisAppareilImplCopyWithImpl(_$GetImageColisAppareilImpl _value,
       $Res Function(_$GetImageColisAppareilImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -9422,6 +9526,9 @@ class __$$GetImageColisGalerieImplCopyWithImpl<$Res>
   __$$GetImageColisGalerieImplCopyWithImpl(_$GetImageColisGalerieImpl _value,
       $Res Function(_$GetImageColisGalerieImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -9878,6 +9985,8 @@ class __$$AddImageColisAppareilImplCopyWithImpl<$Res>
       $Res Function(_$AddImageColisAppareilImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -9916,7 +10025,9 @@ class _$AddImageColisAppareilImpl implements AddImageColisAppareil {
   @override
   int get hashCode => Object.hash(runtimeType, idColis);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddImageColisAppareilImplCopyWith<_$AddImageColisAppareilImpl>
@@ -10340,7 +10451,10 @@ abstract class AddImageColisAppareil implements LivraisonEvent {
       _$AddImageColisAppareilImpl;
 
   int get idColis;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddImageColisAppareilImplCopyWith<_$AddImageColisAppareilImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -10362,6 +10476,8 @@ class __$$AddImageColisGalerieImplCopyWithImpl<$Res>
       $Res Function(_$AddImageColisGalerieImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -10400,7 +10516,9 @@ class _$AddImageColisGalerieImpl implements AddImageColisGalerie {
   @override
   int get hashCode => Object.hash(runtimeType, idColis);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddImageColisGalerieImplCopyWith<_$AddImageColisGalerieImpl>
@@ -10825,7 +10943,10 @@ abstract class AddImageColisGalerie implements LivraisonEvent {
       _$AddImageColisGalerieImpl;
 
   int get idColis;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddImageColisGalerieImplCopyWith<_$AddImageColisGalerieImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -10849,6 +10970,8 @@ class __$$SelectPointLivraisonColisImplCopyWithImpl<$Res>
       $Res Function(_$SelectPointLivraisonColisImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -10888,7 +11011,9 @@ class _$SelectPointLivraisonColisImpl implements SelectPointLivraisonColis {
   @override
   int get hashCode => Object.hash(runtimeType, point_livraison);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelectPointLivraisonColisImplCopyWith<_$SelectPointLivraisonColisImpl>
@@ -11313,7 +11438,10 @@ abstract class SelectPointLivraisonColis implements LivraisonEvent {
       _$SelectPointLivraisonColisImpl;
 
   PointLivraisonModel get point_livraison;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectPointLivraisonColisImplCopyWith<_$SelectPointLivraisonColisImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -11334,6 +11462,9 @@ class __$$SuccessLivraisonCreateImplCopyWithImpl<$Res>
       _$SuccessLivraisonCreateImpl _value,
       $Res Function(_$SuccessLivraisonCreateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -11789,6 +11920,8 @@ class __$$RemoveImageFromColisImplCopyWithImpl<$Res>
       $Res Function(_$RemoveImageFromColisImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -11837,7 +11970,9 @@ class _$RemoveImageFromColisImpl implements RemoveImageFromColis {
   @override
   int get hashCode => Object.hash(runtimeType, idColis, position);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RemoveImageFromColisImplCopyWith<_$RemoveImageFromColisImpl>
@@ -12264,7 +12399,10 @@ abstract class RemoveImageFromColis implements LivraisonEvent {
 
   int get idColis;
   int get position;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveImageFromColisImplCopyWith<_$RemoveImageFromColisImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -12286,6 +12424,8 @@ class __$$UpdateImageInColisImplCopyWithImpl<$Res>
       $Res Function(_$UpdateImageInColisImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -12345,7 +12485,9 @@ class _$UpdateImageInColisImpl implements UpdateImageInColis {
   @override
   int get hashCode => Object.hash(runtimeType, idColis, position, updatedImage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateImageInColisImplCopyWith<_$UpdateImageInColisImpl> get copyWith =>
@@ -12773,7 +12915,10 @@ abstract class UpdateImageInColis implements LivraisonEvent {
   int get idColis;
   int get position;
   File get updatedImage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateImageInColisImplCopyWith<_$UpdateImageInColisImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -12795,6 +12940,8 @@ class __$$SelectColisImplCopyWithImpl<$Res>
       _$SelectColisImpl _value, $Res Function(_$SelectColisImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -12833,7 +12980,9 @@ class _$SelectColisImpl implements SelectColis {
   @override
   int get hashCode => Object.hash(runtimeType, colis);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelectColisImplCopyWith<_$SelectColisImpl> get copyWith =>
@@ -13255,7 +13404,10 @@ abstract class SelectColis implements LivraisonEvent {
   const factory SelectColis({required final Colis colis}) = _$SelectColisImpl;
 
   Colis get colis;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectColisImplCopyWith<_$SelectColisImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -13277,6 +13429,8 @@ class __$$ManageQteImplCopyWithImpl<$Res>
       _$ManageQteImpl _value, $Res Function(_$ManageQteImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -13315,7 +13469,9 @@ class _$ManageQteImpl implements ManageQte {
   @override
   int get hashCode => Object.hash(runtimeType, state);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ManageQteImplCopyWith<_$ManageQteImpl> get copyWith =>
@@ -13737,7 +13893,10 @@ abstract class ManageQte implements LivraisonEvent {
   const factory ManageQte({required final bool state}) = _$ManageQteImpl;
 
   bool get state;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ManageQteImplCopyWith<_$ManageQteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -13756,6 +13915,9 @@ class __$$CalculFraisType1ImplCopyWithImpl<$Res>
   __$$CalculFraisType1ImplCopyWithImpl(_$CalculFraisType1Impl _value,
       $Res Function(_$CalculFraisType1Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -14207,6 +14369,9 @@ class __$$NewLivraisonType1ImplCopyWithImpl<$Res>
   __$$NewLivraisonType1ImplCopyWithImpl(_$NewLivraisonType1Impl _value,
       $Res Function(_$NewLivraisonType1Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -14658,6 +14823,9 @@ class __$$VerifyLivraisonType1ImplCopyWithImpl<$Res>
   __$$VerifyLivraisonType1ImplCopyWithImpl(_$VerifyLivraisonType1Impl _value,
       $Res Function(_$VerifyLivraisonType1Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -15112,6 +15280,9 @@ class __$$HistoriqueUserLivraisonImplCopyWithImpl<$Res>
       _$HistoriqueUserLivraisonImpl _value,
       $Res Function(_$HistoriqueUserLivraisonImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -15567,6 +15738,8 @@ class __$$DownloadFactureImplCopyWithImpl<$Res>
       _$DownloadFactureImpl _value, $Res Function(_$DownloadFactureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -15605,7 +15778,9 @@ class _$DownloadFactureImpl implements DownloadFacture {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DownloadFactureImplCopyWith<_$DownloadFactureImpl> get copyWith =>
@@ -16029,7 +16204,10 @@ abstract class DownloadFacture implements LivraisonEvent {
       _$DownloadFactureImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DownloadFactureImplCopyWith<_$DownloadFactureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -16048,6 +16226,9 @@ class __$$NoValidateImplCopyWithImpl<$Res>
   __$$NoValidateImplCopyWithImpl(
       _$NoValidateImpl _value, $Res Function(_$NoValidateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -16499,6 +16680,9 @@ class __$$OnStartEventImplCopyWithImpl<$Res>
   __$$OnStartEventImplCopyWithImpl(
       _$OnStartEventImpl _value, $Res Function(_$OnStartEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -16950,6 +17134,9 @@ class __$$GetMapPlaceInfoImplCopyWithImpl<$Res>
   __$$GetMapPlaceInfoImplCopyWithImpl(
       _$GetMapPlaceInfoImpl _value, $Res Function(_$GetMapPlaceInfoImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -17404,6 +17591,8 @@ class __$$OnAutoCompletImplCopyWithImpl<$Res>
       _$OnAutoCompletImpl _value, $Res Function(_$OnAutoCompletImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -17442,7 +17631,9 @@ class _$OnAutoCompletImpl implements OnAutoComplet {
   @override
   int get hashCode => Object.hash(runtimeType, text);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OnAutoCompletImplCopyWith<_$OnAutoCompletImpl> get copyWith =>
@@ -17865,7 +18056,10 @@ abstract class OnAutoComplet implements LivraisonEvent {
       _$OnAutoCompletImpl;
 
   String get text;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OnAutoCompletImplCopyWith<_$OnAutoCompletImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -17889,6 +18083,8 @@ class __$$GetPlaceDataRecuperationImplCopyWithImpl<$Res>
       $Res Function(_$GetPlaceDataRecuperationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -17927,7 +18123,9 @@ class _$GetPlaceDataRecuperationImpl implements GetPlaceDataRecuperation {
   @override
   int get hashCode => Object.hash(runtimeType, place);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetPlaceDataRecuperationImplCopyWith<_$GetPlaceDataRecuperationImpl>
@@ -18351,7 +18549,10 @@ abstract class GetPlaceDataRecuperation implements LivraisonEvent {
       _$GetPlaceDataRecuperationImpl;
 
   PlaceModel get place;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetPlaceDataRecuperationImplCopyWith<_$GetPlaceDataRecuperationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -18373,6 +18574,8 @@ class __$$SelectModePaiementImplCopyWithImpl<$Res>
       $Res Function(_$SelectModePaiementImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -18412,7 +18615,9 @@ class _$SelectModePaiementImpl implements SelectModePaiement {
   @override
   int get hashCode => Object.hash(runtimeType, modePaiement);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelectModePaiementImplCopyWith<_$SelectModePaiementImpl> get copyWith =>
@@ -18837,7 +19042,10 @@ abstract class SelectModePaiement implements LivraisonEvent {
       _$SelectModePaiementImpl;
 
   ModePaiementModel get modePaiement;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectModePaiementImplCopyWith<_$SelectModePaiementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -18859,6 +19067,8 @@ class __$$SelectServiceImplCopyWithImpl<$Res>
       _$SelectServiceImpl _value, $Res Function(_$SelectServiceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -18897,7 +19107,9 @@ class _$SelectServiceImpl implements SelectService {
   @override
   int get hashCode => Object.hash(runtimeType, service);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelectServiceImplCopyWith<_$SelectServiceImpl> get copyWith =>
@@ -19320,7 +19532,10 @@ abstract class SelectService implements LivraisonEvent {
       _$SelectServiceImpl;
 
   int get service;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectServiceImplCopyWith<_$SelectServiceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -19342,6 +19557,9 @@ class __$$VerifyFormLivraisonType2EventImplCopyWithImpl<$Res>
       _$VerifyFormLivraisonType2EventImpl _value,
       $Res Function(_$VerifyFormLivraisonType2EventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -19796,6 +20014,9 @@ class __$$BackIndexType2EventImplCopyWithImpl<$Res>
   __$$BackIndexType2EventImplCopyWithImpl(_$BackIndexType2EventImpl _value,
       $Res Function(_$BackIndexType2EventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -20248,6 +20469,9 @@ class __$$CalculFraisType2ImplCopyWithImpl<$Res>
   __$$CalculFraisType2ImplCopyWithImpl(_$CalculFraisType2Impl _value,
       $Res Function(_$CalculFraisType2Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -20699,6 +20923,9 @@ class __$$AddColisType2ImplCopyWithImpl<$Res>
   __$$AddColisType2ImplCopyWithImpl(
       _$AddColisType2Impl _value, $Res Function(_$AddColisType2Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -21150,6 +21377,9 @@ class __$$NewLivraisonType2ImplCopyWithImpl<$Res>
   __$$NewLivraisonType2ImplCopyWithImpl(_$NewLivraisonType2Impl _value,
       $Res Function(_$NewLivraisonType2Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -21601,6 +21831,9 @@ class __$$VerifyLivraisonStateImplCopyWithImpl<$Res>
   __$$VerifyLivraisonStateImplCopyWithImpl(_$VerifyLivraisonStateImpl _value,
       $Res Function(_$VerifyLivraisonStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -22056,6 +22289,8 @@ class __$$GetConversationColisImplCopyWithImpl<$Res>
       $Res Function(_$GetConversationColisImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -22094,7 +22329,9 @@ class _$GetConversationColisImpl implements GetConversationColis {
   @override
   int get hashCode => Object.hash(runtimeType, idColis);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetConversationColisImplCopyWith<_$GetConversationColisImpl>
@@ -22519,7 +22756,10 @@ abstract class GetConversationColis implements LivraisonEvent {
       _$GetConversationColisImpl;
 
   int get idColis;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetConversationColisImplCopyWith<_$GetConversationColisImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -22540,6 +22780,9 @@ class __$$CurrentUserStateLivraisonImplCopyWithImpl<$Res>
       _$CurrentUserStateLivraisonImpl _value,
       $Res Function(_$CurrentUserStateLivraisonImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -22998,6 +23241,8 @@ class __$$UpdatePositionLivraisonLivreurImplCopyWithImpl<$Res>
       $Res Function(_$UpdatePositionLivraisonLivreurImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -23048,7 +23293,9 @@ class _$UpdatePositionLivraisonLivreurImpl
   @override
   int get hashCode => Object.hash(runtimeType, longitude, latitude);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdatePositionLivraisonLivreurImplCopyWith<
@@ -23475,7 +23722,10 @@ abstract class UpdatePositionLivraisonLivreur implements LivraisonEvent {
 
   double get longitude;
   double get latitude;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdatePositionLivraisonLivreurImplCopyWith<
           _$UpdatePositionLivraisonLivreurImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -23495,6 +23745,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -23951,6 +24204,8 @@ class __$$LoadPlaceInfoRecuperationImplCopyWithImpl<$Res>
       $Res Function(_$LoadPlaceInfoRecuperationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -23989,7 +24244,9 @@ class _$LoadPlaceInfoRecuperationImpl implements LoadPlaceInfoRecuperation {
   @override
   int get hashCode => Object.hash(runtimeType, latLng);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadPlaceInfoRecuperationImplCopyWith<_$LoadPlaceInfoRecuperationImpl>
@@ -24413,7 +24670,10 @@ abstract class LoadPlaceInfoRecuperation implements LivraisonEvent {
       _$LoadPlaceInfoRecuperationImpl;
 
   LatLng get latLng;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadPlaceInfoRecuperationImplCopyWith<_$LoadPlaceInfoRecuperationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -24437,6 +24697,8 @@ class __$$LoadPlaceInfoLivraisonImplCopyWithImpl<$Res>
       $Res Function(_$LoadPlaceInfoLivraisonImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -24475,7 +24737,9 @@ class _$LoadPlaceInfoLivraisonImpl implements LoadPlaceInfoLivraison {
   @override
   int get hashCode => Object.hash(runtimeType, latLng);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadPlaceInfoLivraisonImplCopyWith<_$LoadPlaceInfoLivraisonImpl>
@@ -24899,7 +25163,10 @@ abstract class LoadPlaceInfoLivraison implements LivraisonEvent {
       _$LoadPlaceInfoLivraisonImpl;
 
   LatLng get latLng;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadPlaceInfoLivraisonImplCopyWith<_$LoadPlaceInfoLivraisonImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -24922,6 +25189,8 @@ class __$$GetPlaceDataLivraisonImplCopyWithImpl<$Res>
       $Res Function(_$GetPlaceDataLivraisonImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -24960,7 +25229,9 @@ class _$GetPlaceDataLivraisonImpl implements GetPlaceDataLivraison {
   @override
   int get hashCode => Object.hash(runtimeType, place);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetPlaceDataLivraisonImplCopyWith<_$GetPlaceDataLivraisonImpl>
@@ -25384,7 +25655,10 @@ abstract class GetPlaceDataLivraison implements LivraisonEvent {
       _$GetPlaceDataLivraisonImpl;
 
   PlaceModel get place;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LivraisonEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetPlaceDataLivraisonImplCopyWith<_$GetPlaceDataLivraisonImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -25484,7 +25758,9 @@ mixin _$LivraisonState {
   MapPlaceInfoModel? get livraisonPlaceInfo =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LivraisonStateCopyWith<LivraisonState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -25579,6 +25855,8 @@ class _$LivraisonStateCopyWithImpl<$Res, $Val extends LivraisonState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LivraisonState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -26033,6 +26311,8 @@ class __$$LivraisonStateImplCopyWithImpl<$Res>
       _$LivraisonStateImpl _value, $Res Function(_$LivraisonStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LivraisonState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -26888,7 +27168,9 @@ class _$LivraisonStateImpl implements _LivraisonState {
         livraisonPlaceInfo
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LivraisonState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LivraisonStateImplCopyWith<_$LivraisonStateImpl> get copyWith =>
@@ -26978,8 +27260,8 @@ abstract class _LivraisonState implements LivraisonState {
   @override
   bool get isMapSelectedPointRecuperation;
   @override
-  int get indexType1;
-  @override // double? longitudeRecuperation,
+  int get indexType1; // double? longitudeRecuperation,
+  @override
   PointLivraisonModel? get selected_recuperation_point;
   @override
   String? get quartier_recuperation_point;
@@ -27113,8 +27395,11 @@ abstract class _LivraisonState implements LivraisonState {
   MapPlaceInfoModel? get recuperationPlaceInfo;
   @override
   MapPlaceInfoModel? get livraisonPlaceInfo;
+
+  /// Create a copy of LivraisonState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LivraisonStateImplCopyWith<_$LivraisonStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,10 +1,9 @@
- 
 import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
-import 'package:BabanaExpress/presentation/layer/onboardingcomponent.dart'; 
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
-import 'package:BabanaExpress/routes/app_router.gr.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 
 @RoutePage()
 class AuthPage extends StatefulWidget {
@@ -26,7 +25,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorsApp.primary,
+        backgroundColor: ColorsApp.second,
         body: BlocConsumer<UserBloc, UserState>(
             listener: (context, state) {
               if (state.isExistLoading == 0) {
@@ -49,7 +48,11 @@ class _AuthPageState extends State<AuthPage> {
             },
             builder: (context, state) => SingleChildScrollView(
                     child: Column(children: [
-                  OnBoardingComponent(),
+                  AppCarrousselItemSecond(
+                    title: 'Livraison de vos colis'.tr(),
+                    description: 'cdescription1'.tr(),
+                    image: Assets.onb1,
+                  ),
                   Container(
                     decoration: BoxDecoration(
                         color: ColorsApp.white,
@@ -69,7 +72,6 @@ class _AuthPageState extends State<AuthPage> {
                               title: 'Renseignez votre numero de telephone',
                               subTitle:
                                   'Renseignez votre numero de telephone pour creer un compte ou pour se connecter',
-                            
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(
@@ -90,8 +92,9 @@ class _AuthPageState extends State<AuthPage> {
                             ),
                             AppButtonSecond(
                                 size: MainAxisSize.max,
-                                // loading: _userState.isLoading,
-                                // bgColor: ColorsApp.primary,
+                                marginAdd: EdgeInsets.symmetric(
+                                  horizontal: kMarginX,
+                                ),
                                 text: 'Poursuivre'.tr(),
                                 onTap: () async {
                                   if (formKey.currentState!.validate()) {

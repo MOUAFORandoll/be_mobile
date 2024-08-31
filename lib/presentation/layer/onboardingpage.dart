@@ -20,7 +20,7 @@ class OnBoardingPage extends StatelessWidget {
       return Scaffold(
           backgroundColor: ColorsApp.second,
           body: SingleChildScrollView(
-              child: Stack(
+              child: Column(
             children: [
               // CarouselSlider(
               //   carouselController: controller,
@@ -70,39 +70,39 @@ class OnBoardingPage extends StatelessWidget {
                 description: 'cdescription1'.tr(),
                 image: Assets.onb1,
               ),
-              Positioned(
+              /*   Positioned(
                   bottom: getHeight(context) / 10,
                   left: 0,
                   right: 0,
-                  child: AppButton(
-                    text: /* state.index == 2 ?  */
-                        'Continuer' /*  : 'Suivant' */,
-                    textColor: ColorsApp.primary,
-                    bgColor: Colors.white,
-                    onTap: () {
-                      if (state.index == 2) {
-                        final AppActionCubit action =
-                            BlocProvider.of<AppActionCubit>(context);
-                        action.toLogin();
+                  child: */
+              AppButton(
+                text: /* state.index == 2 ?  */
+                    'Continuer' /*  : 'Suivant' */,
+                textColor: ColorsApp.primary,
+                bgColor: Colors.white,
+                onTap: () {
+                  if (state.index == 2) {
+                    final AppActionCubit action =
+                        BlocProvider.of<AppActionCubit>(context);
+                    action.toLogin();
 
-                        AutoRouter.of(context).replaceAll([AuthRoute()]);
-                        GetStorage box = sl.get<GetStorage>();
-                        box.write('first', 1);
-                      } else {
-                        print(state.index);
+                    AutoRouter.of(context).replaceAll([AuthRoute()]);
+                    GetStorage box = sl.get<GetStorage>();
+                    box.write('first', 1);
+                  } else {
+                    print(state.index);
 
-                        context
-                            .read<AppActionCubit>()
-                            .setIndex(state.index + 1);
-                        print(state.index);
+                    context.read<AppActionCubit>().setIndex(state.index + 1);
+                    print(state.index);
 
-                        // controller.nextPage(
-                        //   duration: Duration(milliseconds: 300),
-                        //   curve: Curves.linear,
-                        // );
-                      }
-                    },
-                  )),
+                    // controller.nextPage(
+                    //   duration: Duration(milliseconds: 300),
+                    //   curve: Curves.linear,
+                    // );
+                  }
+                },
+                // )
+              ),
               // Positioned(
               //     bottom: getHeight(context) / 20,
               //     left: 0,

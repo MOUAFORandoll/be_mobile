@@ -22,7 +22,7 @@ class AppTextTitle extends StatelessWidget {
       softWrap: true,
       style: TextStyle(
           fontWeight: bolder ? FontWeight.w600 : FontWeight.normal,
-          // fontSize: big ? kXlText / this.percent : kLgText / this.percent,
+          fontSize: big ? kLgText / this.percent : kLgText / this.percent,
           color: color),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:BabanaExpress/presentation/components/Widget/LivraisonUserComponent.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_text_title.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
@@ -25,13 +26,18 @@ class _HistoriqueLivraisonPageState extends State<HistoriqueLivraisonPage> {
   Widget build(BuildContext context) {
     return BlocConsumer<LivraisonBloc, LivraisonState>(
         listener: (context, state) async {},
-        builder: (context, state) => Scaffold(
-              appBar: AppBarCustom(
-                title: 'Vos livraisons'.tr(),
+        builder: (context, state) =>
+            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Container(
+                margin: EdgeInsets.symmetric(vertical: kMarginY * .3),
+                child: AppTextTitle(
+                  text: 'Vos livraisons'.tr(),
+                  bolder: true,
+                  big: true,
+                  percent: 0.8,
+                ),
               ),
-              body: Container(
-                margin: EdgeInsets.only(top: kMarginY * 2)
-                    .add(EdgeInsets.symmetric(horizontal: kMarginX * 2)),
+              Container(
                 child: SingleChildScrollView(
                   child: state.isLoadLivraison == 0
                       ? ShimmerLivraison()
@@ -55,6 +61,6 @@ class _HistoriqueLivraisonPageState extends State<HistoriqueLivraisonPage> {
                                       )),
                 ),
               ),
-            ));
+            ]));
   }
 }

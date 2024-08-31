@@ -3,6 +3,7 @@ class Assets {
   static const logo = 'assets/logo/logo.png';
   static const logo_t1 = 'assets/logo/logo_t1.svg';
   static const logo_t2 = 'assets/logo/logo_t2.svg';
+  static const box = 'assets/svg_icones/Box.svg';
   static const logo_t3 = 'assets/logo/logo_t3.svg';
   static const shop1 = 'assets/images/shop1.png';
   static const bg_home = 'assets/images/bg_home.png';
@@ -53,6 +54,7 @@ class Assets {
   static const babana = 'assets/svg_icones/babana.svg';
   static const call_center = 'assets/svg_icones/call_center.svg';
   static const livraison_success = 'assets/svg_icones/livraison_success.svg';
+  static const activity = 'assets/svg_icones/activity.svg';
 
   static const p3 = 'assets/images/p3.png';
   static const market_place = 'assets/images/market_place.png';

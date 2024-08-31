@@ -6,23 +6,15 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/InfoRecuperationColisType2.dart';
-import 'package:BabanaExpress/presentation/livraison/type2/InfoLivraisonType2.dart';
-import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';
+import 'package:BabanaExpress/presentation/livraison/type2/InfoLivraisonType2.dart'; 
 import 'package:BabanaExpress/utils/functions/formatData.dart';
-import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 import 'package:BabanaExpress/presentation/components/Widget/colisComponentUserView.dart';
 import 'package:BabanaExpress/presentation/components/Widget/delivry_widget_title.dart';
 
-import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
-import 'package:BabanaExpress/presentation/components/Widget/recuperation_delivery_zone_widget.dart';
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-
-import 'package:BabanaExpress/application/export_bloc.dart';
-import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
+import 'package:BabanaExpress/presentation/components/Widget/recuperation_delivery_zone_widget.dart'; 
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
-import 'package:BabanaExpress/utils/Services/validators.dart';
-import 'package:BabanaExpress/utils/functions/formatData.dart';
+import 'package:BabanaExpress/utils/Services/validators.dart'; 
 import '../../../application/model/exportmodel.dart';
 
 @RoutePage()

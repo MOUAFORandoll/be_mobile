@@ -4,35 +4,6 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:4969518057203688213",
-      "lastPropertyId": "4:1395444994505962781",
-      "name": "Commande",
-      "properties": [
-        {
-          "id": "1:5127329087435583877",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:3733723678809820577",
-          "name": "codeCommande",
-          "type": 9
-        },
-        {
-          "id": "3:3733861273943814581",
-          "name": "codeClient",
-          "type": 9
-        },
-        {
-          "id": "4:1395444994505962781",
-          "name": "date",
-          "type": 9
-        }
-      ],
-      "relations": []
-    },
-    {
       "id": "2:8984566840537087468",
       "lastPropertyId": "5:3050349477534242606",
       "name": "KeyUser",
@@ -266,10 +237,16 @@
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
-  "retiredEntityUids": [],
+  "retiredEntityUids": [
+    4969518057203688213
+  ],
   "retiredIndexUids": [],
   "retiredPropertyUids": [
-    754203462009673773
+    754203462009673773,
+    5127329087435583877,
+    3733723678809820577,
+    3733861273943814581,
+    1395444994505962781
   ],
   "retiredRelationUids": [],
   "version": 1

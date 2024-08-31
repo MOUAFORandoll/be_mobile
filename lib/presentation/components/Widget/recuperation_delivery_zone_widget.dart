@@ -14,7 +14,7 @@ class RecuperationDeliveryZoneWidget extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: kMarginY * 2),
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: ColorsApp.greyNew,
+          color: ColorsApp.disabledGrey,
           borderRadius: BorderRadius.circular(5),
           // boxShadow: [
           //   BoxShadow(

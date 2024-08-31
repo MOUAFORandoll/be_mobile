@@ -77,14 +77,12 @@ class _AppInputState extends State<AppInput> {
               ),
               onChanged: widget.onChanged,
               decoration: InputDecoration(
-                fillColor:
-                    isFocused ? Colors.grey.shade200 : Colors.grey.shade200,
+                fillColor: Colors.grey.shade200,
                 filled: true,
                 contentPadding: EdgeInsets.all(15),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                      color: isFocused ? ColorsApp.primary : ColorsApp.white,
-                      width: .4),
+                  borderSide:
+                      BorderSide(color: ColorsApp.disabledGrey, width: .4),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 errorBorder: OutlineInputBorder(
@@ -93,7 +91,7 @@ class _AppInputState extends State<AppInput> {
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: isFocused ? ColorsApp.grey : Colors.transparent,
+                    color: ColorsApp.disabledGrey,
                     width: .5,
                   ),
                   borderRadius: BorderRadius.circular(15),

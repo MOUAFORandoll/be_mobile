@@ -12,7 +12,7 @@ part of 'splash_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SplashEvent {
@@ -52,7 +52,9 @@ mixin _$SplashEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SplashEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SplashEventCopyWith<SplashEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -76,6 +78,8 @@ class _$SplashEventCopyWithImpl<$Res, $Val extends SplashEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SplashEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +118,8 @@ class __$$StartLoadingImplCopyWithImpl<$Res>
       _$StartLoadingImpl _value, $Res Function(_$StartLoadingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SplashEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -161,7 +167,9 @@ class _$StartLoadingImpl implements StartLoading {
   @override
   int get hashCode => Object.hash(runtimeType, currentLangue, context);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SplashEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StartLoadingImplCopyWith<_$StartLoadingImpl> get copyWith =>
@@ -234,8 +242,11 @@ abstract class StartLoading implements SplashEvent {
   String get currentLangue;
   @override
   BuildContext get context;
+
+  /// Create a copy of SplashEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StartLoadingImplCopyWith<_$StartLoadingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -299,6 +310,9 @@ class _$SplashStateCopyWithImpl<$Res, $Val extends SplashState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SplashState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -315,6 +329,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SplashState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -421,6 +438,8 @@ class __$$LoadedImplCopyWithImpl<$Res>
       _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SplashState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -467,7 +486,9 @@ class _$LoadedImpl implements Loaded {
   @override
   int get hashCode => Object.hash(runtimeType, isLogin, route);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SplashState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
@@ -543,7 +564,10 @@ abstract class Loaded implements SplashState {
 
   bool get isLogin;
   PageRouteInfo<dynamic> get route;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SplashState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

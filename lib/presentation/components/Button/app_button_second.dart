@@ -42,8 +42,9 @@ class AppButtonSecond extends StatelessWidget {
           border: border,
         ),
         padding: EdgeInsets.all(10),
-        margin: EdgeInsets.symmetric(vertical: kMarginY * 2)
-            .add(marginAdd ?? EdgeInsets.zero),
+        margin: EdgeInsets.symmetric(
+          vertical: kMarginY * 2,
+        ).add(marginAdd ?? EdgeInsets.zero),
         child: Row(
           mainAxisSize: size,
           mainAxisAlignment: sufixIcon != null

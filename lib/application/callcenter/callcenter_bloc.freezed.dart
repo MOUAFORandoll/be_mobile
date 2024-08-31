@@ -12,7 +12,7 @@ part of 'callcenter_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CallCenterEvent {
@@ -121,6 +121,9 @@ class _$CallCenterEventCopyWithImpl<$Res, $Val extends CallCenterEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -137,6 +140,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -288,6 +294,9 @@ class __$$GetMessageImplCopyWithImpl<$Res>
   __$$GetMessageImplCopyWithImpl(
       _$GetMessageImpl _value, $Res Function(_$GetMessageImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -439,6 +448,9 @@ class __$$NewMessageImplCopyWithImpl<$Res>
   __$$NewMessageImplCopyWithImpl(
       _$NewMessageImpl _value, $Res Function(_$NewMessageImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -593,6 +605,8 @@ class __$$TargetMessageImplCopyWithImpl<$Res>
       _$TargetMessageImpl _value, $Res Function(_$TargetMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -632,7 +646,9 @@ class _$TargetMessageImpl implements TargetMessage {
   @override
   int get hashCode => Object.hash(runtimeType, message_target);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TargetMessageImplCopyWith<_$TargetMessageImpl> get copyWith =>
@@ -755,7 +771,10 @@ abstract class TargetMessage implements CallCenterEvent {
       _$TargetMessageImpl;
 
   MessageModel? get message_target;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TargetMessageImplCopyWith<_$TargetMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -777,6 +796,8 @@ class __$$FilesMessageImplCopyWithImpl<$Res>
       _$FilesMessageImpl _value, $Res Function(_$FilesMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -815,7 +836,9 @@ class _$FilesMessageImpl implements FilesMessage {
   @override
   int get hashCode => Object.hash(runtimeType, type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FilesMessageImplCopyWith<_$FilesMessageImpl> get copyWith =>
@@ -937,7 +960,10 @@ abstract class FilesMessage implements CallCenterEvent {
   const factory FilesMessage({final int? type}) = _$FilesMessageImpl;
 
   int? get type;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FilesMessageImplCopyWith<_$FilesMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -959,6 +985,8 @@ class __$$RemoveFilesMessageImplCopyWithImpl<$Res>
       $Res Function(_$RemoveFilesMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -997,7 +1025,9 @@ class _$RemoveFilesMessageImpl implements RemoveFilesMessage {
   @override
   int get hashCode => Object.hash(runtimeType, file);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RemoveFilesMessageImplCopyWith<_$RemoveFilesMessageImpl> get copyWith =>
@@ -1121,7 +1151,10 @@ abstract class RemoveFilesMessage implements CallCenterEvent {
       _$RemoveFilesMessageImpl;
 
   XFile? get file;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveFilesMessageImplCopyWith<_$RemoveFilesMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1143,6 +1176,8 @@ class __$$DeleteMessageImplCopyWithImpl<$Res>
       _$DeleteMessageImpl _value, $Res Function(_$DeleteMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1181,7 +1216,9 @@ class _$DeleteMessageImpl implements DeleteMessage {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteMessageImplCopyWith<_$DeleteMessageImpl> get copyWith =>
@@ -1304,7 +1341,10 @@ abstract class DeleteMessage implements CallCenterEvent {
       _$DeleteMessageImpl;
 
   MessageModel? get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteMessageImplCopyWith<_$DeleteMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1326,6 +1366,8 @@ class __$$SetMessageToUpdateImplCopyWithImpl<$Res>
       $Res Function(_$SetMessageToUpdateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1364,7 +1406,9 @@ class _$SetMessageToUpdateImpl implements SetMessageToUpdate {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SetMessageToUpdateImplCopyWith<_$SetMessageToUpdateImpl> get copyWith =>
@@ -1488,7 +1532,10 @@ abstract class SetMessageToUpdate implements CallCenterEvent {
       _$SetMessageToUpdateImpl;
 
   MessageModel? get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetMessageToUpdateImplCopyWith<_$SetMessageToUpdateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1512,6 +1559,8 @@ class __$$CancelSetMessageToUpdateImplCopyWithImpl<$Res>
       $Res Function(_$CancelSetMessageToUpdateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1550,7 +1599,9 @@ class _$CancelSetMessageToUpdateImpl implements CancelSetMessageToUpdate {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CancelSetMessageToUpdateImplCopyWith<_$CancelSetMessageToUpdateImpl>
@@ -1674,7 +1725,10 @@ abstract class CancelSetMessageToUpdate implements CallCenterEvent {
       _$CancelSetMessageToUpdateImpl;
 
   MessageModel? get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CancelSetMessageToUpdateImplCopyWith<_$CancelSetMessageToUpdateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1693,6 +1747,9 @@ class __$$UpdateMessageImplCopyWithImpl<$Res>
   __$$UpdateMessageImplCopyWithImpl(
       _$UpdateMessageImpl _value, $Res Function(_$UpdateMessageImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallCenterEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1845,7 +1902,9 @@ mixin _$CallCenterState {
   List<MessageModel>? get messages => throw _privateConstructorUsedError;
   FocusNode? get focusNode => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallCenterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CallCenterStateCopyWith<CallCenterState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1880,6 +1939,8 @@ class _$CallCenterStateCopyWithImpl<$Res, $Val extends CallCenterState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CallCenterState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1974,6 +2035,8 @@ class __$$CallCenterStateImplCopyWithImpl<$Res>
       _$CallCenterStateImpl _value, $Res Function(_$CallCenterStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CallCenterState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2145,7 +2208,9 @@ class _$CallCenterStateImpl implements _CallCenterState {
       const DeepCollectionEquality().hash(_messages),
       focusNode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallCenterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CallCenterStateImplCopyWith<_$CallCenterStateImpl> get copyWith =>
@@ -2189,8 +2254,11 @@ abstract class _CallCenterState implements CallCenterState {
   List<MessageModel>? get messages;
   @override
   FocusNode? get focusNode;
+
+  /// Create a copy of CallCenterState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CallCenterStateImplCopyWith<_$CallCenterStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

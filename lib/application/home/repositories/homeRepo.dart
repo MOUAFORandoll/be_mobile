@@ -8,8 +8,10 @@ class HomeRepo {
   HomeRepo({required this.apiClient});
 
   Future getHomeLivraisonsState(keySecret) async {
-    Response _reponse = await apiClient.getRequest(
-        ApiRoutes.LIVRAISONS + '/user-home-state?keySecret=${keySecret}');
+    print(
+        '---------keySecret-------------------------*ataEvent***${keySecret}');
+    Response _reponse = await apiClient
+        .getRequest('/livraisons/user-home-state?keySecret=${keySecret}');
 
     return _reponse;
   }

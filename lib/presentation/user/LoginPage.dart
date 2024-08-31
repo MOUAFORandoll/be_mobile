@@ -113,9 +113,9 @@ class _LoginPageState extends State<LoginPage> {
                           )),
                           AppButtonSecond(
                               size: MainAxisSize.max,
-                              // loading: _userState.isLoading,
-                              // bgColor: ColorsApp.primary,
-                              text: 'logbtn'.tr(),
+                             marginAdd: EdgeInsets.symmetric(
+                                horizontal: kMarginX,
+                              ), text: 'logbtn'.tr(),
                               onTap: () async {
                                 if (formKey.currentState!.validate()) {
                                   context.read<UserBloc>().add(SignInEvent());

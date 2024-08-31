@@ -166,7 +166,7 @@ class AppRouter extends $AppRouter {
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,
             durationInMilliseconds: 600,
-            page: InfoColisType2Route.page,
+            page: InfoRecuperationColisType2Route.page,
             path: InfoRecuperationColisType2Page.routeName),
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,

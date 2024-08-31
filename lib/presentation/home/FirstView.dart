@@ -1,245 +1,193 @@
-import 'package:BabanaExpress/presentation/components/Widget/LivraisonUserHomeComponent.dart';
-import 'package:BabanaExpress/presentation/components/Widget/ShimmerHome.dart';
-import 'package:BabanaExpress/presentation/components/Widget/home_option_widget.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
+import 'dart:async';
 
-class FirstView extends StatefulWidget {
-  @override
-  State<FirstView> createState() => _FirstViewState();
-}
+import 'package:BabanaExpress/entity.dart';
+import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_current_livraison_item.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_pub_item.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_service_item.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_text_title.dart';
+import 'package:BabanaExpress/presentation/home/FirstView.dart';
+import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
+import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
+import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
+import 'package:BabanaExpress/utils/Services/validators.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:new_version_plus/new_version_plus.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
+import '../../presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 
-class _FirstViewState extends State<FirstView>
-    with SingleTickerProviderStateMixin {
-  AnimationController? _animationController;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _animationController = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 3),
-    );
-  }
-
-  @override
-  void dispose() {
-    _animationController!.dispose();
-    super.dispose();
-  }
-
-  void _startAnimation() {
-    if (_animationController!.isCompleted) {
-      _animationController!.reverse();
-    } else {
-      _animationController!.forward();
-    }
-  }
-
+class FirstView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) => SingleChildScrollView(
-              child: state.isLoadService == 0
-                  ? ShimmerHome()
-                  : Container(
-                      margin: EdgeInsets.only(
-                        top: kMarginY,
-                      ).add(EdgeInsets.symmetric(horizontal: kMarginY)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text(
-                              'Services',
-                              style: TextStyle(
-                                  color: ColorsApp.white,
-                                  fontSize: kTitle * 1.5,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ),
-                          Container(
-                              height: getHeight(context) * .5,
-                              child: GridView.count(
-                                  crossAxisCount: 2, // Two items per row
-                                  mainAxisSpacing: 28.0, // Spacing between rows
-                                  crossAxisSpacing:
-                                      28.0, // Spacing between columns
-                                  childAspectRatio: 1,
-                                  children: [
-                                    HomeOptionWidget(
-                                      title:
-                                          'Je veux faire livrer mon colis'.tr(),
-                                      icon: Assets.colis,
-                                      onTap: () {
-                                        AutoRouter.of(context)
-                                            .push(NewLivraisonType1Route());
-                                      },
-                                    ),
-                                    HomeOptionWidget(
-                                      title:
-                                          'Je veux qu\'on recuperer mon colis'
-                                              .tr(),
-                                      onTap: () {
-                                        AutoRouter.of(context)
-                                            .push(NewLivraisonType2Route());
-                                      },
-                                      icon: Assets.colis,
-                                    ),
-                                    HomeOptionWidget(
-                                      title: 'Finances'.tr(),
-                                      icon: Assets.wallet,
-                                      arg: '',
-                                      onTap: () {
-                                        AutoRouter.of(context)
-                                            .push(WalletRoute());
-                                      },
-                                    ),
-                                  ])),
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  child: Text(
-                                    'Vos livraisons en cours',
-                                    style: TextStyle(
-                                        // color: ColorsApp.white,
+              child: Column(
+                children: [
+                  _buildBodyView(context),
+                  _buildServiceView(context),
+                  _buildCurrent()
+                ],
+              ),
+            ));
+  }
 
-                                        fontSize: kTitle * 1.3,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                ),
-                                RotationTransition(
-                                  turns: _animationController!,
-                                  child: Container(
-                                    child: InkWell(
-                                      child: Icon(Icons.refresh,
-                                          color: ColorsApp.primary),
-                                      onTap: () {
-                                        _startAnimation();
-                                        // context
-                                        //     .read<HomeBloc>()
-                                        //     .add(HomeStateLivraison());
-                                      },
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          state.isLoadHomeStateLivraison == 0
-                              ? /* Shimmer.fromColors(
-                            baseColor: ColorsApp.greyNew,
-                            highlightColor: ColorsApp.primary.withOpacity(.1),
-                            child: */
-                              Skeletonizer(
-                                  enabled: true,
-                                  child: Container(
-                                      height: getHeight(context) * .08,
-                                      width: getWidth(context) * .9,
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: kMarginY),
-                                      margin: EdgeInsets.symmetric(
-                                        vertical: kMarginY,
-                                      ).add(EdgeInsets.only(right: kMarginX)),
-                                      decoration: BoxDecoration(
-                                          color:
-                                              ColorsApp.white.withOpacity(0.9),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: ColorsApp.primary
-                                                  .withOpacity(0.1),
-                                              spreadRadius: 2,
-                                              blurRadius: 5,
-                                              offset: Offset(0, 2),
-                                            ),
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(8)),
-                                      alignment: Alignment.center,
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                              child: Container(
-                                                height: getHeight(context) * .2,
-                                                width: getWidth(context) * .15,
-                                                alignment: Alignment.center,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(8),
-                                                  image: DecorationImage(
-                                                    image: AssetImage(
-                                                      Assets.login,
-                                                    ),
-                                                  ),
-                                                ),
-                                              )),
-                                          Container(
-                                              child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                'Livraison de medicaments',
-                                                style: TextStyle(
-                                                    // color: ColorsApp.white,
+  Widget _buildBodyView(context) {
+    return Container(
+      child: SingleChildScrollView(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Container(
+            margin: EdgeInsets.symmetric(vertical: kMarginY * .8),
+            child: AppTextTitle(
+              text: 'News',
+              bolder: true,
+              big: true,
+              percent: 0.8,
+            ),
+          ),
+          Container(
+            height: getHeight(context) / 4,
+            child: CarouselSlider(
+              // carouselController: controller,
+              items: [
+                AppPubItem(
+                  title: 'Livraison de vos colis'.tr(),
+                  description: 'cdescription1'.tr(),
+                  image: Assets.onb1,
+                ),
+                AppPubItem(
+                    title: 'Livraison de vos medicaments'.tr(),
+                    description: 'cdescription2'.tr(),
+                    image: Assets.onb2,
+                    index: 0),
+                AppPubItem(
+                    title: 'Market Place'.tr(),
+                    description:
+                        'Commandez vos produits sur notre market place et faites vous livrer rapidement peux importe ou vous vous trouvez dans le cameroun'
+                            .tr(),
+                    image: Assets.onb3,
+                    index: 0)
+              ],
+              options: CarouselOptions(
+                  aspectRatio: 16 / 9,
+                  enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                  initialPage: 0,
+                  enableInfiniteScroll: false,
+                  reverse: false,
+                  onPageChanged: (index, reason) {
+                    print(0);
+                    print(0);
+                  },
+                  disableCenter: true,
+                  height: getHeight(context) / 2,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
 
-                                                    fontWeight:
-                                                        FontWeight.w800),
-                                              ),
-                                              Text(
-                                                'Paracetamol',
-                                                style: TextStyle(
-                                                  // color: ColorsApp.white,
-                                                  fontSize: 11,
-                                                ),
-                                              ),
-                                            ],
-                                          )),
-                                        ],
-                                      )))
-                              : state.userHomeLivraisonList!.length == 0
-                                  ? Container(
-                                      alignment: Alignment.center,
-                                      margin: EdgeInsets.symmetric(
-                                              horizontal: kMarginX,
-                                              vertical: kMarginY)
-                                          .add(EdgeInsets.only(
-                                              top: kMarginY * 2)),
-                                      child: Text(
-                                        'Vous n\'avez aucune livraison en cours !',
-                                        style: TextStyle(
-                                            fontSize: kBasics,
-                                            fontWeight: FontWeight.w700),
-                                      ))
-                                  : Container(
-                                      width: getWidth(context),
-                                      height: getHeight(context) * .12,
-                                      child: ListView.builder(
-                                          shrinkWrap: true,
-                                          scrollDirection: Axis.horizontal,
-                                          itemCount: state
-                                              .userHomeLivraisonList!.length,
-                                          itemBuilder: (context, index) =>
-                                              LivraisonUserHomeComponent(
-                                                livraison: state
-                                                        .userHomeLivraisonList![
-                                                    index],
-                                              )))
-                        ],
+                  // autoPlayCurve: Curves.fastOutSlowIn,
+                  // enableInfiniteScroll: true,
+                  viewportFraction: 1,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  scrollDirection: Axis.horizontal),
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+
+  Widget _buildServiceView(context) {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(vertical: kMarginY * .8),
+            child: AppTextTitle(
+              text: 'Services',
+              bolder: true,
+              big: true,
+              percent: 0.8,
+            ),
+          ),
+          Container(
+            // padding: EdgeInsets.symmetric(horizontal: kMarginX),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Use Expanded to allow items to take available space
+                    Expanded(
+                      child: AppServiceItem(
+                        title: 'Me faire livrer mon colis'.tr(),
+                        image: Assets.activity,
+                        onTap: () {
+                          AutoRouter.of(context).push(NewLivraisonType1Route());
+                        },
                       ),
                     ),
-            ));
+                    SizedBox(width: 16), // Add some spacing between items
+                    Expanded(
+                      child: AppServiceItem(
+                        title: 'Je veux qu\'on recuperer mon colis'.tr(),
+                        image: Assets.activity,
+                        index: 0,
+                        onTap: () {
+                          AutoRouter.of(context).push(NewLivraisonType2Route());
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 16), // Add some vertical spacing between rows
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: AppServiceItem(
+                        title: 'Livraison de medicament'.tr(),
+                        image: Assets.activity,
+                        index: 0,
+                        onTap: () {
+                          AutoRouter.of(context).push(NewLivraisonType2Route());
+                        },
+                      ),
+                    ),
+                    SizedBox(width: 16), // Add some spacing between items
+                    Expanded(
+                      child: AppServiceItem(
+                        title: 'Market Place'.tr(),
+                        image: Assets.activity,
+                        index: 0,
+                        onTap: () {
+                          AutoRouter.of(context).push(NewLivraisonType1Route());
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCurrent() {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [AppCurrentLivraisonItem()],
+      ),
+    );
   }
 }

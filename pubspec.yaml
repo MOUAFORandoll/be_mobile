@@ -157,6 +157,7 @@ flutter:
     - assets/env/
     - assets/translations/
     - assets/images/
+    - assets/logo/
     - assets/svg_icones/
     - assets/payement/
     # - assets/logo/logo.png

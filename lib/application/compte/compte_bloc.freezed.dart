@@ -12,7 +12,7 @@ part of 'compte_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CompteEvent {
@@ -85,6 +85,9 @@ class _$CompteEventCopyWithImpl<$Res, $Val extends CompteEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CompteEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -101,6 +104,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompteEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -217,6 +223,9 @@ class __$$HistoriqueTransactionImplCopyWithImpl<$Res>
   __$$HistoriqueTransactionImplCopyWithImpl(_$HistoriqueTransactionImpl _value,
       $Res Function(_$HistoriqueTransactionImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompteEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -333,6 +342,9 @@ class __$$CreditCompteImplCopyWithImpl<$Res>
   __$$CreditCompteImplCopyWithImpl(
       _$CreditCompteImpl _value, $Res Function(_$CreditCompteImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompteEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -448,6 +460,9 @@ class __$$RetraitCompteImplCopyWithImpl<$Res>
   __$$RetraitCompteImplCopyWithImpl(
       _$RetraitCompteImpl _value, $Res Function(_$RetraitCompteImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompteEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -562,7 +577,9 @@ mixin _$CompteState {
       throw _privateConstructorUsedError; // TextEditingController? contactEmetteur,
   String? get paiement_url => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompteState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CompteStateCopyWith<CompteState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -594,6 +611,8 @@ class _$CompteStateCopyWithImpl<$Res, $Val extends CompteState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CompteState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -670,6 +689,8 @@ class __$$CompteStateImplCopyWithImpl<$Res>
       _$CompteStateImpl _value, $Res Function(_$CompteStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompteState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -798,7 +819,9 @@ class _$CompteStateImpl implements _CompteState {
       const DeepCollectionEquality().hash(_transactionList),
       paiement_url);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompteState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CompteStateImplCopyWith<_$CompteStateImpl> get copyWith =>
@@ -829,11 +852,15 @@ abstract class _CompteState implements CompteState {
   @override
   TextEditingController get password;
   @override
-  List<TransactionModel>? get transactionList;
-  @override // TextEditingController? contactEmetteur,
-  String? get paiement_url;
+  List<TransactionModel>?
+      get transactionList; // TextEditingController? contactEmetteur,
   @override
-  @JsonKey(ignore: true)
+  String? get paiement_url;
+
+  /// Create a copy of CompteState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CompteStateImplCopyWith<_$CompteStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

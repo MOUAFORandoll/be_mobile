@@ -44,6 +44,7 @@ export 'package:BabanaExpress/presentation/components/Widget/EmptyLivraisonsComp
 export 'package:BabanaExpress/presentation/components/Widget/ErrorReloadComponent.dart';
 export 'package:BabanaExpress/presentation/components/Widget/ShimmerLivraison.dart';
 export 'package:BabanaExpress/presentation/components/Widget/app_carroussel_item.dart';
+export 'package:BabanaExpress/presentation/components/Widget/app_carroussel_item_second.dart';
 export 'package:BabanaExpress/utils/functions/custom_alert.dart';
 export 'package:BabanaExpress/presentation/components/Widget/ShimmerProduit.dart';
 export 'package:BabanaExpress/presentation/components/Form/search_field.dart';

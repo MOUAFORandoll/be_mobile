@@ -12,7 +12,7 @@ part of 'connected_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ConnectedEvent {
@@ -78,6 +78,9 @@ class _$ConnectedEventCopyWithImpl<$Res, $Val extends ConnectedEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ConnectedEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -94,6 +97,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ConnectedEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -202,6 +208,9 @@ class __$$OnConnectedImplCopyWithImpl<$Res>
   __$$OnConnectedImplCopyWithImpl(
       _$OnConnectedImpl _value, $Res Function(_$OnConnectedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ConnectedEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -310,6 +319,9 @@ class __$$OnNotConnectedImplCopyWithImpl<$Res>
   __$$OnNotConnectedImplCopyWithImpl(
       _$OnNotConnectedImpl _value, $Res Function(_$OnNotConnectedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ConnectedEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -469,6 +481,9 @@ class _$ConnectedStateCopyWithImpl<$Res, $Val extends ConnectedState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ConnectedState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -485,6 +500,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ConnectedState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -594,6 +612,9 @@ class __$$ConnectedSucessStateImplCopyWithImpl<$Res>
   __$$ConnectedSucessStateImplCopyWithImpl(_$ConnectedSucessStateImpl _value,
       $Res Function(_$ConnectedSucessStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ConnectedState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -705,6 +726,9 @@ class __$$ConnectedFailureStateImplCopyWithImpl<$Res>
   __$$ConnectedFailureStateImplCopyWithImpl(_$ConnectedFailureStateImpl _value,
       $Res Function(_$ConnectedFailureStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ConnectedState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

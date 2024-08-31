@@ -2,19 +2,28 @@
 
 import 'dart:async';
 
+import 'package:BabanaExpress/entity.dart';
+import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
-import 'package:BabanaExpress/presentation/components/Widget/home_proposition_widget.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_current_livraison_item.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_pub_item.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_service_item.dart';
+import 'package:BabanaExpress/presentation/components/Widget/app_text_title.dart';
+import 'package:BabanaExpress/presentation/home/FirstView.dart';
+import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonPage.dart';
+import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:new_version_plus/new_version_plus.dart';
+import 'package:BabanaExpress/routes/app_router.gr.dart';
 import '../../presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -27,30 +36,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  Animation<double>? _animation;
-  AnimationController? _animationController;
-
-  Set<Circle> circles = <Circle>{};
-  Set<Marker> listPoint = <Marker>{};
-  late Marker _positionStart;
   GoogleMapController? mapController;
   final GeolocationService _geolocationService = GeolocationService();
   double latitude = 0.0;
   double longitude = 0.0;
-  final Completer<GoogleMapController> _controller =
-      Completer<GoogleMapController>();
-  CameraPosition? _kLake;
 
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 260),
-    );
-    final curvedAnimation =
-        CurvedAnimation(curve: Curves.easeInOut, parent: _animationController!);
-    _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
 
     _getPosition();
     _checkForUpdate();
@@ -71,9 +64,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       setState(() {
         latitude = position.latitude;
         longitude = position.longitude;
-
-        _updateCameraPosition();
-        _updateMarker(latitude: latitude, longitude: longitude);
       });
       context
           .read<LivraisonBloc>()
@@ -82,28 +72,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     });
   }
 
-  void _updateCameraPosition() {
-    _kLake = CameraPosition(
-      bearing: 0,
-      target: LatLng(latitude, longitude),
-      tilt: 0,
-      zoom: 15.5,
-    );
-
-    if (mapController != null) {
-      mapController!.animateCamera(CameraUpdate.newCameraPosition(_kLake!));
-    }
-  }
-
   Future<void> _getPosition() async {
     final position = await _geolocationService.getCurrentPosition();
     if (position != null) {
       setState(() {
         latitude = position.latitude;
         longitude = position.longitude;
-
-        _updateCameraPosition();
-        _updateMarker(latitude: latitude, longitude: longitude);
       });
       context
           .read<LivraisonBloc>()
@@ -114,38 +88,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     }
   }
 
-  // Future<BitmapDescriptor> _getMarkerIcon() async {
-  //   return await BitmapDescriptor.fromAssetImage(
-  //     ImageConfiguration(size: Size(5, 8)),
-  //     Assets.logo,
-  //   );
-  // }
-
-  Future<void> _updateMarker(
-      {required double latitude, required double longitude}) async {
-    // final markerIcon = await _getMarkerIcon();
-
-    setState(() {
-      _positionStart = Marker(
-        icon: BitmapDescriptor.defaultMarker, // icon: markerIcon,
-        markerId: MarkerId('1'),
-        draggable: true,
-        infoWindow: InfoWindow(title: 'Vous êtes ici'),
-        position: LatLng(latitude, longitude),
-      );
-      listPoint = <Marker>{_positionStart};
-      circles = <Circle>{
-        Circle(
-          circleId: CircleId('current_location'),
-          center: LatLng(latitude, longitude),
-          radius: 20,
-          fillColor: ColorsApp.second.withOpacity(0.1),
-          strokeColor: ColorsApp.second.withOpacity(0.1),
-          strokeWidth: 1,
-        ),
-      };
-    });
-  }
+  var _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -166,25 +109,69 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   position: LatLng(point.latitude, point.longitude),
                 ));
               });
-              setState(() {
-                listPoint.addAll(points);
-                _updateCameraPosition(); // Update camera position to fit new markers
-              });
             }
           },
           builder: (context, stateSLivraison) {
             return Scaffold(
-              backgroundColor: ColorsApp.greyNew,
+              backgroundColor: ColorsApp.white,
               drawer: CustomDrawer(user: state.user),
-              body: Stack(
-                children: [
-                  _kLake == null
-                      ? Center(child: CircularProgressIndicator())
-                      : _buildGoogleMap(),
-                  _buildFloatingAppBar(context, stateSLivraison),
-                  Positioned(bottom: 0, child: _buildDraggableBottomSheet()),
-                  // _buildDraggableBottomSheet(),
+              body: CustomScrollView(
+                // controller: _scrollController,
+                slivers: [
+                  SliverAppBar(
+                      backgroundColor: ColorsApp.second,
+                      automaticallyImplyLeading: false,
+                      bottom: PreferredSize(
+                        preferredSize: Size.fromHeight(30),
+                        child: _buildFloatingAppBar(
+                            context: context,
+                            stateSLivraison: stateSLivraison,
+                            user: state.user!),
+                      )),
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) => Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: kMarginY, horizontal: kMarginX),
+                        child: getView(_currentIndex),
+                      ),
+                      childCount: 1,
+                    ),
+                  ),
                 ],
+              ),
+              bottomNavigationBar: CustomNavigationBar(
+                iconSize: 30.0,
+                selectedColor: ColorsApp.second,
+                strokeColor: Color(0x30040307),
+                unSelectedColor: Color(0xffacacac),
+                backgroundColor: Colors.white,
+                items: [
+                  CustomNavigationBarItem(
+                    icon: Icon(Icons.home),
+                    title: Text("Home"),
+                  ),
+                  CustomNavigationBarItem(
+                    icon: Icon(Icons.list),
+                    title: Text("Historique"),
+                  ),
+                  CustomNavigationBarItem(
+                    icon: Icon(Icons.lightbulb_outline),
+                    title: Text("Client"),
+                  ),
+                  CustomNavigationBarItem(
+                    icon: Icon(Icons.account_circle),
+                    title: Text("Me"),
+                  ),
+                ],
+                currentIndex: _currentIndex,
+                onTap: (index) {
+                  print('-==========${_currentIndex}');
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                  print('-==========${_currentIndex}');
+                },
               ),
             );
           },
@@ -193,301 +180,134 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildGoogleMap() {
-    return GoogleMap(
-      initialCameraPosition: _kLake!,
-      myLocationEnabled: true,
-      myLocationButtonEnabled: false,
-      indoorViewEnabled: true,
-      liteModeEnabled: false,
-      trafficEnabled: true,
-      markers: listPoint,
-      circles: circles,
-      onMapCreated: (GoogleMapController mapController) async {
-        _controller.complete(mapController);
-        this.mapController = await _controller.future;
-        _updateCameraPosition();
-        mapController.animateCamera(CameraUpdate.newCameraPosition(_kLake!));
-      },
-      onTap: (LatLng value) {
-        // Handle map tap events if needed
-      },
-    );
-  }
+  getView(index) {
+    switch (index) {
+      case 0:
+        return FirstView();
+
+      case 1:
+        return HistoriqueLivraisonPage();
+
+      case 2:
+        return CallCenterPage();
+
+      default:
+        return FirstView();
+    }
+     }
 
   Widget _buildFloatingAppBar(
-      BuildContext context, LivraisonState stateSLivraison) {
-    return Positioned(
-      top: 50,
-      left: 0,
-      right: 0,
-      child: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.9,
-          padding: EdgeInsets.all(8),
-          margin:
-              EdgeInsets.symmetric(vertical: kMarginY, horizontal: kMarginX),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: ColorsApp.primary,
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: Colors.black26,
-            //     blurRadius: 8,
-            //     offset: Offset(0, 4),
-            //   ),
-            // ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                icon: SvgPicture.asset(
-                  Assets.menu,
-                  color: ColorsApp.white,
-                ),
-                onPressed: () => Scaffold.of(context).openDrawer(),
-              ),
-              Column(
-                children: [
-                  Text(
-                    'Babana Express',
-                    style: TextStyle(
-                      color: ColorsApp.white,
-                    ),
-                  ),
-                  if (stateSLivraison.loadingMapPlaceInfo == 0)
-                    Skeletonizer(
-                      enabled: true,
-                      child: Container(
-                        child: Text(
-                          'Douala-Douala',
-                          style: TextStyle(
-                            color: ColorsApp.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  if (stateSLivraison.mapPlaceInfo != null)
-                    Text(
-                      '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
-                      style: TextStyle(
-                        color: ColorsApp.white,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                ],
-              ),
-              SizedBox(width: 24),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDraggableBottomSheet() {
+      {required BuildContext context,
+      required LivraisonState stateSLivraison,
+      required User user}) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-      ),
-      width: getWidth(context),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            AnimatedBuilder(
-              animation: _animationController!,
-              builder: (context, child) {
-                return Transform.rotate(
-                  angle: _animation!.value * 2 * 3.1415926535,
-                  child: child,
-                );
-              },
-              child: InkWell(
-                child: Container(
-                  margin: EdgeInsets.symmetric(
-                      vertical: kMarginY, horizontal: kMarginX),
-                  decoration: BoxDecoration(
-                    color: ColorsApp.second,
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  padding: EdgeInsets.all(10),
-                  child: Icon(Icons.refresh, color: ColorsApp.white),
-                ),
-                onTap: () {
-                  _animationController!.forward(from: 0.0);
-                  BlocProvider.of<LivraisonBloc>(context)
-                      .add(CurrentUserStateLivraison());
-                  _getPosition();
-                },
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(35)),
-                color: ColorsApp.white,
-              ),
-              padding: EdgeInsets.symmetric(
-                  vertical: kMarginY, horizontal: kMarginX),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Que desirez vous ?',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: kBasics * 1.3,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  SizedBox(height: kMarginY),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      HomePropositionWidget(
-                        title: 'Je veux faire livrer mon colis'.tr(),
-                        icon: Assets.colis,
-                        onTap: () {
-                          BlocProvider.of<LivraisonBloc>(context)
-                              .add(SelectService(service: 1));
-                          AutoRouter.of(context).push(NewLivraisonType1Route());
-                        },
-                      ),
-                      HomePropositionWidget(
-                        title: 'Je veux qu\'on recuperer mon colis'.tr(),
-                        icon: Assets.colis,
-                        onTap: () {
-                          BlocProvider.of<LivraisonBloc>(context)
-                              .add(SelectService(service: 2));
-                          AutoRouter.of(context).push(NewLivraisonType2Route());
-                        },
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: kMarginY),
-                  AppButtonSecond(
-                    prefixIcon: Icons.library_books,
-                    sufixIcon: Icons.arrow_circle_right,
-                    size: MainAxisSize.max,
-                    bgColor: ColorsApp.greyNew,
-                    text: 'Mon Historique'.tr(),
-                    textColor: ColorsApp.primary,
-                    onTap: () {
-                      AutoRouter.of(context).push(HistoriqueLivraisonRoute());
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            // width: MediaQuery.of(context).size.width * 0.9,
+            // padding: EdgeInsets.all(8),
+            margin:
+                EdgeInsets.symmetric(vertical: kMarginY, horizontal: kMarginX)
+                    .add(EdgeInsets.only(right: kMarginX * 2)),
 
-/* 
-  Widget _buildDraggableBottomSheet() {
-    return DraggableScrollableSheet(
-      initialChildSize: 0.42,
-      minChildSize: 0.12,
-      maxChildSize: 0.43,
-      builder: (BuildContext context, ScrollController scrollController) {
-        return SingleChildScrollView(
-          controller: scrollController,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              AnimatedBuilder(
-                animation: _animationController!,
-                builder: (context, child) {
-                  return Transform.rotate(
-                    angle: _animation!.value * 2 * 3.1415926535,
-                    child: child,
-                  );
-                },
-                child: InkWell(
-                  child: Container(
-                    margin: EdgeInsets.symmetric(
-                        vertical: kMarginY, horizontal: kMarginX),
-                    decoration: BoxDecoration(
-                      color: ColorsApp.second,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    padding: EdgeInsets.all(10),
-                    child: Icon(Icons.refresh, color: ColorsApp.white),
-                  ),
-                  onTap: () {
-                    _animationController!.forward(from: 0.0);
-                    BlocProvider.of<LivraisonBloc>(context)
-                        .add(CurrentUserStateLivraison());
-                    _getPosition();
-                  },
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(35)),
-                  color: ColorsApp.white,
-                ),
-                padding: EdgeInsets.symmetric(
-                    vertical: kMarginY, horizontal: kMarginX),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Que desirez vous ?',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: kBasics * 1.3,
-                           
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    SizedBox(height: kMarginY),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        HomePropositionWidget(
-                          title: 'Je veux faire livrer mon colis'.tr(),
-                          icon: Assets.colis,
-                          onTap: () {
-                            AutoRouter.of(context)
-                                .push(NewLivraisonType1Route());
-                          },
-                        ),
-                        HomePropositionWidget(
-                          title: 'Je veux qu\'on recuperer mon colis'.tr(),
-                          icon: Assets.colis,
-                          onTap: () {
-                            AutoRouter.of(context)
-                                .push(NewLivraisonType2Route());
-                          },
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: kMarginY),
-                    AppButtonSecond(
-                      prefixIcon: Icons.library_books,
-                      sufixIcon: Icons.arrow_circle_right,
-                      size: MainAxisSize.max,
-                      bgColor: ColorsApp.greyNew,
-                      text: 'Mon Historique'.tr(),
-                      textColor: ColorsApp.primary,
-                      onTap: () {
-                        AutoRouter.of(context).push(HistoriqueLivraisonRoute());
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 25,
+                  backgroundColor: ColorsApp.primary,
+                  child: InkWell(
+                    onTap: () => BlocProvider.of<UserBloc>(context)
+                        .add(UpdateUserImage()),
+                    child: CachedNetworkImage(
+                      height: getHeight(context) / 10,
+                      width: getHeight(context) / 10,
+                      fit: BoxFit.cover,
+                      imageUrl: user.profile,
+                      imageBuilder: (context, imageProvider) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: imageProvider,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        );
+                      },
+                      placeholder: (context, url) {
+                        return Container(
+                          decoration: BoxDecoration(
+                              color: ColorsApp.white.withOpacity(.5),
+                              borderRadius: BorderRadius.circular(50)),
+                          child: Center(
+                              child: CircularProgressIndicator(
+                                  color: ColorsApp.primary)),
+                        );
+                      },
+                      errorWidget: (context, url, error) {
+                        return CircleAvatar(
+                            // backgroundColor: ColorsApp.tird,
+                            radius: 150,
+                            backgroundImage:
+                                AssetImage('assets/images/user.jpg'));
                       },
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
+                Container(
+                    margin: EdgeInsets.only(left: kMarginX),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            // margin: EdgeInsets.only(top: kMarginY),
+                            child: Text(
+                              ViewFunctions().capitalizeFirstLetter(user.nom),
+                              style: TextStyle(
+                                  color: ColorsApp.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                          if (stateSLivraison.loadingMapPlaceInfo == 0)
+                            Skeletonizer(
+                              enabled: true,
+                              child: Container(
+                                child: Text(
+                                  'Douala-Douala',
+                                  style: TextStyle(
+                                    color: ColorsApp.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          if (stateSLivraison.mapPlaceInfo != null)
+                            Text(
+                              '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
+                              style: TextStyle(
+                                color: ColorsApp.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                        ])),
+              ],
+            ),
           ),
-        );
-      },
+          Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+              ),
+              padding: EdgeInsets.all(8),
+              child: Icon(
+                Icons.notifications,
+                color: ColorsApp.white,
+              )),
+        ],
+      ),
     );
   }
- */
 }
 
 // ignore: must_be_immutable
