@@ -69,7 +69,7 @@ class _AppCurrentLivraisonItemState extends State<AppCurrentLivraisonItem>
                                   margin: EdgeInsets.symmetric(
                                       vertical: kMarginY * .8),
                                   child: AppTextTitle(
-                                    text: 'Vos livraisons en cours '.tr(),
+                                    text: 'Vos recentes livraisons   '.tr(),
                                     bolder: true,
                                     big: true,
                                     percent: 0.8,

@@ -120,6 +120,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 slivers: [
                   SliverAppBar(
                       backgroundColor: ColorsApp.second,
+                      pinned: true,
                       automaticallyImplyLeading: false,
                       bottom: PreferredSize(
                         preferredSize: Size.fromHeight(30),
@@ -167,9 +168,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 currentIndex: _currentIndex,
                 onTap: (index) {
                   print('-==========${_currentIndex}');
-                  setState(() {
-                    _currentIndex = index;
-                  });
+                  if (index == 2) {
+                    AutoRouter.of(context).push(CallCenterRoute());
+                  } else {
+                    setState(() {
+                      _currentIndex = index;
+                    });
+                  }
                   print('-==========${_currentIndex}');
                 },
               ),
@@ -189,27 +194,28 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         return HistoriqueLivraisonPage();
 
       case 2:
-        return CallCenterPage();
+        return FirstView();
 
       default:
         return FirstView();
     }
-     }
+  }
 
   Widget _buildFloatingAppBar(
       {required BuildContext context,
       required LivraisonState stateSLivraison,
       required User user}) {
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: kMarginX),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             // width: MediaQuery.of(context).size.width * 0.9,
             // padding: EdgeInsets.all(8),
-            margin:
-                EdgeInsets.symmetric(vertical: kMarginY, horizontal: kMarginX)
-                    .add(EdgeInsets.only(right: kMarginX * 2)),
+            margin: EdgeInsets.symmetric(
+              vertical: kMarginY,
+            ),
 
             child: Row(
               children: [
@@ -256,7 +262,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                 ),
                 Container(
-                    margin: EdgeInsets.only(left: kMarginX),
+                    margin: EdgeInsets.symmetric(horizontal: kMarginX),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -288,7 +294,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               style: TextStyle(
                                 color: ColorsApp.white,
                                 fontSize: 16,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                         ])),
@@ -297,8 +303,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
           Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-              ),
+                  borderRadius: BorderRadius.circular(50),
+                  border: Border.all(
+                    color: ColorsApp.white,
+                  )),
               padding: EdgeInsets.all(8),
               child: Icon(
                 Icons.notifications,

@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';
 import '../../presentation/components/exportcomponent.dart';
@@ -118,26 +119,59 @@ class FirstView extends StatelessWidget {
             ),
           ),
           Container(
-            // padding: EdgeInsets.symmetric(horizontal: kMarginX),
             child: Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Use Expanded to allow items to take available space
                     Expanded(
-                      child: AppServiceItem(
-                        title: 'Me faire livrer mon colis'.tr(),
-                        image: Assets.activity,
-                        onTap: () {
-                          AutoRouter.of(context).push(NewLivraisonType1Route());
-                        },
-                      ),
-                    ),
+                        child: AppServiceItem(
+                            title: 'Livraison de colis'.tr(),
+                            image: Assets.activity,
+                            onTap: () => GlobalBottomSheet.show(
+                                maxHeight: getHeight(context) * .5,
+                                context: context,
+                                title: 'Livraison de colis'.tr(),
+                                subtitle:
+                                    'Veuillez choisir votre service de livraison'
+                                        .tr(),
+                                widget: BlocBuilder<LivraisonBloc,
+                                        LivraisonState>(
+                                    builder: (context, state) => Container(
+                                            child: SingleChildScrollView(
+                                                child: Container(
+                                          padding: EdgeInsets.only(
+                                              top: kMarginY * 5),
+                                          child: Column(children: [
+                                            AppServiceItem(
+                                              title: 'Me faire livrer mon colis'
+                                                  .tr(),
+                                              image: Assets.activity,
+                                              onTap: () =>
+                                                  AutoRouter.of(context).push(
+                                                      NewLivraisonType1Route()),
+                                            ),
+                                            SizedBox(
+                                                height:
+                                                    30), // Add some spacing between items
+                                            AppServiceItem(
+                                              title:
+                                                  'Je veux qu\'on recuperer mon colis'
+                                                      .tr(),
+                                              image: Assets.activity,
+                                              index: 0,
+                                              onTap: () {
+                                                AutoRouter.of(context).push(
+                                                    NewLivraisonType2Route());
+                                              },
+                                            ),
+                                          ]),
+                                        ))))))),
+
                     SizedBox(width: 16), // Add some spacing between items
                     Expanded(
                       child: AppServiceItem(
-                        title: 'Je veux qu\'on recuperer mon colis'.tr(),
+                        title: 'Livraison de medicament'.tr(),
                         image: Assets.activity,
                         index: 0,
                         onTap: () {
@@ -153,7 +187,7 @@ class FirstView extends StatelessWidget {
                   children: [
                     Expanded(
                       child: AppServiceItem(
-                        title: 'Livraison de medicament'.tr(),
+                        title: 'Blanchisserie'.tr(),
                         image: Assets.activity,
                         index: 0,
                         onTap: () {
