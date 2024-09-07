@@ -55,7 +55,7 @@ class Assets {
   static const call_center = 'assets/svg_icones/call_center.svg';
   static const livraison_success = 'assets/svg_icones/livraison_success.svg';
   static const activity = 'assets/svg_icones/activity.svg';
-
+  static const google = 'assets/svg_icones/google.svg';
   static const p3 = 'assets/images/p3.png';
   static const market_place = 'assets/images/market_place.png';
   static const p2 = 'assets/images/p2.png';

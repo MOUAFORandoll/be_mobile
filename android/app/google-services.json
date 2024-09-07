@@ -12,7 +12,28 @@
           "package_name": "com.app.babanaexpress"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "255400953271-1spm507kedqe6hmuqkb91fhoniqle9g4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.babanaexpress",
+            "certificate_hash": "79df2d6d96422d0d0f7f28b43e7ac4deac9317a0"
+          }
+        },
+        {
+          "client_id": "255400953271-t0ff8bo177noqabpqd4l6kq5o222ib4g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.babanaexpress",
+            "certificate_hash": "e6dffebe80cbb6539f238532113626a127c25e84"
+          }
+        },
+        {
+          "client_id": "255400953271-0skmnrss9mhv9hd3cc3ehi1fuepcunlm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDU817wUYrQ8MdhLXuKfC6cM1fadXxD8b0"
@@ -20,7 +41,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255400953271-0skmnrss9mhv9hd3cc3ehi1fuepcunlm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

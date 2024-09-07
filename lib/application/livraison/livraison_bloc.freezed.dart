@@ -4209,11 +4209,11 @@ class __$$SetLogLatImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latLng = null,
+    Object? latLng = freezed,
     Object? quartier_recuperation_point = freezed,
   }) {
     return _then(_$SetLogLatImpl(
-      latLng: null == latLng
+      latLng: freezed == latLng
           ? _value.latLng
           : latLng // ignore: cast_nullable_to_non_nullable
               as LatLng,
@@ -4246,7 +4246,7 @@ class _$SetLogLatImpl implements SetLogLat {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SetLogLatImpl &&
-            (identical(other.latLng, latLng) || other.latLng == latLng) &&
+            const DeepCollectionEquality().equals(other.latLng, latLng) &&
             (identical(other.quartier_recuperation_point,
                     quartier_recuperation_point) ||
                 other.quartier_recuperation_point ==
@@ -4254,8 +4254,8 @@ class _$SetLogLatImpl implements SetLogLat {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, latLng, quartier_recuperation_point);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(latLng), quartier_recuperation_point);
 
   /// Create a copy of LivraisonEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -24209,10 +24209,10 @@ class __$$LoadPlaceInfoRecuperationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latLng = null,
+    Object? latLng = freezed,
   }) {
     return _then(_$LoadPlaceInfoRecuperationImpl(
-      latLng: null == latLng
+      latLng: freezed == latLng
           ? _value.latLng
           : latLng // ignore: cast_nullable_to_non_nullable
               as LatLng,
@@ -24238,11 +24238,12 @@ class _$LoadPlaceInfoRecuperationImpl implements LoadPlaceInfoRecuperation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadPlaceInfoRecuperationImpl &&
-            (identical(other.latLng, latLng) || other.latLng == latLng));
+            const DeepCollectionEquality().equals(other.latLng, latLng));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, latLng);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(latLng));
 
   /// Create a copy of LivraisonEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -24702,10 +24703,10 @@ class __$$LoadPlaceInfoLivraisonImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latLng = null,
+    Object? latLng = freezed,
   }) {
     return _then(_$LoadPlaceInfoLivraisonImpl(
-      latLng: null == latLng
+      latLng: freezed == latLng
           ? _value.latLng
           : latLng // ignore: cast_nullable_to_non_nullable
               as LatLng,
@@ -24731,11 +24732,12 @@ class _$LoadPlaceInfoLivraisonImpl implements LoadPlaceInfoLivraison {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadPlaceInfoLivraisonImpl &&
-            (identical(other.latLng, latLng) || other.latLng == latLng));
+            const DeepCollectionEquality().equals(other.latLng, latLng));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, latLng);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(latLng));
 
   /// Create a copy of LivraisonEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -27072,12 +27074,12 @@ class _$LivraisonStateImpl implements _LivraisonState {
             (identical(other.urlLivraison, urlLivraison) || other.urlLivraison == urlLivraison) &&
             const DeepCollectionEquality().equals(other._userLivraisonList, _userLivraisonList) &&
             (identical(other.controller, controller) || other.controller == controller) &&
-            (identical(other.position, position) || other.position == position) &&
+            const DeepCollectionEquality().equals(other.position, position) &&
             (identical(other.isLoadingPlaceSearch, isLoadingPlaceSearch) || other.isLoadingPlaceSearch == isLoadingPlaceSearch) &&
             (identical(other.currentLivraisonId, currentLivraisonId) || other.currentLivraisonId == currentLivraisonId) &&
             (identical(other.isLoadingPlaceSearchInfo, isLoadingPlaceSearchInfo) || other.isLoadingPlaceSearchInfo == isLoadingPlaceSearchInfo) &&
             const DeepCollectionEquality().equals(other._list_search_place, _list_search_place) &&
-            (identical(other.findedPlaceInfo, findedPlaceInfo) || other.findedPlaceInfo == findedPlaceInfo) &&
+            const DeepCollectionEquality().equals(other.findedPlaceInfo, findedPlaceInfo) &&
             (identical(other.selectedModePaiement, selectedModePaiement) || other.selectedModePaiement == selectedModePaiement) &&
             (identical(other.selectedService, selectedService) || other.selectedService == selectedService) &&
             (identical(other.indexType2, indexType2) || other.indexType2 == indexType2) &&
@@ -27148,12 +27150,12 @@ class _$LivraisonStateImpl implements _LivraisonState {
         urlLivraison,
         const DeepCollectionEquality().hash(_userLivraisonList),
         controller,
-        position,
+        const DeepCollectionEquality().hash(position),
         isLoadingPlaceSearch,
         currentLivraisonId,
         isLoadingPlaceSearchInfo,
         const DeepCollectionEquality().hash(_list_search_place),
-        findedPlaceInfo,
+        const DeepCollectionEquality().hash(findedPlaceInfo),
         selectedModePaiement,
         selectedService,
         indexType2,

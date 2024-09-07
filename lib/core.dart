@@ -16,6 +16,7 @@ import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:BabanaExpress/utils/Services/NotificationService.dart';
 import 'package:BabanaExpress/utils/Services/SocketService.dart';
+import 'package:BabanaExpress/utils/Services/auth_social_service%20.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:connectivity/connectivity.dart';
@@ -37,8 +38,10 @@ Future<void> init() async {
   sl.registerFactory(() => SplashBloc(database: sl()));
 
   sl
-    ..registerFactory(() => UserBloc(userRepo: sl(), database: sl()))
-    ..registerLazySingleton(() => UserRepo(apiClient: sl()));
+    ..registerFactory(
+        () => UserBloc(authSocial: sl(), userRepo: sl(), database: sl()))
+    ..registerLazySingleton(() => UserRepo(apiClient: sl()))
+    ..registerLazySingleton(() => AuthSocialService( ));
 
   sl
     ..registerFactory(() => HomeBloc(homeRepo: sl(), database: sl()))

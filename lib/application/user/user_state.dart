@@ -13,6 +13,8 @@ class UserState with _$UserState {
       int? isSocialAuthentification,
       int? isLoadingForgot,
       int? isUpdateUserImage,
+      int? isUpdateUserInfo,
+      bool? completeprofil,
       int? isCorrectCode,
       int? isVilleQuartier,
       int? loadModePaiement,
@@ -26,23 +28,26 @@ class UserState with _$UserState {
       bool? updating}) = _UserState;
 
   factory UserState.initial() => UserState(
-      phone: TextEditingController(),
-      password: TextEditingController(),
-      name: TextEditingController(),
-      re_password: TextEditingController(),
-      isSocialAuthentification: null,
-      isExistLoading: null,
-      isCode: 0,
-      updating: false,
-      isCorrectCode: 0,
-      loadModePaiement: 0,
-      successReset: false,
-      isLoading: 0,
-      isUpdateUserImage: 0,
-      villeUser: '',
-      quartierUser: '',
-      listModePaiement: [],
-      isVilleQuartier: 0);
+        phone: TextEditingController(),
+        password: TextEditingController(),
+        name: TextEditingController(),
+        re_password: TextEditingController(),
+        isSocialAuthentification: null,
+        isExistLoading: null,
+        isCode: 0,
+        updating: false,
+        isCorrectCode: 0,
+        loadModePaiement: 0,
+        successReset: false,
+        isLoading: 0,
+        isUpdateUserImage: 0,
+        villeUser: '',
+        quartierUser: '',
+        listModePaiement: [],
+        isVilleQuartier: 0,
+        isUpdateUserInfo: null,
+        completeprofil: null,
+      );
 
   factory UserState.unauthenticated() => UserState.initial();
 

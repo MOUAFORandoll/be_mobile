@@ -4,10 +4,12 @@ import 'package:BabanaExpress/application/model/data/ModePaiementModel.dart';
 
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/Services/auth_social_service%20.dart';
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 // import 'package:google_sign_in/google_sign_in.dart';
 
 import '/entity.dart';
@@ -20,8 +22,12 @@ part 'user_bloc.freezed.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
   final UserRepo userRepo;
+  final AuthSocialService authSocial;
   final DatabaseCubit database;
-  UserBloc({required this.userRepo, required this.database})
+  UserBloc(
+      {required this.authSocial,
+      required this.userRepo,
+      required this.database})
       : super(UserState.initial()) {
     // on<GetDataBateEvent>((event, emit) async {
     //   print('okkof');
@@ -142,7 +148,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     print(data);
 
-    emit(state.copyWith(updating: true));
+    emit(state.copyWith(isUpdateUserInfo: 0));
     await userRepo.updateUser(data).then((response) async {
       if (response.statusCode == 201) {
         database.saveKeyKen(response.data);
@@ -151,36 +157,35 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           if (value != null) {
             print('------------------value----------${value.data}-');
             if (value.data['data'] != null) {
+              var _UserSave = User.fromJson(value.data['data']);
+              await database.saveUser(_UserSave);
               emit(state.copyWith(
-                  updating: false,
-                  isLoading: 2,
+                  isUpdateUserInfo: 1,
+                  completeprofil: true,
                   authenticationFailedMessage: ''));
               emit(UserState.authenticated());
 
-              var _UserSave = User.fromJson(value.data['data']);
-
-              await database.saveUser(_UserSave);
+              emit(state.copyWith(isUpdateUserInfo: null));
             }
           }
         }).catchError((error) {
           emit(state.copyWith(
-              updating: false,
+              isUpdateUserInfo: 2,
               isLoading: 3,
               authenticationFailedMessage:
                   'Une erreur est survenue recommencer'));
         });
       } else {
         emit(state.copyWith(
-            updating: false,
+            isUpdateUserInfo: 2,
             isLoading: 3,
             authenticationFailedMessage: response.data['message']));
       }
     }).onError((error, s) {
-      // print('----${s}-----');
-      // print('------${error}---');
       emit(state.copyWith(
+          isUpdateUserInfo: 2,
           isLoading: 3,
-          authenticationFailedMessage: 'Phone ou mot de passe incorrect'));
+          authenticationFailedMessage: error!.toString()));
     });
   }
 
@@ -469,155 +474,136 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     await super.close();
   }
 
-  signInSocialEvent(SignInSocialEvent event, Emitter<UserState> emit) async {
-    // try {
-    //   GoogleSignIn _googleSignIn = GoogleSignIn(
-    //     serverClientId:
-    //         '255400953271-cpqp7fnn2khmcekjuad4858pm91lj55r.apps.googleusercontent.com',
-    //     scopes: [
-    //       'email',
-    //     ],
-    //   );
+  Future<void> signInSocialEvent(
+      SignInSocialEvent event, Emitter<UserState> emit) async {
+    try {
+      await database.disconnect();
+      emit(_getResetState());
+      GoogleSignInAccount? googleUser = await authSocial.signInWithGoogle();
 
-    //   print('-------- ------- ------- ---------**-*-*');
+      if (googleUser == null) {
+        print('*-------------------------nulll');
+        emit(_getErrorState('Erreur lors de la connexion avec Google.'));
+        return;
+      }
 
-    //   GoogleSignInAccount? googleUser =
-    //       await _googleSignIn.signIn().onError((error, stackTrace) {
-    //     print('----------------${error}--**-*-*');
-    //   });
-    //   googleUser!.authentication
-    //       .then((value) => print('----------------${value}--**-*-*'))
-    //       .onError(
-    //           (error, stackTrace) => print('----------------${error}--**-*-*'));
+      print('User: $googleUser');
 
-    //   print(googleUser);
-    //   print('-------- ------- ------- ---------**-*-*');
-    //   print(googleUser.toString());
-    //   print('-------- ------- ------- ---------**-*-*');
-    //   var data = null;
-    //   // if (googleUser.email != null) {
-    //   //   data = {
-    //   //     'email': googleUser.email,
-    //   //   };
-    //   // }
+      final data = {
+        'email': googleUser.email,
+        'nom': googleUser.displayName,
+        'prenom': '',
+        'socialPicture': googleUser.photoUrl,
+        'isSocialGoogle': true
+      };
+      emit(state.copyWith(isLoading: 1, isSocialAuthentification: 1));
 
-    //   if (data == null) {
-    //     emit(state.copyWith(
-    //         isLoading: 3,
-    //         isSocialAuthentification: 3,
-    //         authenticationFailedMessage:
-    //             'Une erreur est survenue recommencer'));
+      final response = await userRepo.loginSocial(data);
 
-    //     return 0;
-    //   }
-    //   emit(state.copyWith(isLoading: 1, isSocialAuthentification: 1));
-    //   await userRepo.LoginSocial(data).then((response) async {
-    //     if (response.statusCode == 201) {
-    //       database.saveKeyKen(response.data);
+      if (response.statusCode == 201) {
+        await database.saveKeyKen(response.data);
 
-    //       await userRepo.getUser().then((value) async {
-    //         if (value != null) {
-    //           print('------------------value----------${value.data}-');
-    //           if (value.data['data'] != null) {
-    //             emit(state.copyWith(
-    //                 isSocialAuthentification: 2,
-    //                 isLoading: 2,
-    //                 authenticationFailedMessage: ''));
-    //             emit(UserState.authenticated());
+        final userResponse = await userRepo.getUser();
 
-    //             var _UserSave = User.fromJson(value.data['data']);
+        if (userResponse != null && userResponse.data['data'] != null) {
+          final userData = User.fromJson(userResponse.data['data']);
 
-    //             await database.saveUser(_UserSave);
-    //           }
-    //         }
-    //       }).catchError((error) {
-    //         emit(state.copyWith(
-    //             isLoading: 3,
-    //             isSocialAuthentification: 3,
-    //             authenticationFailedMessage:
-    //                 'Une erreur est survenue recommencer'));
-    //       });
-    //     } else {
-    //       emit(state.copyWith(
-    //           isSocialAuthentification: 3,
-    //           isLoading: 3,
-    //           authenticationFailedMessage: response.data['message']));
-    //     }
-    //   }).onError((error, s) {
-    //     emit(state.copyWith(
-    //         isSocialAuthentification: 3,
-    //         isLoading: 3,
-    //         authenticationFailedMessage: 'Phone ou mot de passe incorrect'));
-    //   });
-    // } catch (e) {}
+          await database.saveUser(userData);
+
+          emit(state.copyWith(
+              isLoading: 2,
+              completeprofil: response.data['completeprofil'],
+              isSocialAuthentification: 2));
+          emit(state.copyWith(completeprofil: null));
+        } else {
+          emit(_getErrorState(
+              'Erreur lors de la récupération des données utilisateur.'));
+        }
+      } else {
+        emit(_getErrorState(response.data['message']));
+      }
+    } catch (e) {
+      emit(_getErrorState('Une erreur est survenue: $e'));
+    }
+    emit(state.copyWith(isLoading: null, isSocialAuthentification: null));
+  }
+
+  UserState _getErrorState(String message) {
+    return state.copyWith(
+      isLoading: 3,
+      isSocialAuthentification: 3,
+      authenticationFailedMessage: message,
+    );
+  }
+
+  UserState _getResetState() {
+    return state.copyWith(
+      isLoading: 0,
+      isSocialAuthentification: 0,
+      authenticationFailedMessage: '',
+    );
   }
 
   registerSocial(RegisterSocialEvent event, Emitter<UserState> emit) async {
-    // try {
-    //   GoogleSignIn _googleSignIn = GoogleSignIn(
-    //     clientId:
-    //         '255400953271-cpqp7fnn2khmcekjuad4858pm91lj55r.apps.googleusercontent.com',
-    //     scopes: [
-    //       'email',
-    //     ],
-    //   );
-    //   GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-    //   var data = null;
-    //   if (googleUser!.email != null) {
-    //     data = {
-    //       'email': googleUser.email,
-    //       'nom': googleUser.displayName,
-    //       'prenom': '',
-    //       'isSocialGoogle': true
-    //     };
-    //   }
+    try {
+      GoogleSignInAccount? googleUser = await authSocial.signInWithGoogle();
 
-    //   if (data == null) {
-    //     emit(state.copyWith(
-    //         isLoading: 3,
-    //         isSocialAuthentification: 3,
-    //         authenticationFailedMessage:
-    //             'Une erreur est survenue recommencer'));
+      var data = null;
+      if (googleUser!.email != null) {
+        data = {
+          'email': googleUser.email,
+          'nom': googleUser.displayName,
+          'prenom': '',
+          'isSocialGoogle': true
+        };
+      }
 
-    //     return 0;
-    //   }
-    //   emit(state.copyWith(isLoading: 1, isSocialAuthentification: 1));
+      if (data == null) {
+        emit(state.copyWith(
+            isLoading: 3,
+            isSocialAuthentification: 3,
+            authenticationFailedMessage:
+                'Une erreur est survenue recommencer'));
 
-    //   print(data);
-    //   emit(state.copyWith(isLoading: 1));
-    //   await userRepo.Login(data).then((response) async {
-    //     if (response.statusCode == 201) {
-    //       database.saveKeyKen(response.data);
+        return 0;
+      }
+      emit(state.copyWith(isLoading: 1, isSocialAuthentification: 1));
 
-    //       await userRepo.getUser().then((value) async {
-    //         if (value != null) {
-    //           print('------------------value----------${value.data}-');
-    //           if (value.data['data'] != null) {
-    //             emit(state.copyWith(
-    //                 isLoading: 2, authenticationFailedMessage: ''));
-    //             emit(UserState.authenticated());
+      print(data);
+      emit(state.copyWith(isLoading: 1));
+      await userRepo.registerSocial(data).then((response) async {
+        if (response.statusCode == 201) {
+          database.saveKeyKen(response.data);
 
-    //             var _UserSave = User.fromJson(value.data['data']);
+          await userRepo.getUser().then((value) async {
+            if (value != null) {
+              print('------------------value----------${value.data}-');
+              if (value.data['data'] != null) {
+                emit(state.copyWith(
+                    isLoading: 2, authenticationFailedMessage: ''));
+                emit(UserState.authenticated());
 
-    //             await database.saveUser(_UserSave);
-    //           }
-    //         }
-    //       }).catchError((error) {
-    //         emit(state.copyWith(
-    //             isLoading: 3,
-    //             authenticationFailedMessage:
-    //                 'Une erreur est survenue recommencer'));
-    //       });
-    //     } else {
-    //       emit(state.copyWith(
-    //           isLoading: 3,
-    //           authenticationFailedMessage: response.data['message']));
-    //     }
-    //   }).onError((error, s) {
-    //     emit(state.copyWith(
-    //         isLoading: 3,
-    //         authenticationFailedMessage: 'Phone ou mot de passe incorrect'));
-    //   });
-    // } catch (e) {}
+                var _UserSave = User.fromJson(value.data['data']);
+
+                await database.saveUser(_UserSave);
+              }
+            }
+          }).catchError((error) {
+            emit(state.copyWith(
+                isLoading: 3,
+                authenticationFailedMessage:
+                    'Une erreur est survenue recommencer'));
+          });
+        } else {
+          emit(state.copyWith(
+              isLoading: 3,
+              authenticationFailedMessage: response.data['message']));
+        }
+      }).onError((error, s) {
+        emit(state.copyWith(
+            isLoading: 3,
+            authenticationFailedMessage: 'Phone ou mot de passe incorrect'));
+      });
+    } catch (e) {}
   }
 }

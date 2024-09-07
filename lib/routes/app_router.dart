@@ -19,6 +19,7 @@ import 'package:BabanaExpress/presentation/livraison/type2/InfoLivraisonType2.da
 import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/user/AuthPage.dart';
+import 'package:BabanaExpress/presentation/user/CompleteProfilPage.dart';
 import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
 import 'package:BabanaExpress/presentation/user/LoginPage.dart';
 import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
@@ -50,6 +51,11 @@ class AppRouter extends $AppRouter {
             durationInMilliseconds: 600,
             page: LoginRoute.page,
             path: LoginPage.routeName),
+        CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: CompleteProfilRoute.page,
+            path: CompleteProfilPage.routeName),
 
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,

@@ -12,6 +12,7 @@ import 'package:BabanaExpress/presentation/_commons/theming/app_theme.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:BabanaExpress/utils/Services/auth_social_service%20.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -78,7 +79,9 @@ class BlocProviders extends StatelessWidget {
         ),
         BlocProvider<UserBloc>(
           create: (BuildContext context) => UserBloc(
-              userRepo: sl.get<UserRepo>(), database: sl.get<DatabaseCubit>()),
+              authSocial: sl.get<AuthSocialService>(),
+              userRepo: sl.get<UserRepo>(),
+              database: sl.get<DatabaseCubit>()),
         ),
         BlocProvider<CallCenterBloc>(
           create: (BuildContext context) => CallCenterBloc(

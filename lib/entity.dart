@@ -40,7 +40,7 @@ class User {
   String profile;
 
   @Property()
-  String phone;
+  String? phone;
 
   @Property()
   String dateCreated;
@@ -56,7 +56,7 @@ class User {
     required this.typeUser,
     required this.email,
     required this.profile,
-    required this.phone,
+    this.phone,
     required this.dateCreated,
     required this.soldeBonus,
   });
@@ -84,7 +84,7 @@ class User {
       prenom: json['prenom'],
       email: json['email'],
       profile: json['profile'],
-      phone: json['phone'],
+      phone: json['phone'].toString(),
       dateCreated: json['date_created'],
       soldeBonus: double.parse(json['solde_bonus'].toString()),
     );
@@ -152,7 +152,7 @@ class Localisation {
     );
   }
 }
- 
+
 @Entity()
 class KeyUser {
   int id = 0;
@@ -193,6 +193,7 @@ class KeyUser {
     );
   }
 }
+
 @Entity()
 class LivraisonPosition {
   int id = 0;
@@ -216,4 +217,3 @@ class LivraisonPosition {
     );
   }
 }
-

@@ -477,7 +477,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final prenomOffset = fbb.writeString(object.prenom);
           final emailOffset = fbb.writeString(object.email);
           final profileOffset = fbb.writeString(object.profile);
-          final phoneOffset = fbb.writeString(object.phone);
+          final phoneOffset =
+              object.phone == null ? null : fbb.writeString(object.phone!);
           final dateCreatedOffset = fbb.writeString(object.dateCreated);
           fbb.startTable(13);
           fbb.addInt64(0, object.id);
@@ -512,7 +513,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final profileParam = const fb.StringReader(asciiOptimization: true)
               .vTableGet(buffer, rootOffset, 14, '');
           final phoneParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 16, '');
+              .vTableGetNullable(buffer, rootOffset, 16);
           final dateCreatedParam =
               const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 18, '');

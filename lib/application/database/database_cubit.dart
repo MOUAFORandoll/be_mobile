@@ -43,6 +43,7 @@ class DatabaseCubit extends Cubit<DatabaseState> {
     }
   }
 
+  User? get user => getUser();
   // Get operations
   User? getUser() {
     final userBox = _store.box<User>();
@@ -156,11 +157,16 @@ class DatabaseCubit extends Cubit<DatabaseState> {
   }
 
   Future<void> disconnect() async {
+    box.erase();
     _store.box<Theme>().removeAll();
     _store.box<Lang>().removeAll();
     _store.box<Localisation>().removeAll();
     _store.box<KeyUser>().removeAll();
     _store.box<User>().removeAll();
+
+    final users = _store.box<User>().getAll();
+    print('--------------------users');
+    print(users);
     // _createInstance();
     // return super.close();
   }

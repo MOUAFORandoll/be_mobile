@@ -48,39 +48,6 @@ class _AuthPageState extends State<AuthPage> {
 
                   print('-----44--------*********');
                 }
-                if (state.isLoading == 1) {
-                  // Loader().openModal(
-                  //   context: context,
-                  //   title: 'Connexion',
-                  //   description:
-                  //       'Veuillez patienter pendant que nous vérifions vos informations de connexion...',
-                  // );
-                  EasyLoading.show(
-                      indicator: CircularProgressIndicator(
-                        color: ColorsApp.second,
-                      ),
-                      dismissOnTap: true,
-                      maskType: EasyLoadingMaskType.black);
-                } else if (state.isLoading == 3) {
-                  EasyLoading.dismiss();
-                  showError(state.authenticationFailedMessage!, context);
-                } else if (state.isLoading == 2) {
-                  if (state.completeprofil != null) {
-                    if (state.completeprofil!) {
-                      print(
-                          '-----state.completeprofil----------------${state.completeprofil}--------*********');
-
-                      AutoRouter.of(context)
-                          .replaceAll([CompleteProfilRoute()]);
-                    } else {
-                      AutoRouter.of(context).replaceAll([HomeRoute()]);
-                    }
-                  }
-                  showSuccess('Connecte', context);
-
-                  EasyLoading.dismiss();
-                  print('-----44--------*********');
-                }
               },
               builder: (context, state) => SingleChildScrollView(
                       child: Column(children: [

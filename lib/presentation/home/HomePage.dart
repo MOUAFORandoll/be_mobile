@@ -114,7 +114,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           builder: (context, stateSLivraison) {
             return Scaffold(
               backgroundColor: ColorsApp.white,
-              drawer: CustomDrawer(user: state.user),
+              drawer:
+                  CustomDrawer(user: context.read<HomeBloc>().database.user!),
               body: CustomScrollView(
                 // controller: _scrollController,
                 slivers: [
@@ -127,7 +128,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         child: _buildFloatingAppBar(
                             context: context,
                             stateSLivraison: stateSLivraison,
-                            user: state.user!),
+                            user: context.read<HomeBloc>().database.user!),
                       )),
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
@@ -321,7 +322,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // ignore: must_be_immutable
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({required this.user});
-  final user;
+  final User user;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<UserBloc, UserState>(
@@ -421,7 +422,7 @@ class CustomDrawer extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              user.phone,
+                              user.phone!,
                               style: TextStyle(
                                   color: ColorsApp.greyNew,
                                   fontSize: 12,

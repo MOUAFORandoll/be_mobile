@@ -15,7 +15,7 @@ class AppCarrousselItemSecond extends StatelessWidget {
       decoration: BoxDecoration(
         color: ColorsApp.second,
       ),
-      height: getHeight(context) * .7,
+      height: getHeight(context) * .67,
       padding:
           EdgeInsets.symmetric(vertical: kMarginY * 2, horizontal: kMarginX)
               .add(EdgeInsets.only(top: kMarginY * 2)),

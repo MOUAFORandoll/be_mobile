@@ -2847,6 +2847,8 @@ mixin _$UserState {
   int? get isSocialAuthentification => throw _privateConstructorUsedError;
   int? get isLoadingForgot => throw _privateConstructorUsedError;
   int? get isUpdateUserImage => throw _privateConstructorUsedError;
+  int? get isUpdateUserInfo => throw _privateConstructorUsedError;
+  bool? get completeprofil => throw _privateConstructorUsedError;
   int? get isCorrectCode => throw _privateConstructorUsedError;
   int? get isVilleQuartier => throw _privateConstructorUsedError;
   int? get loadModePaiement => throw _privateConstructorUsedError;
@@ -2883,6 +2885,8 @@ abstract class $UserStateCopyWith<$Res> {
       int? isSocialAuthentification,
       int? isLoadingForgot,
       int? isUpdateUserImage,
+      int? isUpdateUserInfo,
+      bool? completeprofil,
       int? isCorrectCode,
       int? isVilleQuartier,
       int? loadModePaiement,
@@ -2921,6 +2925,8 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
     Object? isSocialAuthentification = freezed,
     Object? isLoadingForgot = freezed,
     Object? isUpdateUserImage = freezed,
+    Object? isUpdateUserInfo = freezed,
+    Object? completeprofil = freezed,
     Object? isCorrectCode = freezed,
     Object? isVilleQuartier = freezed,
     Object? loadModePaiement = freezed,
@@ -2974,6 +2980,14 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
           ? _value.isUpdateUserImage
           : isUpdateUserImage // ignore: cast_nullable_to_non_nullable
               as int?,
+      isUpdateUserInfo: freezed == isUpdateUserInfo
+          ? _value.isUpdateUserInfo
+          : isUpdateUserInfo // ignore: cast_nullable_to_non_nullable
+              as int?,
+      completeprofil: freezed == completeprofil
+          ? _value.completeprofil
+          : completeprofil // ignore: cast_nullable_to_non_nullable
+              as bool?,
       isCorrectCode: freezed == isCorrectCode
           ? _value.isCorrectCode
           : isCorrectCode // ignore: cast_nullable_to_non_nullable
@@ -3041,6 +3055,8 @@ abstract class _$$UserStateImplCopyWith<$Res>
       int? isSocialAuthentification,
       int? isLoadingForgot,
       int? isUpdateUserImage,
+      int? isUpdateUserInfo,
+      bool? completeprofil,
       int? isCorrectCode,
       int? isVilleQuartier,
       int? loadModePaiement,
@@ -3077,6 +3093,8 @@ class __$$UserStateImplCopyWithImpl<$Res>
     Object? isSocialAuthentification = freezed,
     Object? isLoadingForgot = freezed,
     Object? isUpdateUserImage = freezed,
+    Object? isUpdateUserInfo = freezed,
+    Object? completeprofil = freezed,
     Object? isCorrectCode = freezed,
     Object? isVilleQuartier = freezed,
     Object? loadModePaiement = freezed,
@@ -3130,6 +3148,14 @@ class __$$UserStateImplCopyWithImpl<$Res>
           ? _value.isUpdateUserImage
           : isUpdateUserImage // ignore: cast_nullable_to_non_nullable
               as int?,
+      isUpdateUserInfo: freezed == isUpdateUserInfo
+          ? _value.isUpdateUserInfo
+          : isUpdateUserInfo // ignore: cast_nullable_to_non_nullable
+              as int?,
+      completeprofil: freezed == completeprofil
+          ? _value.completeprofil
+          : completeprofil // ignore: cast_nullable_to_non_nullable
+              as bool?,
       isCorrectCode: freezed == isCorrectCode
           ? _value.isCorrectCode
           : isCorrectCode // ignore: cast_nullable_to_non_nullable
@@ -3192,6 +3218,8 @@ class _$UserStateImpl implements _UserState {
       this.isSocialAuthentification,
       this.isLoadingForgot,
       this.isUpdateUserImage,
+      this.isUpdateUserInfo,
+      this.completeprofil,
       this.isCorrectCode,
       this.isVilleQuartier,
       this.loadModePaiement,
@@ -3226,6 +3254,10 @@ class _$UserStateImpl implements _UserState {
   @override
   final int? isUpdateUserImage;
   @override
+  final int? isUpdateUserInfo;
+  @override
+  final bool? completeprofil;
+  @override
   final int? isCorrectCode;
   @override
   final int? isVilleQuartier;
@@ -3259,7 +3291,7 @@ class _$UserStateImpl implements _UserState {
 
   @override
   String toString() {
-    return 'UserState(isLoading: $isLoading, authenticationFailedMessage: $authenticationFailedMessage, registerFailedMessage: $registerFailedMessage, villeUser: $villeUser, quartierUser: $quartierUser, newPassword: $newPassword, isCode: $isCode, isSocialAuthentification: $isSocialAuthentification, isLoadingForgot: $isLoadingForgot, isUpdateUserImage: $isUpdateUserImage, isCorrectCode: $isCorrectCode, isVilleQuartier: $isVilleQuartier, loadModePaiement: $loadModePaiement, successReset: $successReset, listModePaiement: $listModePaiement, phone: $phone, password: $password, name: $name, re_password: $re_password, isExistLoading: $isExistLoading, updating: $updating)';
+    return 'UserState(isLoading: $isLoading, authenticationFailedMessage: $authenticationFailedMessage, registerFailedMessage: $registerFailedMessage, villeUser: $villeUser, quartierUser: $quartierUser, newPassword: $newPassword, isCode: $isCode, isSocialAuthentification: $isSocialAuthentification, isLoadingForgot: $isLoadingForgot, isUpdateUserImage: $isUpdateUserImage, isUpdateUserInfo: $isUpdateUserInfo, completeprofil: $completeprofil, isCorrectCode: $isCorrectCode, isVilleQuartier: $isVilleQuartier, loadModePaiement: $loadModePaiement, successReset: $successReset, listModePaiement: $listModePaiement, phone: $phone, password: $password, name: $name, re_password: $re_password, isExistLoading: $isExistLoading, updating: $updating)';
   }
 
   @override
@@ -3289,6 +3321,10 @@ class _$UserStateImpl implements _UserState {
                 other.isLoadingForgot == isLoadingForgot) &&
             (identical(other.isUpdateUserImage, isUpdateUserImage) ||
                 other.isUpdateUserImage == isUpdateUserImage) &&
+            (identical(other.isUpdateUserInfo, isUpdateUserInfo) ||
+                other.isUpdateUserInfo == isUpdateUserInfo) &&
+            (identical(other.completeprofil, completeprofil) ||
+                other.completeprofil == completeprofil) &&
             (identical(other.isCorrectCode, isCorrectCode) ||
                 other.isCorrectCode == isCorrectCode) &&
             (identical(other.isVilleQuartier, isVilleQuartier) ||
@@ -3324,6 +3360,8 @@ class _$UserStateImpl implements _UserState {
         isSocialAuthentification,
         isLoadingForgot,
         isUpdateUserImage,
+        isUpdateUserInfo,
+        completeprofil,
         isCorrectCode,
         isVilleQuartier,
         loadModePaiement,
@@ -3358,6 +3396,8 @@ abstract class _UserState implements UserState {
       final int? isSocialAuthentification,
       final int? isLoadingForgot,
       final int? isUpdateUserImage,
+      final int? isUpdateUserInfo,
+      final bool? completeprofil,
       final int? isCorrectCode,
       final int? isVilleQuartier,
       final int? loadModePaiement,
@@ -3390,6 +3430,10 @@ abstract class _UserState implements UserState {
   int? get isLoadingForgot;
   @override
   int? get isUpdateUserImage;
+  @override
+  int? get isUpdateUserInfo;
+  @override
+  bool? get completeprofil;
   @override
   int? get isCorrectCode;
   @override

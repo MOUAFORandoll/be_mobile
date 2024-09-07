@@ -110,6 +110,12 @@ class UserRepo {
 
     return _reponse;
   }
+  Future registerSocial(data) async {
+    Response _reponse =
+        await apiClient.postRequest(ApiRoutes.LOGINSOCIAL, body: data);
+
+    return _reponse;
+  }
 
   Future sendCode(data) async {
     Response _reponse =
