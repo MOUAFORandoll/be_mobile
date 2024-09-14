@@ -69,7 +69,7 @@ showSuccessGetContact(
 ) {
   var snackBar = SnackBar(
     behavior: SnackBarBehavior.floating,
-    backgroundColor: ColorsApp.second,
+    backgroundColor: ThemeApp.second,
     duration: Duration(seconds: 5),
     padding: EdgeInsets.all(20),
     content: Row(

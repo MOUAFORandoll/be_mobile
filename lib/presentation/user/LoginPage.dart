@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                 // );
                 EasyLoading.show(
                     indicator: CircularProgressIndicator(
-                      color: ColorsApp.second,
+                      color: ThemeApp.second,
                     ),
                     dismissOnTap: true,
                     maskType: EasyLoadingMaskType.black);
@@ -102,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                                                             .routeName),
                                             child: Text('forgotpass'.tr(),
                                                 style: TextStyle(
-                                                  color: ColorsApp.second,
+                                                  color: ThemeApp.second,
                                                 )),
                                           )
                                         ],
@@ -112,7 +112,6 @@ class _LoginPageState extends State<LoginPage> {
                             ],
                           )),
                           AppButtonSecond(
-                              size: MainAxisSize.max,
                               marginAdd: EdgeInsets.symmetric(
                                 horizontal: kMarginX,
                               ),

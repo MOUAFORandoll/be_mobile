@@ -40,7 +40,7 @@ class KSearchField extends StatelessWidget {
         // textAlign: TextAlign.left,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(vertical: 5),
-          prefixIcon: Icon(Icons.search, color: ColorsApp.second),
+          prefixIcon: Icon(Icons.search, color: ThemeApp.second),
 
           // prefixIcon: InkWell(
           //     onTap: () {

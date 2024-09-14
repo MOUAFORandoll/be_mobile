@@ -1,4 +1,4 @@
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void configLoadingLoading() {
@@ -7,11 +7,11 @@ void configLoadingLoading() {
     // ..indicatorType = EasyLoadingIndicatorType.ring
     ..loadingStyle = EasyLoadingStyle.dark
     ..indicatorSize = 45.0
-    ..indicatorColor = ColorsApp.second
+    ..indicatorColor = ThemeApp.second
     ..indicatorWidget = Container(
         height: 70,
         width: 70,
-        child: SpinKitRing(color: ColorsApp.second, size: 40.0, lineWidth: 4))
+        child: SpinKitRing(color: ThemeApp.second, size: 40.0, lineWidth: 4))
     ..radius = 10.0
     ..progressColor = Colors.red
     // ..backgroundColor = Colors.transparent

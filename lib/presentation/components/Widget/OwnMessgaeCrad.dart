@@ -37,9 +37,6 @@ class OwnMessageCard extends StatelessWidget {
                         ),
                         child: Text(
                           time,
-                          style: TextStyle(
-                            color: Colors.grey[600],
-                          ),
                         ),
                       ),
                       Container(
@@ -53,8 +50,7 @@ class OwnMessageCard extends StatelessWidget {
                                 formatData.capitalizeFirstLetter(
                                     /* Get.find<ManagerController>().Userget.nom ?? */
                                     'User'),
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w600),
+                                style: Theme.of(context).textTheme.bodySmall,
                               ),
                             ),
                             Container(
@@ -106,7 +102,7 @@ class OwnMessageCard extends StatelessWidget {
                 Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: ColorsApp.second),
+                        color: ThemeApp.second),
                     constraints: BoxConstraints(
                       maxWidth: getWidth(context) * .50,
                     ),

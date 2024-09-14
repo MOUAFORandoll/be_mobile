@@ -149,8 +149,9 @@ class _AppCurrentLivraisonItemState extends State<AppCurrentLivraisonItem>
                                               ColorsApp.white),
                                           content: Text(
                                             'Status : Livraison encours',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w800),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
                                           ),
                                           marginLeft: kMarginX,
                                           marginTop: kMarginY * 1.5,
@@ -168,9 +169,9 @@ class _AppCurrentLivraisonItemState extends State<AppCurrentLivraisonItem>
                                               top: kMarginY * 2)),
                                       child: Text(
                                         'Vous n\'avez aucune livraison en cours !',
-                                        style: TextStyle(
-                                            fontSize: kBasics,
-                                            fontWeight: FontWeight.w700),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall,
                                       ))
                                   : Container(
                                       width: getWidth(context),
@@ -221,7 +222,7 @@ class _AppCurrentLivraisonItemState extends State<AppCurrentLivraisonItem>
               livraison.pointLivraisonColis.first.img.first.src),
           _buildDetailRow(
             marginTop: kMarginY * 2,
-            leading: _buildCircleIndicator(ColorsApp.second),
+            leading: _buildCircleIndicator(ThemeApp.second),
             content: _buildDetailColumn(
                 'From'.tr(), livraison.pointRecuperationColis.libellePoint),
             // marginLeft: kMarginX * 3.8,
@@ -236,7 +237,7 @@ class _AppCurrentLivraisonItemState extends State<AppCurrentLivraisonItem>
             // leading: _buildCircleIndicator(ColorsApp.primary),
             content: Text(
               'Status :  ${livraison.status}',
-              style: TextStyle(fontWeight: FontWeight.w800),
+              style: Theme.of(context).textTheme.bodySmall,
             ),
             marginLeft: kMarginX,
             marginTop: kMarginY,
@@ -262,18 +263,18 @@ class _AppCurrentLivraisonItemState extends State<AppCurrentLivraisonItem>
                 children: [
                   Text(
                     libelle,
-                    style: TextStyle(fontWeight: FontWeight.w800),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   Text(
                     ville,
-                    style: TextStyle(fontSize: 11),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
               ),
             ),
           ],
         ),
-        Icon(Icons.menu, color: ColorsApp.second),
+        Icon(Icons.menu, color: ThemeApp.second),
       ],
     );
   }
@@ -300,13 +301,16 @@ class _AppCurrentLivraisonItemState extends State<AppCurrentLivraisonItem>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyle(fontSize: 11)),
+        Text(
+          label,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
         Container(
           width: getWidth(context) * .55,
           child: Text(
             value,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(fontWeight: FontWeight.w800),
+            style: Theme.of(context).textTheme.bodySmall,
           ),
         ),
       ],

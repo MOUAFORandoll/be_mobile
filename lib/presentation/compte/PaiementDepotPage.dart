@@ -83,7 +83,7 @@ class _PaiementDepotPageState extends State<PaiementDepotPage> {
                             child: Text(
                               'En cours ...',
                               style: TextStyle(
-                                  // color: ColorsApp.second,
+                                  // color: ThemeApp.second,
                                   ),
                             ))
                       ],

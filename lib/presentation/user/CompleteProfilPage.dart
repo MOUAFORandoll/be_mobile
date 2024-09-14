@@ -36,7 +36,7 @@ class _CompleteProfilPageState extends State<CompleteProfilPage> {
                 if (state.isUpdateUserInfo == 0) {
                   EasyLoading.show(
                       indicator: CircularProgressIndicator(
-                        color: ColorsApp.second,
+                        color: ThemeApp.second,
                       ),
                       dismissOnTap: true,
                       maskType: EasyLoadingMaskType.black);
@@ -93,7 +93,6 @@ class _CompleteProfilPageState extends State<CompleteProfilPage> {
                                 ),
                               ),
                               AppButtonSecond(
-                                size: MainAxisSize.max,
                                 marginAdd: EdgeInsets.symmetric(
                                   horizontal: kMarginX,
                                 ),

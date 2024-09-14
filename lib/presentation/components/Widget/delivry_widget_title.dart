@@ -14,7 +14,7 @@ class DelivryWidgetTitle extends StatelessWidget {
         Container(
             padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: ColorsApp.second,
+              color: ThemeApp.second,
               borderRadius: BorderRadius.circular(30),
             ),
             child: Icon(icon, size: 20, color: ColorsApp.white)),
@@ -26,10 +26,7 @@ class DelivryWidgetTitle extends StatelessWidget {
               title,
               textAlign: TextAlign.left,
               maxLines: 2,
-              style: TextStyle(
-                fontSize: kTitle * 1.3,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.bodySmall,
             )),
       ]),
     );

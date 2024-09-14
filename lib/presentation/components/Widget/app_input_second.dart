@@ -34,10 +34,7 @@ class _AppInputSecondState extends State<AppInputSecond> {
         autofocus: false,
         textAlign: TextAlign.center,
         controller: widget.controller,
-        style: const TextStyle(
-          fontWeight: FontWeight.w500,
-          fontSize: 12,
-        ),
+        style: Theme.of(context).textTheme.bodySmall,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
           errorBorder: OutlineInputBorder(

@@ -1,13 +1,13 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart'; 
+import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-import 'package:BabanaExpress/core.dart'; 
+import 'package:BabanaExpress/core.dart';
 
 @RoutePage()
 class RegisterPage extends StatefulWidget {
@@ -37,7 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
               if (state.isLoading == 1) {
                 EasyLoading.show(
                     indicator: CircularProgressIndicator(
-                      color: ColorsApp.second,
+                      color: ThemeApp.second,
                     ),
                     dismissOnTap: true,
                     maskType: EasyLoadingMaskType.black);
@@ -142,8 +142,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
                       AppButtonSecond(
-                          size: MainAxisSize.max,
-                          // bgColor: ColorsApp.primary,
                           text: 'regbtn'.tr(),
                           onTap: () async {
                             if (formKey.currentState!.validate()) {

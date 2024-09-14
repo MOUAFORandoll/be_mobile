@@ -117,7 +117,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   _OnSignOut(SignOutEvent event, Emitter<UserState> emit) async {
     EasyLoading.show(
         indicator: CircularProgressIndicator(
-          color: ColorsApp.second,
+          color: ThemeApp.second,
         ),
         dismissOnTap: true,
         maskType: EasyLoadingMaskType.black);

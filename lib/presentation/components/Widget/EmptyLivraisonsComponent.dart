@@ -13,7 +13,7 @@ class EmptyLivraisonsComponent extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
         child: Text(
           'yemtyl'.tr(),
-          style: TextStyle(fontSize: kBasics, fontWeight: FontWeight.w700),
+          style: Theme.of(context).textTheme.bodySmall,
         ));
   }
 }

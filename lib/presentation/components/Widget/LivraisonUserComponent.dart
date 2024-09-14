@@ -68,16 +68,15 @@ class LivraisonUserComponent extends StatelessWidget {
                                   Container(
                                     margin: EdgeInsets.only(left: kMarginY),
                                     child: Text(
-                                        livraison.status == 0
-                                            ? 'En attente de validation'
-                                            : livraison.status == 1
-                                                ? 'En cours de livraison'
-                                                : 'Colis livres',
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: ColorsApp.black,
-                                        )),
+                                      livraison.status == 0
+                                          ? 'En attente de validation'
+                                          : livraison.status == 1
+                                              ? 'En cours de livraison'
+                                              : 'Colis livres',
+                                      overflow: TextOverflow.ellipsis,
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -164,60 +163,34 @@ class LivraisonUserComponent extends StatelessWidget {
                                       Container(
                                         width: getWidth(context) * .34,
                                         child: Text(
-                                            livraison.libelle.toString(),
-                                            maxLines: 2,
-                                            // overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: ColorsApp.primary,
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w700)),
+                                          livraison.libelle.toString(),
+                                          maxLines: 2,
+                                          // overflow: TextOverflow.ellipsis,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium,
+                                        ),
                                       ),
                                       Container(
                                         child: Text(
-                                            livraison.colis.length.toString() +
-                                                ' ' +
-                                                'colis'.tr(),
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: ColorsApp.greyNew,
-                                                fontWeight: FontWeight.w600)),
+                                          livraison.colis.length.toString() +
+                                              ' ' +
+                                              'colis'.tr(),
+                                          overflow: TextOverflow.ellipsis,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium,
+                                        ),
                                       ),
                                       Container(
                                         child: Text(
-                                            livraison.montant.toString() +
-                                                ' XAF',
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: ColorsApp.black,
-                                                fontWeight: FontWeight.w600)),
+                                          livraison.montant.toString() + ' XAF',
+                                          overflow: TextOverflow.ellipsis,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall,
+                                        ),
                                       ),
-                                      // Container(
-                                      //     child: Text('yDate'.tr(),
-                                      //         overflow: TextOverflow.ellipsis,
-                                      //         style: TextStyle(
-                                      //             color: ColorsApp.black,
-                                      //             fontSize: 9))),
-                                      // Container(
-                                      //     child: Text(livraison.date,
-                                      //         overflow: TextOverflow.ellipsis,
-                                      //         style: TextStyle(
-                                      //             color: ColorsApp.black,
-                                      //             fontWeight:
-                                      //                 FontWeight.w600))),
-                                      // Container(
-                                      //   child: Text(
-                                      //       livraison.status == 0
-                                      //           ? 'En attente de validation'
-                                      //           : livraison.status == 1
-                                      //               ? 'En cours de livraison'
-                                      //               : 'Colis livres',
-                                      //       overflow:
-                                      //           TextOverflow.ellipsis,
-                                      //       style: TextStyle(
-                                      //         fontSize: 14,
-                                      //         color: ColorsApp.black,
-                                      //       )),
-                                      // ),
                                     ],
                                   )),
                             ]),
@@ -264,7 +237,12 @@ class LivraisonUserComponent extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(50)),
                                 child: Text(
                                   livraison.ville,
-                                  style: TextStyle(color: ColorsApp.white),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                        color: ColorsApp.greyNew,
+                                      ),
                                 ),
                               )
                             ],

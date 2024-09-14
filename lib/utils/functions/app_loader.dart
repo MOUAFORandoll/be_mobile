@@ -19,7 +19,7 @@ class AppLoader {
             scale: scale,
             child: CircularProgressIndicator(
               strokeWidth: strokeWidth,
-              color: ColorsApp.second,
+              color: ThemeApp.second,
               valueColor: AlwaysStoppedAnimation<Color>(color),
             ))
       ],

@@ -68,7 +68,7 @@ class _AppInputState extends State<AppInput> {
               });
             },
             child: TextFormField(
-              cursorColor: ColorsApp.second,
+              cursorColor: ThemeApp.second,
               autofocus: false,
               controller: widget.controller,
               style: TextStyle(
@@ -186,7 +186,7 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                 });
               },
               child: TextFormField(
-                cursorColor: ColorsApp.second,
+                cursorColor: ThemeApp.second,
                 autofocus: false,
                 controller: widget.controller,
                 style: TextStyle(

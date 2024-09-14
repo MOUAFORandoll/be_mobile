@@ -31,7 +31,7 @@ class KHomeInfo extends StatelessWidget {
                                               borderRadius:
                                                   BorderRadius.circular(30),
                                               color: state.isInternetConnection
-                                                  ? ColorsApp.second
+                                                  ? ThemeApp.second
                                                   : ColorsApp.orange),
                                         )),
                                 Row(
@@ -88,7 +88,7 @@ class KHomeInfo extends StatelessWidget {
                                                       BorderRadius.circular(30),
                                                   color:
                                                       state.isInternetConnection
-                                                          ? ColorsApp.second
+                                                          ? ThemeApp.second
                                                           : ColorsApp.orange),
                                             )),
                                     Row(children: [

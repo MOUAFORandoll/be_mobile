@@ -1,60 +1,46 @@
+import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
+enum ButtonStyle { primary, secondary, disabled }
+
 class AppButton extends StatelessWidget {
-  final Color bgColor;
-  final Color textColor;
-  final text;
-  final bool disabled;
+  final String text;
   final VoidCallback? onTap;
-  final int loading;
-  final MainAxisSize size;
-  final BoxBorder? border;
-  AppButton({
+  final ButtonStyle buttonStyle;
+
+  const AppButton({
     Key? key,
     required this.text,
-    this.bgColor = ColorsApp.second,
-    this.textColor = Colors.white,
     this.onTap,
-    this.disabled = false,
-    this.border,
-    this.loading = 0,
-    this.size = MainAxisSize.min,
+    this.buttonStyle = ButtonStyle.primary,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: disabled ? null : onTap,
-      child: Container(
-        height: getHeight(context) * .05,
-        constraints: BoxConstraints(
-            minHeight: getHeight(context) * .07,
-            maxHeight: getHeight(context) * .07,
-            minWidth: getWidth(context) * .40),
-        padding: EdgeInsets.symmetric(horizontal: kMarginX),
-        margin: EdgeInsets.symmetric(horizontal: kMarginX, vertical: kMarginY),
-        decoration: BoxDecoration(
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: Colors.grey.withOpacity(0.5),
-            //     spreadRadius: 2,
-            //     blurRadius: 7,
-            //     offset: Offset(0, 1),
-            //   ),
-            // ],
-            borderRadius: BorderRadius.circular(15),
-            color: disabled ? bgColor.withOpacity(.5) : bgColor,
-            border: border),
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          style: TextStyle(
-            color: textColor,
-            fontWeight: FontWeight.w600,
-            overflow: TextOverflow.ellipsis,
-            // fontSize: 1,
-          ),
-        ),
+    final theme = Theme.of(context);
+    final isDisabled = buttonStyle == ButtonStyle.disabled;
+
+    return OutlinedButton(
+      style: theme.filledButtonTheme.style!.copyWith(
+        backgroundColor: MaterialStateProperty.resolveWith((states) {
+          if (isDisabled) return ThemeApp.disabledGrey;
+          return buttonStyle == ButtonStyle.secondary
+              ? ThemeApp.second
+              : null; // Utilise la couleur par défaut pour primary
+        }),
+        foregroundColor: MaterialStateProperty.resolveWith((states) {
+          if (isDisabled) return ThemeApp.primary;
+          return buttonStyle == ButtonStyle.secondary
+              ? ThemeApp.primary
+              : null; // Utilise la couleur par défaut pour primary
+        }),
+      ),
+      onPressed: isDisabled ? null : onTap,
+      child: AutoSizeText(
+        text,
+        maxLines: 1,
+        style: theme.textTheme.labelLarge!.copyWith(color: ThemeApp.white),
       ),
     );
   }

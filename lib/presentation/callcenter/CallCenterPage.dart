@@ -69,7 +69,7 @@ class _CallCenterPageState extends State<CallCenterPage> {
                                     color: ColorsApp.black, size: 20.0),
                                 Text(
                                   'Back',
-                                  style: TextStyle(fontSize: 12),
+                                  style: Theme.of(context).textTheme.bodySmall,
                                 ),
                               ],
                             ),
@@ -162,43 +162,43 @@ class _CallCenterPageState extends State<CallCenterPage> {
                                 CircleAvatar(
                                     radius: 20,
                                     backgroundImage: AssetImage(Assets.logo)),
-                                BlocBuilder<HomeBloc, HomeState>(
-                                  builder: (context, state) => Container(
-                                    margin: EdgeInsets.only(left: kMarginX / 2),
-                                    child: CircleAvatar(
-                                      radius: 20,
-                                      child: CachedNetworkImage(
-                                        fit: BoxFit.cover,
-                                        imageUrl: state.user!.profile,
-                                        imageBuilder: (context, imageProvider) {
-                                          return Container(
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              image: DecorationImage(
-                                                image: imageProvider,
-                                                fit: BoxFit.cover,
-                                              ),
+                                Container(
+                                  margin: EdgeInsets.only(left: kMarginX / 2),
+                                  child: CircleAvatar(
+                                    radius: 20,
+                                    child: CachedNetworkImage(
+                                      fit: BoxFit.cover,
+                                      imageUrl: context
+                                          .read<HomeBloc>()
+                                          .database
+                                          .user!
+                                          .profile,
+                                      imageBuilder: (context, imageProvider) {
+                                        return Container(
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            image: DecorationImage(
+                                              image: imageProvider,
+                                              fit: BoxFit.cover,
                                             ),
-                                          );
-                                        },
-                                        placeholder: (context, url) {
-                                          return Container(
-                                            child: Center(
-                                                child:
-                                                    CircularProgressIndicator(
-                                              color: ColorsApp.primary,
-                                            )),
-                                          );
-                                        },
-                                        errorWidget: (context, url, error) {
-                                          return CircleAvatar(
-                                              backgroundColor:
-                                                  ColorsApp.primary,
-                                              radius: 20,
-                                              backgroundImage:
-                                                  AssetImage(Assets.babana));
-                                        },
-                                      ),
+                                          ),
+                                        );
+                                      },
+                                      placeholder: (context, url) {
+                                        return Container(
+                                          child: Center(
+                                              child: CircularProgressIndicator(
+                                            color: ColorsApp.primary,
+                                          )),
+                                        );
+                                      },
+                                      errorWidget: (context, url, error) {
+                                        return CircleAvatar(
+                                            backgroundColor: ColorsApp.primary,
+                                            radius: 20,
+                                            backgroundImage:
+                                                AssetImage(Assets.babana));
+                                      },
                                     ),
                                   ),
                                 ),

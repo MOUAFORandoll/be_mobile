@@ -6,15 +6,15 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/InfoRecuperationColisType2.dart';
-import 'package:BabanaExpress/presentation/livraison/type2/InfoLivraisonType2.dart'; 
+import 'package:BabanaExpress/presentation/livraison/type2/InfoLivraisonType2.dart';
 import 'package:BabanaExpress/utils/functions/formatData.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_dropdown.dart';
 import 'package:BabanaExpress/presentation/components/Widget/colisComponentUserView.dart';
 import 'package:BabanaExpress/presentation/components/Widget/delivry_widget_title.dart';
 
-import 'package:BabanaExpress/presentation/components/Widget/recuperation_delivery_zone_widget.dart'; 
+import 'package:BabanaExpress/presentation/components/Widget/recuperation_delivery_zone_widget.dart';
 import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart';
-import 'package:BabanaExpress/utils/Services/validators.dart'; 
+import 'package:BabanaExpress/utils/Services/validators.dart';
 import '../../../application/model/exportmodel.dart';
 
 @RoutePage()
@@ -36,7 +36,7 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
           if (state.isRequest == 1) {
             EasyLoading.show(
                 indicator: CircularProgressIndicator(
-                  color: ColorsApp.second,
+                  color: ThemeApp.second,
                 ),
                 dismissOnTap: true,
                 maskType: EasyLoadingMaskType.black);
@@ -53,7 +53,7 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
             // AutoRouter.of(context).pop();
             EasyLoading.show(
                 indicator: CircularProgressIndicator(
-                  color: ColorsApp.second,
+                  color: ThemeApp.second,
                 ),
                 dismissOnTap: true,
                 maskType: EasyLoadingMaskType.black);
@@ -84,7 +84,7 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
                 title: 'yNewLivraison'.tr(),
               ),
               body: RefreshIndicator(
-                color: ColorsApp.second,
+                color: ThemeApp.second,
                 onRefresh: () => Future.delayed(
                     Duration(seconds: 5), () => initLoad(context)),
                 child: Container(
@@ -229,8 +229,7 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
                         // height: getHeight(context) * .0,
                         child: state.indexType1 == 0
                             ? AppButtonSecond(
-                                size: MainAxisSize.max,
-                                bgColor: ColorsApp.second,
+                                bgColor: ThemeApp.second,
                                 text: 'ynext'.tr(),
                                 disabled: !(state.selectedVIlle != null &&
                                     state.selected_recuperation_point != null &&
@@ -263,7 +262,6 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
                                     AppButtonSecond(
                                         marginAdd: EdgeInsets.symmetric(
                                             horizontal: kMarginX),
-                                        size: MainAxisSize.max,
                                         bgColor: state.indexType1 == 0
                                             ? ColorsApp.grey
                                             : ColorsApp.primary,
@@ -274,7 +272,6 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
                                               .add(BackIndexType1Event());
                                         }),
                                     AppButtonSecond(
-                                      size: MainAxisSize.max,
                                       bgColor: (state.indexType1 == 0)
                                           ? !(state.selectedVIlle != null &&
                                                   state.selected_recuperation_point !=
@@ -400,8 +397,8 @@ class _NewLivraisonType2PageState extends State<NewLivraisonType2Page> {
                               child: AppButtonSecond(
                                   text: 'yvalidate'.tr(),
                                   // width: getWidth(context) / 2.5,
-                                  size: MainAxisSize.max,
-                                  bgColor: ColorsApp.second,
+
+                                  bgColor: ThemeApp.second,
                                   onTap: () => context
                                       .read<LivraisonBloc>()
                                       .add(NewLivraisonType2())),

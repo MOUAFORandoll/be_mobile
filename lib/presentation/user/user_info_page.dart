@@ -34,7 +34,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
           if (state.isLoading == 1) {
             EasyLoading.show(
                 indicator: CircularProgressIndicator(
-                  color: ColorsApp.second,
+                  color: ThemeApp.second,
                 ),
                 dismissOnTap: true,
                 maskType: EasyLoadingMaskType.black);
@@ -118,16 +118,13 @@ class _UserInfoPageState extends State<UserInfoPage> {
                                               ForgotPasswordPage.routeName),
                                       child: Text('forgotpass'.tr(),
                                           style: TextStyle(
-                                            color: ColorsApp.second,
+                                            color: ThemeApp.second,
                                           )),
                                     )
                                   ],
                                 ),
                               ),
                               AppButton(
-                                  size: MainAxisSize.max,
-                                  // loading: _userState.isLoading,
-                                  // bgColor: ColorsApp.primary,
                                   text: 'logbtn'.tr(),
                                   onTap: () async {
                                     print({
@@ -152,11 +149,11 @@ class _UserInfoPageState extends State<UserInfoPage> {
                                       children: [
                                         Text('regbtn'.tr(),
                                             style: TextStyle(
-                                                color: ColorsApp.second,
+                                                color: ThemeApp.second,
                                                 fontSize: 15)),
                                         Icon(
                                           Icons.keyboard_arrow_right_outlined,
-                                          color: ColorsApp.second,
+                                          color: ThemeApp.second,
                                         )
                                       ],
                                     ),

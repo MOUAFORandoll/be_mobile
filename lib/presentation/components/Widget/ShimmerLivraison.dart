@@ -28,7 +28,7 @@ class ShimmerLivraison extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             itemCount: 3,
             itemBuilder: (_ctx, index) => Container(
-                height: getHeight(context) * .20,
+                // height: getHeight(context) * .20,
                 padding: EdgeInsets.symmetric(vertical: kMarginY),
                 margin: EdgeInsets.symmetric(
                     horizontal: kMarginX / 3, vertical: kMarginY),
@@ -94,27 +94,23 @@ class ShimmerLivraison extends StatelessWidget {
                                 children: [
                                   Container(
                                     width: getWidth(context) * .34,
-                                    child: Text('livraison data data',
-                                        maxLines: 2,
-                                        // overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            color: ColorsApp.primary,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w700)),
+                                    child: Text(
+                                      'livraison data data',
+                                      maxLines: 2,
+                                      // overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                   Container(
-                                    child: Text('livraison data '.tr(),
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            color: ColorsApp.greyNew,
-                                            fontWeight: FontWeight.w600)),
+                                    child: Text(
+                                      'livraison data '.tr(),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                   Container(
-                                    child: Text('15000 XAF',
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            color: ColorsApp.black,
-                                            fontWeight: FontWeight.w600)),
+                                    child: Text(
+                                      '15000 XAF',
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                 ],
                               )),
@@ -151,7 +147,6 @@ class ShimmerLivraison extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(50)),
                             child: Text(
                               'Douala-Douala',
-                              style: TextStyle(color: ColorsApp.white),
                             ),
                           )
                         ],

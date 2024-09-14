@@ -13,7 +13,7 @@ class AppCarrousselItemSecond extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: ColorsApp.second,
+        color: ThemeApp.second,
       ),
       height: getHeight(context) * .67,
       padding:
@@ -32,10 +32,7 @@ class AppCarrousselItemSecond extends StatelessWidget {
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: ColorsApp.white,
-                    fontSize: kTitle * 2,
-                    fontWeight: FontWeight.w600),
+                style: Theme.of(context).textTheme.bodySmall,
               )),
           Container(
               decoration: BoxDecoration(

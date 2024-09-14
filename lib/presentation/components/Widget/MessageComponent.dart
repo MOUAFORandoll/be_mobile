@@ -152,27 +152,22 @@ class _MessageComponentState extends State<MessageComponent>
                                                       .messageTarget!
                                                       .isCallCenter
                                                   ? Text('Call Center',
-                                                      style: TextStyle(
-                                                        
-                                                          color: ColorsApp.tird,
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w600))
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall,
+                                                    )
                                                   : Text('Vous',
-                                                      style: TextStyle(
-                                                        
-                                                          color:
-                                                              ColorsApp.second,
-                                                          fontSize: 12,
-                                                          fontWeight: FontWeight
-                                                              .w600))),
+                                                     style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall,
+                                                    )),
                                           Text(
                                               widget.message.messageTarget!
                                                   .message,
-                                              style: TextStyle(
-                                                color:
-                                                    colorText2.withOpacity(.5),
-                                              )),
+                                              style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
+                                          ),
                                         ],
                                       ),
                                     ),

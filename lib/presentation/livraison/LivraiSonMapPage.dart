@@ -138,8 +138,8 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
           circleId: CircleId('current_location'),
           center: LatLng(latitude, longitude),
           radius: 40,
-          fillColor: ColorsApp.second.withOpacity(0.1),
-          strokeColor: ColorsApp.second.withOpacity(0.1),
+          fillColor: ThemeApp.second.withOpacity(0.1),
+          strokeColor: ThemeApp.second.withOpacity(0.1),
           strokeWidth: 1,
         ),
       };
@@ -260,7 +260,7 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
                     Text(
                       '${stateSLivraison.mapPlaceInfo!.ville} ${stateSLivraison.mapPlaceInfo!.quartier}',
                       style: TextStyle(
-                        color: ColorsApp.second,
+                        color: ThemeApp.second,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -298,7 +298,7 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
                     margin: EdgeInsets.symmetric(
                         vertical: kMarginY, horizontal: kMarginX),
                     decoration: BoxDecoration(
-                      color: ColorsApp.second,
+                      color: ThemeApp.second,
                       borderRadius: BorderRadius.circular(50),
                     ),
                     padding: EdgeInsets.all(10),
@@ -356,7 +356,6 @@ class _LivraiSonMapPageState extends State<LivraiSonMapPage>
                     AppButtonSecond(
                       prefixIcon: Icons.library_books,
                       sufixIcon: Icons.arrow_circle_right,
-                      size: MainAxisSize.max,
                       bgColor: ColorsApp.greyNew,
                       text: 'Mon Historique'.tr(),
                       textColor: ColorsApp.primary,
@@ -386,7 +385,7 @@ class CustomDrawer extends StatelessWidget {
         if (state.isUpdateUserImage == 1) {
           EasyLoading.show(
               indicator: CircularProgressIndicator(
-                color: ColorsApp.second,
+                color: ThemeApp.second,
               ),
               dismissOnTap: true,
               maskType: EasyLoadingMaskType.black);
@@ -502,7 +501,7 @@ class CustomDrawer extends StatelessWidget {
               onTap: () {
                 EasyLoading.show(
                     indicator: CircularProgressIndicator(
-                      color: ColorsApp.second,
+                      color: ThemeApp.second,
                     ),
                     dismissOnTap: true,
                     maskType: EasyLoadingMaskType.clear);
@@ -571,7 +570,7 @@ openUpdateMail(context) => showDialog(
             if (state.updating!) {
               EasyLoading.show(
                   indicator: CircularProgressIndicator(
-                    color: ColorsApp.second,
+                    color: ThemeApp.second,
                   ),
                   dismissOnTap: true,
                   maskType: EasyLoadingMaskType.black);
@@ -659,7 +658,7 @@ openUpdateCompletePhoneProfile(context) => showDialog(
             if (state.updating!) {
               EasyLoading.show(
                   indicator: CircularProgressIndicator(
-                    color: ColorsApp.second,
+                    color: ThemeApp.second,
                   ),
                   dismissOnTap: true,
                   maskType: EasyLoadingMaskType.black);

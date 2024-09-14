@@ -67,9 +67,10 @@ class AppBoutiqueOption extends StatelessWidget {
                 margin: EdgeInsets.symmetric(
                   vertical: kMarginY,
                 ),
-                child: Text(title,
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 12)),
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
               ),
             ],
           ),

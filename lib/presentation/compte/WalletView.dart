@@ -48,7 +48,7 @@ class _WalletPageState extends State<WalletPage>
               if (state.isLoadingDepot == 0) {
                 EasyLoading.show(
                     indicator: CircularProgressIndicator(
-                      color: ColorsApp.second,
+                      color: ThemeApp.second,
                     ),
                     dismissOnTap: true,
                     maskType: EasyLoadingMaskType.black);
@@ -319,11 +319,6 @@ class _WalletPageState extends State<WalletPage>
                 placeholder: 'Montant De la recharge (XAF)'.tr(),
               ),
               AppButton(
-                  size: MainAxisSize.max,
-                  bgColor: state.montantTransaction.text.isNotEmpty &&
-                          state.phone.text.isNotEmpty
-                      ? ColorsApp.primary
-                      : ColorsApp.greyNew,
                   text: 'Valider',
                   onTap: () async {
                     context.read<CompteBloc>().add(CreditCompte());
@@ -362,8 +357,6 @@ class _WalletPageState extends State<WalletPage>
                 placeholder: 'labelpassword'.tr(),
               ),
               AppButton(
-                  size: MainAxisSize.max,
-                  bgColor: ColorsApp.red,
                   text: 'Retirer',
                   onTap: () async {
                     context.read<CompteBloc>().add(RetraitCompte());

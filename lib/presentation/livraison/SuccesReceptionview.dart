@@ -39,8 +39,6 @@ class SuccesReceptionview extends StatelessWidget {
                         vertical: kMarginY * 6,
                       ),
                       child: AppButton(
-                        size: MainAxisSize.max,
-                        border: Border.all(color: ColorsApp.primary),
                         text: 'home'.tr(),
                         onTap: () async {
                           // Get.offNamedUntil(AppLinks.FIRST, (route) => false);

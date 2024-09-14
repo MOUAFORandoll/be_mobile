@@ -29,7 +29,7 @@ class LivraisonDataPage extends StatelessWidget {
           } else if (state.isDownloadFacture == 0) {
             EasyLoading.show(
                 indicator: CircularProgressIndicator(
-                  color: ColorsApp.second,
+                  color: ThemeApp.second,
                 ),
                 dismissOnTap: true,
                 maskType: EasyLoadingMaskType.black);
@@ -42,7 +42,10 @@ class LivraisonDataPage extends StatelessWidget {
                 InkWell(
                     child: Container(
                         margin: EdgeInsets.only(right: kMarginX),
-                        child: Icon(Icons.print)),
+                        child: Icon(
+                          Icons.print,
+                          color: Colors.white,
+                        )),
                     onTap: () {
                       CustomArlert().comfirm(
                           context: context,
@@ -57,11 +60,14 @@ class LivraisonDataPage extends StatelessWidget {
               ],
             ),
             floatingActionButton: FloatingActionButton(
-              child: Text('Voir La map'),
+              child: Icon(
+                Icons.map,
+                color: Colors.white,
+              ),
               onPressed: () => AutoRouter.of(context).push(LivraiSonMapRoute()),
             ),
             body: RefreshIndicator(
-              color: ColorsApp.second,
+              color: ThemeApp.second,
               onRefresh: () =>
                   Future.delayed(Duration(seconds: 5), () => initLoad(context)),
               child: Container(

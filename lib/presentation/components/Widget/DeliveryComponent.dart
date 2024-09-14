@@ -33,10 +33,7 @@ class DeliveryComponent extends StatelessWidget {
               child: InkWell(
                 child: Text(
                   text,
-                  style: TextStyle(
-                      fontSize: 12,
-                      color: ColorsApp.primary,
-                      fontWeight: bold ? FontWeight.w600 : FontWeight.normal),
+                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 onTap: () {},
               )),

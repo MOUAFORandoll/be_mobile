@@ -321,7 +321,7 @@
 //         if (state.isUpdateUserImage == 1) {
 //           EasyLoading.show(
 //               indicator: CircularProgressIndicator(
-//                 color: ColorsApp.second,
+//                 color: ThemeApp.second,
 //               ),
 //               dismissOnTap: true,
 //               maskType: EasyLoadingMaskType.black);
@@ -437,7 +437,7 @@
 //               onTap: () {
 //                 EasyLoading.show(
 //                     indicator: CircularProgressIndicator(
-//                       color: ColorsApp.second,
+//                       color: ThemeApp.second,
 //                     ),
 //                     dismissOnTap: true,
 //                     maskType: EasyLoadingMaskType.clear);
@@ -506,7 +506,7 @@
 //             if (state.updating!) {
 //               EasyLoading.show(
 //                   indicator: CircularProgressIndicator(
-//                     color: ColorsApp.second,
+//                     color: ThemeApp.second,
 //                   ),
 //                   dismissOnTap: true,
 //                   maskType: EasyLoadingMaskType.black);
@@ -594,7 +594,7 @@
 //             if (state.updating!) {
 //               EasyLoading.show(
 //                   indicator: CircularProgressIndicator(
-//                     color: ColorsApp.second,
+//                     color: ThemeApp.second,
 //                   ),
 //                   dismissOnTap: true,
 //                   maskType: EasyLoadingMaskType.black);

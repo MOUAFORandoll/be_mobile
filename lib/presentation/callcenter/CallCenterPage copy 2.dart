@@ -147,21 +147,18 @@ class _CallCenterPageState extends State<CallCenterPage> {
                                                                     .isCallCenter
                                                                 ? Text(
                                                                     'Call Center',
-                                                                    style: TextStyle(
-                                                                        color: ColorsApp
-                                                                            .tird,
-                                                                        fontSize:
-                                                                            15,
-                                                                        fontWeight: FontWeight
-                                                                            .w600))
-                                                                : Text('Vous',
-                                                                    style: TextStyle(
-                                                                        color: ColorsApp
-                                                                            .second,
-                                                                        fontSize:
-                                                                            15,
-                                                                        fontWeight:
-                                                                            FontWeight.w600))),
+                                                                    style: Theme.of(
+                                                                            context)
+                                                                        .textTheme
+                                                                        .bodySmall,
+                                                                  )
+                                                                : Text(
+                                                                    'Vous',
+                                                                    style: Theme.of(
+                                                                            context)
+                                                                        .textTheme
+                                                                        .bodySmall,
+                                                                  )),
                                                         Container(
                                                             child: Text(state
                                                                 .message_target!

@@ -62,7 +62,7 @@ class _PaiementPageState extends State<PaiementPage> {
       if (state.isRequest == 1) {
         EasyLoading.show(
             indicator: CircularProgressIndicator(
-              color: ColorsApp.second,
+              color: ThemeApp.second,
             ),
             dismissOnTap: true,
             maskType: EasyLoadingMaskType.black);
@@ -113,7 +113,7 @@ class _PaiementPageState extends State<PaiementPage> {
                             child: Text(
                               'En cours ...',
                               style: TextStyle(
-                                  // color: ColorsApp.second,
+                                  // color: ThemeApp.second,
                                   ),
                             ))
                       ],

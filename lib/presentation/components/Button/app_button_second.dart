@@ -17,7 +17,7 @@ class AppButtonSecond extends StatelessWidget {
     Key? key,
     required this.text,
     this.marginAdd,
-    this.bgColor = ColorsApp.second,
+    this.bgColor = ThemeApp.second,
     this.textColor = Colors.white,
     this.onTap,
     this.disabled = false,

@@ -249,8 +249,7 @@ class _ColisConversationPageState extends State<ColisConversationPage> {
                         //       ),
                         //       child: AppButtonIcon(
                         //           icon: Icons.switch_access_shortcut_add_outlined,
-                        //           bgColor: ColorsApp.primary,
-                        //           textColor: ColorsApp.white,
+                        //                                   //           textColor: ColorsApp.white,
                         //           text: 'yShareCodeRecup'.tr(),
                         //           onTap: () async => _captureAndSavePng())),
                       ]),
@@ -461,7 +460,7 @@ class ColisConversationWidget extends StatelessWidget {
             child: Text(
               title,
               style: TextStyle(
-                  color: ColorsApp.second,
+                  color: ThemeApp.second,
                   fontWeight: FontWeight.w600,
                   fontSize: kTitle),
             ),

@@ -23,7 +23,7 @@ class SuccesLivraisonType2Page extends StatelessWidget {
           // } else if (state.isDownloadFacture == 3) {
           //    EasyLoading.show(
           // indicator: CircularProgressIndicator(
-          //   color: ColorsApp.second,
+          //   color: ThemeApp.second,
           // ),
           //       dismissOnTap: true,
           //
@@ -113,7 +113,6 @@ class SuccesLivraisonType2Page extends StatelessWidget {
                                   vertical: kMarginY * 4,
                                 ),
                                 child: AppButtonSecond(
-                                  size: MainAxisSize.max,
                                   // border: Border.all(color: ColorsApp.primary),
                                   text: 'yMenu'.tr(),
                                   onTap: () async {

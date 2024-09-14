@@ -12,7 +12,7 @@ class HistoriqueLivraisonMin extends StatelessWidget {
     return BlocBuilder<LivraisonBloc, LivraisonState>(
         builder: (context, state) {
       return RefreshIndicator(
-        color: ColorsApp.second,
+        color: ThemeApp.second,
         onRefresh: () => Future.delayed(
             Duration(seconds: 5),
             () => BlocProvider.of<LivraisonBloc>(context)

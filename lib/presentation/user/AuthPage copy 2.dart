@@ -28,13 +28,13 @@ class _AuthPageState extends State<AuthPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: ColorsApp.second,
+          backgroundColor: ThemeApp.second,
           body: BlocConsumer<UserBloc, UserState>(
               listener: (context, state) {
                 if (state.isExistLoading == 0) {
                   EasyLoading.show(
                       indicator: CircularProgressIndicator(
-                        color: ColorsApp.second,
+                        color: ThemeApp.second,
                       ),
                       dismissOnTap: true,
                       maskType: EasyLoadingMaskType.black);
@@ -100,7 +100,6 @@ class _AuthPageState extends State<AuthPage> {
                                   Container(
                                       width: getWidth(context) * .8,
                                       child: AppButtonSecond(
-                                        size: MainAxisSize.max,
                                         marginAdd: EdgeInsets.symmetric(
                                           horizontal: kMarginX,
                                         ),
@@ -120,7 +119,7 @@ class _AuthPageState extends State<AuthPage> {
                                       ),
                                       child: AppIconButton(
                                         icon: SvgIcon(icon: Assets.google),
-                                        borderColor: ColorsApp.second,
+                                        borderColor: ThemeApp.second,
                                         onTap: () {
                                           context
                                               .read<UserBloc>()

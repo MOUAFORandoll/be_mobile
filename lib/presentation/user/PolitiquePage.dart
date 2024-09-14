@@ -67,14 +67,14 @@ class _PolitiquePageState extends State<PolitiquePage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         CircularProgressIndicator(
-                          color: ColorsApp.second,
+                          color: ThemeApp.second,
                         ),
                         Container(
                             margin: EdgeInsets.only(top: kMarginY),
                             child: Text(
                               'En cours ...',
                               style: TextStyle(
-                                  // color: ColorsApp.second,
+                                  // color: ThemeApp.second,
                                   ),
                             ))
                       ],

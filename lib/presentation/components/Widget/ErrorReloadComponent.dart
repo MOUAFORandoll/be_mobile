@@ -24,7 +24,7 @@ class ErrorReloadComponent extends StatelessWidget {
                   child: Text(
                     'Pas de connexion a internet. Appuie pour reessayer'.tr(),
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.bodySmall,
                   )),
               Container(
                   width: getWidth(context) * .8,
@@ -32,9 +32,7 @@ class ErrorReloadComponent extends StatelessWidget {
                     'Connexion a internet impossible. Bascule sur un autre reseau et reessaie'
                         .tr(),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
                   )),
             ],
           )),

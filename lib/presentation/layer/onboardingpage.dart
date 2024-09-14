@@ -18,7 +18,7 @@ class OnBoardingPage extends StatelessWidget {
     return BlocBuilder<AppActionCubit, AppActionState>(
         builder: (context, state) {
       return Scaffold(
-          backgroundColor: ColorsApp.second,
+          backgroundColor: ThemeApp.second,
           body: SingleChildScrollView(
               child: Column(
             children: [
@@ -78,8 +78,7 @@ class OnBoardingPage extends StatelessWidget {
               AppButton(
                 text: /* state.index == 2 ?  */
                     'Continuer' /*  : 'Suivant' */,
-                textColor: ColorsApp.primary,
-                bgColor: Colors.white,
+
                 onTap: () {
                   if (state.index == 2) {
                     final AppActionCubit action =

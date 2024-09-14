@@ -69,10 +69,7 @@ class HomeOptionWidget extends StatelessWidget {
                     child: Text(
                       title,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: kBasics,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     )),
               ]),
         ),

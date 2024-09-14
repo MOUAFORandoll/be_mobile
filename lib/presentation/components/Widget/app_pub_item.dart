@@ -30,6 +30,7 @@ class AppPubItem extends StatelessWidget {
           // 2. Your content on top of the image
           Positioned(
             top: 20,
+            left: 10,
             child: Container(
               margin: EdgeInsets.symmetric(
                   vertical: kMarginY * 2, horizontal: kMarginX * 3),
@@ -76,6 +77,5 @@ class AppPubItem extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }

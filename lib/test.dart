@@ -1,5 +1,4 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
- 
 
 @RoutePage()
 class MyTestPage extends StatefulWidget {
@@ -38,7 +37,6 @@ class _MyTestPageState extends State<MyTestPage> {
                     vertical: kMarginY * 2,
                   ),
                   child: AppButton(
-                    size: MainAxisSize.max,
                     // border: Border.all(color: ColorsApp.primary),
                     text: 'Telecharger facture',
                     onTap: () async {

@@ -37,7 +37,7 @@ class ReplyCard extends StatelessWidget {
                                   right: getWidth(context) * .03,
                                 ),
                                 decoration: BoxDecoration(
-                                    color: ColorsApp.second,
+                                    color: ThemeApp.second,
                                     borderRadius: BorderRadius.circular(30)
                                     /*   image: DecorationImage(
                                         image: AssetImage(

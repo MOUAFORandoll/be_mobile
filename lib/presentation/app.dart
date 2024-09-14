@@ -26,7 +26,7 @@ class AppContent extends StatelessWidget {
       routerConfig: _appRouter.config(),
       debugShowCheckedModeBanner: false,
       title: 'Babana Express',
-      darkTheme: darkTheme,
+      // darkTheme: darkTheme,
       themeMode: ThemeMode.light,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
@@ -44,7 +44,7 @@ class AppContent extends StatelessWidget {
           ),
         );
       },
-      theme: lightTheme(context),
+      theme: ThemeApp.lightTheme(context),
     );
   }
 }

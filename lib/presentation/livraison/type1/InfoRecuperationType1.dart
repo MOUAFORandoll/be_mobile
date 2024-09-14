@@ -135,7 +135,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                                       : Icons.close,
                                   color: searchPointRecuperationController
                                           .text.isEmpty
-                                      ? ColorsApp.second
+                                      ? ThemeApp.second
                                       : ColorsApp.red),
                               onTap: () {
                                 close();
@@ -412,7 +412,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                               border: Border.all(
                                 color: Color.fromARGB(255, 231, 229, 229),
                               ),
-                              color: ColorsApp.second,
+                              color: ThemeApp.second,
                             ),
                             alignment: Alignment.center,
                             child: Icon(Icons.arrow_back_ios_new,
@@ -494,14 +494,12 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                               Text(
                                 'Douala 5e,',
                                 style: TextStyle(
-                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                               Text(
                                 'Douala, Cameroon',
                                 style: TextStyle(
-                                  fontSize: 14,
                                   color: Colors.grey[700],
                                 ),
                               ),
@@ -521,17 +519,10 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                         children: [
                           Text(
                             state.selected_recuperation_point!.quartier,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context).textTheme.titleSmall,
                           ),
                           Text(
                             state.selected_recuperation_point!.ville,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[700],
-                            ),
                           ),
                         ],
                       ),
@@ -567,7 +558,7 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                       Container(
                         margin: EdgeInsets.only(top: kMarginY),
                         decoration: BoxDecoration(
-                          color: ColorsApp.second,
+                          color: ThemeApp.second,
                           borderRadius: BorderRadius.circular(20),
                           // boxShadow: [
                           //   BoxShadow(
@@ -680,9 +671,9 @@ class _InfoRecuperationType1PageState extends State<InfoRecuperationType1Page> {
                       Container(
                         // margin: EdgeInsets.only(top: kMarginY),
                         child: AppButtonSecond(
-                            size: MainAxisSize.max,
+
                             // loading: _userState.isLoading,
-                            bgColor: ColorsApp.second,
+                            bgColor: ThemeApp.second,
                             text: 'Valider'.tr(),
                             marginAdd:
                                 EdgeInsets.symmetric(horizontal: kMarginX),

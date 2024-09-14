@@ -26,7 +26,7 @@ class ForgotPasswordPage extends StatelessWidget {
     textStyle: const TextStyle(fontSize: 22, color: ColorsApp.white),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(8),
-      border: Border.all(color: ColorsApp.second),
+      border: Border.all(color: ThemeApp.second),
     ),
   );
   @override
@@ -40,7 +40,7 @@ class ForgotPasswordPage extends StatelessWidget {
           if (state.isLoadingForgot == 1) {
             EasyLoading.show(
                 indicator: CircularProgressIndicator(
-                  color: ColorsApp.second,
+                  color: ThemeApp.second,
                 ),
                 dismissOnTap: true,
                 maskType: EasyLoadingMaskType.black);
@@ -215,7 +215,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                               )),
                                       child: Text('resendCode'.tr(),
                                           style: TextStyle(
-                                            color: ColorsApp.second,
+                                            color: ThemeApp.second,
                                           )),
                                     )
                                   ],
@@ -223,7 +223,6 @@ class ForgotPasswordPage extends StatelessWidget {
                               ),
                               if (state.isCode == 0 || state.isCode == 2)
                                 AppButton(
-                                    size: MainAxisSize.max,
                                     text: 'logForgot'.tr(),
                                     onTap: () async {
                                       if (phoneormail.text.isEmpty) {
@@ -240,7 +239,6 @@ class ForgotPasswordPage extends StatelessWidget {
                                     }),
                               if (state.isCode == 1 && state.isCorrectCode != 1)
                                 AppButton(
-                                    size: MainAxisSize.max,
                                     text: 'verifCode'.tr(),
                                     onTap: () async {
                                       if (otpCode.text.isEmpty) {
@@ -262,7 +260,6 @@ class ForgotPasswordPage extends StatelessWidget {
                                     }),
                               if (state.isCorrectCode == 1)
                                 AppButton(
-                                    size: MainAxisSize.max,
                                     text: 'yvalid'.tr(),
                                     onTap: () async {
                                       if (phoneormail.text.isEmpty) {

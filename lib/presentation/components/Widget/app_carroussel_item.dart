@@ -34,10 +34,7 @@ class AppCarrousselItem extends StatelessWidget {
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: ColorsApp.white,
-                    fontSize: kTitle * 2,
-                    fontWeight: FontWeight.w600),
+                style: Theme.of(context).textTheme.bodySmall,
               )),
           Container(
               decoration: BoxDecoration(
@@ -50,10 +47,7 @@ class AppCarrousselItem extends StatelessWidget {
               child: Text(
                 description,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: ColorsApp.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600),
+                style: Theme.of(context).textTheme.bodySmall,
               )),
           // Container(
           //   margin: EdgeInsets.only(

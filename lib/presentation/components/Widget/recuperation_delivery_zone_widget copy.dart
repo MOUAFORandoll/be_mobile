@@ -71,7 +71,7 @@
 //                     style: TextStyle(
 //                       fontSize: kBasics,
 //                          
-//                       color: ColorsApp.second,
+//                       color: ThemeApp.second,
 //                       fontWeight: FontWeight.w700,
 //                     ),
 //                   )),

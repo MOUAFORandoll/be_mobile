@@ -29,21 +29,14 @@ class HomePropositionWidget extends StatelessWidget {
                     margin: EdgeInsets.only(top: kMarginY),
                     child: Text(
                       title,
-                      style: TextStyle(
-                        fontSize: kBasics,
-                        color: ColorsApp.white,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     )),
                 Container(
                     margin: EdgeInsets.only(top: kMarginY * .1),
                     child: Text(
                       title,
                       maxLines: 1,
-                      style: TextStyle(
-                        color: ColorsApp.white,
-                        fontSize: kBasics * .8,
-                      ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     )),
                 Container(
                     alignment: Alignment.bottomRight,

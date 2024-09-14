@@ -26,12 +26,11 @@ class AppDropdown<T> extends StatelessWidget {
       children: [
         Container(
           margin: EdgeInsets.only(bottom: kMarginY),
-          child: Text(title!,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: kBasics,
-                fontWeight: FontWeight.w700,
-              )),
+          child: Text(
+            title!,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
         ),
         Container(
           decoration: BoxDecoration(
@@ -61,7 +60,6 @@ class AppDropdown<T> extends StatelessWidget {
             hint: _buildDropdownHint(context),
             icon: Icon(Icons.keyboard_arrow_down_outlined, size: 25),
             underline: SizedBox(),
-            style: TextStyle(color: Colors.black, fontSize: 12),
             onChanged: onChanged,
             items: items.map((T value) {
               return DropdownMenuItem(

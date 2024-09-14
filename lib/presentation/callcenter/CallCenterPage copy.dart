@@ -69,7 +69,7 @@
 //                                     color: ColorsApp.black, size: 20.0),
 //                                 Text(
 //                                   'Back',
-//                                   style: TextStyle(fontSize: 12),
+//                                    style: Theme.of(context).textTheme.bodySmall,
 //                                 ),
 //                               ],
 //                             ),

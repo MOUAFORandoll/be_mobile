@@ -12,10 +12,7 @@ class titleText extends StatelessWidget {
       child: Text(
         text,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-            fontSize: 15,
-            color: ColorsApp.primary,
-            fontWeight: FontWeight.w600),
+       style: Theme.of(context).textTheme.bodySmall,
       ),
     );
   }

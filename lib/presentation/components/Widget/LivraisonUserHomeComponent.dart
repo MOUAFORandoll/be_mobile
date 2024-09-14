@@ -89,8 +89,8 @@
 //                                 color: ([0, 1].contains(livraison.status_int)
 //                                         ? ColorsApp.red
 //                                         : livraison.status_int == 2
-//                                             ? ColorsApp.second
-//                                             : ColorsApp.second)
+//                                             ? ThemeApp.second
+//                                             : ThemeApp.second)
 //                                     .withOpacity(0.9),
 //                                 boxShadow: [
 //                                   BoxShadow(

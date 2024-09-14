@@ -23,6 +23,7 @@ class CustomArlert {
                       child: Text(
                         content!,
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     )
                   ],
@@ -45,7 +46,7 @@ class CustomArlert {
                       onpressed();
                       Navigator.of(context).pop(true);
                     }),
-                    color: ColorsApp.primary,
+                    color: ThemeApp.second,
                     child: Text(
                       confirmText ?? 'Oui',
                       style: TextStyle(color: Colors.white, fontSize: 15),

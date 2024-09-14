@@ -35,7 +35,7 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
           if (state.isRequest == 1) {
             EasyLoading.show(
                 indicator: CircularProgressIndicator(
-                  color: ColorsApp.second,
+                  color: ThemeApp.second,
                 ),
                 dismissOnTap: true,
                 maskType: EasyLoadingMaskType.black);
@@ -52,7 +52,7 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
             // AutoRouter.of(context).pop();
             EasyLoading.show(
                 indicator: CircularProgressIndicator(
-                  color: ColorsApp.second,
+                  color: ThemeApp.second,
                 ),
                 dismissOnTap: true,
                 maskType: EasyLoadingMaskType.black);
@@ -83,7 +83,7 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                 title: 'yNewLivraison'.tr(),
               ),
               body: RefreshIndicator(
-                color: ColorsApp.second,
+                color: ThemeApp.second,
                 onRefresh: () => Future.delayed(
                     Duration(seconds: 5), () => initLoad(context)),
                 child: Container(
@@ -242,8 +242,7 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                       ]),
                     )),
                     AppButtonSecond(
-                      size: MainAxisSize.max,
-                      bgColor: ColorsApp.second,
+                      bgColor: ThemeApp.second,
                       text: 'ynext'.tr(),
                       disabled: !(state.selectedVIlle != null &&
                           state.selected_recuperation_point != null &&
@@ -365,8 +364,8 @@ class _NewLivraisonType1PageState extends State<NewLivraisonType1Page> {
                               child: AppButtonSecond(
                                   text: 'yvalidate'.tr(),
                                   // width: getWidth(context) / 2.5,
-                                  size: MainAxisSize.max,
-                                  bgColor: ColorsApp.second,
+
+                                  bgColor: ThemeApp.second,
                                   onTap: () => context
                                       .read<LivraisonBloc>()
                                       .add(NewLivraisonType1())),

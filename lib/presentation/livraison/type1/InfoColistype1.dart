@@ -143,7 +143,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                       : Icons.close,
                                   color: searchPointRecuperationController
                                           .text.isEmpty
-                                      ? ColorsApp.second
+                                      ? ThemeApp.second
                                       : ColorsApp.red),
                               onTap: () {
                                 close();
@@ -420,7 +420,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                               border: Border.all(
                                 color: Color.fromARGB(255, 231, 229, 229),
                               ),
-                              color: ColorsApp.second,
+                              color: ThemeApp.second,
                             ),
                             alignment: Alignment.center,
                             child: Icon(Icons.arrow_back_ios_new,
@@ -502,14 +502,12 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                               Text(
                                 'Douala 5e,',
                                 style: TextStyle(
-                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                               Text(
                                 'Douala, Cameroon',
                                 style: TextStyle(
-                                  fontSize: 14,
                                   color: Colors.grey[700],
                                 ),
                               ),
@@ -529,17 +527,10 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                         children: [
                           Text(
                             state.selected_livraison_point!.quartier,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context).textTheme.titleSmall,
                           ),
                           Text(
                             state.selected_livraison_point!.ville,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[700],
-                            ),
                           ),
                         ],
                       ),
@@ -575,7 +566,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                       Container(
                         margin: EdgeInsets.only(top: kMarginY),
                         decoration: BoxDecoration(
-                          color: ColorsApp.second,
+                          color: ThemeApp.second,
                           borderRadius: BorderRadius.circular(20),
                           // boxShadow: [
                           //   BoxShadow(
@@ -707,7 +698,6 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                                       'Douala-Douala Douala-Douala',
                                                       style: TextStyle(
                                                         color: ColorsApp.white,
-                                                       
                                                       ),
                                                     ),
                                                   ),
@@ -716,7 +706,6 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                                       'Douala-Douala',
                                                       style: TextStyle(
                                                         color: ColorsApp.white,
-                                                       
                                                       ),
                                                     ),
                                                   ),
@@ -1032,8 +1021,7 @@ class _InfoColisType1PageState extends State<InfoColisType1Page> {
                                 ),
                               ])),
                       AppButtonSecond(
-                          bgColor: ColorsApp.second,
-                          size: MainAxisSize.max,
+                          bgColor: ThemeApp.second,
                           marginAdd: EdgeInsets.symmetric(horizontal: kMarginX),
                           disabled: !(state.categoryColis != null &&
                               state.nomColis!.text.length != 0 &&

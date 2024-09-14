@@ -18,7 +18,7 @@ class SuccesRecuperationview extends StatelessWidget {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: ColorsApp.second,
+                        color: ThemeApp.second,
                         borderRadius: BorderRadius.circular(60),
                       ),
                       padding: EdgeInsets.all(kMarginY * 1.5),
@@ -36,8 +36,6 @@ class SuccesRecuperationview extends StatelessWidget {
                         vertical: kMarginY * 6,
                       ),
                       child: AppButton(
-                        size: MainAxisSize.max,
-                        border: Border.all(color: ColorsApp.primary),
                         text: 'ypoursuivre'.tr(),
                         onTap: () async {
                           // Get.offNamedUntil(AppLinks.FIRST, (route) => false);

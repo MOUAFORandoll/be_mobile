@@ -17,16 +17,11 @@ class BigtitleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         constraints: BoxConstraints(maxWidth: getWidth(context)),
-        child: Text(text,
-            overflow: TextOverflow.ellipsis,
-            // textAlign: TextAlign.left,
-            style: bolder
-                ? TexteStyle()
-                    .blargeTextStyle
-                    .copyWith(color: color, fontSize: size)
-                : TexteStyle()
-                    .largeTextStyle
-                    .copyWith(color: color, fontSize: size)));
+        child: Text(
+          text,
+          overflow: TextOverflow.ellipsis,
+          // textAlign: TextAlign.left,
+        ));
   }
 }
 /*

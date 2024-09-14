@@ -140,8 +140,8 @@
 //           circleId: CircleId('current_location'),
 //           center: LatLng(latitude, longitude),
 //           radius: 20,
-//           fillColor: ColorsApp.second.withOpacity(0.1),
-//           strokeColor: ColorsApp.second.withOpacity(0.1),
+//           fillColor: ThemeApp.second.withOpacity(0.1),
+//           strokeColor: ThemeApp.second.withOpacity(0.1),
 //           strokeWidth: 1,
 //         ),
 //       };
@@ -310,7 +310,7 @@
 //                   margin: EdgeInsets.symmetric(
 //                       vertical: kMarginY, horizontal: kMarginX),
 //                   decoration: BoxDecoration(
-//                     color: ColorsApp.second,
+//                     color: ThemeApp.second,
 //                     borderRadius: BorderRadius.circular(50),
 //                   ),
 //                   padding: EdgeInsets.all(10),
@@ -370,7 +370,7 @@
 //                   AppButtonSecond(
 //                     prefixIcon: Icons.library_books,
 //                     sufixIcon: Icons.arrow_circle_right,
-//                     size: MainAxisSize.max,
+//                     
 //                     bgColor: ColorsApp.greyNew,
 //                     text: 'Mon Historique'.tr(),
 //                     textColor: ColorsApp.primary,
@@ -412,7 +412,7 @@
 //                     margin: EdgeInsets.symmetric(
 //                         vertical: kMarginY, horizontal: kMarginX),
 //                     decoration: BoxDecoration(
-//                       color: ColorsApp.second,
+//                       color: ThemeApp.second,
 //                       borderRadius: BorderRadius.circular(50),
 //                     ),
 //                     padding: EdgeInsets.all(10),
@@ -471,7 +471,7 @@
 //                     AppButtonSecond(
 //                       prefixIcon: Icons.library_books,
 //                       sufixIcon: Icons.arrow_circle_right,
-//                       size: MainAxisSize.max,
+//                       
 //                       bgColor: ColorsApp.greyNew,
 //                       text: 'Mon Historique'.tr(),
 //                       textColor: ColorsApp.primary,
@@ -502,7 +502,7 @@
 //         if (state.isUpdateUserImage == 1) {
 //           EasyLoading.show(
 //               indicator: CircularProgressIndicator(
-//                 color: ColorsApp.second,
+//                 color: ThemeApp.second,
 //               ),
 //               dismissOnTap: true,
 //               maskType: EasyLoadingMaskType.black);
@@ -618,7 +618,7 @@
 //               onTap: () {
 //                 EasyLoading.show(
 //                     indicator: CircularProgressIndicator(
-//                       color: ColorsApp.second,
+//                       color: ThemeApp.second,
 //                     ),
 //                     dismissOnTap: true,
 //                     maskType: EasyLoadingMaskType.clear);
@@ -687,7 +687,7 @@
 //             if (state.updating!) {
 //               EasyLoading.show(
 //                   indicator: CircularProgressIndicator(
-//                     color: ColorsApp.second,
+//                     color: ThemeApp.second,
 //                   ),
 //                   dismissOnTap: true,
 //                   maskType: EasyLoadingMaskType.black);
@@ -775,7 +775,7 @@
 //             if (state.updating!) {
 //               EasyLoading.show(
 //                   indicator: CircularProgressIndicator(
-//                     color: ColorsApp.second,
+//                     color: ThemeApp.second,
 //                   ),
 //                   dismissOnTap: true,
 //                   maskType: EasyLoadingMaskType.black);

@@ -24,12 +24,8 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
       GetStorage box = sl.get<GetStorage>();
       var isConnected = await database.getUser() != null;
       var key = await database.getKey();
-      print(
-          '-======database.user!.phone========-------${database.user!.phone}');
       await Future.delayed(Duration(seconds: 5), () {
         PageRouteInfo<dynamic> route;
-        print(
-            '-======database.user!.phone========-------${database.user!.phone == 'null' || database.user!.phone!.isEmpty}');
 
         route = /*  (box.read('first') != 1)
             ? AuthRoute()

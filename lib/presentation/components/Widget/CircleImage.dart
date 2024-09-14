@@ -31,7 +31,7 @@ class CircleImage extends StatelessWidget {
           placeholder: (context, url) {
             return Container(
               child: Center(
-                  child: CircularProgressIndicator(color: ColorsApp.second)),
+                  child: CircularProgressIndicator(color: ThemeApp.second)),
             );
           },
           errorWidget: (context, url, error) {

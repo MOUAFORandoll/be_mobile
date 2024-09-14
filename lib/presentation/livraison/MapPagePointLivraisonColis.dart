@@ -175,9 +175,6 @@ class _MapPagePointLivraisonColisState
                   child:
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                     AppButton(
-                        size: MainAxisSize.max,
-                        // loading: _userState.isLoading,
-                        // bgColor: ColorsApp.primary,
                         text: 'Valider'.tr(),
                         onTap: () async {
                           context.read<LivraisonBloc>().add(
@@ -204,7 +201,7 @@ class _MapPagePointLivraisonColisState
         if (state.isLoadingPlaceSearchInfo == 0) {
           EasyLoading.show(
               indicator: CircularProgressIndicator(
-                color: ColorsApp.second,
+                color: ThemeApp.second,
               ),
               dismissOnTap: true,
               maskType: EasyLoadingMaskType.black);
@@ -354,10 +351,10 @@ class _MapPagePointLivraisonColisState
                                 contentPadding:
                                     EdgeInsets.symmetric(vertical: 5),
                                 prefixIcon:
-                                    Icon(Icons.search, color: ColorsApp.second),
+                                    Icon(Icons.search, color: ThemeApp.second),
                                 suffixIcon: InkWell(
                                     child: Icon(Icons.close,
-                                        color: ColorsApp.second),
+                                        color: ThemeApp.second),
                                     onTap: () {
                                       close();
                                       FocusScope.of(context).unfocus();
@@ -627,8 +624,6 @@ class _MapPagePointLivraisonColisState
                                   ]),
                   ),
                   AppButton(
-                    size: MainAxisSize.max,
-                    bgColor: ColorsApp.primary,
                     text: 'yvalid'.tr(),
                     onTap: () async {
                       validatePoint();

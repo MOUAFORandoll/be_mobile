@@ -17,7 +17,10 @@ class KHomeInfoS extends StatelessWidget {
                 ? /* Shimmer.fromColors(
                     baseColor: ColorsApp.greyNew,
                     highlightColor: ColorsApp.primary,
-                    child: */ Skeletonizer( enabled: true, child:Container(
+                    child: */
+                Skeletonizer(
+                    enabled: true,
+                    child: Container(
                       child: Row(children: [
                         Container(
                             child: Icon(
@@ -105,7 +108,7 @@ class KHomeInfoS extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color: state.isInternetConnection
-                                ? ColorsApp.second
+                                ? ThemeApp.second
                                 : ColorsApp.orange),
                       )),
               Container(

@@ -38,18 +38,13 @@ class HomeModuleComponent extends StatelessWidget {
                   child: Text(
                     title,
                     maxLines: 4,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: kMarginY),
                   width: getWidth(context) * .5,
                   child: AppButton(
-                    size: MainAxisSize.max,
-                    bgColor: ColorsApp.primary,
                     text: titleBtn,
                     onTap: onTap,
                   ),

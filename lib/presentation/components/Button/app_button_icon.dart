@@ -49,7 +49,7 @@ class AppButtonIcon extends StatelessWidget {
           //     : null,
           borderRadius: BorderRadius.circular(10),
           color: disabled ? bgColor.withOpacity(.5) : bgColor,
-        ), // border: Border.all(color: ColorsApp.secondarytext)),
+        ), // border: Border.all(color: ThemeApp.secondarytext)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

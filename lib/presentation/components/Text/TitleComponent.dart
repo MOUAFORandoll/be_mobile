@@ -23,20 +23,16 @@ class TitleComponent extends StatelessWidget {
               children: [
                 Container(
                     width: getWidth(context) * .9,
-                    margin: EdgeInsets.only(top: kMarginY * 2),
+                    margin: EdgeInsets.only(top: kMarginY),
                     child: Text(
                       title,
-                      style: TextStyle(
-                          fontSize: kTitle * 1.2, fontWeight: FontWeight.w700),
+                      style: Theme.of(context).textTheme.titleLarge,
                     )),
                 if (subTitle != null)
                   Container(
                       width: getWidth(context) * .9,
                       child: Text(
                         subTitle!,
-                        style: TextStyle(
-                          fontSize: kBasics,
-                        ),
                       )),
               ],
             ),

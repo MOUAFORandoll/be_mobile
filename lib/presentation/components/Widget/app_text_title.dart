@@ -20,10 +20,7 @@ class AppTextTitle extends StatelessWidget {
       textAlign: TextAlign.start,
       overflow: TextOverflow.ellipsis,
       softWrap: true,
-      style: TextStyle(
-          fontWeight: bolder ? FontWeight.w600 : FontWeight.normal,
-          fontSize: big ? kLgText / this.percent : kLgText / this.percent,
-          color: color),
+      style: Theme.of(context).textTheme.titleLarge,
     );
   }
 }

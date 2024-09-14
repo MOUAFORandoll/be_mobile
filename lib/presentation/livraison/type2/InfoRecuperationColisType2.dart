@@ -142,7 +142,7 @@ class _InfoRecuperationColisType2PageState
                                       ? Icons.search
                                       : Icons.close,
                                   color: searchPointController.text.isEmpty
-                                      ? ColorsApp.second
+                                      ? ThemeApp.second
                                       : ColorsApp.red),
                               onTap: () {
                                 close();
@@ -419,7 +419,7 @@ class _InfoRecuperationColisType2PageState
                               border: Border.all(
                                 color: Color.fromARGB(255, 231, 229, 229),
                               ),
-                              color: ColorsApp.second,
+                              color: ThemeApp.second,
                             ),
                             alignment: Alignment.center,
                             child: Icon(Icons.arrow_back_ios_new,
@@ -574,7 +574,7 @@ class _InfoRecuperationColisType2PageState
                       Container(
                         margin: EdgeInsets.only(top: kMarginY),
                         decoration: BoxDecoration(
-                          color: ColorsApp.second,
+                          color: ThemeApp.second,
                           borderRadius: BorderRadius.circular(20),
                           // boxShadow: [
                           //   BoxShadow(
@@ -613,38 +613,33 @@ class _InfoRecuperationColisType2PageState
                                       ? Skeletonizer(
                                           enabled: true,
                                           child: Container(
-                                            width: getWidth(context),
-                                            padding: EdgeInsets.all(8),
-                                            decoration: BoxDecoration(
-                                              color: Colors.grey.shade100,
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                            ),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Container(
-                                                  child: Text(
-                                                    'Douala-Douala Douala-Douala',
+                                              height: 68,
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 16, vertical: 8),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                              ),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Douala 5e,',
                                                     style: TextStyle(
-                                                      color: ColorsApp.white,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                     ),
                                                   ),
-                                                ),
-                                                Container(
-                                                  child: Text(
-                                                    'Douala-Douala',
+                                                  Text(
+                                                    'Douala, Cameroon',
                                                     style: TextStyle(
-                                                      color: ColorsApp.white,
+                                                      color: Colors.grey[700],
                                                     ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
+                                                ],
+                                              )),
                                         )
                                       : Container(
                                           width: getWidth(context),
@@ -665,16 +660,16 @@ class _InfoRecuperationColisType2PageState
                                                 state
                                                     .selected_recuperation_point!
                                                     .quartier,
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w600,
-                                                    fontSize: kBasics * 1.3),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .titleSmall,
                                               )),
                                               Container(
                                                   child: Text(
                                                 state
                                                     .selected_recuperation_point!
                                                     .ville,
-                                                style: TextStyle(),
+                                               
                                               )),
                                             ],
                                           ),
@@ -1031,8 +1026,7 @@ class _InfoRecuperationColisType2PageState
                                 ),
                               ])),
                       AppButtonSecond(
-                          bgColor: ColorsApp.second,
-                          size: MainAxisSize.max,
+                          bgColor: ThemeApp.second,
                           marginAdd: EdgeInsets.symmetric(horizontal: kMarginX),
                           disabled: !(state.categoryColis != null &&
                               state.nomColis!.text.length != 0 &&

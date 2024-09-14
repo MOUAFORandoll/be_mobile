@@ -1,11 +1,9 @@
- 
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; 
-import 'package:BabanaExpress/utils/constants/assets.dart'; 
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 
 // ignore: must_be_immutable
 class EmptyShopComponent extends StatelessWidget {
-   
-  EmptyShopComponent( );
+  EmptyShopComponent();
 
   Widget build(BuildContext context) {
     return Container(
@@ -30,8 +28,7 @@ class EmptyShopComponent extends StatelessWidget {
                     horizontal: kMarginX, vertical: kMarginY),
                 child: Text(
                   'Hey, Your Cart Is Empty !',
-                  style:
-                      TextStyle(fontSize: kBasics, fontWeight: FontWeight.w700),
+                  style: Theme.of(context).textTheme.bodySmall,
                 )),
             Container(
                 padding: EdgeInsets.symmetric(
@@ -39,21 +36,15 @@ class EmptyShopComponent extends StatelessWidget {
                 child: Text(
                   'Retourner en arriere et ajouter des produits a votre panier.',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: kDescription,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 )),
             Container(
                 margin: EdgeInsets.only(bottom: kMarginY),
                 padding: EdgeInsets.symmetric(
                     horizontal: kMarginX, vertical: kMarginY),
                 child: AppButton(
-                  size: MainAxisSize.max,
-                  bgColor: ColorsApp.primary,
                   text: 'Go Back',
                   onTap: () {
-                  
                     AutoRouter.of(context).pop();
                   },
                 ))

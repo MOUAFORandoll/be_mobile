@@ -28,10 +28,7 @@ class FileOptionWidget extends StatelessWidget {
                     margin: EdgeInsets.only(top: kMarginY * 1.5),
                     child: Text(
                       title,
-                      style: TextStyle(
-                        fontSize: kBasics,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     )),
               ]),
         ),

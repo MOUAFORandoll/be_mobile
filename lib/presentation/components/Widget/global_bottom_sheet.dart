@@ -1,4 +1,3 @@
-
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 class GlobalBottomSheet {
@@ -51,17 +50,13 @@ class GlobalBottomSheet {
                         children: [
                           Text(
                             title ?? '',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                           Container(
                             width: getWidth(context) * .86,
                             child: Text(
                               subtitle ?? '',
-                              style: TextStyle(
-                                  color: ColorsApp.primary,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12),
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ),
                         ],

@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 // controller: _scrollController,
                 slivers: [
                   SliverAppBar(
-                      backgroundColor: ColorsApp.second,
+                      backgroundColor: ThemeApp.second,
                       pinned: true,
                       automaticallyImplyLeading: false,
                       bottom: PreferredSize(
@@ -143,8 +143,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ],
               ),
               bottomNavigationBar: CustomNavigationBar(
-                iconSize: 30.0,
-                selectedColor: ColorsApp.second,
+                iconSize: 24.0,
+                selectedColor: ThemeApp.second,
                 strokeColor: Color(0x30040307),
                 unSelectedColor: Color(0xffacacac),
                 backgroundColor: Colors.white,
@@ -330,7 +330,7 @@ class CustomDrawer extends StatelessWidget {
         if (state.isUpdateUserImage == 1) {
           EasyLoading.show(
               indicator: CircularProgressIndicator(
-                color: ColorsApp.second,
+                color: ThemeApp.second,
               ),
               dismissOnTap: true,
               maskType: EasyLoadingMaskType.black);
@@ -446,7 +446,7 @@ class CustomDrawer extends StatelessWidget {
               onTap: () {
                 EasyLoading.show(
                     indicator: CircularProgressIndicator(
-                      color: ColorsApp.second,
+                      color: ThemeApp.second,
                     ),
                     dismissOnTap: true,
                     maskType: EasyLoadingMaskType.clear);
@@ -515,7 +515,7 @@ openUpdateMail(context) => showDialog(
             if (state.updating!) {
               EasyLoading.show(
                   indicator: CircularProgressIndicator(
-                    color: ColorsApp.second,
+                    color: ThemeApp.second,
                   ),
                   dismissOnTap: true,
                   maskType: EasyLoadingMaskType.black);
@@ -603,7 +603,7 @@ openUpdateCompletePhoneProfile(context) => showDialog(
             if (state.updating!) {
               EasyLoading.show(
                   indicator: CircularProgressIndicator(
-                    color: ColorsApp.second,
+                    color: ThemeApp.second,
                   ),
                   dismissOnTap: true,
                   maskType: EasyLoadingMaskType.black);

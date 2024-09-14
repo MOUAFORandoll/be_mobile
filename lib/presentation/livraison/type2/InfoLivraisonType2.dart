@@ -1,11 +1,10 @@
 import 'dart:async';
 
-import 'package:BabanaExpress/application/export_bloc.dart'; 
+import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/Widget/delivry_widget_title.dart';
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
- 
 
 @RoutePage()
 class InfoLivraisonType2Page extends StatefulWidget {
@@ -133,7 +132,7 @@ class _InfoLivraisonType2PageState extends State<InfoLivraisonType2Page> {
                                       ? Icons.search
                                       : Icons.close,
                                   color: searchPointController.text.isEmpty
-                                      ? ColorsApp.second
+                                      ? ThemeApp.second
                                       : ColorsApp.red),
                               onTap: () {
                                 close();
@@ -410,7 +409,7 @@ class _InfoLivraisonType2PageState extends State<InfoLivraisonType2Page> {
                               border: Border.all(
                                 color: Color.fromARGB(255, 231, 229, 229),
                               ),
-                              color: ColorsApp.second,
+                              color: ThemeApp.second,
                             ),
                             alignment: Alignment.center,
                             child: Icon(Icons.arrow_back_ios_new,
@@ -492,14 +491,12 @@ class _InfoLivraisonType2PageState extends State<InfoLivraisonType2Page> {
                               Text(
                                 'Douala 5e,',
                                 style: TextStyle(
-                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                               Text(
                                 'Douala, Cameroon',
                                 style: TextStyle(
-                                  fontSize: 14,
                                   color: Colors.grey[700],
                                 ),
                               ),
@@ -519,17 +516,10 @@ class _InfoLivraisonType2PageState extends State<InfoLivraisonType2Page> {
                         children: [
                           Text(
                             state.selected_livraison_point!.quartier,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context).textTheme.titleSmall,
                           ),
                           Text(
                             state.selected_livraison_point!.ville,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[700],
-                            ),
                           ),
                         ],
                       ),
@@ -565,7 +555,7 @@ class _InfoLivraisonType2PageState extends State<InfoLivraisonType2Page> {
                       Container(
                         margin: EdgeInsets.only(top: kMarginY),
                         decoration: BoxDecoration(
-                          color: ColorsApp.second,
+                          color: ThemeApp.second,
                           borderRadius: BorderRadius.circular(20),
                           // boxShadow: [
                           //   BoxShadow(
@@ -677,9 +667,9 @@ class _InfoLivraisonType2PageState extends State<InfoLivraisonType2Page> {
                       Container(
                         // margin: EdgeInsets.only(top: kMarginY),
                         child: AppButtonSecond(
-                            size: MainAxisSize.max,
+
                             // loading: _userState.isLoading,
-                            bgColor: ColorsApp.second,
+                            bgColor: ThemeApp.second,
                             text: 'Valider'.tr(),
                             marginAdd:
                                 EdgeInsets.symmetric(horizontal: kMarginX),
