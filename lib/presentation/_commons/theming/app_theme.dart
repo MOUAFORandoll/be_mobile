@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 abstract class ThemeApp {
   static const Color green = Color(0xFF00bec5);
   static const Color primary = Color(0xFF1D1D1B);
-
+  static const Color primary_second = Color(0xFF061D25);
   static const Color black = Color(0xFF1D1D1B);
   static const Color second_second = Color(0xFF0BBC5C);
   static const Color second = Color(0xFF009FE3);
@@ -33,12 +33,11 @@ abstract class ThemeApp {
   static TextTheme _textTheme(BuildContext context) {
     final baseTextTheme = Theme.of(context).textTheme;
     final robotoTextTheme = GoogleFonts.robotoTextTheme(baseTextTheme);
-    final oswaldTextTheme = GoogleFonts.oswaldTextTheme(baseTextTheme);
 
     return robotoTextTheme.copyWith(
       displayLarge: robotoTextTheme.displayLarge?.copyWith(
         color: black,
-        fontSize: 57.0,
+        fontSize: 56.0,
         height: 6.4,
         letterSpacing: -0.25,
       ),
@@ -48,7 +47,7 @@ abstract class ThemeApp {
         height: 5.2,
         letterSpacing: 0.0,
       ),
-      displaySmall: oswaldTextTheme.displaySmall?.copyWith(
+      displaySmall: robotoTextTheme.displaySmall?.copyWith(
         color: black,
         fontSize: 36.0,
         fontWeight: FontWeight.bold,
@@ -73,7 +72,7 @@ abstract class ThemeApp {
         height: 3.2,
         letterSpacing: 0.0,
       ),
-      titleLarge: oswaldTextTheme.titleLarge?.copyWith(
+      titleLarge: robotoTextTheme.titleLarge?.copyWith(
           color: black,
           fontSize: 20.0,
           fontWeight: FontWeight.bold,
@@ -81,26 +80,27 @@ abstract class ThemeApp {
           height: 2.8),
       titleMedium: robotoTextTheme.titleMedium?.copyWith(
         color: black,
-        fontSize: 16.0,
-        height: 2.4,
-        letterSpacing: 0.15,
+        fontSize: 24.0,
+        fontWeight: FontWeight.bold,
+        // height: 2.4,
+        letterSpacing: 0.0,
       ),
       titleSmall: robotoTextTheme.titleSmall?.copyWith(
         color: black,
         fontSize: 14.0,
         height: 2.0,
-        letterSpacing: 0.1,
+        letterSpacing: 0.0,
       ),
-      bodyLarge: oswaldTextTheme.bodyLarge?.copyWith(
+      bodyLarge: robotoTextTheme.bodyLarge?.copyWith(
         color: black,
-        fontSize: 14.0,
-        fontWeight: FontWeight.bold,
+        fontSize: 16.0,
+        // fontWeight: FontWeight.bold,
         height: 2.4,
         letterSpacing: 0.5,
       ),
       bodyMedium: robotoTextTheme.bodyMedium?.copyWith(
         color: black,
-        fontSize: 12.0,
+        fontSize: 14.0,
         height: 2.0,
         letterSpacing: 0.25,
       ),
@@ -110,12 +110,8 @@ abstract class ThemeApp {
         height: 1.6,
         letterSpacing: 0.4,
       ),
-      labelLarge: oswaldTextTheme.labelLarge?.copyWith(
-          color: black,
-          fontSize: 14.0,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 0.1,
-          height: 2.0),
+      labelLarge: robotoTextTheme.labelLarge?.copyWith(
+          color: black, fontSize: 14.0, letterSpacing: 0.1, height: 2.0),
       labelMedium: robotoTextTheme.labelMedium?.copyWith(
         color: black,
         fontSize: 12.0,
@@ -126,7 +122,7 @@ abstract class ThemeApp {
         color: black,
         fontSize: 11.0,
         height: 1.6,
-        letterSpacing: 0.5,
+        letterSpacing: 0.0,
       ),
     );
   }
@@ -148,7 +144,7 @@ abstract class ThemeApp {
       ),
       primaryColor: second,
       disabledColor: disabledGrey,
-      scaffoldBackgroundColor: scaffoldBackground,
+      scaffoldBackgroundColor: white,
       appBarTheme: theme.appBarTheme.copyWith(
         backgroundColor: Colors.transparent,
         scrolledUnderElevation: 0,

@@ -165,7 +165,7 @@ class _AuthPageState extends State<AuthPage> {
                 AppCarrousselItemSecond(
                   title: 'Livraison de vos colis'.tr(),
                   description: 'cdescription1'.tr(),
-                  image: Assets.onb1,
+                  image: Assets.onb2,
                 ),
               ])))),
     );

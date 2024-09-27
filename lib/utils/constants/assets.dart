@@ -2,6 +2,7 @@ class Assets {
   Assets._();
   static const logo = 'assets/logo/logo.png';
   static const logo_t1 = 'assets/logo/logo_t1.svg';
+  static const logo_second = 'assets/svg_icones/logo_second.svg';
   static const logo_t2 = 'assets/logo/logo_t2.svg';
   static const box = 'assets/svg_icones/Box.svg';
   static const logo_t3 = 'assets/logo/logo_t3.svg';
@@ -15,7 +16,6 @@ class Assets {
   static const empty_shop = 'assets/images/empty_shop.png';
   static const fr = 'assets/images/fr.png';
   static const en = 'assets/images/en.jpg';
-  static const onb1 = 'assets/images/ob1.png';
   static const onb2 = 'assets/images/ob2.png';
   static const onb3 = 'assets/images/ob3.png';
   static const user = 'assets/svg_icones/user.svg';
@@ -56,10 +56,16 @@ class Assets {
   static const livraison_success = 'assets/svg_icones/livraison_success.svg';
   static const activity = 'assets/svg_icones/activity.svg';
   static const google = 'assets/svg_icones/google.svg';
+  static const facebook = 'assets/svg_icones/facebook.svg';
+  static const apple = 'assets/svg_icones/apple.svg';
   static const p3 = 'assets/images/p3.png';
   static const market_place = 'assets/images/market_place.png';
   static const p2 = 'assets/images/p2.png';
   static const colis = 'assets/images/colis.png';
   static const wallet = 'assets/images/wallet.png';
   static const medicament = 'assets/images/medicament.png';
+
+  static const onboarding1 = 'assets/images/onboarding1.png';
+  static const onboarding2 = 'assets/images/onboarding2.png';
+  static const onboarding3 = 'assets/images/onboarding3.png';
 }

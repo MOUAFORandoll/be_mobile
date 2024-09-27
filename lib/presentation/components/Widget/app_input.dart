@@ -38,13 +38,6 @@ class _AppInputState extends State<AppInput> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      margin: EdgeInsets.symmetric(
-        horizontal: kMarginX,
-      ).add(
-        EdgeInsets.only(
-          top: kMarginY,
-        ),
-      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +47,7 @@ class _AppInputState extends State<AppInput> {
               bottom: kMarginY,
             ),
             child: Text(
-              widget.placeholder,
+              widget.label ?? '',
               style: TextStyle(
                 color: ColorsApp.black.withOpacity(.3),
                 fontSize: 12,
@@ -83,21 +76,21 @@ class _AppInputState extends State<AppInput> {
                 focusedBorder: OutlineInputBorder(
                   borderSide:
                       BorderSide(color: ColorsApp.disabledGrey, width: .4),
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: ColorsApp.red, width: .5),
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: ColorsApp.disabledGrey,
                     width: .5,
                   ),
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 errorText: widget.errorText,
                 errorStyle: TextStyle(
@@ -105,9 +98,7 @@ class _AppInputState extends State<AppInput> {
                   color: ColorsApp.red,
                 ),
                 prefixIcon: widget.prefix,
-                hintText: widget.textInputType == TextInputType.phone
-                    ? 'Entrer des chiffres'
-                    : 'Entrer du texte',
+                hintText: widget.placeholder,
                 hintStyle: TextStyle(
                   color: ColorsApp.black.withOpacity(.3),
                   fontSize: 12,
@@ -133,13 +124,13 @@ class AppInputPassword extends StatefulWidget {
   final String placeholder;
   final ValueChanged<String>? onChanged;
   final bool obscureText;
-  // final bool valid;
+  final String? label;
   final TextInputType? textInputType;
   const AppInputPassword({
     Key? key,
     required this.controller,
     this.validator,
-    // this.valid = false,
+    this.label ,
     this.placeholder = '',
     this.errorText,
     this.onChanged,
@@ -173,7 +164,7 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                   bottom: kMarginY,
                 ),
                 child: Text(
-                  widget.placeholder,
+                  widget.label ?? '',
                   style: TextStyle(
                     color: ColorsApp.black.withOpacity(.3),
                     fontSize: 12,
@@ -227,8 +218,7 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                       fontSize: 8,
                       color: ColorsApp.red,
                     ),
-                    hintText: 'Entrer du texte',
-                    /*  widget.placeholder, */
+                    hintText: widget.placeholder,
                     hintStyle: TextStyle(
                       color: ColorsApp.black.withOpacity(.3),
                       fontSize: 12,

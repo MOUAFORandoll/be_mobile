@@ -3,7 +3,7 @@
 import 'dart:async';
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 import 'package:BabanaExpress/presentation/components/Widget/home_proposition_widget.dart';
-import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
+import 'package:BabanaExpress/presentation/user/politique_page.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
 import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';

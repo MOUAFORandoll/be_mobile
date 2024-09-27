@@ -76,6 +76,7 @@ dependencies:
   fluttertoast: ^8.2.4
   flutter_animarker: ^3.2.0
   sign_in_with_apple: ^6.1.2
+  smooth_page_indicator: any
 
 dev_dependencies:
   flutter_test:

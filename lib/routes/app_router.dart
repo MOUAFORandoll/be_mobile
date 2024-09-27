@@ -2,7 +2,7 @@ import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/presentation/compte/PaiementDepotPage.dart';
 import 'package:BabanaExpress/presentation/compte/WalletView.dart';
 import 'package:BabanaExpress/presentation/home/HomePage.dart';
-import 'package:BabanaExpress/presentation/layer/onboardingpage.dart';
+import 'package:BabanaExpress/presentation/layer/onboarding_page.dart';
 import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/livraison/ColisConversationPage.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraiSonMapPage.dart';
@@ -18,16 +18,17 @@ import 'package:BabanaExpress/presentation/livraison/type2/InfoRecuperationColis
 import 'package:BabanaExpress/presentation/livraison/type2/InfoLivraisonType2.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page.dart';
 import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart';
-import 'package:BabanaExpress/presentation/user/AuthPage.dart';
-import 'package:BabanaExpress/presentation/user/CompleteProfilPage.dart';
-import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
-import 'package:BabanaExpress/presentation/user/LoginPage.dart';
-import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
-import 'package:BabanaExpress/presentation/user/RegisterPage.dart';
+import 'package:BabanaExpress/presentation/user/auth_page.dart';
+import 'package:BabanaExpress/presentation/user/complete_profil_page.dart';
+import 'package:BabanaExpress/presentation/user/forgot_password_page.dart';
+import 'package:BabanaExpress/presentation/user/new_password_page.dart';
+import 'package:BabanaExpress/presentation/user/login_page.dart';
+import 'package:BabanaExpress/presentation/user/politique_page.dart';
+import 'package:BabanaExpress/presentation/user/register_page.dart';
 import 'package:BabanaExpress/test.dart';
 import 'package:auto_route/auto_route.dart';
 
-import '../presentation/layer/splashpage.dart';
+import '../presentation/layer/splash_page.dart';
 import '../presentation/livraison/MapPagePointRecuperation.dart';
 import 'app_router.gr.dart';
 
@@ -44,7 +45,11 @@ class AppRouter extends $AppRouter {
             transitionsBuilder: TransitionsBuilders.slideLeft,
             durationInMilliseconds: 600,
             page: OnBoardingRoute.page,
-            path: OnBoardingPage.routeName),
+            path: OnBoardingPage.routeName), CustomRoute(
+            transitionsBuilder: TransitionsBuilders.slideLeft,
+            durationInMilliseconds: 600,
+            page: NewPasswordRoute.page,
+            path: NewPasswordPage.routeName),
         CustomRoute(page: AuthRoute.page, path: AuthPage.routeName),
         CustomRoute(
             transitionsBuilder: TransitionsBuilders.slideLeft,

@@ -27,16 +27,17 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
       await Future.delayed(Duration(seconds: 5), () {
         PageRouteInfo<dynamic> route;
 
-        route = /*  (box.read('first') != 1)
+        route = OnBoardingRoute() /*  (box.read('first') != 1)
             ? AuthRoute()
-            : */
+            : 
             isConnected
                 ? database.user!.phone == 'null' ||
                         database.user!.phone == null ||
                         database.user!.phone!.isEmpty
                     ? CompleteProfilRoute()
                     : const HomeRoute()
-                : const AuthRoute();
+                : const AuthRoute()*/
+            ;
         if (key != null) {
           // SocketService().HistoriqueUserLivraison(
           //     recepteur: key,

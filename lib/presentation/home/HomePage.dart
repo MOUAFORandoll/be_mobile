@@ -12,7 +12,7 @@ import 'package:BabanaExpress/presentation/components/Widget/app_text_title.dart
 import 'package:BabanaExpress/presentation/home/FirstView.dart';
 import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonPage.dart';
 import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
-import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
+import 'package:BabanaExpress/presentation/user/politique_page.dart';
 import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/utils/constants/assets.dart';

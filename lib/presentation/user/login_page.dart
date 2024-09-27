@@ -1,5 +1,5 @@
 import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
-import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
+import 'package:BabanaExpress/presentation/user/forgot_password_page.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
