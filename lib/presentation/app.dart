@@ -3,48 +3,104 @@ import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/splash/splash_bloc.dart';
-
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/_commons/theming/app_theme.dart';
-
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/home/HomePage.dart';
+import 'package:BabanaExpress/presentation/layer/onboarding_page.dart';
 import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:potatoes/potatoes.dart' hide PreferencesService;
+import 'package:potatoes_secured_preferences/potatoes_secured_preferences.dart';
+ 
+import 'package:BabanaExpress/common/bloc/home_cubit.dart';
+import 'package:BabanaExpress/common/bloc/user_cubit.dart';
+import 'package:BabanaExpress/common/services/api_service.dart';
+import 'package:BabanaExpress/common/services/preferences_service.dart';
+import 'package:BabanaExpress/common/services/user_service.dart';
 import 'package:BabanaExpress/utils/Services/auth_social_service%20.dart';
 
-import 'package:responsive_framework/responsive_framework.dart';
+import 'package:dio/dio.dart';
+import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
+import 'package:auto_route/auto_route.dart';
 
 class AppContent extends StatelessWidget {
-  AppContent({super.key});
-  final _appRouter = sl.get<AppRouter>();
+  final AppRouter _appRouter = sl.get<AppRouter>();
+  final GlobalKey<NavigatorState> navigatorKey;
+  final SharedPreferences preferences;
+  final FlutterSecureStorage secureStorage;
+  final CacheOptions cacheOptions;
+
+  AppContent({
+    Key? key,
+    required this.navigatorKey,
+    required this.preferences,
+    required this.secureStorage,
+    required this.cacheOptions,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: _appRouter.config(),
-      debugShowCheckedModeBanner: false,
-      title: 'Babana Express',
-      // darkTheme: darkTheme,
-      themeMode: ThemeMode.light,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      builder: (_, router) {
-        return BlocProviders(
-          child: EasyLoading.init()(
-            context,
-            ResponsiveBreakpoints.builder(
-              breakpoints: const [
-                Breakpoint(start: 0, end: 1920, name: 'default'),
-              ],
-              child: ClampingScrollWrapper.builder(context, router!),
-            ),
+    final preferencesService = PreferencesService(preferences, secureStorage);
+
+    final Dio dio = DioClient.instance(
+      preferencesService,
+      connectTimeout: const Duration(minutes: 1),
+    );
+    dio.interceptors.add(DioCacheInterceptor(options: cacheOptions));
+
+    return MultiRepositoryProvider(
+      providers: [
+       
+        RepositoryProvider(create: (_) => AuthSocialService()),
+        RepositoryProvider(create: (_) => UserService(dio)),
+      ],
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+              create: (context) => UserCubit(
+                    context.read<UserService>(),
+                    preferencesService,
+                    context.read<AuthSocialService>(),
+                  )),
+          BlocProvider(create: (_) => HomeCubit()),
+        ],
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: 'Babana Express',
+          theme: ThemeApp.lightTheme(context),
+          themeMode: ThemeMode.light,
+          locale: const Locale.fromSubtags(languageCode: 'fr'),
+          supportedLocales: const [Locale.fromSubtags(languageCode: 'fr')],
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          routerDelegate: _appRouter.delegate(
+            navigatorObservers: () => [AutoRouteObserver()],
           ),
-        );
-      },
-      theme: ThemeApp.lightTheme(context),
+          routeInformationParser: _appRouter.defaultRouteParser(),
+          builder: (context, child) => BlocListener<UserCubit, UserState>(
+            listenWhen: (previous, current) =>
+                previous is UserLoggingOut && current is UserNotLoggedState,
+            listener: (_, state) {
+              if (state is UserNotLoggedState) {
+                Future.delayed(
+                  const Duration(milliseconds: 100),
+                  () => Phoenix.rebirth(context),
+                );
+              }
+            },
+            child: child ?? const SizedBox(),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -52,138 +108,40 @@ class AppContent extends StatelessWidget {
 class BlocProviders extends StatelessWidget {
   final Widget child;
 
-  const BlocProviders({required this.child});
+  const BlocProviders({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => sl<ConnectedBloc>()),
-        BlocProvider<AppActionCubit>(
-          create: (BuildContext context) => AppActionCubit(),
+        BlocProvider(create: (_) => AppActionCubit()),
+        BlocProvider(create: (_) => DatabaseCubit()),
+      
+        BlocProvider(
+          create: (_) => UserCubit(
+            context.read(),
+            context.read(),
+            context.read(),
+          ),
         ),
-        BlocProvider<DatabaseCubit>(
-          create: (BuildContext context) => DatabaseCubit(),
-        ),
-        BlocProvider<LivraisonBloc>(
-          create: (BuildContext context) => LivraisonBloc(
-            livraisonRepo: sl.get<LivraisonRepo>(),
+        BlocProvider(
+          create: (_) => CallCenterBloc(
+            callcenterRepo: sl.get<CallCenterRepo>(),
             database: sl.get<DatabaseCubit>(),
           ),
         ),
-        BlocProvider<CompteBloc>(
-          create: (BuildContext context) => CompteBloc(
-            compteRepo: sl.get<CompteRepo>(),
+        BlocProvider(
+          create: (_) => SplashBloc(database: sl.get<DatabaseCubit>()),
+        ),
+        BlocProvider(
+          create: (_) => HomeBloc(
+            homeRepo: sl(),
             database: sl.get<DatabaseCubit>(),
           ),
-        ),
-        BlocProvider<UserBloc>(
-          create: (BuildContext context) => UserBloc(
-              authSocial: sl.get<AuthSocialService>(),
-              userRepo: sl.get<UserRepo>(),
-              database: sl.get<DatabaseCubit>()),
-        ),
-        BlocProvider<CallCenterBloc>(
-          create: (BuildContext context) => CallCenterBloc(
-              callcenterRepo: sl.get<CallCenterRepo>(),
-              database: sl.get<DatabaseCubit>()),
-        ),
-        BlocProvider<SplashBloc>(
-          create: (BuildContext context) =>
-              SplashBloc(database: sl.get<DatabaseCubit>()),
-        ),
-        BlocProvider<HomeBloc>(
-          create: (BuildContext context) =>
-              HomeBloc(homeRepo: sl(), database: sl.get<DatabaseCubit>()),
         ),
       ],
       child: child,
     );
   }
 }
-// class AppContent extends StatelessWidget {
-//   AppContent({super.key});
-//   final _appRouter = sl.get<AppRouter>();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp.router(
-//         routerConfig: _appRouter.config(),
-//         debugShowCheckedModeBanner: false,
-//         title: 'Babana Express',
-//         darkTheme: darkTheme,
-//         themeMode: ThemeMode.light,
-//         localizationsDelegates: context.localizationDelegates,
-//         supportedLocales: context.supportedLocales,
-//         locale: context.locale,
-//         builder: (_, router) {
-//           return MultiBlocProvider(
-//               providers: [
-//                 BlocProvider(create: (_) => sl<ConnectedBloc>()),
-//                 BlocProvider<AppActionCubit>(
-//                   create: (BuildContext context) => AppActionCubit(),
-//                 ),
-//                 BlocProvider<DatabaseCubit>(
-//                   create: (BuildContext context) => DatabaseCubit(),
-//                 ),
-//                 BlocProvider<LivraisonBloc>(
-//                   create: (BuildContext context) => LivraisonBloc(
-//                     livraisonRepo: sl.get<LivraisonRepo>(),
-//                     database: sl.get<DatabaseCubit>(),
-//                   ),
-//                 ),
-//                 BlocProvider<CompteBloc>(
-//                   create: (BuildContext context) => CompteBloc(
-//                     compteRepo: sl.get<CompteRepo>(),
-//                     database: sl.get<DatabaseCubit>(),
-//                   ),
-//                 ),
-//                 BlocProvider<UserBloc>(
-//                   create: (BuildContext context) => UserBloc(
-//                       userRepo: sl.get<UserRepo>(),
-//                       database: sl.get<DatabaseCubit>()),
-//                 ),
-               
-//                 BlocProvider<CallCenterBloc>(
-//                   create: (BuildContext context) => CallCenterBloc(
-//                       callcenterRepo: sl.get<CallCenterRepo>(),
-//                       database: sl.get<DatabaseCubit>()),
-//                 ),
-//                 BlocProvider<SplashBloc>(
-//                   create: (BuildContext context) =>
-//                       SplashBloc(database: sl.get<DatabaseCubit>()),
-//                 ),
-//                 BlocProvider<HomeBloc>(
-//                   create: (BuildContext context) => HomeBloc(
-//                       homeRepo: sl(), database: sl.get<DatabaseCubit>()),
-//                 ),
-               
-//               ],
-//               child: MaterialApp.router(
-//                 routerConfig: _appRouter.config(),
-//                 debugShowCheckedModeBanner: false,
-//                 title: 'Banana Express',
-//                 darkTheme: darkTheme,
-//                 themeMode: ThemeMode.light,
-//                 localizationsDelegates: context.localizationDelegates,
-//                 supportedLocales: context.supportedLocales,
-//                 locale: context.locale,
-//                 builder: (_, router) {
-//                   return EasyLoading.init()(
-//                       context,
-//                       ResponsiveBreakpoints.builder(
-//                         breakpoints: const [
-//                           Breakpoint(start: 0, end: 450, name: MOBILE),
-//                           Breakpoint(start: 451, end: 800, name: TABLET),
-//                           Breakpoint(start: 801, end: 1920, name: DESKTOP),
-//                           Breakpoint(
-//                               start: 1921, end: double.infinity, name: 'XL'),
-//                         ],
-//                         child: ClampingScrollWrapper.builder(context, router!),
-//                       ));
-//                 },
-//                 theme: lightTheme(context),
-//               ));
-//         });
-//   }
-// }

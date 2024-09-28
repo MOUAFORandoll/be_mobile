@@ -19,6 +19,7 @@ class UserState with _$UserState {
       int? isVilleQuartier,
       int? loadModePaiement,
       bool? successReset,
+      bool? loginUser,
       List<ModePaiementModel>? listModePaiement,
       required TextEditingController phone,
       required TextEditingController password,
@@ -28,6 +29,7 @@ class UserState with _$UserState {
       bool? updating}) = _UserState;
 
   factory UserState.initial() => UserState(
+    loginUser :null,
         phone: TextEditingController(),
         password: TextEditingController(),
         name: TextEditingController(),

@@ -12,7 +12,6 @@ import 'package:BabanaExpress/presentation/components/Widget/app_pub_item.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_service_item.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_text_title.dart';
 import 'package:BabanaExpress/presentation/home/FirstView.dart';
-import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BabanaExpress/presentation/user/politique_page.dart';
 import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
@@ -147,9 +146,7 @@ class FirstView extends StatelessWidget {
                                               title: 'Me faire livrer mon colis'
                                                   .tr(),
                                               image: Assets.activity,
-                                              onTap: () =>
-                                                  AutoRouter.of(context).push(
-                                                      NewLivraisonType1Route()),
+                                              onTap: (){ },
                                             ),
                                             SizedBox(
                                                 height:
@@ -161,9 +158,7 @@ class FirstView extends StatelessWidget {
                                               image: Assets.activity,
                                               index: 0,
                                               onTap: () {
-                                                AutoRouter.of(context).push(
-                                                    NewLivraisonType2Route());
-                                              },
+                                                 },
                                             ),
                                           ]),
                                         ))))))),
@@ -175,8 +170,7 @@ class FirstView extends StatelessWidget {
                         image: Assets.activity,
                         index: 0,
                         onTap: () {
-                          AutoRouter.of(context).push(NewLivraisonType2Route());
-                        },
+                          },
                       ),
                     ),
                   ],
@@ -191,8 +185,7 @@ class FirstView extends StatelessWidget {
                         image: Assets.activity,
                         index: 0,
                         onTap: () {
-                          AutoRouter.of(context).push(NewLivraisonType2Route());
-                        },
+                          },
                       ),
                     ),
                     SizedBox(width: 16), // Add some spacing between items
@@ -202,8 +195,7 @@ class FirstView extends StatelessWidget {
                         image: Assets.activity,
                         index: 0,
                         onTap: () {
-                          AutoRouter.of(context).push(NewLivraisonType1Route());
-                        },
+                          },
                       ),
                     ),
                   ],

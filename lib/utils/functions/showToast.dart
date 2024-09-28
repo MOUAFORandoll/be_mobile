@@ -48,7 +48,7 @@ showSuccess(
   var snackBar = SnackBar(
     behavior: SnackBarBehavior.floating,
     padding: EdgeInsets.all(20),
-    backgroundColor: ColorsApp.primary,
+    backgroundColor: ColorsApp.second,
     content: Row(
       children: [
         Expanded(

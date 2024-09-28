@@ -2853,6 +2853,7 @@ mixin _$UserState {
   int? get isVilleQuartier => throw _privateConstructorUsedError;
   int? get loadModePaiement => throw _privateConstructorUsedError;
   bool? get successReset => throw _privateConstructorUsedError;
+  bool? get loginUser => throw _privateConstructorUsedError;
   List<ModePaiementModel>? get listModePaiement =>
       throw _privateConstructorUsedError;
   TextEditingController get phone => throw _privateConstructorUsedError;
@@ -2891,6 +2892,7 @@ abstract class $UserStateCopyWith<$Res> {
       int? isVilleQuartier,
       int? loadModePaiement,
       bool? successReset,
+      bool? loginUser,
       List<ModePaiementModel>? listModePaiement,
       TextEditingController phone,
       TextEditingController password,
@@ -2931,6 +2933,7 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
     Object? isVilleQuartier = freezed,
     Object? loadModePaiement = freezed,
     Object? successReset = freezed,
+    Object? loginUser = freezed,
     Object? listModePaiement = freezed,
     Object? phone = null,
     Object? password = null,
@@ -3004,6 +3007,10 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
           ? _value.successReset
           : successReset // ignore: cast_nullable_to_non_nullable
               as bool?,
+      loginUser: freezed == loginUser
+          ? _value.loginUser
+          : loginUser // ignore: cast_nullable_to_non_nullable
+              as bool?,
       listModePaiement: freezed == listModePaiement
           ? _value.listModePaiement
           : listModePaiement // ignore: cast_nullable_to_non_nullable
@@ -3061,6 +3068,7 @@ abstract class _$$UserStateImplCopyWith<$Res>
       int? isVilleQuartier,
       int? loadModePaiement,
       bool? successReset,
+      bool? loginUser,
       List<ModePaiementModel>? listModePaiement,
       TextEditingController phone,
       TextEditingController password,
@@ -3099,6 +3107,7 @@ class __$$UserStateImplCopyWithImpl<$Res>
     Object? isVilleQuartier = freezed,
     Object? loadModePaiement = freezed,
     Object? successReset = freezed,
+    Object? loginUser = freezed,
     Object? listModePaiement = freezed,
     Object? phone = null,
     Object? password = null,
@@ -3172,6 +3181,10 @@ class __$$UserStateImplCopyWithImpl<$Res>
           ? _value.successReset
           : successReset // ignore: cast_nullable_to_non_nullable
               as bool?,
+      loginUser: freezed == loginUser
+          ? _value.loginUser
+          : loginUser // ignore: cast_nullable_to_non_nullable
+              as bool?,
       listModePaiement: freezed == listModePaiement
           ? _value._listModePaiement
           : listModePaiement // ignore: cast_nullable_to_non_nullable
@@ -3224,6 +3237,7 @@ class _$UserStateImpl implements _UserState {
       this.isVilleQuartier,
       this.loadModePaiement,
       this.successReset,
+      this.loginUser,
       final List<ModePaiementModel>? listModePaiement,
       required this.phone,
       required this.password,
@@ -3265,6 +3279,8 @@ class _$UserStateImpl implements _UserState {
   final int? loadModePaiement;
   @override
   final bool? successReset;
+  @override
+  final bool? loginUser;
   final List<ModePaiementModel>? _listModePaiement;
   @override
   List<ModePaiementModel>? get listModePaiement {
@@ -3291,7 +3307,7 @@ class _$UserStateImpl implements _UserState {
 
   @override
   String toString() {
-    return 'UserState(isLoading: $isLoading, authenticationFailedMessage: $authenticationFailedMessage, registerFailedMessage: $registerFailedMessage, villeUser: $villeUser, quartierUser: $quartierUser, newPassword: $newPassword, isCode: $isCode, isSocialAuthentification: $isSocialAuthentification, isLoadingForgot: $isLoadingForgot, isUpdateUserImage: $isUpdateUserImage, isUpdateUserInfo: $isUpdateUserInfo, completeprofil: $completeprofil, isCorrectCode: $isCorrectCode, isVilleQuartier: $isVilleQuartier, loadModePaiement: $loadModePaiement, successReset: $successReset, listModePaiement: $listModePaiement, phone: $phone, password: $password, name: $name, re_password: $re_password, isExistLoading: $isExistLoading, updating: $updating)';
+    return 'UserState(isLoading: $isLoading, authenticationFailedMessage: $authenticationFailedMessage, registerFailedMessage: $registerFailedMessage, villeUser: $villeUser, quartierUser: $quartierUser, newPassword: $newPassword, isCode: $isCode, isSocialAuthentification: $isSocialAuthentification, isLoadingForgot: $isLoadingForgot, isUpdateUserImage: $isUpdateUserImage, isUpdateUserInfo: $isUpdateUserInfo, completeprofil: $completeprofil, isCorrectCode: $isCorrectCode, isVilleQuartier: $isVilleQuartier, loadModePaiement: $loadModePaiement, successReset: $successReset, loginUser: $loginUser, listModePaiement: $listModePaiement, phone: $phone, password: $password, name: $name, re_password: $re_password, isExistLoading: $isExistLoading, updating: $updating)';
   }
 
   @override
@@ -3333,6 +3349,8 @@ class _$UserStateImpl implements _UserState {
                 other.loadModePaiement == loadModePaiement) &&
             (identical(other.successReset, successReset) ||
                 other.successReset == successReset) &&
+            (identical(other.loginUser, loginUser) ||
+                other.loginUser == loginUser) &&
             const DeepCollectionEquality()
                 .equals(other._listModePaiement, _listModePaiement) &&
             (identical(other.phone, phone) || other.phone == phone) &&
@@ -3366,6 +3384,7 @@ class _$UserStateImpl implements _UserState {
         isVilleQuartier,
         loadModePaiement,
         successReset,
+        loginUser,
         const DeepCollectionEquality().hash(_listModePaiement),
         phone,
         password,
@@ -3402,6 +3421,7 @@ abstract class _UserState implements UserState {
       final int? isVilleQuartier,
       final int? loadModePaiement,
       final bool? successReset,
+      final bool? loginUser,
       final List<ModePaiementModel>? listModePaiement,
       required final TextEditingController phone,
       required final TextEditingController password,
@@ -3442,6 +3462,8 @@ abstract class _UserState implements UserState {
   int? get loadModePaiement;
   @override
   bool? get successReset;
+  @override
+  bool? get loginUser;
   @override
   List<ModePaiementModel>? get listModePaiement;
   @override

@@ -250,7 +250,6 @@ class LivraisonUserComponent extends StatelessWidget {
                         ),
                       ],
                     ) /* ) */),
-                onTap: () => AutoRouter.of(context)
-                    .push(LivraisonDataRoute(livraison: livraison)));
+               );
   }
 }

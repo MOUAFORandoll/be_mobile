@@ -1,6 +1,5 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
-import 'package:BabanaExpress/presentation/livraison/ColisConversationPage.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
@@ -134,7 +133,7 @@ class ColisComponentUser extends StatelessWidget {
       title: 'Colis'.tr(),
       subtitle: 'Suivez les informations de votre colis'.tr(),
       widget: Column(
-        children: [ColisConversationPage(colis: colis)],
+        children: [ ],
       ));
 
   Future<void> requestPermission() async {

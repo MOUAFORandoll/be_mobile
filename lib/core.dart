@@ -37,11 +37,11 @@ Future<void> init() async {
   sl.registerLazySingleton<DatabaseCubit>(() => db);
   sl.registerFactory(() => SplashBloc(database: sl()));
 
-  sl
-    ..registerFactory(
-        () => UserBloc(authSocial: sl(), userRepo: sl(), database: sl()))
-    ..registerLazySingleton(() => UserRepo(apiClient: sl()))
-    ..registerLazySingleton(() => AuthSocialService( ));
+  // sl
+  //   ..registerFactory(
+  //       () => UserBloc(authSocial: sl(), userRepo: sl(), database: sl()))
+  //   ..registerLazySingleton(() => UserRepo(apiClient: sl()))
+  //   ..registerLazySingleton(() => AuthSocialService( ));
 
   sl
     ..registerFactory(() => HomeBloc(homeRepo: sl(), database: sl()))
@@ -73,10 +73,10 @@ Future<void> initLoad(context) async {
     ..add(UserDataEvent())
     ..add(GetService())
     ..add(HomeStateLivraison());
-  BlocProvider.of<UserBloc>(context)
-    ..add(GetUserEvent())
-    ..add(GetModePaiement())
-    ..add(GetVilleQuartier());
+  // BlocProvider.of<UserBloc>(context)
+  //   ..add(GetUserEvent())
+  //   ..add(GetModePaiement())
+  //   ..add(GetVilleQuartier());
   BlocProvider.of<LivraisonBloc>(context)
     ..add(CurrentUserStateLivraison())
     ..add(StartLogLat())

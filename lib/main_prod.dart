@@ -21,13 +21,13 @@ Future<void> main() async {
   await NotificationService().initializePlatformNotifications();
   configLoadingLoading();
 
-  runApp(
-    EasyLocalization(
-        supportedLocales: supportedLocales,
-        path: 'assets/translations',
-        fallbackLocale: const Locale('fr', 'FR'),
-        child: Phoenix(child: AppContent())),
-  );
+  // runApp(
+  //   EasyLocalization(
+  //       supportedLocales: supportedLocales,
+  //       path: 'assets/translations',
+  //       fallbackLocale: const Locale('fr', 'FR'),
+  //       child: Phoenix(child: AppContent())),
+  // );
 }
 
 var supportedLocales = const [

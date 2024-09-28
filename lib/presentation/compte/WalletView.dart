@@ -160,9 +160,7 @@ class _WalletPageState extends State<WalletPage>
                                                     ),
                                                   ),
                                                   onTap: () {
-                                                    BlocProvider.of<UserBloc>(
-                                                            context)
-                                                        .add(GetUserEvent());
+                                                 
                                                     BlocProvider.of<CompteBloc>(
                                                             context)
                                                         .add(
@@ -214,8 +212,7 @@ class _WalletPageState extends State<WalletPage>
                                                   ))
                                                 ])),
                                         onTap: () {
-                                          BlocProvider.of<UserBloc>(context)
-                                              .add(GetUserEvent());
+                                        
                                           BlocProvider.of<CompteBloc>(context)
                                               .add(HistoriqueTransaction());
                                           BlocProvider.of<HomeBloc>(context)

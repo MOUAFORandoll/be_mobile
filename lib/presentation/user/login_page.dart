@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return   Container(); /*  Scaffold(
         appBar: AppBarCustom(
           title: 'Connexion',
         ),
@@ -123,6 +123,6 @@ class _LoginPageState extends State<LoginPage> {
                               }),
                         ]),
                   ),
-                )));
+                )));*/
   }
 }

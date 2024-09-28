@@ -26,10 +26,11 @@ class _UserInfoPageState extends State<UserInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(
-        title: 'logbtn'.tr(),
-      ),
-      body: BlocConsumer<UserBloc, UserState>(
+        appBar: AppBarCustom(
+          title: 'logbtn'.tr(),
+        ),
+        body:
+            Container() /*  BlocConsumer<UserBloc, UserState>(
         listener: (context, state) {
           if (state.isLoading == 1) {
             EasyLoading.show(
@@ -165,7 +166,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
             ),
           );
         },
-      ),
-    );
+      ), */
+        );
   }
 }

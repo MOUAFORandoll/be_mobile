@@ -1,23 +1,35 @@
-// ignore_for_file: must_be_immutable
-
+import 'package:BabanaExpress/common/bloc/user_cubit.dart';
 import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
+import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
+import 'package:BabanaExpress/presentation/user/register_page.dart';
+import 'package:BabanaExpress/utils/dialogs.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-
-import 'package:BabanaExpress/core.dart';
-import 'package:pinput/pinput.dart';
+import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:pinput/pinput.dart';
+import 'package:potatoes/libs.dart';
+import 'package:potatoes/potatoes.dart';
+import 'package:potatoes/common/widgets/loaders.dart';
 
 @RoutePage()
-class ForgotPasswordPage extends StatelessWidget {
+class ForgotPasswordPage extends StatefulWidget {
+  const ForgotPasswordPage({Key? key}) : super(key: key);
+
   static const routeName = '/forgot';
 
+  @override
+  State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
+}
+
+class _ForgotPasswordPageState extends State<ForgotPasswordPage>
+    with CompletableMixin {
   TextEditingController phoneormail = TextEditingController();
 
   TextEditingController otpCode = TextEditingController();
-  TextEditingController password = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  late final userCubit = context.read<UserCubit>();
 
   final focusedBorderColor = ColorsApp.primary;
   final fillColor = ColorsApp.primary;
@@ -32,50 +44,26 @@ class ForgotPasswordPage extends StatelessWidget {
   );
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      onPopInvoked: (value) {
-        EasyLoading.dismiss();
-        AutoRouter.of(context).pop();
-      },
-      child: BlocConsumer<UserBloc, UserState>(
-        listener: (context, state) {
-          if (state.isLoadingForgot == 1) {
-            EasyLoading.show(
-                indicator: CircularProgressIndicator(
-                  color: ThemeApp.second,
-                ),
-                dismissOnTap: true,
-                maskType: EasyLoadingMaskType.black);
-          } else if (state.isLoadingForgot == 3) {
-            EasyLoading.dismiss();
-            showError(state.authenticationFailedMessage!, context);
-          } else if (state.isLoadingForgot == 2) {
-            EasyLoading.dismiss();
-            if (state.successReset! == true) {
-              AutoRouter.of(context).replaceAll([HomeRoute()]);
-              showSuccess('Connecte', context);
-              initLoad(context);
-
-              print('-----44---${state.successReset}-----*********');
-            }
-          }
-        },
-        builder: (context, state) {
-          return Scaffold(
-            appBar: AppBar(
-              backgroundColor: ThemeApp.white,
-              elevation: 0,
-              leading: IconButton(
-                onPressed: () {
-                  AutoRouter.of(context).pop();
-                },
-                icon: Icon(Icons.arrow_back),
-              ),
+    return BlocConsumer<UserCubit, UserState>(
+      listener: onEventReceived,
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: ThemeApp.white,
+            elevation: 0,
+            leading: IconButton(
+              onPressed: () {
+                AutoRouter.of(context).pop();
+              },
+              icon: Icon(Icons.arrow_back),
             ),
-            body: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16)
-                      .add(EdgeInsets.only(bottom: 32)),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16)
+                .add(EdgeInsets.only(bottom: 32)),
+            child: Form(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              key: formKey,
               child: Column(
                 children: [
                   Padding(
@@ -97,60 +85,110 @@ class ForgotPasswordPage extends StatelessWidget {
                   SizedBox(height: 24),
                   AppInput(
                     controller:
-                        state.phone, // Changed from state.phone to phone
+                        phoneormail, // Changed from state.phone to phone
                     onChanged: (value) {
-                      formKey.currentState!.validate();
+                      userCubit.resetState();
                     },
-                    textInputType: TextInputType.phone,
+                    textInputType: TextInputType.text,
                     label: 'Email ou numéro de téléphone',
                     placeholder: 'Ex : 690863838',
                     validator: (value) {
-                      return Validators.usPhoneValid(value!);
+                      return Validators.isValidEmailOrNum(value!);
                     },
                   ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              userCubit.sendRecoveryCode(
+                                identifiant: phoneormail.text,
+                              );
+                            }
+                          },
+                          child: Text('Renvoyer le code',
+                              textAlign: TextAlign.end,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(color: ThemeApp.second)))
+                    ],
+                  ),
                   SizedBox(height: 24),
-                  Text('Renseignez le code otp reçu via sms ou mail',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall!
-                          .copyWith(color: ThemeApp.second)),
-                  SizedBox(height: 24),
-                  Container(
-                      child: Pinput(
-                    length: 5,
-                    focusedPinTheme: defaultPinTheme.copyWith(
-                      decoration: defaultPinTheme.decoration!.copyWith(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: focusedBorderColor),
+                  if (state is SendedState)
+                    Text('Renseignez le code otp reçu via sms ou mail',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(color: ThemeApp.second)),
+                  if (state is SendedState) SizedBox(height: 24),
+                  if (state is SendedState)
+                    Container(
+                        child: Pinput(
+                      length: 5,
+                      focusedPinTheme: defaultPinTheme.copyWith(
+                        decoration: defaultPinTheme.decoration!.copyWith(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: focusedBorderColor),
+                        ),
                       ),
-                    ),
-                    controller: otpCode,
-                    submittedPinTheme: defaultPinTheme.copyWith(
-                      decoration: defaultPinTheme.decoration!.copyWith(
-                        color: fillColor,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: focusedBorderColor),
+                      controller: otpCode,
+                      submittedPinTheme: defaultPinTheme.copyWith(
+                        decoration: defaultPinTheme.decoration!.copyWith(
+                          color: fillColor,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: focusedBorderColor),
+                        ),
                       ),
-                    ),
-                    errorPinTheme: defaultPinTheme.copyBorderWith(
-                      border: Border.all(color: Colors.redAccent),
-                    ),
-                    onCompleted: (pin) async {},
-                  )),
+                      errorPinTheme: defaultPinTheme.copyBorderWith(
+                        border: Border.all(color: Colors.redAccent),
+                      ),
+                      onCompleted: (pin) async {},
+                    )),
                   Spacer(),
                   BEButton(
                     style: BEButtonStyle.secondary,
                     onPressed: () {
-                      AutoRouter.of(context).push(NewPasswordRoute());
+                      if (formKey.currentState!.validate()) {
+                        if (!(state is SendedState))
+                          userCubit.sendRecoveryCode(
+                            identifiant: phoneormail.text,
+                          );
+                        if (state is SendedState)
+                          userCubit.verifyCode(
+                            identifiant: phoneormail.text,
+                            code: otpCode.text,
+                          );
+                      }
+
+                      // AutoRouter.of(context).push(NewPasswordRoute());
                     },
                     text: "Continuer",
                   ),
                 ],
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
+  }
+
+  void onEventReceived(BuildContext context, UserState state) async {
+    await waitForDialog();
+
+    if (state is AuthLoadingState) {
+      loadingDialogCompleter = showLoadingBarrier(context: context);
+    } else if (state is SendedState) {
+      // AutoRouter.of(context)
+      //     .push(RegisterRoute(identifiant: identifintuserNameController.text));
+    } else if (state is ValidCodeState) {
+      AutoRouter.of(context)
+          .push(NewPasswordRoute(identifiant: phoneormail.text));
+    } else if (state is AuthErrorState) {
+      showErrorToast(state.error);
+    }
   }
 }

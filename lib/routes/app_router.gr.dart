@@ -8,259 +8,131 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i32;
-import 'package:BabanaExpress/application/model/exportmodel.dart' as _i33;
+import 'package:auto_route/auto_route.dart' as _i16;
 import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart'
     as _i2;
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart'
-    as _i34;
-import 'package:BabanaExpress/presentation/compte/PaiementDepotPage.dart'
-    as _i23;
-import 'package:BabanaExpress/presentation/compte/WalletView.dart' as _i31;
-import 'package:BabanaExpress/presentation/home/HomePage.dart' as _i7;
-import 'package:BabanaExpress/presentation/layer/onboarding_page.dart' as _i22;
-import 'package:BabanaExpress/presentation/layer/splash_page.dart' as _i27;
-import 'package:BabanaExpress/presentation/livraison/ColisConversationPage.dart'
-    as _i3;
-import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonPage.dart'
-    as _i6;
-import 'package:BabanaExpress/presentation/livraison/LivraisonDataHomePage.dart'
-    as _i13;
-import 'package:BabanaExpress/presentation/livraison/LivraisonDataPage.dart'
-    as _i14;
-import 'package:BabanaExpress/presentation/livraison/LivraiSonMapPage.dart'
-    as _i12;
-import 'package:BabanaExpress/presentation/livraison/MapPagePointLivraisonColis.dart'
-    as _i16;
-import 'package:BabanaExpress/presentation/livraison/MapPagePointRecuperation.dart'
     as _i17;
-import 'package:BabanaExpress/presentation/livraison/PaiementPage.dart' as _i24;
-import 'package:BabanaExpress/presentation/livraison/type1/InfoColistype1.dart'
-    as _i8;
-import 'package:BabanaExpress/presentation/livraison/type1/InfoRecuperationType1.dart'
-    as _i11;
-import 'package:BabanaExpress/presentation/livraison/type1/NewLivraisonType1Page.dart'
-    as _i19;
-import 'package:BabanaExpress/presentation/livraison/type1/SuccesLivraisonType1Page.dart'
-    as _i28;
-import 'package:BabanaExpress/presentation/livraison/type2/InfoLivraisonType2.dart'
-    as _i9;
-import 'package:BabanaExpress/presentation/livraison/type2/InfoRecuperationColisType2.dart'
+import 'package:BabanaExpress/presentation/compte/PaiementDepotPage.dart'
     as _i10;
-import 'package:BabanaExpress/presentation/livraison/type2/NewLivraisonType2Page.dart'
-    as _i20;
-import 'package:BabanaExpress/presentation/livraison/type2/SuccesLivraisonType2Page.dart'
-    as _i29;
+import 'package:BabanaExpress/presentation/compte/WalletView.dart' as _i15;
+import 'package:BabanaExpress/presentation/home/HomePage.dart' as _i5;
+import 'package:BabanaExpress/presentation/layer/onboarding_page.dart' as _i9;
+import 'package:BabanaExpress/presentation/layer/splash_page.dart' as _i13;
 import 'package:BabanaExpress/presentation/user/auth_page.dart' as _i1;
-import 'package:BabanaExpress/presentation/user/complete_profil_page.dart' as _i4;
-import 'package:BabanaExpress/presentation/user/forgot_password_page.dart' as _i5;
-import 'package:BabanaExpress/presentation/user/login_page.dart' as _i15;
-import 'package:BabanaExpress/presentation/user/new_password_page.dart' as _i21;
-import 'package:BabanaExpress/presentation/user/politique_page.dart' as _i25;
-import 'package:BabanaExpress/presentation/user/register_page.dart' as _i26;
-import 'package:BabanaExpress/presentation/user/user_info_page.dart' as _i30;
-import 'package:BabanaExpress/test.dart' as _i18;
+import 'package:BabanaExpress/presentation/user/complete_profil_page.dart'
+    as _i3;
+import 'package:BabanaExpress/presentation/user/forgot_password_page.dart'
+    as _i4;
+import 'package:BabanaExpress/presentation/user/login_page.dart' as _i6;
+import 'package:BabanaExpress/presentation/user/new_password_page.dart' as _i8;
+import 'package:BabanaExpress/presentation/user/politique_page.dart' as _i11;
+import 'package:BabanaExpress/presentation/user/register_page.dart' as _i12;
+import 'package:BabanaExpress/presentation/user/user_info_page.dart' as _i14;
+import 'package:BabanaExpress/test.dart' as _i7;
 
-abstract class $AppRouter extends _i32.RootStackRouter {
+abstract class $AppRouter extends _i16.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i32.PageFactory> pagesMap = {
+  final Map<String, _i16.PageFactory> pagesMap = {
     AuthRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i1.AuthPage(),
       );
     },
     CallCenterRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i2.CallCenterPage(),
       );
     },
-    ColisConversationRoute.name: (routeData) {
-      final args = routeData.argsAs<ColisConversationRouteArgs>();
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i3.ColisConversationPage(colis: args.colis),
-      );
-    },
     CompleteProfilRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.CompleteProfilPage(),
+        child: const _i3.CompleteProfilPage(),
       );
     },
     ForgotPasswordRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i5.ForgotPasswordPage(),
-      );
-    },
-    HistoriqueLivraisonRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i6.HistoriqueLivraisonPage(),
+        child: const _i4.ForgotPasswordPage(),
       );
     },
     HomeRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i7.HomePage(),
-      );
-    },
-    InfoColisType1Route.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i8.InfoColisType1Page(),
-      );
-    },
-    InfoLivraisonType2Route.name: (routeData) {
-      final args = routeData.argsAs<InfoLivraisonType2RouteArgs>(
-          orElse: () => const InfoLivraisonType2RouteArgs());
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i9.InfoLivraisonType2Page(key: args.key),
-      );
-    },
-    InfoRecuperationColisType2Route.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i10.InfoRecuperationColisType2Page(),
-      );
-    },
-    InfoRecuperationType1Route.name: (routeData) {
-      final args = routeData.argsAs<InfoRecuperationType1RouteArgs>(
-          orElse: () => const InfoRecuperationType1RouteArgs());
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i11.InfoRecuperationType1Page(key: args.key),
-      );
-    },
-    LivraiSonMapRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i12.LivraiSonMapPage(),
-      );
-    },
-    LivraisonDataHomeRoute.name: (routeData) {
-      final args = routeData.argsAs<LivraisonDataHomeRouteArgs>();
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i13.LivraisonDataHomePage(livraison: args.livraison),
-      );
-    },
-    LivraisonDataRoute.name: (routeData) {
-      final args = routeData.argsAs<LivraisonDataRouteArgs>();
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i14.LivraisonDataPage(livraison: args.livraison),
+        child: const _i5.HomePage(),
       );
     },
     LoginRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i15.LoginPage(),
-      );
-    },
-    MapRoutePointLivraisonColis.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i16.MapPagePointLivraisonColis(),
-      );
-    },
-    MapRoutePointRecuperation.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i17.MapPagePointRecuperation(),
+        child: const _i6.LoginPage(),
       );
     },
     MyTestRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i18.MyTestPage(),
-      );
-    },
-    NewLivraisonType1Route.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i19.NewLivraisonType1Page(),
-      );
-    },
-    NewLivraisonType2Route.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i20.NewLivraisonType2Page(),
+        child: const _i7.MyTestPage(),
       );
     },
     NewPasswordRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      final args = routeData.argsAs<NewPasswordRouteArgs>();
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i21.NewPasswordPage(),
+        child: _i8.NewPasswordPage(identifiant: args.identifiant),
       );
     },
     OnBoardingRoute.name: (routeData) {
       final args = routeData.argsAs<OnBoardingRouteArgs>(
           orElse: () => const OnBoardingRouteArgs());
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i22.OnBoardingPage(key: args.key),
+        child: _i9.OnBoardingPage(key: args.key),
       );
     },
     PaiementDepotRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i23.PaiementDepotPage(),
-      );
-    },
-    PaiementRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i24.PaiementPage(),
+        child: const _i10.PaiementDepotPage(),
       );
     },
     PolitiqueRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i25.PolitiquePage(),
+        child: const _i11.PolitiquePage(),
       );
     },
     RegisterRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      final args = routeData.argsAs<RegisterRouteArgs>();
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i26.RegisterPage(),
+        child: _i12.RegisterPage(
+          key: args.key,
+          identifiant: args.identifiant,
+        ),
       );
     },
     SplashScreenRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i27.SplashScreenPage(),
-      );
-    },
-    SuccesLivraisonType1Route.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i28.SuccesLivraisonType1Page(),
-      );
-    },
-    SuccesLivraisonType2Route.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i29.SuccesLivraisonType2Page(),
+        child: const _i13.SplashScreenPage(),
       );
     },
     UserInfoRoute.name: (routeData) {
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i30.UserInfoPage(),
+        child: const _i14.UserInfoPage(),
       );
     },
     WalletRoute.name: (routeData) {
       final args = routeData.argsAs<WalletRouteArgs>(
           orElse: () => const WalletRouteArgs());
-      return _i32.AutoRoutePage<dynamic>(
+      return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i31.WalletPage(key: args.key),
+        child: _i15.WalletPage(key: args.key),
       );
     },
   };
@@ -268,8 +140,8 @@ abstract class $AppRouter extends _i32.RootStackRouter {
 
 /// generated route for
 /// [_i1.AuthPage]
-class AuthRoute extends _i32.PageRouteInfo<void> {
-  const AuthRoute({List<_i32.PageRouteInfo>? children})
+class AuthRoute extends _i16.PageRouteInfo<void> {
+  const AuthRoute({List<_i16.PageRouteInfo>? children})
       : super(
           AuthRoute.name,
           initialChildren: children,
@@ -277,13 +149,13 @@ class AuthRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'AuthRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i2.CallCenterPage]
-class CallCenterRoute extends _i32.PageRouteInfo<void> {
-  const CallCenterRoute({List<_i32.PageRouteInfo>? children})
+class CallCenterRoute extends _i16.PageRouteInfo<void> {
+  const CallCenterRoute({List<_i16.PageRouteInfo>? children})
       : super(
           CallCenterRoute.name,
           initialChildren: children,
@@ -291,43 +163,13 @@ class CallCenterRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'CallCenterRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.ColisConversationPage]
-class ColisConversationRoute
-    extends _i32.PageRouteInfo<ColisConversationRouteArgs> {
-  ColisConversationRoute({
-    required _i33.ColisUser colis,
-    List<_i32.PageRouteInfo>? children,
-  }) : super(
-          ColisConversationRoute.name,
-          args: ColisConversationRouteArgs(colis: colis),
-          initialChildren: children,
-        );
-
-  static const String name = 'ColisConversationRoute';
-
-  static const _i32.PageInfo<ColisConversationRouteArgs> page =
-      _i32.PageInfo<ColisConversationRouteArgs>(name);
-}
-
-class ColisConversationRouteArgs {
-  const ColisConversationRouteArgs({required this.colis});
-
-  final _i33.ColisUser colis;
-
-  @override
-  String toString() {
-    return 'ColisConversationRouteArgs{colis: $colis}';
-  }
-}
-
-/// generated route for
-/// [_i4.CompleteProfilPage]
-class CompleteProfilRoute extends _i32.PageRouteInfo<void> {
-  const CompleteProfilRoute({List<_i32.PageRouteInfo>? children})
+/// [_i3.CompleteProfilPage]
+class CompleteProfilRoute extends _i16.PageRouteInfo<void> {
+  const CompleteProfilRoute({List<_i16.PageRouteInfo>? children})
       : super(
           CompleteProfilRoute.name,
           initialChildren: children,
@@ -335,13 +177,13 @@ class CompleteProfilRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'CompleteProfilRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.ForgotPasswordPage]
-class ForgotPasswordRoute extends _i32.PageRouteInfo<void> {
-  const ForgotPasswordRoute({List<_i32.PageRouteInfo>? children})
+/// [_i4.ForgotPasswordPage]
+class ForgotPasswordRoute extends _i16.PageRouteInfo<void> {
+  const ForgotPasswordRoute({List<_i16.PageRouteInfo>? children})
       : super(
           ForgotPasswordRoute.name,
           initialChildren: children,
@@ -349,27 +191,13 @@ class ForgotPasswordRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'ForgotPasswordRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i6.HistoriqueLivraisonPage]
-class HistoriqueLivraisonRoute extends _i32.PageRouteInfo<void> {
-  const HistoriqueLivraisonRoute({List<_i32.PageRouteInfo>? children})
-      : super(
-          HistoriqueLivraisonRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HistoriqueLivraisonRoute';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i7.HomePage]
-class HomeRoute extends _i32.PageRouteInfo<void> {
-  const HomeRoute({List<_i32.PageRouteInfo>? children})
+/// [_i5.HomePage]
+class HomeRoute extends _i16.PageRouteInfo<void> {
+  const HomeRoute({List<_i16.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -377,174 +205,13 @@ class HomeRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i8.InfoColisType1Page]
-class InfoColisType1Route extends _i32.PageRouteInfo<void> {
-  const InfoColisType1Route({List<_i32.PageRouteInfo>? children})
-      : super(
-          InfoColisType1Route.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'InfoColisType1Route';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i9.InfoLivraisonType2Page]
-class InfoLivraisonType2Route
-    extends _i32.PageRouteInfo<InfoLivraisonType2RouteArgs> {
-  InfoLivraisonType2Route({
-    _i34.Key? key,
-    List<_i32.PageRouteInfo>? children,
-  }) : super(
-          InfoLivraisonType2Route.name,
-          args: InfoLivraisonType2RouteArgs(key: key),
-          initialChildren: children,
-        );
-
-  static const String name = 'InfoLivraisonType2Route';
-
-  static const _i32.PageInfo<InfoLivraisonType2RouteArgs> page =
-      _i32.PageInfo<InfoLivraisonType2RouteArgs>(name);
-}
-
-class InfoLivraisonType2RouteArgs {
-  const InfoLivraisonType2RouteArgs({this.key});
-
-  final _i34.Key? key;
-
-  @override
-  String toString() {
-    return 'InfoLivraisonType2RouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
-/// [_i10.InfoRecuperationColisType2Page]
-class InfoRecuperationColisType2Route extends _i32.PageRouteInfo<void> {
-  const InfoRecuperationColisType2Route({List<_i32.PageRouteInfo>? children})
-      : super(
-          InfoRecuperationColisType2Route.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'InfoRecuperationColisType2Route';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i11.InfoRecuperationType1Page]
-class InfoRecuperationType1Route
-    extends _i32.PageRouteInfo<InfoRecuperationType1RouteArgs> {
-  InfoRecuperationType1Route({
-    _i34.Key? key,
-    List<_i32.PageRouteInfo>? children,
-  }) : super(
-          InfoRecuperationType1Route.name,
-          args: InfoRecuperationType1RouteArgs(key: key),
-          initialChildren: children,
-        );
-
-  static const String name = 'InfoRecuperationType1Route';
-
-  static const _i32.PageInfo<InfoRecuperationType1RouteArgs> page =
-      _i32.PageInfo<InfoRecuperationType1RouteArgs>(name);
-}
-
-class InfoRecuperationType1RouteArgs {
-  const InfoRecuperationType1RouteArgs({this.key});
-
-  final _i34.Key? key;
-
-  @override
-  String toString() {
-    return 'InfoRecuperationType1RouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
-/// [_i12.LivraiSonMapPage]
-class LivraiSonMapRoute extends _i32.PageRouteInfo<void> {
-  const LivraiSonMapRoute({List<_i32.PageRouteInfo>? children})
-      : super(
-          LivraiSonMapRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'LivraiSonMapRoute';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i13.LivraisonDataHomePage]
-class LivraisonDataHomeRoute
-    extends _i32.PageRouteInfo<LivraisonDataHomeRouteArgs> {
-  LivraisonDataHomeRoute({
-    required dynamic livraison,
-    List<_i32.PageRouteInfo>? children,
-  }) : super(
-          LivraisonDataHomeRoute.name,
-          args: LivraisonDataHomeRouteArgs(livraison: livraison),
-          initialChildren: children,
-        );
-
-  static const String name = 'LivraisonDataHomeRoute';
-
-  static const _i32.PageInfo<LivraisonDataHomeRouteArgs> page =
-      _i32.PageInfo<LivraisonDataHomeRouteArgs>(name);
-}
-
-class LivraisonDataHomeRouteArgs {
-  const LivraisonDataHomeRouteArgs({required this.livraison});
-
-  final dynamic livraison;
-
-  @override
-  String toString() {
-    return 'LivraisonDataHomeRouteArgs{livraison: $livraison}';
-  }
-}
-
-/// generated route for
-/// [_i14.LivraisonDataPage]
-class LivraisonDataRoute extends _i32.PageRouteInfo<LivraisonDataRouteArgs> {
-  LivraisonDataRoute({
-    required _i33.LivraisonModel livraison,
-    List<_i32.PageRouteInfo>? children,
-  }) : super(
-          LivraisonDataRoute.name,
-          args: LivraisonDataRouteArgs(livraison: livraison),
-          initialChildren: children,
-        );
-
-  static const String name = 'LivraisonDataRoute';
-
-  static const _i32.PageInfo<LivraisonDataRouteArgs> page =
-      _i32.PageInfo<LivraisonDataRouteArgs>(name);
-}
-
-class LivraisonDataRouteArgs {
-  const LivraisonDataRouteArgs({required this.livraison});
-
-  final _i33.LivraisonModel livraison;
-
-  @override
-  String toString() {
-    return 'LivraisonDataRouteArgs{livraison: $livraison}';
-  }
-}
-
-/// generated route for
-/// [_i15.LoginPage]
-class LoginRoute extends _i32.PageRouteInfo<void> {
-  const LoginRoute({List<_i32.PageRouteInfo>? children})
+/// [_i6.LoginPage]
+class LoginRoute extends _i16.PageRouteInfo<void> {
+  const LoginRoute({List<_i16.PageRouteInfo>? children})
       : super(
           LoginRoute.name,
           initialChildren: children,
@@ -552,41 +219,13 @@ class LoginRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'LoginRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i16.MapPagePointLivraisonColis]
-class MapRoutePointLivraisonColis extends _i32.PageRouteInfo<void> {
-  const MapRoutePointLivraisonColis({List<_i32.PageRouteInfo>? children})
-      : super(
-          MapRoutePointLivraisonColis.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'MapRoutePointLivraisonColis';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i17.MapPagePointRecuperation]
-class MapRoutePointRecuperation extends _i32.PageRouteInfo<void> {
-  const MapRoutePointRecuperation({List<_i32.PageRouteInfo>? children})
-      : super(
-          MapRoutePointRecuperation.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'MapRoutePointRecuperation';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i18.MyTestPage]
-class MyTestRoute extends _i32.PageRouteInfo<void> {
-  const MyTestRoute({List<_i32.PageRouteInfo>? children})
+/// [_i7.MyTestPage]
+class MyTestRoute extends _i16.PageRouteInfo<void> {
+  const MyTestRoute({List<_i16.PageRouteInfo>? children})
       : super(
           MyTestRoute.name,
           initialChildren: children,
@@ -594,57 +233,44 @@ class MyTestRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'MyTestRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i19.NewLivraisonType1Page]
-class NewLivraisonType1Route extends _i32.PageRouteInfo<void> {
-  const NewLivraisonType1Route({List<_i32.PageRouteInfo>? children})
-      : super(
-          NewLivraisonType1Route.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'NewLivraisonType1Route';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i20.NewLivraisonType2Page]
-class NewLivraisonType2Route extends _i32.PageRouteInfo<void> {
-  const NewLivraisonType2Route({List<_i32.PageRouteInfo>? children})
-      : super(
-          NewLivraisonType2Route.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'NewLivraisonType2Route';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i21.NewPasswordPage]
-class NewPasswordRoute extends _i32.PageRouteInfo<void> {
-  const NewPasswordRoute({List<_i32.PageRouteInfo>? children})
-      : super(
+/// [_i8.NewPasswordPage]
+class NewPasswordRoute extends _i16.PageRouteInfo<NewPasswordRouteArgs> {
+  NewPasswordRoute({
+    required String identifiant,
+    List<_i16.PageRouteInfo>? children,
+  }) : super(
           NewPasswordRoute.name,
+          args: NewPasswordRouteArgs(identifiant: identifiant),
           initialChildren: children,
         );
 
   static const String name = 'NewPasswordRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<NewPasswordRouteArgs> page =
+      _i16.PageInfo<NewPasswordRouteArgs>(name);
+}
+
+class NewPasswordRouteArgs {
+  const NewPasswordRouteArgs({required this.identifiant});
+
+  final String identifiant;
+
+  @override
+  String toString() {
+    return 'NewPasswordRouteArgs{identifiant: $identifiant}';
+  }
 }
 
 /// generated route for
-/// [_i22.OnBoardingPage]
-class OnBoardingRoute extends _i32.PageRouteInfo<OnBoardingRouteArgs> {
+/// [_i9.OnBoardingPage]
+class OnBoardingRoute extends _i16.PageRouteInfo<OnBoardingRouteArgs> {
   OnBoardingRoute({
-    _i34.Key? key,
-    List<_i32.PageRouteInfo>? children,
+    _i17.Key? key,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           OnBoardingRoute.name,
           args: OnBoardingRouteArgs(key: key),
@@ -653,14 +279,14 @@ class OnBoardingRoute extends _i32.PageRouteInfo<OnBoardingRouteArgs> {
 
   static const String name = 'OnBoardingRoute';
 
-  static const _i32.PageInfo<OnBoardingRouteArgs> page =
-      _i32.PageInfo<OnBoardingRouteArgs>(name);
+  static const _i16.PageInfo<OnBoardingRouteArgs> page =
+      _i16.PageInfo<OnBoardingRouteArgs>(name);
 }
 
 class OnBoardingRouteArgs {
   const OnBoardingRouteArgs({this.key});
 
-  final _i34.Key? key;
+  final _i17.Key? key;
 
   @override
   String toString() {
@@ -669,9 +295,9 @@ class OnBoardingRouteArgs {
 }
 
 /// generated route for
-/// [_i23.PaiementDepotPage]
-class PaiementDepotRoute extends _i32.PageRouteInfo<void> {
-  const PaiementDepotRoute({List<_i32.PageRouteInfo>? children})
+/// [_i10.PaiementDepotPage]
+class PaiementDepotRoute extends _i16.PageRouteInfo<void> {
+  const PaiementDepotRoute({List<_i16.PageRouteInfo>? children})
       : super(
           PaiementDepotRoute.name,
           initialChildren: children,
@@ -679,27 +305,13 @@ class PaiementDepotRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'PaiementDepotRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i24.PaiementPage]
-class PaiementRoute extends _i32.PageRouteInfo<void> {
-  const PaiementRoute({List<_i32.PageRouteInfo>? children})
-      : super(
-          PaiementRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'PaiementRoute';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i25.PolitiquePage]
-class PolitiqueRoute extends _i32.PageRouteInfo<void> {
-  const PolitiqueRoute({List<_i32.PageRouteInfo>? children})
+/// [_i11.PolitiquePage]
+class PolitiqueRoute extends _i16.PageRouteInfo<void> {
+  const PolitiqueRoute({List<_i16.PageRouteInfo>? children})
       : super(
           PolitiqueRoute.name,
           initialChildren: children,
@@ -707,27 +319,51 @@ class PolitiqueRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'PolitiqueRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i26.RegisterPage]
-class RegisterRoute extends _i32.PageRouteInfo<void> {
-  const RegisterRoute({List<_i32.PageRouteInfo>? children})
-      : super(
+/// [_i12.RegisterPage]
+class RegisterRoute extends _i16.PageRouteInfo<RegisterRouteArgs> {
+  RegisterRoute({
+    _i17.Key? key,
+    required String identifiant,
+    List<_i16.PageRouteInfo>? children,
+  }) : super(
           RegisterRoute.name,
+          args: RegisterRouteArgs(
+            key: key,
+            identifiant: identifiant,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'RegisterRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<RegisterRouteArgs> page =
+      _i16.PageInfo<RegisterRouteArgs>(name);
+}
+
+class RegisterRouteArgs {
+  const RegisterRouteArgs({
+    this.key,
+    required this.identifiant,
+  });
+
+  final _i17.Key? key;
+
+  final String identifiant;
+
+  @override
+  String toString() {
+    return 'RegisterRouteArgs{key: $key, identifiant: $identifiant}';
+  }
 }
 
 /// generated route for
-/// [_i27.SplashScreenPage]
-class SplashScreenRoute extends _i32.PageRouteInfo<void> {
-  const SplashScreenRoute({List<_i32.PageRouteInfo>? children})
+/// [_i13.SplashScreenPage]
+class SplashScreenRoute extends _i16.PageRouteInfo<void> {
+  const SplashScreenRoute({List<_i16.PageRouteInfo>? children})
       : super(
           SplashScreenRoute.name,
           initialChildren: children,
@@ -735,41 +371,13 @@ class SplashScreenRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'SplashScreenRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i28.SuccesLivraisonType1Page]
-class SuccesLivraisonType1Route extends _i32.PageRouteInfo<void> {
-  const SuccesLivraisonType1Route({List<_i32.PageRouteInfo>? children})
-      : super(
-          SuccesLivraisonType1Route.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SuccesLivraisonType1Route';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i29.SuccesLivraisonType2Page]
-class SuccesLivraisonType2Route extends _i32.PageRouteInfo<void> {
-  const SuccesLivraisonType2Route({List<_i32.PageRouteInfo>? children})
-      : super(
-          SuccesLivraisonType2Route.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SuccesLivraisonType2Route';
-
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i30.UserInfoPage]
-class UserInfoRoute extends _i32.PageRouteInfo<void> {
-  const UserInfoRoute({List<_i32.PageRouteInfo>? children})
+/// [_i14.UserInfoPage]
+class UserInfoRoute extends _i16.PageRouteInfo<void> {
+  const UserInfoRoute({List<_i16.PageRouteInfo>? children})
       : super(
           UserInfoRoute.name,
           initialChildren: children,
@@ -777,15 +385,15 @@ class UserInfoRoute extends _i32.PageRouteInfo<void> {
 
   static const String name = 'UserInfoRoute';
 
-  static const _i32.PageInfo<void> page = _i32.PageInfo<void>(name);
+  static const _i16.PageInfo<void> page = _i16.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i31.WalletPage]
-class WalletRoute extends _i32.PageRouteInfo<WalletRouteArgs> {
+/// [_i15.WalletPage]
+class WalletRoute extends _i16.PageRouteInfo<WalletRouteArgs> {
   WalletRoute({
-    _i34.Key? key,
-    List<_i32.PageRouteInfo>? children,
+    _i17.Key? key,
+    List<_i16.PageRouteInfo>? children,
   }) : super(
           WalletRoute.name,
           args: WalletRouteArgs(key: key),
@@ -794,14 +402,14 @@ class WalletRoute extends _i32.PageRouteInfo<WalletRouteArgs> {
 
   static const String name = 'WalletRoute';
 
-  static const _i32.PageInfo<WalletRouteArgs> page =
-      _i32.PageInfo<WalletRouteArgs>(name);
+  static const _i16.PageInfo<WalletRouteArgs> page =
+      _i16.PageInfo<WalletRouteArgs>(name);
 }
 
 class WalletRouteArgs {
   const WalletRouteArgs({this.key});
 
-  final _i34.Key? key;
+  final _i17.Key? key;
 
   @override
   String toString() {

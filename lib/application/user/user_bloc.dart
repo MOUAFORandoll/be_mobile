@@ -191,7 +191,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   verifyUserExist(VerifUserExist event, Emitter<UserState> emit) async {
     var data = {
-      'phone': state.phone.text,
+      'identifiant': state.phone.text,
     };
     print(data);
     emit(state.copyWith(isExistLoading: 0));
@@ -199,7 +199,13 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       if (response.statusCode == 201) {
         emit(state.copyWith(isExistLoading: 1));
         emit(state.copyWith(isExistLoading: null));
+        emit(state.copyWith(loginUser: true));
+
+
+
       } else {
+     
+        emit(state.copyWith(loginUser: false)); 
         emit(state.copyWith(isExistLoading: 2));
         emit(state.copyWith(isExistLoading: null));
       }

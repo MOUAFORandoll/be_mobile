@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:BabanaExpress/application/user/user_bloc.dart';
 import 'package:BabanaExpress/entity.dart';
 import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
@@ -10,8 +11,6 @@ import 'package:BabanaExpress/presentation/components/Widget/app_pub_item.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_service_item.dart';
 import 'package:BabanaExpress/presentation/components/Widget/app_text_title.dart';
 import 'package:BabanaExpress/presentation/home/FirstView.dart';
-import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonPage.dart';
-import 'package:BabanaExpress/presentation/livraison/LivraisonView.dart';
 import 'package:BabanaExpress/presentation/user/politique_page.dart';
 import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
@@ -191,9 +190,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       case 0:
         return FirstView();
 
-      case 1:
-        return HistoriqueLivraisonPage();
-
       case 2:
         return FirstView();
 
@@ -224,8 +220,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   radius: 25,
                   backgroundColor: ColorsApp.primary,
                   child: InkWell(
-                    onTap: () => BlocProvider.of<UserBloc>(context)
-                        .add(UpdateUserImage()),
                     child: CachedNetworkImage(
                       height: getHeight(context) / 10,
                       width: getHeight(context) / 10,
@@ -326,25 +320,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<UserBloc, UserState>(
-      listener: (context, state) {
-        if (state.isUpdateUserImage == 1) {
-          EasyLoading.show(
-              indicator: CircularProgressIndicator(
-                color: ThemeApp.second,
-              ),
-              dismissOnTap: true,
-              maskType: EasyLoadingMaskType.black);
-        } else if (state.isUpdateUserImage == 3) {
-          EasyLoading.dismiss();
-          showError(state.authenticationFailedMessage!, context);
-        } else if (state.isUpdateUserImage == 2) {
-          showSuccess('Profil mis a jour', context);
-
-          EasyLoading.dismiss();
-          BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
-          print('-----44------find noe--446465465*******');
-        }
-      },
+      listener: (context, state) {},
       builder: (context, state) => Drawer(
         width: getWidth(context) / 1.35,
         child: ListView(
@@ -363,8 +339,6 @@ class CustomDrawer extends StatelessWidget {
                         radius: 30,
                         backgroundColor: ColorsApp.bg,
                         child: InkWell(
-                          onTap: () => BlocProvider.of<UserBloc>(context)
-                              .add(UpdateUserImage()),
                           child: CachedNetworkImage(
                             height: getHeight(context) / 10,
                             width: getHeight(context) / 10,
@@ -493,10 +467,7 @@ class CustomDrawer extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     fontSize: kBasics),
               ),
-              onTap: () {
-                BlocProvider.of<UserBloc>(context)
-                    .add(SignOutEvent(context: context));
-              },
+              onTap: () {},
             ),
           ],
         ),
@@ -504,180 +475,3 @@ class CustomDrawer extends StatelessWidget {
     );
   }
 }
-
-openUpdateMail(context) => showDialog(
-    context: context,
-    builder: (context) {
-      TextEditingController mail = TextEditingController();
-
-      return BlocConsumer<UserBloc, UserState>(
-          listener: (context, state) {
-            if (state.updating!) {
-              EasyLoading.show(
-                  indicator: CircularProgressIndicator(
-                    color: ThemeApp.second,
-                  ),
-                  dismissOnTap: true,
-                  maskType: EasyLoadingMaskType.black);
-            } else {
-              EasyLoading.dismiss();
-              AutoRouter.of(context).pop();
-              showSuccess('yupdate'.tr(), context);
-            }
-          },
-          builder: (context, state) => AlertDialog(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              title: Container(
-                  child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                      width: getWidth(context) * .6,
-                      child: Text('recupmailtitle'.tr())),
-                  InkWell(
-                      child: Icon(Icons.close,
-                          color: ColorsApp.primary, weight: 50),
-                      onTap: () {
-                        AutoRouter.of(context).pop();
-                      })
-                ],
-              )),
-              actions: [
-                InkWell(
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: ColorsApp.primary),
-                      child: Row(mainAxisSize: MainAxisSize.min, children: [
-                        Text(
-                          'yvalid'.tr(),
-                          style: TextStyle(
-                              color: ColorsApp.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13),
-                        ),
-                        Icon(Icons.check, color: ColorsApp.white, weight: 50)
-                      ]),
-                    ),
-                    onTap: () {
-                      if (mail.text.isNotEmpty) {
-                        context.read<UserBloc>().add(UpdateUserInfo(
-                              data: {'email': mail.text},
-                            ));
-
-                        context.read<HomeBloc>().add(UserDataEvent());
-                      } else {
-                        showError('recupmailtitle'.tr(), context);
-                      }
-                    })
-              ],
-              content: Container(
-                  child: SingleChildScrollView(
-                      child: Column(children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: kMarginY * 2,
-                  ),
-                  child: AppInput(
-                    controller: mail,
-                    onChanged: (value) {},
-                    placeholder: 'labelemail'.tr(),
-                    validator: (value) {
-                      return Validators.isValidEmail(value!);
-                    },
-                  ),
-                ),
-              ])))));
-    });
-
-openUpdateCompletePhoneProfile(context) => showDialog(
-    context: context,
-    builder: (context) {
-      TextEditingController phone = TextEditingController();
-
-      return BlocConsumer<UserBloc, UserState>(
-          listener: (context, state) {
-            if (state.updating!) {
-              EasyLoading.show(
-                  indicator: CircularProgressIndicator(
-                    color: ThemeApp.second,
-                  ),
-                  dismissOnTap: true,
-                  maskType: EasyLoadingMaskType.black);
-            } else {
-              EasyLoading.dismiss();
-              AutoRouter.of(context).pop();
-              showSuccess('yupdate'.tr(), context);
-            }
-          },
-          builder: (context, state) => AlertDialog(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              title: Container(
-                  child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                      width: getWidth(context) * .6,
-                      child: Text('recupmailtitle'.tr())),
-                  InkWell(
-                      child: Icon(Icons.close,
-                          color: ColorsApp.primary, weight: 50),
-                      onTap: () {
-                        AutoRouter.of(context).pop();
-                      })
-                ],
-              )),
-              actions: [
-                InkWell(
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: ColorsApp.primary),
-                      child: Row(mainAxisSize: MainAxisSize.min, children: [
-                        Text(
-                          'yvalid'.tr(),
-                          style: TextStyle(
-                              color: ColorsApp.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13),
-                        ),
-                        Icon(Icons.check, color: ColorsApp.white, weight: 50)
-                      ]),
-                    ),
-                    onTap: () {
-                      if (phone.text.isNotEmpty) {
-                        context.read<UserBloc>().add(UpdateUserInfo(
-                              data: {'phone': phone.text},
-                            ));
-
-                        context.read<HomeBloc>().add(UserDataEvent());
-                      } else {
-                        showError('Error'.tr(), context);
-                      }
-                    })
-              ],
-              content: Container(
-                  child: SingleChildScrollView(
-                      child: Column(children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: kMarginY * 2,
-                  ),
-                  child: AppInput(
-                    controller: phone,
-                    onChanged: (value) {},
-                    textInputType: TextInputType.phone,
-                    placeholder: 'labelphone'.tr(),
-                    validator: (value) {
-                      return Validators.usPhoneValid(value!);
-                    },
-                  ),
-                ),
-              ])))));
-    });

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:google_sign_in/google_sign_in.dart';
@@ -14,9 +15,13 @@ class AuthSocialService {
   /// Sign in with Google
   Future<GoogleSignInAccount?> signInWithGoogle() async {
     try {
-      await signOut();
+      await _googleSignIn.signOut();
+      // await signOut();
 
       final account = await _googleSignIn.signIn();
+      log('=========================account.toString()=======================');
+      log(account.toString());
+      log('=========================account.toString()=======================');
 
       return account;
     } catch (e) {
@@ -25,7 +30,7 @@ class AuthSocialService {
     }
   }
 
-  /// Sign in with Apple (for iOS)
+  // Sign in with Apple (for iOS)
   // Future<AuthorizationCredentialAppleID?> signInWithApple() async {
   //   try {
   //     if (Platform.isIOS) {
@@ -49,7 +54,6 @@ class AuthSocialService {
   /// Sign out from all providers
   Future<void> signOut() async {
     try {
-      // await _firebaseAuth.signOut();
       await _googleSignIn.signOut();
     } catch (e) {
       print("Error signing out: $e");

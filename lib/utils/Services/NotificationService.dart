@@ -9,8 +9,7 @@ import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/main_prod.dart';
 import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/presentation/compte/WalletView.dart';
-import 'package:BabanaExpress/presentation/livraison/HistoriqueLivraisonPage.dart'; 
+import 'package:BabanaExpress/presentation/compte/WalletView.dart';  
 import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/subjects.dart';
@@ -98,8 +97,7 @@ class NotificationService {
           sl.get<AppRouter>().pushNamed(CallCenterPage.routeName);
         }
         if (payload == 'Livraison Colis') {
-          sl.get<AppRouter>().pushNamed(HistoriqueLivraisonPage.routeName);
-        }
+         }
         if (payload == 'Livraison Medicament') {
          }
         if (payload == 'Livraison Produit') {

@@ -1,11 +1,11 @@
-import 'package:BabanaExpress/presentation/components/Button/AppIconButton.dart';
-import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
-import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
-import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/common/bloc/user_cubit.dart';
+import 'package:BabanaExpress/utils/dialogs.dart';
+import 'package:potatoes/libs.dart';
+import 'package:potatoes/potatoes.dart';
+import 'package:potatoes/common/widgets/loaders.dart';
 
 @RoutePage()
 class CompleteProfilPage extends StatefulWidget {
@@ -19,10 +19,11 @@ class CompleteProfilPage extends StatefulWidget {
   State<CompleteProfilPage> createState() => _CompleteProfilPageState();
 }
 
-class _CompleteProfilPageState extends State<CompleteProfilPage> {
+class _CompleteProfilPageState extends State<CompleteProfilPage>
+    with CompletableMixin {
   final phone = TextEditingController();
-  final password = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  late final userCubit = context.read<UserCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,28 +32,8 @@ class _CompleteProfilPageState extends State<CompleteProfilPage> {
           appBar: AppBarCustom(
             title: 'Completer votre profil',
           ),
-          body: BlocConsumer<UserBloc, UserState>(
-              listener: (context, state) {
-                if (state.isUpdateUserInfo == 0) {
-                  EasyLoading.show(
-                      indicator: CircularProgressIndicator(
-                        color: ThemeApp.second,
-                      ),
-                      dismissOnTap: true,
-                      maskType: EasyLoadingMaskType.black);
-                } else if (state.isUpdateUserInfo == 1) {
-                  EasyLoading.dismiss();
-
-                  BlocProvider.of<HomeBloc>(context).add(UserDataEvent());
-                  AutoRouter.of(context).replaceAll([HomeRoute()]);
-                } else {
-                  EasyLoading.dismiss();
-                  if (state.authenticationFailedMessage != null &&
-                      state.authenticationFailedMessage!.isNotEmpty) {
-                    showError(state.authenticationFailedMessage!, context);
-                  }
-                }
-              },
+          body: BlocConsumer<UserCubit, UserState>(
+              listener: onEventReceived,
               builder: (context, state) => SingleChildScrollView(
                       child: Column(children: [
                     Container(
@@ -80,8 +61,8 @@ class _CompleteProfilPageState extends State<CompleteProfilPage> {
                                   vertical: kMarginY,
                                 ),
                                 child: AppInput(
-                                  controller: state
-                                      .phone, // Changed from state.phone to phone
+                                  controller:
+                                      phone, // Changed from state.phone to phone
                                   onChanged: (value) {
                                     formKey.currentState!.validate();
                                   },
@@ -99,8 +80,7 @@ class _CompleteProfilPageState extends State<CompleteProfilPage> {
                                 text: 'Poursuivre'.tr(),
                                 onTap: () async {
                                   if (formKey.currentState!.validate()) {
-                                    context.read<UserBloc>().add(UpdateUserInfo(
-                                        data: {'phone': state.phone.text}));
+                                    userCubit.updateUser(phone: phone.text);
                                   }
                                 },
                               )
@@ -109,5 +89,17 @@ class _CompleteProfilPageState extends State<CompleteProfilPage> {
                     ),
                   ])))),
     );
+  }
+
+  void onEventReceived(BuildContext context, UserState state) async {
+    await waitForDialog();
+
+    if (state is UserUpdatingState) {
+      loadingDialogCompleter = showLoadingBarrier(context: context);
+    } else if (state is UserUpdatedState) {
+      AutoRouter.of(context).push(HomeRoute());
+    } else if (state is AuthErrorState) {
+      showErrorToast(state.error);
+    }
   }
 }

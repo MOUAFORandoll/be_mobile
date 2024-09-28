@@ -28,7 +28,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
         listener: (context, state) {
           if (state is Loaded) {
             if (state.isLogin == true) {
-              initLoad(context);
+              // initLoad(context);
             }
             // final HomeBloc h = BlocProvider.of<HomeBloc>(context);
             // h.add(UserDataEvent());
