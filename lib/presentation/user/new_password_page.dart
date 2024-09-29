@@ -126,6 +126,7 @@ class _NewPasswordPageState extends State<NewPasswordPage>
     if (state is AuthLoadingState) {
       loadingDialogCompleter = showLoadingBarrier(context: context);
     } else if (state is SuccesChangePasswordState) {
+      showSuccessToast('Informations mis a jour avec succes');
       AutoRouter.of(context).pushAndPopUntil(
         HomeRoute(),
         predicate: (_) => false,

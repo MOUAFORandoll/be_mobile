@@ -11,7 +11,7 @@ _$VerifyUserResponseImpl _$$VerifyUserResponseImplFromJson(
     _$VerifyUserResponseImpl(
       success: json['success'] as bool,
       message: json['message'] as String,
-      content: json['content'] as dynamic,
+      content: json['content'],
     );
 
 Map<String, dynamic> _$$VerifyUserResponseImplToJson(

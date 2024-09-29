@@ -2,15 +2,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user.freezed.dart';
 part 'user.g.dart';
- 
+
 @freezed
 class User with _$User {
   const factory User({
     required int id,
     required String nom,
-    required String prenom,
+    String? prenom,
     String? email,
-    required String phone,
+    String? phone,
     required bool status,
     @JsonKey(name: 'is_complete') required bool isComplete,
     required int typeUser,

@@ -11,7 +11,7 @@ _$SendUserResponseImpl _$$SendUserResponseImplFromJson(
     _$SendUserResponseImpl(
       success: json['success'] as bool,
       message: json['message'] as String,
-      content: json['content'] as dynamic,
+      content: json['content'],
     );
 
 Map<String, dynamic> _$$SendUserResponseImplToJson(

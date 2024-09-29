@@ -22,9 +22,9 @@ User _$UserFromJson(Map<String, dynamic> json) {
 mixin _$User {
   int get id => throw _privateConstructorUsedError;
   String get nom => throw _privateConstructorUsedError;
-  String get prenom => throw _privateConstructorUsedError;
+  String? get prenom => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
   bool get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_complete')
   bool get isComplete => throw _privateConstructorUsedError;
@@ -51,9 +51,9 @@ abstract class $UserCopyWith<$Res> {
   $Res call(
       {int id,
       String nom,
-      String prenom,
+      String? prenom,
       String? email,
-      String phone,
+      String? phone,
       bool status,
       @JsonKey(name: 'is_complete') bool isComplete,
       int typeUser,
@@ -79,9 +79,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   $Res call({
     Object? id = null,
     Object? nom = null,
-    Object? prenom = null,
+    Object? prenom = freezed,
     Object? email = freezed,
-    Object? phone = null,
+    Object? phone = freezed,
     Object? status = null,
     Object? isComplete = null,
     Object? typeUser = null,
@@ -98,18 +98,18 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.nom
           : nom // ignore: cast_nullable_to_non_nullable
               as String,
-      prenom: null == prenom
+      prenom: freezed == prenom
           ? _value.prenom
           : prenom // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      phone: null == phone
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -148,9 +148,9 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   $Res call(
       {int id,
       String nom,
-      String prenom,
+      String? prenom,
       String? email,
-      String phone,
+      String? phone,
       bool status,
       @JsonKey(name: 'is_complete') bool isComplete,
       int typeUser,
@@ -173,9 +173,9 @@ class __$$UserImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? nom = null,
-    Object? prenom = null,
+    Object? prenom = freezed,
     Object? email = freezed,
-    Object? phone = null,
+    Object? phone = freezed,
     Object? status = null,
     Object? isComplete = null,
     Object? typeUser = null,
@@ -192,18 +192,18 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.nom
           : nom // ignore: cast_nullable_to_non_nullable
               as String,
-      prenom: null == prenom
+      prenom: freezed == prenom
           ? _value.prenom
           : prenom // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      phone: null == phone
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -238,9 +238,9 @@ class _$UserImpl implements _User {
   const _$UserImpl(
       {required this.id,
       required this.nom,
-      required this.prenom,
+      this.prenom,
       this.email,
-      required this.phone,
+      this.phone,
       required this.status,
       @JsonKey(name: 'is_complete') required this.isComplete,
       required this.typeUser,
@@ -256,11 +256,11 @@ class _$UserImpl implements _User {
   @override
   final String nom;
   @override
-  final String prenom;
+  final String? prenom;
   @override
   final String? email;
   @override
-  final String phone;
+  final String? phone;
   @override
   final bool status;
   @override
@@ -327,9 +327,9 @@ abstract class _User implements User {
   const factory _User(
           {required final int id,
           required final String nom,
-          required final String prenom,
+          final String? prenom,
           final String? email,
-          required final String phone,
+          final String? phone,
           required final bool status,
           @JsonKey(name: 'is_complete') required final bool isComplete,
           required final int typeUser,
@@ -345,11 +345,11 @@ abstract class _User implements User {
   @override
   String get nom;
   @override
-  String get prenom;
+  String? get prenom;
   @override
   String? get email;
   @override
-  String get phone;
+  String? get phone;
   @override
   bool get status;
   @override

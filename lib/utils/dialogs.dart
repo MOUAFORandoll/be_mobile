@@ -16,7 +16,7 @@ void showSuccessToast(
       gravity: ToastGravity.TOP,
       timeInSecForIosWeb: 6,
       textColor: Colors.white,
-      backgroundColor: ThemeApp.primary,
+      backgroundColor: ThemeApp.second,
       fontSize: 16.0);
 }
 

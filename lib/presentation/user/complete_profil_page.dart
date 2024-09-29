@@ -1,3 +1,4 @@
+import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/routes/app_router.gr.dart';
@@ -29,65 +30,80 @@ class _CompleteProfilPageState extends State<CompleteProfilPage>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: AppBarCustom(
-            title: 'Completer votre profil',
+          // appBar: AppBarCustom(
+          //   title: 'Completer votre profil',
+          // ),
+          appBar: AppBar(
+            backgroundColor: ThemeApp.white,
+            elevation: 0,
+            leading: IconButton(
+              onPressed: () {
+                AutoRouter.of(context).pop();
+              },
+              icon: Icon(Icons.arrow_back),
+            ),
           ),
           body: BlocConsumer<UserCubit, UserState>(
-              listener: onEventReceived,
-              builder: (context, state) => SingleChildScrollView(
-                      child: Column(children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          color: ColorsApp.white,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15))),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: kMarginX / 2,
+            listener: onEventReceived,
+            builder: (context, state) => Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16)
+                      .add(EdgeInsets.only(bottom: 32)),
+              child: Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 62),
+                        child: Text(
+                          'Renseignez votre numero de telephone',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
                       ),
-                      child: Form(
-                          key: formKey,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              TitleComponent(
-                                title: 'Renseignez votre numero de telephone',
-                                subTitle:
-                                    'Renseignez votre numero de telephone pour  termier la creation de votre compte',
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: kMarginY,
-                                ),
-                                child: AppInput(
-                                  controller:
-                                      phone, // Changed from state.phone to phone
-                                  onChanged: (value) {
-                                    formKey.currentState!.validate();
-                                  },
-                                  textInputType: TextInputType.phone,
-                                  placeholder: 'labelphone'.tr(),
-                                  validator: (value) {
-                                    return Validators.usPhoneValid(value!);
-                                  },
-                                ),
-                              ),
-                              AppButtonSecond(
-                                marginAdd: EdgeInsets.symmetric(
-                                  horizontal: kMarginX,
-                                ),
-                                text: 'Poursuivre'.tr(),
-                                onTap: () async {
-                                  if (formKey.currentState!.validate()) {
-                                    userCubit.updateUser(phone: phone.text);
-                                  }
-                                },
-                              )
-                            ],
-                          )),
-                    ),
-                  ])))),
+                      SizedBox(height: 16),
+                      Text(
+                        'Renseignez votre numero de telephone pour  termier la creation de votre compte',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: ThemeApp.grey,
+                            ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: kMarginY,
+                        ),
+                        child: AppInput(
+                          controller:
+                              phone, // Changed from state.phone to phone
+                          onChanged: (value) {
+                            formKey.currentState!.validate();
+                          },
+                          textInputType: TextInputType.phone,
+                          placeholder: 'labelphone'.tr(),
+                          validator: (value) {
+                            return Validators.usPhoneValid(value!);
+                          },
+                        ),
+                      ),
+                      Spacer(),
+                      BEButton(
+                        style: BEButtonStyle.secondary,
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            userCubit.completeProfil(phone: phone.text);
+                          }
+
+                          // AutoRouter.of(context).push(NewPasswordRoute());
+                        },
+                        text: "Poursuivre",
+                      ),
+                    ],
+                  )),
+            ),
+          )),
     );
   }
 
@@ -97,6 +113,7 @@ class _CompleteProfilPageState extends State<CompleteProfilPage>
     if (state is UserUpdatingState) {
       loadingDialogCompleter = showLoadingBarrier(context: context);
     } else if (state is UserUpdatedState) {
+      showSuccessToast('Informations mis a jour avec succes');
       AutoRouter.of(context).push(HomeRoute());
     } else if (state is AuthErrorState) {
       showErrorToast(state.error);

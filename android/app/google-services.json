@@ -30,6 +30,14 @@
           }
         },
         {
+          "client_id": "255400953271-vkddsgjhcbddmd2b4c0fnna0mn4ml3jm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.babanaexpress",
+            "certificate_hash": "19fe0832b4805eb73b0f2610a122e3094a125c89"
+          }
+        },
+        {
           "client_id": "255400953271-0skmnrss9mhv9hd3cc3ehi1fuepcunlm.apps.googleusercontent.com",
           "client_type": 3
         }

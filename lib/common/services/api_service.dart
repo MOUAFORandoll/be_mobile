@@ -37,9 +37,6 @@ class ApiService extends potatoes.ApiService {
     try {
       Response response = await request;
 
-      log(response.data.toString());
-      print(response.data.toString());
-      debugPrint(response.data.toString());
       if (response.data != null) {
         return defaultExtractResult(
             response.data, mapperKey, mapper, messageMapper);
@@ -105,3 +102,61 @@ Future<CacheOptions> cacheStoreOptions() {
     );
   });
 }
+
+
+//  ApiService(Dio dio, [this.cacheOptions]) : super(dio) {
+//     dio.interceptors.add(
+//       InterceptorsWrapper(
+//         onRequest: (options, handler) async {
+//           // Ajout du token d'authentification à chaque requête
+//           final prefs = await SharedPreferences.getInstance();
+//           final token = prefs.getString('auth_token');
+//           if (token != null) {
+//             options.headers['Authorization'] = 'Bearer $token';
+//           }
+//           return handler.next(options);
+//         },
+//         onError: (DioException error, handler) async {
+//           if (error.response?.statusCode == 401) {
+//             // Token expiré, essayons de le rafraîchir
+//             if (await _refreshToken()) {
+//               // Retry the request with the new token
+//               return handler.resolve(await _retry(error.requestOptions));
+//             }
+//           }
+//           return handler.next(error);
+//         },
+//       ),
+//     );
+//   }
+
+//   Future<bool> _refreshToken() async {
+//     try {
+//       final prefs = await SharedPreferences.getInstance();
+//       final refreshToken = prefs.getString('refresh_token');
+//       if (refreshToken == null) return false;
+
+//       final response = await _dio.post('/refresh-token', data: {'refresh_token': refreshToken});
+//       if (response.statusCode == 200) {
+//         final newToken = response.data['token'];
+//         final newRefreshToken = response.data['refresh_token'];
+//         await prefs.setString('auth_token', newToken);
+//         await prefs.setString('refresh_token', newRefreshToken);
+//         return true;
+//       }
+//     } catch (e) {
+//       print('Erreur lors du rafraîchissement du token: $e');
+//     }
+//     return false;
+//   }
+
+//   Future<Response<dynamic>> _retry(RequestOptions requestOptions) async {
+//     final options = Options(
+//       method: requestOptions.method,
+//       headers: requestOptions.headers,
+//     );
+//     return dio.request<dynamic>(requestOptions.path,
+//         data: requestOptions.data,
+//         queryParameters: requestOptions.queryParameters,
+//         options: options);
+//   }

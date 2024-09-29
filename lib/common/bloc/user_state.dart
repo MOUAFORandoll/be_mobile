@@ -67,11 +67,7 @@ class AuthUserNotExistState extends CubitInformationState with UserState {
 class AuthUserSuccessState extends CubitInformationState with UserState {
   const AuthUserSuccessState();
 }
-
-class CompleteUserUserState extends CubitInformationState with UserState {
-  const CompleteUserUserState();
-}
-
+ 
 class AuthMissingSupplierInformation extends CubitInformationState
     with UserState {
   const AuthMissingSupplierInformation();

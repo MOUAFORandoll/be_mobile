@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:BabanaExpress/common/models/auth_response.dart';
 import 'package:BabanaExpress/common/models/send_user_response.dart';
 import 'package:BabanaExpress/common/models/user.dart';
+import 'package:BabanaExpress/common/models/user_response.dart';
 import 'package:BabanaExpress/common/models/verify_user_response.dart';
 import 'package:path/path.dart';
 import 'package:potatoes/auto_list/models/paginated_list.dart';
@@ -15,42 +16,39 @@ import 'package:BabanaExpress/common/services/api_service.dart';
 class UserService extends ApiService {
   static const String _verify_user_exist = '/auth/user-exist-verify';
   static const _login = '/auth/user';
-  static const String _getMe = '/users/me';
+  static const String _getMe = '/user/me';
   static const String _authSocial = '/auth/user/social';
   static const String _sendCode = '/auth/user/send-code';
   static const String _verifyCode = '/auth/user/verify-code';
   static const String _newPassword = '/auth/user/new-password';
   static const String _register = '/auth/create-user';
-
+  static const String _completeProfil = '/auth/user/complete-profil';
   static const String _updateUser = '/users';
   static const String _updateProfilePicture = '/users/picture';
   static const String _logout = '/users/logout';
 
   const UserService(super._dio);
 
-  Future<AuthResponse> getMe() {
+  Future<UserResponse> getMe() {
     return compute(
         dio.get(
           _getMe,
-          // options: Options(headers: withAuth()),
+          options: Options(headers: withAuth()),
         ),
-        mapper: AuthResponse.fromJson);
+        mapper: UserResponse.fromJson);
   }
 
-  Future<AuthResponse> loginSocial({required user}) async {
+  Future<AuthResponse> loginSocial({required data}) async {
     return compute(
         dio.post(
           _authSocial,
-          data: {
-            'idFollowing': user,
-          },
+          data: data,
           // options: Options(headers: withAuth()),
         ),
         mapper: AuthResponse.fromJson);
   }
 
   Future<AuthResponse> register({required data}) async {
-    
     return compute(
         dio.post(_register, data: data
             // options: Options(headers: withAuth()),
@@ -113,6 +111,18 @@ class UserService extends ApiService {
         mapper: AuthResponse.fromJson);
   }
 
+  Future<AuthResponse> completeProfil({
+    required data,
+  }) {
+    return compute(
+        dio.patch(
+          _completeProfil,
+          data: data,
+          options: Options(headers: withAuth()),
+        ),
+        mapper: AuthResponse.fromJson);
+  }
+
   Future<AuthResponse> updateUser({
     required data,
   }) {
@@ -120,7 +130,7 @@ class UserService extends ApiService {
         dio.patch(
           _updateUser,
           data: data,
-          // options: Options(headers: withAuth()),
+          options: Options(headers: withAuth()),
         ),
         mapper: AuthResponse.fromJson);
   }
@@ -128,7 +138,7 @@ class UserService extends ApiService {
   Future<User> updateProfilePicture({required File file}) async {
     return compute(
         dio.patch(_updateProfilePicture,
-            // options: Options(headers: withAuth()),
+            options: Options(headers: withAuth()),
             data: FormData.fromMap({
               'image': await MultipartFile.fromFile(file.path,
                   filename: basename(file.path))
@@ -140,6 +150,15 @@ class UserService extends ApiService {
     return compute(
       dio.post(
         _logout,
+        // options: Options(headers: withAuth()),
+      ),
+    );
+  }
+
+  Future<void> refreshToken() {
+    return compute(
+      new Dio().post(
+        '/api/token/refresh', data: {'refresh_token': refreshToken},
         // options: Options(headers: withAuth()),
       ),
     );

@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:potatoes/libs.dart';
 import 'package:potatoes/potatoes.dart' hide PreferencesService;
@@ -33,46 +33,62 @@ class UserCubit extends ObjectCubit<User, UserState> {
     return null;
   }
 
-  void socialLogin()async {
+  void socialLogin() {
     final stateBefore = state;
-    await authSocial.signInWithGoogle();
-    // authSocial.signInWithGoogle().then((response) async {
-    //   if (response == null) {
-    //     print('*-------------------------nulll');
-    //     emit(AuthErrorState('Erreur lors de la connexion avec Google.'));
-    //     return;
-    //   }
-    //   final data = {
-    //     'email': response!.email,
-    //     'nom': response.displayName,
-    //     'prenom': '',
-    //     'socialPicture': response.photoUrl,
-    //     'isSocialGoogle': true
-    //   };
-    //   emit(const AuthLoadingState());
-    //   await userService.loginSocial(user: data).then((response) async {
-    //     if (response.success) {
-    //       preferencesService.saveUser(response.content!.user);
-    //       preferencesService.saveAuthToken(response.content!.token);
 
-    //       if (response.content!.user.isComplete) {
-    //         emit(const AuthUserSuccessState());
-    //       } else {
-    //         emit(const CompleteUserUserState());
-    //       }
-    //     } else {
-    //       emit(AuthErrorState(response.message));
-    //     }
-    //     emit(stateBefore);
-    //   }, onError: (error, trace) {
-    //     emit(AuthErrorState(error, trace));
-    //     emit(stateBefore);
-    //   });
-    //   emit(stateBefore);
-    // }, onError: (error, trace) {
-    //   emit(AuthErrorState(error, trace));
-    //   emit(stateBefore);
-    // });
+    authSocial.signInWithGoogle().then((googleResponse) {
+      if (googleResponse == null) {
+        emit(AuthErrorState('Erreur lors de la connexion avec Google.'));
+        return;
+      }
+
+      final data = {
+        'email': googleResponse.email,
+        'nom': googleResponse.displayName,
+        'prenom': '',
+        'socialPicture': googleResponse.photoUrl,
+        'isSocialGoogle': true
+      };
+
+      emit(const AuthLoadingState());
+
+      userService.loginSocial(data: data).then((loginResponse) {
+        log('=======${loginResponse}============');
+        log('=======${loginResponse.success}============');
+
+        if (loginResponse.success) {
+          log('===================');
+          final user = loginResponse.content!.user;
+          final token = loginResponse.content!.token;
+          final refreshToken = loginResponse.content!.refreshToken;
+
+          preferencesService.saveUser(user).then((_) {
+            preferencesService.saveRefreshToken(refreshToken);
+            return preferencesService.saveAuthToken(token);
+          }).then((_) {
+            if (user.isComplete) {
+              emit(AuthUserSuccessState());
+              emit(stateBefore);
+            } else {
+              log('===================');
+              log('========CompleteUserUserState===========');
+              emit(CompleteUserProfileState());
+              emit(stateBefore);
+              log('========CompleteUserUserState===========');
+            }
+          });
+        } else {
+          emit(AuthErrorState(loginResponse.message));
+        }
+      }).catchError((error, trace) {
+        emit(AuthErrorState(error, trace));
+      }).whenComplete(() {
+        emit(stateBefore);
+      });
+    }).catchError((error, trace) {
+      emit(AuthErrorState(error, trace));
+      emit(stateBefore);
+    });
   }
 
   void verifyUserExist({
@@ -198,6 +214,7 @@ class UserCubit extends ObjectCubit<User, UserState> {
       if (response.success) {
         preferencesService.saveUser(response.content!.user);
         preferencesService.saveAuthToken(response.content!.token);
+        preferencesService.saveRefreshToken(response.content!.refreshToken);
         emit(const AuthUserSuccessState());
         emit(stateBefore);
       } else {
@@ -210,7 +227,7 @@ class UserCubit extends ObjectCubit<User, UserState> {
     });
   }
 
-  void updateUser({
+  void completeProfil({
     required String phone,
   }) {
     final stateBefore = InitializingUserState();
@@ -220,15 +237,19 @@ class UserCubit extends ObjectCubit<User, UserState> {
     final data = {
       'phone': phone,
     };
-    userService.updateUser(data: data).then((response) async {
+    userService.completeProfil(data: data).then((response) async {
       if (response.success) {
         preferencesService.saveUser(response.content!.user);
         preferencesService.saveAuthToken(response.content!.token);
+        preferencesService.saveRefreshToken(response.content!.refreshToken);
+
         emit(const UserUpdatedState());
+
+        emit(stateBefore);
       } else {
         emit(AuthErrorState(response.message));
+        emit(stateBefore);
       }
-      emit(stateBefore);
     }, onError: (error, trace) {
       emit(AuthErrorState(error, trace));
       emit(stateBefore);
@@ -239,7 +260,6 @@ class UserCubit extends ObjectCubit<User, UserState> {
     userService.getMe().then((response) async {
       if (response.success) {
         preferencesService.saveUser(response.content!.user);
-        preferencesService.saveAuthToken(response.content!.token);
       } else {
         emit(AuthErrorState(response.message));
       }
@@ -283,6 +303,7 @@ class UserCubit extends ObjectCubit<User, UserState> {
       if (response.success) {
         preferencesService.saveUser(response.content!.user);
         preferencesService.saveAuthToken(response.content!.token);
+        preferencesService.saveRefreshToken(response.content!.refreshToken);
 
         emit(const AuthUserSuccessState());
       } else {
@@ -311,14 +332,15 @@ class UserCubit extends ObjectCubit<User, UserState> {
         'cannot retrieve user when not logged: Current state is ${state.runtimeType}');
   }
 
-  Future<void> _refreshData() {
-    return userService.getMe().then((response) async {
-      await preferencesService.saveUser(response.content!.user);
-      preferencesService.saveAuthToken(response.content!.token);
-      emit(UserLoggedState(response.content!.user));
-    }, onError: (error, trace) {
-      emit(AuthErrorState(error, trace));
-    });
+  _refreshData() {
+    if (preferencesService.user != null) {
+      return userService.getMe().then((response) async {
+        await preferencesService.saveUser(response.content!.user);
+        emit(UserLoggedState(response.content!.user));
+      }, onError: (error, trace) {
+        emit(AuthErrorState(error, trace));
+      });
+    }
   }
 
   void updateProfilePicture({required File file}) {

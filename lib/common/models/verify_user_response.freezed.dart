@@ -60,7 +60,7 @@ class _$VerifyUserResponseCopyWithImpl<$Res, $Val extends VerifyUserResponse>
   $Res call({
     Object? success = null,
     Object? message = null,
-    Object? content = null,
+    Object? content = freezed,
   }) {
     return _then(_value.copyWith(
       success: null == success
@@ -71,7 +71,7 @@ class _$VerifyUserResponseCopyWithImpl<$Res, $Val extends VerifyUserResponse>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      content: null == content
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -105,7 +105,7 @@ class __$$VerifyUserResponseImplCopyWithImpl<$Res>
   $Res call({
     Object? success = null,
     Object? message = null,
-    Object? content = null,
+    Object? content = freezed,
   }) {
     return _then(_$VerifyUserResponseImpl(
       success: null == success
@@ -116,8 +116,8 @@ class __$$VerifyUserResponseImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      content: null == content
-          ? _value._content
+      content: freezed == content
+          ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as dynamic,
     ));
@@ -128,10 +128,7 @@ class __$$VerifyUserResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$VerifyUserResponseImpl implements _VerifyUserResponse {
   const _$VerifyUserResponseImpl(
-      {required this.success,
-      required this.message,
-      required final dynamic content})
-      : _content = content;
+      {required this.success, required this.message, required this.content});
 
   factory _$VerifyUserResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$VerifyUserResponseImplFromJson(json);
@@ -140,13 +137,8 @@ class _$VerifyUserResponseImpl implements _VerifyUserResponse {
   final bool success;
   @override
   final String message;
-  final dynamic _content;
   @override
-  dynamic get content {
-    if (_content is EqualUnmodifiableListView) return _content;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_content);
-  }
+  final dynamic content;
 
   @override
   String toString() {
@@ -160,13 +152,13 @@ class _$VerifyUserResponseImpl implements _VerifyUserResponse {
             other is _$VerifyUserResponseImpl &&
             (identical(other.success, success) || other.success == success) &&
             (identical(other.message, message) || other.message == message) &&
-            const DeepCollectionEquality().equals(other._content, _content));
+            const DeepCollectionEquality().equals(other.content, content));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, success, message,
-      const DeepCollectionEquality().hash(_content));
+      const DeepCollectionEquality().hash(content));
 
   /// Create a copy of VerifyUserResponse
   /// with the given fields replaced by the non-null parameter values.

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:BabanaExpress/common/bloc/user_cubit.dart';
 import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
@@ -205,6 +207,7 @@ class _AuthPageState extends State<AuthPage> with CompletableMixin {
     } else if (state is CompleteUserProfileState) {
       AutoRouter.of(context).push(CompleteProfilRoute());
     } else if (state is AuthErrorState) {
+      log('==========mesaaaaaddsage==#${state}');
       showErrorToast(state.error);
     }
   }

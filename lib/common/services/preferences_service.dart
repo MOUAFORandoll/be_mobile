@@ -9,7 +9,7 @@ class PreferencesService extends SecuredPreferencesService {
   static const String _keyUser = 'user';
   static const String _keyUserUID = 'user_id';
   static const String _keyAuthToken = 'auth_token';
-
+  static const String _keyRefreshToken = 'refresh_token';
   const PreferencesService(super.preferences, super.secureStorage);
 
   User? get user {
@@ -28,6 +28,14 @@ class PreferencesService extends SecuredPreferencesService {
 
   Future<void> saveAuthToken(String token) {
     return secureStorage.write(key: _keyAuthToken, value: token);
+  }
+
+  Future<void> saveRefreshToken(String token) {
+    return secureStorage.write(key: _keyRefreshToken, value: token);
+  }
+
+  Future<String?> getRefreshToken() {
+    return secureStorage.read(key: _keyRefreshToken);
   }
 
   @override

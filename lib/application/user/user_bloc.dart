@@ -479,7 +479,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   Future<void> close() async {
     await super.close();
   }
-
   Future<void> signInSocialEvent(
       SignInSocialEvent event, Emitter<UserState> emit) async {
     try {

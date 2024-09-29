@@ -17,7 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:potatoes/potatoes.dart' hide PreferencesService;
 import 'package:potatoes_secured_preferences/potatoes_secured_preferences.dart';
- 
+
 import 'package:BabanaExpress/common/bloc/home_cubit.dart';
 import 'package:BabanaExpress/common/bloc/user_cubit.dart';
 import 'package:BabanaExpress/common/services/api_service.dart';
@@ -52,11 +52,24 @@ class AppContent extends StatelessWidget {
       preferencesService,
       connectTimeout: const Duration(minutes: 1),
     );
+    dio.interceptors.add(
+      InterceptorsWrapper(
+        onError: (DioException error, handler) async {
+          if (error.response?.statusCode == 401) {
+            // Token expiré, essayons de le rafraîchir
+            if (await refreshToken(dio, preferencesService)) {
+              // Retry the request with the new token
+              return handler.resolve(await _retry(error.requestOptions, dio));
+            }
+          }
+          return handler.next(error);
+        },
+      ),
+    );
     dio.interceptors.add(DioCacheInterceptor(options: cacheOptions));
 
     return MultiRepositoryProvider(
       providers: [
-       
         RepositoryProvider(create: (_) => AuthSocialService()),
         RepositoryProvider(create: (_) => UserService(dio)),
       ],
@@ -105,6 +118,38 @@ class AppContent extends StatelessWidget {
   }
 }
 
+Future<bool> refreshToken(
+    Dio dio, PreferencesService preferencesService) async {
+  try {
+    var response = await dio.post(
+      '/api/token/refresh',
+      data: {'refresh_token': await preferencesService.getRefreshToken()},
+    );
+    if (response.statusCode == 200) {
+      // Assuming the response contains a new access token
+      String newToken = response.data['token'];
+      String newRefreshToken = response.data['refresh_token'];
+      await preferencesService.saveAuthToken(newToken);
+      await preferencesService.saveRefreshToken(newRefreshToken);
+      return true;
+    }
+  } catch (e) {
+    print('Error refreshing token: $e');
+  }
+  return false;
+}
+
+Future<Response<dynamic>> _retry(RequestOptions requestOptions, Dio dio) async {
+  final options = Options(
+    method: requestOptions.method,
+    headers: requestOptions.headers,
+  );
+  return dio.request<dynamic>(requestOptions.path,
+      data: requestOptions.data,
+      queryParameters: requestOptions.queryParameters,
+      options: options);
+}
+
 class BlocProviders extends StatelessWidget {
   final Widget child;
 
@@ -117,7 +162,6 @@ class BlocProviders extends StatelessWidget {
         BlocProvider(create: (_) => sl<ConnectedBloc>()),
         BlocProvider(create: (_) => AppActionCubit()),
         BlocProvider(create: (_) => DatabaseCubit()),
-      
         BlocProvider(
           create: (_) => UserCubit(
             context.read(),
