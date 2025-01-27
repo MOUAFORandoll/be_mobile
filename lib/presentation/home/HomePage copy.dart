@@ -5,9 +5,10 @@
 // import 'package:BabanaExpress/presentation/components/Widget/k_home_info.dart';
 // import 'package:BabanaExpress/presentation/home/FirstView.dart';
 // import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
-// import 'package:BabanaExpress/routes/app_router.gr.dart';
+// 
 // import 'package:BabanaExpress/utils/Services/validators.dart';
-// import 'package:BabanaExpress/utils/constants/assets.dart';
+// import 'package:BabanaExpress/utils/assets.dart'; 
+
 // import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:floating_action_bubble/floating_action_bubble.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
@@ -472,7 +473,7 @@
 //                   maskType: EasyLoadingMaskType.black);
 //             } else {
 //               EasyLoading.dismiss();
-//               AutoRouter.of(context).pop();
+//               AutoRouter.of(context).maybePop();
 //               showSuccess('yupdate'.tr(), context);
 //             }
 //           },
@@ -491,7 +492,7 @@
 //                       child: Icon(Icons.close,
 //                           color: ColorsApp.primary, weight: 50),
 //                       onTap: () {
-//                         AutoRouter.of(context).pop();
+//                         AutoRouter.of(context).maybePop();
 //                       })
 //                 ],
 //               )),
@@ -560,7 +561,7 @@
 //                   maskType: EasyLoadingMaskType.black);
 //             } else {
 //               EasyLoading.dismiss();
-//               AutoRouter.of(context).pop();
+//               AutoRouter.of(context).maybePop();
 //               showSuccess('yupdate'.tr(), context);
 //             }
 //           },
@@ -579,7 +580,7 @@
 //                       child: Icon(Icons.close,
 //                           color: ColorsApp.primary, weight: 50),
 //                       onTap: () {
-//                         AutoRouter.of(context).pop();
+//                         AutoRouter.of(context).maybePop();
 //                       })
 //                 ],
 //               )),

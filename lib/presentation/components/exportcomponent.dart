@@ -52,4 +52,5 @@ export 'package:BabanaExpress/presentation/components/Widget/btn_text_icon.dart'
 export 'package:BabanaExpress/presentation/components/Button/app_button_second.dart';
 export 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
 export 'package:BabanaExpress/presentation/_commons/theming/app_theme.dart';
- 
+
+export 'package:BabanaExpress/presentation/components/Widget/service_card.dart'; 

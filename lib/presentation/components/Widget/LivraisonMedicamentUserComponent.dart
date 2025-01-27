@@ -1,7 +1,8 @@
 import 'package:BabanaExpress/application/model/data/LivraisonMedicamentModel.dart';
 import 'package:BabanaExpress/presentation/components/Widget/global_bottom_sheet.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:BabanaExpress/utils/functions/datetime_format_utils.dart';
 
 // ignore: must_be_immutable

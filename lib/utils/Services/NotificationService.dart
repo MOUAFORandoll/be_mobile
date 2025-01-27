@@ -91,10 +91,10 @@ class NotificationService {
         print('--------${payload}----------actionnn');
         log('--------${payload}----------actionnn');
         if (payload == 'Depot') {
-          sl.get<AppRouter>().pushNamed(WalletPage.routeName);
+          // sl.get<AppRouter>().pushNamed(WalletPage.routeName);
         }
         if (payload == 'Call Center') {
-          sl.get<AppRouter>().pushNamed(CallCenterPage.routeName);
+          // sl.get<AppRouter>().pushNamed(CallCenterPage.routeName);
         }
         if (payload == 'Livraison Colis') {
          }

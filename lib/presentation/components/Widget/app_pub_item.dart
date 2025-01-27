@@ -1,7 +1,8 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:flutter_svg/svg.dart';
 
 class AppPubItem extends StatelessWidget {
@@ -14,16 +15,13 @@ class AppPubItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: getHeight(context) / 3,
       child: Stack(
         children: [
           // 1. Image as the background
           Positioned.fill(
             child: SvgPicture.asset(
               Assets.box,
-              height: getHeight(context) * .50,
-              width: getHeight(context) * .50,
-              fit: BoxFit.contain, // Ensures the image covers the whole area
+              fit: BoxFit.contain,
             ),
           ),
 

@@ -1,7 +1,7 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 final designSize = 414.0; 
-final kMarginX = 8.0;
+final kMarginX = 16.0;
 final kMarginY = 8.0;
 
 final kPaddingTop = 10;

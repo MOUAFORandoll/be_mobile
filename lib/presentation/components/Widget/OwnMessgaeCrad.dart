@@ -1,4 +1,5 @@
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:BabanaExpress/utils/functions/formatData.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 

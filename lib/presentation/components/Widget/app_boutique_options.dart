@@ -2,7 +2,8 @@
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'icon_svg.dart';
 
 // ignore: must_be_immutable

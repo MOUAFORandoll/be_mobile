@@ -1,7 +1,8 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:flutter_svg/svg.dart';
 
 class AppServiceItem extends StatelessWidget {

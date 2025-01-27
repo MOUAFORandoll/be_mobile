@@ -1,6 +1,7 @@
 import 'package:BabanaExpress/application/model/data/MessageModel.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 
 class LoadFileOnlineWidget extends StatelessWidget {
@@ -37,19 +38,22 @@ class LoadFileOnlineWidget extends StatelessWidget {
               },
               placeholder: (context, url) {
                 return Container(
-                  child:/*  Shimmer.fromColors(
+                  child: /*  Shimmer.fromColors(
                       baseColor: ColorsApp.greyNew,
                       highlightColor: ColorsApp.primary.withOpacity(.1),
-                      child: */ Skeletonizer( enabled: true, child:Container(
-                        /*   height: getHeight(context) * .09,
+                      child: */
+                      Skeletonizer(
+                          enabled: true,
+                          child: Container(
+                            /*   height: getHeight(context) * .09,
                                               width: getWidth(context) * .25,
                                              */
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: ColorsApp.greyNew,
-                        ),
-                      )),
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: ColorsApp.greyNew,
+                            ),
+                          )),
                 );
               },
               errorWidget: (context, url, error) {

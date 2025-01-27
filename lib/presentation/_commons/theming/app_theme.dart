@@ -10,11 +10,10 @@ abstract class ThemeApp {
   static const Color second_second = Color(0xFF0BBC5C);
   static const Color second = Color(0xFF009FE3);
   static const Color tird = Color(0xFFFFC107);
-  static const Color bg = Color.fromARGB(255, 248, 250, 250);
+  static const Color bg = Color(0xFFD6DCDE);
 
   static const Color grey = Color(0xFFb2b2b2);
-  static const greyNew =
-      Color.fromARGB(255, 238, 238, 238); // Color(0xFFe5e5e5);
+  static const greyNew = Color.fromARGB(255, 238, 238, 238);
   static const Color white = Color(0xFFFFFFFF);
 
   static const Color orange = Color(0xffF29F05);
@@ -37,111 +36,88 @@ abstract class ThemeApp {
     return robotoTextTheme.copyWith(
       displayLarge: robotoTextTheme.displayLarge?.copyWith(
         color: black,
-        fontSize: 56.0,
-        height: 6.4,
-        letterSpacing: -0.25,
+        fontSize: 57.0,
       ),
       displayMedium: robotoTextTheme.displayMedium?.copyWith(
         color: black,
         fontSize: 45.0,
-        height: 5.2,
-        letterSpacing: 0.0,
       ),
       displaySmall: robotoTextTheme.displaySmall?.copyWith(
         color: black,
         fontSize: 36.0,
         fontWeight: FontWeight.bold,
-        height: 4.4,
-        letterSpacing: 0.0,
       ),
       headlineLarge: robotoTextTheme.headlineLarge?.copyWith(
         color: black,
         fontSize: 32.0,
-        height: 4.0,
-        letterSpacing: 0.0,
       ),
       headlineMedium: robotoTextTheme.headlineMedium?.copyWith(
         color: black,
         fontSize: 28.0,
-        height: 3.6,
-        letterSpacing: 0.0,
       ),
       headlineSmall: robotoTextTheme.headlineSmall?.copyWith(
         color: black,
         fontSize: 24.0,
-        height: 3.2,
-        letterSpacing: 0.0,
       ),
       titleLarge: robotoTextTheme.titleLarge?.copyWith(
-          color: black,
-          fontSize: 20.0,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 0,
-          height: 2.8),
+        color: black,
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+      ),
       titleMedium: robotoTextTheme.titleMedium?.copyWith(
         color: black,
         fontSize: 24.0,
-        fontWeight: FontWeight.bold,
-        // height: 2.4,
-        letterSpacing: 0.0,
       ),
       titleSmall: robotoTextTheme.titleSmall?.copyWith(
         color: black,
         fontSize: 14.0,
-        height: 2.0,
-        letterSpacing: 0.0,
       ),
       bodyLarge: robotoTextTheme.bodyLarge?.copyWith(
         color: black,
         fontSize: 16.0,
-        // fontWeight: FontWeight.bold,
-        height: 2.4,
-        letterSpacing: 0.5,
       ),
       bodyMedium: robotoTextTheme.bodyMedium?.copyWith(
         color: black,
         fontSize: 14.0,
-        height: 2.0,
-        letterSpacing: 0.25,
       ),
       bodySmall: robotoTextTheme.bodySmall?.copyWith(
         color: black,
         fontSize: 12.0,
-        height: 1.6,
-        letterSpacing: 0.4,
       ),
       labelLarge: robotoTextTheme.labelLarge?.copyWith(
-          color: black, fontSize: 14.0, letterSpacing: 0.1, height: 2.0),
+        color: black,
+        fontSize: 14.0,
+        fontWeight: FontWeight.bold,
+      ),
       labelMedium: robotoTextTheme.labelMedium?.copyWith(
         color: black,
         fontSize: 12.0,
-        height: 1.6,
-        letterSpacing: 0.5,
       ),
       labelSmall: robotoTextTheme.labelSmall?.copyWith(
         color: black,
         fontSize: 11.0,
-        height: 1.6,
-        letterSpacing: 0.0,
       ),
+    );
+  }
+
+  static ColorScheme _colorScheme([Brightness brightness = Brightness.light]) {
+    return ColorScheme.fromSeed(
+      seedColor: second,
+      primary: second,
+      secondary: secondaryLight,
+      tertiary: tertiary,
+      brightness: brightness,
     );
   }
 
   static ThemeData _baseTheme(BuildContext context) {
     final theme = Theme.of(context);
+    final colorScheme = _colorScheme();
     final textTheme = _textTheme(context);
 
     return ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: second,
-        primary: second,
-        primaryContainer: second,
-        secondary: secondaryLight,
-        tertiary: tertiary,
-        error: errorRed,
-        surfaceVariant: disabledGreySurface,
-      ),
+      colorScheme: colorScheme,
       primaryColor: second,
       disabledColor: disabledGrey,
       scaffoldBackgroundColor: white,
@@ -150,31 +126,42 @@ abstract class ThemeApp {
         scrolledUnderElevation: 0,
         titleTextStyle: textTheme.titleSmall?.copyWith(color: white),
         toolbarTextStyle:
-            textTheme.titleLarge?.copyWith(color: theme.colorScheme.onSurface),
+            textTheme.titleLarge?.copyWith(color: colorScheme.onSurface),
         elevation: 0,
         iconTheme: const IconThemeData(color: black),
-        systemOverlayStyle:
-            const SystemUiOverlayStyle(systemNavigationBarColor: white),
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          systemNavigationBarColor: second,
+          systemNavigationBarDividerColor: second,
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark,
+        ),
       ),
-      bottomNavigationBarTheme:
-          theme.bottomNavigationBarTheme.copyWith(backgroundColor: white),
+      bottomNavigationBarTheme: theme.bottomNavigationBarTheme.copyWith(
+        backgroundColor: white,
+        selectedItemColor: black,
+        unselectedItemColor: grey,
+        type: BottomNavigationBarType.fixed,
+        selectedLabelStyle: textTheme.labelSmall,
+        unselectedLabelStyle: textTheme.labelSmall,
+      ),
       bottomSheetTheme: theme.bottomSheetTheme.copyWith(
         clipBehavior: Clip.antiAlias,
         backgroundColor: white,
         shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(24.0))),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(24.0)),
+        ),
       ),
       cardTheme: theme.cardTheme.copyWith(
         elevation: 1,
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       ),
-      // subtitle1 :
       checkboxTheme: theme.checkboxTheme.copyWith(
         fillColor: WidgetStateProperty.resolveWith(
-            (states) => states.contains(WidgetState.selected) ? second : null),
+          (states) => states.contains(WidgetState.selected) ? second : null,
+        ),
       ),
-      dividerColor: theme.colorScheme.onSurfaceVariant,
+      dividerColor: colorScheme.onSurfaceVariant,
       dialogTheme: DialogTheme(contentTextStyle: textTheme.bodyLarge),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -206,19 +193,14 @@ abstract class ThemeApp {
           borderSide: BorderSide(color: theme.disabledColor),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
-        hintStyle: textTheme.bodyLarge
-            ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
-        labelStyle: textTheme.bodySmall
-            ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+        hintStyle:
+            textTheme.bodyLarge?.copyWith(color: colorScheme.onSurfaceVariant),
+        labelStyle:
+            textTheme.bodySmall?.copyWith(color: colorScheme.onSurfaceVariant),
         suffixIconColor: black,
         prefixIconColor: black,
         iconColor: black,
         floatingLabelStyle: textTheme.bodySmall?.copyWith(color: black),
-      ),
-      textSelectionTheme: const TextSelectionThemeData(
-        cursorColor: black,
-        // selectionColor: black.withOpacity(0.3),
-        selectionHandleColor: Color.fromARGB(255, 32, 23, 23),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
@@ -235,10 +217,10 @@ abstract class ThemeApp {
           backgroundColor: second,
           padding: const EdgeInsets.symmetric(horizontal: 56.0, vertical: 8.0),
           shape: RoundedRectangleBorder(
-              side: BorderSide.none,
-              borderRadius: BorderRadius.circular(100.0)),
+            side: BorderSide.none,
+            borderRadius: BorderRadius.circular(100.0),
+          ),
           elevation: 0,
-          side: BorderSide.none,
           textStyle: textTheme.labelMedium!.copyWith(color: white),
           minimumSize: const Size.fromHeight(40.0),
         ),
@@ -247,9 +229,10 @@ abstract class ThemeApp {
         backgroundColor: Colors.white,
         selectedColor: second,
         labelStyle: textTheme.labelLarge,
-        // padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
         shape: RoundedRectangleBorder(
-            side: BorderSide.none, borderRadius: BorderRadius.circular(100.0)),
+          side: BorderSide.none,
+          borderRadius: BorderRadius.circular(100.0),
+        ),
         side: BorderSide.none,
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -271,7 +254,8 @@ abstract class ThemeApp {
           theme.popupMenuTheme.copyWith(textStyle: textTheme.labelSmall),
       switchTheme: theme.switchTheme.copyWith(
         thumbColor: WidgetStateProperty.resolveWith(
-            (states) => states.contains(WidgetState.selected) ? second : null),
+          (states) => states.contains(WidgetState.selected) ? second : null,
+        ),
       ),
       textTheme: textTheme,
     );

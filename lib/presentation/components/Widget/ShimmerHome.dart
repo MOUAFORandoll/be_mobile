@@ -1,6 +1,6 @@
 import 'package:BabanaExpress/presentation/components/Widget/home_option_widget.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
 
 class ShimmerHome extends StatelessWidget {
   const ShimmerHome({super.key});

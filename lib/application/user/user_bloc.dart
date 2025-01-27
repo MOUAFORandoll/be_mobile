@@ -3,7 +3,7 @@ import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/model/data/ModePaiementModel.dart';
 
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+
 import 'package:BabanaExpress/utils/Services/auth_social_service%20.dart';
 
 import 'package:bloc/bloc.dart';
@@ -125,7 +125,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       EasyLoading.dismiss();
       database.disconnect();
 
-      AutoRouter.of(event.context).replaceAll([AuthRoute()]);
+     
     });
   }
 
@@ -200,12 +200,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         emit(state.copyWith(isExistLoading: 1));
         emit(state.copyWith(isExistLoading: null));
         emit(state.copyWith(loginUser: true));
-
-
-
       } else {
-     
-        emit(state.copyWith(loginUser: false)); 
+        emit(state.copyWith(loginUser: false));
         emit(state.copyWith(isExistLoading: 2));
         emit(state.copyWith(isExistLoading: null));
       }
@@ -479,6 +475,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   Future<void> close() async {
     await super.close();
   }
+
   Future<void> signInSocialEvent(
       SignInSocialEvent event, Emitter<UserState> emit) async {
     try {

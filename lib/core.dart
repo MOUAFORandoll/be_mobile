@@ -9,7 +9,7 @@ import 'package:BabanaExpress/application/home/repositories/homeRepo.dart';
 
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
 import 'package:BabanaExpress/application/model/data/MessageModel.dart';
-import 'package:BabanaExpress/application/splash/splash_bloc.dart';
+ 
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
 import 'package:BabanaExpress/infrastructure/_commons/network/app_requests.dart';
 import 'package:BabanaExpress/presentation/callcenter/CallCenterPage.dart';
@@ -28,14 +28,11 @@ final sl = GetIt.instance;
 
 Future<void> init() async {
   final db = await new DatabaseCubit();
-  GetStorage box = GetStorage();
-  sl.registerSingleton<AppRouter>(AppRouter());
+  GetStorage box = GetStorage(); 
   sl.registerFactory(() => Connectivity());
   sl.registerLazySingleton<IAppRequests>(() => AppRequests());
   sl.registerLazySingleton<INetworkInfo>(() => NetworkInfo(connectivity: sl()));
-  sl.registerLazySingleton<GetStorage>(() => box);
-  sl.registerLazySingleton<DatabaseCubit>(() => db);
-  sl.registerFactory(() => SplashBloc(database: sl()));
+  sl.registerLazySingleton<GetStorage>(() => box); 
 
   // sl
   //   ..registerFactory(
@@ -150,7 +147,7 @@ Future<void> initSocket(context) async {
       action: (data) {
         // BlocProvider.of<CompteBloc>(context).add(HistoriqueTransaction());
 
-        print(sl.get<AppRouter>().currentUrl);
+       
         print(CallCenterPage.routeName);
         // context.get<CallCenterBloc>().add(GetMessage());
 

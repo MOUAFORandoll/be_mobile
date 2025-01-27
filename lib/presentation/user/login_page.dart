@@ -5,7 +5,6 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {
@@ -24,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return   Container(); /*  Scaffold(
+    return Container(); /*  Scaffold(
         appBar: AppBarCustom(
           title: 'Connexion',
         ),

@@ -6,10 +6,11 @@
 // import 'package:BabanaExpress/presentation/components/Button/themeButton.dart';
 // import 'package:BabanaExpress/presentation/components/Widget/home_proposition_widget.dart';
 // import 'package:BabanaExpress/presentation/user/PolitiquePage.dart';
-// import 'package:BabanaExpress/routes/app_router.gr.dart';
+// 
 // import 'package:BabanaExpress/utils/Services/GeolocatorService.dart';
 // import 'package:BabanaExpress/utils/Services/validators.dart';
-// import 'package:BabanaExpress/utils/constants/assets.dart';
+// import 'package:BabanaExpress/utils/assets.dart'; 
+
 // import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 // import 'package:new_version_plus/new_version_plus.dart';
@@ -693,7 +694,7 @@
 //                   maskType: EasyLoadingMaskType.black);
 //             } else {
 //               EasyLoading.dismiss();
-//               AutoRouter.of(context).pop();
+//               AutoRouter.of(context).maybePop();
 //               showSuccess('yupdate'.tr(), context);
 //             }
 //           },
@@ -712,7 +713,7 @@
 //                       child: Icon(Icons.close,
 //                           color: ColorsApp.primary, weight: 50),
 //                       onTap: () {
-//                         AutoRouter.of(context).pop();
+//                         AutoRouter.of(context).maybePop();
 //                       })
 //                 ],
 //               )),
@@ -781,7 +782,7 @@
 //                   maskType: EasyLoadingMaskType.black);
 //             } else {
 //               EasyLoading.dismiss();
-//               AutoRouter.of(context).pop();
+//               AutoRouter.of(context).maybePop();
 //               showSuccess('yupdate'.tr(), context);
 //             }
 //           },
@@ -800,7 +801,7 @@
 //                       child: Icon(Icons.close,
 //                           color: ColorsApp.primary, weight: 50),
 //                       onTap: () {
-//                         AutoRouter.of(context).pop();
+//                         AutoRouter.of(context).maybePop();
 //                       })
 //                 ],
 //               )),

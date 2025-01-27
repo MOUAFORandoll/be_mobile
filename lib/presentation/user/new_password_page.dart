@@ -1,13 +1,14 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
+import 'package:BabanaExpress/presentation/home/HomePage.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/core.dart';
 import 'package:pinput/pinput.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+
 import 'package:BabanaExpress/common/bloc/user_cubit.dart';
 import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
@@ -16,8 +17,8 @@ import 'package:BabanaExpress/utils/dialogs.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:pinput/pinput.dart';
 import 'package:potatoes/libs.dart';
 import 'package:potatoes/potatoes.dart';
@@ -51,7 +52,7 @@ class _NewPasswordPageState extends State<NewPasswordPage>
             elevation: 0,
             leading: IconButton(
               onPressed: () {
-                AutoRouter.of(context).pop();
+                AutoRouter.of(context).maybePop();
               },
               icon: Icon(Icons.arrow_back),
             ),
@@ -127,9 +128,9 @@ class _NewPasswordPageState extends State<NewPasswordPage>
       loadingDialogCompleter = showLoadingBarrier(context: context);
     } else if (state is SuccesChangePasswordState) {
       showSuccessToast('Informations mis a jour avec succes');
-      AutoRouter.of(context).pushAndPopUntil(
-        HomeRoute(),
-        predicate: (_) => false,
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => HomePage()),
+        (route) => false,
       );
     } else if (state is AuthErrorState) {
       showErrorToast(state.error);

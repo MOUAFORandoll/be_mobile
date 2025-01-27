@@ -1,5 +1,6 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 
 // ignore: must_be_immutable
@@ -233,10 +234,11 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                                                                         .withOpacity(
                                                                             .1),
                                                                     child: */
-                                                                        Skeletonizer(
+                                                                Skeletonizer(
                                                                     enabled:
                                                                         true,
-                                                                    child: Container(
+                                                                    child:
+                                                                        Container(
                                                                       // height: getHeight(context) / 10,
                                                                       // width: getHeight(context) / 10,
                                                                       alignment:

@@ -1,13 +1,14 @@
 import 'package:BabanaExpress/common/bloc/user_cubit.dart';
 import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
+import 'package:BabanaExpress/presentation/user/new_password_page.dart';
 import 'package:BabanaExpress/presentation/user/register_page.dart';
 import 'package:BabanaExpress/utils/dialogs.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:pinput/pinput.dart';
 import 'package:potatoes/libs.dart';
 import 'package:potatoes/potatoes.dart';
@@ -53,7 +54,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
             elevation: 0,
             leading: IconButton(
               onPressed: () {
-                AutoRouter.of(context).pop();
+                AutoRouter.of(context).maybePop();
               },
               icon: Icon(Icons.arrow_back),
             ),
@@ -185,8 +186,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
       // AutoRouter.of(context)
       //     .push(RegisterRoute(identifiant: identifintuserNameController.text));
     } else if (state is ValidCodeState) {
-      AutoRouter.of(context)
-          .push(NewPasswordRoute(identifiant: phoneormail.text));
+      Navigator.of(context).push(
+        MaterialPageRoute(
+            builder: (context) =>
+                NewPasswordPage(identifiant: phoneormail.text)),
+      );
     } else if (state is AuthErrorState) {
       showErrorToast(state.error);
     }

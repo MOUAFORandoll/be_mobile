@@ -1,8 +1,9 @@
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/presentation/user/auth_page.dart';
 
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 // import 'package:carousel_slider/carousel_slider.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:get_storage/get_storage.dart';
@@ -14,7 +15,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 @RoutePage()
 class OnBoardingPage extends StatefulWidget {
   static const routeName = '/onboarding';
-  OnBoardingPage({super.key});
+  const OnBoardingPage({super.key});
 
   @override
   _OnBoardingPageState createState() => _OnBoardingPageState();
@@ -90,7 +91,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   ? BEButton(
                       style: BEButtonStyle.primary,
                       onPressed: () {
-                        AutoRouter.of(context).push(AuthRoute());
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(builder: (context) => AuthPage()),
+                          (route) => false,
+                        );
                       },
                       text: "Poursuivre",
                     )

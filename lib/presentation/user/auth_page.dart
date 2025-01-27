@@ -3,13 +3,16 @@ import 'dart:developer';
 import 'package:BabanaExpress/common/bloc/user_cubit.dart';
 import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
+import 'package:BabanaExpress/presentation/home/HomePage.dart';
+import 'package:BabanaExpress/presentation/user/complete_profil_page.dart';
+import 'package:BabanaExpress/presentation/user/forgot_password_page.dart';
 import 'package:BabanaExpress/presentation/user/register_page.dart';
 import 'package:BabanaExpress/utils/dialogs.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:potatoes/libs.dart';
 import 'package:potatoes/potatoes.dart';
 import 'package:potatoes/common/widgets/loaders.dart';
@@ -118,8 +121,10 @@ class _AuthPageState extends State<AuthPage> with CompletableMixin {
                     ),
                     SizedBox(height: 16),
                     TextButton(
-                        onPressed: () =>
-                            AutoRouter.of(context).push(ForgotPasswordRoute()),
+                        onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => ForgotPasswordPage()),
+                            ),
                         child: Text('Problème de connexion ?',
                             style: Theme.of(context)
                                 .textTheme
@@ -200,12 +205,19 @@ class _AuthPageState extends State<AuthPage> with CompletableMixin {
     if (state is AuthLoadingState) {
       loadingDialogCompleter = showLoadingBarrier(context: context);
     } else if (state is AuthUserNotExistState) {
-      AutoRouter.of(context)
-          .push(RegisterRoute(identifiant: identifintuserNameController.text));
+      Navigator.of(context).push(
+        MaterialPageRoute(
+            builder: (context) =>
+                RegisterPage(identifiant: identifintuserNameController.text)),
+      );
     } else if (state is AuthUserSuccessState) {
-      AutoRouter.of(context).push(HomeRoute());
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
     } else if (state is CompleteUserProfileState) {
-      AutoRouter.of(context).push(CompleteProfilRoute());
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => CompleteProfilPage()),
+      );
     } else if (state is AuthErrorState) {
       log('==========mesaaaaaddsage==#${state}');
       showErrorToast(state.error);

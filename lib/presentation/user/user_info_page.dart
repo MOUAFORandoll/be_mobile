@@ -5,7 +5,6 @@ import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
 
 @RoutePage()
 class UserInfoPage extends StatefulWidget {

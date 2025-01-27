@@ -30,6 +30,14 @@ class PreferencesService extends SecuredPreferencesService {
     return secureStorage.write(key: _keyAuthToken, value: token);
   }
 
+  Future<void> enterFirstEnter() {
+    return secureStorage.write(key: 'first_enter', value: 'true');
+  }
+
+  Future<String?> isFirstEnter() {
+    return secureStorage.read(key: 'first_enter');
+  }
+
   Future<void> saveRefreshToken(String token) {
     return secureStorage.write(key: _keyRefreshToken, value: token);
   }

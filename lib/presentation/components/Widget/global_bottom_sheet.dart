@@ -14,7 +14,6 @@ class GlobalBottomSheet {
       backgroundColor: ColorsApp.white,
       constraints: BoxConstraints(
           maxHeight: maxHeight ?? MediaQuery.of(context).size.height * 0.85,
-          minHeight: MediaQuery.of(context).size.height * 0.3,
           maxWidth: MediaQuery.of(context).size.width),
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -52,8 +51,9 @@ class GlobalBottomSheet {
                             title ?? '',
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
+                          SizedBox(height: 8),
                           Container(
-                            width: getWidth(context) * .86,
+                            width: getWidth(context) * .80,
                             child: Text(
                               subtitle ?? '',
                               style: Theme.of(context).textTheme.bodySmall,
@@ -64,7 +64,7 @@ class GlobalBottomSheet {
                     ),
                     InkWell(
                         child: Icon(Icons.close),
-                        onTap: () => AutoRouter.of(context).pop()),
+                        onTap: () => AutoRouter.of(context).maybePop()),
                   ],
                 ),
               ),

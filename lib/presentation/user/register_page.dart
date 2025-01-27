@@ -3,11 +3,12 @@ import 'package:BabanaExpress/presentation/components/Button/AppIconButton.dart'
 import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
 import 'package:BabanaExpress/presentation/components/Text/TitleComponent.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
+import 'package:BabanaExpress/presentation/home/HomePage.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:BabanaExpress/common/bloc/user_cubit.dart';
 import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
 import 'package:BabanaExpress/presentation/components/Widget/icon_svg.dart';
@@ -15,8 +16,8 @@ import 'package:BabanaExpress/utils/dialogs.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:potatoes/libs.dart';
 import 'package:potatoes/potatoes.dart';
 import 'package:potatoes/common/widgets/loaders.dart';
@@ -60,7 +61,7 @@ class _RegisterPageState extends State<RegisterPage> with CompletableMixin {
           elevation: 0,
           leading: IconButton(
             onPressed: () {
-              AutoRouter.of(context).pop();
+              AutoRouter.of(context).maybePop();
             },
             icon: Icon(Icons.arrow_back),
           ),
@@ -206,7 +207,10 @@ class _RegisterPageState extends State<RegisterPage> with CompletableMixin {
       print('--------------====');
       loadingDialogCompleter = showLoadingBarrier(context: context);
     } else if (state is AuthUserSuccessState) {
-      AutoRouter.of(context).push(HomeRoute());
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => HomePage()),
+        (route) => false,
+      );
     } else if (state is AuthErrorState) {
       print('----${state.error}------showErrorToast');
       showErrorToast(state.error);

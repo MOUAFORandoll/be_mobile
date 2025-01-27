@@ -1,17 +1,19 @@
 import 'package:BabanaExpress/application/callcenter/repositories/callcenterRepo.dart';
 import 'package:BabanaExpress/application/compte/repositories/compteRepo.dart';
 import 'package:BabanaExpress/application/connected/connected_bloc.dart';
-import 'package:BabanaExpress/application/database/database_cubit.dart';
-import 'package:BabanaExpress/application/splash/splash_bloc.dart';
+import 'package:BabanaExpress/application/database/database_cubit.dart'; 
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
 import 'package:BabanaExpress/application/user/repositories/user_repository.dart';
+import 'package:BabanaExpress/common/services/auth_provider.dart';
 import 'package:BabanaExpress/core.dart';
 import 'package:BabanaExpress/presentation/_commons/theming/app_theme.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 import 'package:BabanaExpress/presentation/home/HomePage.dart';
 import 'package:BabanaExpress/presentation/layer/onboarding_page.dart';
+import 'package:BabanaExpress/presentation/user/login_page.dart';
 import 'package:BabanaExpress/routes/app_router.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
+
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -29,8 +31,7 @@ import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:auto_route/auto_route.dart';
 
-class AppContent extends StatelessWidget {
-  final AppRouter _appRouter = sl.get<AppRouter>();
+class AppContent extends StatelessWidget { 
   final GlobalKey<NavigatorState> navigatorKey;
   final SharedPreferences preferences;
   final FlutterSecureStorage secureStorage;
@@ -66,8 +67,7 @@ class AppContent extends StatelessWidget {
         },
       ),
     );
-    dio.interceptors.add(DioCacheInterceptor(options: cacheOptions));
-
+    dio.interceptors.add(DioCacheInterceptor(options: cacheOptions)); 
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(create: (_) => AuthSocialService()),
@@ -83,7 +83,7 @@ class AppContent extends StatelessWidget {
                   )),
           BlocProvider(create: (_) => HomeCubit()),
         ],
-        child: MaterialApp.router(
+        child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Babana Express',
           theme: ThemeApp.lightTheme(context),
@@ -95,22 +95,45 @@ class AppContent extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          routerDelegate: _appRouter.delegate(
-            navigatorObservers: () => [AutoRouteObserver()],
-          ),
-          routeInformationParser: _appRouter.defaultRouteParser(),
           builder: (context, child) => BlocListener<UserCubit, UserState>(
-            listenWhen: (previous, current) =>
-                previous is UserLoggingOut && current is UserNotLoggedState,
+            listenWhen: (previous, state) =>
+                previous is UserLoggingOut && state is UserNotLoggedState,
             listener: (_, state) {
+              // recharge l'app quelque soit l'étape dans l'appli
               if (state is UserNotLoggedState) {
                 Future.delayed(
-                  const Duration(milliseconds: 100),
-                  () => Phoenix.rebirth(context),
-                );
+                    const Duration(milliseconds: 100),
+                    // ignore: use_build_context_synchronously
+                    () => Phoenix.rebirth(context));
               }
             },
-            child: child ?? const SizedBox(),
+            child: child,
+          ),
+          home: Builder(
+            builder: (context) {
+              return BlocBuilder<UserCubit, UserState>(
+                  buildWhen: (previous, _) => previous is InitializingUserState,
+                  builder: (context, state) {
+                    if (state is UserLoggedState) {
+                      print('Utilisateur connecté');
+                      // Utilisation de context.router pour la redirection
+                      return const HomePage();
+                      // context.router.replace(const HomeRoute());
+                    } else if (state is UserNotLoggedState) {
+                      print('Utilisateur déconnecté');
+                      final firstEnter =
+                          context.read<PreferencesService>().isFirstEnter();
+                      if (firstEnter == null) {
+                        print('Première entrée');
+                        return const OnBoardingPage();
+                      } else {
+                        print('Redirection vers la page de connexion');
+                        return const LoginPage();
+                      }
+                    }
+                    return const SizedBox();
+                  });
+            },
           ),
         ),
       ),
@@ -149,43 +172,4 @@ Future<Response<dynamic>> _retry(RequestOptions requestOptions, Dio dio) async {
       queryParameters: requestOptions.queryParameters,
       options: options);
 }
-
-class BlocProviders extends StatelessWidget {
-  final Widget child;
-
-  const BlocProviders({Key? key, required this.child}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => sl<ConnectedBloc>()),
-        BlocProvider(create: (_) => AppActionCubit()),
-        BlocProvider(create: (_) => DatabaseCubit()),
-        BlocProvider(
-          create: (_) => UserCubit(
-            context.read(),
-            context.read(),
-            context.read(),
-          ),
-        ),
-        BlocProvider(
-          create: (_) => CallCenterBloc(
-            callcenterRepo: sl.get<CallCenterRepo>(),
-            database: sl.get<DatabaseCubit>(),
-          ),
-        ),
-        BlocProvider(
-          create: (_) => SplashBloc(database: sl.get<DatabaseCubit>()),
-        ),
-        BlocProvider(
-          create: (_) => HomeBloc(
-            homeRepo: sl(),
-            database: sl.get<DatabaseCubit>(),
-          ),
-        ),
-      ],
-      child: child,
-    );
-  }
-}
+ 

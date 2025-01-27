@@ -1,7 +1,8 @@
 import 'package:BabanaExpress/presentation/components/Button/buttons.dart';
+import 'package:BabanaExpress/presentation/home/HomePage.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
+
 import 'package:BabanaExpress/common/bloc/user_cubit.dart';
 import 'package:BabanaExpress/utils/dialogs.dart';
 import 'package:potatoes/libs.dart';
@@ -38,7 +39,7 @@ class _CompleteProfilPageState extends State<CompleteProfilPage>
             elevation: 0,
             leading: IconButton(
               onPressed: () {
-                AutoRouter.of(context).pop();
+                AutoRouter.of(context).maybePop();
               },
               icon: Icon(Icons.arrow_back),
             ),
@@ -114,7 +115,9 @@ class _CompleteProfilPageState extends State<CompleteProfilPage>
       loadingDialogCompleter = showLoadingBarrier(context: context);
     } else if (state is UserUpdatedState) {
       showSuccessToast('Informations mis a jour avec succes');
-      AutoRouter.of(context).push(HomeRoute());
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
     } else if (state is AuthErrorState) {
       showErrorToast(state.error);
     }

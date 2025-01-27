@@ -16,15 +16,16 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: ThemeApp.second,
       elevation: 0,
       leading: InkWell(
-        onTap:
-            actionBack != null ? actionBack : () => AutoRouter.of(context).pop()
+        onTap: actionBack != null
+            ? actionBack
+            : () => AutoRouter.of(context).maybePop()
         /*  () {
           return actionBack;
           if (actionBack != null) {
             print('--------${actionBack}');
             () => actionBack;
           } else {
-            AutoRouter.of(context).pop();
+            AutoRouter.of(context).maybePop();
           }
         } */
         ,

@@ -1,5 +1,5 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
 
 // ignore: must_be_immutable
 class EmptyShopComponent extends StatelessWidget {
@@ -45,7 +45,7 @@ class EmptyShopComponent extends StatelessWidget {
                 child: AppButton(
                   text: 'Go Back',
                   onTap: () {
-                    AutoRouter.of(context).pop();
+                    AutoRouter.of(context).maybePop();
                   },
                 ))
           ],
