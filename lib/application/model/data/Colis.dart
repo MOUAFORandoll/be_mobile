@@ -3,7 +3,7 @@ import 'dart:io';
 class Colis {
   String nom;
   String quantite;
-  String contactRecepteur;
+  String? contactRecepteur;
   String valeurColis;
   int countImage;
   int id;
@@ -13,13 +13,15 @@ class Colis {
   double? longitude;
   double? latitude;
   int? idPointLivraisonColis;
+  String? contactRecuperation;
+  int? idPointRecuperation;
   List<File> listImgColis;
 
   Colis({
     required this.nom,
     required this.id,
     required this.quantite,
-    required this.contactRecepteur,
+    this.contactRecepteur,
     required this.valeurColis,
     required this.countImage,
     required this.category,
@@ -28,6 +30,8 @@ class Colis {
     this.longitude,
     this.latitude,
     this.idPointLivraisonColis,
+    this.contactRecuperation,
+    this.idPointRecuperation,
     required this.listImgColis,
   });
 
@@ -41,6 +45,8 @@ class Colis {
       'quantite': quantite,
       'countImage': countImage,
       'contactRecepteur': contactRecepteur,
+      'contactRecuperation': contactRecuperation,
+      'idPointRecuperation': idPointRecuperation,
       'valeurColis': valeurColis,
       'category': category,
       'idPointLivraisonColis': idPointLivraisonColis,

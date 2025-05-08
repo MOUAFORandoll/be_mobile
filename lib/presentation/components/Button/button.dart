@@ -114,7 +114,7 @@ class ButtonAction extends StatelessWidget {
                   style: TextStyle(
                       // fontSize:
                       //     kDescription,
-                      fontFamily: 'Lato',
+
                       color: ColorsApp.white,
                       fontWeight: FontWeight.w700),
                 )),
@@ -149,7 +149,7 @@ class ButtonIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getWith(context) * .4,
+      width: getWidth(context) * .4,
       height: getHeight(context) * .08,
       alignment: Alignment.center,
       padding: EdgeInsets.all(10),

@@ -40,7 +40,7 @@ class User {
   String profile;
 
   @Property()
-  String phone;
+  String? phone;
 
   @Property()
   String dateCreated;
@@ -56,7 +56,7 @@ class User {
     required this.typeUser,
     required this.email,
     required this.profile,
-    required this.phone,
+    this.phone,
     required this.dateCreated,
     required this.soldeBonus,
   });
@@ -84,7 +84,7 @@ class User {
       prenom: json['prenom'],
       email: json['email'],
       profile: json['profile'],
-      phone: json['phone'],
+      phone: json['phone'].toString(),
       dateCreated: json['date_created'],
       soldeBonus: double.parse(json['solde_bonus'].toString()),
     );
@@ -154,43 +154,6 @@ class Localisation {
 }
 
 @Entity()
-class Commande {
-  int id = 0;
-
-  @Property()
-  String codeCommande;
-
-  @Property()
-  String codeClient;
-
-  @Property()
-  String date;
-
-  Commande(
-      {this.id = 0,
-      required this.codeCommande,
-      required this.codeClient,
-      required this.date});
-
-  Map<String, dynamic> toMap() {
-    return {
-      'codeCommande': codeCommande,
-      'codeClient': codeClient,
-      'date': date,
-    };
-  }
-
-  factory Commande.fromJson(Map<String, dynamic> json) {
-    return Commande(
-      id: json['id'],
-      codeCommande: json['codeCommande'],
-      codeClient: json['codeClient'],
-      date: json['date'],
-    );
-  }
-}
-
-@Entity()
 class KeyUser {
   int id = 0;
 
@@ -227,6 +190,30 @@ class KeyUser {
       keySecret: Jwt.parseJwt(json['token'])['keySecret'],
       token: json['token'],
       refreshToken: json['refreshToken'],
+    );
+  }
+}
+
+@Entity()
+class LivraisonPosition {
+  int id = 0;
+
+  @Property()
+  int livraison_id;
+
+  LivraisonPosition({
+    required this.livraison_id,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'livraison_id': livraison_id,
+    };
+  }
+
+  factory LivraisonPosition.fromJson(Map<String, dynamic> json) {
+    return LivraisonPosition(
+      livraison_id: json['livraison_id'],
     );
   }
 }

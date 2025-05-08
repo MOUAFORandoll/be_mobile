@@ -17,6 +17,12 @@ class HomeEvent with _$HomeEvent {
       {required List<CategoryModel> categoryList}) = UpdateListCategory;
 
   const factory HomeEvent.getCategoryList() = GetCategoryList;
+  const factory HomeEvent.getService() = GetService;
 
-  const factory HomeEvent.openLivraisonModal() = OpenLivraisonModal;  
+  const factory HomeEvent.openLivraisonModal() = OpenLivraisonModal;
+
+  const factory HomeEvent.homeStateLivraison() = HomeStateLivraison;
+
+  const factory HomeEvent.findLivraisonById({required int idLivraison}) =
+      FindLivraisonById;
 }

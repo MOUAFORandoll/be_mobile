@@ -15,9 +15,9 @@ class _TownComponentState extends State<TownComponent> {
   Widget build(BuildContext context) {
     return Container(
         // height: getHeight(context) * .06,
-        margin: EdgeInsets.only(right: getWith(context) * .012),
+        margin: EdgeInsets.only(right: getWidth(context) * .012),
         padding: EdgeInsets.only(
-            right: getWith(context) * .012, left: getWith(context) * .012),
+            right: getWidth(context) * .012, left: getWidth(context) * .012),
         alignment: Alignment.center,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
         child: Text(widget.ville, style: TextStyle(color: ColorsApp.tird)));

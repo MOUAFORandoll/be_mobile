@@ -33,7 +33,7 @@ class _FormComponent2State extends State<FormComponent2> {
   Widget build(BuildContext context) {
     return Container(
         margin: widget.marginBool
-            ? EdgeInsets.only(left: kMarginLeft / 5, top: kMarginY / 1)
+            ? EdgeInsets.only(left: kMarginX / 5, top: kMarginY / 1)
             : EdgeInsets.all(0),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.start,

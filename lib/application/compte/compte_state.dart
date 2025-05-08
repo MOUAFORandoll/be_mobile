@@ -5,7 +5,7 @@ class CompteState with _$CompteState {
   const factory CompteState(
       {int? isLoadingDepot,
       int? isLoadingRetrait,
-      int? isLoadedTrans,
+      int? isLoadTrans,
       required TextEditingController montantTransaction,
       required TextEditingController phone,
       required TextEditingController password,
@@ -17,7 +17,7 @@ class CompteState with _$CompteState {
       phone: TextEditingController(),
       password: TextEditingController(),
       montantTransaction: TextEditingController(text: '500'),
-      isLoadedTrans: 0,
+      isLoadTrans: 0,
       isLoadingDepot: null,
       isLoadingRetrait: null,
       paiement_url: '',

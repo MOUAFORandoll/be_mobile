@@ -34,23 +34,20 @@ class _AppInputSecondState extends State<AppInputSecond> {
         autofocus: false,
         textAlign: TextAlign.center,
         controller: widget.controller,
-        style: const TextStyle(
-          fontWeight: FontWeight.w500,
-          fontSize: 12,
-          fontFamily: 'Lato',
-        ),
+        style: Theme.of(context).textTheme.bodySmall,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
           errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorsApp.red, width: 1),
+            borderSide: BorderSide(color: ColorsApp.red, width: .5),
             borderRadius: BorderRadius.circular(8),
           ),
           enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
-          border: OutlineInputBorder(borderSide: BorderSide.none, gapPadding:0),
+          border:
+              OutlineInputBorder(borderSide: BorderSide.none, gapPadding: 0),
           errorText: widget.errorText,
           errorStyle: TextStyle(
             fontSize: 8,
-            fontFamily: 'Lato',
+            color: ColorsApp.red,
           ),
         ),
         maxLength: widget.maxLength,

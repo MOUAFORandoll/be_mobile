@@ -12,7 +12,7 @@ part of 'compte_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CompteEvent {
@@ -85,6 +85,9 @@ class _$CompteEventCopyWithImpl<$Res, $Val extends CompteEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CompteEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -101,6 +104,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompteEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -217,6 +223,9 @@ class __$$HistoriqueTransactionImplCopyWithImpl<$Res>
   __$$HistoriqueTransactionImplCopyWithImpl(_$HistoriqueTransactionImpl _value,
       $Res Function(_$HistoriqueTransactionImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompteEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -333,6 +342,9 @@ class __$$CreditCompteImplCopyWithImpl<$Res>
   __$$CreditCompteImplCopyWithImpl(
       _$CreditCompteImpl _value, $Res Function(_$CreditCompteImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompteEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -448,6 +460,9 @@ class __$$RetraitCompteImplCopyWithImpl<$Res>
   __$$RetraitCompteImplCopyWithImpl(
       _$RetraitCompteImpl _value, $Res Function(_$RetraitCompteImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CompteEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -553,7 +568,7 @@ abstract class RetraitCompte implements CompteEvent {
 mixin _$CompteState {
   int? get isLoadingDepot => throw _privateConstructorUsedError;
   int? get isLoadingRetrait => throw _privateConstructorUsedError;
-  int? get isLoadedTrans => throw _privateConstructorUsedError;
+  int? get isLoadTrans => throw _privateConstructorUsedError;
   TextEditingController get montantTransaction =>
       throw _privateConstructorUsedError;
   TextEditingController get phone => throw _privateConstructorUsedError;
@@ -562,7 +577,9 @@ mixin _$CompteState {
       throw _privateConstructorUsedError; // TextEditingController? contactEmetteur,
   String? get paiement_url => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompteState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CompteStateCopyWith<CompteState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -576,7 +593,7 @@ abstract class $CompteStateCopyWith<$Res> {
   $Res call(
       {int? isLoadingDepot,
       int? isLoadingRetrait,
-      int? isLoadedTrans,
+      int? isLoadTrans,
       TextEditingController montantTransaction,
       TextEditingController phone,
       TextEditingController password,
@@ -594,12 +611,14 @@ class _$CompteStateCopyWithImpl<$Res, $Val extends CompteState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CompteState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isLoadingDepot = freezed,
     Object? isLoadingRetrait = freezed,
-    Object? isLoadedTrans = freezed,
+    Object? isLoadTrans = freezed,
     Object? montantTransaction = null,
     Object? phone = null,
     Object? password = null,
@@ -615,9 +634,9 @@ class _$CompteStateCopyWithImpl<$Res, $Val extends CompteState>
           ? _value.isLoadingRetrait
           : isLoadingRetrait // ignore: cast_nullable_to_non_nullable
               as int?,
-      isLoadedTrans: freezed == isLoadedTrans
-          ? _value.isLoadedTrans
-          : isLoadedTrans // ignore: cast_nullable_to_non_nullable
+      isLoadTrans: freezed == isLoadTrans
+          ? _value.isLoadTrans
+          : isLoadTrans // ignore: cast_nullable_to_non_nullable
               as int?,
       montantTransaction: null == montantTransaction
           ? _value.montantTransaction
@@ -654,7 +673,7 @@ abstract class _$$CompteStateImplCopyWith<$Res>
   $Res call(
       {int? isLoadingDepot,
       int? isLoadingRetrait,
-      int? isLoadedTrans,
+      int? isLoadTrans,
       TextEditingController montantTransaction,
       TextEditingController phone,
       TextEditingController password,
@@ -670,12 +689,14 @@ class __$$CompteStateImplCopyWithImpl<$Res>
       _$CompteStateImpl _value, $Res Function(_$CompteStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CompteState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? isLoadingDepot = freezed,
     Object? isLoadingRetrait = freezed,
-    Object? isLoadedTrans = freezed,
+    Object? isLoadTrans = freezed,
     Object? montantTransaction = null,
     Object? phone = null,
     Object? password = null,
@@ -691,9 +712,9 @@ class __$$CompteStateImplCopyWithImpl<$Res>
           ? _value.isLoadingRetrait
           : isLoadingRetrait // ignore: cast_nullable_to_non_nullable
               as int?,
-      isLoadedTrans: freezed == isLoadedTrans
-          ? _value.isLoadedTrans
-          : isLoadedTrans // ignore: cast_nullable_to_non_nullable
+      isLoadTrans: freezed == isLoadTrans
+          ? _value.isLoadTrans
+          : isLoadTrans // ignore: cast_nullable_to_non_nullable
               as int?,
       montantTransaction: null == montantTransaction
           ? _value.montantTransaction
@@ -725,7 +746,7 @@ class _$CompteStateImpl implements _CompteState {
   const _$CompteStateImpl(
       {this.isLoadingDepot,
       this.isLoadingRetrait,
-      this.isLoadedTrans,
+      this.isLoadTrans,
       required this.montantTransaction,
       required this.phone,
       required this.password,
@@ -738,7 +759,7 @@ class _$CompteStateImpl implements _CompteState {
   @override
   final int? isLoadingRetrait;
   @override
-  final int? isLoadedTrans;
+  final int? isLoadTrans;
   @override
   final TextEditingController montantTransaction;
   @override
@@ -761,7 +782,7 @@ class _$CompteStateImpl implements _CompteState {
 
   @override
   String toString() {
-    return 'CompteState(isLoadingDepot: $isLoadingDepot, isLoadingRetrait: $isLoadingRetrait, isLoadedTrans: $isLoadedTrans, montantTransaction: $montantTransaction, phone: $phone, password: $password, transactionList: $transactionList, paiement_url: $paiement_url)';
+    return 'CompteState(isLoadingDepot: $isLoadingDepot, isLoadingRetrait: $isLoadingRetrait, isLoadTrans: $isLoadTrans, montantTransaction: $montantTransaction, phone: $phone, password: $password, transactionList: $transactionList, paiement_url: $paiement_url)';
   }
 
   @override
@@ -773,8 +794,8 @@ class _$CompteStateImpl implements _CompteState {
                 other.isLoadingDepot == isLoadingDepot) &&
             (identical(other.isLoadingRetrait, isLoadingRetrait) ||
                 other.isLoadingRetrait == isLoadingRetrait) &&
-            (identical(other.isLoadedTrans, isLoadedTrans) ||
-                other.isLoadedTrans == isLoadedTrans) &&
+            (identical(other.isLoadTrans, isLoadTrans) ||
+                other.isLoadTrans == isLoadTrans) &&
             (identical(other.montantTransaction, montantTransaction) ||
                 other.montantTransaction == montantTransaction) &&
             (identical(other.phone, phone) || other.phone == phone) &&
@@ -791,14 +812,16 @@ class _$CompteStateImpl implements _CompteState {
       runtimeType,
       isLoadingDepot,
       isLoadingRetrait,
-      isLoadedTrans,
+      isLoadTrans,
       montantTransaction,
       phone,
       password,
       const DeepCollectionEquality().hash(_transactionList),
       paiement_url);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CompteState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CompteStateImplCopyWith<_$CompteStateImpl> get copyWith =>
@@ -809,7 +832,7 @@ abstract class _CompteState implements CompteState {
   const factory _CompteState(
       {final int? isLoadingDepot,
       final int? isLoadingRetrait,
-      final int? isLoadedTrans,
+      final int? isLoadTrans,
       required final TextEditingController montantTransaction,
       required final TextEditingController phone,
       required final TextEditingController password,
@@ -821,7 +844,7 @@ abstract class _CompteState implements CompteState {
   @override
   int? get isLoadingRetrait;
   @override
-  int? get isLoadedTrans;
+  int? get isLoadTrans;
   @override
   TextEditingController get montantTransaction;
   @override
@@ -829,11 +852,15 @@ abstract class _CompteState implements CompteState {
   @override
   TextEditingController get password;
   @override
-  List<TransactionModel>? get transactionList;
-  @override // TextEditingController? contactEmetteur,
-  String? get paiement_url;
+  List<TransactionModel>?
+      get transactionList; // TextEditingController? contactEmetteur,
   @override
-  @JsonKey(ignore: true)
+  String? get paiement_url;
+
+  /// Create a copy of CompteState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CompteStateImplCopyWith<_$CompteStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

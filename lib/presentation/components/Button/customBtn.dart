@@ -10,7 +10,7 @@ class CustomBtn extends StatelessWidget {
     return InkWell(
         onTap: onTap,
         child: Container(
-            width: getWith(context) * .95,
+            width: getWidth(context) * .95,
             padding: EdgeInsets.all(13),
             // margin: EdgeInsets.all(10),
             decoration: new BoxDecoration(
@@ -20,7 +20,7 @@ class CustomBtn extends StatelessWidget {
             child: ((validator == null) ? false : validator)
                 ? Center(
                     child: CircularProgressIndicator(
-                      color: ColorsApp.second,
+                      color: ThemeApp.second,
                     ),
                   )
                 : smallText(text: title)));

@@ -1,11 +1,10 @@
-import 'package:BabanaExpress/presentation/user/ForgotPasswordPage.dart';
-import 'package:BabanaExpress/presentation/user/RegisterPage.dart';
+import 'package:BabanaExpress/presentation/user/forgot_password_page.dart';
+import 'package:BabanaExpress/presentation/user/register_page.dart';
 import 'package:BabanaExpress/utils/Services/validators.dart';
 import 'package:BabanaExpress/application/export_bloc.dart';
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
 import 'package:BabanaExpress/core.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
 
 @RoutePage()
 class UserInfoPage extends StatefulWidget {
@@ -26,25 +25,18 @@ class _UserInfoPageState extends State<UserInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'logbtn'.tr(),
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.w700,
-          ),
+        appBar: AppBarCustom(
+          title: 'logbtn'.tr(),
         ),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
-      body: BlocConsumer<UserBloc, UserState>(
+        body:
+            Container() /*  BlocConsumer<UserBloc, UserState>(
         listener: (context, state) {
           if (state.isLoading == 1) {
             EasyLoading.show(
+                indicator: CircularProgressIndicator(
+                  color: ThemeApp.second,
+                ),
                 dismissOnTap: true,
-                status: 'En cours',
                 maskType: EasyLoadingMaskType.black);
           } else if (state.isLoading == 3) {
             EasyLoading.dismiss();
@@ -126,17 +118,13 @@ class _UserInfoPageState extends State<UserInfoPage> {
                                               ForgotPasswordPage.routeName),
                                       child: Text('forgotpass'.tr(),
                                           style: TextStyle(
-                                            fontFamily: 'Lato',
-                                            color: ColorsApp.second,
+                                            color: ThemeApp.second,
                                           )),
                                     )
                                   ],
                                 ),
                               ),
                               AppButton(
-                                  size: MainAxisSize.max,
-                                  // loading: _userState.isLoading,
-                                  // bgColor: ColorsApp.primary,
                                   text: 'logbtn'.tr(),
                                   onTap: () async {
                                     print({
@@ -145,10 +133,9 @@ class _UserInfoPageState extends State<UserInfoPage> {
                                     });
 
                                     if (formKey.currentState!.validate()) {
-                                      context.read<UserBloc>().add(SignInEvent(
-                                            password: password.text,
-                                            phone: phone.text,
-                                          ));
+                                      context
+                                          .read<UserBloc>()
+                                          .add(SignInEvent());
                                     }
                                   }),
                               InkWell(
@@ -162,12 +149,11 @@ class _UserInfoPageState extends State<UserInfoPage> {
                                       children: [
                                         Text('regbtn'.tr(),
                                             style: TextStyle(
-                                                fontFamily: 'Lato',
-                                                color: ColorsApp.second,
+                                                color: ThemeApp.second,
                                                 fontSize: 15)),
                                         Icon(
                                           Icons.keyboard_arrow_right_outlined,
-                                          color: ColorsApp.second,
+                                          color: ThemeApp.second,
                                         )
                                       ],
                                     ),
@@ -179,7 +165,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
             ),
           );
         },
-      ),
-    );
+      ), */
+        );
   }
 }

@@ -10,20 +10,21 @@ class AppInput extends StatefulWidget {
   final bool obscureText;
   final TextInputType? textInputType;
   final Icon? icon;
-  final prefix;
-  const AppInput(
-      {Key? key,
-      required this.controller,
-      this.label,
-      this.validator,
-      this.placeholder = '',
-      this.errorText,
-      this.onChanged,
-      this.obscureText = false,
-      this.textInputType,
-      this.prefix,
-      this.icon})
-      : super(key: key);
+  final Widget? prefix;
+
+  const AppInput({
+    Key? key,
+    required this.controller,
+    this.label,
+    this.validator,
+    this.placeholder = '',
+    this.errorText,
+    this.onChanged,
+    this.obscureText = false,
+    this.textInputType,
+    this.prefix,
+    this.icon,
+  }) : super(key: key);
 
   @override
   State<AppInput> createState() => _AppInputState();
@@ -31,87 +32,87 @@ class AppInput extends StatefulWidget {
 
 class _AppInputState extends State<AppInput> {
   bool isVisible = false;
+  bool isFocused = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        alignment: Alignment.center,
-        margin: EdgeInsets.symmetric(
-          horizontal: kMarginX,
-        ).add(EdgeInsets.only(
-          top: kMarginY,
-        )),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-                margin: EdgeInsets.only(
-                  bottom: kMarginY,
-                ),
-                child: Text(
-                  widget.placeholder,
-                  style: TextStyle(
-                    color: ColorsApp.black.withOpacity(.3),
-                    fontSize: 12,
-                    fontFamily: 'Lato',
-                  ),
-                )),
-            TextFormField(
-              cursorColor: ColorsApp.tird, autofocus: false,
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+              bottom: kMarginY,
+            ),
+            child: Text(
+              widget.label ?? '',
+              style: TextStyle(
+                color: ColorsApp.black.withOpacity(.3),
+                fontSize: 12,
+              ),
+            ),
+          ),
+          Focus(
+            onFocusChange: (focus) {
+              setState(() {
+                isFocused = focus;
+              });
+            },
+            child: TextFormField(
+              cursorColor: ThemeApp.second,
+              autofocus: false,
               controller: widget.controller,
               style: TextStyle(
                 fontWeight: FontWeight.w500,
-                // color: ColorsApp.tird,
                 fontSize: 12,
-                fontFamily: 'Lato',
               ),
-
-              // maxLength: widget.maxLength,
               onChanged: widget.onChanged,
-
               decoration: InputDecoration(
-                  fillColor: ColorsApp.primary.withOpacity(0.3),
-                  focusColor: ColorsApp.primary.withOpacity(0.3),
-                  hoverColor: ColorsApp.primary.withOpacity(0.3),
-                  // label: Text(widget.placeholder!),
-                  contentPadding: EdgeInsets.all(15),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.primary, width: 1),
-                    borderRadius: BorderRadius.circular(15),
+                fillColor: Colors.grey.shade200,
+                filled: true,
+                contentPadding: EdgeInsets.all(15),
+                focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: ColorsApp.disabledGrey, width: .4),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: ColorsApp.red, width: .5),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: ColorsApp.disabledGrey,
+                    width: .5,
                   ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.red, width: 1),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.grey, width: 1),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  errorText: widget.errorText,
-                  errorStyle: TextStyle(
-                    fontFamily: 'Lato',
-                    color: ColorsApp.red,
-                  ),
-                  prefixIcon: widget.prefix,
-                  hintText: widget.textInputType == TextInputType.phone
-                      ? 'Entrer des chiffres'
-                      : 'Entrer du texte',
-                  // widget.placeholder,
-                  hintStyle: TextStyle(
-                    color: ColorsApp.black.withOpacity(.3),
-                    fontSize: 12,
-                    fontFamily: 'Lato',
-                  ),
-                  suffixIcon: widget.icon),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                errorText: widget.errorText,
+                errorStyle: TextStyle(
+                  fontSize: 8,
+                  color: ColorsApp.red,
+                ),
+                prefixIcon: widget.prefix,
+                hintText: widget.placeholder,
+                hintStyle: TextStyle(
+                  color: ColorsApp.black.withOpacity(.3),
+                  fontSize: 12,
+                ),
+                suffixIcon: widget.icon,
+              ),
               validator: widget.validator,
-              obscureText: isVisible,
+              obscureText: widget.obscureText,
               keyboardType: widget.textInputType,
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -123,13 +124,13 @@ class AppInputPassword extends StatefulWidget {
   final String placeholder;
   final ValueChanged<String>? onChanged;
   final bool obscureText;
-  // final bool valid;
+  final String? label;
   final TextInputType? textInputType;
   const AppInputPassword({
     Key? key,
     required this.controller,
     this.validator,
-    // this.valid = false,
+    this.label ,
     this.placeholder = '',
     this.errorText,
     this.onChanged,
@@ -142,6 +143,7 @@ class AppInputPassword extends StatefulWidget {
 }
 
 class _AppInputPasswordState extends State<AppInputPassword> {
+  bool isFocused = false;
   bool isVisible = true;
   @override
   Widget build(BuildContext context) {
@@ -162,78 +164,85 @@ class _AppInputPasswordState extends State<AppInputPassword> {
                   bottom: kMarginY,
                 ),
                 child: Text(
-                  widget.placeholder,
+                  widget.label ?? '',
                   style: TextStyle(
                     color: ColorsApp.black.withOpacity(.3),
                     fontSize: 12,
-                    fontFamily: 'Lato',
                   ),
                 )),
-            TextFormField(
-              autofocus: false,
-              controller: widget.controller,
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                // color: ColorsApp.tird,
-                fontSize: 12,
-                fontFamily: 'Lato',
-              ),
-              cursorColor: ColorsApp.tird,
-              // maxLength: widget.maxLength,
-              onChanged: widget.onChanged,
+            Focus(
+              onFocusChange: (focus) {
+                setState(() {
+                  isFocused = focus;
+                });
+              },
+              child: TextFormField(
+                cursorColor: ThemeApp.second,
+                autofocus: false,
+                controller: widget.controller,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  // color: ColorsApp.tird,
+                  fontSize: 12,
+                ),
+                // maxLength: widget.maxLength,
+                onChanged: widget.onChanged,
 
-              decoration: InputDecoration(
-                  fillColor: ColorsApp.primary.withOpacity(0.3),
-                  focusColor: ColorsApp.primary.withOpacity(0.3),
-                  hoverColor: ColorsApp.primary.withOpacity(0.3),
-                  // label: Text(widget.placeholder),
-                  contentPadding: EdgeInsets.all(15),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.primary, width: 1),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.red, width: 1),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorsApp.grey, width: 1),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  // errorText: widget.errorText,
-                  errorStyle: TextStyle(
-                    fontFamily: 'Lato',
-                    color: ColorsApp.red,
-                  ),
-                  hintText: 'Entrer du texte',
-                  /*  widget.placeholder, */
-                  hintStyle: TextStyle(
-                    color: ColorsApp.black.withOpacity(.3),
-                    fontSize: 12,
-                    fontFamily: 'Lato',
-                  ),
-                  suffixIcon: widget.obscureText == true
-                      ? IconButton(
-                          onPressed: () {
-                            setState(() {
-                              isVisible = !isVisible;
-                            });
-                          },
-                          icon: Icon(
-                              isVisible
-                                  ? Icons.remove_red_eye
-                                  : FontAwesomeIcons.eyeSlash,
-                              size: isVisible ? 22 : 19
-                              /*     */
-                              ),
-                        )
-                      : null),
-              validator: widget.validator,
-              obscureText: isVisible,
-              keyboardType: widget.textInputType,
+                decoration: InputDecoration(
+                    fillColor:
+                        isFocused ? Colors.grey.shade200 : Colors.grey.shade200,
+                    filled: true,
+                    contentPadding: EdgeInsets.all(15),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color:
+                              isFocused ? ColorsApp.primary : ColorsApp.white,
+                          width: .4),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: ColorsApp.red, width: .5),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: isFocused ? ColorsApp.grey : Colors.transparent,
+                        width: .5,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    errorStyle: TextStyle(
+                      fontSize: 8,
+                      color: ColorsApp.red,
+                    ),
+                    hintText: widget.placeholder,
+                    hintStyle: TextStyle(
+                      color: ColorsApp.black.withOpacity(.3),
+                      fontSize: 12,
+                    ),
+                    suffixIcon: widget.obscureText == true
+                        ? IconButton(
+                            onPressed: () {
+                              setState(() {
+                                isVisible = !isVisible;
+                              });
+                            },
+                            icon: Icon(
+                                isVisible
+                                    ? Icons.remove_red_eye
+                                    : FontAwesomeIcons.eyeSlash,
+                                size: isVisible ? 22 : 19
+                                /*     */
+                                ),
+                          )
+                        : null),
+                validator: widget.validator,
+                obscureText: isVisible,
+                keyboardType: widget.textInputType,
+              ),
             ),
           ],
         ),

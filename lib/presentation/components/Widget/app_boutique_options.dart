@@ -2,7 +2,8 @@
 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'icon_svg.dart';
 
 // ignore: must_be_immutable
@@ -60,18 +61,17 @@ class AppBoutiqueOption extends StatelessWidget {
                                           : Assets.setting)),
               Container(
                 // height: getHeight(context),
-                // width: getWith(context),
+                // width: getWidth(context),
                 // decoration: BoxDecoration(
                 //   color: ColorsApp.tird,
                 // ),
                 margin: EdgeInsets.symmetric(
                   vertical: kMarginY,
                 ),
-                child: Text(title,
-                    style: TextStyle(
-                        fontFamily: 'Lato',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 12)),
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
               ),
             ],
           ),

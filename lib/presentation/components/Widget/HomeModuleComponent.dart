@@ -28,29 +28,23 @@ class HomeModuleComponent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: getWith(context) * .55,
+            width: getWidth(context) * .55,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  width: getWith(context) * .55,
+                  width: getWidth(context) * .55,
                   child: Text(
                     title,
                     maxLines: 4,
-                    style: TextStyle(
-                      fontFamily: 'Lato',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: kMarginY),
-                  width: getWith(context) * .5,
+                  width: getWidth(context) * .5,
                   child: AppButton(
-                    size: MainAxisSize.max,
-                    bgColor: ColorsApp.primary,
                     text: titleBtn,
                     onTap: onTap,
                   ),
@@ -59,7 +53,7 @@ class HomeModuleComponent extends StatelessWidget {
             ),
           ),
           Container(
-            width: getWith(context) * .3,
+            width: getWidth(context) * .3,
             height: 150,
             decoration: BoxDecoration(
               image: DecorationImage(

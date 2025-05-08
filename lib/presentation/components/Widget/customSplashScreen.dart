@@ -33,9 +33,11 @@ class NewSplashScreen extends StatelessWidget {
                   new Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                   ),
-                  Text(this.title,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.w600))
+                  Text(
+                    this.title,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  )
                 ],
               )),
             ),
@@ -45,7 +47,7 @@ class NewSplashScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   CircularProgressIndicator(
-                    color: ColorsApp.second,
+                    color: ThemeApp.second,
                     valueColor: new AlwaysStoppedAnimation<Color>(
                         (this.loaderColor == null)
                             ? Colors.blueAccent

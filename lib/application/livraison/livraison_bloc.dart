@@ -1,8 +1,12 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:BabanaExpress/application/database/database_cubit.dart';
 import 'package:BabanaExpress/application/livraison/repositories/livraisonRepo.dart';
+import 'package:BabanaExpress/application/model/data/ConversationColisModel.dart';
+import 'package:BabanaExpress/application/model/data/CurrentLivraisonPositionModel.dart';
+import 'package:BabanaExpress/application/model/data/LivreurLivraisonPositionModel.dart';
 import 'package:BabanaExpress/application/model/data/MapPlaceInfoModel.dart';
 import 'package:BabanaExpress/application/model/data/PlaceModel.dart';
 import 'package:BabanaExpress/application/model/exportmodel.dart';
@@ -31,14 +35,15 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       var user = database.getUser();
       if (user != null) {
         emit(state.copyWith(
-            contactEmetteur: TextEditingController(text: user.phone)));
+            contactEmetteur: TextEditingController(text: user.phone),
+            contactRecepteur: TextEditingController(text: user.phone)));
       }
     });
-    on<BackIndexEvent>((event, emit) async {
+    on<BackIndexType1Event>((event, emit) async {
       print('BackIndexEvent');
-      emit(state.copyWith(index: 0));
+      emit(state.copyWith(indexType1: 0));
     });
-    on<VerifyFormLivraisonEvent>((event, emit) async {
+    on<VerifyFormLivraisonType1Event>((event, emit) async {
       // emit(state.copyWith(
       //     index: 1, errorVille: false, errorPointRecuperation: false));
       if (state.selectedVIlle == null) {
@@ -61,7 +66,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
             state.libelle!.text.length != 0 */
             ) {
           emit(state.copyWith(
-              index: 1, errorVille: false, errorPointRecuperation: false));
+              indexType1: 1, errorVille: false, errorPointRecuperation: false));
         }
       }
     });
@@ -70,6 +75,11 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<SelectedVille>((event, emit) async {
       emit(state.copyWith(
         selectedVIlle: event.ville,
+      ));
+    });
+    on<SelectService>((event, emit) async {
+      emit(state.copyWith(
+        selectedService: event.service,
       ));
     });
     on<SetLogLat>(_setLongLat);
@@ -83,7 +93,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
     // Gestion de Colis
 
-    on<AddColis>(addColis);
+    on<AddColisType1>(addColisType1);
     on<GetImageColisAppareil>(getImageColisAppareil);
     on<GetImageColisGalerie>(getImageColisGalerie);
     on<UpdateColis>(updateColis);
@@ -98,15 +108,42 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     on<ClearPointLivraison>(clearPointLivraison);
 
     on<ManageQte>(_mamageQte);
-    on<CalculFrais>(_calculFraisDeLivraison);
-
-    on<NewLivraison>(_newLivraison);
+    on<CalculFraisType1>(_calculFraisType1);
+    on<NewLivraisonType1>(_newLivraisonType1);
     on<HistoriqueUserLivraison>(_getLivraisonUser);
     on<DownloadFacture>(_downloadFacture);
     on<GetMapPlaceInfo>(getMapPlaceInfo);
     on<OnAutoComplet>(onAutoComplet);
-    on<GetPlaceData>(ongetPlaceData);
+    on<GetPlaceDataRecuperation>(getPlaceDataRecuperation);
     on<SelectModePaiement>(selectModePaiement);
+    on<GetConversationColis>(getConversationColis);
+    on<BackIndexType2Event>((event, emit) async {
+      print('BackIndexEvent');
+      emit(state.copyWith(indexType2: 0));
+    });
+
+    on<VerifyFormLivraisonType2Event>(_verifyFormLivraisonType2Event);
+    on<CalculFraisType2>(_calculFraisType2);
+
+    on<AddColisType2>(addColisType2);
+    on<NewLivraisonType2>(_newLivraisonType2);
+    on<VerifyLivraisonState>(verifyLivraisonState);
+
+    on<UpdatePositionLivraisonLivreur>(updatePositionLivraisonLivreur);
+    on<Started>(started);
+    on<CurrentUserStateLivraison>(currentUserStateLivraison);
+    on<LoadPlaceInfoRecuperation>(loadPlaceInfoRecuperation);
+    on<LoadPlaceInfoLivraison>(loadPlaceInfoLivraison);
+    on<GetPlaceDataLivraison>(getPlaceDataLivraison);
+  }
+
+  Future<void> _verifyFormLivraisonType2Event(
+      VerifyFormLivraisonType2Event event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(
+      indexType2: 1,
+    ));
+    add(AddColisType2());
+    print(state.listColis!.length.toString());
   }
 
   Future<void> selectModePaiement(
@@ -114,8 +151,8 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     emit(state.copyWith(selectedModePaiement: event.modePaiement));
   }
 
-  Future<void> ongetPlaceData(
-      GetPlaceData event, Emitter<LivraisonState> emit) async {
+  Future<void> getPlaceDataRecuperation(
+      GetPlaceDataRecuperation event, Emitter<LivraisonState> emit) async {
     emit(state.copyWith(isLoadingPlaceSearchInfo: 0));
 
     await livraisonRepo
@@ -125,6 +162,8 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       if (response.data != null) {
         emit(state.copyWith(
             isLoadingPlaceSearchInfo: 1,
+            selected_recuperation_point:
+                PointLivraisonModel.fromJson(response.data),
             findedPlaceInfo:
                 LatLng(response.data['latitude'], response.data['longitude'])));
         emit(state.copyWith(
@@ -132,9 +171,47 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         ));
       } else {
         emit(state.copyWith(isLoadingPlaceSearchInfo: 2));
+        emit(state.copyWith(
+          isLoadingPlaceSearchInfo: null,
+        ));
       }
     }).onError((e, s) {
       emit(state.copyWith(isLoadingPlaceSearchInfo: 2));
+      emit(state.copyWith(
+        isLoadingPlaceSearchInfo: null,
+      ));
+    });
+  }
+
+  Future<void> getPlaceDataLivraison(
+      GetPlaceDataLivraison event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isLoadingPlaceSearchInfo: 0));
+
+    await livraisonRepo
+        .searchMapPlaceInfo(event.place.libelle, event.place.type)
+        .then((response) {
+      print(response.data);
+      if (response.data != null) {
+        emit(state.copyWith(
+            isLoadingPlaceSearchInfo: 1,
+            selected_recuperation_point:
+                PointLivraisonModel.fromJson(response.data),
+            findedPlaceInfo:
+                LatLng(response.data['latitude'], response.data['longitude'])));
+        emit(state.copyWith(
+          isLoadingPlaceSearchInfo: null,
+        ));
+      } else {
+        emit(state.copyWith(isLoadingPlaceSearchInfo: 2));
+        emit(state.copyWith(
+          isLoadingPlaceSearchInfo: null,
+        ));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(isLoadingPlaceSearchInfo: 2));
+      emit(state.copyWith(
+        isLoadingPlaceSearchInfo: null,
+      ));
     });
   }
 
@@ -164,7 +241,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
   Future<void> getMapPlaceInfo(
       GetMapPlaceInfo event, Emitter<LivraisonState> emit) async {
-    emit(state.copyWith(loadingMapPlaceInfo: 0));
+    emit(state.copyWith(loadingMapPlaceInfo: 0, mapPlaceInfo: null));
 
     await livraisonRepo
         .getMapPlaceInfo(state.position!.longitude, state.position!.latitude)
@@ -174,7 +251,86 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         emit(state.copyWith(
             loadingMapPlaceInfo: 1,
             mapPlaceInfo: MapPlaceInfoModel.fromJson(response.data)));
-        emit(state.copyWith(loadingMapPlaceInfo: null));
+        emit(state.copyWith(
+            loadingMapPlaceInfo: null,
+            // libelleLocalisationRecuperation:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierRecuperation:
+                TextEditingController(text: state.mapPlaceInfo!.quartier),
+            // libelleLocalisationLivraison:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierLivraison:
+                TextEditingController(text: state.mapPlaceInfo!.quartier)));
+      } else {
+        emit(state.copyWith(loadingMapPlaceInfo: 2));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(loadingMapPlaceInfo: 2));
+    });
+  }
+
+  Future<void> loadPlaceInfoRecuperation(
+      LoadPlaceInfoRecuperation event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isLoadEmplacementInfo: 0, mapPlaceInfo: null));
+
+    await livraisonRepo
+        .getMapPlaceInfo(event.latLng.longitude, event.latLng.latitude)
+        .then((response) {
+      print(response.data);
+      if (response.data != null) {
+        emit(state.copyWith(
+          isLoadEmplacementInfo: 1,
+          selected_recuperation_point:
+              PointLivraisonModel.fromJson(response.data).copyWith(
+            longitude: state.position!.longitude,
+            latitude: state.position!.latitude,
+          ),
+        ));
+        emit(state.copyWith(
+            isLoadEmplacementInfo: null,
+            // libelleLocalisationRecuperation:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierRecuperation:
+                TextEditingController(text: state.mapPlaceInfo!.quartier),
+            // libelleLocalisationLivraison:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierLivraison:
+                TextEditingController(text: state.mapPlaceInfo!.quartier)));
+      } else {
+        emit(state.copyWith(loadingMapPlaceInfo: 2));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(loadingMapPlaceInfo: 2));
+    });
+  }
+
+  Future<void> loadPlaceInfoLivraison(
+      LoadPlaceInfoLivraison event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isLoadEmplacementInfo: 0, mapPlaceInfo: null));
+
+    await livraisonRepo
+        .getMapPlaceInfo(event.latLng.longitude, event.latLng.latitude)
+        .then((response) {
+      print(response.data);
+      if (response.data != null) {
+        emit(state.copyWith(
+          isLoadEmplacementInfo: 1,
+          selected_livraison_point:
+              PointLivraisonModel.fromJson(response.data).copyWith(
+            longitude: state.position!.longitude,
+            latitude: state.position!.latitude,
+          ),
+        ));
+        emit(state.copyWith(
+            isLoadEmplacementInfo: null,
+            // libelleLocalisationRecuperation:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierRecuperation:
+                TextEditingController(text: state.mapPlaceInfo!.quartier),
+            // libelleLocalisationLivraison:
+            //     TextEditingController(text: state.mapPlaceInfo!.ville),
+            quartierLivraison:
+                TextEditingController(text: state.mapPlaceInfo!.quartier)));
       } else {
         emit(state.copyWith(loadingMapPlaceInfo: 2));
       }
@@ -233,7 +389,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         ville: state.selectedVIlle!.libelle,
         longitude: state.position!.longitude,
         latitude: state.position!.latitude);
-
+    print('-------${state.position!.longitude}');
     emit(state.copyWith(
       selected_livraison_point: _point,
       errorVille: false,
@@ -291,16 +447,19 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
   Future<void> _getVilleAndCategory(
       GetVilleAndCategoryEvent event, Emitter<LivraisonState> emit) async {
     emit(state.copyWith(
-      isLoadedVille: 0,
-      isLoadedVCategory: 0,
-    ));
+        selected_recuperation_point: null,
+        isLoadVille: 0,
+        isLoadVCategory: 0,
+        villeList: [],
+        list_localisation_point: [],
+        selectedVIlle: null));
     try {
       print('debut get ville event');
       Response response = await livraisonRepo.getVille();
       if (response.data != null) {
         if (response.data['data'].length != 0) {
           emit(state.copyWith(
-              isLoadedVille: 1,
+              isLoadVille: 1,
               villeList: (response.data['data'] as List)
                   .map((e) => VilleModel.fromJson(e))
                   .toList()));
@@ -308,7 +467,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
           print(state.villeList!.length);
         } else {
           emit(state.copyWith(
-            isLoadedVille: 2,
+            isLoadVille: 2,
           ));
         }
       }
@@ -316,7 +475,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       if (response0.data != null) {
         if (response0.data['data'].length != 0) {
           emit(state.copyWith(
-              isLoadedVCategory: 1,
+              isLoadVCategory: 1,
               list_category_colis: (response0.data['data'] as List)
                   .map((e) => CategoryModel.fromJson(e))
                   .toList()));
@@ -325,8 +484,8 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       }
     } catch (e) {
       emit(state.copyWith(
-        isLoadedVille: 2,
-        isLoadedVCategory: 2,
+        isLoadVille: 2,
+        isLoadVCategory: 2,
       ));
     }
   }
@@ -335,7 +494,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       GetRecupPointEvent event, Emitter<LivraisonState> emit) async {
     try {
       emit(state.copyWith(
-        isLoadedPLivraison: 0,
+        isLoadPLivraison: 0,
       ));
       print('debut get getLivraisonPointByVille event');
       Response response =
@@ -343,20 +502,20 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       if (response.data != null) {
         if (response.data['data'].length != 0) {
           emit(state.copyWith(
-              isLoadedPLivraison: 1,
+              isLoadPLivraison: 1,
               selected_recuperation_point: null,
               list_localisation_point: (response.data['data'] as List)
                   .map((e) => PointLivraisonModel.fromJson(e))
                   .toList()));
         } else {
           emit(state.copyWith(
-            isLoadedPLivraison: 2,
+            isLoadPLivraison: 2,
           ));
         }
       }
     } catch (e) {
       emit(state.copyWith(
-        isLoadedPLivraison: 2,
+        isLoadPLivraison: 2,
       ));
     }
   }
@@ -578,7 +737,8 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     }
   }
 
-  Future<void> addColis(AddColis event, Emitter<LivraisonState> emit) async {
+  Future<void> addColisType1(
+      AddColisType1 event, Emitter<LivraisonState> emit) async {
     bool isOk = true;
     if (state.categoryColis == null) {
       emit(state.copyWith(errorCategory: true, isColisOK: false));
@@ -602,60 +762,65 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       emit(state.copyWith(errorImage: false, isColisOK: true));
       isOk = true;
     }
-    if (state.formKeyColis!.currentState!.validate()) {
-      if (isOk) {
-        List<MultipartFile> imageFiles = [];
 
-        for (int j = 0; j < state.imageColis!.length; j++) {
-          File imageFile = state.imageColis![j];
-          imageFiles.add(await MultipartFile.fromFile(
-            imageFile.path,
-            filename: 'Image$j.jpg',
-          ));
-        }
+    // if (state.formKeyColis!.currentState!.validate()) {
+    log('====================================');
+    log(state.isColisOK.toString());
+    log('====================================');
 
-        Colis newColis = Colis(
-          id: state.idColis!,
-          nom: state.nomColis!.text,
-          quantite: state.quantiteColis!.text,
-          contactRecepteur: state.contactRecepteur!.text,
-          valeurColis: state.valeurColis!.text,
-          category: state.categoryColis!.id!,
-          libelleLocalisation: state.selected_livraison_point!.libelle,
-          quartier: state.selected_livraison_point!.quartier,
-          longitude: state.selected_livraison_point!.longitude,
-          latitude: state.selected_livraison_point!.latitude,
-          idPointLivraisonColis: state.selected_livraison_point != null
-              ? state.selected_livraison_point!.id
-              : 0,
-          listImgColis: state.imageColis!,
-          countImage: state.imageColis!.length,
-        );
-        final listColis = [...state.listColis!, newColis];
-        final newState = state.copyWith(
-            idColis: state.idColis! + 1,
-            listColis: listColis); // Update other properties
-        emit(newState);
-        emit(state.copyWith(
-          // isMapSelectedPointLivraison: false,
-          errorImage: false,
-          isDownloadFacture: 0,
-          isRequest: 0,
-          urlFacture: '',
-          frais: 0,
-          errorQte: false,
-          errorCategory: false,
-          errorPointLivraison: false,
-          // index: 0,
-          imageColis: [],
-          phone: TextEditingController(),
-          nomColis: TextEditingController(),
-          quantiteColis: TextEditingController(text: '1'),
-          contactRecepteur: TextEditingController(),
-          valeurColis: TextEditingController(),
+    if (isOk) {
+      List<MultipartFile> imageFiles = [];
+
+      for (int j = 0; j < state.imageColis!.length; j++) {
+        File imageFile = state.imageColis![j];
+        imageFiles.add(await MultipartFile.fromFile(
+          imageFile.path,
+          filename: 'Image$j.jpg',
         ));
       }
+      print(state.selected_livraison_point!.toJson());
+      Colis newColis = Colis(
+        id: state.idColis!,
+        nom: state.nomColis!.text,
+        quantite: state.quantiteColis!.text,
+        contactRecepteur: state.contactRecepteur!.text,
+        valeurColis: state.valeurColis!.text,
+        category: state.categoryColis!.id!,
+        libelleLocalisation: state.selected_livraison_point!.libelle,
+        quartier: state.selected_livraison_point!.quartier,
+        longitude: state.selected_livraison_point!.longitude,
+        latitude: state.selected_livraison_point!.latitude,
+        idPointLivraisonColis: state.selected_livraison_point != null
+            ? state.selected_livraison_point!.id
+            : 0,
+        listImgColis: state.imageColis!,
+        countImage: state.imageColis!.length,
+      );
+      final listColis = [...state.listColis!, newColis];
+      final newState = state.copyWith(
+          idColis: state.idColis! + 1,
+          listColis: listColis); // Update other properties
+      emit(newState);
+      emit(state.copyWith(
+        // isMapSelectedPointLivraison: false,
+        errorImage: false,
+        isDownloadFacture: null,
+        isRequest: 0,
+        urlFacture: '',
+        frais: 0,
+        errorQte: false,
+        errorCategory: false,
+        errorPointLivraison: false,
+        // index: 0,
+        imageColis: [],
+        phone: TextEditingController(),
+        nomColis: TextEditingController(),
+        quantiteColis: TextEditingController(text: '1'),
+        contactRecepteur: TextEditingController(),
+        valeurColis: TextEditingController(),
+      ));
     }
+    // }
   }
 
   Future<void> _selectCategory(
@@ -697,8 +862,8 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     ));
   }
 
-  Future<void> _calculFraisDeLivraison(
-      CalculFrais event, Emitter<LivraisonState> emit) async {
+  Future<void> _calculFraisType1(
+      CalculFraisType1 event, Emitter<LivraisonState> emit) async {
     var data = {
       'service': 1,
       'description': 'description.text',
@@ -717,7 +882,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
 
         emit(state.copyWith(
             isRequest: 2, frais: double.parse(response.data['frais'])));
-        emit(state.copyWith(isRequest: null));
+        emit(state.copyWith(isRequest: null, errorMessage: ''));
       } else {
         emit(state.copyWith(isRequest: 3));
         // fn.snackBar('Calcul des frais', response.body['message'], false);
@@ -732,14 +897,14 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     });
   }
 
-  Future<void> _newLivraison(
-      NewLivraison event, Emitter<LivraisonState> emit) async {
+  Future<void> _newLivraisonType1(
+      NewLivraisonType1 event, Emitter<LivraisonState> emit) async {
     emit(state.copyWith(isRequest: 0));
     emit(state.copyWith(isRequest: 4));
     print(' emit(state.copyWith(isRequest: -----000---------5))');
 
     var data = await createFormData();
-    await livraisonRepo.newLivraison(data).then((response) {
+    await livraisonRepo.newLivraisonType1(data).then((response) {
       emit(state.copyWith(paiement_url: ''));
 
       if (response.statusCode == 201) {
@@ -747,16 +912,20 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
             ' emit(state.copyWith(isRequest: -------${response.statusCode}-------5))');
         print(response.data['paiement_url']);
         if (response.data != null) {
+          emit(state.copyWith(
+            currentLivraisonId: response.data['livraisonId'],
+          ));
+
           if (state.selectedModePaiement!.id == 1) {
             emit(state.copyWith(
                 isRequest: 5,
-                isDownloadFacture: 0,
+            
                 paiement_url: response.data['paiement_url']));
           }
           if (state.selectedModePaiement!.id == 2) {
-            emit(state.copyWith(
-                isRequest: 5, isDownloadFacture: 0, paiement_url: 'next'));
+            emit(state.copyWith(isRequest: 5, paiement_url: 'next'));
           }
+          emit(state.copyWith(isRequest: null));
 
           add(HistoriqueUserLivraison());
           print('00 emit(state.copyWith(isRequest: --------------5))');
@@ -776,6 +945,7 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
     });
   }
 
+  // ignore: unused_element
   Future<void> _cleanData(Emitter<LivraisonState> emit) async {
     print(' emit(state.copyWith(isRequest: --------------5))');
     emit(state.copyWith(
@@ -783,18 +953,19 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       isMapSelectedPointRecuperation: false,
       errorVille: false,
 
-      isLoadedVCategory: 0,
+      isLoadVCategory: 0,
       errorImage: false,
-      isDownloadFacture: 0,
+      isDownloadFacture: null,
       isRequest: 0,
       // urlFacture: '',
-      isLoadedPLivraison: 0,
+      isLoadPLivraison: 0,
       frais: 0,
       errorQte: false,
       errorPointRecuperation: false,
       errorCategory: false,
       errorPointLivraison: false,
-      index: 0,
+      indexType1: 0,
+      indexType2: 0,
       idColis: 1,
       listColis: [],
       imageColis: [],
@@ -869,30 +1040,56 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
       HistoriqueUserLivraison event, Emitter<LivraisonState> emit) async {
     var key = await database.getKey();
     emit(state.copyWith(
-      isLoadedLivraison: 0,
+      isLoadLivraison: 0,
     ));
     await livraisonRepo.getHistoryLivraisons(key).then((response) {
       if (response.data != null) {
         emit(state.copyWith(
-            isLoadedLivraison: 1,
+            isLoadLivraison: 1,
             userLivraisonList: (response.data['data'] as List)
                 .map((e) => LivraisonModel.fromJson(e))
                 .toList()));
       } else {
         emit(state.copyWith(
-          isLoadedLivraison: 2,
+          isLoadLivraison: 2,
         ));
       }
     }).onError((e, s) {
       emit(state.copyWith(
-        isLoadedLivraison: 2,
+        isLoadLivraison: 2,
       ));
     });
   }
 
+  // convertListToJson2() async {
+  //   List<MultipartFile> imageFiles = [];
+
+  //   for (int j = 0; j < state.imageColis!.length; j++) {
+  //     File imageFile = state.imageColis![j];
+  //     imageFiles.add(await MultipartFile.fromFile(
+  //       imageFile.path,
+  //       filename: 'Image$j.jpg',
+  //     ));
+  //   }
+
+  //   Colis newColis = Colis(
+  //     id: state.idColis!,
+  //     nom: state.nomColis!.text,
+  //     quantite: state.quantiteColis!.text,
+  //     contactRecuperation: state.contactEmetteur!.text,
+  //     valeurColis: state.valeurColis!.text,
+  //     category: state.categoryColis!.id!,
+  //     listImgColis: state.imageColis!,
+  //     countImage: state.imageColis!.length,
+  //   );
+  //   return [newColis.toJson()];
+  // }
+
   _downloadFacture(DownloadFacture event, Emitter<LivraisonState> emit) async {
     await requestPermission();
     emit(state.copyWith(
+      isDownloadFacture: null,
+    )); emit(state.copyWith(
       isDownloadFacture: 0,
     ));
     await livraisonRepo.downloadRapportLivraison(event.id).then((response) {
@@ -939,6 +1136,372 @@ class LivraisonBloc extends Bloc<LivraisonEvent, LivraisonState> {
         userLivraisonList: _userLivraisonList,
       ));
     }
+  }
+
+  // Livraison Type 2
+
+  Future<void> addColisType2(
+      AddColisType2 event, Emitter<LivraisonState> emit) async {
+    bool isOk = true;
+
+    if (state.categoryColis == null) {
+      emit(state.copyWith(errorCategory: true, isColisOK: false));
+      isOk = false;
+    } else {
+      emit(state.copyWith(errorCategory: false, isColisOK: true));
+      isOk = true;
+    }
+    if (state.selected_livraison_point == null) {
+      emit(state.copyWith(errorPointLivraison: true, isColisOK: false));
+      isOk = false;
+    } else {
+      emit(state.copyWith(errorPointLivraison: false, isColisOK: true));
+      isOk = true;
+    }
+
+    if (state.imageColis!.isEmpty) {
+      emit(state.copyWith(errorImage: true, isColisOK: false));
+      isOk = false;
+    } else {
+      emit(state.copyWith(errorImage: false, isColisOK: true));
+      isOk = true;
+    }
+
+    // if (state.formKeyColis!.currentState!.validate()) {
+    // log(isOk.toString());
+    if (isOk) {
+      List<MultipartFile> imageFiles = [];
+
+      for (int j = 0; j < state.imageColis!.length; j++) {
+        File imageFile = state.imageColis![j];
+        imageFiles.add(await MultipartFile.fromFile(
+          imageFile.path,
+          filename: 'Image$j.jpg',
+        ));
+      }
+
+      Colis newColis = Colis(
+        id: state.idColis!,
+        nom: state.nomColis!.text,
+        quantite: state.quantiteColis!.text,
+        contactRecuperation: state.contactEmetteur!.text,
+        valeurColis: state.valeurColis!.text,
+        category: state.categoryColis!.id!,
+        listImgColis: state.imageColis!,
+        countImage: state.imageColis!.length,
+      );
+      final listColis = [newColis];
+      final newState = state.copyWith(
+          idColis: state.idColis! + 1,
+          listColis: listColis); // Update other properties
+      emit(newState);
+      print(state.listColis!.length.toString());
+      emit(state.copyWith(
+        // isMapSelectedPointLivraison: false,
+        errorImage: false,
+        isDownloadFacture: null,
+        isRequest: 0,
+        urlFacture: '',
+        frais: 0,
+        errorQte: false,
+        errorCategory: false,
+        errorPointLivraison: false,
+        // index: 0,
+        // imageColis: [],
+        // phone: TextEditingController(),
+        // nomColis: TextEditingController(),
+        // quantiteColis: TextEditingController(text: '1'),
+        // contactRecepteur: TextEditingController(),
+        // valeurColis: TextEditingController(),
+      ));
+    }
+    // }
+  }
+
+  Future<FormData> createFormData2() async {
+    String _libelle = getLibelle();
+    var key = await database.getKey();
+
+    var data = {
+      'keySecret': key,
+      'libelle': new FormatData().capitalizeFirstLetter(_libelle),
+      'service': 2,
+      'montant': state.frais,
+      'modePaiement': state.selectedModePaiement!.id,
+      'contactRecepteur': state.contactRecepteur?.text,
+      'description': state.description?.text,
+      'ville': state.selectedVIlle?.id,
+      'libelleLocalisation': state.selected_livraison_point!.libelle,
+      'quartier': state.selected_livraison_point!.quartier,
+      'longitude': state.selected_livraison_point!.longitude,
+      'latitude': state.selected_livraison_point!.latitude,
+      'idPointLivraison': state.selected_livraison_point != null
+          ? state.selected_livraison_point!.id
+          : 0,
+      'colis': jsonEncode(convertListToJson(state.listColis!)),
+    };
+    print(data);
+    FormData formData = FormData.fromMap(data);
+
+    for (int i = 0; i < state.listColis!.length; i++) {
+      Colis colis = state.listColis![i];
+      for (int j = 0; j < colis.listImgColis.length; j++) {
+        var file = colis.listImgColis[j];
+        var fileKey = 'colis${i}${j}';
+        formData.files.add(
+          MapEntry(
+            fileKey,
+            await MultipartFile.fromFile(file.path,
+                filename: 'Image${i}${j}.jpg'),
+          ),
+        );
+      }
+    }
+    print(formData);
+
+    return formData;
+  }
+
+  Future<void> _calculFraisType2(
+      CalculFraisType2 event, Emitter<LivraisonState> emit) async {
+    var data = {
+      'service': 1,
+      'description': 'description.text',
+      'quantite': 'quantite.text',
+      'valeurColis': 'valeurColis.text',
+      'category': 'categorySelect.id',
+    };
+    emit(state.copyWith(isRequest: null));
+    emit(state.copyWith(isRequest: 1));
+
+    await livraisonRepo.calculFraisLivraisonType2(data).then((response) {
+      print('--------------------------------response.data');
+      print(response.data);
+
+      if (response.statusCode == 200) {
+        print(response.data);
+
+        emit(state.copyWith(
+            isRequest: 2, frais: double.parse(response.data['frais'])));
+        emit(state.copyWith(isRequest: null, errorMessage: ''));
+      } else {
+        emit(state.copyWith(
+          isRequest: 3,
+          errorMessage: response.data['message'],
+        ));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(isRequest: 3));
+      emit(state.copyWith(isRequest: null));
+    }).catchError((e) {
+      print('---------------${e}');
+      emit(state.copyWith(isRequest: 3));
+      emit(state.copyWith(isRequest: null));
+    });
+  }
+
+  Future<void> _newLivraisonType2(
+      NewLivraisonType2 event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isRequest: 0));
+    emit(state.copyWith(isRequest: 4));
+
+    var data = await createFormData2();
+    await livraisonRepo.newLivraisonType2(data).then((response) {
+      emit(state.copyWith(paiement_url: ''));
+
+      if (response.statusCode == 201) {
+        print(
+            'fff emit(state.copyWith(isRequest: -------${response.statusCode}-------5))');
+
+        if (response.data != null) {
+          emit(state.copyWith(
+            currentLivraisonId: response.data['livraisonId'],
+          ));
+          if (state.selectedModePaiement!.id == 1) {
+            emit(state.copyWith(
+                isRequest: 5,
+                
+                paiement_url: response.data['paiement_url']));
+          }
+          emit(state.copyWith(isRequest: null));
+
+          if (state.selectedModePaiement!.id == 2) {
+            emit(state.copyWith(
+                urlLivraison: response.data['url_livraison'],
+                isRequest: 5,
+                
+                paiement_url: 'next'));
+          }
+          emit(state.copyWith(isRequest: null));
+
+          add(HistoriqueUserLivraison());
+        } else {
+          emit(state.copyWith(
+            isRequest: 3,
+            errorMessage: response.data['message'],
+          ));
+          emit(state.copyWith(isRequest: null, errorMessage: ''));
+        }
+      } else {
+        print('ixiiii emit(state.copyWith(isRequest: --------------5))');
+        emit(state.copyWith(
+          isRequest: 3,
+          errorMessage: response.data['message'],
+        ));
+        emit(state.copyWith(isRequest: null, errorMessage: ''));
+      }
+    }).onError((e, s) {
+      print('${e} onError(state.onError(onError: --------------5))');
+
+      emit(state.copyWith(isRequest: 3));
+      emit(state.copyWith(isRequest: null));
+    }).catchError((e) {
+      print('---------------${e}');
+      emit(state.copyWith(isRequest: 3));
+      emit(state.copyWith(isRequest: null));
+    });
+  }
+
+  Future<void> verifyLivraisonState(
+      VerifyLivraisonState event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isRequest: 0));
+    emit(state.copyWith(isRequest: 1));
+    print('${state.selectedService} state.selectedService --------------5))');
+
+    await livraisonRepo
+        .verifyLivraisonStatePaiement(state.currentLivraisonId)
+        .then((response) {
+      if (response.statusCode == 200) {
+        emit(state.copyWith(isRequest: 2));
+        if (state.selectedModePaiement!.id == 1) {
+          emit(state.copyWith(
+            successLivraison: true,
+          ));
+        }
+        if (state.selectedModePaiement!.id == 2) {
+          emit(state.copyWith(successLivraison: true, paiement_url: 'next'));
+        }
+
+        if (state.selectedService == 2) {
+          emit(state.copyWith(
+            urlLivraison: response.data['url_livraison'],
+          ));
+        }
+        print(
+            '${state.selectedService} state.selectedService --------------5))');
+
+        emit(state.copyWith(isRequest: null));
+
+        add(HistoriqueUserLivraison());
+      } else {
+        emit(state.copyWith(
+          isRequest: 3,
+          errorMessage: response.data['message'],
+        ));
+        emit(state.copyWith(isRequest: null, errorMessage: ''));
+      }
+    }).onError((e, s) {
+      print('${e.toString()}');
+      log('===================================');
+      print('====================-----${s}---------5))');
+
+      emit(state.copyWith(isRequest: 3));
+      emit(state.copyWith(isRequest: null));
+    });
+  }
+
+  Future<void> getConversationColis(
+      GetConversationColis event, Emitter<LivraisonState> emit) async {
+    emit(state.copyWith(isLoadingConversationColis: 0));
+
+    await livraisonRepo.getConversationColis(event.idColis).then((response) {
+      print(response.data);
+      if (response.data != null) {
+        emit(state.copyWith(
+            isLoadingConversationColis: 1,
+            conversationColis:
+                ConversationColisModel.fromJson(response.data['data'])));
+        emit(state.copyWith(
+          isLoadingConversationColis: null,
+        ));
+      } else {
+        emit(state.copyWith(isLoadingConversationColis: 2));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith(isLoadingConversationColis: 2));
+    });
+  }
+
+  Future<void> currentUserStateLivraison(
+      CurrentUserStateLivraison event, Emitter<LivraisonState> emit) async {
+    var key = await database.getKey();
+
+    await livraisonRepo.getCurrentLivraisonsState(key).then((response) {
+      if (response.data != null) {
+        log(response.data.toString());
+        emit(state.copyWith(
+            findCurrentlyDelivery: true,
+            currentLivraison:
+                CurrentLivraisonPositionModel.fromJson(response.data)));
+        emit(state.copyWith(
+          findCurrentlyDelivery: false,
+        ));
+      }
+    }).onError((e, s) {
+      emit(state.copyWith());
+    });
+  }
+
+  Future<void> started(Started event, Emitter<LivraisonState> emit) async {
+    var livraisonId = await database.getLivraisonIdToGetPosition();
+    if (livraisonId != null) {
+      emit(state.copyWith(
+        isCurrentlyDelivery: true,
+      ));
+    } else {
+      emit(state.copyWith(
+        isCurrentlyDelivery: true,
+      ));
+    }
+  }
+
+  Future<void> updatePositionLivraisonLivreur(
+      UpdatePositionLivraisonLivreur event,
+      Emitter<LivraisonState> emit) async {
+    var livraisonId = await database.getLivraisonIdToGetPosition();
+
+    // Code de gestion des instances et des positions
+    List<LivreurLivraisonPositionModel> listLivreurLivraisonPosition =
+        List<LivreurLivraisonPositionModel>.from(
+            state.listLivreurLivraisonPosition);
+
+    var livreurLivraisonPosition = listLivreurLivraisonPosition.firstWhere(
+      (element) => element.livraison_id == livraisonId,
+      orElse: () {
+        final newModel = LivreurLivraisonPositionModel(
+          livraison_id: livraisonId!,
+          positionLiveur: [],
+        );
+        listLivreurLivraisonPosition.add(newModel);
+        return newModel;
+      },
+    );
+
+// Ajouter la nouvelle position à l'instance trouvée ou nouvellement créée
+    livreurLivraisonPosition.positionLiveur.add(PositionLiveur(
+      longitude: event.longitude,
+      latitude: event.latitude,
+    ));
+
+// Mettre à jour la liste principale
+    listLivreurLivraisonPosition = listLivreurLivraisonPosition.map((element) {
+      return element.livraison_id == livreurLivraisonPosition.livraison_id
+          ? livreurLivraisonPosition
+          : element;
+    }).toList();
+    emit(state.copyWith(
+      listLivreurLivraisonPosition: listLivreurLivraisonPosition,
+    ));
   }
 }
   // context.read<LivraisonBloc>().add(GetImageColisGalerie()) 

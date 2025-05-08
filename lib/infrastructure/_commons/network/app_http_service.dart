@@ -10,7 +10,7 @@ class AppHttpService {
   AppHttpService._internal();
   
   static Dio getInstance({bool? isPostRequest}) {
-    if (_instance != null) {
+  if (_instance != null) {
       return _instance!;
     }
 

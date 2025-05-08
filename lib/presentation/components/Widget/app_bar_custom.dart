@@ -1,41 +1,51 @@
-import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; // Make sure to import this if using AutoRouter
 
-// ignore: must_be_immutable
-class AppBarCustom extends StatelessWidget {
-  String title;
-  String titleBtn;
-  var onTap;
-  AppBarCustom(
-      {required this.title, required this.titleBtn, required this.onTap});
+class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final actions;
+  final actionBack;
+  AppBarCustom({Key? key, required this.title, this.actions, this.actionBack})
+      : super(key: key);
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            color: ColorsApp.grey, borderRadius: BorderRadius.circular(9)),
-        padding:
-            EdgeInsets.only(left: getWith(context) / 10, top: 2, bottom: 2),
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Container(
-              width: getWith(context) * 0.6,
-              child: Text(
-                title,
-                style: TextStyle(
-                    overflow: TextOverflow.ellipsis,
-                    fontWeight: FontWeight.w600,
-                    color: ColorsApp.primary,
-                    fontSize: 11),
-              )),
-          Container(
-              width: getWith(context) * 0.25,
-
-              // margin: EdgeInsets.only(bottom: kMarginY),
-              child: AppButton(
-                  size: MainAxisSize.max,
-                  bgColor: ColorsApp.tird,
-                  text: titleBtn,
-                  onTap: onTap))
-        ]));
+    return AppBar(
+      backgroundColor: ThemeApp.second,
+      elevation: 0,
+      leading: InkWell(
+        onTap: actionBack != null
+            ? actionBack
+            : () => AutoRouter.of(context).maybePop()
+        /*  () {
+          return actionBack;
+          if (actionBack != null) {
+            print('--------${actionBack}');
+            () => actionBack;
+          } else {
+            AutoRouter.of(context).maybePop();
+          }
+        } */
+        ,
+        child: Container(
+          alignment: Alignment.centerRight,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Icon(Icons.arrow_back_ios_new,
+                  color: ColorsApp.white, size: kSmIcon * .7),
+              Text('Back', style: Theme.of(context).appBarTheme.titleTextStyle),
+            ],
+          ),
+        ),
+      ),
+      title: Text(
+        title,
+      ),
+      centerTitle: true,
+      actions: actions,
+    );
   }
 }

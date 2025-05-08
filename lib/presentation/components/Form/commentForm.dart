@@ -28,9 +28,9 @@ class CommentForm extends StatelessWidget {
     return Container(
         // margin: EdgeInsets.symmetric(horizontal: 5),
 
-        // decoration: BoxDecoration(color: ColorsApp.second),
+        // decoration: BoxDecoration(color: ThemeApp.second),
         height: getHeight(context) / 3,
-        width: width ?? getWith(context) * .7,
+        width: width ?? getWidth(context) * .7,
         alignment: Alignment.topCenter,
         child: Column(
             // mainAxisAlignment: MainAxisAlignment.start,

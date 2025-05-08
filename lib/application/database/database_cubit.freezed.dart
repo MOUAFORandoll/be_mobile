@@ -12,7 +12,7 @@ part of 'database_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DatabaseState {
@@ -84,6 +84,9 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of DatabaseState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$DatabaseInitialStateImplCopyWithImpl<$Res>
   __$$DatabaseInitialStateImplCopyWithImpl(_$DatabaseInitialStateImpl _value,
       $Res Function(_$DatabaseInitialStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of DatabaseState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -215,6 +221,9 @@ class __$$DatabaseLoadingStateImplCopyWithImpl<$Res>
   __$$DatabaseLoadingStateImplCopyWithImpl(_$DatabaseLoadingStateImpl _value,
       $Res Function(_$DatabaseLoadingStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of DatabaseState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -335,6 +344,8 @@ class __$$DatabaseInitializedStateImplCopyWithImpl<$Res>
       $Res Function(_$DatabaseInitializedStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DatabaseState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -374,7 +385,9 @@ class _$DatabaseInitializedStateImpl implements DatabaseInitializedState {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(store));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DatabaseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DatabaseInitializedStateImplCopyWith<_$DatabaseInitializedStateImpl>
@@ -461,7 +474,10 @@ abstract class DatabaseInitializedState implements DatabaseState {
       _$DatabaseInitializedStateImpl;
 
   Store get store;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DatabaseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DatabaseInitializedStateImplCopyWith<_$DatabaseInitializedStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -483,6 +499,8 @@ class __$$DatabaseErrorStateImplCopyWithImpl<$Res>
       $Res Function(_$DatabaseErrorStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DatabaseState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -521,7 +539,9 @@ class _$DatabaseErrorStateImpl implements DatabaseErrorState {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DatabaseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DatabaseErrorStateImplCopyWith<_$DatabaseErrorStateImpl> get copyWith =>
@@ -608,7 +628,10 @@ abstract class DatabaseErrorState implements DatabaseState {
       _$DatabaseErrorStateImpl;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DatabaseState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DatabaseErrorStateImplCopyWith<_$DatabaseErrorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

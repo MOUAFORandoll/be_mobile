@@ -64,11 +64,11 @@ class MedicamentComponentUser extends StatelessWidget {
                         },
                         placeholder: (context, url) {
                           return Container(
-                            child: Shimmer.fromColors(
+                            child:/*  Shimmer.fromColors(
                                 baseColor: ColorsApp.greyNew,
                                 highlightColor:
                                     ColorsApp.primary.withOpacity(.1),
-                                child: Container(
+                                child:  */Skeletonizer( enabled: true, child:Container(
                                   // height: getHeight(context) / 10,
                                   // width: getHeight(context) / 10,
                                   alignment: Alignment.center,
@@ -94,7 +94,7 @@ class MedicamentComponentUser extends StatelessWidget {
                                 top: BorderSide(
                                     color: ColorsApp.greyNew, width: .5))),
                         alignment: Alignment.center,
-                        width: getWith(context) / 2,
+                        width: getWidth(context) / 2,
                         child: Text(
                           medicament.libelle,
                           textAlign: TextAlign.start,

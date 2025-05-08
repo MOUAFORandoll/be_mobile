@@ -11,15 +11,11 @@ class TextBackSpace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: BoxConstraints(maxWidth: getWith(context) / 1.5),
+        constraints: BoxConstraints(maxWidth: getWidth(context) / 1.5),
         child: Text(
           text,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-              fontFamily: 'Lato',
-              fontSize: 14,
-              color: color,
-              fontWeight: bolder ? FontWeight.w600 : FontWeight.normal),
+          style: Theme.of(context).textTheme.bodySmall,
         ));
   }
 }

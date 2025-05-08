@@ -28,7 +28,51 @@ class FormatDateTime {
         ' ' +
         formattedDate.toString().split(' ')[1];
   }
-  
+
+  String extractTimeToDate(value) {
+    DateTime dateTime = DateTime.parse(value);
+
+    DateFormat formatter = DateFormat('dd/MM/yyyy HH:mm');
+    String formattedDate = formatter.format(dateTime);
+    return formattedDate.toString().split(' ')[1];
+  }
+
+  String convertirDateSecond(String chaineDate) {
+    DateTime dateObj = DateFormat('yyyy-MM-dd').parse(chaineDate);
+    List<String> joursSemaine = [
+      'lundi',
+      'mardi',
+      'mercredi',
+      'jeudi',
+      'vendredi',
+      'samedi',
+      'dimanche'
+    ];
+    List<String> mois = [
+      'janvier',
+      'février',
+      'mars',
+      'avril',
+      'mai',
+      'juin',
+      'juillet',
+      'août',
+      'septembre',
+      'octobre',
+      'novembre',
+      'décembre'
+    ];
+
+    String jourSemaine = joursSemaine[dateObj.weekday - 1];
+    String jour = DateFormat('dd').format(dateObj);
+    String moisStr = mois[dateObj.month - 1];
+    String annee = DateFormat('yyyy').format(dateObj);
+
+    String dateFormatee = '$jourSemaine $jour $moisStr $annee';
+    print(dateFormatee);
+    return new FormatData().capitalizeFirstLetter(dateFormatee);
+  }
+
   String dateToStringNew(value) {
     DateFormat inputFormat = DateFormat('yyyy-MM-dd HH:mm');
     DateTime dateTime = inputFormat.parse(value);

@@ -1,6 +1,5 @@
 // ignore: must_be_immutable
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
- 
 
 class AddColisComponent extends StatelessWidget {
   final title, onTap;
@@ -36,7 +35,7 @@ class AddColisComponent extends StatelessWidget {
                         children: [
                           Container(
                               // margin: EdgeInsets.only(right: 5),
-                              width: getWith(context) / 2.2,
+                              width: getWidth(context) / 2.2,
                               height: getHeight(context) / 6.79,
                               child: /*  ClipRRect(
                               borderRadius: BorderRadius.only(
@@ -63,7 +62,7 @@ class AddColisComponent extends StatelessWidget {
                                     top: BorderSide(color: ColorsApp.grey)),
                                 color: ColorsApp.primary,
                               ),
-                              width: getWith(context),
+                              width: getWidth(context),
                               alignment: Alignment.center,
                               padding: EdgeInsets.symmetric(vertical: 20),
                               margin: EdgeInsets.only(top: kMarginY * .8),

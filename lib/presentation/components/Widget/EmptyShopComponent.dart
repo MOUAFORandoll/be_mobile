@@ -1,12 +1,9 @@
-import 'package:BabanaExpress/application/export_bloc.dart'; 
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart'; 
+import 'package:BabanaExpress/utils/assets.dart';
 
 // ignore: must_be_immutable
 class EmptyShopComponent extends StatelessWidget {
-  var type;
-  EmptyShopComponent({this.type = 0});
+  EmptyShopComponent();
 
   Widget build(BuildContext context) {
     return Container(
@@ -31,8 +28,7 @@ class EmptyShopComponent extends StatelessWidget {
                     horizontal: kMarginX, vertical: kMarginY),
                 child: Text(
                   'Hey, Your Cart Is Empty !',
-                  style:
-                      TextStyle(fontSize: kBasics, fontWeight: FontWeight.w700),
+                  style: Theme.of(context).textTheme.bodySmall,
                 )),
             Container(
                 padding: EdgeInsets.symmetric(
@@ -40,22 +36,16 @@ class EmptyShopComponent extends StatelessWidget {
                 child: Text(
                   'Retourner en arriere et ajouter des produits a votre panier.',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: kDescription,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 )),
             Container(
                 margin: EdgeInsets.only(bottom: kMarginY),
                 padding: EdgeInsets.symmetric(
                     horizontal: kMarginX, vertical: kMarginY),
                 child: AppButton(
-                  size: MainAxisSize.max,
-                  bgColor: ColorsApp.primary,
                   text: 'Go Back',
                   onTap: () {
-                    context.read<HomeBloc>().add(SetIndexEvent(index: 2));
-                    AutoRouter.of(context).replaceAll([HomeRoute()]);
+                    AutoRouter.of(context).maybePop();
                   },
                 ))
           ],

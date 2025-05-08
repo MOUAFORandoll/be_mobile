@@ -26,7 +26,7 @@ class AppIconSendButton extends StatelessWidget {
                 width: 22,
                 height: 22,
                 child: CircularProgressIndicator(
-                  color: ColorsApp.second,
+                  color: ThemeApp.second,
                 ))
             : Icon(icon, color: color, size: inconSize),
       ),

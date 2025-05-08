@@ -31,7 +31,7 @@ class ListWidget extends StatelessWidget {
           style: TextStyle(fontSize: 15),
         ),
         subtitle: Container(
-            child: Text(subtitle, style: TextStyle(fontFamily: 'orkney')),
+            child: Text(subtitle, style: TextStyle( )),
             margin: EdgeInsets.only(top: 3, bottom: 3)),
       ),
     );

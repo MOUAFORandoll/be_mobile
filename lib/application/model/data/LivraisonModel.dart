@@ -3,12 +3,12 @@ class LivraisonModel {
   final String libelle;
   final String description;
   final String contactEmetteur;
-  final String lienDeLivraison;
   final int quantite;
   final String montant;
   final int status;
   final List<ColisUser> colis;
   final String initiatedUser;
+  final int? service_id;
   final String service;
   final String date;
   final String ville;
@@ -19,12 +19,12 @@ class LivraisonModel {
     required this.libelle,
     required this.description,
     required this.contactEmetteur,
-    required this.lienDeLivraison,
     required this.quantite,
     required this.montant,
     required this.status,
     required this.colis,
     required this.initiatedUser,
+    required this.service_id,
     required this.service,
     required this.date,
     required this.ville,
@@ -38,13 +38,13 @@ class LivraisonModel {
       ville: json['ville'],
       description: json['description'],
       contactEmetteur: json['contactEmetteur'],
-      lienDeLivraison: json['lienDeLivraison'],
       quantite: json['quantite'],
       montant: json['montant'].toString(),
       status: json['status'],
       colis: List<ColisUser>.from(
           json['colis'].map((colis) => ColisUser.fromJson(colis))),
       initiatedUser: json['initiatedUser'],
+      service_id: json['service_id'],
       service: json['service'],
       date: json['date'],
       livreur:
@@ -54,6 +54,7 @@ class LivraisonModel {
 }
 
 class ColisUser {
+  final int id;
   final String nom;
   final int valeurColis;
   final int statusLivraisonColis;
@@ -65,6 +66,7 @@ class ColisUser {
   final List<ImageColis> images;
 
   ColisUser({
+    required this.id,
     required this.nom,
     required this.valeurColis,
     required this.statusLivraisonColis,
@@ -78,6 +80,7 @@ class ColisUser {
 
   factory ColisUser.fromJson(Map<String, dynamic> json) {
     return ColisUser(
+      id: json['id'],
       nom: json['nom'],
       valeurColis: json['valeurColis'],
       statusLivraisonColis: json['statusLivraisonColis'],

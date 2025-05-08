@@ -1,6 +1,5 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
-
-// import 'package:fluttertoast/fluttertoast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 // showSuccessToast(String message) {
 //   Fluttertoast.showToast(
@@ -18,18 +17,28 @@ showError(
   String message,
   BuildContext context,
 ) {
-  var snackBar = SnackBar(
-    dismissDirection: DismissDirection.up,
-    behavior: SnackBarBehavior.floating,
-    backgroundColor: ColorsApp.red,
-    content: Row(
-      children: [
-        Expanded(child: Text(message)),
-        const Icon(Icons.warning),
-      ],
-    ),
-  );
-  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  return Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.TOP,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0);
+  // var snackBar = SnackBar(
+
+  //   dismissDirection: DismissDirection.up,
+  //   behavior: SnackBarBehavior.floating,
+  //   padding: EdgeInsets.all(20),
+  //   backgroundColor: ColorsApp.red,
+  //   content: Row(
+  //     children: [
+  //       Expanded(child: Text(message)),
+  //       const Icon(Icons.warning),
+  //     ],
+  //   ),
+  // );
+  // ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
 
 showSuccess(
@@ -38,7 +47,8 @@ showSuccess(
 ) {
   var snackBar = SnackBar(
     behavior: SnackBarBehavior.floating,
-    backgroundColor: ColorsApp.primary,
+    padding: EdgeInsets.all(20),
+    backgroundColor: ColorsApp.second,
     content: Row(
       children: [
         Expanded(
@@ -47,6 +57,29 @@ showSuccess(
           style: TextStyle(color: ColorsApp.white),
         )),
         const Icon(Icons.done, color: ColorsApp.white),
+      ],
+    ),
+  );
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+}
+
+showSuccessGetContact(
+  String message,
+  BuildContext context,
+) {
+  var snackBar = SnackBar(
+    behavior: SnackBarBehavior.floating,
+    backgroundColor: ThemeApp.second,
+    duration: Duration(seconds: 5),
+    padding: EdgeInsets.all(20),
+    content: Row(
+      children: [
+        Expanded(
+            child: Text(
+          message,
+          style: TextStyle(color: ColorsApp.white),
+        )),
+        // const Icon(Icons.done, color: ColorsApp.white),
       ],
     ),
   );

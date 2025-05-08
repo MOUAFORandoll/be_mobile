@@ -2,20 +2,21 @@ part of 'livraison_bloc.dart';
 
 @freezed
 class LivraisonEvent with _$LivraisonEvent {
-  const factory LivraisonEvent.verifyForm() = VerifyFormLivraisonEvent;
-  
-  const factory LivraisonEvent.backIndex() = BackIndexEvent;
+  const factory LivraisonEvent.verifyFormType1() =
+      VerifyFormLivraisonType1Event;
+
+  const factory LivraisonEvent.backIndexType1() = BackIndexType1Event;
 
   const factory LivraisonEvent.getVilleAndCategory() = GetVilleAndCategoryEvent;
 
   const factory LivraisonEvent.selectedVille({
     required VilleModel ville,
   }) = SelectedVille;
-  
+
   const factory LivraisonEvent.selectedCategory({
     required CategoryModel categoryColis,
   }) = SelectedCategory;
-  
+
   const factory LivraisonEvent.selectPointRecuperation({
     required PointLivraisonModel point_recup,
   }) = SelectPointRecuperation;
@@ -50,7 +51,7 @@ class LivraisonEvent with _$LivraisonEvent {
     required String quartier,
   }) = MapValidatePointLivraison;
 
-  const factory LivraisonEvent.addColis() = AddColis;
+  const factory LivraisonEvent.addColisType1() = AddColisType1;
 
   const factory LivraisonEvent.updateColis({
     required int idColis,
@@ -89,17 +90,57 @@ class LivraisonEvent with _$LivraisonEvent {
   const factory LivraisonEvent.selectColis({required Colis colis}) =
       SelectColis;
   const factory LivraisonEvent.manageQte({required bool state}) = ManageQte;
-  const factory LivraisonEvent.calculFrais() = CalculFrais;
-  const factory LivraisonEvent.newLivraison() = NewLivraison;
+  const factory LivraisonEvent.calculFraisType1() = CalculFraisType1;
+  const factory LivraisonEvent.newLivraisonType1() = NewLivraisonType1;
+  const factory LivraisonEvent.verifyLivraisonType1() = VerifyLivraisonType1;
+
   const factory LivraisonEvent.getLivraison() = HistoriqueUserLivraison;
-  const factory LivraisonEvent.downloadFacture({required int id}) = DownloadFacture;
+  const factory LivraisonEvent.downloadFacture({required int id}) =
+      DownloadFacture;
   const factory LivraisonEvent.noValidate() = NoValidate;
   const factory LivraisonEvent.onStartEvent() = OnStartEvent;
   const factory LivraisonEvent.getMapPlaceInfo() = GetMapPlaceInfo;
   const factory LivraisonEvent.onAutoComplet({required String text}) =
       OnAutoComplet;
-  const factory LivraisonEvent.ongetPlaceData({required PlaceModel place}) =
-      GetPlaceData;
-  const factory LivraisonEvent.selectModePaiement({required ModePaiementModel modePaiement}) =
-      SelectModePaiement;
+  const factory LivraisonEvent.getPlaceDataRecuperation(
+      {required PlaceModel place}) = GetPlaceDataRecuperation;
+  const factory LivraisonEvent.selectModePaiement(
+      {required ModePaiementModel modePaiement}) = SelectModePaiement;
+
+  const factory LivraisonEvent.selectService({
+    required int service,
+  }) = SelectService;
+
+  const factory LivraisonEvent.verifyFormType2() =
+      VerifyFormLivraisonType2Event;
+
+  const factory LivraisonEvent.backIndexType2() = BackIndexType2Event;
+  const factory LivraisonEvent.calculFraisType2() = CalculFraisType2;
+
+  const factory LivraisonEvent.addColisType2() = AddColisType2;
+  const factory LivraisonEvent.newLivraisonType2() = NewLivraisonType2;
+  const factory LivraisonEvent.verifyLivraisonState() = VerifyLivraisonState;
+
+  const factory LivraisonEvent.getConversationColis({
+    required int idColis,
+  }) = GetConversationColis;
+
+  const factory LivraisonEvent.currentUserStateLivraison() =
+      CurrentUserStateLivraison;
+
+  const factory LivraisonEvent.updatePositionLivraisonLivreur(
+      {required double longitude,
+      required double latitude}) = UpdatePositionLivraisonLivreur;
+  const factory LivraisonEvent.started() = Started;
+
+  const factory LivraisonEvent.loadPlaceInfoRecuperation({
+    required LatLng latLng,
+  }) = LoadPlaceInfoRecuperation;
+
+  const factory LivraisonEvent.loadPlaceInfoLivraison({
+    required LatLng latLng,
+  }) = LoadPlaceInfoLivraison;
+
+  const factory LivraisonEvent.getPlaceDataLivraison(
+      {required PlaceModel place}) = GetPlaceDataLivraison;
 }

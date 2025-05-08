@@ -35,7 +35,7 @@ class AppBackButton extends StatelessWidget {
         child: Icon(Icons.arrow_back_ios_new, color: color, size: 25.0),
       ),
       onTap: () {
-        AutoRouter.of(context).pop();
+        AutoRouter.of(context).maybePop();
       },
     );
   }

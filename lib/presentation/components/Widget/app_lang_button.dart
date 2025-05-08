@@ -1,4 +1,5 @@
-import 'package:BabanaExpress/utils/constants/assets.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart'; // Assurez-vous d'avoir easy_localization
 
 class AppLangButton extends StatelessWidget {

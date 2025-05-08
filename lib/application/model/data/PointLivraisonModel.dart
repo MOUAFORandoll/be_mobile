@@ -14,7 +14,7 @@ class PointLivraisonModel {
   });
 
   final int? id;
-  final String libelle;
+  final String? libelle;
   final String ville;
   final String quartier;
   final String? image;
@@ -30,12 +30,33 @@ class PointLivraisonModel {
         longitude: json['longitude'] == null
             ? null
             : double.parse(json['longitude'].toString()),
-        libelle: json['libelle'] == null ? null : json['libelle'],
+        libelle: json['ville'] +
+            ' ' +
+            json[
+                'quartier'] /* json['libelle'] == null ? null : json['libelle'] */,
         ville: json['ville'] == null ? null : json['ville'],
         quartier:
             (json['quartier'] == null ? null : json['quartier']).toString(),
         image: json['image'] == null ? null : json['image'],
       );
+
+  PointLivraisonModel copyWith({
+    int? id,
+    String? ville,
+    String? libelle,
+    String? quartier,
+    double? longitude,
+    double? latitude,
+  }) {
+    return PointLivraisonModel(
+      id: id ?? this.id,
+      libelle: libelle ?? this.libelle,
+      ville: ville ?? this.ville,
+      quartier: quartier ?? this.quartier,
+      longitude: longitude ?? this.longitude,
+      latitude: latitude ?? this.latitude,
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         'id': id,

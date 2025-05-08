@@ -1,6 +1,7 @@
 import 'package:BabanaExpress/application/model/exportmodel.dart';
-import 'package:BabanaExpress/routes/app_router.gr.dart';
-import 'package:BabanaExpress/utils/constants/assets.dart';
+
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:BabanaExpress/utils/functions/datetime_format_utils.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -10,7 +11,7 @@ import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
 // ignore: must_be_immutable
 class LivraisonUserComponent extends StatelessWidget {
   LivraisonModel livraison;
-  
+
   LivraisonUserComponent({required this.livraison});
   GlobalKey globalKey = new GlobalKey();
   @override
@@ -68,16 +69,15 @@ class LivraisonUserComponent extends StatelessWidget {
                                   Container(
                                     margin: EdgeInsets.only(left: kMarginY),
                                     child: Text(
-                                        livraison.status == 0
-                                            ? 'En attente de validation'
-                                            : livraison.status == 1
-                                                ? 'En cours de livraison'
-                                                : 'Colis livres',
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: ColorsApp.black,
-                                        )),
+                                      livraison.status == 0
+                                          ? 'En attente de validation'
+                                          : livraison.status == 1
+                                              ? 'En cours de livraison'
+                                              : 'Colis livres',
+                                      overflow: TextOverflow.ellipsis,
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -95,7 +95,7 @@ class LivraisonUserComponent extends StatelessWidget {
                                   ),
                                   child: CachedNetworkImage(
                                     height: getHeight(context) * .09,
-                                    width: getWith(context) * .25,
+                                    width: getWidth(context) * .25,
                                     fit: BoxFit.cover,
                                     imageUrl: livraison.colis[0].images[0].src,
                                     imageBuilder: (context, imageProvider) {
@@ -114,21 +114,25 @@ class LivraisonUserComponent extends StatelessWidget {
                                     },
                                     placeholder: (context, url) {
                                       return Container(
-                                        child: Shimmer.fromColors(
+                                        child: /*  Shimmer.fromColors(
                                             baseColor: ColorsApp.greyNew,
                                             highlightColor: ColorsApp.primary
                                                 .withOpacity(.1),
-                                            child: Container(
-                                              /*   height: getHeight(context) * .09,
-                                              width: getWith(context) * .25,
+                                            child: */
+                                            Skeletonizer(
+                                                enabled: true,
+                                                child: Container(
+                                                  /*   height: getHeight(context) * .09,
+                                              width: getWidth(context) * .25,
                                              */
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                color: ColorsApp.greyNew,
-                                              ),
-                                            )),
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                    color: ColorsApp.greyNew,
+                                                  ),
+                                                )),
                                       );
                                     },
                                     errorWidget: (context, url, error) {
@@ -158,62 +162,36 @@ class LivraisonUserComponent extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        width: getWith(context) * .34,
+                                        width: getWidth(context) * .34,
                                         child: Text(
-                                            livraison.libelle.toString(),
-                                            maxLines: 2,
-                                            // overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: ColorsApp.primary,
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w700)),
+                                          livraison.libelle.toString(),
+                                          maxLines: 2,
+                                          // overflow: TextOverflow.ellipsis,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium,
+                                        ),
                                       ),
                                       Container(
                                         child: Text(
-                                            livraison.colis.length.toString() +
-                                                ' ' +
-                                                'colis'.tr(),
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: ColorsApp.greyNew,
-                                                fontWeight: FontWeight.w600)),
+                                          livraison.colis.length.toString() +
+                                              ' ' +
+                                              'colis'.tr(),
+                                          overflow: TextOverflow.ellipsis,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium,
+                                        ),
                                       ),
                                       Container(
                                         child: Text(
-                                            livraison.montant.toString() +
-                                                ' XAF',
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                color: ColorsApp.black,
-                                                fontWeight: FontWeight.w600)),
+                                          livraison.montant.toString() + ' XAF',
+                                          overflow: TextOverflow.ellipsis,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall,
+                                        ),
                                       ),
-                                      // Container(
-                                      //     child: Text('yDate'.tr(),
-                                      //         overflow: TextOverflow.ellipsis,
-                                      //         style: TextStyle(
-                                      //             color: ColorsApp.black,
-                                      //             fontSize: 9))),
-                                      // Container(
-                                      //     child: Text(livraison.date,
-                                      //         overflow: TextOverflow.ellipsis,
-                                      //         style: TextStyle(
-                                      //             color: ColorsApp.black,
-                                      //             fontWeight:
-                                      //                 FontWeight.w600))),
-                                      // Container(
-                                      //   child: Text(
-                                      //       livraison.status == 0
-                                      //           ? 'En attente de validation'
-                                      //           : livraison.status == 1
-                                      //               ? 'En cours de livraison'
-                                      //               : 'Colis livres',
-                                      //       overflow:
-                                      //           TextOverflow.ellipsis,
-                                      //       style: TextStyle(
-                                      //         fontSize: 14,
-                                      //         color: ColorsApp.black,
-                                      //       )),
-                                      // ),
                                     ],
                                   )),
                             ]),
@@ -260,7 +238,12 @@ class LivraisonUserComponent extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(50)),
                                 child: Text(
                                   livraison.ville,
-                                  style: TextStyle(color: ColorsApp.white),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                        color: ColorsApp.greyNew,
+                                      ),
                                 ),
                               )
                             ],
@@ -268,7 +251,6 @@ class LivraisonUserComponent extends StatelessWidget {
                         ),
                       ],
                     ) /* ) */),
-                onTap: () => AutoRouter.of(context)
-                    .push(LivraisonDataRoute(livraison: livraison)));
+              );
   }
 }

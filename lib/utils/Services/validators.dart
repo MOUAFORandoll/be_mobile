@@ -13,9 +13,21 @@ class Validators {
     return _emailRegExp.hasMatch(email.trim()) ? null : 'invalidMail'.tr();
   }
 
-  static isValidEmailOrNum(String? email) {
-    if (email == null) return null;
-    return _emailRegExp.hasMatch(email.trim()) ? null : 'invalidMail'.tr();
+  static isValidEmailOrNum(String? input) {
+    if (input == null) return null;
+
+    // Vérifier si c'est un email valide
+    if (_emailRegExp.hasMatch(input.trim())) {
+      return null;
+    }
+
+    // Vérifier si c'est un numéro de téléphone valide (9 chiffres)
+    if (input.length == 9 && int.tryParse(input) != null) {
+      return null;
+    }
+
+    // Si ce n'est ni un email ni un numéro de téléphone valide
+    return 'Email ou numéro de téléphone'.tr();
   }
 
   static String? isValidPassword(String password) {

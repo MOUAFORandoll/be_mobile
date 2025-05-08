@@ -1,4 +1,6 @@
 import 'package:BabanaExpress/presentation/components/exportcomponent.dart';
+import 'package:BabanaExpress/utils/assets.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 
 // ignore: must_be_immutable
@@ -27,7 +29,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: getWith(context) * .9,
+            width: getWidth(context) * .9,
             height: 40,
             margin: EdgeInsets.symmetric(horizontal: 4, vertical: kMarginY
                 // top: 2,
@@ -47,17 +49,17 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                       fontSize: 12),
                   labelText: label,
                   labelStyle: TextStyle(
-                      color: Colors.blue,
+                      color: ColorsApp.primary,
                       fontWeight: FontWeight.w600,
                       fontSize: 12),
                   counterText: '',
                   focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
-                        color: Colors.blue,
+                        color: ColorsApp.primary,
                       )),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   contentPadding: EdgeInsets.only(
                     left: 15,
@@ -75,7 +77,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
               : loading == 0
                   ? Container(
                       height: getHeight(context) * .15,
-                      width: getWith(context) * .88,
+                      width: getWidth(context) * .88,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
@@ -90,7 +92,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                   : loading == 2
                       ? Container(
                           height: getHeight(context) * .15,
-                          width: getWith(context) * .88,
+                          width: getWidth(context) * .88,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
@@ -103,7 +105,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                       : data.length == 0
                           ? Container(
                               height: getHeight(context) * .15,
-                              width: getWith(context) * .88,
+                              width: getWidth(context) * .88,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
@@ -115,7 +117,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                               child: Text('Aucun element trouve'.tr()))
                           : Container(
                               margin: EdgeInsets.symmetric(vertical: kMarginY),
-                              width: getWith(context) * .88,
+                              width: getWidth(context) * .88,
                               height: data.length > 6
                                   ? getHeight(context) * .3
                                   : data.length > 3
@@ -222,7 +224,7 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                                                         placeholder:
                                                             (context, url) {
                                                           return Container(
-                                                            child: Shimmer
+                                                            child: /* Shimmer
                                                                 .fromColors(
                                                                     baseColor:
                                                                         ColorsApp
@@ -231,6 +233,10 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                                                                         .primary
                                                                         .withOpacity(
                                                                             .1),
+                                                                    child: */
+                                                                Skeletonizer(
+                                                                    enabled:
+                                                                        true,
                                                                     child:
                                                                         Container(
                                                                       // height: getHeight(context) / 10,
@@ -249,15 +255,13 @@ class SearchInputMedicamentComponent extends StatelessWidget {
                                                         errorWidget: (context,
                                                             url, error) {
                                                           return Container(
-                                                              // height: getHeight(context) / 10,
-                                                              // width: getHeight(context) / 10,
-
                                                               decoration: BoxDecoration(
                                                                   image: DecorationImage(
                                                                       fit: BoxFit
-                                                                          .cover,
+                                                                          .contain,
                                                                       image: AssetImage(
-                                                                          'assets/login.png'))));
+                                                                          Assets
+                                                                              .medicament))));
                                                         },
                                                       )),
                                                   Container(

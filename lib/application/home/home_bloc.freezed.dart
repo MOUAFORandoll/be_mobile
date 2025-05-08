@@ -12,7 +12,7 @@ part of 'home_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$HomeEvent {
@@ -26,7 +26,10 @@ mixin _$HomeEvent {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,7 +41,10 @@ mixin _$HomeEvent {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,7 +56,10 @@ mixin _$HomeEvent {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,7 +72,10 @@ mixin _$HomeEvent {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,7 +87,10 @@ mixin _$HomeEvent {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,7 +102,10 @@ mixin _$HomeEvent {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +126,9 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -127,6 +148,8 @@ class __$$ErrorEventImplCopyWithImpl<$Res>
       _$ErrorEventImpl _value, $Res Function(_$ErrorEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -165,7 +188,9 @@ class _$ErrorEventImpl implements ErrorEvent {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorEventImplCopyWith<_$ErrorEventImpl> get copyWith =>
@@ -182,7 +207,10 @@ class _$ErrorEventImpl implements ErrorEvent {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
   }) {
     return error(this.error);
   }
@@ -197,7 +225,10 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
   }) {
     return error?.call(this.error);
   }
@@ -212,7 +243,10 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -231,7 +265,10 @@ class _$ErrorEventImpl implements ErrorEvent {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
   }) {
     return error(this);
   }
@@ -246,7 +283,10 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
   }) {
     return error?.call(this);
   }
@@ -261,7 +301,10 @@ class _$ErrorEventImpl implements ErrorEvent {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -275,7 +318,10 @@ abstract class ErrorEvent implements HomeEvent {
   const factory ErrorEvent({required final String error}) = _$ErrorEventImpl;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorEventImplCopyWith<_$ErrorEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -294,6 +340,9 @@ class __$$UserDataEventImplCopyWithImpl<$Res>
   __$$UserDataEventImplCopyWithImpl(
       _$UserDataEventImpl _value, $Res Function(_$UserDataEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -326,7 +375,10 @@ class _$UserDataEventImpl implements UserDataEvent {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
   }) {
     return userData();
   }
@@ -341,7 +393,10 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
   }) {
     return userData?.call();
   }
@@ -356,7 +411,10 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (userData != null) {
@@ -375,7 +433,10 @@ class _$UserDataEventImpl implements UserDataEvent {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
   }) {
     return userData(this);
   }
@@ -390,7 +451,10 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
   }) {
     return userData?.call(this);
   }
@@ -405,7 +469,10 @@ class _$UserDataEventImpl implements UserDataEvent {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (userData != null) {
@@ -436,6 +503,8 @@ class __$$SetIndexEventImplCopyWithImpl<$Res>
       _$SetIndexEventImpl _value, $Res Function(_$SetIndexEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -475,7 +544,9 @@ class _$SetIndexEventImpl implements SetIndexEvent {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SetIndexEventImplCopyWith<_$SetIndexEventImpl> get copyWith =>
@@ -492,7 +563,10 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
   }) {
     return setIndex(index);
   }
@@ -507,7 +581,10 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
   }) {
     return setIndex?.call(index);
   }
@@ -522,7 +599,10 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (setIndex != null) {
@@ -541,7 +621,10 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
   }) {
     return setIndex(this);
   }
@@ -556,7 +639,10 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
   }) {
     return setIndex?.call(this);
   }
@@ -571,7 +657,10 @@ class _$SetIndexEventImpl implements SetIndexEvent {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (setIndex != null) {
@@ -586,7 +675,10 @@ abstract class SetIndexEvent implements HomeEvent {
       _$SetIndexEventImpl;
 
   dynamic get index;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetIndexEventImplCopyWith<_$SetIndexEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -608,6 +700,8 @@ class __$$SetIndexHistoryEventImplCopyWithImpl<$Res>
       $Res Function(_$SetIndexHistoryEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -647,7 +741,9 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SetIndexHistoryEventImplCopyWith<_$SetIndexHistoryEventImpl>
@@ -666,7 +762,10 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
   }) {
     return setIndexHistory(index);
   }
@@ -681,7 +780,10 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
   }) {
     return setIndexHistory?.call(index);
   }
@@ -696,7 +798,10 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (setIndexHistory != null) {
@@ -715,7 +820,10 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
   }) {
     return setIndexHistory(this);
   }
@@ -730,7 +838,10 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
   }) {
     return setIndexHistory?.call(this);
   }
@@ -745,7 +856,10 @@ class _$SetIndexHistoryEventImpl implements SetIndexHistoryEvent {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (setIndexHistory != null) {
@@ -760,7 +874,10 @@ abstract class SetIndexHistoryEvent implements HomeEvent {
       _$SetIndexHistoryEventImpl;
 
   dynamic get index;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SetIndexHistoryEventImplCopyWith<_$SetIndexHistoryEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -782,6 +899,8 @@ class __$$SelectCategoryImplCopyWithImpl<$Res>
       _$SelectCategoryImpl _value, $Res Function(_$SelectCategoryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -821,7 +940,9 @@ class _$SelectCategoryImpl implements SelectCategory {
   @override
   int get hashCode => Object.hash(runtimeType, category);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelectCategoryImplCopyWith<_$SelectCategoryImpl> get copyWith =>
@@ -839,7 +960,10 @@ class _$SelectCategoryImpl implements SelectCategory {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
   }) {
     return selectCategory(category);
   }
@@ -854,7 +978,10 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
   }) {
     return selectCategory?.call(category);
   }
@@ -869,7 +996,10 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (selectCategory != null) {
@@ -888,7 +1018,10 @@ class _$SelectCategoryImpl implements SelectCategory {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
   }) {
     return selectCategory(this);
   }
@@ -903,7 +1036,10 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
   }) {
     return selectCategory?.call(this);
   }
@@ -918,7 +1054,10 @@ class _$SelectCategoryImpl implements SelectCategory {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (selectCategory != null) {
@@ -933,7 +1072,10 @@ abstract class SelectCategory implements HomeEvent {
       _$SelectCategoryImpl;
 
   CategoryModel get category;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectCategoryImplCopyWith<_$SelectCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -955,6 +1097,8 @@ class __$$UpdateListCategoryImplCopyWithImpl<$Res>
       $Res Function(_$UpdateListCategoryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1002,7 +1146,9 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_categoryList));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateListCategoryImplCopyWith<_$UpdateListCategoryImpl> get copyWith =>
@@ -1020,7 +1166,10 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
   }) {
     return updateListCategory(categoryList);
   }
@@ -1035,7 +1184,10 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
   }) {
     return updateListCategory?.call(categoryList);
   }
@@ -1050,7 +1202,10 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (updateListCategory != null) {
@@ -1069,7 +1224,10 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
   }) {
     return updateListCategory(this);
   }
@@ -1084,7 +1242,10 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
   }) {
     return updateListCategory?.call(this);
   }
@@ -1099,7 +1260,10 @@ class _$UpdateListCategoryImpl implements UpdateListCategory {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (updateListCategory != null) {
@@ -1115,7 +1279,10 @@ abstract class UpdateListCategory implements HomeEvent {
       _$UpdateListCategoryImpl;
 
   List<CategoryModel> get categoryList;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateListCategoryImplCopyWith<_$UpdateListCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1134,6 +1301,9 @@ class __$$GetCategoryListImplCopyWithImpl<$Res>
   __$$GetCategoryListImplCopyWithImpl(
       _$GetCategoryListImpl _value, $Res Function(_$GetCategoryListImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1166,7 +1336,10 @@ class _$GetCategoryListImpl implements GetCategoryList {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
   }) {
     return getCategoryList();
   }
@@ -1181,7 +1354,10 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
   }) {
     return getCategoryList?.call();
   }
@@ -1196,7 +1372,10 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (getCategoryList != null) {
@@ -1215,7 +1394,10 @@ class _$GetCategoryListImpl implements GetCategoryList {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
   }) {
     return getCategoryList(this);
   }
@@ -1230,7 +1412,10 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
   }) {
     return getCategoryList?.call(this);
   }
@@ -1245,7 +1430,10 @@ class _$GetCategoryListImpl implements GetCategoryList {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (getCategoryList != null) {
@@ -1257,6 +1445,166 @@ class _$GetCategoryListImpl implements GetCategoryList {
 
 abstract class GetCategoryList implements HomeEvent {
   const factory GetCategoryList() = _$GetCategoryListImpl;
+}
+
+/// @nodoc
+abstract class _$$GetServiceImplCopyWith<$Res> {
+  factory _$$GetServiceImplCopyWith(
+          _$GetServiceImpl value, $Res Function(_$GetServiceImpl) then) =
+      __$$GetServiceImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetServiceImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetServiceImpl>
+    implements _$$GetServiceImplCopyWith<$Res> {
+  __$$GetServiceImplCopyWithImpl(
+      _$GetServiceImpl _value, $Res Function(_$GetServiceImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetServiceImpl implements GetService {
+  const _$GetServiceImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.getService()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetServiceImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String error) error,
+    required TResult Function() userData,
+    required TResult Function(dynamic index) setIndex,
+    required TResult Function(dynamic index) setIndexHistory,
+    required TResult Function(CategoryModel category) selectCategory,
+    required TResult Function(List<CategoryModel> categoryList)
+        updateListCategory,
+    required TResult Function() getCategoryList,
+    required TResult Function() getService,
+    required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
+  }) {
+    return getService();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String error)? error,
+    TResult? Function()? userData,
+    TResult? Function(dynamic index)? setIndex,
+    TResult? Function(dynamic index)? setIndexHistory,
+    TResult? Function(CategoryModel category)? selectCategory,
+    TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
+    TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
+    TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
+  }) {
+    return getService?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String error)? error,
+    TResult Function()? userData,
+    TResult Function(dynamic index)? setIndex,
+    TResult Function(dynamic index)? setIndexHistory,
+    TResult Function(CategoryModel category)? selectCategory,
+    TResult Function(List<CategoryModel> categoryList)? updateListCategory,
+    TResult Function()? getCategoryList,
+    TResult Function()? getService,
+    TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
+    required TResult orElse(),
+  }) {
+    if (getService != null) {
+      return getService();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ErrorEvent value) error,
+    required TResult Function(UserDataEvent value) userData,
+    required TResult Function(SetIndexEvent value) setIndex,
+    required TResult Function(SetIndexHistoryEvent value) setIndexHistory,
+    required TResult Function(SelectCategory value) selectCategory,
+    required TResult Function(UpdateListCategory value) updateListCategory,
+    required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
+    required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
+  }) {
+    return getService(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ErrorEvent value)? error,
+    TResult? Function(UserDataEvent value)? userData,
+    TResult? Function(SetIndexEvent value)? setIndex,
+    TResult? Function(SetIndexHistoryEvent value)? setIndexHistory,
+    TResult? Function(SelectCategory value)? selectCategory,
+    TResult? Function(UpdateListCategory value)? updateListCategory,
+    TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
+    TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
+  }) {
+    return getService?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ErrorEvent value)? error,
+    TResult Function(UserDataEvent value)? userData,
+    TResult Function(SetIndexEvent value)? setIndex,
+    TResult Function(SetIndexHistoryEvent value)? setIndexHistory,
+    TResult Function(SelectCategory value)? selectCategory,
+    TResult Function(UpdateListCategory value)? updateListCategory,
+    TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
+    TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
+    required TResult orElse(),
+  }) {
+    if (getService != null) {
+      return getService(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetService implements HomeEvent {
+  const factory GetService() = _$GetServiceImpl;
 }
 
 /// @nodoc
@@ -1273,6 +1621,9 @@ class __$$OpenLivraisonModalImplCopyWithImpl<$Res>
   __$$OpenLivraisonModalImplCopyWithImpl(_$OpenLivraisonModalImpl _value,
       $Res Function(_$OpenLivraisonModalImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1305,7 +1656,10 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     required TResult Function(List<CategoryModel> categoryList)
         updateListCategory,
     required TResult Function() getCategoryList,
+    required TResult Function() getService,
     required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
   }) {
     return openLivraisonModal();
   }
@@ -1320,7 +1674,10 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult? Function(CategoryModel category)? selectCategory,
     TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
     TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
   }) {
     return openLivraisonModal?.call();
   }
@@ -1335,7 +1692,10 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult Function(CategoryModel category)? selectCategory,
     TResult Function(List<CategoryModel> categoryList)? updateListCategory,
     TResult Function()? getCategoryList,
+    TResult Function()? getService,
     TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (openLivraisonModal != null) {
@@ -1354,7 +1714,10 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     required TResult Function(SelectCategory value) selectCategory,
     required TResult Function(UpdateListCategory value) updateListCategory,
     required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
     required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
   }) {
     return openLivraisonModal(this);
   }
@@ -1369,7 +1732,10 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult? Function(SelectCategory value)? selectCategory,
     TResult? Function(UpdateListCategory value)? updateListCategory,
     TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
     TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
   }) {
     return openLivraisonModal?.call(this);
   }
@@ -1384,7 +1750,10 @@ class _$OpenLivraisonModalImpl implements OpenLivraisonModal {
     TResult Function(SelectCategory value)? selectCategory,
     TResult Function(UpdateListCategory value)? updateListCategory,
     TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
     TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
     required TResult orElse(),
   }) {
     if (openLivraisonModal != null) {
@@ -1399,14 +1768,382 @@ abstract class OpenLivraisonModal implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$HomeStateLivraisonImplCopyWith<$Res> {
+  factory _$$HomeStateLivraisonImplCopyWith(_$HomeStateLivraisonImpl value,
+          $Res Function(_$HomeStateLivraisonImpl) then) =
+      __$$HomeStateLivraisonImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$HomeStateLivraisonImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$HomeStateLivraisonImpl>
+    implements _$$HomeStateLivraisonImplCopyWith<$Res> {
+  __$$HomeStateLivraisonImplCopyWithImpl(_$HomeStateLivraisonImpl _value,
+      $Res Function(_$HomeStateLivraisonImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$HomeStateLivraisonImpl implements HomeStateLivraison {
+  const _$HomeStateLivraisonImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.homeStateLivraison()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$HomeStateLivraisonImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String error) error,
+    required TResult Function() userData,
+    required TResult Function(dynamic index) setIndex,
+    required TResult Function(dynamic index) setIndexHistory,
+    required TResult Function(CategoryModel category) selectCategory,
+    required TResult Function(List<CategoryModel> categoryList)
+        updateListCategory,
+    required TResult Function() getCategoryList,
+    required TResult Function() getService,
+    required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
+  }) {
+    return homeStateLivraison();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String error)? error,
+    TResult? Function()? userData,
+    TResult? Function(dynamic index)? setIndex,
+    TResult? Function(dynamic index)? setIndexHistory,
+    TResult? Function(CategoryModel category)? selectCategory,
+    TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
+    TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
+    TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
+  }) {
+    return homeStateLivraison?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String error)? error,
+    TResult Function()? userData,
+    TResult Function(dynamic index)? setIndex,
+    TResult Function(dynamic index)? setIndexHistory,
+    TResult Function(CategoryModel category)? selectCategory,
+    TResult Function(List<CategoryModel> categoryList)? updateListCategory,
+    TResult Function()? getCategoryList,
+    TResult Function()? getService,
+    TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
+    required TResult orElse(),
+  }) {
+    if (homeStateLivraison != null) {
+      return homeStateLivraison();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ErrorEvent value) error,
+    required TResult Function(UserDataEvent value) userData,
+    required TResult Function(SetIndexEvent value) setIndex,
+    required TResult Function(SetIndexHistoryEvent value) setIndexHistory,
+    required TResult Function(SelectCategory value) selectCategory,
+    required TResult Function(UpdateListCategory value) updateListCategory,
+    required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
+    required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
+  }) {
+    return homeStateLivraison(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ErrorEvent value)? error,
+    TResult? Function(UserDataEvent value)? userData,
+    TResult? Function(SetIndexEvent value)? setIndex,
+    TResult? Function(SetIndexHistoryEvent value)? setIndexHistory,
+    TResult? Function(SelectCategory value)? selectCategory,
+    TResult? Function(UpdateListCategory value)? updateListCategory,
+    TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
+    TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
+  }) {
+    return homeStateLivraison?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ErrorEvent value)? error,
+    TResult Function(UserDataEvent value)? userData,
+    TResult Function(SetIndexEvent value)? setIndex,
+    TResult Function(SetIndexHistoryEvent value)? setIndexHistory,
+    TResult Function(SelectCategory value)? selectCategory,
+    TResult Function(UpdateListCategory value)? updateListCategory,
+    TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
+    TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
+    required TResult orElse(),
+  }) {
+    if (homeStateLivraison != null) {
+      return homeStateLivraison(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeStateLivraison implements HomeEvent {
+  const factory HomeStateLivraison() = _$HomeStateLivraisonImpl;
+}
+
+/// @nodoc
+abstract class _$$FindLivraisonByIdImplCopyWith<$Res> {
+  factory _$$FindLivraisonByIdImplCopyWith(_$FindLivraisonByIdImpl value,
+          $Res Function(_$FindLivraisonByIdImpl) then) =
+      __$$FindLivraisonByIdImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int idLivraison});
+}
+
+/// @nodoc
+class __$$FindLivraisonByIdImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FindLivraisonByIdImpl>
+    implements _$$FindLivraisonByIdImplCopyWith<$Res> {
+  __$$FindLivraisonByIdImplCopyWithImpl(_$FindLivraisonByIdImpl _value,
+      $Res Function(_$FindLivraisonByIdImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? idLivraison = null,
+  }) {
+    return _then(_$FindLivraisonByIdImpl(
+      idLivraison: null == idLivraison
+          ? _value.idLivraison
+          : idLivraison // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FindLivraisonByIdImpl implements FindLivraisonById {
+  const _$FindLivraisonByIdImpl({required this.idLivraison});
+
+  @override
+  final int idLivraison;
+
+  @override
+  String toString() {
+    return 'HomeEvent.findLivraisonById(idLivraison: $idLivraison)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FindLivraisonByIdImpl &&
+            (identical(other.idLivraison, idLivraison) ||
+                other.idLivraison == idLivraison));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, idLivraison);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FindLivraisonByIdImplCopyWith<_$FindLivraisonByIdImpl> get copyWith =>
+      __$$FindLivraisonByIdImplCopyWithImpl<_$FindLivraisonByIdImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String error) error,
+    required TResult Function() userData,
+    required TResult Function(dynamic index) setIndex,
+    required TResult Function(dynamic index) setIndexHistory,
+    required TResult Function(CategoryModel category) selectCategory,
+    required TResult Function(List<CategoryModel> categoryList)
+        updateListCategory,
+    required TResult Function() getCategoryList,
+    required TResult Function() getService,
+    required TResult Function() openLivraisonModal,
+    required TResult Function() homeStateLivraison,
+    required TResult Function(int idLivraison) findLivraisonById,
+  }) {
+    return findLivraisonById(idLivraison);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String error)? error,
+    TResult? Function()? userData,
+    TResult? Function(dynamic index)? setIndex,
+    TResult? Function(dynamic index)? setIndexHistory,
+    TResult? Function(CategoryModel category)? selectCategory,
+    TResult? Function(List<CategoryModel> categoryList)? updateListCategory,
+    TResult? Function()? getCategoryList,
+    TResult? Function()? getService,
+    TResult? Function()? openLivraisonModal,
+    TResult? Function()? homeStateLivraison,
+    TResult? Function(int idLivraison)? findLivraisonById,
+  }) {
+    return findLivraisonById?.call(idLivraison);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String error)? error,
+    TResult Function()? userData,
+    TResult Function(dynamic index)? setIndex,
+    TResult Function(dynamic index)? setIndexHistory,
+    TResult Function(CategoryModel category)? selectCategory,
+    TResult Function(List<CategoryModel> categoryList)? updateListCategory,
+    TResult Function()? getCategoryList,
+    TResult Function()? getService,
+    TResult Function()? openLivraisonModal,
+    TResult Function()? homeStateLivraison,
+    TResult Function(int idLivraison)? findLivraisonById,
+    required TResult orElse(),
+  }) {
+    if (findLivraisonById != null) {
+      return findLivraisonById(idLivraison);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ErrorEvent value) error,
+    required TResult Function(UserDataEvent value) userData,
+    required TResult Function(SetIndexEvent value) setIndex,
+    required TResult Function(SetIndexHistoryEvent value) setIndexHistory,
+    required TResult Function(SelectCategory value) selectCategory,
+    required TResult Function(UpdateListCategory value) updateListCategory,
+    required TResult Function(GetCategoryList value) getCategoryList,
+    required TResult Function(GetService value) getService,
+    required TResult Function(OpenLivraisonModal value) openLivraisonModal,
+    required TResult Function(HomeStateLivraison value) homeStateLivraison,
+    required TResult Function(FindLivraisonById value) findLivraisonById,
+  }) {
+    return findLivraisonById(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ErrorEvent value)? error,
+    TResult? Function(UserDataEvent value)? userData,
+    TResult? Function(SetIndexEvent value)? setIndex,
+    TResult? Function(SetIndexHistoryEvent value)? setIndexHistory,
+    TResult? Function(SelectCategory value)? selectCategory,
+    TResult? Function(UpdateListCategory value)? updateListCategory,
+    TResult? Function(GetCategoryList value)? getCategoryList,
+    TResult? Function(GetService value)? getService,
+    TResult? Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult? Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult? Function(FindLivraisonById value)? findLivraisonById,
+  }) {
+    return findLivraisonById?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ErrorEvent value)? error,
+    TResult Function(UserDataEvent value)? userData,
+    TResult Function(SetIndexEvent value)? setIndex,
+    TResult Function(SetIndexHistoryEvent value)? setIndexHistory,
+    TResult Function(SelectCategory value)? selectCategory,
+    TResult Function(UpdateListCategory value)? updateListCategory,
+    TResult Function(GetCategoryList value)? getCategoryList,
+    TResult Function(GetService value)? getService,
+    TResult Function(OpenLivraisonModal value)? openLivraisonModal,
+    TResult Function(HomeStateLivraison value)? homeStateLivraison,
+    TResult Function(FindLivraisonById value)? findLivraisonById,
+    required TResult orElse(),
+  }) {
+    if (findLivraisonById != null) {
+      return findLivraisonById(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FindLivraisonById implements HomeEvent {
+  const factory FindLivraisonById({required final int idLivraison}) =
+      _$FindLivraisonByIdImpl;
+
+  int get idLivraison;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FindLivraisonByIdImplCopyWith<_$FindLivraisonByIdImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   User? get user => throw _privateConstructorUsedError;
   int get index => throw _privateConstructorUsedError;
   int get indexHistory => throw _privateConstructorUsedError;
+  int? get isLoadLivraison => throw _privateConstructorUsedError;
+  int? get isLoadService => throw _privateConstructorUsedError;
+  int? get service_id => throw _privateConstructorUsedError;
   bool? get recupMailStatus => throw _privateConstructorUsedError;
+  List<LivraisonUserHomeModel>? get userHomeLivraisonList =>
+      throw _privateConstructorUsedError;
+  List<ServiceModel>? get listServices => throw _privateConstructorUsedError;
+  dynamic get livraison => throw _privateConstructorUsedError;
   bool? get noOpen => throw _privateConstructorUsedError;
+  int get isLoadHomeStateLivraison => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HomeStateCopyWith<HomeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1420,8 +2157,15 @@ abstract class $HomeStateCopyWith<$Res> {
       {User? user,
       int index,
       int indexHistory,
+      int? isLoadLivraison,
+      int? isLoadService,
+      int? service_id,
       bool? recupMailStatus,
-      bool? noOpen});
+      List<LivraisonUserHomeModel>? userHomeLivraisonList,
+      List<ServiceModel>? listServices,
+      dynamic livraison,
+      bool? noOpen,
+      int isLoadHomeStateLivraison});
 }
 
 /// @nodoc
@@ -1434,14 +2178,23 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? user = freezed,
     Object? index = null,
     Object? indexHistory = null,
+    Object? isLoadLivraison = freezed,
+    Object? isLoadService = freezed,
+    Object? service_id = freezed,
     Object? recupMailStatus = freezed,
+    Object? userHomeLivraisonList = freezed,
+    Object? listServices = freezed,
+    Object? livraison = freezed,
     Object? noOpen = freezed,
+    Object? isLoadHomeStateLivraison = null,
   }) {
     return _then(_value.copyWith(
       user: freezed == user
@@ -1456,14 +2209,42 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.indexHistory
           : indexHistory // ignore: cast_nullable_to_non_nullable
               as int,
+      isLoadLivraison: freezed == isLoadLivraison
+          ? _value.isLoadLivraison
+          : isLoadLivraison // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isLoadService: freezed == isLoadService
+          ? _value.isLoadService
+          : isLoadService // ignore: cast_nullable_to_non_nullable
+              as int?,
+      service_id: freezed == service_id
+          ? _value.service_id
+          : service_id // ignore: cast_nullable_to_non_nullable
+              as int?,
       recupMailStatus: freezed == recupMailStatus
           ? _value.recupMailStatus
           : recupMailStatus // ignore: cast_nullable_to_non_nullable
               as bool?,
+      userHomeLivraisonList: freezed == userHomeLivraisonList
+          ? _value.userHomeLivraisonList
+          : userHomeLivraisonList // ignore: cast_nullable_to_non_nullable
+              as List<LivraisonUserHomeModel>?,
+      listServices: freezed == listServices
+          ? _value.listServices
+          : listServices // ignore: cast_nullable_to_non_nullable
+              as List<ServiceModel>?,
+      livraison: freezed == livraison
+          ? _value.livraison
+          : livraison // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       noOpen: freezed == noOpen
           ? _value.noOpen
           : noOpen // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isLoadHomeStateLivraison: null == isLoadHomeStateLivraison
+          ? _value.isLoadHomeStateLivraison
+          : isLoadHomeStateLivraison // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -1480,8 +2261,15 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       {User? user,
       int index,
       int indexHistory,
+      int? isLoadLivraison,
+      int? isLoadService,
+      int? service_id,
       bool? recupMailStatus,
-      bool? noOpen});
+      List<LivraisonUserHomeModel>? userHomeLivraisonList,
+      List<ServiceModel>? listServices,
+      dynamic livraison,
+      bool? noOpen,
+      int isLoadHomeStateLivraison});
 }
 
 /// @nodoc
@@ -1492,14 +2280,23 @@ class __$$HomeStateImplCopyWithImpl<$Res>
       _$HomeStateImpl _value, $Res Function(_$HomeStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? user = freezed,
     Object? index = null,
     Object? indexHistory = null,
+    Object? isLoadLivraison = freezed,
+    Object? isLoadService = freezed,
+    Object? service_id = freezed,
     Object? recupMailStatus = freezed,
+    Object? userHomeLivraisonList = freezed,
+    Object? listServices = freezed,
+    Object? livraison = freezed,
     Object? noOpen = freezed,
+    Object? isLoadHomeStateLivraison = null,
   }) {
     return _then(_$HomeStateImpl(
       user: freezed == user
@@ -1514,14 +2311,42 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.indexHistory
           : indexHistory // ignore: cast_nullable_to_non_nullable
               as int,
+      isLoadLivraison: freezed == isLoadLivraison
+          ? _value.isLoadLivraison
+          : isLoadLivraison // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isLoadService: freezed == isLoadService
+          ? _value.isLoadService
+          : isLoadService // ignore: cast_nullable_to_non_nullable
+              as int?,
+      service_id: freezed == service_id
+          ? _value.service_id
+          : service_id // ignore: cast_nullable_to_non_nullable
+              as int?,
       recupMailStatus: freezed == recupMailStatus
           ? _value.recupMailStatus
           : recupMailStatus // ignore: cast_nullable_to_non_nullable
               as bool?,
+      userHomeLivraisonList: freezed == userHomeLivraisonList
+          ? _value._userHomeLivraisonList
+          : userHomeLivraisonList // ignore: cast_nullable_to_non_nullable
+              as List<LivraisonUserHomeModel>?,
+      listServices: freezed == listServices
+          ? _value._listServices
+          : listServices // ignore: cast_nullable_to_non_nullable
+              as List<ServiceModel>?,
+      livraison: freezed == livraison
+          ? _value.livraison
+          : livraison // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       noOpen: freezed == noOpen
           ? _value.noOpen
           : noOpen // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isLoadHomeStateLivraison: null == isLoadHomeStateLivraison
+          ? _value.isLoadHomeStateLivraison
+          : isLoadHomeStateLivraison // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -1533,8 +2358,17 @@ class _$HomeStateImpl implements _HomeState {
       {required this.user,
       required this.index,
       required this.indexHistory,
+      required this.isLoadLivraison,
+      required this.isLoadService,
+      required this.service_id,
       required this.recupMailStatus,
-      required this.noOpen});
+      final List<LivraisonUserHomeModel>? userHomeLivraisonList,
+      final List<ServiceModel>? listServices,
+      this.livraison,
+      required this.noOpen,
+      required this.isLoadHomeStateLivraison})
+      : _userHomeLivraisonList = userHomeLivraisonList,
+        _listServices = listServices;
 
   @override
   final User? user;
@@ -1543,13 +2377,44 @@ class _$HomeStateImpl implements _HomeState {
   @override
   final int indexHistory;
   @override
+  final int? isLoadLivraison;
+  @override
+  final int? isLoadService;
+  @override
+  final int? service_id;
+  @override
   final bool? recupMailStatus;
+  final List<LivraisonUserHomeModel>? _userHomeLivraisonList;
+  @override
+  List<LivraisonUserHomeModel>? get userHomeLivraisonList {
+    final value = _userHomeLivraisonList;
+    if (value == null) return null;
+    if (_userHomeLivraisonList is EqualUnmodifiableListView)
+      return _userHomeLivraisonList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<ServiceModel>? _listServices;
+  @override
+  List<ServiceModel>? get listServices {
+    final value = _listServices;
+    if (value == null) return null;
+    if (_listServices is EqualUnmodifiableListView) return _listServices;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final dynamic livraison;
   @override
   final bool? noOpen;
+  @override
+  final int isLoadHomeStateLivraison;
 
   @override
   String toString() {
-    return 'HomeState(user: $user, index: $index, indexHistory: $indexHistory, recupMailStatus: $recupMailStatus, noOpen: $noOpen)';
+    return 'HomeState(user: $user, index: $index, indexHistory: $indexHistory, isLoadLivraison: $isLoadLivraison, isLoadService: $isLoadService, service_id: $service_id, recupMailStatus: $recupMailStatus, userHomeLivraisonList: $userHomeLivraisonList, listServices: $listServices, livraison: $livraison, noOpen: $noOpen, isLoadHomeStateLivraison: $isLoadHomeStateLivraison)';
   }
 
   @override
@@ -1561,16 +2426,44 @@ class _$HomeStateImpl implements _HomeState {
             (identical(other.index, index) || other.index == index) &&
             (identical(other.indexHistory, indexHistory) ||
                 other.indexHistory == indexHistory) &&
+            (identical(other.isLoadLivraison, isLoadLivraison) ||
+                other.isLoadLivraison == isLoadLivraison) &&
+            (identical(other.isLoadService, isLoadService) ||
+                other.isLoadService == isLoadService) &&
+            (identical(other.service_id, service_id) ||
+                other.service_id == service_id) &&
             (identical(other.recupMailStatus, recupMailStatus) ||
                 other.recupMailStatus == recupMailStatus) &&
-            (identical(other.noOpen, noOpen) || other.noOpen == noOpen));
+            const DeepCollectionEquality()
+                .equals(other._userHomeLivraisonList, _userHomeLivraisonList) &&
+            const DeepCollectionEquality()
+                .equals(other._listServices, _listServices) &&
+            const DeepCollectionEquality().equals(other.livraison, livraison) &&
+            (identical(other.noOpen, noOpen) || other.noOpen == noOpen) &&
+            (identical(
+                    other.isLoadHomeStateLivraison, isLoadHomeStateLivraison) ||
+                other.isLoadHomeStateLivraison == isLoadHomeStateLivraison));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, user, index, indexHistory, recupMailStatus, noOpen);
+      runtimeType,
+      user,
+      index,
+      indexHistory,
+      isLoadLivraison,
+      isLoadService,
+      service_id,
+      recupMailStatus,
+      const DeepCollectionEquality().hash(_userHomeLivraisonList),
+      const DeepCollectionEquality().hash(_listServices),
+      const DeepCollectionEquality().hash(livraison),
+      noOpen,
+      isLoadHomeStateLivraison);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
@@ -1582,8 +2475,15 @@ abstract class _HomeState implements HomeState {
       {required final User? user,
       required final int index,
       required final int indexHistory,
+      required final int? isLoadLivraison,
+      required final int? isLoadService,
+      required final int? service_id,
       required final bool? recupMailStatus,
-      required final bool? noOpen}) = _$HomeStateImpl;
+      final List<LivraisonUserHomeModel>? userHomeLivraisonList,
+      final List<ServiceModel>? listServices,
+      final dynamic livraison,
+      required final bool? noOpen,
+      required final int isLoadHomeStateLivraison}) = _$HomeStateImpl;
 
   @override
   User? get user;
@@ -1592,11 +2492,28 @@ abstract class _HomeState implements HomeState {
   @override
   int get indexHistory;
   @override
+  int? get isLoadLivraison;
+  @override
+  int? get isLoadService;
+  @override
+  int? get service_id;
+  @override
   bool? get recupMailStatus;
+  @override
+  List<LivraisonUserHomeModel>? get userHomeLivraisonList;
+  @override
+  List<ServiceModel>? get listServices;
+  @override
+  dynamic get livraison;
   @override
   bool? get noOpen;
   @override
-  @JsonKey(ignore: true)
+  int get isLoadHomeStateLivraison;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

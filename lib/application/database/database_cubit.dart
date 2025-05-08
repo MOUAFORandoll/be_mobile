@@ -32,24 +32,6 @@ class DatabaseCubit extends Cubit<DatabaseState> {
     }
   }
 
-  // Insert operation
-  Future<bool> insertCommande(
-      int id, String codeCommande, String codeClient, String date) async {
-    try {
-      final commandeBox = _store.box<Commande>();
-      _store.box<Commande>().put(Commande(
-            id: commandeBox.query().build().find().length + 1,
-            codeCommande: codeCommande,
-            codeClient: codeClient,
-            date: date,
-          ));
-      return true;
-    } catch (e) {
-      print('Error inserting commande: $e');
-      return false;
-    }
-  }
-
   Future<bool> saveUser(User user) async {
     try {
       print('----------------saveeeeeee');
@@ -61,6 +43,7 @@ class DatabaseCubit extends Cubit<DatabaseState> {
     }
   }
 
+  User? get user => getUser();
   // Get operations
   User? getUser() {
     final userBox = _store.box<User>();
@@ -69,12 +52,6 @@ class DatabaseCubit extends Cubit<DatabaseState> {
     print(users.length);
 
     return users.isNotEmpty ? users.last : null;
-  }
-
-  List<Commande> getListCommande() {
-    final commandeBox = _store.box<Commande>();
-    // commandeBox.query().build().find().forEach((e) => print(e.codeCommande));
-    return commandeBox.query().build().find();
   }
 
   Future<Map<String, dynamic>?> getLonLat() async {
@@ -146,24 +123,50 @@ class DatabaseCubit extends Cubit<DatabaseState> {
   }
   // ... autres méthodes
 
-  // InsertAll operation
-  insertAllCommandes() {
-    for (var i = 10; i < 100; i++) {
-      // final commandeBox =;
-      print('-------ii--${i}');
-      _store.box<Commande>().put(Commande(
-          codeCommande: 'codeCommande$i', codeClient: '', date: 'date$i'));
+  // Insert operation
+  Future<bool> saveLivraisonIdToGetPosition({required int livraison_id}) async {
+    try {
+      _store.box<LivraisonPosition>().put(LivraisonPosition(
+            livraison_id: livraison_id,
+          ));
+      return true;
+    } catch (e) {
+      print('Error inserting LivraisonPosition: $e');
+      return false;
     }
-    return true;
+  }
+
+  Future<int?> getLivraisonIdToGetPosition() async {
+    final _storeLivraisonPosition = _store.box<LivraisonPosition>();
+    final livraisonPosition = _storeLivraisonPosition.getAll();
+    return livraisonPosition.isNotEmpty
+        ? livraisonPosition.first.livraison_id
+        : null;
+  }
+
+  // Insert operation
+  Future<bool> endsaveLivraisonIdToGetPosition() async {
+    try {
+      _store.box<LivraisonPosition>().removeAll();
+
+      return true;
+    } catch (e) {
+      print('Error end LivraisonPosition: $e');
+      return false;
+    }
   }
 
   Future<void> disconnect() async {
-    _store.box<Commande>().removeAll();
+    box.erase();
     _store.box<Theme>().removeAll();
     _store.box<Lang>().removeAll();
     _store.box<Localisation>().removeAll();
     _store.box<KeyUser>().removeAll();
     _store.box<User>().removeAll();
+
+    final users = _store.box<User>().getAll();
+    print('--------------------users');
+    print(users);
     // _createInstance();
     // return super.close();
   }
